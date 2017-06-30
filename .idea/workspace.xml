@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ce10aee6-880d-4f01-bf3e-bf71cc20de41" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/libs/index.js" afterPath="$PROJECT_DIR$/frontend/src/libs/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/common/components/index.js" afterPath="$PROJECT_DIR$/frontend/src/app/common/components/index.js" />
     </list>
     <ignored path="ollyxpic.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,8 +52,8 @@
       <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+            <state relative-caret-position="232">
+              <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -109,11 +109,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/libs/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+            <state relative-caret-position="116">
+              <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -121,11 +121,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/src/app/common/components/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+            <state relative-caret-position="174">
+              <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -182,7 +182,6 @@
         <option value="$PROJECT_DIR$/frontend/src/app/common/layout/default/Nav.vue" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/result/views/Result.vue" />
         <option value="$PROJECT_DIR$/frontend/src/app/common/components/form/Input.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/app/common/components/index.js" />
         <option value="$PROJECT_DIR$/frontend/src/assets/scss/app.scss" />
         <option value="$PROJECT_DIR$/frontend/src/libs/mixins.js" />
         <option value="$PROJECT_DIR$/frontend/src/libs/elements.js" />
@@ -190,6 +189,7 @@
         <option value="$PROJECT_DIR$/frontend/src/assets/scss/npccard.scss" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/result/views/Result.vue" />
         <option value="$PROJECT_DIR$/frontend/src/libs/index.js" />
+        <option value="$PROJECT_DIR$/frontend/src/app/common/components/index.js" />
       </list>
     </option>
   </component>
@@ -248,7 +248,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
-    <property name="SearchEverywhereHistoryKey" value="libs/index&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/index.js&#10;package.json&#9;FILE&#9;file:///var/www/ollyxpic/frontend/package.json&#10;package.js&#9;FILE&#9;file:///var/www/ollyxpic/frontend/node_modules/js-base64/package.js&#10;element&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/elements.js&#10;mixins&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/mixins.js&#10;libs/inde&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/index.js&#10;app.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/app.scss&#10;scorebox&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/scorebox.scss&#10;input&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/form/Input.vue&#10;waste/resu&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/waste/result/views/Result.vue&#10;nav.vue&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Nav.vue&#10;in&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/form/Input.vue&#10;nput.v&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/form/Input.vue&#10;tea&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TeamHuntController.php&#10;api&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;glo&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/globals.js&#10;teamhunt&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TeamHuntController.php&#10;panel.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/panel.scss&#10;nel&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/Panel.vue&#10;button&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/buttons.scss&#10;elper.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/helpers.scss&#10;table.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/table.scss&#10;globa&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/globals.js&#10;mixin&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/mixins.js&#10;hunts&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Hunts.php&#10;page&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/pages.scss&#10;orl&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/WorldMap.vue&#10;worldmap&#9;null&#9;null&#10;pages&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/pages.scss&#10;web&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/web.php&#10;items&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Items.php&#10;pi.php&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;npccontr&#9;null&#9;null&#10;item&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Items.php&#10;npc&#9;null&#9;null&#10;form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/teamhunt/form/views/Form.vue&#10;passwo&#9;FILE&#9;file:///var/www/ollyxpic/backend/database/migrations/2017_06_19_140653_add_password_field_in_hunts.php&#10;api.&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;form.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/form.scss&#10;hunt.&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Hunts.php&#10;password&#9;FILE&#9;file:///var/www/ollyxpic/backend/database/migrations/2017_06_19_140653_add_password_field_in_hunts.php&#10;api.ph&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;i.&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/teamhunt/result/services/index.js&#10;huntite&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/HuntItems.php&#10;ele&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/elements.js&#10;button.s&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/buttons.scss&#10;animat&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/animation.scss&#10;panel.vu&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/Panel.vue&#10;teamhu&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TeamHuntController.php&#10;web.conf&#9;FILE&#9;file:///var/www/ollyxpic/backend/public/web.config" />
+    <property name="SearchEverywhereHistoryKey" value="components/inde&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/index.js&#10;pa&#9;FILE&#9;file:///var/www/ollyxpic/frontend/package.json&#10;libs/index&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/index.js&#10;package.json&#9;FILE&#9;file:///var/www/ollyxpic/frontend/package.json&#10;package.js&#9;FILE&#9;file:///var/www/ollyxpic/frontend/node_modules/js-base64/package.js&#10;element&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/elements.js&#10;mixins&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/mixins.js&#10;libs/inde&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/index.js&#10;app.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/app.scss&#10;scorebox&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/scorebox.scss&#10;input&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/form/Input.vue&#10;waste/resu&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/waste/result/views/Result.vue&#10;nav.vue&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Nav.vue&#10;in&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/form/Input.vue&#10;nput.v&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/form/Input.vue&#10;tea&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TeamHuntController.php&#10;api&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;glo&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/globals.js&#10;teamhunt&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TeamHuntController.php&#10;panel.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/panel.scss&#10;nel&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/Panel.vue&#10;button&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/buttons.scss&#10;elper.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/helpers.scss&#10;table.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/table.scss&#10;globa&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/globals.js&#10;mixin&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/mixins.js&#10;hunts&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Hunts.php&#10;page&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/pages.scss&#10;orl&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/WorldMap.vue&#10;worldmap&#9;null&#9;null&#10;pages&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/pages.scss&#10;web&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/web.php&#10;items&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Items.php&#10;pi.php&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;npccontr&#9;null&#9;null&#10;item&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Items.php&#10;npc&#9;null&#9;null&#10;form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/teamhunt/form/views/Form.vue&#10;passwo&#9;FILE&#9;file:///var/www/ollyxpic/backend/database/migrations/2017_06_19_140653_add_password_field_in_hunts.php&#10;api.&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;form.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/form.scss&#10;hunt.&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Hunts.php&#10;password&#9;FILE&#9;file:///var/www/ollyxpic/backend/database/migrations/2017_06_19_140653_add_password_field_in_hunts.php&#10;api.ph&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;i.&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/teamhunt/result/services/index.js&#10;huntite&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/HuntItems.php&#10;ele&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/elements.js&#10;button.s&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/buttons.scss&#10;animat&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/animation.scss&#10;panel.vu&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/Panel.vue" />
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="JavaScriptPreferStrict" value="false" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
@@ -324,12 +324,12 @@
       <workItem from="1498649438071" duration="15860000" />
       <workItem from="1498735070470" duration="12039000" />
       <workItem from="1498761802536" duration="2713000" />
-      <workItem from="1498820280010" duration="9095000" />
+      <workItem from="1498820280010" duration="9476000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="219804000" />
+    <option name="totallyTimeSpent" value="220185000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="744" extended-state="6" />
@@ -701,14 +701,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/components/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/libs/elements.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="406">
@@ -755,21 +747,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/libs/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+        <state relative-caret-position="232">
+          <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/libs/index.js">
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/components/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="174">
+          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>

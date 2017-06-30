@@ -12,7 +12,7 @@ import Card from './Card'
 import TabLink from './TabLink'
 import TabContent from './TabContent'
 import Highcharts from './Highcharts'
-import WorldMap from './WorldMap'
+// import WorldMap from './WorldMap'
 import ScoreBox from './ScoreBox'
 import ShareInput from './ShareInput'
 import NpcCard from './NpcCard'
@@ -30,7 +30,7 @@ Vue.component('Card', Card)
 Vue.component('TabLink', TabLink)
 Vue.component('TabContent', TabContent)
 Vue.component('Highcharts', Highcharts)
-Vue.component('WorldMap', WorldMap)
+// Vue.component('WorldMap', WorldMap)
 Vue.component('ScoreBox', ScoreBox)
 Vue.component('ShareInput', ShareInput)
 Vue.component('NpcCard', NpcCard)
