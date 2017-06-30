@@ -1,0 +1,68 @@
+.select {
+    position: relative;
+
+    .selected {
+        background: #fff;
+        border: 1px solid #ccd0d2;
+        padding: 5px 30px 5px 10px;
+        border-radius: $border-radius-base;
+        display: inline-block;
+        position: relative;
+        height: 44px;
+
+        &:after {
+            content: '\F140';
+            font-family: 'Material Design Icons';
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            display: block;
+            height: 100%;
+            transform: translateY(-50%);
+            line-height: 43px;
+        }
+
+        .placeholder {
+            line-height: 32px;
+            color: #999;
+        }
+    }
+
+    .options {
+        position: absolute;
+        top: 43px;
+        left: 0;
+        border: 1px solid #ccd0d2;
+        max-height: 251px;
+        overflow: auto;
+        background: #fff;
+        margin-bottom: 50px;
+        display: block;
+        width: 285px;
+        z-index: 99;
+        padding: 10px;
+        border-bottom-left-radius: $border-radius-base;
+        border-bottom-right-radius: $border-radius-base;
+
+        input {
+            border-color: #ccd0d2;
+            width: 248px;
+            height: 35px;
+            line-height: 35px;
+            margin: 0 0 10px;
+        }
+
+        .option {
+            display: inline-block;
+            text-align: center;
+            padding: 15px;
+            background: #fff;
+            transition: all .1s;
+            border-radius: $border-radius-base;
+
+            &:hover {
+                background: #ccd0d2;
+            }
+        }
+    }
+}

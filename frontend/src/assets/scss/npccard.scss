@@ -1,0 +1,25 @@
+.npc-card {
+    display: block;
+    margin-bottom: 20px;
+    height: 60px;
+
+    .image {
+        display: inline-block;
+        margin-right: 10px;
+        width: 80px;
+    }
+
+    .info {
+        display: inline-block;
+        vertical-align: middle;
+
+        b {
+            font-size: 16px;
+        }
+
+        p {
+            font-size: 10px;
+            margin-bottom: 0;
+        }
+    }
+}

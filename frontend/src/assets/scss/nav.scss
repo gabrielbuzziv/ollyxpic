@@ -1,0 +1,16 @@
+.nav {
+    .dropdown {
+        float: left;
+        position: relative;
+        display: block;
+
+        > a {
+            position: relative;
+            display: block;
+            padding: 10px 15px;
+            color: #9d9d9d;
+            padding-top: 14px;
+            padding-bottom: 14px;
+        }
+    }
+}

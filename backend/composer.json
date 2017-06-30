@@ -6,8 +6,11 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
+        "barryvdh/laravel-cors": "^0.9.2",
+        "intervention/image": "^2.3",
         "laravel/framework": "5.4.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "stil/gif-endec": "^0.2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -19,7 +22,10 @@
             "database"
         ],
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Helper\\": "app/Helper/Helper.php",
+            "GifFrameExtractor\\": "app/Helper/GifFrameExtractor.php",
+            "GifCreator\\": "app/Helper/GifCreator.php"
         }
     },
     "autoload-dev": {

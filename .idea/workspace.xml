@@ -2,24 +2,145 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce10aee6-880d-4f01-bf3e-bf71cc20de41" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/app/Items.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Auth/ForgotPasswordController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Auth/LoginController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Auth/RegisterController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Auth/ResetPasswordController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/app/User.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/resources/assets/js/app.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/resources/assets/js/bootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/resources/assets/js/components/Example.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/resources/assets/sass/_variables.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/resources/assets/sass/app.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/webpack.mix.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ollyxpic.iml" afterPath="$PROJECT_DIR$/.idea/ollyxpic.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/assets/images/header.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/app/Helper/GifCreator.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/app/Helper/GifFrameExtractor.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/app/Helper/Helper.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/common/components/Card.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/common/components/Dropdown.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/common/components/Highcharts.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/common/components/NpcCard.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/common/components/PageLoad.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/common/components/PageTitle.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/common/components/Panel.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/common/components/ScoreBox.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/common/components/ShareInput.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/common/components/TabContent.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/common/components/TabLink.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/common/components/WorldMap.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/common/components/form/Checkbox.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/common/components/form/FormGroup.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/common/components/form/Input.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/common/components/form/Select.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/common/components/form/Textarea.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/common/components/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/common/layout/Default.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/common/layout/default/Content.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/common/layout/default/Footer.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/common/layout/default/Header.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/common/layout/default/Nav.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/common/layout/default/Topbar.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/common/vuex/actions.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/common/vuex/getters.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/common/vuex/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/common/vuex/modules.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/common/vuex/mutations.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/common/vuex/state.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/Calculators.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/services/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/views/Form.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/vuex/actions.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/vuex/getters.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/vuex/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/vuex/mutations.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/vuex/state.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/result/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/result/routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/result/services/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/result/views/Result.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/vuex.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/vuex.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/form/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/form/routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/form/services/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/form/views/Form.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/form/vuex/actions.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/form/vuex/getters.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/form/vuex/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/form/vuex/mutations.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/form/vuex/state.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/result/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/result/routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/result/services/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/result/views/Result.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/vuex.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/pages/home/home/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/pages/home/home/routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/pages/home/home/services/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/pages/home/home/views/Index.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/pages/home/home/vuex/actions.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/pages/home/home/vuex/getters.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/pages/home/home/vuex/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/pages/home/home/vuex/mutations.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/pages/home/home/vuex/state.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/pages/home/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/pages/home/routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/pages/home/vuex.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/pages/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/pages/routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/pages/vuex.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/vuex.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/_variables.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/animate.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/animation.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/app.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/buttons.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/cards.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/dropdown.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/form.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/helpers.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/label.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/layout.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/leaflet.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/nav.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/npccard.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/pages.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/panel.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/scorebox.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/select.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/table.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/tabs.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/worldmap.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/libs/elements.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/libs/globals.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/libs/http.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/libs/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/libs/mixins.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/router/authorize.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/router/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/router/routes.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/storage/imports/items.json" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/database/database.db" afterPath="$PROJECT_DIR$/backend/database/database.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Controller.php" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Controller.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/app/Exceptions/Handler.php" afterPath="$PROJECT_DIR$/backend/app/Exceptions/Handler.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/ImageController.php" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/ImageController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/ItemsController.php" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/ItemsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/app/Http/Kernel.php" afterPath="$PROJECT_DIR$/backend/app/Http/Kernel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/app/ItemProperties.php" afterPath="$PROJECT_DIR$/backend/app/ItemProperties.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/app/Items.php" afterPath="$PROJECT_DIR$/backend/app/Items.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/composer.json" afterPath="$PROJECT_DIR$/backend/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/composer.lock" afterPath="$PROJECT_DIR$/backend/composer.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/config/app.php" afterPath="$PROJECT_DIR$/backend/config/app.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/config/database.php" afterPath="$PROJECT_DIR$/backend/config/database.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/routes/api.php" afterPath="$PROJECT_DIR$/backend/routes/api.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/routes/web.php" afterPath="$PROJECT_DIR$/backend/routes/web.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/.babelrc" afterPath="$PROJECT_DIR$/frontend/.babelrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/package.json" afterPath="$PROJECT_DIR$/frontend/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/App.vue" afterPath="$PROJECT_DIR$/frontend/src/App.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main.js" afterPath="$PROJECT_DIR$/frontend/src/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/webpack.config.js" afterPath="$PROJECT_DIR$/frontend/webpack.config.js" />
     </list>
     <ignored path="ollyxpic.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,63 +162,95 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name=".env" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/.env">
+      <file leaf-file-name="Result.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/result/views/Result.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Items.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/app/Items.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="35" column="37" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ItemsController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/ItemsController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+            <state relative-caret-position="295">
+              <caret line="181" column="52" selection-start-line="181" selection-start-column="52" selection-end-line="181" selection-end-column="52" />
               <folding>
-                <element signature="e#40#54#0#PHP" expanded="true" />
+                <element signature="n#style#0;n#form-input#0;n#panel#1;n#div#1;n#div#0;n#page-load#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#pre#0;n#el-dialog#0;n#page-load#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#13302#13336#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Controller.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/Controller.php">
+      <file leaf-file-name="app.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/app.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="43" column="28" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
+            <state relative-caret-position="533">
+              <caret line="47" column="16" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
+      <file leaf-file-name="npccard.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/npccard.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
+            <state relative-caret-position="551">
+              <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/routes/web.php">
+      <file leaf-file-name="mixins.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/libs/mixins.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="290">
+              <caret line="10" column="18" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Result.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/result/views/Result.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="268">
+              <caret line="104" column="48" selection-start-line="104" selection-start-column="48" selection-end-line="104" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShareInput.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/common/components/ShareInput.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="58">
+              <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NpcCard.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/common/components/NpcCard.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="239">
+              <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/libs/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="58">
+              <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/common/components/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="232">
-              <caret line="17" column="54" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
+              <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -111,19 +264,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/SkillCalculatorController.php" />
-        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/SkillsController.php" />
-        <option value="$PROJECT_DIR$/backend/database/migrations/2017_06_02_111811_create_items_table.php" />
-        <option value="$PROJECT_DIR$/backend/app/Item.php" />
-        <option value="$PROJECT_DIR$/backend/.env" />
-        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/ImportController.php" />
-        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/Controller.php" />
-        <option value="$PROJECT_DIR$/backend/routes/api.php" />
-        <option value="$PROJECT_DIR$/backend/app/ItemProperties.php" />
-        <option value="$PROJECT_DIR$/backend/routes/web.php" />
-        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/ImageController.php" />
+        <option value="$PROJECT_DIR$/backend/app/Helper/GifFrameExtractor.ph" />
+        <option value="$PROJECT_DIR$/backend/composer.json" />
+        <option value="$PROJECT_DIR$/backend/app/Helper/GifFrameExtractor.php" />
+        <option value="$PROJECT_DIR$/backend/app/Helper/GifCreator.php" />
+        <option value="$PROJECT_DIR$/backend/vendor/stil/gif-endec/src/Renderer.php" />
+        <option value="$PROJECT_DIR$/frontend/webpack.config.js" />
+        <option value="$PROJECT_DIR$/frontend/src/assets/scss/animation.scss" />
+        <option value="$PROJECT_DIR$/frontend/src/app/common/components/Panel.vue" />
+        <option value="$PROJECT_DIR$/backend/app/HuntItems.php" />
+        <option value="$PROJECT_DIR$/frontend/src/assets/scss/form.scss" />
+        <option value="$PROJECT_DIR$/backend/database/migrations/2017_06_19_140653_add_password_field_in_hunts.php" />
+        <option value="$PROJECT_DIR$/backend/app/Exceptions/Handler.php" />
+        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/views/Form.vue" />
+        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/NPCController.php" />
+        <option value="$PROJECT_DIR$/backend/app/NPC.php" />
         <option value="$PROJECT_DIR$/backend/app/Items.php" />
-        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/ItemsController.php" />
+        <option value="/tmp/fz3temp-1/uploadr.php" />
+        <option value="/tmp/fz3temp-1/dropzone.css" />
+        <option value="$PROJECT_DIR$/frontend/src/libs/globals.js" />
+        <option value="$PROJECT_DIR$/backend/app/WorldMap.php" />
+        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/ImageController.php" />
+        <option value="$PROJECT_DIR$/frontend/src/app/common/components/Map.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/libs/index.js" />
+        <option value="$PROJECT_DIR$/frontend/src/assets/scss/leaflet.scss" />
+        <option value="$PROJECT_DIR$/frontend/src/assets/scss/worldmap.scss" />
+        <option value="/tmp/fz3temp-1/item.js" />
+        <option value="/tmp/fz3temp-1/item_editar.html" />
+        <option value="$PROJECT_DIR$/frontend/src/app/common/components/WorldMap.vue" />
+        <option value="$PROJECT_DIR$/backend/app/Hunts.php" />
+        <option value="$PROJECT_DIR$/frontend/src/app/common/components/ScoreBox.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/assets/scss/scorebox.scss" />
+        <option value="$PROJECT_DIR$/frontend/src/assets/scss/buttons.scss" />
+        <option value="$PROJECT_DIR$/frontend/src/assets/scss/helpers.scss" />
+        <option value="$PROJECT_DIR$/frontend/src/assets/scss/table.scss" />
+        <option value="$PROJECT_DIR$/frontend/src/assets/scss/pages.scss" />
+        <option value="$PROJECT_DIR$/frontend/src/assets/scss/panel.scss" />
+        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/result/services/index.js" />
+        <option value="$PROJECT_DIR$/backend/routes/api.php" />
+        <option value="$PROJECT_DIR$/backend/routes/web.php" />
+        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/TeamHuntController.php" />
+        <option value="$PROJECT_DIR$/frontend/src/app/common/components/ShareInput.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/app/common/layout/default/Nav.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/result/views/Result.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/app/common/components/form/Input.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/app/common/components/index.js" />
+        <option value="$PROJECT_DIR$/frontend/src/assets/scss/app.scss" />
+        <option value="$PROJECT_DIR$/frontend/src/libs/mixins.js" />
+        <option value="$PROJECT_DIR$/frontend/src/libs/elements.js" />
+        <option value="$PROJECT_DIR$/frontend/src/app/common/components/NpcCard.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/assets/scss/npccard.scss" />
+        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/result/views/Result.vue" />
       </list>
     </option>
   </component>
@@ -132,6 +323,14 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="JsbtTreeLayoutManager">
+    <layout place="tools.popupGrunt">
+      <scroll-view-position x="0" y="0" />
+    </layout>
+  </component>
+  <component name="PhpServers">
+    <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
@@ -146,7 +345,7 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
@@ -164,34 +363,29 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ollyxpic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ollyxpic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ollyxpic" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane />
+      </pane>
       <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
-    <property name="SearchEverywhereHistoryKey" value="web.php&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/web.php&#10;api&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;imagecontr&#9;null&#9;null&#10;item&#9;null&#9;null&#10;itemscontr&#9;null&#9;null&#10;config/data&#9;FILE&#9;file:///var/www/ollyxpic/backend/config/database.php&#10;create_item&#9;FILE&#9;file:///var/www/ollyxpic/backend/database/migrations/2017_06_02_111811_create_items_table.php&#10;importcontroll&#9;null&#9;null&#10;api.php&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;skill&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="element&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/elements.js&#10;mixins&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/mixins.js&#10;libs/inde&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/index.js&#10;app.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/app.scss&#10;scorebox&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/scorebox.scss&#10;input&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/form/Input.vue&#10;waste/resu&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/waste/result/views/Result.vue&#10;nav.vue&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Nav.vue&#10;in&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/form/Input.vue&#10;nput.v&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/form/Input.vue&#10;tea&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TeamHuntController.php&#10;api&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;glo&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/globals.js&#10;teamhunt&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TeamHuntController.php&#10;panel.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/panel.scss&#10;nel&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/Panel.vue&#10;button&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/buttons.scss&#10;elper.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/helpers.scss&#10;table.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/table.scss&#10;globa&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/globals.js&#10;mixin&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/mixins.js&#10;hunts&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Hunts.php&#10;page&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/pages.scss&#10;orl&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/WorldMap.vue&#10;worldmap&#9;null&#9;null&#10;pages&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/pages.scss&#10;web&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/web.php&#10;items&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Items.php&#10;pi.php&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;npccontr&#9;null&#9;null&#10;item&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Items.php&#10;npc&#9;null&#9;null&#10;form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/teamhunt/form/views/Form.vue&#10;passwo&#9;FILE&#9;file:///var/www/ollyxpic/backend/database/migrations/2017_06_19_140653_add_password_field_in_hunts.php&#10;api.&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;form.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/form.scss&#10;hunt.&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Hunts.php&#10;password&#9;FILE&#9;file:///var/www/ollyxpic/backend/database/migrations/2017_06_19_140653_add_password_field_in_hunts.php&#10;api.ph&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;i.&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/teamhunt/result/services/index.js&#10;huntite&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/HuntItems.php&#10;ele&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/elements.js&#10;button.s&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/buttons.scss&#10;animat&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/animation.scss&#10;panel.vu&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/Panel.vue&#10;teamhu&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TeamHuntController.php&#10;web.conf&#9;FILE&#9;file:///var/www/ollyxpic/backend/public/web.config&#10;layout.s&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/layout.scss&#10;app.s&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/app.scss&#10;pages.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/pages.scss" />
+    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
+    <property name="JavaScriptPreferStrict" value="false" />
+    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/app/modules/calculators" />
+      <recent name="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste" />
+      <recent name="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/form" />
+      <recent name="$PROJECT_DIR$/frontend/src/app/modules" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
@@ -239,28 +433,45 @@
       <option name="presentableId" value="Default" />
       <updated>1496338235891</updated>
       <workItem from="1496338237092" duration="7175000" />
-      <workItem from="1496401358416" duration="6660000" />
+      <workItem from="1496401358416" duration="6852000" />
+      <workItem from="1496408883897" duration="32545000" />
+      <workItem from="1496690197897" duration="2509000" />
+      <workItem from="1496747536029" duration="3606000" />
+      <workItem from="1496751515279" duration="15939000" />
+      <workItem from="1496832602698" duration="24407000" />
+      <workItem from="1496919682095" duration="8951000" />
+      <workItem from="1497005765093" duration="23501000" />
+      <workItem from="1497264094096" duration="524000" />
+      <workItem from="1497610613266" duration="22613000" />
+      <workItem from="1497870853838" duration="14238000" />
+      <workItem from="1498496365777" duration="1385000" />
+      <workItem from="1498562368703" duration="15852000" />
+      <workItem from="1498649438071" duration="15860000" />
+      <workItem from="1498735070470" duration="12039000" />
+      <workItem from="1498761802536" duration="2713000" />
+      <workItem from="1498820280010" duration="8048000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13835000" />
+    <option name="totallyTimeSpent" value="218757000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24524158" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24524158" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23529412" sideWeight="0.50292826" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930514" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902297" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24944155" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38737446" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3662375" sideWeight="0.49707174" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="100" y="152" width="1166" height="544" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937685" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -271,6 +482,40 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23529412" sideWeight="0.50292826" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="100" y="152" width="1166" height="544" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937685" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902297" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.205165" sideWeight="0.49707174" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24524158" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930514" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32789317" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24944155" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.ph" />
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -280,141 +525,371 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/backend/.env">
+    <entry file="file://$PROJECT_DIR$/backend/app/HuntItems.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-          <folding />
+        <state relative-caret-position="65">
+          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/SkillsController.php">
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/layout.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="377">
+          <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/ImportController.php">
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/Controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
-          <folding />
+        <state relative-caret-position="-696">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
+    <entry file="file://$PROJECT_DIR$/backend/vendor/laravel/framework/src/Illuminate/Http/JsonResponse.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-          <folding />
+        <state relative-caret-position="174">
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/composer.json">
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/routes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/SkillsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/database/migrations/2017_06_02_111811_create_items_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/.env">
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/routes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
-          <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
+          <caret line="5" column="35" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/result/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/result/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/database/migrations/2017_06_19_140653_add_password_field_in_hunts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Exceptions/Handler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="75" column="52" selection-start-line="75" selection-start-column="52" selection-end-line="75" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/form.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="5" column="5" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/views/Form.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4930">
+          <caret line="170" column="17" selection-start-line="170" selection-start-column="17" selection-end-line="170" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/NPC.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/NPCController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-162">
+          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///tmp/fz3temp-1/uploadr.php" />
+    <entry file="file://$PROJECT_DIR$/backend/app/WorldMap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/ImageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1044">
+          <caret line="48" column="76" selection-start-line="48" selection-start-column="76" selection-end-line="48" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/leaflet.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="376" column="19" selection-start-line="376" selection-start-column="19" selection-end-line="376" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///tmp/fz3temp-1/dropzone.css" />
+    <entry file="file:///tmp/fz3temp-1/item.js" />
+    <entry file="file:///tmp/fz3temp-1/item_editar.html" />
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/worldmap.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/components/WorldMap.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="52" column="14" selection-start-line="52" selection-start-column="14" selection-end-line="52" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Hunts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/components/ScoreBox.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/buttons.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/ImportController.php">
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/helpers.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+        <state relative-caret-position="1015">
+          <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/config/database.php">
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/table.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="39" column="10" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
+        <state relative-caret-position="203">
+          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/Controller.php">
+    <entry file="file://$PROJECT_DIR$/backend/app/Items.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="43" column="28" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
+        <state relative-caret-position="1247">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/panel.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/libs/globals.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="17" column="54" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
+        <state relative-caret-position="116">
+          <caret line="13" column="29" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
+        <state relative-caret-position="239">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/ImageController.php">
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/pages.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+        <state relative-caret-position="65">
+          <caret line="77" column="23" selection-start-line="77" selection-start-column="23" selection-end-line="77" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/components/Panel.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="17" column="58" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/TeamHuntController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
           <folding>
-            <element signature="e#40#54#0#PHP" expanded="true" />
+            <element signature="e#5529#8805#0#PHP" expanded="false" />
+            <element signature="e#8997#9621#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Items.php">
+    <entry file="file://$PROJECT_DIR$/frontend/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="35" column="37" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#21#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/result/services/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/ItemProperties.php">
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/scorebox.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/components/form/Input.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/layout/default/Nav.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/result/views/Result.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="104" column="48" selection-start-line="104" selection-start-column="48" selection-end-line="104" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/components/ShareInput.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/libs/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/libs/mixins.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
-          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+          <caret line="10" column="18" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/ItemsController.php">
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/app.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+        <state relative-caret-position="533">
+          <caret line="47" column="16" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/components/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/libs/elements.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
           <folding>
-            <element signature="e#40#54#0#PHP" expanded="true" />
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/components/NpcCard.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/npccard.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/result/views/Result.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="181" column="52" selection-start-line="181" selection-start-column="52" selection-end-line="181" selection-end-column="52" />
+          <folding>
+            <element signature="n#style#0;n#form-input#0;n#panel#1;n#div#1;n#div#0;n#page-load#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#pre#0;n#el-dialog#0;n#page-load#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#13302#13336#0" expanded="true" />
           </folding>
         </state>
       </provider>

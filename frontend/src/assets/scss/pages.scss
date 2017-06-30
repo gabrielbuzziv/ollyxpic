@@ -1,0 +1,103 @@
+.teamhunt-result {
+    .panel {
+        &.panel-filters {
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+
+                li {
+                    margin-bottom: 5px;
+                }
+            }
+        }
+    }
+
+    .items-list {
+        display: block;
+        vertical-align: top;
+        margin-left: -5px;
+        margin-right: -5px;
+        margin-bottom: 20px;
+
+        h4 {
+            margin-left: 5px;
+            font-weight: 600;
+            font-size: 14px;
+            color: $theme;
+        }
+
+        .item {
+            display: inline-block;
+            position: relative;
+            margin: 5px;
+            vertical-align: top;
+            background: #eee;
+            border-radius: $border-radius-base;
+
+            .box {
+                position: relative;
+                display: block;
+
+                img {
+                    vertical-align: top;
+                    padding: 15px 15px;
+                    border-top-left-radius: $border-radius-base;
+                    border-top-right-radius: $border-radius-base;
+                }
+
+                .quantity {
+                    background: #e1e1e1;
+                    display: block;
+                    width: 100%;
+                    padding: 5px;
+                    color: #000;
+                    text-align: center;
+                    font-weight: bolder;
+                    font-family: 'Tahoma';
+                    font-size: 11px;
+                }
+            }
+
+            .edit {
+                display: block;
+                width: 100%;
+                margin-top: 5px;
+
+                .btn {
+                    border-top-left-radius: 0;
+                    border-top-right-radius: 0;
+                }
+            }
+        }
+    }
+}
+
+.npc-popover {
+    max-width: 265px;
+    text-align: center;
+
+    img {
+        margin: 8px;
+    }
+}
+
+.npc-details {
+    ul {
+        padding: 0;
+        list-style: none;
+        margin: 0;
+
+        li {
+            margin: 0 0 5px;
+        }
+    }
+}
+
+.cursor-inspect {
+    cursor: url(/src/assets/images/inspect.png), auto;
+}
+
+p {
+    line-height: 1.5em;
+}

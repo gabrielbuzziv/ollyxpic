@@ -1,0 +1,129 @@
+a {
+    &:focus,
+    &:active {
+        outline: 0;
+    }
+}
+
+#topbar {
+    background: $theme;
+    color: #fff;
+    height: 75px;
+    line-height: 74px;
+
+    .url {
+        text-transform: uppercase;
+        font-size: 12px;
+    }
+}
+
+#header {
+    background: url('/src/assets/images/header.jpg') top center;
+    display: block;
+    height: 329px;
+    width: 100%;
+    position: relative;
+
+    .container {
+        position: relative;
+        height: 100%;
+
+        .logo {
+            font-size: 70px;
+            font-weight: 300;
+            color: #fff;
+            line-height: 240px;
+        }
+
+        #nav {
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            display: block;
+            width: 100%;
+            transform: translateX(-50%);
+            background: #3d3d3d;
+            height: 100px;
+            border-radius: 0;
+            margin: 0;
+
+            > ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                width: 100%;
+                height: 88px;
+                display: table;
+                background: #fff;
+
+                > li {
+                    display: table-cell;
+                    float: none;
+                    text-align: center;
+
+                    &.active {
+                        a {
+                            background: #3d3d3d;
+                            color: #fff;
+                        }
+                    }
+
+                    &.home {
+                        width: 120px;
+
+                        i {
+                            font-size: 50px;
+                        }
+                    }
+
+                    > a {
+                        display: block;
+                        height: 88px;
+                        line-height: 88px;
+                        padding: 0 20px;
+                        position: relative;
+                        float: left;
+                        text-align: center;
+                        width: 100%;
+                        text-transform: uppercase;
+                        font-weight: 600;
+                    }
+
+                    &:not(.home) {
+                        i {
+                            margin-right: 10px;
+                            font-size: 25px;
+                            display: inline-block;
+                            vertical-align: top;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#content {
+    background: url('/src/assets/images/background.jpg') top center;
+
+    .page {
+        padding: 50px 0;
+
+        .page-title {
+            display: block;
+            margin-bottom: 50px;
+
+            h1 {
+                font-size: 30px;
+                font-weight: 600;
+                color: $theme;
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+}
+
+#footer {
+
+}

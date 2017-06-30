@@ -1,4 +1,4 @@
-var path = require('path')
+var path    = require('path')
 var webpack = require('webpack')
 
 module.exports = {
@@ -30,18 +30,32 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.css$/,
+        loader: 'style-loader!css-loader'
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)(\?\S*)?$/,
         loader: 'file-loader',
-        options: {
+        query: {
           name: '[name].[ext]?[hash]'
         }
-      }
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
+        loader: 'file-loader'
+      },
     ]
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
-    }
+      'vue$': 'vue/dist/vue.esm.js',
+      'styles': path.resolve(__dirname, './src/assets/sass'),
+      'router': path.resolve(__dirname, './src/router'),
+      'app': path.resolve(__dirname, './src/app'),
+      'modules': path.resolve(__dirname, './src/app/modules'),
+      'common': path.resolve(__dirname, './src/app/common'),
+    },
+    extensions: ['*', '.js', '.vue']
   },
   devServer: {
     historyApiFallback: true,

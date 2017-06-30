@@ -1,0 +1,32 @@
+.card {
+    background: #fff;
+    text-align: center;
+
+   .header {
+       padding: 20px;
+
+       img {
+           display: inline-block;
+           vertical-align: top;
+           margin-right: 10px;
+           line-height: 32px;
+       }
+
+       .title {
+           vertical-align: top;
+           display: inline-block;
+           line-height: 33px;
+           font-weight: 600;
+           text-transform: uppercase;
+       }
+   }
+
+    .content {
+        border-top: 1px solid #e0e0e0;
+        padding: 20px;
+
+        .btn {
+            margin-top: 20px;
+        }
+    }
+}

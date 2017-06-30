@@ -15,4 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('images/item/{item}', 'ImageController@load');
+Route::get('images/{filename}', 'ImageController@load');
+Route::get('images/stackable', 'ImageController@stackables');
+//Route::get('teamhunt/{hunt}/loot', 'TeamHuntController@resultImage');
+
+Route::get('images/{type}/{id}', 'ImageController@loadImage');
+Route::get('images/export/npc', 'ImageController@exportNPC');

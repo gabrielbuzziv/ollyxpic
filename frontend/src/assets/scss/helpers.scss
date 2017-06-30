@@ -1,0 +1,37 @@
+@mixin margin-x {
+    @for $i from 0 through 50 {
+        @if $i % 5 == 0 {
+            .margin-top-#{$i} {
+                margin-top: #{$i}px !important;
+            }
+            .margin-right-#{$i} {
+                margin-right: #{$i}px !important;
+            }
+            .margin-bottom-#{$i} {
+                margin-bottom: #{$i}px !important;
+            }
+            .margin-left-#{$i} {
+                margin-left: #{$i}px !important;
+            }
+        }
+    }
+}
+
+@include margin-x;
+
+b {
+    font-weight: 600;
+}
+
+.vcenter {
+    vertical-align: middle;
+    float: none;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.block {
+    display: block;
+}

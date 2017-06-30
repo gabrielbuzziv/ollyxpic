@@ -8,6 +8,13 @@ class Items extends Model
 {
 
     /**
+     * Database connection.
+     * 
+     * @var string
+     */
+    protected $connection = 'sqlite';
+
+    /**
      * Table name.
      *
      * @var string
@@ -33,7 +40,7 @@ class Items extends Model
      *
      * @var array
      */
-    protected $with = ['properties'];
+    protected $with = ['properties', 'sellTo'];
 
     /**
      * Return image rendered url.
@@ -42,7 +49,7 @@ class Items extends Model
      */
     public function getImageUrlAttribute()
     {
-        return action('ImageController@load', $this->id);
+        return action('ImageController@load', str_slug($this->title));
     }
 
     /**
@@ -53,5 +60,13 @@ class Items extends Model
     public function properties()
     {
         return $this->hasMany(ItemProperties::class, 'itemid');
+    }
+
+    /**
+     * Can be sell to
+     */
+    public function sellTo()
+    {
+        return $this->belongsToMany(NPC::class, 'SellItems', 'itemid', 'vendorid')->withPivot('value');
     }
 }

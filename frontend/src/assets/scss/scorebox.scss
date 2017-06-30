@@ -1,0 +1,43 @@
+.scorebox {
+    .icon {
+        display: inline-block;
+        margin-right: 10px;
+        vertical-align: top;
+
+        i {
+            font-size: 25px;
+        }
+    }
+
+    .info {
+        display: inline-block;
+        vertical-align: top;
+
+        .name {
+            font-size: 20px;
+            font-weight: 400;
+            display: block;
+        }
+
+        .score {
+            font-size: 24px;
+            display: block;
+        }
+    }
+
+    .option {
+        display: inline-block;
+        margin-left: 10px;
+        float: right;
+
+        .btn-detail {
+            line-height: 60px;
+            font-size: 20px;
+
+            &:focus,
+            &:active {
+                outline: 0;
+            }
+        }
+    }
+}

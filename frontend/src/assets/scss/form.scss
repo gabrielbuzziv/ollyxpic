@@ -1,0 +1,114 @@
+form {
+    input {
+        &.form-control {
+            height: 44px;
+        }
+    }
+
+    .input-group {
+        .input-group-btn {
+            .btn {
+                border: 1px solid #ccd0d2 !important;
+            }
+        }
+    }
+
+    .inline {
+        .form-group {
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 15px;
+        }
+
+        .buttons {
+            display: inline-block;
+
+            button {
+                display: inline-block;
+                padding: 0;
+                line-height: 36px;
+            }
+        }
+    }
+
+    textarea {
+        max-width: 100%;
+        min-width: 100%;
+    }
+
+    $checkbox-size: 18px;
+
+    .form-checkbox {
+        > div {
+            height: $checkbox-size;
+            width: $checkbox-size;
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 22px;
+
+            input[type="checkbox"] {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: $checkbox-size + 2;
+                height: $checkbox-size + 2;
+                opacity: 0;
+                margin: 0;
+                cursor: pointer;
+                z-index: 1;
+
+                & + span {
+                    background: #fff;
+                    border: 1px solid #ccd0d2;
+                    height: $checkbox-size;
+                    width: $checkbox-size;
+                    display: block;
+
+                    &:before {
+                        content: '\F12C';
+                        font-family: 'Material Design Icons';
+                        position: absolute;
+                        color: $theme;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        opacity: 0;
+                    }
+                }
+
+                &:checked + span {
+                    &:before {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        span {
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 22px;
+            font-weight: 400;
+        }
+    }
+
+    .valuable {
+        width: 130px;
+        display: inline-block;
+
+        input {
+            width: calc(100% - 40px) !important;
+            display: inline-block !important;
+        }
+
+        .input-group-addon {
+            display: inline-block;
+            width: 38px;
+            text-align: center;
+            padding: 0;
+            line-height: 40px;
+            height: 44px;
+        }
+    }
+}

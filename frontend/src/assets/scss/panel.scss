@@ -1,0 +1,42 @@
+.panel {
+    padding: 0;
+    border: 0;
+    border-radius: 1px;
+
+    .panel-heading {
+        padding: 20px;
+        border: 0;
+
+        .panel-title {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            line-height: 22px;
+        }
+    }
+
+    .panel-body {
+        padding: 20px;
+    }
+
+    .panel-heading + .panel-body {
+        padding-top: 0;
+    }
+
+    .panel-footer {
+        padding: 20px;
+    }
+
+    &.panel-share {
+        b {
+            width: 40px;
+            margin-top: 8px;
+            margin-right: 20px;
+            float: left;
+        }
+
+        input {
+            width: calc(100% - 60px);
+        }
+    }
+}

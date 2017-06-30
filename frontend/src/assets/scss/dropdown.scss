@@ -1,0 +1,21 @@
+.dropdown {
+    display: inline-block;
+
+    > a {
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .dropdown-menu {
+        display: block;
+
+        > li {
+            display: block;
+            width: 100%;
+
+            > a {
+
+            }
+        }
+    }
+}

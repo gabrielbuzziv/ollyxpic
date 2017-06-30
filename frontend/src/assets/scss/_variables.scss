@@ -1,0 +1,48 @@
+// Body
+$body-bg: darken(#eaf0f6, 2%);
+$theme: #c5493c;
+
+// Borders
+$laravel-border-color: darken($body-bg, 10%);
+$list-group-border: $laravel-border-color;
+$navbar-default-border: $laravel-border-color;
+$panel-default-border: $laravel-border-color;
+$panel-inner-border: $laravel-border-color;
+
+// Brands
+$brand-primary: #3498db;
+$brand-info: #95a5a6;
+$brand-success: #27ae60;
+$brand-warning: #f1c40f;
+$brand-danger: #e74c3c;
+
+// Typography
+$font-family-sans-serif: $custom-font, sans-serif;
+$font-size-base: 14px;
+$line-height-base: 1.6;
+$text-color: #636b6f;
+$text-light: #8e969a;
+
+// Navbar
+$navbar-default-bg: #fff;
+
+// Buttons
+$btn-default-color: $text-color;
+
+// Inputs
+$input-border: lighten($text-color, 40%);
+$input-border-focus: lighten($brand-primary, 25%);
+$input-color-placeholder: lighten($text-color, 30%);
+
+// Panels
+$panel-default-heading-bg: #fff;
+
+$theme-dark: #262b36;
+$theme-light: darken(#eaf0f6, 2%);
+$border-color: lighten($theme-dark, 65%);
+
+// Link
+$link-color: lighten($theme-dark, 20%) !default;
+$link-hover-color: darken($theme-dark, 15%) !default;
+$link-hover-decoration: none !default;
+$border-radius-base: 3px;

@@ -1,0 +1,18 @@
+.btn {
+    border: 0;
+    padding: 10px 20px;
+    border-radius: $border-radius-base;
+
+    &.btn-xs {
+        padding: 3px 6px;
+    }
+
+    &.btn-lg {
+        padding: 15px 30px;
+    }
+
+    &.btn-link {
+        padding: 0;
+        display: inline-block;
+    }
+}

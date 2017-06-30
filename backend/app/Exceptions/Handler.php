@@ -44,6 +44,35 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($request->wantsJson()) {
+            $response = [
+                'error' => 'Sorry, something went wrong.',
+            ];
+
+            if (config('app.debug')) {
+                $response['exception'] = get_class($exception);
+                $response['message'] = $exception->getMessage();
+                $response['trace'] = $exception->getTrace();
+            }
+
+            $status = 400;
+
+            switch ($exception) {
+                case $exception instanceof ValidationException :
+                    return parent::render($request, $exception);
+                case $exception instanceof AuthenticationException :
+                    return $this->unauthenticated($request, $exception);
+                case $this->isHttpException($exception) :
+                    $status = $exception->getStatusCode();
+//                    $response['errors'] = Response::$statusTexts[$status];
+                    break;
+                default :
+                    break;
+            }
+
+            return response()->json($response, $status);
+        }
+
         return parent::render($request, $exception);
     }
 
