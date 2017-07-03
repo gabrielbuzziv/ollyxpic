@@ -19,11 +19,11 @@ Vue.mixin({
 
     methods: {
         item_path (item) {
-            return `http://localhost:8888/images/${item}`
+            return `${this.baseURL}/images/${item}`
         },
 
         image_path (type, id) {
-            return `http://localhost:8888/images/${type}/${id}`
+            return `${this.baseURL}/images/${type}/${id}`
         },
 
         convertToCrystal (value, ext = false) {
@@ -33,8 +33,4 @@ Vue.mixin({
             return value % 1 == 0 ? value.formatMoney(0, '.', '.') + ext : value.formatMoney(1, '.', '.') + ext
         }
     },
-
-    mounted () {
-        console.log(this.baseURL)
-    }
 })
