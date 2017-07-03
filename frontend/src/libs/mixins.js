@@ -28,9 +28,5 @@ Vue.mixin({
 
             return value % 1 == 0 ? value.formatMoney(0, '.', '.') + ext : value.formatMoney(1, '.', '.') + ext
         }
-    },
-
-    mounted () {
-        console.log(process.env.NODE_ENV)
     }
 })
