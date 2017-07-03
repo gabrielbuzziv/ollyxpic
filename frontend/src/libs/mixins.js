@@ -3,7 +3,7 @@ import Vue from 'vue'
 Vue.mixin({
     data () {
         return {
-            baseURL: 'http://localhost:8081'
+            baseURL: process.env.NODE_ENV === 'production' ? 'http://api.ollyxpic.com' : 'http://localhost:8081'
         }
     },
 
