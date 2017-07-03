@@ -1,16 +1,20 @@
 import Vue from 'vue'
 
 Vue.mixin({
-    data () {
-        return {
-            baseURL: process.env.NODE_ENV === 'production' ? 'http://api.ollyxpic.com' : 'http://localhost:8081'
-        }
-    },
-
     filters: {
         capitalize (value) {
             return value.charAt(0).toUpperCase() + value.slice(1)
         },
+    },
+
+    computed: {
+        baseURL () {
+            if (window.location.href.split('/')[2].includes('ollyxpic')) {
+                return 'http://api.ollyxpic.com'
+            }
+
+            return 'http://localhost:8888';
+        }
     },
 
     methods: {
@@ -28,5 +32,9 @@ Vue.mixin({
 
             return value % 1 == 0 ? value.formatMoney(0, '.', '.') + ext : value.formatMoney(1, '.', '.') + ext
         }
+    },
+
+    mounted () {
+        console.log(this.baseURL)
     }
 })
