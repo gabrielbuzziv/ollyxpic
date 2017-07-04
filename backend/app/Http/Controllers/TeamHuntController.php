@@ -71,7 +71,7 @@ class TeamHuntController extends Controller
         $this->saveTeammates($hunt, $teammateProfit);
         $this->saveItems($hunt, $this->items);
 
-        return $hunt->toArray();
+        return array_merge($hunt->toArray(), ['password' => $password]);
     }
 
     /**

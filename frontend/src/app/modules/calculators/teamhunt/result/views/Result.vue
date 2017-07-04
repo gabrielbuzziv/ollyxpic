@@ -113,6 +113,7 @@
                                         <i class="mdi mdi-information"></i>
                                     </el-tooltip>
                                 </th>
+                                <th></th>
                             </tr>
                         </thead>
 
@@ -166,6 +167,11 @@
                                         </div>
                                     </div>
                                 </td>
+                                <td class="text-right">
+                                    <button class="btn" @click="removeItem(item)">
+                                        <i class="mdi mdi-delete"></i>
+                                    </button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -179,21 +185,27 @@
 
             <!-- RIGHT SIDE -->
             <div class="col-md-4">
-                <panel title="NPC's to Visit" icon="cart" toggleable>
-                    <table class="table">
-                        <tbody>
-                            <tr v-for="npc in npcs">
-                                <td>
-                                    <img :src="image_path('npc', npc.id)" alt="">
-                                </td>
-                                <td><b>{{ npc.name }}</b></td>
-                                <td>{{ npc.city | capitalize }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <panel class="npc-items" title="Gren Djinn" v-if="green.length">
+                    <img :src="image_path('item', item.data.id)" v-for="item in green">
                 </panel>
 
-                <panel title="Access Key" icon="key" v-if="granted" toggleable :open="false">
+                <panel class="npc-items" title="Blue Djinn" v-if="blue.length">
+                    <img :src="image_path('item', item.data.id)" v-for="item in blue">
+                </panel>
+
+                <panel class="npc-items" title="Rashid" v-if="rashid.length">
+                    <img :src="image_path('item', item.data.id)" v-for="item in rashid">
+                </panel>
+
+                <panel class="npc-items" title="Yasir" v-if="yasir.length">
+                    <img :src="image_path('item', item.data.id)" v-for="item in yasir">
+                </panel>
+
+                <panel class="npc-items" title="Others" v-if="others.length">
+                    <img :src="image_path('item', item.data.id)" v-for="item in others">
+                </panel>
+
+                <panel title="Access Key" icon="key" v-if="granted" toggleable>
                     <form-input type="text"
                                 class="text-center"
                                 :data="password"
@@ -336,10 +348,100 @@
                         return true
                     })
                 }
+            },
+
+            green () {
+                if (this.result && this.result.items) {
+                    return this.result.items.filter(item => {
+                        if (this.getBestNpc(item.data.sell_to)) {
+                            return this.getBestNpc(item.data.sell_to).name == "Alesar" || this.getBestNpc(item.data.sell_to).name == "Yaman"
+                        }
+                    })
+                }
+
+                return 0
+            },
+
+            blue () {
+                if (this.result && this.result.items) {
+                    return this.result.items.filter(item => {
+                        if (this.getBestNpc(item.data.sell_to)) {
+                            return this.getBestNpc(item.data.sell_to).name == "Nah'Bob" || this.getBestNpc(item.data.sell_to).name == "Hauron"
+                        }
+                    })
+                }
+
+                return 0
+            },
+
+            rashid () {
+                if (this.result && this.result.items) {
+                    return this.result.items.filter(item => {
+                        if (this.getBestNpc(item.data.sell_to)) {
+                            return this.getBestNpc(item.data.sell_to).name == "Rashid"
+                        }
+                    })
+                }
+
+                return 0
+            },
+
+            yasir () {
+                if (this.result && this.result.items) {
+                    return this.result.items.filter(item => {
+                        if (this.getBestNpc(item.data.sell_to)) {
+                            return this.getBestNpc(item.data.sell_to).name == "Yasir"
+                        }
+                    })
+                }
+
+                return 0
+            },
+
+            others () {
+                if (this.result && this.result.items) {
+                    return this.result.items.filter(item => {
+                        if (this.getBestNpc(item.data.sell_to)) {
+                            return this.getBestNpc(item.data.sell_to).name != "Nah'Bob"
+                                    && this.getBestNpc(item.data.sell_to).name != "Haroun"
+                                    && this.getBestNpc(item.data.sell_to).name != "Yaman"
+                                    && this.getBestNpc(item.data.sell_to).name != "Alesar"
+                                    && this.getBestNpc(item.data.sell_to).name != "Yasir"
+                                    && this.getBestNpc(item.data.sell_to).name != "Rashid"
+                        }
+                    })
+                }
+
+                return 0
             }
         },
 
         methods: {
+            getBestNpc (npcs) {
+                let index = 0
+                const buyers = npcs.filter(npc => npc.pivot.value == Math.max.apply(Math, npcs.map(npc => npc.pivot.value)))
+
+                if (this.isMainNPC(buyers, 'Yasir')) {
+                    index = this.isMainNPC(buyers, 'Yasir')
+                } else if (this.isMainNPC(buyers, "Nah'Bob")) {
+                    index = this.isMainNPC(buyers, "Nah'Bob")
+                } else if (this.isMainNPC(buyers, 'Hauron')) {
+                    index = this.isMainNPC(buyers, 'Hauron')
+                } else if (this.isMainNPC(buyers, 'Alesar')) {
+                    index = this.isMainNPC(buyers, 'Alesar')
+                } else if (this.isMainNPC(buyers, 'Yaman')) {
+                    index = this.isMainNPC(buyers, 'Yaman')
+                } else if (this.isMainNPC(buyers, 'Rashid')) {
+                    index = this.isMainNPC(buyers, 'Rashid')
+                }
+
+                return buyers[index]
+            },
+
+            isMainNPC (npcs, npc) {
+                return npcs.map(npc => npc.name).indexOf(npc) > -1 ? npcs.map(npc => npc.name).indexOf(npc) : false
+            },
+
             load (refresh = false) {
                 this.loading = true
 
@@ -383,11 +485,25 @@
                 }
             }, 300),
 
+            removeItem (item) {
+                item.quantity = 0
+
+                this.$confirm('If you remove the item you will not be possible to add it again.', 'Are you sure?', {
+                    type: 'error',
+                    cancelButtonText: 'Cancel',
+                    confirmButtonText: 'Confirm'
+                }).then(() => {
+                    this.updateItemInDatabase(item)
+                }).catch(() => {
+                    this.load()
+                })
+            },
+
             updateItemInDatabase (item) {
                 services.updateItem(this.$route.params.id, item, this.password)
                         .then(response => {
                             this.$message({
-                                message: `The item "${item.data.title}" has been updated.`,
+                                message: `The Loot list has been updated.`,
                                 type: 'success'
                             })
                             this.load()
@@ -419,6 +535,11 @@
         },
 
         mounted () {
+            if (this.$route.query.password) {
+                localStorage.setItem(`hunt_${this.$route.params.id}_password`, this.$route.query.password)
+                this.password = this.$route.query.password
+            }
+
             this.password = localStorage.getItem(`hunt_${this.$route.params.id}_password`)
             this.load()
         }
