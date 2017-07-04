@@ -7,26 +7,26 @@
                 </a>
             </router-link>
 
-            <router-link :to="{ name: 'calculators.index' }" tag="li">
+            <router-link :to="{ name: 'calculators.waste' }" tag="li">
                 <a href="">
                     <i class="mdi mdi-calculator"></i>
-                    <span>Calculators</span>
+                    <span>Waste Calculator</span>
                 </a>
             </router-link>
 
-            <li>
+            <router-link :to="{ name: 'calculators.teamhunt' }" tag="li">
                 <a href="">
-                    <i class="mdi mdi-newspaper"></i>
-                    <span>News</span>
+                    <i class="mdi mdi-calculator"></i>
+                    <span>Team Hunt Profit</span>
                 </a>
-            </li>
+            </router-link>
 
-            <li>
+            <router-link :to="{ name: 'calculators.loot' }" tag="li">
                 <a href="">
-                    <i class="mdi mdi-account"></i>
-                    <span>Contact Us</span>
+                    <i class="mdi mdi-calculator"></i>
+                    <span>Loot Count</span>
                 </a>
-            </li>
+            </router-link>
         </ul>
     </nav>
 </template>

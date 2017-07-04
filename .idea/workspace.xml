@@ -2,23 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce10aee6-880d-4f01-bf3e-bf71cc20de41" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/loot/form/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/loot/form/routes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/loot/form/services/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/loot/form/views/Form.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/loot/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/loot/routes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/itemselect.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/database/database.db" afterPath="$PROJECT_DIR$/backend/database/database.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/ItemsController.php" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/ItemsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/routes/api.php" afterPath="$PROJECT_DIR$/backend/routes/api.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/Calculators.vue" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/Calculators.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/routes.js" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/views/Form.vue" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/views/Form.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/assets/scss/app.scss" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/app.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/libs/elements.js" afterPath="$PROJECT_DIR$/frontend/src/libs/elements.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/webpack.config.js" afterPath="$PROJECT_DIR$/frontend/webpack.config.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/common/layout/default/Nav.vue" afterPath="$PROJECT_DIR$/frontend/src/app/common/layout/default/Nav.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/loot/form/views/Form.vue" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/loot/form/views/Form.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/modules/pages/home/home/views/Index.vue" afterPath="$PROJECT_DIR$/frontend/src/app/modules/pages/home/home/views/Index.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/assets/scss/itemselect.scss" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/itemselect.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/assets/scss/layout.scss" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/layout.scss" />
     </list>
     <ignored path="ollyxpic.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,19 +33,49 @@
         <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/loot/form/views/Form.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="87">
-              <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+              <caret line="109" column="29" selection-start-line="109" selection-start-column="29" selection-end-line="109" selection-end-column="29" />
               <folding>
-                <element signature="e#4880#4914#0" expanded="true" />
+                <element signature="e#6503#6537#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Calculators.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Index.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/pages/home/home/views/Index.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="464">
+              <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="panel.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/panel.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="586">
+              <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Calculators.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/Calculators.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+            <state relative-caret-position="174">
+              <caret line="12" column="37" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Nav.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/common/layout/default/Nav.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="529">
+              <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -85,8 +104,18 @@
       <file leaf-file-name="app.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/app.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="47" column="19" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
+            <state relative-caret-position="151">
+              <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/layout.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="232">
+              <caret line="107" column="20" selection-start-line="107" selection-start-column="20" selection-end-line="107" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -95,50 +124,8 @@
       <file leaf-file-name="itemselect.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/itemselect.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="446">
-              <caret line="30" column="36" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="21" column="50" selection-start-line="21" selection-start-column="50" selection-end-line="21" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ItemsController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/ItemsController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-29">
-              <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="elements.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/libs/elements.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
-              <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/loot/form/routes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+            <state relative-caret-position="557">
+              <caret line="45" column="20" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -152,8 +139,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/ImageController.php" />
-        <option value="$PROJECT_DIR$/frontend/src/app/common/components/Map.vue" />
         <option value="$PROJECT_DIR$/frontend/src/assets/scss/leaflet.scss" />
         <option value="$PROJECT_DIR$/frontend/src/assets/scss/worldmap.scss" />
         <option value="/tmp/fz3temp-1/item.js" />
@@ -166,11 +151,9 @@
         <option value="$PROJECT_DIR$/frontend/src/assets/scss/helpers.scss" />
         <option value="$PROJECT_DIR$/frontend/src/assets/scss/table.scss" />
         <option value="$PROJECT_DIR$/frontend/src/assets/scss/pages.scss" />
-        <option value="$PROJECT_DIR$/frontend/src/assets/scss/panel.scss" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/result/services/index.js" />
         <option value="$PROJECT_DIR$/backend/routes/web.php" />
         <option value="$PROJECT_DIR$/frontend/src/app/common/components/ShareInput.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/app/common/layout/default/Nav.vue" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/result/views/Result.vue" />
         <option value="$PROJECT_DIR$/frontend/src/app/common/components/form/Input.vue" />
         <option value="$PROJECT_DIR$/frontend/src/app/common/components/NpcCard.vue" />
@@ -200,9 +183,13 @@
         <option value="$PROJECT_DIR$/backend/routes/api.php" />
         <option value="$PROJECT_DIR$/backend/app/Http/Controllers/ItemsController.php" />
         <option value="$PROJECT_DIR$/frontend/src/assets/scss/app.scss" />
-        <option value="$PROJECT_DIR$/frontend/src/assets/scss/itemselect.scss" />
-        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/loot/form/views/Form.vue" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/Calculators.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/assets/scss/panel.scss" />
+        <option value="$PROJECT_DIR$/frontend/src/assets/scss/itemselect.scss" />
+        <option value="$PROJECT_DIR$/frontend/src/app/common/layout/default/Nav.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/assets/scss/layout.scss" />
+        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/loot/form/views/Form.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/app/modules/pages/home/home/views/Index.vue" />
       </list>
     </option>
   </component>
@@ -349,6 +336,10 @@
               <option name="myItemId" value="modules" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -376,7 +367,117 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="calculators" />
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ollyxpic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ollyxpic" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ollyxpic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ollyxpic" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ollyxpic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ollyxpic" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -388,7 +489,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
-    <property name="SearchEverywhereHistoryKey" value="globals.&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/globals.js&#10;app.sc&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/app.scss&#10;itemcontr&#9;null&#9;null&#10;api.&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;element&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/elements.js&#10;team&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TeamHuntController.php&#10;app&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/app.scss&#10;layout/&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout&#10;SELECT.VUE&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/form/Select.vue&#10;select.vu&#9;FILE&#9;file:///var/www/ollyxpic/frontend/node_modules/vue-select/src/components/Select.vue&#10;components/inde&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/index.js&#10;pa&#9;FILE&#9;file:///var/www/ollyxpic/frontend/package.json&#10;libs/index&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/index.js&#10;package.json&#9;FILE&#9;file:///var/www/ollyxpic/frontend/package.json&#10;package.js&#9;FILE&#9;file:///var/www/ollyxpic/frontend/node_modules/js-base64/package.js&#10;mixins&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/mixins.js&#10;libs/inde&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/index.js&#10;app.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/app.scss&#10;scorebox&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/scorebox.scss&#10;input&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/form/Input.vue&#10;waste/resu&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/waste/result/views/Result.vue&#10;nav.vue&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Nav.vue&#10;in&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/form/Input.vue&#10;nput.v&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/form/Input.vue&#10;tea&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TeamHuntController.php&#10;api&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;glo&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/globals.js&#10;teamhunt&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TeamHuntController.php&#10;panel.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/panel.scss&#10;nel&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/Panel.vue&#10;button&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/buttons.scss&#10;elper.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/helpers.scss&#10;table.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/table.scss&#10;globa&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/globals.js&#10;mixin&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/mixins.js&#10;hunts&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Hunts.php&#10;page&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/pages.scss&#10;orl&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/WorldMap.vue&#10;worldmap&#9;null&#9;null&#10;pages&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/pages.scss&#10;web&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/web.php&#10;items&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Items.php&#10;pi.php&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;npccontr&#9;null&#9;null&#10;item&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Items.php&#10;npc&#9;null&#9;null&#10;form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/teamhunt/form/views/Form.vue&#10;passwo&#9;FILE&#9;file:///var/www/ollyxpic/backend/database/migrations/2017_06_19_140653_add_password_field_in_hunts.php&#10;form.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/form.scss&#10;hunt.&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Hunts.php" />
+    <property name="SearchEverywhereHistoryKey" value="nav&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Nav.vue&#10;app.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/app.scss&#10;panel.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/panel.scss&#10;panel.vue&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/Panel.vue&#10;globals.&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/globals.js&#10;app.sc&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/app.scss&#10;itemcontr&#9;null&#9;null&#10;api.&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;element&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/elements.js&#10;team&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TeamHuntController.php&#10;app&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/app.scss&#10;layout/&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout&#10;SELECT.VUE&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/form/Select.vue&#10;select.vu&#9;FILE&#9;file:///var/www/ollyxpic/frontend/node_modules/vue-select/src/components/Select.vue&#10;components/inde&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/index.js&#10;pa&#9;FILE&#9;file:///var/www/ollyxpic/frontend/package.json&#10;libs/index&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/index.js&#10;package.json&#9;FILE&#9;file:///var/www/ollyxpic/frontend/package.json&#10;package.js&#9;FILE&#9;file:///var/www/ollyxpic/frontend/node_modules/js-base64/package.js&#10;mixins&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/mixins.js&#10;libs/inde&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/index.js&#10;scorebox&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/scorebox.scss&#10;input&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/form/Input.vue&#10;waste/resu&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/waste/result/views/Result.vue&#10;nav.vue&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Nav.vue&#10;in&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/form/Input.vue&#10;nput.v&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/form/Input.vue&#10;tea&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TeamHuntController.php&#10;api&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;glo&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/globals.js&#10;teamhunt&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TeamHuntController.php&#10;nel&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/Panel.vue&#10;button&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/buttons.scss&#10;elper.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/helpers.scss&#10;table.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/table.scss&#10;globa&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/globals.js&#10;mixin&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/mixins.js&#10;hunts&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Hunts.php&#10;page&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/pages.scss&#10;orl&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/WorldMap.vue&#10;worldmap&#9;null&#9;null&#10;pages&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/pages.scss&#10;web&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/web.php&#10;items&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Items.php&#10;pi.php&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;npccontr&#9;null&#9;null&#10;item&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Items.php&#10;npc&#9;null&#9;null&#10;form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/teamhunt/form/views/Form.vue&#10;passwo&#9;FILE&#9;file:///var/www/ollyxpic/backend/database/migrations/2017_06_19_140653_add_password_field_in_hunts.php" />
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="JavaScriptPreferStrict" value="false" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
@@ -466,12 +567,12 @@
       <workItem from="1498735070470" duration="12039000" />
       <workItem from="1498761802536" duration="2713000" />
       <workItem from="1498820280010" duration="14063000" />
-      <workItem from="1499103134171" duration="14555000" />
+      <workItem from="1499103134171" duration="21914000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="239327000" />
+    <option name="totallyTimeSpent" value="246686000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="744" extended-state="6" />
@@ -483,7 +584,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930514" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902297" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24944155" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.7044476" sideWeight="0.49707174" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31133428" sideWeight="0.49707174" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -542,42 +643,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frontend/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/result/services/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/scorebox.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/components/form/Input.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/layout/default/Nav.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/result/views/Result.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="268">
@@ -892,14 +957,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/app.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="47" column="19" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/loot/form/services/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
@@ -916,10 +973,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/components/Panel.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2262">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/itemselect.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="30" column="36" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
+        <state relative-caret-position="557">
+          <caret line="45" column="20" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/app.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/Calculators.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="12" column="37" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/layout/default/Nav.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/panel.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="586">
+          <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/layout.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="107" column="20" selection-start-line="107" selection-start-column="20" selection-end-line="107" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -927,17 +1032,17 @@
     <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/loot/form/views/Form.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="87">
-          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+          <caret line="109" column="29" selection-start-line="109" selection-start-column="29" selection-end-line="109" selection-end-column="29" />
           <folding>
-            <element signature="e#4880#4914#0" expanded="true" />
+            <element signature="e#6503#6537#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/Calculators.vue">
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/pages/home/home/views/Index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+        <state relative-caret-position="464">
+          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
           <folding />
         </state>
       </provider>

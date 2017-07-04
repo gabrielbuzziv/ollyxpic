@@ -104,7 +104,24 @@ a {
 }
 
 #content {
-    background: url('/src/assets/images/background.jpg') top center;
+    &:before {
+        content: '';
+        background: #c5c5c5 url('/src/assets/images/background.jpg') 50% 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: .25;
+        display: block;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
 
     .page {
         padding: 50px 0;
