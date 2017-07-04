@@ -52,10 +52,6 @@
                             </form-group>
 
                             <div class="buttons">
-                                <button class="btn-link">
-                                    <i class="mdi mdi-calculator"></i>
-                                </button>
-
                                 <button class="btn-link" @click.prevent="add('teammates')">
                                     <i class="mdi mdi-plus"></i>
                                 </button>
@@ -64,10 +60,6 @@
                                     <i class="mdi mdi-delete"></i>
                                 </button>
                             </div>
-
-                            <el-dialog :visible>
-                                Something
-                            </el-dialog>
                         </div>
                     </tab-content>
 

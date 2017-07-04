@@ -1,6 +1,7 @@
 import Calculators from './Calculators'
 import { routes as waste } from './waste'
 import { routes as teamhunt } from './teamhunt'
+import { routes as loot } from './loot'
 
 export default [
     {
@@ -11,5 +12,7 @@ export default [
 
     ...waste,
 
-    ...teamhunt
+    ...teamhunt,
+
+    ...loot
 ]

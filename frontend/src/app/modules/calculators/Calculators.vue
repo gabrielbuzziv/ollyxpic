@@ -20,11 +20,11 @@
                 Calculate the profit and the amount to pay for each one in the Team Hunt.
             </card>
 
-            <card :to="{ name: 'calculators.waste' }"
+            <card :to="{ name: 'calculators.loot' }"
                   :columns="4"
-                  :image="item_path('boots-of-haste')"
-                  title="Speed Limits">
-                Calculate the required level to reach the Boosted Speed in each tile.
+                  :image="item_path('steel-boots')"
+                  title="Loot Count">
+                Need to count the value of your loots? problems solved.
             </card>
         </div>
     </page-load>

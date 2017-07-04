@@ -19,6 +19,7 @@ Route::get('items/ammunitions', 'ItemsController@ammunitions');
 Route::get('items/runes', 'ItemsController@runes');
 Route::get('items/amulets', 'ItemsController@amulets');
 Route::get('items/rings', 'ItemsController@rings');
+Route::get('items/search', 'ItemsController@search');
 
 Route::post('waste/calculate', 'WasteController@calculate');
 Route::get('waste/{waste}', 'WasteController@find');

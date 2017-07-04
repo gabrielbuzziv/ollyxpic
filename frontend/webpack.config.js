@@ -86,13 +86,4 @@ if (process.env.NODE_ENV === 'production') {
             minimize: true
         })
     ])
-} else {
-    module.exports.plugins = (module.exports.plugins || []).concat([
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: '"development"',
-                API
-            },
-        })
-    ])
 }

@@ -20,6 +20,19 @@ class ItemsController extends Controller
         return $this->respond($items->toArray());
     }
 
+    /**
+     * Search query item.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function search()
+    {
+        $query = request()->input('query');
+        $items = Items::where('title', 'like', "%{$query}%")->get();
+
+        return $this->respond($items->toArray());
+    }
+
     public function potions()
     {
         $potions = [

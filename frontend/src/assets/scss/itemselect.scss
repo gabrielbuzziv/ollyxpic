@@ -1,0 +1,36 @@
+.item-select {
+    width: 100%;
+    display: block;
+
+    .el-input__inner {
+        height: 50px;
+        font-size: 20px;
+    }
+}
+
+.item-options {
+    .el-select-dropdown__item {
+        height: 48px;
+    }
+
+    .item-option {
+        font-size: 20px;
+
+        img {
+            margin-right: 10px;
+            display: inline-block;
+        }
+    }
+}
+
+.table {
+    &.table-loot {
+        tfoot {
+            tr {
+                td {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}
