@@ -38,11 +38,8 @@
                     </tab-content>
 
                     <tab-content tab="waste">
-                        <div class="alert alert-warning">
-                            <p>
-                                We suggest you to use the <router-link :to="{ name: 'calculators.waste' }" target="_blank">Waste Calculator</router-link> to
-                                set the waste of each teammate.
-                            </p>
+                        <div class="alert alert-info">
+                            Waste per party member.
                         </div>
 
                         <div class="inline" v-for="teammate, index in teammates">
@@ -55,6 +52,10 @@
                             </form-group>
 
                             <div class="buttons">
+                                <button class="btn-link">
+                                    <i class="mdi mdi-calculator"></i>
+                                </button>
+
                                 <button class="btn-link" @click.prevent="add('teammates')">
                                     <i class="mdi mdi-plus"></i>
                                 </button>
@@ -63,15 +64,10 @@
                                     <i class="mdi mdi-delete"></i>
                                 </button>
                             </div>
-                        </div>
 
-                        <div class="alert alert-info margin-bottom-0">
-                            <p class="margin-bottom-15">
-                                <i class="mdi mdi-information margin-right-5"></i>
-                                The waste of teammates will be accounted in the calculation to find the exactly profit value and then
-                                the tool will separate the amount of money each one will receive to pay waste and the profit.
-                            </p>
-                            <small><em><b>Notice:</b> You can add as many teammates as you want.</em></small>
+                            <el-dialog :visible>
+                                Something
+                            </el-dialog>
                         </div>
                     </tab-content>
 

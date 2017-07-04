@@ -65,7 +65,7 @@ class TeamHuntController extends Controller
             'loot_total'  => $loot,
             'waste_total' => $waste,
             'password'    => $password,
-            'owner'       => $_SERVER['REMOTE_ADDR'],
+            'owner'       => $this->getOwnerIP()
         ]);
 
         $this->saveTeammates($hunt, $teammateProfit);
@@ -655,5 +655,26 @@ class TeamHuntController extends Controller
         ];
 
         return isset($names[$name]) ? $names[$name] : $name;
+    }
+
+    private function getOwnerIP()
+    {
+        $ipaddress = '';
+        if (getenv('HTTP_CLIENT_IP'))
+            $ipaddress = getenv('HTTP_CLIENT_IP');
+        else if (getenv('HTTP_X_FORWARDED_FOR'))
+            $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+        else if (getenv('HTTP_X_FORWARDED'))
+            $ipaddress = getenv('HTTP_X_FORWARDED');
+        else if (getenv('HTTP_FORWARDED_FOR'))
+            $ipaddress = getenv('HTTP_FORWARDED_FOR');
+        else if (getenv('HTTP_FORWARDED'))
+            $ipaddress = getenv('HTTP_FORWARDED');
+        else if (getenv('REMOTE_ADDR'))
+            $ipaddress = getenv('REMOTE_ADDR');
+        else
+            $ipaddress = 'UNKNOWN';
+
+        return $ipaddress;
     }
 }
