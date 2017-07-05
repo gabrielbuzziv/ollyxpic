@@ -1,5 +1,5 @@
 <template>
-    <el-dialog :visible.sync="visible" id="waste-modal">
+    <el-dialog :visible.sync="isVisible" id="waste-modal">
         <ul class="menu">
             <li :class="{ 'active': active.potions }">
                 <a href="#" @click.prevent="show('potions')">
@@ -46,10 +46,10 @@
                             <span>{{ item.title }}</span>
                         </el-option>
                     </el-select>
-                    <form-input class="field" v-model="potion.quantity" placeholder="Amount"/>
+                    <form-input class="field" :data="potion.quantity" v-model="potion.quantity" placeholder="Amount"/>
                     <div class="field">
                         <div class="input-group">
-                            <form-input  v-model="potion.price" :placeholder="getPricePlaceholder(potion)"/>
+                            <form-input :data="potion.price" v-model="potion.price" :placeholder="getPricePlaceholder(potion)"/>
                             <div class="input-group-addon">gp</div>
                         </div>
                     </div>
@@ -85,10 +85,10 @@
                             <span>{{ item.title }}</span>
                         </el-option>
                     </el-select>
-                    <form-input class="field" v-model="ammunition.quantity" placeholder="Amount"/>
+                    <form-input class="field" :data="ammunition.quantiy" v-model="ammunition.quantity" placeholder="Amount"/>
                     <div class="field">
                         <div class="input-group">
-                            <form-input  v-model="ammunition.price" :placeholder="getPricePlaceholder(ammunition)"/>
+                            <form-input :data="ammunition.price" v-model="ammunition.price" :placeholder="getPricePlaceholder(ammunition)"/>
                             <div class="input-group-addon">gp</div>
                         </div>
                     </div>
@@ -124,10 +124,10 @@
                             <span>{{ item.title }}</span>
                         </el-option>
                     </el-select>
-                    <form-input class="field" v-model="rune.quantity" placeholder="Amount"/>
+                    <form-input class="field" :data="rune.quantity" v-model="rune.quantity" placeholder="Amount"/>
                     <div class="field">
                         <div class="input-group">
-                            <form-input  v-model="rune.price" :placeholder="getPricePlaceholder(rune)"/>
+                            <form-input :data="rune.price" v-model="rune.price" :placeholder="getPricePlaceholder(rune)"/>
                             <div class="input-group-addon">gp</div>
                         </div>
                     </div>
@@ -163,10 +163,10 @@
                             <span>{{ item.title }}</span>
                         </el-option>
                     </el-select>
-                    <form-input class="field" v-model="amulet.quantity" placeholder="Amount"/>
+                    <form-input class="field" :data="amulet.quantity" v-model="amulet.quantity" placeholder="Amount"/>
                     <div class="field">
                         <div class="input-group">
-                            <form-input v-model="amulet.price" :placeholder="getPricePlaceholder(amulet)"/>
+                            <form-input :data="amulet.price" v-model="amulet.price" :placeholder="getPricePlaceholder(amulet)"/>
                             <div class="input-group-addon">gp</div>
                         </div>
                     </div>
@@ -202,10 +202,10 @@
                             <span>{{ item.title }}</span>
                         </el-option>
                     </el-select>
-                    <form-input class="field" v-model="ring.quantity" placeholder="Amount"/>
+                    <form-input class="field" :data="ring.quantity" v-model="ring.quantity" placeholder="Amount"/>
                     <div class="field">
                         <div class="input-group">
-                            <form-input v-model="ring.price" :placeholder="getPricePlaceholder(ring)"/>
+                            <form-input :data="ring.price" v-model="ring.price" :placeholder="getPricePlaceholder(ring)"/>
                             <div class="input-group-addon">gp</div>
                         </div>
                     </div>
@@ -245,6 +245,8 @@
             return {
                 temmate: null,
 
+                isVisible: false,
+
                 active: {
                     potions: true,
                     ammunitions: false,
@@ -275,9 +277,28 @@
             }
         },
 
+        watch: {
+            visible () {
+                this.isVisible = this.visible
+            }
+        },
+
         methods: {
             load (teammate) {
                 this.teammate = teammate
+                this.show('potions')
+
+                if (! isEmpty(this.teammate.supplies)) {
+                    this.supplies = teammate.supplies
+                } else {
+                    this.supplies = {
+                        potions: [{ data: null, quantity: null, price: null }],
+                        ammunitions: [{ data: null, quantity: null, price: null }],
+                        runes: [{ data: null, quantity: null, price: null }],
+                        amulets: [{ data: null, quantity: null, price: null }],
+                        rings: [{ data: null, quantity: null, price: null }]
+                    }
+                }
             },
 
             getPricePlaceholder (potion) {

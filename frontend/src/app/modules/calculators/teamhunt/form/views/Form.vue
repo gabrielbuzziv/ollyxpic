@@ -223,7 +223,6 @@
 
         mounted () {
             this.$root.$on('waste::teammate', teammate => {
-                console.log(this.teammates[this.selectedTeammate])
                 this.teammates[this.selectedTeammate] = teammate
             })
         },
