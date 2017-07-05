@@ -228,8 +228,11 @@
 
             searchItem: debounce(function (query) {
                 if (query.length > 1) {
+                    this.loadingItem = true
+
                     services.searchItem(query)
                             .then(response => {
+                                this.loadingItem = false
                                 this.items = response.data.filter(item => {
                                     return this.loots.map(loot => loot.id).indexOf(item.id)
                                 })

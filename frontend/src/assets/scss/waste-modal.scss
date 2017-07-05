@@ -1,0 +1,71 @@
+#waste-modal {
+    .menu {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        text-align: left;
+
+        li {
+            display: inline-block;
+            text-align: center;
+
+            &.active {
+                a {
+                    background: #d1d1d1;
+                }
+            }
+
+            a {
+                padding: 10px 20px;
+                background: #eee;
+                border-radius: $border-radius-base;
+            }
+        }
+    }
+
+    .supplies {
+        display: block;
+        margin-top: 30px;
+
+        .supply {
+            display: block;
+            margin-bottom: 10px;
+
+            .fields {
+                width: calc(100% - 70px);
+                display: inline-block;
+
+                .field {
+                    display: inline-block;
+                    width: calc(33% - 10px);
+                    vertical-align: top;
+                }
+            }
+
+            .buttons {
+                display: inline-block;
+                width: 60px;
+                text-align: right;
+                vertical-align: top;
+                line-height: 34px;
+
+                button {
+                    background: none;
+                    border: 0;
+                    display: inline-block;
+
+                    &:focus,
+                    &:active {
+                        outline: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.suppliesSelect {
+    .el-select-dropdown__item {
+        height: 48px;
+    }
+}

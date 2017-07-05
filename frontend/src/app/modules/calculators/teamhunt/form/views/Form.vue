@@ -44,11 +44,19 @@
 
                         <div class="inline" v-for="teammate, index in teammates">
                             <form-group>
-                                <form-input :name="`teammates[${index}][name]`" v-model="teammate.name" placeholder="Character name" />
+                                <form-input :name="`teammates[${index}][name]`" :data="teammate.name" v-model="teammate.name" placeholder="Character name" />
                             </form-group>
 
                             <form-group>
-                                <form-input :name="`teammates[${index}][waste]`" v-model="teammate.waste" placeholder="Waste in gps" />
+                                <div class="input-group">
+                                    <form-input :name="`teammates[${index}][waste]`" :data="teammate.waste" v-model="teammate.waste" placeholder="Waste in gps" />
+
+                                    <div class="input-group-btn">
+                                        <button class="btn" @click="calculateSupplies(teammate)" type="button">
+                                            <i class="mdi mdi-calculator"></i>
+                                        </button>
+                                    </div>
+                                </div>
                             </form-group>
 
                             <div class="buttons">
@@ -138,31 +146,51 @@
                 </panel>
             </div>
         </div>
+
+        <supplies-calculator :visible.sync="suppliesCalculator" />
     </page-load>
 </template>
 
 <script type="text/babel">
+    import SuppliesCalculator from './SuppliesCalculator'
     import services from '../services'
 
     export default {
+        components: { SuppliesCalculator },
+
         data () {
             return {
+                selectedTeammate: null,
                 calculating: false,
                 loot: '',
-                teammates: [{ name: null, waste: null  }],
+                teammates: [{ name: null, waste: null, supplies: []  }],
                 filters: {
                     effective: false,
                     stackable: true,
                     goldcoins: true,
                     valuable: false,
                     above: 1000
-                }
+                },
+                suppliesCalculator: false
             }
         },
 
         methods: {
+            calculateSupplies (teammate) {
+                this.suppliesCalculator = true
+                this.selectedTeammate = this.teammates.indexOf(teammate)
+
+                this.$root.$emit('teammate::supply', teammate)
+            },
+
+            closeCalculateSupplies (teammate) {
+                this.suppliesCalculator = false
+
+                this.$root.$emit('teammate::supply', null)
+            },
+
             add (type) {
-                this[type].push({ name: null, waste: null  })
+                this[type].push({ name: null, waste: null, supplies: []  })
             },
 
             remove (type, index) {
@@ -191,6 +219,17 @@
                             this.calculating = false
                         })
             }
+        },
+
+        mounted () {
+            this.$root.$on('waste::teammate', teammate => {
+                console.log(this.teammates[this.selectedTeammate])
+                this.teammates[this.selectedTeammate] = teammate
+            })
+        },
+
+        beforeDestroy () {
+            this.$root.$off('waste::teammate')
         }
     }
 </script>
