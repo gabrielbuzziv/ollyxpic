@@ -7,7 +7,8 @@ import {
     Message,
     MessageBox,
     Select,
-    Option
+    Option,
+    Checkbox
 } from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 
@@ -17,5 +18,6 @@ Vue.use(Tooltip)
 Vue.use(Popover)
 Vue.use(Select)
 Vue.use(Option)
+Vue.use(Checkbox)
 Vue.prototype.$message = Message
 Vue.prototype.$confirm = MessageBox.confirm

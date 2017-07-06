@@ -25,6 +25,13 @@
                 <a href="">
                     <img :src="item_path('magic-plate-armor')" class="margin-right-5">
                     <span>Loot Count</span>
+                </a>
+            </router-link>
+
+            <router-link :to="{ name: 'calculators.blessing' }" tag="li">
+                <a href="">
+                    <img :src="item_path('spiritual-charm')" class="margin-right-5">
+                    <span>Blessings</span>
                     <span class="label label-success">New</span>
                 </a>
             </router-link>
