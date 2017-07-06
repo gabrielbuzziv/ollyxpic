@@ -2,8 +2,105 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce10aee6-880d-4f01-bf3e-bf71cc20de41" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/001a7839bd38e05ead37/292b2f8e751f877c0892c4376c7c7eef.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/001a7839bd38e05ead37/448c34a56d699c29117adc64c43affeb.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/001a7839bd38e05ead37/633c9b849b1ed2b5fa1ba7c2a9b22099.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/001a7839bd38e05ead37/7f88c63c8ca619cd1ae4243f6f64f54f.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/001a7839bd38e05ead37/89889688147bd7575d6327160d64e760.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/001a7839bd38e05ead37/b02bdc1b846fd65473922f5f62832108.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/001a7839bd38e05ead37/c28dbbac641f64eaabb9b756f6770619.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/001a7839bd38e05ead37/d2f69a92faa6fe990d2e613c358be705.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/001a7839bd38e05ead37/e18bbf611f2a2e43afc071aa2f4e1512.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/001a7839bd38e05ead37/f4769f9bdb7466be65088239c12046d1.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/001a7839bd38e05ead37/f540b423205e383e431bd1df377f09a7.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/001a7839bd38e05ead37/fa2772327f55d8198301fdb8bcfc8158.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/001a7839bd38e05ead37/glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/001a7839bd38e05ead37/materialdesignicons-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/001a7839bd38e05ead37/output.001a7839bd38e05ead37.build.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/001a7839bd38e05ead37/output.001a7839bd38e05ead37.build.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/1d578c1decadc40b5418/292b2f8e751f877c0892c4376c7c7eef.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/1d578c1decadc40b5418/448c34a56d699c29117adc64c43affeb.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/1d578c1decadc40b5418/633c9b849b1ed2b5fa1ba7c2a9b22099.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/1d578c1decadc40b5418/7f88c63c8ca619cd1ae4243f6f64f54f.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/1d578c1decadc40b5418/89889688147bd7575d6327160d64e760.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/1d578c1decadc40b5418/b02bdc1b846fd65473922f5f62832108.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/1d578c1decadc40b5418/c28dbbac641f64eaabb9b756f6770619.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/1d578c1decadc40b5418/d2f69a92faa6fe990d2e613c358be705.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/1d578c1decadc40b5418/e18bbf611f2a2e43afc071aa2f4e1512.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/1d578c1decadc40b5418/f4769f9bdb7466be65088239c12046d1.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/1d578c1decadc40b5418/f540b423205e383e431bd1df377f09a7.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/1d578c1decadc40b5418/fa2772327f55d8198301fdb8bcfc8158.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/1d578c1decadc40b5418/glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/1d578c1decadc40b5418/materialdesignicons-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/1d578c1decadc40b5418/output.1d578c1decadc40b5418.build.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/1d578c1decadc40b5418/output.1d578c1decadc40b5418.build.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/292b2f8e751f877c0892c4376c7c7eef.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/448c34a56d699c29117adc64c43affeb.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/633c9b849b1ed2b5fa1ba7c2a9b22099.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/7f88c63c8ca619cd1ae4243f6f64f54f.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/89889688147bd7575d6327160d64e760.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/a744a443a2b265f036fa/292b2f8e751f877c0892c4376c7c7eef.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/a744a443a2b265f036fa/448c34a56d699c29117adc64c43affeb.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/a744a443a2b265f036fa/633c9b849b1ed2b5fa1ba7c2a9b22099.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/a744a443a2b265f036fa/7f88c63c8ca619cd1ae4243f6f64f54f.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/a744a443a2b265f036fa/89889688147bd7575d6327160d64e760.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/a744a443a2b265f036fa/b02bdc1b846fd65473922f5f62832108.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/a744a443a2b265f036fa/c28dbbac641f64eaabb9b756f6770619.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/a744a443a2b265f036fa/d2f69a92faa6fe990d2e613c358be705.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/a744a443a2b265f036fa/e18bbf611f2a2e43afc071aa2f4e1512.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/a744a443a2b265f036fa/f4769f9bdb7466be65088239c12046d1.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/a744a443a2b265f036fa/f540b423205e383e431bd1df377f09a7.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/a744a443a2b265f036fa/fa2772327f55d8198301fdb8bcfc8158.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/a744a443a2b265f036fa/glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/a744a443a2b265f036fa/materialdesignicons-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/a744a443a2b265f036fa/output.a744a443a2b265f036fa.build.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/a744a443a2b265f036fa/output.a744a443a2b265f036fa.build.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/b02bdc1b846fd65473922f5f62832108.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/b3739d92feadd9a7375c/292b2f8e751f877c0892c4376c7c7eef.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/b3739d92feadd9a7375c/448c34a56d699c29117adc64c43affeb.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/b3739d92feadd9a7375c/633c9b849b1ed2b5fa1ba7c2a9b22099.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/b3739d92feadd9a7375c/7f88c63c8ca619cd1ae4243f6f64f54f.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/b3739d92feadd9a7375c/89889688147bd7575d6327160d64e760.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/b3739d92feadd9a7375c/b02bdc1b846fd65473922f5f62832108.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/b3739d92feadd9a7375c/c28dbbac641f64eaabb9b756f6770619.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/b3739d92feadd9a7375c/d2f69a92faa6fe990d2e613c358be705.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/b3739d92feadd9a7375c/e18bbf611f2a2e43afc071aa2f4e1512.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/b3739d92feadd9a7375c/f4769f9bdb7466be65088239c12046d1.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/b3739d92feadd9a7375c/f540b423205e383e431bd1df377f09a7.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/b3739d92feadd9a7375c/fa2772327f55d8198301fdb8bcfc8158.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/b3739d92feadd9a7375c/glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/b3739d92feadd9a7375c/materialdesignicons-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/b3739d92feadd9a7375c/output.b3739d92feadd9a7375c.build.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/b3739d92feadd9a7375c/output.b3739d92feadd9a7375c.build.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/build.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/build.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/c09474599f12c323ac60/292b2f8e751f877c0892c4376c7c7eef.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/c09474599f12c323ac60/448c34a56d699c29117adc64c43affeb.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/c09474599f12c323ac60/633c9b849b1ed2b5fa1ba7c2a9b22099.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/c09474599f12c323ac60/7f88c63c8ca619cd1ae4243f6f64f54f.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/c09474599f12c323ac60/89889688147bd7575d6327160d64e760.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/c09474599f12c323ac60/[name.c09474599f12c323ac60.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/c09474599f12c323ac60/[name.c09474599f12c323ac60.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/c09474599f12c323ac60/b02bdc1b846fd65473922f5f62832108.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/c09474599f12c323ac60/c28dbbac641f64eaabb9b756f6770619.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/c09474599f12c323ac60/d2f69a92faa6fe990d2e613c358be705.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/c09474599f12c323ac60/e18bbf611f2a2e43afc071aa2f4e1512.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/c09474599f12c323ac60/f4769f9bdb7466be65088239c12046d1.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/c09474599f12c323ac60/f540b423205e383e431bd1df377f09a7.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/c09474599f12c323ac60/fa2772327f55d8198301fdb8bcfc8158.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/c09474599f12c323ac60/glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/c09474599f12c323ac60/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/c09474599f12c323ac60/materialdesignicons-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/c28dbbac641f64eaabb9b756f6770619.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/d2f69a92faa6fe990d2e613c358be705.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/e18bbf611f2a2e43afc071aa2f4e1512.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/f4769f9bdb7466be65088239c12046d1.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/f540b423205e383e431bd1df377f09a7.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/fa2772327f55d8198301fdb8bcfc8158.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/materialdesignicons-webfont.svg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/package.json" afterPath="$PROJECT_DIR$/frontend/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/webpack.config.js" afterPath="$PROJECT_DIR$/frontend/webpack.config.js" />
     </list>
     <ignored path="ollyxpic.iws" />
@@ -49,8 +146,18 @@
       <file leaf-file-name="webpack.config.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/webpack.config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+            <state relative-caret-position="174">
+              <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -324,12 +431,12 @@
       <workItem from="1498820280010" duration="14063000" />
       <workItem from="1499103134171" duration="24403000" />
       <workItem from="1499252813553" duration="17604000" />
-      <workItem from="1499337948090" duration="11176000" />
+      <workItem from="1499337948090" duration="11792000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="277955000" />
+    <option name="totallyTimeSpent" value="278571000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="744" extended-state="6" />
@@ -400,20 +507,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frontend/src/router/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/libs/mixins.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/.gitattributes">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -756,10 +849,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/bless/form/views/Form.vue">
+    <entry file="file://$PROJECT_DIR$/frontend/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
+        <state relative-caret-position="205">
+          <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
           <folding />
         </state>
       </provider>
@@ -772,10 +865,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/bless/form/views/Form.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/dist/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+        <state relative-caret-position="174">
+          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
           <folding />
         </state>
       </provider>

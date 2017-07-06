@@ -7,10 +7,14 @@ module.exports = {
     output: {
         path: path.join(__dirname, './dist', '[hash]'),
         publicPath: '/dist/[hash]',
-        filename: "[name.[hash].js",
+        filename: "[name].[hash].js",
         chunkFilename: "[name].[id].[hash].js"
     },
-    plugins: [new HtmlWebpackPlugin()],
+    plugins: [
+        new HtmlWebpackPlugin({
+            'filename': '../../index.html'
+        })
+    ],
     module: {
         rules: [
             {
