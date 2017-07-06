@@ -1,14 +1,16 @@
 var path    = require('path')
 var webpack = require('webpack')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     entry: './src/main.js',
     output: {
         path: path.join(__dirname, './dist', '[hash]'),
-        publicPath: '/dist/',
-        filename: 'output.[hash].build.js',
-        chunkFilename: "[id].[hash].build.js"
+        publicPath: '/dist/[hash]',
+        filename: "[name.[hash].js",
+        chunkFilename: "[name].[id].[hash].js"
     },
+    plugins: [new HtmlWebpackPlugin()],
     module: {
         rules: [
             {
