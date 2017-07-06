@@ -33,6 +33,11 @@ class ItemsController extends Controller
         return $this->respond($items->toArray());
     }
 
+    /**
+     * Potions
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function potions()
     {
         $potions = [
@@ -80,6 +85,11 @@ class ItemsController extends Controller
         return $this->respond($items->toArray());
     }
 
+    /**
+     * Ammunitions
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function ammunitions()
     {
         $ammunition = [
@@ -149,6 +159,11 @@ class ItemsController extends Controller
         return $this->respond($items->toArray());
     }
 
+    /**
+     * Runes
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function runes()
     {
         $runes = [
@@ -228,6 +243,11 @@ class ItemsController extends Controller
         return $this->respond($items->toArray());
     }
 
+    /**
+     * Amulets
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function amulets()
     {
         $amulets = [
@@ -244,6 +264,7 @@ class ItemsController extends Controller
             174, // Garlic Necklace,
             2342, // Gill Necklace
             2347, // Prismatic Necklace
+            172, // Dragon Necklace
         ];
 
         $order = implode(',', $amulets);
@@ -254,6 +275,11 @@ class ItemsController extends Controller
         return $this->respond($items->toArray());
     }
 
+    /**
+     * Rings
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function rings()
     {
         $rings = [

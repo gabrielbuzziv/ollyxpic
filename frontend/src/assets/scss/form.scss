@@ -21,6 +21,12 @@ form {
             max-width: 205px;
         }
 
+        .el-select {
+            .el-input__inner {
+                height: 44px;
+            }
+        }
+
         .buttons {
             display: inline-block;
 

@@ -80,13 +80,9 @@
                                     {{ (loot.amount * loot.value).formatMoney(0, '.','.') }} gp
                                 </td>
                                 <td class="text-center">
-                                    <el-tooltip>
-                                        <div slot="content">
-                                            <img :src="image_path('npc', getBestNpc(loot.sellTo).id)" alt="">
-                                        </div>
-
-                                        <div>{{ getBestNpc(loot.sellTo).name }}</div>
-                                    </el-tooltip>
+                                    <div v-if="loot.sellTo.length">
+                                        {{ getNPCName(loot.sellTo) }}
+                                    </div>
                                 </td>
                                 <td width="50" class="text-right">
                                     <button class="btn" @click="removeItem(index)">
@@ -157,60 +153,82 @@
 
             green () {
                 return this.loots.filter(loot => {
-                    return this.getBestNpc(loot.sellTo).name == "Alesar" || this.getBestNpc(loot.sellTo).name == "Yaman"
+                    if (loot.sellTo.length) {
+                        return this.getBestNpc(loot.sellTo).name == "Alesar" || this.getBestNpc(loot.sellTo).name == "Yaman"
+                    }
                 })
             },
 
             blue () {
                 return this.loots.filter(loot => {
-                    return this.getBestNpc(loot.sellTo).name == "Nah'Bob" || this.getBestNpc(loot.sellTo).name == "Haroun"
+                    if (loot.sellTo.length) {
+                        return this.getBestNpc(loot.sellTo).name == "Nah'Bob" || this.getBestNpc(loot.sellTo).name == "Haroun"
+                    }
                 })
             },
 
             rashid () {
                 return this.loots.filter(loot => {
-                    return this.getBestNpc(loot.sellTo).name == "Rashid"
+                    if (loot.sellTo.length) {
+                        return this.getBestNpc(loot.sellTo).name == "Rashid"
+                    }
                 })
             },
 
             yasir () {
                 return this.loots.filter(loot => {
-                    return this.getBestNpc(loot.sellTo).name == "Yasir"
+                    if (loot.sellTo.length) {
+                        return this.getBestNpc(loot.sellTo).name == "Yasir"
+                    }
                 })
             },
 
             others () {
                 return this.loots.filter(loot => {
-                    return this.getBestNpc(loot.sellTo).name != "Nah'Bob"
-                            && this.getBestNpc(loot.sellTo).name != "Haroun"
-                            && this.getBestNpc(loot.sellTo).name != "Yaman"
-                            && this.getBestNpc(loot.sellTo).name != "Alesar"
-                            && this.getBestNpc(loot.sellTo).name != "Yasir"
-                            && this.getBestNpc(loot.sellTo).name != "Rashid"
+                    if (loot.sellTo.length) {
+                        return this.getBestNpc(loot.sellTo).name != "Nah'Bob"
+                                && this.getBestNpc(loot.sellTo).name != "Haroun"
+                                && this.getBestNpc(loot.sellTo).name != "Yaman"
+                                && this.getBestNpc(loot.sellTo).name != "Alesar"
+                                && this.getBestNpc(loot.sellTo).name != "Yasir"
+                                && this.getBestNpc(loot.sellTo).name != "Rashid"
+                    }
                 })
             }
         },
 
         methods: {
-            getBestNpc (npcs) {
-                let index = 0
-                const buyers = npcs.filter(npc => npc.pivot.value == Math.max.apply(Math, npcs.map(npc => npc.pivot.value)))
-
-                if (this.isMainNPC(buyers, 'Yasir')) {
-                   index = this.isMainNPC(buyers, 'Yasir')
-                } else if (this.isMainNPC(buyers, "Nah'Bob")) {
-                    index = this.isMainNPC(buyers, "Nah'Bob")
-                } else if (this.isMainNPC(buyers, 'Hauron')) {
-                    index = this.isMainNPC(buyers, 'Hauron')
-                } else if (this.isMainNPC(buyers, 'Alesar')) {
-                    index = this.isMainNPC(buyers, 'Alesar')
-                } else if (this.isMainNPC(buyers, 'Yaman')) {
-                    index = this.isMainNPC(buyers, 'Yaman')
-                } else if (this.isMainNPC(buyers, 'Rashid')) {
-                    index = this.isMainNPC(buyers, 'Rashid')
+            getNPCName (npcs) {
+                if (npcs.length) {
+                    return npcs.map(npc => npc.name).join(', ')
                 }
 
-                return buyers[index]
+                return null
+            },
+
+            getBestNpc (npcs) {
+                if (npcs.length) {
+                    let index = 0
+                    const buyers = npcs.filter(npc => npc.pivot.value == Math.max.apply(Math, npcs.map(npc => npc.pivot.value)))
+
+                    if (this.isMainNPC(buyers, 'Yasir')) {
+                        index = this.isMainNPC(buyers, 'Yasir')
+                    } else if (this.isMainNPC(buyers, "Nah'Bob")) {
+                        index = this.isMainNPC(buyers, "Nah'Bob")
+                    } else if (this.isMainNPC(buyers, 'Hauron')) {
+                        index = this.isMainNPC(buyers, 'Hauron')
+                    } else if (this.isMainNPC(buyers, 'Alesar')) {
+                        index = this.isMainNPC(buyers, 'Alesar')
+                    } else if (this.isMainNPC(buyers, 'Yaman')) {
+                        index = this.isMainNPC(buyers, 'Yaman')
+                    } else if (this.isMainNPC(buyers, 'Rashid')) {
+                        index = this.isMainNPC(buyers, 'Rashid')
+                    }
+
+                    return buyers[index]
+                }
+
+                return null
             },
 
             isMainNPC (npcs, npc) {

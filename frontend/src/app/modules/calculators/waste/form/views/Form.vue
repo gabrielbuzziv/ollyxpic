@@ -37,8 +37,23 @@
                     <tab-content tab="potions" active>
                         <div class="inline" v-for="potion, index in potions">
                             <form-group>
-                                <form-select :name="`potions[${index}][id]`" :options="options.potions"
-                                             v-model="potion.id" placeholder="Choose Potion"/>
+                                <el-select
+                                        clearable
+                                        filterable
+                                        class="field"
+                                        v-model="potion.id"
+                                        default-first-option
+                                        placeholder="Choose Potion"
+                                        popper-class="suppliesSelect"
+                                        no-match-text="Não encontrado"
+                                        :name="`potions[${index}][id]`"
+                                >
+                                    <el-option v-for="item in options.potions" :label="item.title" :value="item.id" :key="item.id">
+                                        <img :src="image_path('item', item.id)" class="margin-right-10">
+                                        <span>{{ item.title }}</span>
+                                    </el-option>
+                                </el-select>
+
                             </form-group>
 
                             <form-group>
@@ -66,8 +81,22 @@
                     <tab-content tab="ammunition">
                         <div class="inline" v-for="ammunition, index in ammunitions">
                             <form-group>
-                                <form-select :name="`ammunitions[${index}][id]`" :options="options.ammunitions"
-                                             v-model="ammunition.id" placeholder="Choose Ammunition"/>
+                                <el-select
+                                        clearable
+                                        filterable
+                                        class="field"
+                                        v-model="ammunition.id"
+                                        default-first-option
+                                        placeholder="Choose Ammunition"
+                                        popper-class="suppliesSelect"
+                                        no-match-text="Não encontrado"
+                                        :name="`ammunitions[${index}][id]`"
+                                >
+                                    <el-option v-for="item in options.ammunitions" :label="item.title" :value="item.id" :key="item.id">
+                                        <img :src="image_path('item', item.id)" class="margin-right-10">
+                                        <span>{{ item.title }}</span>
+                                    </el-option>
+                                </el-select>
                             </form-group>
 
                             <form-group>
@@ -95,8 +124,22 @@
                     <tab-content tab="runes">
                         <div class="inline" v-for="rune, index in runes">
                             <form-group>
-                                <form-select :name="`runes[${index}][id]`" :options="options.runes"
-                                             v-model="rune.id" placeholder="Choose Rune"/>
+                                <el-select
+                                        clearable
+                                        filterable
+                                        class="field"
+                                        v-model="rune.id"
+                                        default-first-option
+                                        placeholder="Choose Rune"
+                                        popper-class="suppliesSelect"
+                                        no-match-text="Não encontrado"
+                                        :name="`runes[${index}][id]`"
+                                >
+                                    <el-option v-for="item in options.runes" :label="item.title" :value="item.id" :key="item.id">
+                                        <img :src="image_path('item', item.id)" class="margin-right-10">
+                                        <span>{{ item.title }}</span>
+                                    </el-option>
+                                </el-select>
                             </form-group>
 
                             <form-group>
@@ -124,8 +167,22 @@
                     <tab-content tab="amulets">
                         <div class="inline" v-for="amulet, index in amulets">
                             <form-group>
-                                <form-select :name="`amulets[${index}][id]`" :options="options.amulets"
-                                             v-model="amulet.id" placeholder="Choose Rune"/>
+                                <el-select
+                                        clearable
+                                        filterable
+                                        class="field"
+                                        v-model="amulet.id"
+                                        default-first-option
+                                        placeholder="Choose Amulet"
+                                        popper-class="suppliesSelect"
+                                        no-match-text="Não encontrado"
+                                        :name="`amulets[${index}][id]`"
+                                >
+                                    <el-option v-for="item in options.amulets" :label="item.title" :value="item.id" :key="item.id">
+                                        <img :src="image_path('item', item.id)" class="margin-right-10">
+                                        <span>{{ item.title }}</span>
+                                    </el-option>
+                                </el-select>
                             </form-group>
 
                             <form-group>
@@ -153,8 +210,22 @@
                     <tab-content tab="rings">
                         <div class="inline" v-for="ring, index in rings">
                             <form-group>
-                                <form-select :name="`rings[${index}][id]`" :options="options.rings"
-                                             v-model="ring.id" placeholder="Choose Rune"/>
+                                <el-select
+                                        clearable
+                                        filterable
+                                        class="field"
+                                        v-model="ring.id"
+                                        default-first-option
+                                        placeholder="Choose Ring"
+                                        popper-class="suppliesSelect"
+                                        no-match-text="Não encontrado"
+                                        :name="`rings[${index}][id]`"
+                                >
+                                    <el-option v-for="item in options.rings" :label="item.title" :value="item.id" :key="item.id">
+                                        <img :src="image_path('item', item.id)" class="margin-right-10">
+                                        <span>{{ item.title }}</span>
+                                    </el-option>
+                                </el-select>
                             </form-group>
 
                             <form-group>
@@ -180,8 +251,12 @@
                     </tab-content>
 
                     <div class="tab-footer">
-                        <button class="btn btn-success btn-lg btn-block" @click.prevent="onSubmit">
-                            Calculate
+                        <button class="btn btn-success btn-lg btn-block" @click.prevent="onSubmit" :disabled="calculating">
+                            <span v-if="calculating">
+                                <i class="mdi mdi-loading"></i>
+                                Calculating
+                            </span>
+                            <span v-else>Calculate</span>
                         </button>
                     </div>
                 </form>
@@ -225,7 +300,8 @@
                 ammunitions: [{ id: null, quantity: null, price: null }],
                 runes: [{ id: null, quantity: null, price: null }],
                 amulets: [{ id: null, quantity: null, price: null }],
-                rings: [{ id: null, quantity: null, price: null }]
+                rings: [{ id: null, quantity: null, price: null }],
+                calculating: false
             }
         },
 
@@ -267,9 +343,14 @@
                     rings: this.rings,
                 }
 
+                this.calculating = true
                 services.calculate(data)
                         .then(response => {
                             this.$router.push({ name: 'calculators.waste.result', params: { id: response.data.id } })
+                            this.calculating = false
+                        })
+                        .catch(error => {
+                            this.calculating = false
                         })
             }
         },

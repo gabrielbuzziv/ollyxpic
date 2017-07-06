@@ -210,8 +210,6 @@
 
                 services.calculate(data)
                         .then(response => {
-                            console.log(response.data)
-
                             this.calculating = false
                             this.$router.push({ name: 'calculators.teamhunt.result', params: { id: response.data.id }, query: { password: response.data.password } })
                         })

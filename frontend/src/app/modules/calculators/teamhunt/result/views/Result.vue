@@ -401,13 +401,15 @@
             others () {
                 if (this.result && this.result.items) {
                     return this.result.items.filter(item => {
-                        if (this.getBestNpc(item.data.sell_to)) {
-                            return this.getBestNpc(item.data.sell_to).name != "Nah'Bob"
-                                    && this.getBestNpc(item.data.sell_to).name != "Haroun"
-                                    && this.getBestNpc(item.data.sell_to).name != "Yaman"
-                                    && this.getBestNpc(item.data.sell_to).name != "Alesar"
-                                    && this.getBestNpc(item.data.sell_to).name != "Yasir"
-                                    && this.getBestNpc(item.data.sell_to).name != "Rashid"
+                        if (item.data.sell_to.length) {
+                            if (this.getBestNpc(item.data.sell_to)) {
+                                return this.getBestNpc(item.data.sell_to).name != "Nah'Bob"
+                                        && this.getBestNpc(item.data.sell_to).name != "Haroun"
+                                        && this.getBestNpc(item.data.sell_to).name != "Yaman"
+                                        && this.getBestNpc(item.data.sell_to).name != "Alesar"
+                                        && this.getBestNpc(item.data.sell_to).name != "Yasir"
+                                        && this.getBestNpc(item.data.sell_to).name != "Rashid"
+                            }
                         }
                     })
                 }
