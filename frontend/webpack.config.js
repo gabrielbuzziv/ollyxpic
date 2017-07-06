@@ -4,9 +4,10 @@ var webpack = require('webpack')
 module.exports = {
     entry: './src/main.js',
     output: {
-        path: path.resolve(__dirname, './dist'),
+        path: path.join(__dirname, './dist', '[hash]'),
         publicPath: '/dist/',
-        filename: 'build.js'
+        filename: 'output.[hash].build.js',
+        chunkFilename: "[id].[hash].build.js"
     },
     module: {
         rules: [
