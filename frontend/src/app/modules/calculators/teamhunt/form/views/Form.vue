@@ -1,6 +1,7 @@
 <template>
     <page-load>
         <page-title>
+            <img :src="item_path('crystal-coin')" class="margin-right-10">
             Team Hunt Calculator
         </page-title>
 

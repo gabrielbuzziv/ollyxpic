@@ -127,13 +127,13 @@
             },
 
             speed () {
-                return Math.ceil(this.baseSpeed + parseInt(this.bonus) + this.spellSpeed);
+                return Math.floor(this.baseSpeed + parseInt(this.bonus) + this.spellSpeed);
             }
         },
 
         methods: {
             getSpeedToBoost (friction) {
-                return Math.ceil((594 * friction) / 100)
+                return Math.floor((594 * friction) / 100)
             },
 
             canBoost (speed) {
