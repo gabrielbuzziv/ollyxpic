@@ -6,7 +6,9 @@ use App\Helper\GifCreator;
 use App\Helper\GifFrameExtractor;
 use App\Items;
 use App\NPC;
+use App\Spells;
 use App\WorldMap;
+use App\WorldObject;
 use GIFEndec\Decoder;
 use GIFEndec\Events\FrameRenderedEvent;
 use GIFEndec\IO\FileStream;
@@ -102,6 +104,10 @@ class ImageController extends Controller
                 return NPC::find($id)->image;
             case 'item':
                 return Items::find($id)->image;
+            case 'object':
+                return WorldObject::find($id)->image;
+            case 'spell':
+                return Spells::find($id)->image;
             case 'map':
                 return WorldMap::where('z', $id)->first()->image;
         }

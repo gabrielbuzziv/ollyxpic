@@ -3,6 +3,7 @@ import { routes as waste } from './waste'
 import { routes as teamhunt } from './teamhunt'
 import { routes as loot } from './loot'
 import { routes as bless } from './bless'
+import { routes as speedboost } from './speedboost'
 
 export default [
     {
@@ -17,5 +18,7 @@ export default [
 
     ...loot,
 
-    ...bless
+    ...bless,
+
+    ...speedboost
 ]

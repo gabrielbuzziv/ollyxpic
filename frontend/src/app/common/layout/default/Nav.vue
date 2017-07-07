@@ -36,13 +36,13 @@
                 </a>
             </router-link>
 
-            <li>
-                <a href="#">
+            <router-link :to="{ name: 'calculators.speedboost' }" tag="li">
+                <a href="">
                     <img :src="item_path('boots-of-haste')" class="margin-right-5">
-                    <span>Bug Speed</span>
-                    <span class="label label-danger">Soon</span>
+                    <span>Speed Boost</span>
+                    <span class="label label-success">New</span>
                 </a>
-            </li>
+            </router-link>
         </ul>
     </nav>
 </template>

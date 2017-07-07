@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Items;
+use App\WorldObject;
 use Illuminate\Http\Request;
 
 class ItemsController extends Controller
@@ -305,6 +306,18 @@ class ItemsController extends Controller
 
         $items = Items::whereIn('id', $rings)
             ->get();
+
+        return $this->respond($items->toArray());
+    }
+
+    /**
+     * Tiles
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function tiles()
+    {
+        $items = WorldObject::get();
 
         return $this->respond($items->toArray());
     }
