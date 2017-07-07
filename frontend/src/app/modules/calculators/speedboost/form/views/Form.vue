@@ -133,7 +133,42 @@
 
         methods: {
             getSpeedToBoost (friction) {
-                return Math.floor((594 * friction) / 100)
+                switch (friction) {
+                    case 70:
+                        return 342
+                    case 90:
+                        return 500
+                    case 95:
+                        return 593
+                    case 100:
+                        return 592
+                    case 110:
+                        return 696
+                    case 120:
+                        return 813
+                    case 121:
+                        return 823
+                    case 125:
+                        return 876;
+                    case 130:
+                        return 944
+                    case 140:
+                        return 1092
+                    case 150:
+                        return 1258
+                    case 160:
+                        return 1443
+                    case 170:
+                        return 1652
+                    case 180:
+                        return 1886
+                    case 200:
+                        return 2445
+                    case 250:
+                        return 4557
+                    default:
+                        return 0
+                }
             },
 
             canBoost (speed) {
