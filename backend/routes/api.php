@@ -36,3 +36,5 @@ Route::get('tiles', 'TileController@index');
 Route::post('tiles/{tile}/friction', 'TileController@updateFriction');
 
 //Route::get('npcs', 'NPCController@index');
+
+Route::get('dat', 'TileController@test');

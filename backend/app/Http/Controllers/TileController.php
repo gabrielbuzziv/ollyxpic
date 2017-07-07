@@ -40,4 +40,11 @@ class TileController extends Controller
 
         return $this->respond($tile->toArray());
     }
+
+    public function test()
+    {
+        $file = storage_path('Tibia.pic');
+
+        return file_get_contents($file);
+    }
 }

@@ -2,32 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce10aee6-880d-4f01-bf3e-bf71cc20de41" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/292b2f8e751f877c0892c4376c7c7eef.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/448c34a56d699c29117adc64c43affeb.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/633c9b849b1ed2b5fa1ba7c2a9b22099.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/7f88c63c8ca619cd1ae4243f6f64f54f.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/89889688147bd7575d6327160d64e760.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/b02bdc1b846fd65473922f5f62832108.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/build.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/build.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/c28dbbac641f64eaabb9b756f6770619.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/d2f69a92faa6fe990d2e613c358be705.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/e18bbf611f2a2e43afc071aa2f4e1512.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/f4769f9bdb7466be65088239c12046d1.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/f540b423205e383e431bd1df377f09a7.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/fa2772327f55d8198301fdb8bcfc8158.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/glyphicons-halflings-regular.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/dist/materialdesignicons-webfont.svg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/TileController.php" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/TileController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/routes/api.php" afterPath="$PROJECT_DIR$/backend/routes/api.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/index.html" afterPath="$PROJECT_DIR$/frontend/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/bless/form/views/Form.vue" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/bless/form/views/Form.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/loot/form/views/Form.vue" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/loot/form/views/Form.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/form/views/Form.vue" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/form/views/Form.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/views/Form.vue" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/views/Form.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/result/views/Result.vue" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/result/views/Result.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/form/views/Form.vue" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/form/views/Form.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/result/views/Result.vue" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/result/views/Result.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/webpack.config.js" afterPath="$PROJECT_DIR$/frontend/webpack.config.js" />
     </list>
     <ignored path="ollyxpic.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,20 +31,10 @@
         <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/form/views/Form.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="185">
-              <caret line="112" column="27" selection-start-line="112" selection-start-column="27" selection-end-line="112" selection-end-column="27" />
+              <caret line="147" column="34" selection-start-line="147" selection-start-column="34" selection-end-line="147" selection-end-column="34" />
               <folding>
                 <element signature="e#4002#4036#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Form.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/bless/form/views/Form.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="3" column="60" selection-start-line="3" selection-start-column="60" selection-end-line="3" selection-end-column="60" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -86,6 +54,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="87">
               <caret line="3" column="74" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="74" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="292">
+              <caret line="39" column="22" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -114,8 +92,18 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="8" column="65" selection-start-line="8" selection-start-column="65" selection-end-line="8" selection-end-column="65" />
+            <state relative-caret-position="551">
+              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TileController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/TileController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -126,16 +114,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="87">
               <caret line="3" column="45" selection-start-line="3" selection-start-column="45" selection-end-line="3" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -194,14 +172,11 @@
         <option value="$PROJECT_DIR$/backend/database/migrations/2017_07_06_185622_create_tiles_table.php" />
         <option value="$PROJECT_DIR$/backend/app/Tiles.php" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/form/services/index.js" />
-        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/TileController.php" />
         <option value="$PROJECT_DIR$/frontend/src/assets/scss/app.scss" />
         <option value="$PROJECT_DIR$/frontend/src/libs/elements.js" />
         <option value="$PROJECT_DIR$/backend/app/Spells.php" />
         <option value="$PROJECT_DIR$/backend/app/Http/Controllers/ImageController.php" />
         <option value="$PROJECT_DIR$/frontend/src/assets/scss/speedboost.scss" />
-        <option value="$PROJECT_DIR$/backend/routes/api.php" />
-        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/form/views/Form.vue" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/bless/form/views/Form.vue" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/loot/form/views/Form.vue" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/views/Form.vue" />
@@ -209,6 +184,9 @@
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/result/views/Result.vue" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/form/views/Form.vue" />
         <option value="$PROJECT_DIR$/frontend/webpack.config.js" />
+        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/form/views/Form.vue" />
+        <option value="$PROJECT_DIR$/backend/routes/api.php" />
+        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/TileController.php" />
         <option value="$PROJECT_DIR$/frontend/index.html" />
       </list>
     </option>
@@ -261,45 +239,14 @@
       <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ollyxpic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ollyxpic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ollyxpic" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ollyxpic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ollyxpic" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
+        <subPane />
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
-    <property name="SearchEverywhereHistoryKey" value="eb&#9;FILE&#9;file:///var/www/ollyxpic/frontend/webpack.config.js&#10;waste/re&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/waste/result/views/Result.vue&#10;waste/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/waste/form/views/Form.vue&#10;teamhunt/for&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/teamhunt/form/views/Form.vue&#10;loot/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot/form/views/Form.vue&#10;bless/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/bless/form/views/Form.vue&#10;webpack&#9;FILE&#9;file:///var/www/ollyxpic/frontend/webpack.config.js&#10;pi&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;image&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/ImageController.php&#10;spells&#9;null&#9;null&#10;elem&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/elements.js&#10;app.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/app.scss&#10;api&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;tiles_t&#9;FILE&#9;file:///var/www/ollyxpic/backend/database/migrations/2017_07_06_185622_create_tiles_table.php&#10;tilecontr&#9;null&#9;null&#10;tiles_&#9;FILE&#9;file:///var/www/ollyxpic/backend/database/migrations/2017_07_06_185622_create_tiles_table.php&#10;tile&#9;null&#9;null&#10;wor&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/WorldObject.php&#10;api.php&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;itemcontr&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/ItemsController.php&#10;worldob&#9;null&#9;null&#10;imagecontr&#9;null&#9;null&#10;nav.&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Nav.vue&#10;nav.v&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Nav.vue&#10;element&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/elements.js&#10;.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/form.scss&#10;teamhunt/result&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/teamhunt/result/views/Result.vue&#10;loot/for&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot/form/views/Form.vue&#10;temcont&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/ItemsController.php&#10;form.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/form.scss&#10;wastecon&#9;null&#9;null&#10;teamhunt/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/teamhunt/form/views/Form.vue&#10;waste/acti&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/waste/form/vuex/actions.js&#10;waste/getters&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/waste/form/vuex/getters.js&#10;pages.&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/pages.scss&#10;htt&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/http.js&#10;teamhuntcon&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TeamHuntController.php&#10;header.vue&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Header.vue&#10;nav&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Nav.vue&#10;panel.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/panel.scss&#10;panel.vue&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/Panel.vue&#10;globals.&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/globals.js&#10;app.sc&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/app.scss&#10;api.&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;team&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TeamHuntController.php&#10;app&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/app.scss&#10;layout/&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout&#10;SELECT.VUE&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/form/Select.vue&#10;select.vu&#9;FILE&#9;file:///var/www/ollyxpic/frontend/node_modules/vue-select/src/components/Select.vue&#10;components/inde&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/index.js" />
+    <property name="SearchEverywhereHistoryKey" value="pi&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;tile&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TileController.php&#10;eb&#9;FILE&#9;file:///var/www/ollyxpic/frontend/webpack.config.js&#10;waste/re&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/waste/result/views/Result.vue&#10;waste/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/waste/form/views/Form.vue&#10;teamhunt/for&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/teamhunt/form/views/Form.vue&#10;loot/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot/form/views/Form.vue&#10;bless/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/bless/form/views/Form.vue&#10;webpack&#9;FILE&#9;file:///var/www/ollyxpic/frontend/webpack.config.js&#10;image&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/ImageController.php&#10;spells&#9;null&#9;null&#10;elem&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/elements.js&#10;app.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/app.scss&#10;api&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;tiles_t&#9;FILE&#9;file:///var/www/ollyxpic/backend/database/migrations/2017_07_06_185622_create_tiles_table.php&#10;tilecontr&#9;null&#9;null&#10;tiles_&#9;FILE&#9;file:///var/www/ollyxpic/backend/database/migrations/2017_07_06_185622_create_tiles_table.php&#10;wor&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/WorldObject.php&#10;api.php&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;itemcontr&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/ItemsController.php&#10;worldob&#9;null&#9;null&#10;imagecontr&#9;null&#9;null&#10;nav.&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Nav.vue&#10;nav.v&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Nav.vue&#10;element&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/elements.js&#10;.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/form.scss&#10;teamhunt/result&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/teamhunt/result/views/Result.vue&#10;loot/for&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot/form/views/Form.vue&#10;temcont&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/ItemsController.php&#10;form.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/form.scss&#10;wastecon&#9;null&#9;null&#10;teamhunt/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/teamhunt/form/views/Form.vue&#10;waste/acti&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/waste/form/vuex/actions.js&#10;waste/getters&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/waste/form/vuex/getters.js&#10;pages.&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/pages.scss&#10;htt&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/http.js&#10;teamhuntcon&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TeamHuntController.php&#10;header.vue&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Header.vue&#10;nav&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Nav.vue&#10;panel.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/panel.scss&#10;panel.vue&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/Panel.vue&#10;globals.&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/globals.js&#10;app.sc&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/app.scss&#10;api.&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;team&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TeamHuntController.php&#10;app&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/app.scss&#10;layout/&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout&#10;SELECT.VUE&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/form/Select.vue&#10;select.vu&#9;FILE&#9;file:///var/www/ollyxpic/frontend/node_modules/vue-select/src/components/Select.vue&#10;components/inde&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/index.js" />
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="JavaScriptPreferStrict" value="false" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
@@ -383,24 +330,24 @@
       <workItem from="1499103134171" duration="24403000" />
       <workItem from="1499252813553" duration="17604000" />
       <workItem from="1499337948090" duration="18063000" />
-      <workItem from="1499424657442" duration="8258000" />
+      <workItem from="1499424657442" duration="11272000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="293100000" />
+    <option name="totallyTimeSpent" value="296114000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31625184" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31625184" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23529412" sideWeight="0.50292826" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930514" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902297" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24944155" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42775393" sideWeight="0.49707174" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42775393" sideWeight="0.49707174" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -692,16 +639,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/TileController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding>
-            <element signature="e#40#54#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/app.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
@@ -744,24 +681,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/form/views/Form.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="112" column="27" selection-start-line="112" selection-start-column="27" selection-end-line="112" selection-end-column="27" />
-          <folding>
-            <element signature="e#4002#4036#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/bless/form/views/Form.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="87">
@@ -774,14 +693,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="58">
           <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/views/Form.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="3" column="74" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="74" />
           <folding />
         </state>
       </provider>
@@ -802,14 +713,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/form/views/Form.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
@@ -818,10 +721,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/index.html">
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/form/views/Form.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="147" column="34" selection-start-line="147" selection-start-column="34" selection-end-line="147" selection-end-column="34" />
+          <folding>
+            <element signature="e#4002#4036#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/form/views/Form.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
-          <caret line="8" column="65" selection-start-line="8" selection-start-column="65" selection-end-line="8" selection-end-column="65" />
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="39" column="22" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/views/Form.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="3" column="74" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/TileController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
           <folding />
         </state>
       </provider>
