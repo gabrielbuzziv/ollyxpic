@@ -40,11 +40,6 @@
                                 <img :src="image_path('spell', 72)" alt="">
                             </el-tooltip>
                         </el-radio>
-                        <el-radio class="radio" v-model="spell" :label="4">
-                            <el-tooltip content="Utamo tempo san">
-                                <img :src="image_path('spell', 95)" alt="">
-                            </el-tooltip>
-                        </el-radio>
                     </div>
                 </div>
             </panel>
@@ -53,14 +48,21 @@
                 Your base speed is <b>{{ baseSpeed }}</b> and with setted bonus is <b>{{ speed }}</b>
             </panel>
 
+
+            <div class="alert alert-warning">
+                <p>All data was taken from tibia files.</p>
+            </div>
+        </div>
+
+        <div class="col-md-8">
             <panel>
                 <table class="table">
                     <thead>
                         <tr>
                             <th>Tile</th>
-                            <th>Description</th>
+                            <!--<th>Description</th>-->
                             <th class="text-center">Friction</th>
-                            <th class="text-center">Speed to Boost</th>
+                            <th class="text-center">Max Speed</th>
                             <th class="text-center">Boosting?</th>
                         </tr>
                     </thead>
@@ -68,16 +70,113 @@
                     <tbody>
                         <tr v-for="tile , index in tiles">
                             <td>
-                                <img :src="image_path('object', tile.object_id)" alt="">
+                                <img :src="tile_path(tile.object_id)" alt="">
                             </td>
-                            <td>
-                                {{ tile.name }}
-                            </td>
+                            <!--<td>-->
+                                <!--{{ tile.name }}-->
+                            <!--</td>-->
                             <td class="text-center">
                                 {{ tile.friction }}
                             </td>
                             <td class="text-center">
                                 {{ getSpeedToBoost(tile.friction) }}
+                            </td>
+                            <td class="text-center">
+                                <i class="mdi mdi-thumb-up text-success" v-if="canBoost(getSpeedToBoost(tile.friction))"></i>
+                                <i class="mdi mdi-thumb-down text-danger" v-else></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </panel>
+        </div>
+
+        <div class="col-md-4">
+            <panel title="Catacomb">
+                <table class="table margin-bottom-0 no-top-border">
+                    <tbody>
+                        <tr v-for="tile , index in catacomb">
+                            <td width="70">
+                                <img :src="tile_path(tile.object_id)" alt="">
+                            </td>
+                            <td class="text-center">
+                                {{ getSpeedToBoost(tile.friction) }} speed
+                            </td>
+                            <td class="text-center">
+                                <i class="mdi mdi-thumb-up text-success" v-if="canBoost(getSpeedToBoost(tile.friction))"></i>
+                                <i class="mdi mdi-thumb-down text-danger" v-else></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </panel>
+
+            <panel title="Prison">
+                <table class="table margin-bottom-0 no-top-border">
+                    <tbody>
+                        <tr v-for="tile , index in prison">
+                            <td width="70">
+                                <img :src="tile_path(tile.object_id)" alt="">
+                            </td>
+                            <td class="text-center">
+                                {{ getSpeedToBoost(tile.friction) }} speed
+                            </td>
+                            <td class="text-center">
+                                <i class="mdi mdi-thumb-up text-success" v-if="canBoost(getSpeedToBoost(tile.friction))"></i>
+                                <i class="mdi mdi-thumb-down text-danger" v-else></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </panel>
+
+            <panel title="Roshamuul">
+                <table class="table margin-bottom-0 no-top-border">
+                    <tbody>
+                        <tr v-for="tile , index in roshamuul">
+                            <td width="70">
+                                <img :src="tile_path(tile.object_id)" alt="">
+                            </td>
+                            <td class="text-center">
+                                {{ getSpeedToBoost(tile.friction) }} speed
+                            </td>
+                            <td class="text-center">
+                                <i class="mdi mdi-thumb-up text-success" v-if="canBoost(getSpeedToBoost(tile.friction))"></i>
+                                <i class="mdi mdi-thumb-down text-danger" v-else></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </panel>
+
+            <panel title="Lizard City">
+                <table class="table margin-bottom-0 no-top-border">
+                    <tbody>
+                        <tr v-for="tile , index in lizardCity">
+                            <td width="70">
+                                <img :src="tile_path(tile.object_id)" alt="">
+                            </td>
+                            <td class="text-center">
+                                {{ getSpeedToBoost(tile.friction) }} speed
+                            </td>
+                            <td class="text-center">
+                                <i class="mdi mdi-thumb-up text-success" v-if="canBoost(getSpeedToBoost(tile.friction))"></i>
+                                <i class="mdi mdi-thumb-down text-danger" v-else></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </panel>
+
+            <panel title="Banuta">
+                <table class="table margin-bottom-0 no-top-border">
+                    <tbody>
+                        <tr v-for="tile , index in banuta">
+                            <td width="70">
+                                <img :src="tile_path(tile.object_id)" alt="">
+                            </td>
+                            <td class="text-center">
+                                {{ getSpeedToBoost(tile.friction) }} speed
                             </td>
                             <td class="text-center">
                                 <i class="mdi mdi-thumb-up text-success" v-if="canBoost(getSpeedToBoost(tile.friction))"></i>
@@ -101,11 +200,57 @@
                 tiles: [],
                 level: 0,
                 bonus: 0,
-                spell: 0
+                spell: 0,
+                newTile: {
+                    name: '',
+                    friction: 100,
+                    object_id: 0
+                },
+                ids: []
             }
         },
 
         computed: {
+            lizardCity () {
+                const tiles = [9481, 9575]
+
+                return this.tiles.filter(tile => {
+                    return tiles.indexOf(tile.object_id) > -1
+                })
+            },
+
+            banuta () {
+                const tiles = [499, 500, 516, 524, 543]
+
+                return this.tiles.filter(tile => {
+                    return tiles.indexOf(tile.object_id) > -1
+                })
+            },
+
+            roshamuul () {
+                const tiles = [19825, 19550, 19558]
+
+                return this.tiles.filter(tile => {
+                    return tiles.indexOf(tile.object_id) > -1
+                })
+            },
+
+            prison () {
+                const tiles = [17544]
+
+                return this.tiles.filter(tile => {
+                    return tiles.indexOf(tile.object_id) > -1
+                })
+            },
+
+            catacomb () {
+                const tiles = [20712]
+
+                return this.tiles.filter(tile => {
+                    return tiles.indexOf(tile.object_id) > -1
+                })
+            },
+
             baseSpeed () {
                 return parseInt(this.level) + 109;
             },
@@ -173,16 +318,20 @@
 
             canBoost (speed) {
                 return this.speed >= speed ? true : false
+            },
+
+            loadTiles () {
+                services.fetchTiles()
+                        .then(response => {
+                            this.tiles = response.data.sort((a, b) => {
+                                return a.friction - b.friction
+                            })
+                        })
             }
         },
 
         mounted () {
-            services.fetchTiles()
-                    .then(response => {
-                        this.tiles = response.data.sort((a, b) => {
-                            return a.friction - b.friction
-                        })
-                    })
+            this.loadTiles()
         }
     }
 </script>

@@ -31,10 +31,4 @@ Route::post('teamhunt/{hunt}/item/{item}', 'TeamHuntController@updateItem');
 Route::post('teamhunt/{hunt}/teammate/{teammate}', 'TeamHuntController@updateTeammate');
 Route::post('teamhunt/{hunt}/sign', 'TeamHuntController@signPassword');
 
-
 Route::get('tiles', 'TileController@index');
-Route::post('tiles/{tile}/friction', 'TileController@updateFriction');
-
-//Route::get('npcs', 'NPCController@index');
-
-Route::get('dat', 'TileController@test');

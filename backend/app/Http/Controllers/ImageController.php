@@ -24,12 +24,14 @@ class ImageController extends Controller
     /**
      * Load image.
      *
+     * @param $directory
      * @param $filename
+     * @param $ext
      * @return $this
      */
-    public function load($filename)
+    public function load($directory, $filename, $ext)
     {
-        if ($path = $this->fileExists('items', "{$filename}.gif")) {
+        if ($path = $this->fileExists($directory, "{$filename}.{$ext}")) {
             $file = File::get($path);
             $type = File::mimeType($path);
 

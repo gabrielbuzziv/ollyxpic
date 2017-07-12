@@ -1,5 +1,17 @@
 table {
     &.table {
+        &.no-top-border {
+            tbody {
+                tr {
+                    &:first-child {
+                        td {
+                            border: 0;
+                        }
+                    }
+                }
+            }
+        }
+
         thead {
             tr {
                 th {

@@ -19,11 +19,15 @@ Vue.mixin({
 
     methods: {
         item_path (item) {
-            return `${this.baseURL}/images/${item}`
+            return `${this.baseURL}/images/items/${item}/gif`
+        },
+
+        tile_path (item) {
+            return `${this.baseURL}/images/tiles/${item}/png`
         },
 
         image_path (type, id) {
-            return `${this.baseURL}/images/${type}/${id}`
+            return `${this.baseURL}/images/blob/${type}/${id}`
         },
 
         convertToCrystal (value, ext = false) {
