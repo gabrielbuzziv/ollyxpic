@@ -9,38 +9,74 @@
 
             <router-link :to="{ name: 'calculators.waste' }" tag="li">
                 <a href="">
-                    <img :src="item_path('ultimate-mana-potion')" class="margin-right-5">
-                    <span>Waste Calculator</span>
+                    <span class="left">
+                        <img :src="item_path('ultimate-mana-potion')">
+                    </span>
+                    <span class="center">
+                        <span>Supplies</span>
+                        <small>Waste</small>
+                    </span>
                 </a>
             </router-link>
 
-            <router-link :to="{ name: 'calculators.teamhunt' }" tag="li">
+            <router-link :to="{ name: 'calculators.imbuements' }" tag="li">
                 <a href="">
-                    <img :src="item_path('crystal-coin')" class="margin-right-5">
-                    <span>Team Hunt Profit</span>
+                    <span class="left">
+                        <img :src="item_path('slayer-of-mayhem-overcharged')">
+                    </span>
+                    <span class="center">
+                        <span>Imbuements</span>
+                        <small>Waste/Time</small>
+                    </span>
+                    <span class="label label-success">New</span>
+                </a>
+            </router-link>
+
+            <router-link :to="{ name: 'calculators.hunt' }" tag="li">
+                <a href="">
+                    <span class="left">
+                        <img :src="item_path('crystal-coin')">
+                    </span>
+                    <span class="center">
+                        <span>Hunt</span>
+                        <small>Waste/Profit</small>
+                    </span>
                 </a>
             </router-link>
 
             <router-link :to="{ name: 'calculators.loot' }" tag="li">
                 <a href="">
-                    <img :src="item_path('magic-plate-armor')" class="margin-right-5">
-                    <span>Loot Count</span>
+                    <span class="left">
+                        <img :src="item_path('magic-plate-armor')">
+                    </span>
+                    <span class="center">
+                        <span>Loot</span>
+                        <small>Count</small>
+                    </span>
                 </a>
             </router-link>
 
             <router-link :to="{ name: 'calculators.blessing' }" tag="li">
                 <a href="">
-                    <img :src="item_path('spiritual-charm')" class="margin-right-5">
-                    <span>Blessings</span>
-                    <span class="label label-success">New</span>
+                    <span class="left">
+                        <img :src="item_path('spiritual-charm')">
+                    </span>
+                    <span class="center">
+                        <span>Blessings</span>
+                        <small>Penalty</small>
+                    </span>
                 </a>
             </router-link>
 
             <router-link :to="{ name: 'calculators.speedboost' }" tag="li">
                 <a href="">
-                    <img :src="item_path('boots-of-haste')" class="margin-right-5">
-                    <span>Speed Boost</span>
-                    <span class="label label-success">New</span>
+                    <span class="left">
+                        <img :src="item_path('boots-of-haste')">
+                    </span>
+                    <span class="center">
+                        <span>Speed</span>
+                        <small>Boost</small>
+                    </span>
                 </a>
             </router-link>
         </ul>

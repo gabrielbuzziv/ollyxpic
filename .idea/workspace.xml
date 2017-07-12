@@ -2,8 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce10aee6-880d-4f01-bf3e-bf71cc20de41" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/ImbuementController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/app/ImbuementItems.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/app/Imbuements.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/imbuements/form/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/imbuements/form/routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/imbuements/form/services/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/imbuements/form/views/Form.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/imbuements/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/imbuements/routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/imbuements.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/lootcount.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/libs/mask.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/index.js" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/index.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/routes.js" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/form/routes.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/services/index.js" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/form/services/index.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/views/Form.vue" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/form/views/Form.vue" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/views/SuppliesCalculator.vue" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/form/views/SuppliesCalculator.vue" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/vuex/actions.js" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/form/vuex/actions.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/vuex/getters.js" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/form/vuex/getters.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/vuex/index.js" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/form/vuex/index.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/vuex/mutations.js" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/form/vuex/mutations.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/vuex/state.js" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/form/vuex/state.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/index.js" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/form/index.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/result/index.js" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/result/index.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/result/routes.js" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/result/routes.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/result/services/index.js" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/result/services/index.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/result/views/Result.vue" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/result/views/Result.vue" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/routes.js" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/routes.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/vuex.js" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/vuex.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/database/database.db" afterPath="$PROJECT_DIR$/backend/database/database.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/form/views/Form.vue" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/form/views/Form.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/app/Items.php" afterPath="$PROJECT_DIR$/backend/app/Items.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/routes/api.php" afterPath="$PROJECT_DIR$/backend/routes/api.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/package.json" afterPath="$PROJECT_DIR$/frontend/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/common/layout/default/Nav.vue" afterPath="$PROJECT_DIR$/frontend/src/app/common/layout/default/Nav.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/loot/form/views/Form.vue" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/loot/form/views/Form.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/routes.js" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/routes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/result/views/Result.vue" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/result/views/Result.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/assets/scss/app.scss" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/app.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/assets/scss/layout.scss" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/layout.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/libs/index.js" afterPath="$PROJECT_DIR$/frontend/src/libs/index.js" />
     </list>
     <ignored path="ollyxpic.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,53 +64,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Form.vue" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/form/views/Form.vue">
+      <file leaf-file-name="Form.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/imbuements/form/views/Form.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="276" column="56" selection-start-line="276" selection-start-column="56" selection-end-line="276" selection-end-column="56" />
+            <state relative-caret-position="261">
+              <caret line="23" column="71" selection-start-line="23" selection-start-column="71" selection-end-line="23" selection-end-column="71" />
               <folding>
-                <element signature="e#8525#8559#0" expanded="true" />
+                <element signature="e#5668#5702#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="table.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/table.scss">
+      <file leaf-file-name="Result.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/result/views/Result.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+            <state relative-caret-position="343">
+              <caret line="28" column="80" selection-start-line="28" selection-start-column="80" selection-end-line="28" selection-end-column="80" />
+              <caret line="43" column="80" selection-start-line="43" selection-start-column="80" selection-end-line="43" selection-end-column="80" />
+              <caret line="58" column="80" selection-start-line="58" selection-start-column="80" selection-end-line="58" selection-end-column="80" />
+              <caret line="73" column="80" selection-start-line="73" selection-start-column="80" selection-end-line="73" selection-end-column="80" />
+              <caret line="88" column="80" selection-start-line="88" selection-start-column="80" selection-end-line="88" selection-end-column="80" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/index.html">
+      <file leaf-file-name="Nav.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/common/layout/default/Nav.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="webpack.config.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/webpack.config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TileController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/TileController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+            <state relative-caret-position="203">
+              <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -80,48 +103,60 @@
       <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+            <state relative-caret-position="496">
+              <caret line="33" column="39" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/routes/web.php">
+      <file leaf-file-name="Imbuements.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/app/Imbuements.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="19" column="61" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="61" />
+            <state relative-caret-position="177">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mixins.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/libs/mixins.js">
+      <file leaf-file-name="ImbuementController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/ImbuementController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="725">
-              <caret line="25" column="61" selection-start-line="25" selection-start-column="61" selection-end-line="25" selection-end-column="61" />
+            <state relative-caret-position="203">
+              <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+              <folding>
+                <element signature="e#40#59#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/app.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="214">
+              <caret line="41" column="16" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/form/services/index.js">
+      <file leaf-file-name="imbuements.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/imbuements.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+            <state relative-caret-position="377">
+              <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImageController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/ImageController.php">
+      <file leaf-file-name="ImbuementItems.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/app/ImbuementItems.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+            <state relative-caret-position="348">
+              <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -135,57 +170,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/loot/form/services/index.js" />
-        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/loot/index.js" />
-        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/loot/form/routes.js" />
-        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/Calculators.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/assets/scss/panel.scss" />
-        <option value="$PROJECT_DIR$/frontend/src/assets/scss/itemselect.scss" />
-        <option value="$PROJECT_DIR$/frontend/src/app/modules/pages/home/home/views/Index.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/app/common/layout/default/Topbar.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/assets/scss/layout.scss" />
-        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/TeamHuntController.php" />
-        <option value="$PROJECT_DIR$/frontend/src/libs/http.js" />
-        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/form/vuex/actions.js" />
-        <option value="$PROJECT_DIR$/frontend/src/assets/scss/waste-modal.scss" />
-        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/views/SuppliesCalculator.vue" />
-        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/WasteController.php" />
-        <option value="$PROJECT_DIR$/frontend/src/assets/scss/form.scss" />
-        <option value="$PROJECT_DIR$/frontend/src/libs/index.js" />
-        <option value="$PROJECT_DIR$/frontend/src/libs/analytics.js" />
-        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/bless/form/routes.js" />
-        <option value="$PROJECT_DIR$/frontend/src/assets/scss/blessings.scss" />
-        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/form/routes.js" />
-        <option value="$PROJECT_DIR$/frontend/src/app/common/layout/default/Nav.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/routes.js" />
-        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/form/vuex/state.js" />
-        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/index.js" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/form/index.js" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/vuex.js" />
         <option value="$PROJECT_DIR$/backend/app/WorldObject.php" />
         <option value="$PROJECT_DIR$/backend/app/Http/Controllers/ItemsController.php" />
         <option value="$PROJECT_DIR$/backend/database/migrations/2017_07_06_185622_create_tiles_table.php" />
         <option value="$PROJECT_DIR$/backend/app/Tiles.php" />
-        <option value="$PROJECT_DIR$/frontend/src/assets/scss/app.scss" />
         <option value="$PROJECT_DIR$/frontend/src/libs/elements.js" />
         <option value="$PROJECT_DIR$/backend/app/Spells.php" />
         <option value="$PROJECT_DIR$/frontend/src/assets/scss/speedboost.scss" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/bless/form/views/Form.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/loot/form/views/Form.vue" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/views/Form.vue" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/result/views/Result.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/result/views/Result.vue" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/form/views/Form.vue" />
         <option value="$PROJECT_DIR$/frontend/index.html" />
         <option value="$PROJECT_DIR$/frontend/webpack.config.js" />
         <option value="$PROJECT_DIR$/backend/app/Http/Controllers/ImageController.php" />
         <option value="$PROJECT_DIR$/frontend/src/libs/mixins.js" />
         <option value="$PROJECT_DIR$/backend/app/Http/Controllers/TileController.php" />
-        <option value="$PROJECT_DIR$/backend/routes/api.php" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/form/services/index.js" />
         <option value="$PROJECT_DIR$/backend/routes/web.php" />
         <option value="$PROJECT_DIR$/frontend/src/assets/scss/table.scss" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/form/views/Form.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/imbuiments/form/routes.js" />
+        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/form/routes.js" />
+        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/result/routes.js" />
+        <option value="$PROJECT_DIR$/frontend/src/assets/scss/nav.scss" />
+        <option value="$PROJECT_DIR$/frontend/src/assets/scss/layout.scss" />
+        <option value="$PROJECT_DIR$/backend/database/migrations/2017_07_12_130135_create_imbuiments_table.php" />
+        <option value="$PROJECT_DIR$/backend/database/migrations/2017_07_12_130150_create_imbuiments_items_table.php" />
+        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/ImbuimentController.php" />
+        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/imbuiments/form/services/index.js" />
+        <option value="$PROJECT_DIR$/frontend/src/assets/scss/lootcount.scss" />
+        <option value="$PROJECT_DIR$/backend/app/Items.php" />
+        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/loot/form/views/Form.vue" />
+        <option value="$PROJECT_DIR$/backend/app/Imbuiments.php" />
+        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/imbuiments/form/views/Form.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/assets/scss/imbuiments.scss" />
+        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/routes.js" />
+        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/imbuements/form/routes.js" />
+        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/imbuements/form/services/index.js" />
+        <option value="$PROJECT_DIR$/frontend/src/app/common/layout/default/Nav.vue" />
+        <option value="$PROJECT_DIR$/backend/routes/api.php" />
+        <option value="$PROJECT_DIR$/backend/app/ImbuimentItems.php" />
+        <option value="$PROJECT_DIR$/backend/app/Imbuements.php" />
+        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/ImbuementController.php" />
+        <option value="$PROJECT_DIR$/frontend/src/assets/scss/app.scss" />
+        <option value="$PROJECT_DIR$/frontend/src/libs/mask.js" />
+        <option value="$PROJECT_DIR$/frontend/src/assets/scss/imbuements.scss" />
+        <option value="$PROJECT_DIR$/frontend/src/libs/index.js" />
+        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/imbuements/form/views/Form.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/result/views/Result.vue" />
       </list>
     </option>
   </component>
@@ -236,56 +271,7 @@
     <panes>
       <pane id="Scratches" />
       <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ollyxpic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ollyxpic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ollyxpic" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ollyxpic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ollyxpic" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ollyxpic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ollyxpic" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dist" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
+        <subPane />
       </pane>
       <pane id="Scope" />
     </panes>
@@ -293,22 +279,22 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
-    <property name="SearchEverywhereHistoryKey" value="table.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/table.scss&#10;web&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/web.php&#10;imagecontr&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/ImageController.php&#10;api.php&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;mixins&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/mixins.js&#10;web.php&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/web.php&#10;api&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;image&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/ImageController.php&#10;reate_tile&#9;FILE&#9;file:///var/www/ollyxpic/backend/database/migrations/2017_07_06_185622_create_tiles_table.php&#10;tile&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TileController.php&#10;imagecont&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/ImageController.php&#10;index.html&#9;FILE&#9;file:///var/www/ollyxpic/frontend/index.html&#10;speedboost/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/speedboost/form/views/Form.vue&#10;pi&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;eb&#9;FILE&#9;file:///var/www/ollyxpic/frontend/webpack.config.js&#10;waste/re&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/waste/result/views/Result.vue&#10;waste/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/waste/form/views/Form.vue&#10;teamhunt/for&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/teamhunt/form/views/Form.vue&#10;loot/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot/form/views/Form.vue&#10;bless/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/bless/form/views/Form.vue&#10;webpack&#9;FILE&#9;file:///var/www/ollyxpic/frontend/webpack.config.js&#10;spells&#9;null&#9;null&#10;elem&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/elements.js&#10;app.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/app.scss&#10;tiles_t&#9;FILE&#9;file:///var/www/ollyxpic/backend/database/migrations/2017_07_06_185622_create_tiles_table.php&#10;tilecontr&#9;null&#9;null&#10;tiles_&#9;FILE&#9;file:///var/www/ollyxpic/backend/database/migrations/2017_07_06_185622_create_tiles_table.php&#10;wor&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/WorldObject.php&#10;itemcontr&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/ItemsController.php&#10;worldob&#9;null&#9;null&#10;nav.&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Nav.vue&#10;nav.v&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Nav.vue&#10;element&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/elements.js&#10;.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/form.scss&#10;teamhunt/result&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/teamhunt/result/views/Result.vue&#10;loot/for&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot/form/views/Form.vue&#10;temcont&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/ItemsController.php&#10;form.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/form.scss&#10;wastecon&#9;null&#9;null&#10;teamhunt/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/teamhunt/form/views/Form.vue&#10;waste/acti&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/waste/form/vuex/actions.js&#10;waste/getters&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/waste/form/vuex/getters.js&#10;pages.&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/pages.scss&#10;htt&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/http.js&#10;teamhuntcon&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TeamHuntController.php&#10;header.vue&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Header.vue&#10;nav&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Nav.vue&#10;panel.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/panel.scss&#10;panel.vue&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/Panel.vue&#10;globals.&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/globals.js" />
+    <property name="SearchEverywhereHistoryKey" value="waste/res&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/waste/result/views/Result.vue&#10;imbue&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/imbuements.scss&#10;pp.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/app.scss&#10;pi&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;nav.&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Nav.vue&#10;imbu&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Imbuiments.php&#10;imbuiment&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Imbuiments.php&#10;item&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/ImbuimentItems.php&#10;loot/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot/form/views/Form.vue&#10;items&#9;null&#9;null&#10;app.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/app.scss&#10;api&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;imbuimentCont&#9;null&#9;null&#10;imbuimentItem&#9;null&#9;null&#10;create_imb&#9;FILE&#9;file:///var/www/ollyxpic/backend/database/migrations/2017_07_12_130135_create_imbuiments_table.php&#10;nav.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/nav.scss&#10;nav&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Nav.vue&#10;table.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/table.scss&#10;web&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/web.php&#10;imagecontr&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/ImageController.php&#10;api.php&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;mixins&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/mixins.js&#10;web.php&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/web.php&#10;image&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/ImageController.php&#10;reate_tile&#9;FILE&#9;file:///var/www/ollyxpic/backend/database/migrations/2017_07_06_185622_create_tiles_table.php&#10;tile&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TileController.php&#10;imagecont&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/ImageController.php&#10;index.html&#9;FILE&#9;file:///var/www/ollyxpic/frontend/index.html&#10;speedboost/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/speedboost/form/views/Form.vue&#10;eb&#9;FILE&#9;file:///var/www/ollyxpic/frontend/webpack.config.js&#10;waste/re&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/waste/result/views/Result.vue&#10;waste/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/waste/form/views/Form.vue&#10;teamhunt/for&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/teamhunt/form/views/Form.vue&#10;bless/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/bless/form/views/Form.vue&#10;webpack&#9;FILE&#9;file:///var/www/ollyxpic/frontend/webpack.config.js&#10;spells&#9;null&#9;null&#10;elem&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/elements.js&#10;tiles_t&#9;FILE&#9;file:///var/www/ollyxpic/backend/database/migrations/2017_07_06_185622_create_tiles_table.php&#10;tilecontr&#9;null&#9;null&#10;tiles_&#9;FILE&#9;file:///var/www/ollyxpic/backend/database/migrations/2017_07_06_185622_create_tiles_table.php&#10;wor&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/WorldObject.php&#10;itemcontr&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/ItemsController.php&#10;worldob&#9;null&#9;null&#10;nav.v&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Nav.vue&#10;element&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/elements.js&#10;.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/form.scss&#10;teamhunt/result&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/teamhunt/result/views/Result.vue&#10;loot/for&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot/form/views/Form.vue&#10;temcont&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/ItemsController.php&#10;form.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/form.scss" />
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="JavaScriptPreferStrict" value="false" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/form" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost" />
       <recent name="$PROJECT_DIR$/frontend/src/app/modules/calculators" />
+      <recent name="$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost" />
       <recent name="$PROJECT_DIR$/frontend" />
       <recent name="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste" />
       <recent name="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/form" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/form" />
     </key>
   </component>
   <component name="RunManager">
@@ -382,24 +368,24 @@
       <workItem from="1499692022875" duration="5391000" />
       <workItem from="1499770698627" duration="1127000" />
       <workItem from="1499777445032" duration="3099000" />
-      <workItem from="1499856660413" duration="3405000" />
+      <workItem from="1499856660413" duration="19520000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="313498000" />
+    <option name="totallyTimeSpent" value="329613000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31625184" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27452415" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23529412" sideWeight="0.50292826" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930514" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902297" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24944155" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35007173" sideWeight="0.49707174" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35007173" sideWeight="0.49707174" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -458,150 +444,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/components/TabContent.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1068">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/waste-modal.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1421">
-          <caret line="49" column="34" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/form/vuex/actions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="812">
-          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/form/vuex/getters.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/WasteController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="29" column="36" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/views/SuppliesCalculator.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="40" column="44" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/libs/http.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/libs/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/App.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/libs/analytics.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/form.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/bless/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/bless/form/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/blessings.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/dist/index.html" />
-    <entry file="file://$PROJECT_DIR$/frontend/dist/1f750b5b13dbb3248df9/main.1f750b5b13dbb3248df9.js" />
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/form/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-          <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/layout/default/Nav.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="38" column="61" selection-start-line="38" selection-start-column="61" selection-end-line="38" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/vuex.js" />
     <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/form/vuex/state.js" />
     <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/form/index.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -624,31 +466,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/ItemsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9193">
-          <caret line="319" column="26" selection-start-line="319" selection-start-column="26" selection-end-line="319" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/vuex.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/app/Tiles.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="58">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/app.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="50" column="19" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -680,24 +501,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/loot/form/views/Form.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/result/views/Result.vue">
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/result/views/Result.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="87">
           <caret line="3" column="56" selection-start-line="3" selection-start-column="56" selection-end-line="3" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/result/views/Result.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="3" column="45" selection-start-line="3" selection-start-column="45" selection-end-line="3" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -708,7 +515,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/teamhunt/form/views/Form.vue">
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/form/views/Form.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="87">
           <caret line="3" column="74" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="74" />
@@ -734,14 +541,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
           <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -796,11 +595,263 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/form/views/Form.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="276" column="56" selection-start-line="276" selection-start-column="56" selection-end-line="276" selection-end-column="56" />
+        <state relative-caret-position="145">
+          <caret line="277" column="13" selection-start-line="277" selection-start-column="13" selection-end-line="277" selection-end-column="13" />
           <folding>
-            <element signature="e#8525#8559#0" expanded="true" />
+            <element signature="e#8525#8559#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/imbuements/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#39#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/form/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+          <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/result/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/nav.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/layout.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="611">
+          <caret line="121" column="46" selection-start-line="121" selection-start-column="46" selection-end-line="121" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/database/migrations/2017_06_08_110152_create_hunt_items_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/database/migrations/2017_07_12_130150_create_imbuiments_items_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/database/migrations/2017_07_12_130135_create_imbuiments_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/lootcount.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Items.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/ItemsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3197">
+          <caret line="319" column="26" selection-start-line="319" selection-start-column="26" selection-end-line="319" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/loot/form/views/Form.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1051">
+          <caret line="242" column="41" selection-start-line="242" selection-start-column="41" selection-end-line="242" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/imbuements/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/vuex.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="582">
+          <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
+          <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
+          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/imbuements/form/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/imbuements/form/services/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/layout/default/Nav.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="33" column="39" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/ImbuementItems.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Imbuements.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/ImbuementController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+          <folding>
+            <element signature="e#40#59#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/app.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="41" column="16" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/libs/mask.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#25#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/imbuements.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/libs/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/imbuements/form/views/Form.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="23" column="71" selection-start-line="23" selection-start-column="71" selection-end-line="23" selection-end-column="71" />
+          <folding>
+            <element signature="e#5668#5702#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/result/views/Result.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="28" column="80" selection-start-line="28" selection-start-column="80" selection-end-line="28" selection-end-column="80" />
+          <caret line="43" column="80" selection-start-line="43" selection-start-column="80" selection-end-line="43" selection-end-column="80" />
+          <caret line="58" column="80" selection-start-line="58" selection-start-column="80" selection-end-line="58" selection-end-column="80" />
+          <caret line="73" column="80" selection-start-line="73" selection-start-column="80" selection-end-line="73" selection-end-column="80" />
+          <caret line="88" column="80" selection-start-line="88" selection-start-column="80" selection-end-line="88" selection-end-column="80" />
+          <folding />
         </state>
       </provider>
     </entry>

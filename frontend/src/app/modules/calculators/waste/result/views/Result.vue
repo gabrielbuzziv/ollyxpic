@@ -26,7 +26,7 @@
                             </tr>
 
                             <tr v-for="supply in supplies('potions')">
-                                <td><img :src="supply.data.image_url"></td>
+                                <td><img :src="image_path('item', supply.data.id)"></td>
                                 <td>{{ supply.data.title }}</td>
                                 <td class="text-center">{{ supply.quantity }}</td>
                                 <td class="text-center">{{ supply.price.formatMoney(0, '.', '.') }} gps</td>
@@ -41,7 +41,7 @@
                             </tr>
 
                             <tr v-for="supply in supplies('ammunitions')">
-                                <td><img :src="supply.data.image_url"></td>
+                                <td><img :src="image_path('item', supply.data.id)"></td>
                                 <td>{{ supply.data.title }}</td>
                                 <td class="text-center">{{ supply.quantity }}</td>
                                 <td class="text-center">{{ supply.price.formatMoney(0, '.', '.') }} gps</td>
@@ -56,7 +56,7 @@
                             </tr>
 
                             <tr v-for="supply in supplies('runes')">
-                                <td><img :src="supply.data.image_url"></td>
+                                <td><img :src="image_path('item', supply.data.id)"></td>
                                 <td>{{ supply.data.title }}</td>
                                 <td class="text-center">{{ supply.quantity }}</td>
                                 <td class="text-center">{{ supply.price.formatMoney(0, '.', '.') }} gps</td>
@@ -71,7 +71,7 @@
                             </tr>
 
                             <tr v-for="supply in supplies('amulets')">
-                                <td><img :src="supply.data.image_url"></td>
+                                <td><img :src="image_path('item', supply.data.id)"></td>
                                 <td>{{ supply.data.title }}</td>
                                 <td class="text-center">{{ supply.quantity }}</td>
                                 <td class="text-center">{{ supply.price.formatMoney(0, '.', '.') }} gps</td>
@@ -86,7 +86,7 @@
                             </tr>
 
                             <tr v-for="supply in supplies('rings')">
-                                <td><img :src="supply.data.image_url"></td>
+                                <td><img :src="image_path('item', supply.data.id)"></td>
                                 <td>{{ supply.data.title }}</td>
                                 <td class="text-center">{{ supply.quantity }}</td>
                                 <td class="text-center">{{ supply.price.formatMoney(0, '.', '.') }} gps</td>

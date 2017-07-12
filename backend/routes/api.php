@@ -32,3 +32,5 @@ Route::post('teamhunt/{hunt}/teammate/{teammate}', 'TeamHuntController@updateTea
 Route::post('teamhunt/{hunt}/sign', 'TeamHuntController@signPassword');
 
 Route::get('tiles', 'TileController@index');
+
+Route::get('imbuements', 'ImbuementController@index');

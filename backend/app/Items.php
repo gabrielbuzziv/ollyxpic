@@ -29,28 +29,11 @@ class Items extends Model
     protected $hidden = ['image'];
 
     /**
-     * The appended attributes.
-     *
-     * @var array
-     */
-    protected $appends = ['image_url'];
-
-    /**
      * Join relationship in collection.
      *
      * @var array
      */
     protected $with = ['properties', 'sellTo'];
-
-    /**
-     * Return image rendered url.
-     *
-     * @return string
-     */
-    public function getImageUrlAttribute()
-    {
-        return action('ImageController@load', str_slug($this->title));
-    }
 
     /**
      * Item Properties.

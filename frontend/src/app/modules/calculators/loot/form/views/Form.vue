@@ -1,5 +1,5 @@
 <template>
-    <page-load>
+    <page-load id="lootcount">
         <page-title>
             <img :src="item_path('magic-plate-armor')" class="margin-right-10">
             Loot Count
@@ -252,16 +252,14 @@
                     services.searchItem(query)
                             .then(response => {
                                 this.loadingItem = false
-                                this.items = response.data.filter(item => {
-                                    return this.loots.map(loot => loot.id).indexOf(item.id)
-                                })
+                                this.items = response.data
                             })
                 }
-            }, 200),
+            }, 250),
 
             removeItem (index) {
                 this.loots.splice(index, 1)
             }
-        },
+        }
     }
 </script>

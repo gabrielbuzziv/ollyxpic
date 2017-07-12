@@ -91,6 +91,36 @@ a {
                         width: 100%;
                         text-transform: uppercase;
                         font-weight: 600;
+                        font-size: 12px;
+
+                        .left {
+                            display: inline-block;
+                            width: 32px;
+                            margin-right: 10px;
+                            vertical-align: top;
+                        }
+
+                        .center {
+                            display: inline-block;
+                            line-height: 16px;
+                            vertical-align: middle;
+                            text-align: left;
+
+                            span {
+                                display: block;
+                            }
+
+                            small {
+                                display: block;
+                                font-weight: 400;
+                                font-size: 12px;
+                                text-transform: initial;
+                            }
+                        }
+
+                        .label {
+                            margin-left: 10px;
+                        }
                     }
 
                     &:not(.home) {
