@@ -272,7 +272,9 @@
             },
 
             speed () {
-                return Math.floor(this.baseSpeed + parseInt(this.bonus) + this.spellSpeed);
+                const bonus = parseInt(this.bonus) > 0 ? parseInt(this.bonus) : 0
+
+                return Math.floor(this.baseSpeed + bonus + this.spellSpeed);
             }
         },
 
