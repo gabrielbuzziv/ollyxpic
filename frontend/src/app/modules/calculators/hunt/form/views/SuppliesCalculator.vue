@@ -1,5 +1,5 @@
 <template>
-    <el-dialog :visible.sync="isVisible" id="waste-modal">
+    <el-dialog :visible.sync="isVisible" id="waste-modal" @close="close">
         <ul class="menu">
             <li :class="{ 'active': active.potions }">
                 <a href="#" @click.prevent="show('potions')">

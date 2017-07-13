@@ -332,7 +332,7 @@ class TeamHuntController extends Controller
         array_walk($teammates, function ($teammate, $name) use ($hunt) {
             HuntTeammates::create([
                 'hunt_id'   => $hunt->id,
-                'character' => $name,
+                'character' => empty($name) ? 'You' : $name,
                 'waste'     => $teammate['waste'],
                 'profit'    => $teammate['profit'],
             ]);
@@ -531,7 +531,7 @@ class TeamHuntController extends Controller
     {
         if (request()->input('teammates')) {
             return array_filter(request()->input('teammates'), function ($teammate) {
-                return ! empty($teammate['name']);
+                return ! empty($teammate['waste']);
             });
         }
 

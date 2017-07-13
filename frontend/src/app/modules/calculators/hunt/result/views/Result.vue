@@ -122,7 +122,7 @@
                         <tbody>
                             <tr v-for="item in result.items">
                                 <td class="text-center" width="80">
-                                    <img :src="item.data.image_url">
+                                    <img :src="image_path('item', item.data.id)">
                                 </td>
                                 <td>
                                     <form-input class="text-right" :data="item.quantity" v-model="item.quantity"
