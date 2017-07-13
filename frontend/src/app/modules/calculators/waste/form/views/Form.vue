@@ -2,7 +2,8 @@
     <page-load>
         <page-title>
             <img :src="item_path('ultimate-mana-potion')" class="margin-right-10">
-            Waste Calculator
+            Supplies
+            <span>Waste</span>
         </page-title>
 
         <div class="row">

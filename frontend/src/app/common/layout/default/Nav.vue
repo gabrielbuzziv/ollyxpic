@@ -51,7 +51,7 @@
                     </span>
                     <span class="center">
                         <span>Loot</span>
-                        <small>Count</small>
+                        <small>Counter</small>
                     </span>
                 </a>
             </router-link>

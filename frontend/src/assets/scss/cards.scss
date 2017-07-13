@@ -1,32 +1,57 @@
 .card {
     background: #fff;
-    text-align: center;
+    display: block;
+    width: 100%;
+    margin-bottom: 30px;
 
-   .header {
-       padding: 20px;
+    &.dark {
+        .icon {
+            background: #3d3d3d;
+        }
+    }
 
-       img {
-           display: inline-block;
-           vertical-align: top;
-           margin-right: 10px;
-           line-height: 32px;
-       }
+    .icon {
+        background: $theme;
+        display: block;
+        float: left;
+        height: 89px;
+        padding: 20px;
+        line-height: 48px;
+        width: 89px;
+        text-align: center;
+    }
 
-       .title {
-           vertical-align: top;
-           display: inline-block;
-           line-height: 33px;
-           font-weight: 600;
-           text-transform: uppercase;
-       }
-   }
-
-    .content {
-        border-top: 1px solid #e0e0e0;
+    .information {
+        float: left;
+        display: block;
         padding: 20px;
 
-        .btn {
-            margin-top: 20px;
+        h3 {
+            margin: 0 0 5px;
+            font-size: 25px;
+            font-weight: 600;
         }
+
+        h5 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 300;
+        }
+    }
+
+    .anchor {
+        float: right;
+        display: block;
+        padding-right: 20px;
+
+        a {
+            font-size: 20px;
+            line-height: 89px;
+            display: block;
+            height: 89px;
+            color: lighten($theme-dark, 20%);
+        }
+
+
     }
 }

@@ -3,6 +3,7 @@
         <page-title>
             <img :src="item_path('spiritual-charm')" alt="">
             Blessing
+            <span>Penalty</span>
         </page-title>
 
         <div class="row">

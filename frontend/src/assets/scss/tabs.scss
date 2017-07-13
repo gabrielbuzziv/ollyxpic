@@ -21,6 +21,7 @@
             display: block;
             height: 52px;
             line-height: 52px;
+            color: lighten($theme-dark, 20%);
 
             i {
                 font-size: 20px;

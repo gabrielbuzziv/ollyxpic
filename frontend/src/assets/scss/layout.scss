@@ -92,6 +92,11 @@ a {
                         text-transform: uppercase;
                         font-weight: 600;
                         font-size: 12px;
+                        color: lighten($theme-dark, 20%);
+
+                        &:hover {
+                            color: none;
+                        }
 
                         .left {
                             display: inline-block;
@@ -170,11 +175,57 @@ a {
                 color: $theme;
                 margin: 0;
                 padding: 0;
+
+                img {
+                    margin-right: 10px;
+                }
+
+                span {
+                    display: block;
+                    font-size: 18px;
+                    margin-left: 51px;
+                    font-weight: 300;
+                    color: $theme-dark;
+                }
             }
         }
     }
 }
 
 #footer {
+    display: block;
+    margin-top: 30px;
+    text-align: center;
 
+
+    .bar {
+        background: #292929;
+        padding: 30px 0;
+
+        a {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 300;
+
+            &:hover {
+                color: #ddd;
+            }
+        }
+    }
+
+    .rights {
+        background: #212121;
+        padding: 40px 0;
+        font-size: 12px;
+
+        .tibia {
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 22px;
+        }
+
+        a {
+            color: $theme;
+        }
+    }
 }

@@ -3,6 +3,9 @@
         <page-title>
             <img :src="item_path('slayer-of-mayhem-overcharged')" alt="">
             Imbuements
+            <span>
+                Waste/Time
+            </span>
         </page-title>
 
         <div class="col-md-12">

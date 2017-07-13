@@ -2,7 +2,8 @@
     <page-load id="lootcount">
         <page-title>
             <img :src="item_path('magic-plate-armor')" class="margin-right-10">
-            Loot Count
+            Loot
+            <span>Counter</span>
         </page-title>
 
         <div class="row">

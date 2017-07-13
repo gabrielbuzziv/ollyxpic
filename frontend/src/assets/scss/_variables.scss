@@ -42,7 +42,9 @@ $theme-light: darken(#eaf0f6, 2%);
 $border-color: lighten($theme-dark, 65%);
 
 // Link
-$link-color: lighten($theme-dark, 20%) !default;
-$link-hover-color: darken($theme-dark, 15%) !default;
+//$link-color: lighten($theme-dark, 20%) !default;
+$link-color: $theme !default;
+//$link-hover-color: darken($theme-dark, 15%) !default;
+$link-hover-color: darken($theme, 15%) !default;
 $link-hover-decoration: none !default;
 $border-radius-base: 3px;

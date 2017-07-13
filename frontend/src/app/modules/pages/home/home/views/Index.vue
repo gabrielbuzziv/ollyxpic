@@ -1,21 +1,63 @@
 <template>
     <page-load>
-        <page-title>Ollyxpic</page-title>
-
-        <panel>
-            <p>Help me to improve the tool!</p>
-
-            <p>
-                Comment your opnion about the tool in reddit in the URL below:<br>
-                <a href="https://www.reddit.com/r/TibiaMMO/comments/6l7c8x/want_to_share_my_own_loot_waste_teamhunt/" target="_blank">
-                    https://www.reddit.com/r/TibiaMMO/comments/6l7c8x/want_to_share_my_own_loot_waste_teamhunt/
-                </a>
-            </p>
-
-            <p>
-                I will improve and add new tools based in your comments.<br><br>
-                Regards, Ollyx!
-            </p>
+        <panel title="News" class="margin-bottom-50">
+            Soon ...
         </panel>
+
+        <div class="row">
+            <div class="col-md-4">
+                <card title="Supplies" subtitle="Waste">
+                    <img :src="image_path('item', 3147)" slot="icon">
+                    <router-link :to="{ name: 'calculators.waste' }" slot="anchor">
+                        <i class="mdi mdi-chevron-right"></i>
+                    </router-link>
+                </card>
+            </div>
+
+            <div class="col-md-4">
+                <card title="Imbuements" subtitle="Waste/Time" dark>
+                    <img :src="image_path('item', 3372)" slot="icon">
+                    <router-link :to="{ name: 'calculators.imbuements' }" slot="anchor">
+                        <i class="mdi mdi-chevron-right"></i>
+                    </router-link>
+                </card>
+            </div>
+
+            <div class="col-md-4">
+                <card title="Hunts" subtitle="Waste/Profit">
+                    <img :src="image_path('item', 296)" slot="icon">
+                    <router-link :to="{ name: 'calculators.hunt' }" slot="anchor">
+                        <i class="mdi mdi-chevron-right"></i>
+                    </router-link>
+                </card>
+            </div>
+
+            <div class="col-md-4">
+                <card title="Loot" subtitle="Counter">
+                    <img :src="image_path('item', 133)" slot="icon">
+                    <router-link :to="{ name: 'calculators.loot' }" slot="anchor">
+                        <i class="mdi mdi-chevron-right"></i>
+                    </router-link>
+                </card>
+            </div>
+
+            <div class="col-md-4">
+                <card title="Blessings" subtitle="Penalty" dark>
+                    <img :src="image_path('item', 1922)" slot="icon">
+                    <router-link :to="{ name: 'calculators.blessing' }" slot="anchor">
+                        <i class="mdi mdi-chevron-right"></i>
+                    </router-link>
+                </card>
+            </div>
+
+            <div class="col-md-4">
+                <card title="Speed" subtitle="Boost">
+                    <img :src="image_path('item', 1)" slot="icon">
+                    <router-link :to="{ name: 'calculators.speedboost' }" slot="anchor">
+                        <i class="mdi mdi-chevron-right"></i>
+                    </router-link>
+                </card>
+            </div>
+        </div>
     </page-load>
 </template>

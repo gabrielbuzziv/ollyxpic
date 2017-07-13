@@ -2,7 +2,8 @@
     <page-load class="teamhunt-result">
         <page-title>
             <img :src="item_path('crystal-coin')" class="margin-right-10">
-            Hunt Profit/Waste
+            Hunt Result
+            <span>Profit/Waste</span>
         </page-title>
 
         <div class="row">

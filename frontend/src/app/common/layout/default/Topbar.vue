@@ -8,9 +8,19 @@
             </div>
 
             <div class="pull-right">
-                <a href="https://www.reddit.com/r/TibiaMMO/comments/6l7c8x/want_to_share_my_own_loot_waste_teamhunt/" target="_blank" class="url">
-                    Request a Calculator
-                </a>
+                <router-link :to="{ name: 'pages.contact' }">
+                    <span class="url">
+                        Request a tool
+                    </span>
+                </router-link>
+
+                <span>|</span>
+
+                <router-link :to="{ name: 'pages.contact' }">
+                    <span class="url">
+                        Contact Us
+                    </span>
+                </router-link>
             </div>
         </div>
     </div>

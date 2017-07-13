@@ -2,7 +2,8 @@
     <page-load id="speedboost">
         <page-title>
             <img :src="item_path('boots-of-haste')" class="margin-right-5">
-            Speed Boost
+            Speed
+            <span class="margin-left-45">Boost</span>
         </page-title>
 
         <div class="col-md-12">
