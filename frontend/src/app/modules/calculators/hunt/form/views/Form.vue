@@ -2,7 +2,7 @@
     <page-load>
         <page-title>
             <img :src="item_path('crystal-coin')" class="margin-right-10">
-            Team Hunt Calculator
+            Hunt Profit/Waste
         </page-title>
 
         <div class="row">
@@ -212,7 +212,7 @@
                 services.calculate(data)
                         .then(response => {
                             this.calculating = false
-                            this.$router.push({ name: 'calculators.teamhunt.result', params: { id: response.data.id }, query: { password: response.data.password } })
+                            this.$router.push({ name: 'calculators.hunt.result', params: { id: response.data.id }, query: { password: response.data.password } })
                         })
                         .catch(error => {
                             this.calculating = false

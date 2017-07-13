@@ -11,9 +11,18 @@
                     <thead>
                         <tr>
                             <th>Total</th>
-                            <th>Total/Hour</th>
-                            <th>Total/Minute</th>
-                            <th class="text-center">Time Used</th>
+                            <th class="text-center">Total/Hour</th>
+                            <th class="text-center">Total/Minute</th>
+                            <th class="text-center" width="110">
+                                Time Used
+
+                                <el-tooltip placement="top">
+                                    <p class="margin-bottom-0" slot="content">
+                                        Time you used the imbuiment in hunt, time in hours.<br> e.g. 02:00 (2 hours)
+                                    </p>
+                                    <i class="mdi mdi-information"></i>
+                                </el-tooltip>
+                            </th>
                             <th class="text-right">Value</th>
                         </tr>
                     </thead>
@@ -23,15 +32,14 @@
                             <td>
                                 {{ total.formatMoney(0, '.', '.') }} gp
                             </td>
-                            <td>
-                                {{ (totalPerMinute * 60).formatMoney(0, '.', '.') }} gp
+                            <td class="text-center">
+                                {{ (totalPerMinute * 60).formatMoney(0, '.', '.') }} gp / hour
                             </td>
-                            <td>
-                                {{ totalPerMinute.formatMoney(0, '.', '.') }} gp
+                            <td class="text-center">
+                                {{ totalPerMinute.formatMoney(0, '.', '.') }} gp / minute
                             </td>
                             <td class="text-center" width="100">
-                                <form-input :data="used" v-model="used" v-mask="'##:##'" class="normal" />
-                                <small class="helper-block">example: 02:00</small>
+                                <form-input :data="used" v-model="used" v-mask="'##:##'" class="normal"/>
                             </td>
                             <td class="text-right">
                                 {{ totalPerUsedTime.formatMoney(0, '.', '.') }} gp
@@ -53,10 +61,34 @@
                                     <i class="mdi mdi-information"></i>
                                 </el-tooltip>
                             </th>
-                            <th class="text-center">Basic</th>
-                            <th class="text-center">Intricate</th>
-                            <th class="text-center">Powerful</th>
-                            <th class="text-center">Charm</th>
+                            <th class="text-center">
+                                Basic
+                                <el-tooltip content="Unit price of basic imbuement item." class="margin-left-5"
+                                            placement="top">
+                                    <i class="mdi mdi-information"></i>
+                                </el-tooltip>
+                            </th>
+                            <th class="text-center">
+                                Intricate
+                                <el-tooltip content="Unit price of intricate imbuement item." class="margin-left-5"
+                                            placement="top">
+                                    <i class="mdi mdi-information"></i>
+                                </el-tooltip>
+                            </th>
+                            <th class="text-center">
+                                Powerful
+                                <el-tooltip content="Unit price of powerful imbuement item." class="margin-left-5"
+                                            placement="top">
+                                    <i class="mdi mdi-information"></i>
+                                </el-tooltip>
+                            </th>
+                            <th class="text-center">
+                                Charm
+                                <el-tooltip content="Protection charm (100% chance)" class="margin-left-5"
+                                            placement="top">
+                                    <i class="mdi mdi-information"></i>
+                                </el-tooltip>
+                            </th>
                         </tr>
                     </thead>
 
@@ -73,35 +105,53 @@
                                     <option value="2">2</option>
                                 </select>
                             </td>
-                            <td class="text-center">
+                            <td class="text-center" width="150">
                                 <div class="input-group">
                                     <div class="input-group-addon">
-                                        <img :src="image_path('item', getItemId(imbuement.items, 1))" alt="">
+                                        <el-tooltip placement="top">
+                                            <template slot="content">
+                                                {{getItem(imbuement.items, 1).amount}} {{ getItem(imbuement.items, 1).item.title }}
+                                            </template>
+
+                                            <img :src="image_path('item', getItem(imbuement.items, 1).item_id)" alt="">
+                                        </el-tooltip>
                                     </div>
                                     <form-input :data="imbuement.basic" v-model="imbuement.basic" placeholder="Basic"
                                                 class="text-right" @input="update(imbuement)"/>
                                 </div>
                             </td>
-                            <td class="text-center">
+                            <td class="text-center" width="150">
                                 <div class="input-group">
                                     <div class="input-group-addon">
-                                        <img :src="image_path('item', getItemId(imbuement.items, 2))" alt="">
+                                        <el-tooltip placement="top">
+                                            <template slot="content">
+                                                {{getItem(imbuement.items, 2).amount}} {{ getItem(imbuement.items, 2).item.title }}
+                                            </template>
+
+                                            <img :src="image_path('item', getItem(imbuement.items, 2).item_id)" alt="">
+                                        </el-tooltip>
                                     </div>
                                     <form-input :data="imbuement.intricate" v-model="imbuement.intricate"
                                                 placeholder="Basic" class="text-right" @input="update(imbuement)"/>
                                 </div>
                             </td>
-                            <td class="text-center">
+                            <td class="text-center" width="150">
                                 <div class="input-group">
                                     <div class="input-group-addon">
-                                        <img :src="image_path('item', getItemId(imbuement.items, 3))" alt="">
+                                        <el-tooltip placement="top">
+                                            <template slot="content">
+                                                {{getItem(imbuement.items, 3).amount}} {{ getItem(imbuement.items, 3).item.title }}
+                                            </template>
+
+                                            <img :src="image_path('item', getItem(imbuement.items, 3).item_id)" alt="">
+                                        </el-tooltip>
                                     </div>
                                     <form-input :data="imbuement.powerful" v-model="imbuement.powerful"
                                                 placeholder="Basic" class="text-right" @input="update(imbuement)"/>
                                 </div>
                             </td>
-                            <td class="text-center">
-                                <el-checkbox v-model="imbuement.charm" @change="update(imbuement)" />
+                            <td class="text-center" width="90">
+                                <el-checkbox v-model="imbuement.charm" @change="update(imbuement)"/>
                             </td>
                         </tr>
                     </tbody>
@@ -155,9 +205,9 @@
         },
 
         methods: {
-            getItemId (items, tier) {
+            getItem (items, tier) {
                 if (items.length && items.filter(item => item.tier == tier).length) {
-                    return items.filter(item => item.tier == tier)[0].item_id
+                    return items.filter(item => item.tier == tier)[0]
                 }
 
                 return null
@@ -180,6 +230,7 @@
                 localStorage.setItem(`imbuement.${imbuement.id}.basic`, imbuement.basic)
                 localStorage.setItem(`imbuement.${imbuement.id}.intricate`, imbuement.intricate)
                 localStorage.setItem(`imbuement.${imbuement.id}.powerful`, imbuement.powerful)
+                localStorage.setItem(`imbuement.${imbuement.id}.charm`, imbuement.charm)
 
                 this.calculate()
             },
@@ -192,7 +243,7 @@
                                 const basic     = localStorage.getItem(`imbuement.${imbuement.id}.basic`) || 0
                                 const intricate = localStorage.getItem(`imbuement.${imbuement.id}.intricate`) || 0
                                 const powerful  = localStorage.getItem(`imbuement.${imbuement.id}.powerful`) || 0
-                                const success  = localStorage.getItem(`imbuement.${imbuement.id}.success`) || false
+                                const charm     = localStorage.getItem(`imbuement.${imbuement.id}.charm`) || false
 
                                 return {
                                     id: imbuement.id,
@@ -203,7 +254,7 @@
                                     basic: basic,
                                     intricate: intricate,
                                     powerful: powerful,
-                                    charm: success,
+                                    charm: charm,
                                     items: imbuement.items
                                 }
                             })
