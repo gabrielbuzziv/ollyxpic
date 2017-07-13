@@ -2,35 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce10aee6-880d-4f01-bf3e-bf71cc20de41" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/resources/views/email.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/pages/contact/contact/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/pages/contact/contact/routes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/pages/contact/contact/services/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/pages/contact/contact/views/Index.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/pages/contact/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/modules/pages/contact/routes.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/composer.json" afterPath="$PROJECT_DIR$/backend/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/composer.lock" afterPath="$PROJECT_DIR$/backend/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/routes/api.php" afterPath="$PROJECT_DIR$/backend/routes/api.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/common/components/Card.vue" afterPath="$PROJECT_DIR$/frontend/src/app/common/components/Card.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/common/layout/default/Footer.vue" afterPath="$PROJECT_DIR$/frontend/src/app/common/layout/default/Footer.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/common/layout/default/Nav.vue" afterPath="$PROJECT_DIR$/frontend/src/app/common/layout/default/Nav.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/common/layout/default/Topbar.vue" afterPath="$PROJECT_DIR$/frontend/src/app/common/layout/default/Topbar.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/bless/form/views/Form.vue" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/bless/form/views/Form.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/form/views/Form.vue" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/form/views/Form.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/result/views/Result.vue" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/result/views/Result.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/imbuements/form/views/Form.vue" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/imbuements/form/views/Form.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/loot/form/views/Form.vue" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/loot/form/views/Form.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/form/views/Form.vue" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/form/views/Form.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/form/views/Form.vue" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/form/views/Form.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/result/views/Result.vue" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/result/views/Result.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/modules/pages/home/home/views/Index.vue" afterPath="$PROJECT_DIR$/frontend/src/app/modules/pages/home/home/views/Index.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/modules/pages/routes.js" afterPath="$PROJECT_DIR$/frontend/src/app/modules/pages/routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/assets/scss/_variables.scss" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/_variables.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/assets/scss/cards.scss" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/cards.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/assets/scss/layout.scss" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/layout.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/assets/scss/tabs.scss" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/tabs.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/common/layout/default/Header.vue" afterPath="$PROJECT_DIR$/frontend/src/app/common/layout/default/Header.vue" />
     </list>
     <ignored path="ollyxpic.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,7 +28,7 @@
       <file leaf-file-name="Index.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/pages/contact/contact/views/Index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
+            <state relative-caret-position="1914">
               <caret line="66" column="108" selection-start-line="66" selection-start-column="108" selection-end-line="66" selection-end-column="108" />
               <folding />
             </state>
@@ -75,7 +48,7 @@
       <file leaf-file-name="PageController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/PageController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
+            <state relative-caret-position="348">
               <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
               <folding>
                 <element signature="e#40#68#0#PHP" expanded="true" />
@@ -84,11 +57,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".env" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".env" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/.env">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="725">
+              <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Header.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/common/layout/default/Header.vue">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="87">
-              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="26" selection-end-column="19" />
+              <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -107,7 +90,7 @@
       <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="529">
+            <state relative-caret-position="1073">
               <caret line="37" column="28" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
               <folding />
             </state>
@@ -122,7 +105,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/frontend/src/assets/scss/lootcount.scss" />
         <option value="$PROJECT_DIR$/backend/app/Items.php" />
         <option value="$PROJECT_DIR$/backend/app/Imbuiments.php" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/imbuiments/form/views/Form.vue" />
@@ -173,6 +155,7 @@
         <option value="$PROJECT_DIR$/frontend/package.json" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/pages/contact/contact/views/Index.vue" />
         <option value="$PROJECT_DIR$/backend/app/Http/Controllers/PageController.php" />
+        <option value="$PROJECT_DIR$/frontend/src/app/common/layout/default/Header.vue" />
       </list>
     </option>
   </component>
@@ -221,8 +204,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -627,12 +608,14 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
-    <property name="SearchEverywhereHistoryKey" value="package.json&#9;FILE&#9;file:///var/www/ollyxpic/frontend/package.json&#10;email&#9;FILE&#9;file:///var/www/ollyxpic/backend/resources/views/email.blade.php&#10;pagecontr&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/PageController.php&#10;api&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;.env&#9;FILE&#9;file:///var/www/ollyxpic/backend/.env&#10;home/index.vue&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/pages/home/home/views/Index.vue&#10;home/ind&#9;FILE&#9;file:///var/www/ollyxpic/frontend/node_modules/home-or-tmp/index.js&#10;layout&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/layout.scss&#10;ard.vue&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/Card.vue&#10;card.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/cards.scss&#10;speed/for&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/speedboost/form/views/Form.vue&#10;nav.&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Nav.vue&#10;loot/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot/form/views/Form.vue&#10;waste/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/waste/form/views/Form.vue&#10;tab.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/tabs.scss&#10;hunt/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/hunt/form/views/Form.vue&#10;imbuement/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/imbuements/form/views/Form.vue&#10;layou&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/layout.scss&#10;pages.s&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/pages.scss&#10;ooter&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Footer.vue&#10;topbar&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Topbar.vue&#10;_variable&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/_variables.scss&#10;layout.sc&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/layout.scss&#10;waste/res&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/waste/result/views/Result.vue&#10;imbue&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/imbuements.scss&#10;pp.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/app.scss&#10;pi&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;imbu&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Imbuiments.php&#10;imbuiment&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Imbuiments.php&#10;item&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/ImbuimentItems.php&#10;items&#9;null&#9;null&#10;app.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/app.scss&#10;imbuimentCont&#9;null&#9;null&#10;imbuimentItem&#9;null&#9;null&#10;create_imb&#9;FILE&#9;file:///var/www/ollyxpic/backend/database/migrations/2017_07_12_130135_create_imbuiments_table.php&#10;nav.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/nav.scss&#10;nav&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Nav.vue&#10;table.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/table.scss&#10;web&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/web.php&#10;imagecontr&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/ImageController.php&#10;api.php&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;mixins&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/mixins.js&#10;web.php&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/web.php&#10;image&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/ImageController.php&#10;reate_tile&#9;FILE&#9;file:///var/www/ollyxpic/backend/database/migrations/2017_07_06_185622_create_tiles_table.php&#10;tile&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TileController.php&#10;imagecont&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/ImageController.php&#10;index.html&#9;FILE&#9;file:///var/www/ollyxpic/frontend/index.html&#10;speedboost/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/speedboost/form/views/Form.vue&#10;eb&#9;FILE&#9;file:///var/www/ollyxpic/frontend/webpack.config.js" />
+    <property name="SearchEverywhereHistoryKey" value="header.vue&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Header.vue&#10;package.json&#9;FILE&#9;file:///var/www/ollyxpic/frontend/package.json&#10;email&#9;FILE&#9;file:///var/www/ollyxpic/backend/resources/views/email.blade.php&#10;pagecontr&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/PageController.php&#10;api&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;.env&#9;FILE&#9;file:///var/www/ollyxpic/backend/.env&#10;home/index.vue&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/pages/home/home/views/Index.vue&#10;home/ind&#9;FILE&#9;file:///var/www/ollyxpic/frontend/node_modules/home-or-tmp/index.js&#10;layout&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/layout.scss&#10;ard.vue&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/Card.vue&#10;card.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/cards.scss&#10;speed/for&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/speedboost/form/views/Form.vue&#10;nav.&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Nav.vue&#10;loot/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot/form/views/Form.vue&#10;waste/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/waste/form/views/Form.vue&#10;tab.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/tabs.scss&#10;hunt/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/hunt/form/views/Form.vue&#10;imbuement/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/imbuements/form/views/Form.vue&#10;layou&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/layout.scss&#10;pages.s&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/pages.scss&#10;ooter&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Footer.vue&#10;topbar&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Topbar.vue&#10;_variable&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/_variables.scss&#10;layout.sc&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/layout.scss&#10;waste/res&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/waste/result/views/Result.vue&#10;imbue&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/imbuements.scss&#10;pp.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/app.scss&#10;pi&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;imbu&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Imbuiments.php&#10;imbuiment&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Imbuiments.php&#10;item&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/ImbuimentItems.php&#10;items&#9;null&#9;null&#10;app.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/app.scss&#10;imbuimentCont&#9;null&#9;null&#10;imbuimentItem&#9;null&#9;null&#10;create_imb&#9;FILE&#9;file:///var/www/ollyxpic/backend/database/migrations/2017_07_12_130135_create_imbuiments_table.php&#10;nav.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/nav.scss&#10;nav&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Nav.vue&#10;table.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/table.scss&#10;web&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/web.php&#10;imagecontr&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/ImageController.php&#10;api.php&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;mixins&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/mixins.js&#10;web.php&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/web.php&#10;image&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/ImageController.php&#10;reate_tile&#9;FILE&#9;file:///var/www/ollyxpic/backend/database/migrations/2017_07_06_185622_create_tiles_table.php&#10;tile&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TileController.php&#10;imagecont&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/ImageController.php&#10;index.html&#9;FILE&#9;file:///var/www/ollyxpic/frontend/index.html&#10;speedboost/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/speedboost/form/views/Form.vue" />
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="JavaScriptPreferStrict" value="false" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
@@ -723,24 +706,25 @@
       <workItem from="1499770698627" duration="1127000" />
       <workItem from="1499777445032" duration="3099000" />
       <workItem from="1499856660413" duration="19609000" />
-      <workItem from="1499945509579" duration="10296000" />
+      <workItem from="1499945509579" duration="11140000" />
+      <workItem from="1499967855450" duration="17000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="339998000" />
+    <option name="totallyTimeSpent" value="340859000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27452415" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27452415" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23529412" sideWeight="0.50292826" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930514" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902297" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24944155" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35007173" sideWeight="0.49707174" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35007173" sideWeight="0.49707174" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -799,21 +783,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/backend/app/Imbuements.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/ImbuementController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
           <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
-          <folding>
-            <element signature="e#40#59#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -821,7 +794,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1189">
           <caret line="41" column="16" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -836,7 +808,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="377">
           <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -851,7 +822,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="30" column="57" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -859,47 +829,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/pages/contact/contact/vuex/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/pages/request/home/vuex/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/pages/request/request/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="44" selection-start-line="0" selection-start-column="44" selection-end-line="0" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/pages/request/request/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/pages/contact/contact/vuex/index.js" />
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/pages/request/home/vuex/index.js" />
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/pages/request/request/index.js" />
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/pages/request/request/routes.js" />
     <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/pages/contact/contact/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="44" selection-start-line="0" selection-start-column="44" selection-end-line="0" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -907,25 +847,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
           <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/pages/request/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="0" column="26" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
-          <caret line="0" column="44" selection-start-line="0" selection-start-column="44" selection-end-line="0" selection-end-column="44" />
-          <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/pages/request/routes.js" />
     <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/pages/contact/routes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="44" selection-start-line="0" selection-start-column="44" selection-end-line="0" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -933,31 +862,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="44" selection-start-line="0" selection-start-column="44" selection-end-line="0" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/pages/request/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="44" selection-start-line="0" selection-start-column="44" selection-end-line="0" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/pages/request/request/views/Index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="16" column="80" selection-start-line="0" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/pages/request/index.js" />
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/pages/request/request/views/Index.vue" />
     <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/_variables.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="464">
           <caret line="46" column="45" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -965,7 +878,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
           <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -973,7 +885,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="337">
           <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -981,7 +892,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
           <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -989,9 +899,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#39#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -999,7 +906,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
           <caret line="48" column="24" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1007,7 +913,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
           <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1015,7 +920,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1023,7 +927,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="58">
           <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1031,7 +934,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
           <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1039,7 +941,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
           <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1047,7 +948,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
           <caret line="50" column="27" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1055,7 +955,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
           <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1063,7 +962,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="29">
           <caret line="1" column="6" selection-start-line="0" selection-start-column="0" selection-end-line="30" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1071,7 +969,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
           <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1079,7 +976,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="557">
           <caret line="23" column="45" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1087,7 +983,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="497">
           <caret line="94" column="57" selection-start-line="94" selection-start-column="31" selection-end-line="94" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1095,7 +990,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
           <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1103,7 +997,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="29">
           <caret line="1" column="44" selection-start-line="1" selection-start-column="44" selection-end-line="1" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1111,7 +1004,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1119,7 +1011,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1127,7 +1018,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="293">
           <caret line="28" column="7" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1135,7 +1025,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="29">
           <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1143,7 +1032,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="319">
           <caret line="287" column="38" selection-start-line="287" selection-start-column="4" selection-end-line="287" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1151,7 +1039,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1165,7 +1052,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
+        <state relative-caret-position="1073">
           <caret line="37" column="28" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
           <folding />
         </state>
@@ -1175,7 +1062,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
           <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1189,7 +1075,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/pages/contact/contact/views/Index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
+        <state relative-caret-position="1914">
           <caret line="66" column="108" selection-start-line="66" selection-start-column="108" selection-end-line="66" selection-end-column="108" />
           <folding />
         </state>
@@ -1197,7 +1083,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/PageController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
+        <state relative-caret-position="348">
           <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
           <folding>
             <element signature="e#40#68#0#PHP" expanded="true" />
@@ -1207,8 +1093,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/.env">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="725">
+          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/layout/default/Header.vue">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="87">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="26" selection-end-column="19" />
+          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
           <folding />
         </state>
       </provider>

@@ -2,7 +2,7 @@
     <div id="header">
         <div class="container">
             <div class="logo">
-                Ollyxpic
+                <img src="/src/assets/images/logo.png" alt="">
             </div>
 
             <layout-nav />
