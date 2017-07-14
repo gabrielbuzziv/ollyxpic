@@ -1,12 +1,16 @@
 <template>
     <page-load>
-        <page-title>Contact</page-title>
+        <page-title>
+            <img :src="image_path('item', 313)" class="margin-right-10">
+            Contact
+            <span>Send a message</span>
+        </page-title>
 
         <panel>
             <p class="margin-bottom-0">
                 You can contact me ingame by sending a letter to
-                <a href="https://secure.tibia.com/community/?subtopic=characters&name=Ollyxsz" target="_blank">Ollyxsz</a> in
-                <a href="https://secure.tibia.com/community/?subtopic=worlds&world=Belobra" target="_blank">Belobra</a> world.
+                <a href="https://secure.tibia.com/community/?subtopic=characters&name=Ollyxsz" class="text-danger" target="_blank">Ollyxsz</a> in
+                <a href="https://secure.tibia.com/community/?subtopic=worlds&world=Belobra" class="text-danger" target="_blank">Belobra</a> world.
             </p>
         </panel>
 

@@ -16,7 +16,7 @@
 
             <div class="col-md-4">
                 <card title="Imbuements" subtitle="Waste/Time" dark>
-                    <img :src="image_path('item', 3372)" slot="icon">
+                    <img :src="image_path('item', 2655)" slot="icon">
                     <router-link :to="{ name: 'calculators.imbuements' }" slot="anchor">
                         <i class="mdi mdi-chevron-right"></i>
                     </router-link>
@@ -33,16 +33,25 @@
             </div>
 
             <div class="col-md-4">
-                <card title="Loot" subtitle="Counter">
-                    <img :src="image_path('item', 133)" slot="icon">
-                    <router-link :to="{ name: 'calculators.loot' }" slot="anchor">
+                <card title="Loot" subtitle="Count">
+                    <img :src="image_path('item', 93)" slot="icon">
+                    <router-link :to="{ name: 'calculators.loot.count' }" slot="anchor">
                         <i class="mdi mdi-chevron-right"></i>
                     </router-link>
                 </card>
             </div>
 
             <div class="col-md-4">
-                <card title="Blessings" subtitle="Penalty" dark>
+                <card title="Loot" subtitle="Acumulator" dark>
+                    <img :src="image_path('item', 1613)" slot="icon">
+                    <router-link :to="{ name: 'calculators.loot.acumulator' }" slot="anchor">
+                        <i class="mdi mdi-chevron-right"></i>
+                    </router-link>
+                </card>
+            </div>
+
+            <div class="col-md-4">
+                <card title="Blessings" subtitle="Penalty">
                     <img :src="image_path('item', 1922)" slot="icon">
                     <router-link :to="{ name: 'calculators.blessing' }" slot="anchor">
                         <i class="mdi mdi-chevron-right"></i>

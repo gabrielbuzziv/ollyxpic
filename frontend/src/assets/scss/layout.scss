@@ -24,7 +24,8 @@ a {
 #header {
     background: url('/src/assets/images/header.jpg') top center;
     display: block;
-    height: 329px;
+    //height: 329px;
+    height: 230px;
     width: 100%;
     position: relative;
 
@@ -36,7 +37,7 @@ a {
             font-size: 70px;
             font-weight: 300;
             color: #fff;
-            line-height: 240px;
+            line-height: 130px;
         }
 
         #nav {
@@ -50,6 +51,7 @@ a {
             height: 100px;
             border-radius: 0;
             margin: 0;
+            z-index: 9;
 
             > ul {
                 list-style: none;
@@ -59,13 +61,14 @@ a {
                 height: 88px;
                 display: table;
                 background: #fff;
+                position: relative;
 
                 > li {
                     display: table-cell;
                     float: none;
                     text-align: center;
 
-                    &.active {
+                    &.active, &:hover {
                         a {
                             background: #3d3d3d;
                             color: #fff;
@@ -93,6 +96,7 @@ a {
                         font-weight: 600;
                         font-size: 12px;
                         color: lighten($theme-dark, 20%);
+                        transition: all 0.2s;
 
                         &:hover {
                             color: none;
@@ -134,6 +138,75 @@ a {
                             font-size: 25px;
                             display: inline-block;
                             vertical-align: top;
+                        }
+                    }
+
+                    &.with-child {
+                        &:hover {
+
+                            ul {
+                                display: block;
+                            }
+                        }
+
+                        ul {
+                            display: none;
+                            position: absolute;
+                            left: 0;
+                            top: 88px;
+                            width: 100%;
+                            list-style: none;
+                            text-align: left;
+                            padding: 0;
+                            margin: 0;
+                            background: #3d3d3d;
+                            z-index: 99999;
+                            padding: 10px;
+
+                            li {
+                                padding: 20px;
+                                display: inline-block;
+                                float: none;
+                                width: calc(20% - 10px);
+
+                                a {
+                                    color: #fff;
+                                    text-transform: uppercase;
+                                    font-weight: 600;
+                                    font-size: 12px;
+
+                                    .left {
+                                        display: inline-block;
+                                        width: 32px;
+                                        margin-right: 10px;
+                                        vertical-align: top;
+                                    }
+
+                                    .center {
+                                        display: inline-block;
+                                        line-height: 16px;
+                                        vertical-align: middle;
+                                        text-align: left;
+
+                                        span {
+                                            display: block;
+                                        }
+
+                                        small {
+                                            margin-top: 5px;
+                                            display: block;
+                                            font-weight: 400;
+                                            font-size: 12px;
+                                            text-transform: initial;
+                                            color: #ddd;
+                                        }
+                                    }
+
+                                    .label {
+                                        margin-left: 10px;
+                                    }
+                                }
+                            }
                         }
                     }
                 }

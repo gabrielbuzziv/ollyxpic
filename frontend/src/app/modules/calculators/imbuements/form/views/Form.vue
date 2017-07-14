@@ -1,7 +1,7 @@
 <template>
     <page-load id="imbuements">
         <page-title>
-            <img :src="item_path('slayer-of-mayhem-overcharged')" alt="">
+            <img :src="image_path('item', 2655)">
             Imbuements
             <span>
                 Waste/Time
@@ -95,7 +95,9 @@
                         <tr v-for="imbuement in imbuements">
                             <td>
                                 <p>{{ imbuement.title }} ({{ imbuement.name }})</p>
-                                <small>{{ imbuement.description }}</small>
+                                <el-tooltip :content="imbuement.description">
+                                    <i class="mdi mdi-information"></i>
+                                </el-tooltip>
                             </td>
                             <td class="text-center" width="110">
                                 <select v-model="imbuement.amount" class="form-control" @change="update(imbuement)">
@@ -230,8 +232,6 @@
                 localStorage.setItem(`imbuement.${imbuement.id}.intricate`, imbuement.intricate)
                 localStorage.setItem(`imbuement.${imbuement.id}.powerful`, imbuement.powerful)
                 localStorage.setItem(`imbuement.${imbuement.id}.charm`, imbuement.charm)
-
-                this.calculate()
             },
 
             loadImbuiments () {
