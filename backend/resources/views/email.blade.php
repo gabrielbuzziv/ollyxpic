@@ -1,4 +1,4 @@
 {{ $user_message }}
 <br><br>
-Regards,
-{{ $name }} <{{ $email }}>
+Regards, <br>
+{{ $name }} - {{ $email }}

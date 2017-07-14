@@ -65,7 +65,7 @@ class TeamHuntController extends Controller
             'loot_total'  => $loot,
             'waste_total' => $waste,
             'password'    => $password,
-            'owner'       => $this->getOwnerIP()
+            'owner'       => $this->getOwnerIP(),
         ]);
 
         $this->saveTeammates($hunt, $teammateProfit);
@@ -484,8 +484,11 @@ class TeamHuntController extends Controller
                     $name = $this->getItemName($item);
 
                     if (! Items::where('name', $name)->first()) {
-                        // TODO:: Report me that the name is not found.
-//                        dd($name);
+                        Mail::send('itemerror', ['name' => $name], function ($message) {
+                            $message->subject('Ops... item not found');
+                            $message->to('ollyxpic@gmail.com');
+                        });
+
                         break;
                     } else {
                         if (! isset($items[$name])) {
@@ -651,6 +654,7 @@ class TeamHuntController extends Controller
             'red apples'                => 'red apple',
             'worms'                     => 'worm',
             'poison arrows'             => 'poison arrow',
+            'burst arrows'              => 'burst arrow',
             'dark rosaries'             => 'dark rosary',
         ];
 
