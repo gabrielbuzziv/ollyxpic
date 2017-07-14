@@ -48,11 +48,6 @@
             <panel class="speed" v-if="level">
                 Your base speed is <b>{{ baseSpeed }}</b> and with setted bonus is <b>{{ speed }}</b>
             </panel>
-
-
-            <div class="alert alert-warning">
-                <p>All data was taken from tibia files.</p>
-            </div>
         </div>
 
         <div class="col-md-8">

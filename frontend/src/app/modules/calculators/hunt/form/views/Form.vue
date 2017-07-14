@@ -7,7 +7,7 @@
         </page-title>
 
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <ul class="tabs">
                     <tab-link tab="loot" active>
                         <img :src="item_path('steel-boots')" class="margin-right-5">
@@ -28,22 +28,12 @@
                 <form action="" @submit.prevent="onSubmit" ref="form">
                     <tab-content tab="loot" active>
                         <form-group label="Loot Log">
-                            <form-textarea rows="12" v-model="loot"/>
+                            <form-textarea rows="12" v-model="loot" placeholder="Paste your loot log here"/>
                         </form-group>
-
-                        <div class="alert alert-warning margin-bottom-0">
-                            <p>
-                                <i class="mdi mdi-information margin-right-5"></i>
-                                Paste your <em>Loot Log</em> here of all teamhunt loot.
-                            </p>
-                        </div>
                     </tab-content>
 
                     <tab-content tab="waste">
-                        <div class="alert alert-info">
-                            Waste per party member.
-                        </div>
-
+                        <div class="margin-top-10"></div>
                         <div class="inline" v-for="teammate, index in teammates">
                             <form-group>
                                 <form-input :name="`teammates[${index}][name]`" :data="teammate.name" v-model="teammate.name" placeholder="Character name" />
@@ -74,23 +64,42 @@
                     </tab-content>
 
                     <tab-content tab="filters">
-                        <div class="alert alert-warning">
-                            <p>
-                                <i class="mdi mdi-information margin-right-5"></i>
-                                To filter the items you can manage what kind of items do you want do be shown.
-                            </p>
-                        </div>
+                        <div class="margin-top-10"></div>
 
                         <form-group>
                             <form-checkbox label="Cost Effective" v-model="filters.effective"/>
+                            <el-tooltip placement="right" class="margin-left-10">
+                                <p slot="content">
+                                    <b>Cost Effective:</b> items that the cost/capacity is worth than gold coin.<br>
+                                    <small>
+                                        <em>
+                                            e.g. Scale armor cost is 75 gp but the cap is 105 oz. The cost effective is 0.7,
+                                            that is worth less then gold coin.
+                                        </em>
+                                    </small>
+                                </p>
+                                <i class="mdi mdi-information"></i>
+                            </el-tooltip>
                         </form-group>
 
                         <form-group>
                             <form-checkbox label="Stackable Items" v-model="filters.stackable"/>
+                            <el-tooltip placement="right" class="margin-left-10">
+                                <p slot="content">
+                                    <b>Creature Products:</b> enable/disable stackable items from creatures.
+                                </p>
+                                <i class="mdi mdi-information"></i>
+                            </el-tooltip>
                         </form-group>
 
                         <form-group>
                             <form-checkbox label="Gold Coins" v-model="filters.goldcoins"/>
+                            <el-tooltip placement="right" class="margin-left-10">
+                                <p slot="content">
+                                    <b>Gold Coins:</b> enable/disable gold coins.
+                                </p>
+                                <i class="mdi mdi-information"></i>
+                            </el-tooltip>
                         </form-group>
 
                         <form-group>
@@ -99,22 +108,13 @@
                                 <form-input v-model="filters.above" placeholder="2000" :disabled="!filters.valuable"/>
                                 <div class="input-group-addon">gp</div>
                             </div>
+                            <el-tooltip placement="right" class="margin-left-10">
+                                <p slot="content">
+                                    <b>Valuable above:</b> enable/disable a minimum value for the item to be calculated.
+                                </p>
+                                <i class="mdi mdi-information"></i>
+                            </el-tooltip>
                         </form-group>
-
-                        <div class="alert alert-info margin-top-40 margin-bottom-0">
-                            <p class="margin-bottom-15">
-                                <b>Cost Effective:</b> items that the cost/capacity is worth than gold coin.<br>
-                                <small>
-                                    <em>
-                                        e.g. Scale armor cost is 75 gp but the cap is 105 oz. The cost effective is 0.7,
-                                        that is worth less then gold coin.
-                                    </em>
-                                </small>
-                            </p>
-                            <p class="margin-bottom-15"><b>Creature Products:</b> enable/disable stackable items from creatures.</p>
-                            <p class="margin-bottom-15"><b>Gold Coins:</b> enable/disable gold coins.</p>
-                            <p><b>Valuable above:</b> enable/disable a minimum value for the item to be calculated.</p>
-                        </div>
                     </tab-content>
 
                     <div class="tab-footer">
@@ -127,25 +127,6 @@
                         </button>
                     </div>
                 </form>
-            </div>
-
-            <div class="col-md-4">
-                <panel title="Team Hunt Calculator" icon="calculator">
-                    <p>How much times you loose your precious time calculating the profit/waste from a team hunt?</p>
-                    <p>Now, your problems gone. The team hunt calculator provide you a flexible tool to calculate your
-                        team waste and the hunt profit and then show how much money each own profited.</p>
-                    <p>We garantee that your profit will increase, since we use the best formula to calculate the
-                        profit.</p>
-                </panel>
-
-                <panel title="How it works" icon="information">
-                    <p>This tool is flexible so you can use in many ways.</p>
-                    <p>1. You can just calculate the value of total loot collected.</p>
-                    <p>2. You can calculate the waste of your teammates and in the result see how much each own
-                        profit.</p>
-                    <p>3. You can filter the loot that you want to be calculated.</p>
-                    <p>4. You can remove the items that you don't want.</p>
-                </panel>
             </div>
         </div>
 

@@ -33,7 +33,7 @@ class Items extends Model
      *
      * @var array
      */
-    protected $with = ['properties', 'sellTo'];
+    protected $with = ['properties', 'sellTo', 'buyFrom'];
 
     /**
      * Item Properties.
@@ -51,5 +51,15 @@ class Items extends Model
     public function sellTo()
     {
         return $this->belongsToMany(NPC::class, 'SellItems', 'itemid', 'vendorid')->withPivot('value');
+    }
+
+    /**
+     * Can be bought from
+     *
+     * @return $this
+     */
+    public function buyFrom()
+    {
+        return $this->belongsToMany(NPC::class, 'BuyItems', 'itemid', 'vendorid')->withPivot('value');
     }
 }

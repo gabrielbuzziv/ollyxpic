@@ -77,7 +77,18 @@ class WasteController extends Controller
         $supplies = $this->filter($type);
 
         return array_map(function ($supply) {
-            $price = empty($supply['price']) ? Items::find($supply['id'])->vendor_value : $supply['price'];
+            if (empty($supply['price'])) {
+                $sellers = Items::find($supply['id'])->buyFrom->toArray();
+                $price = array_reduce($sellers, function ($carry, $seller) {
+                    if ((int) $seller['pivot']['value'] < $carry || $carry == 0) {
+                        return (int) $seller['pivot']['value'];
+                    }
+
+                    return $carry;
+                }, 0);
+            } else {
+                $price = $supply['price'];
+            }
 
             return [
                 'id'       => $supply['id'],

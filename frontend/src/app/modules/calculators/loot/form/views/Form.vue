@@ -9,8 +9,6 @@
         <div class="row">
             <div class="col-md-12">
                 <panel>
-                    <p>Select the items you want to calculate, then edit then in the list below.</p>
-
                     <el-select
                             v-model="currentItem"
                             filterable
@@ -37,16 +35,12 @@
                             </span>
                         </el-option>
                     </el-select>
-
-                    <small class="helper-block margin-top-5 block" v-if="! loots.length">
-                        <em>You need to add at least one item to see statistics.</em>
-                    </small>
                 </panel>
 
             </div>
 
             <div class="col-md-9">
-                <panel v-if="loots.length">
+                <panel>
                     <table class="table table-loot margin-bottom-0">
                         <thead>
                             <tr>
@@ -60,7 +54,7 @@
                             </tr>
                         </thead>
 
-                        <tbody>
+                        <tbody v-if="loots.length">
                             <tr v-for="loot, index in loots">
                                 <td width="50">
                                     <img :src="image_path('item', loot.id)">
@@ -93,6 +87,16 @@
                                 </td>
                             </tr>
                         </tbody>
+
+                        <tbody v-else>
+                            <tr>
+                                <td colspan="7" class="text-center">
+                                    <div class="alert alert-warning margin-bottom-0">
+                                        No items added.
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
                 </panel>
             </div>
@@ -106,6 +110,11 @@
 
                         {{ lootTotal.formatMoney(0, '.', '.') }} gp
                     </strong>
+
+                    <button class="btn btn-block margin-top-20" @click="reset">
+                        <i class="mdi mdi-eraser margin-right-5"></i>
+                        Reset
+                    </button>
                 </panel>
 
                 <panel class="npc-items" title="Gren Djinn" v-if="green.length">
@@ -199,7 +208,22 @@
             }
         },
 
+        watch: {
+            loots: {
+                handler () {
+                    localStorage.setItem('loot.counter', JSON.stringify(this.loots))
+                },
+
+                deep: true
+            }
+        },
+
         methods: {
+            reset () {
+                localStorage.removeItem('loot.counter')
+                this.loots = []
+            },
+
             getNPCName (npcs) {
                 if (npcs.length) {
                     return npcs.map(npc => npc.name).join(', ')
@@ -253,7 +277,11 @@
                     services.searchItem(query)
                             .then(response => {
                                 this.loadingItem = false
-                                this.items = response.data
+
+                                const loots = this.loots.map(loot => loot.name.toLowerCase())
+                                this.items = response.data.filter(item => {
+                                    return loots.indexOf(item.name.toLowerCase()) == -1
+                                })
                             })
                 }
             }, 250),
@@ -261,6 +289,10 @@
             removeItem (index) {
                 this.loots.splice(index, 1)
             }
+        },
+
+        mounted () {
+            this.loots = localStorage.getItem('loot.counter') ? JSON.parse(localStorage.getItem('loot.counter')) : []
         }
     }
 </script>

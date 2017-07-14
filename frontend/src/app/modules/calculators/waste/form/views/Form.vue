@@ -7,7 +7,7 @@
         </page-title>
 
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <ul class="tabs">
                     <tab-link tab="potions" active>
                         <img :src="item_path('supreme-health-potion')" class="margin-right-5">
@@ -37,6 +37,7 @@
 
                 <form action="" @submit.prevent="onSubmit" ref="form">
                     <tab-content tab="potions" active>
+                        <div class="margin-top-10"></div>
                         <div class="inline" v-for="potion, index in potions">
                             <form-group>
                                 <el-select
@@ -81,6 +82,7 @@
                     </tab-content>
 
                     <tab-content tab="ammunition">
+                        <div class="margin-top-10"></div>
                         <div class="inline" v-for="ammunition, index in ammunitions">
                             <form-group>
                                 <el-select
@@ -124,6 +126,7 @@
                     </tab-content>
 
                     <tab-content tab="runes">
+                        <div class="margin-top-10"></div>
                         <div class="inline" v-for="rune, index in runes">
                             <form-group>
                                 <el-select
@@ -167,6 +170,7 @@
                     </tab-content>
 
                     <tab-content tab="amulets">
+                        <div class="margin-top-10"></div>
                         <div class="inline" v-for="amulet, index in amulets">
                             <form-group>
                                 <el-select
@@ -210,6 +214,7 @@
                     </tab-content>
 
                     <tab-content tab="rings">
+                        <div class="margin-top-10"></div>
                         <div class="inline" v-for="ring, index in rings">
                             <form-group>
                                 <el-select
@@ -262,30 +267,6 @@
                         </button>
                     </div>
                 </form>
-
-                <div class="alert alert-warning margin-top-20">
-                    <p>The custom price should be in gold coins.</p>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <panel title="Waste Calculator" icon="calculator">
-                    <p>The waste calculator will sum the total amount of supplies you waste in your hunt.</p>
-                    <p>If you need you can set a custom price to each supply in case your bought it in market, but if
-                        the
-                        field is empty the npc price will be used in the math.</p>
-
-                </panel>
-
-                <panel title="How to use" icon="information">
-                    <p>To use this calculator is simple, you just need to select the supply that your used in yout hunt
-                        and then,
-                        set the amount and if is necessary the market price your payed.</p>
-                    <p>After set all supplies you will click in the <span class="label label-success">Calculate</span>
-                        button to check
-                        the result of the calculation.</p>
-                    <p>You can share you waste with your friends if necessary.</p>
-                </panel>
             </div>
         </div>
     </page-load>

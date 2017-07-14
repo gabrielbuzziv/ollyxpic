@@ -15,7 +15,6 @@
                         <tr>
                             <th>Total</th>
                             <th class="text-center">Total/Hour</th>
-                            <th class="text-center">Total/Minute</th>
                             <th class="text-center" width="110">
                                 Time Used
 
@@ -37,9 +36,6 @@
                             </td>
                             <td class="text-center">
                                 {{ (totalPerMinute * 60).formatMoney(0, '.', '.') }} gp / hour
-                            </td>
-                            <td class="text-center">
-                                {{ totalPerMinute.formatMoney(0, '.', '.') }} gp / minute
                             </td>
                             <td class="text-center" width="100">
                                 <form-input :data="used" v-model="used" v-mask="'##:##'" class="normal"/>

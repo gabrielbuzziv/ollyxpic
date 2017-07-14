@@ -40,8 +40,8 @@
                 </div>
 
                 <!-- RESULT PANEL -->
-                <panel title="Teammates" icon="account-multiple" toggleable v-if="teammates">
-                    <table class="table">
+                <panel v-if="teammates">
+                    <table class="table margin-bottom-0">
                         <thead>
                             <tr>
                                 <th>Player</th>
@@ -97,8 +97,8 @@
                 </panel>
 
                 <!-- LOOT PANEL -->
-                <panel title="Loot" toggleable>
-                    <table class="table table-loot">
+                <panel>
+                    <table class="table table-loot margin-bottom-0">
                         <thead>
                             <tr>
                                 <th class="text-center"></th>
@@ -187,26 +187,6 @@
 
             <!-- RIGHT SIDE -->
             <div class="col-md-4">
-                <panel class="npc-items" title="Gren Djinn" v-if="green.length">
-                    <img :src="image_path('item', item.data.id)" v-for="item in green">
-                </panel>
-
-                <panel class="npc-items" title="Blue Djinn" v-if="blue.length">
-                    <img :src="image_path('item', item.data.id)" v-for="item in blue">
-                </panel>
-
-                <panel class="npc-items" title="Rashid" v-if="rashid.length">
-                    <img :src="image_path('item', item.data.id)" v-for="item in rashid">
-                </panel>
-
-                <panel class="npc-items" title="Yasir" v-if="yasir.length">
-                    <img :src="image_path('item', item.data.id)" v-for="item in yasir">
-                </panel>
-
-                <panel class="npc-items" title="Others" v-if="others.length">
-                    <img :src="image_path('item', item.data.id)" v-for="item in others">
-                </panel>
-
                 <panel title="Access Key" icon="key" v-if="granted" toggleable>
                     <form-input type="text"
                                 class="text-center"
@@ -233,48 +213,25 @@
                     </form>
                 </panel>
 
-                <!-- Filters -->
-                <panel title="Filters" icon="filter" class="panel-filters" toggleable :open="false">
-                    <ul>
-                        <li>
-                            <b>Cost Effective:</b>
-                            <div class="pull-right">
-                                <div class="label label-success" v-if="result.effective">Enabled</div>
-                                <div class="label label-danger" v-else>Disabled</div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <b>Creature Products:</b>
-                            <div class="pull-right">
-                                <div class="label label-success" v-if="result.stackable">Enabled</div>
-                                <div class="label label-danger" v-else>Disabled</div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <b>Gold Coins:</b>
-                            <div class="pull-right">
-                                <div class="label label-success" v-if="result.goldcoins">Enabled</div>
-                                <div class="label label-danger" v-else>Disabled</div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <b>Valuables:</b>
-                            <div class="pull-right">
-                                <div class="label label-success" v-if="result.valuables">
-                                    above {{ result.valuables }}
-                                </div>
-                                <div class="label label-danger" v-else>Disabled</div>
-                            </div>
-                        </li>
-                    </ul>
-
-                    <div class="clearfix"></div>
+                <panel class="npc-items" title="Gren Djinn" v-if="green.length">
+                    <img :src="image_path('item', item.data.id)" v-for="item in green">
                 </panel>
 
+                <panel class="npc-items" title="Blue Djinn" v-if="blue.length">
+                    <img :src="image_path('item', item.data.id)" v-for="item in blue">
+                </panel>
 
+                <panel class="npc-items" title="Rashid" v-if="rashid.length">
+                    <img :src="image_path('item', item.data.id)" v-for="item in rashid">
+                </panel>
+
+                <panel class="npc-items" title="Yasir" v-if="yasir.length">
+                    <img :src="image_path('item', item.data.id)" v-for="item in yasir">
+                </panel>
+
+                <panel class="npc-items" title="Others" v-if="others.length">
+                    <img :src="image_path('item', item.data.id)" v-for="item in others">
+                </panel>
             </div>
         </div>
 
