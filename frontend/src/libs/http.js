@@ -6,7 +6,6 @@ const baseURL = window.location.href.split('/')[2].includes('ollyxpic') ? 'http:
 
 window.axios = axios.create({
     baseURL: `${baseURL}/api`,
-    timeout: 60000,
     headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',

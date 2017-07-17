@@ -10,6 +10,7 @@ use App\HuntTeammates;
 use App\Items;
 use \App\Helper\GifFrameExtractor;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class TeamHuntController extends Controller
@@ -62,8 +63,8 @@ class TeamHuntController extends Controller
             'stackable'   => $this->filters->stackable,
             'goldcoins'   => $this->filters->goldcoins,
             'valuables'   => $this->filters->valuables,
-            'loot_total'  => $loot,
-            'waste_total' => $waste,
+            'loot_total'  => ! empty($loot) ? $loot : 0,
+            'waste_total' => ! empty($waste) ? $waste : 0,
             'password'    => $password,
             'owner'       => $this->getOwnerIP(),
         ]);
@@ -488,15 +489,13 @@ class TeamHuntController extends Controller
                             $message->subject('Ops... item not found');
                             $message->to('ollyxpic@gmail.com');
                         });
-
-                        break;
                     } else {
                         if (! isset($items[$name])) {
                             $items[$name] = ['quantity' => 0, 'data' => Items::where('name', $name)->first()->toArray()];
                         }
-                    }
 
-                    $items[$name]['quantity'] = $items[$name]['quantity'] + $this->getItemQuantity($item);
+                        $items[$name]['quantity'] = $items[$name]['quantity'] + $this->getItemQuantity($item);
+                    }
                 }
             }
         }
