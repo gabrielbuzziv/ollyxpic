@@ -43,8 +43,7 @@ class ItemsController extends Controller
     public function category()
     {
         $query = request()->input('query');
-        $items = Category::where('category', "{$query}")
-            ->where('usable', 1)->get();
+        $items = Category::where('category', $query)->where('usable', true)->get();
 
         return $this->respond($items->toArray());
     }

@@ -1,0 +1,19 @@
+.tibiabox {
+    background: url('/src/assets/images/backpack-dark.png');
+    border: 2px solid #717171;
+    padding: 0 5px 5px;
+    display: block;
+    width: 100%;
+
+    > span {
+        color: #fff;
+        font-weight: 900;
+        font-size:12px;
+    }
+
+    .tibiabox-wrap {
+        background: url('/src/assets/images/equipments-texture.gif');
+        padding: 5px 5px 0;
+        text-align: left;
+    }
+}

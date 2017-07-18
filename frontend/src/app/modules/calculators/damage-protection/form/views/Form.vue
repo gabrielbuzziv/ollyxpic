@@ -6,100 +6,70 @@
             <span>Protection</span>
         </page-title>
 
-        <!--<div class="col-md-12">-->
-            <!--<panel>-->
-                <!--<table class="table">-->
-                    <!--<thead>-->
-                        <!--<tr>-->
-                            <!--<th></th>-->
-                            <!--<th>Item</th>-->
-                            <!--<th>Arm</th>-->
-                            <!--<th>Category</th>-->
-                            <!--<th>Usable</th>-->
-                        <!--</tr>-->
-                    <!--</thead>-->
+        <div class="col-md-4">
+            <panel>
+                <div class="equips">
+                    <div :class="['equip', category.slot, dragging[category.slot] ? 'dragging' : '']"
+                         v-for="category in categories">
+                        <draggable class="draggable" v-model="category.current"
+                                   :options="{ group: category.slot }"
+                                   @change="onChange">
+                            <div class="item" v-if="category.current.length">
+                                <el-popover :title="category.current[0].item.title" placement="top"
+                                            popper-class="equipmentPopper">
+                                    <img :src="image_path('item', category.current[0].item.id)"
+                                         slot="reference">
+                                </el-popover>
+                            </div>
+                        </draggable>
+                    </div>
+                </div>
+            </panel>
+        </div>
 
-                    <!--<tbody>-->
-                        <!--<tr v-for="item in editItems">-->
-                            <!--<td>-->
-                                <!--<img :src="image_path('item', item.id)" alt="">-->
-                            <!--</td>-->
-                            <!--<td>{{ item.title }}</td>-->
-                            <!--<td>{{ item.arm }}</td>-->
-                            <!--<td>-->
-                                <!--<select v-model="item.category">-->
-                                    <!--<option value="amulet">Amulet</option>-->
-                                    <!--<option value="helmet">Helmet</option>-->
-                                    <!--<option value="backpack">Backpack</option>-->
-                                    <!--<option value="axe">Axe</option>-->
-                                    <!--<option value="sword">Sword</option>-->
-                                    <!--<option value="club">Club</option>-->
-                                    <!--<option value="distance">Distance</option>-->
-                                    <!--<option value="armor">Armor</option>-->
-                                    <!--<option value="shield">Shield</option>-->
-                                    <!--<option value="legs">Legs</option>-->
-                                    <!--<option value="rings">Ring</option>-->
-                                    <!--<option value="ammunition">Ammunition</option>-->
-                                    <!--<option value="boots">Boots</option>-->
-                                <!--</select>-->
-                            <!--</td>-->
-                            <!--<td>-->
-                                <!--<el-checkbox v-model="item.usable"></el-checkbox>-->
-                            <!--</td>-->
-                        <!--</tr>-->
-                    <!--</tbody>-->
-                <!--</table>-->
+        <div class="col-md-8">
+            <ul class="tabs">
+                <tab-link :tab="category.id" :active="isShowing(category.id)" v-for="category in categories" @click="show(category.id)">
+                    <el-tooltip :content="category.name" placement="top">
+                        <img :src="image_path('item', category.image)" class="margin-right-5">
+                    </el-tooltip>
+                </tab-link>
+            </ul>
 
-                <!--<button class="btn btn-success" @click="saveIt">Save ititem_</button>-->
-            <!--</panel>-->
-        <!--</div>-->
+            <tab-content class="items" :tab="category.id" :active="isShowing(category.id)" v-for="category in categories">
+                <draggable v-model="category.items" :options="{ group: category.slot }"
+                           @start="startDrag(category.slot)" @end="endDrag(category.slot)">
+                    <div class="item" v-for="item in category.items">
+                        <el-popover :title="item.item.title" popper-class="equipmentPopper">
+                            <img :src="image_path('item', item.item.id)" slot="reference">
+                        </el-popover>
+                    </div>
+                </draggable>
+            </tab-content>
+        </div>
 
         <div class="col-md-12">
-            <panel>
-                <div class="categories">
-                    <button @click="show(category.id)" v-for="category in categories">
-                        <img :src="image_path('item', category.image)">
-                    </button>
-                </div>
-            </panel>
-        </div>
-
-        <div class="col-md-3">
-            <panel>
-                <div class="wrap">
-                    <div class="set">
-                        <div :class="category.id" v-for="category in categories">
-                            <draggable class="draggable" v-model="category.current" :options="{ group: category.id }" @change="onTest">
-                                <div class="item" v-if="category.current.length">
-                                    <el-popover :title="category.current[0].item.title" placement="top" popper-class="equipmentPopper">
-                                        <img :src="image_path('item', category.current[0].item.id)" slot="reference">
-                                    </el-popover>
-                                </div>
-                            </draggable>
-                        </div>
-                        <div class="soul"></div>
-                        <div class="capacity"></div>
+            <div class="wrap">
+                <div class="set">
+                    <div :class="[category.slot, dragging[category.slot] ? 'dragging' : '']"
+                         v-for="category in categories">
+                        <draggable class="draggable" v-model="category.current"
+                                   :options="{ group: category.slot }"
+                                   @change="onChange">
+                            <div class="item" v-if="category.current.length">
+                                <el-popover :title="category.current[0].item.title" placement="top"
+                                            popper-class="equipmentPopper">
+                                    <img :src="image_path('item', category.current[0].item.id)"
+                                         slot="reference">
+                                </el-popover>
+                            </div>
+                        </draggable>
                     </div>
+                    <div class="soul"></div>
+                    <div class="capacity"></div>
                 </div>
-            </panel>
-        </div>
 
-        <div class="col-md-9">
-            <panel>
-                <div class="wrap">
-                    <div class="items">
-                        <transition name="fadeIn" v-for="category in categories" :key="category.id">
-                            <draggable v-model="category.items" :options="{ group: category.id }" v-if="isShowing(category.id)">
-                                <div class="item" v-for="item in category.items">
-                                    <el-popover :title="item.item.title" placement="top" popper-class="equipmentPopper">
-                                        <img :src="image_path('item', item.item.id)" slot="reference">
-                                    </el-popover>
-                                </div>
-                            </draggable>
-                        </transition>
-                    </div>
-                </div>
-            </panel>
+            </div>
         </div>
 
         <div class="col-md-12">
@@ -200,31 +170,47 @@
         data () {
             return {
                 dragging: {
-                    amulets: false,
-                    helmets: false,
-                    backpacks: false,
-                    weapons: false,
-                    armors: false,
-                    shields: false,
-                    rings: false,
+                    amulet: false,
+                    helmet: false,
+                    backpack: false,
+                    weapon: false,
+                    armor: false,
+                    shield: false,
+                    ring: false,
                     legs: false,
-                    ammunitions: false,
+                    ammunition: false,
                     boots: false,
                 },
 
                 showing: '',
                 categories: [
-                    { id: 'amulet', name: 'Amulets', image: 169, open: false, items: [], current: [] },
-                    { id: 'helmet', name: 'Helmets', image: 147, open: false, items: [], current: [] },
-                    { id: 'armor', name: 'Armors', image: 133, open: false, items: [], current: [] },
-                    { id: 'backpack', name: 'Backpacks', image: 501, open: false, items: [], current: [] },
-                    { id: 'weapon', name: 'Weapons', image: 31, open: false, items: [], current: [] },
-                    { id: 'shield', name: 'Shields', image: 209, open: false, items: [], current: [] },
-                    { id: 'ring', name: 'Rings', image: 112, open: false, items: [], current: [] },
-                    { id: 'legs', name: 'legs', image: 154, open: false, items: [], current: [] },
-                    { id: 'ammunition', name: 'Ammunitions', image: 217, open: false, items: [], current: [] },
-                    { id: 'boots', name: 'Boots', image: 1, open: false, items: [], current: [] },
+                    { slot: 'weapon', id: 'axe', name: 'Axe', image: 1350, open: false, items: [], current: [] },
+                    { slot: 'weapon', id: 'sword', name: 'Sword', image: 1431, open: false, items: [], current: [] },
+                    { slot: 'weapon', id: 'club', name: 'Club', image: 98, open: false, items: [], current: [] },
+                    { slot: 'weapon', id: 'distance', name: 'Distance', image: 2319, open: false, items: [], current: [] },
+                    { slot: 'weapon', id: 'wand', name: 'Wands & Rods', image: 2352, open: false, items: [], current: [] },
+                    { slot: 'shield', id: 'shield', name: 'Shields', image: 2195, open: false, items: [], current: [] },
+                    { slot: 'helmet', id: 'helmet', name: 'Helmets', image: 522, open: false, items: [], current: [] },
+                    { slot: 'armor', id: 'armor', name: 'Armors', image: 2199, open: false, items: [], current: [] },
+                    { slot: 'legs', id: 'legs', name: 'Legs', image: 2198, open: false, items: [], current: [] },
+                    { slot: 'boots', id: 'boots', name: 'Boots', image: 1, open: false, items: [], current: [] },
+                    { slot: 'backpack', id: 'backpack', name: 'Backpacks', image: 2943, open: false, items: [], current: [] },
+                    { slot: 'amulet', id: 'amulet', name: 'Amulets', image: 1042, open: false, items: [], current: [] },
+                    { slot: 'ring', id: 'ring', name: 'Rings', image: 2348, open: false, items: [], current: [] },
+                    { slot: 'ammunition', id: 'ammunition', name: 'Ammunitions', image: 811, open: false, items: [], current: [] },
                 ],
+
+                list: {
+                    amulet: [],
+                    helmet: [],
+                    backpack: [],
+                    armor: [],
+                    shield: [],
+                    ring: [],
+                    legs: [],
+                    ammunitions: [],
+                    boots: []
+                },
 
                 editItems: []
             }
@@ -245,42 +231,22 @@
                 return false
             },
 
-            onTest (event) {
-                const item = event.added.element
+            onChange (event) {
+                const item          = event.added.element
                 const categoryIndex = this.categories.map(category => category.id).indexOf(item.category)
-                let category = this.categories[categoryIndex]
-
-                if (category.current.length > 1) {
-//                    this.categories[categoryIndex].push(category.current[1])
-
-//                    this.categories[categoryIndex].items = this.categories[categoryIndex].items.sort((a, b) => {
-//                        return a.id - b.id
-//                    })
-                }
+                let category        = this.categories[categoryIndex]
 
                 this.categories[categoryIndex].current = [item]
-            },
-
-
-            onChange (type, item) {
-                const categoryIndex = this.categories.map(category => category.id).indexOf(type)
-
-                if (this.categories[categoryIndex].current.length > 1) {
-                    this.categories[categoryIndex].push(this[type][1])
-
-                    this.categories[categoryIndex].items = this.categories[categoryIndex].items.sort((a, b) => {
-                        return a.id - b.id
-                    })
-                }
-
-                this.categories[categoryIndex].current = [item]
+                this.categories[categoryIndex].items   = this.list[category.id].filter(list => list.item_id != item.item_id)
             },
 
             startDrag (type) {
+                console.log(type)
                 this.dragging[type] = true
             },
 
             endDrag (type) {
+                console.log(type)
                 this.dragging[type] = false
             },
 
@@ -289,8 +255,9 @@
                 if (this.categories[categoryIndex].items.length == 0) {
                     services.searchItem(type)
                             .then(response => {
+                                this.list[type]                      = response.data
                                 this.categories[categoryIndex].items = response.data
-                                this.showing = type
+                                this.showing                         = type
                             })
                 } else {
                     this.showing = type
@@ -302,23 +269,8 @@
             }
         },
 
-//        mounted () {
-//            services.searchItem('Weapon')
-//                    .then(response => {
-//                        this.editItems = response.data.map(item => {
-//                            return {
-//                                id: item.id,
-//                                title: item.title,
-//                                category: 'distance',
-//                                usable: false,
-//                                arm: item.properties.filter(prop => prop.property == 'Atk')[0] ? item.properties.filter(prop => prop.property == 'Atk')[0].value : 0
-//                            }
-//                        }).sort((a, b) => {
-//                            return a.arm - b.arm
-//                        })
-//
-//                        this.showing = type
-//                    })
-//        }
+        mounted () {
+            this.show('armor')
+        }
     }
 </script>
