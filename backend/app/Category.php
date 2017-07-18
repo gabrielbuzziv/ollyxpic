@@ -29,12 +29,17 @@ class Category extends Model
     protected $fillable = ['item_id', 'category', 'usable'];
 
     /**
+     * @var array
+     */
+    protected $with = ['item'];
+
+    /**
      * Has many Item
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function items()
+    public function item()
     {
-        return $this->hasOne(Items::class, 'item_id');
+        return $this->hasOne(Items::class, 'id');
     }
 }

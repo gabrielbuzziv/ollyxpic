@@ -43,11 +43,16 @@ class ItemsController extends Controller
     public function category()
     {
         $query = request()->input('query');
-        $items = Items::where('category', 'like', "%{$query}%")->get();
+        $items = Category::where('category', "{$query}")
+            ->where('usable', 1)->get();
 
         return $this->respond($items->toArray());
     }
 
+    /**
+     * Save categorized item
+     *
+     */
     public function saveItemCategory()
     {
         $data = request()->all();
