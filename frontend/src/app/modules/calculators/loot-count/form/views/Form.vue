@@ -27,6 +27,10 @@
 
                 <form action="" @submit.prevent="onSubmit" ref="form">
                     <tab-content tab="loot" active>
+                        <div class="alert alert-warning">
+                            <p>If you use the server log instead of loot log the calculation may take a while.</p>
+                        </div>
+
                         <form-group label="Loot Log">
                             <form-textarea rows="12" v-model="loot" placeholder="Paste your loot log here"/>
                         </form-group>

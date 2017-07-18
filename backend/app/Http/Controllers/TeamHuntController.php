@@ -352,8 +352,8 @@ class TeamHuntController extends Controller
             HuntItems::create([
                 'hunt_id'    => $hunt->id,
                 'item_id'    => $item['data']['id'],
-                'quantity'   => $item['quantity'],
-                'unit_price' => $item['data']['vendor_value'],
+                'quantity'   => $item['quantity'] ?: 0,
+                'unit_price' => ! empty($item['data']['vendor_value']) ? $item['data']['vendor_value'] : 0,
             ]);
         });
     }
@@ -565,6 +565,10 @@ class TeamHuntController extends Controller
      */
     private function prepareName($name)
     {
+        if (strpos($name, '(active prey bonus)')) {
+            $name = trim(str_replace('(active prey bonus)', '', $name));
+        }
+
         $names = [
             'gold coins'                => 'gold coin',
             'platinum coins'            => 'platinum coin',
@@ -655,6 +659,30 @@ class TeamHuntController extends Controller
             'poison arrows'             => 'poison arrow',
             'burst arrows'              => 'burst arrow',
             'dark rosaries'             => 'dark rosary',
+            'assassin stars'            => 'assassin star',
+            'werewolf fang'             => 'werewolf fangs',
+            'bat wings'                 => 'bat wing',
+            'fish remains'              => 'remains of a fish',
+            'potatos'                   => 'potato',
+            'potatoes'                  => 'potato',
+            'blank runes'               => 'blank rune',
+            'royal spears'              => 'royal spear',
+            'hunting spears'            => 'hunting spear',
+            'throwing stars'            => 'throwing star',
+            'bolts'                     => 'bolt',
+            'white mushrooms'           => 'white mushroom',
+            'red mushrooms'             => 'red mushroom',
+            'brown mushrooms'           => 'brown mushroom',
+            'fire mushrooms'            => 'fire mushroom',
+            'green mushrooms'           => 'green mushroom',
+            'dark mushrooms'            => 'dark mushroom',
+            'small stones'              => 'small stone',
+            'shiver arrows'             => 'shiver arrow',
+            'tusks'                     => 'tusk',
+            'arrows'                    => 'arrow',
+            'sniper arrows'             => 'sniper arrow',
+            'stars'                     => 'star',
+            'small rubies'              => 'small ruby',
         ];
 
         return isset($names[$name]) ? $names[$name] : $name;
