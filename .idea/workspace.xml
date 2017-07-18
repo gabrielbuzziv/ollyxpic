@@ -24,24 +24,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="animation.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/animation.scss">
+      <file leaf-file-name="app.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/app.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+            <state relative-caret-position="310">
+              <caret line="52" column="21" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ItemsController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/ItemsController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-262">
-              <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
-              <folding>
-                <element signature="e#40#54#0#PHP" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -49,76 +37,9 @@
       <file leaf-file-name="TeamHuntController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/TeamHuntController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="688" column="41" selection-start-line="688" selection-start-column="41" selection-end-line="688" selection-end-column="41" />
+            <state relative-caret-position="221">
+              <caret line="689" column="37" selection-start-line="689" selection-start-column="37" selection-end-line="689" selection-end-column="37" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="http.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/libs/http.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layout.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/layout.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="3" selection-start-line="0" selection-start-column="3" selection-end-line="0" selection-end-column="3" />
-              <folding>
-                <marker date="1500394134119" expanded="true" signature="2:59" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="30:57" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="69:268" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="238:266" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="278:6617" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="462:6615" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="529:656" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="1433:1600" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="1629:1790" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="1696:1768" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="1816:3500" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="2413:2481" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="2513:2729" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="2763:3371" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="3110:3345" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="3404:3478" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="3535:3805" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="3908:3987" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="4042:6545" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="4591:6519" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="4832:6489" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="5096:5372" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="5418:6312" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="5861:6274" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="6357:6455" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="6628:7769" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="6643:7131" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="7143:7767" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="7270:7751" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="7446:7505" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="7779:8361" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="7925:8086" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="8032:8076" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="8106:8359" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="8203:8303" ph="{...}" />
-                <marker date="1500394134119" expanded="true" signature="8315:8353" ph="{...}" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -257,24 +178,24 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
-    <property name="SearchEverywhereHistoryKey" value="huntcon&#9;null&#9;null&#10;name&#9;null&#9;null&#10;huntcont&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TeamHuntController.php&#10;itemcon&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/ItemsController.php&#10;loot-count/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot-count/form/views/Form.vue&#10;http.&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/http.js&#10;cors.php&#9;FILE&#9;file:///var/www/ollyxpic/backend/config/cors.php&#10;pi&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;itemcont&#9;null&#9;null&#10;huntst&#9;null&#9;null&#10;hunts&#9;null&#9;null&#10;.env&#9;FILE&#9;file:///var/www/ollyxpic/backend/.env&#10;config/serv&#9;FILE&#9;file:///var/www/ollyxpic/backend/config/services.php&#10;appser&#9;null&#9;null&#10;config/app.php&#9;FILE&#9;file:///var/www/ollyxpic/backend/config/app.php&#10;pagecont&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/PageController.php&#10;api&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;huntcontr&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TeamHuntController.php&#10;email.bl&#9;FILE&#9;file:///var/www/ollyxpic/backend/resources/views/email.blade.php&#10;pagecontr&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/PageController.php&#10;loot-ac/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot-acumulator/form/views/Form.vue&#10;nav.vue&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Nav.vue&#10;pages/home/ind&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/pages/home/home/views/Index.vue&#10;loot-count/fo&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot-count/form/views/Form.vue&#10;imbue/for&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/imbuements/form/views/Form.vue&#10;loot-coun/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot-count/form/views/Form.vue&#10;topbar&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Topbar.vue&#10;layout&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/layout.scss&#10;imbuement/for&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/imbuements/form/views/Form.vue&#10;layo&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/layout.scss&#10;acumulator/for&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot-acumulator/form/views/Form.vue&#10;loot-co/f&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot-count/form/views/Form.vue&#10;loot/for&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot-acumulator/form/views/Form.vue&#10;layout.sc&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/layout.scss&#10;nav&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Nav.vue&#10;loot/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot/form/views/Form.vue&#10;imbuement/f&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/imbuements/form/views/Form.vue&#10;waste/resu&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/waste/result/views/Result.vue&#10;api.ph&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;wastecontr&#9;null&#9;null&#10;buyite&#9;null&#9;null&#10;item.php&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Items.php&#10;form.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/form.scss&#10;hunt/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/hunt/form/views/Form.vue&#10;varia&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/_variables.scss&#10;header.vue&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Header.vue&#10;package.json&#9;FILE&#9;file:///var/www/ollyxpic/frontend/package.json&#10;email&#9;FILE&#9;file:///var/www/ollyxpic/backend/resources/views/email.blade.php&#10;home/index.vue&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/pages/home/home/views/Index.vue&#10;home/ind&#9;FILE&#9;file:///var/www/ollyxpic/frontend/node_modules/home-or-tmp/index.js" />
+    <property name="SearchEverywhereHistoryKey" value="ntcon&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TeamHuntController.php&#10;huntcon&#9;null&#9;null&#10;name&#9;null&#9;null&#10;huntcont&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TeamHuntController.php&#10;itemcon&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/ItemsController.php&#10;loot-count/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot-count/form/views/Form.vue&#10;http.&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/http.js&#10;cors.php&#9;FILE&#9;file:///var/www/ollyxpic/backend/config/cors.php&#10;pi&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;itemcont&#9;null&#9;null&#10;huntst&#9;null&#9;null&#10;hunts&#9;null&#9;null&#10;.env&#9;FILE&#9;file:///var/www/ollyxpic/backend/.env&#10;config/serv&#9;FILE&#9;file:///var/www/ollyxpic/backend/config/services.php&#10;appser&#9;null&#9;null&#10;config/app.php&#9;FILE&#9;file:///var/www/ollyxpic/backend/config/app.php&#10;pagecont&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/PageController.php&#10;api&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;huntcontr&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TeamHuntController.php&#10;email.bl&#9;FILE&#9;file:///var/www/ollyxpic/backend/resources/views/email.blade.php&#10;pagecontr&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/PageController.php&#10;loot-ac/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot-acumulator/form/views/Form.vue&#10;nav.vue&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Nav.vue&#10;pages/home/ind&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/pages/home/home/views/Index.vue&#10;loot-count/fo&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot-count/form/views/Form.vue&#10;imbue/for&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/imbuements/form/views/Form.vue&#10;loot-coun/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot-count/form/views/Form.vue&#10;topbar&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Topbar.vue&#10;layout&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/layout.scss&#10;imbuement/for&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/imbuements/form/views/Form.vue&#10;layo&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/layout.scss&#10;acumulator/for&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot-acumulator/form/views/Form.vue&#10;loot-co/f&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot-count/form/views/Form.vue&#10;loot/for&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot-acumulator/form/views/Form.vue&#10;layout.sc&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/layout.scss&#10;nav&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Nav.vue&#10;loot/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot/form/views/Form.vue&#10;imbuement/f&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/imbuements/form/views/Form.vue&#10;waste/resu&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/waste/result/views/Result.vue&#10;api.ph&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;wastecontr&#9;null&#9;null&#10;buyite&#9;null&#9;null&#10;item.php&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Items.php&#10;form.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/form.scss&#10;hunt/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/hunt/form/views/Form.vue&#10;varia&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/_variables.scss&#10;header.vue&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Header.vue&#10;package.json&#9;FILE&#9;file:///var/www/ollyxpic/frontend/package.json&#10;email&#9;FILE&#9;file:///var/www/ollyxpic/backend/resources/views/email.blade.php&#10;home/index.vue&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/pages/home/home/views/Index.vue" />
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="JavaScriptPreferStrict" value="false" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/backend/resources/views" />
-      <recent name="$PROJECT_DIR$/frontend/src/app/modules/pages/contact/contact" />
-      <recent name="$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/form" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontend/src/app/modules/calculators" />
       <recent name="$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt" />
       <recent name="$PROJECT_DIR$/frontend/src/app/modules/pages" />
       <recent name="$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost" />
       <recent name="$PROJECT_DIR$/frontend" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/resources/views" />
+      <recent name="$PROJECT_DIR$/frontend/src/app/modules/pages/contact/contact" />
+      <recent name="$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/form" />
     </key>
   </component>
   <component name="RunManager">
@@ -357,7 +278,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="364227000" />
+    <option name="totallyTimeSpent" value="364248000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="744" extended-state="6" />
@@ -428,13 +349,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frontend/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/common/layout/default/Header.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="58">
@@ -618,44 +532,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="3" selection-start-line="0" selection-start-column="3" selection-end-line="0" selection-end-column="3" />
-          <folding>
-            <marker date="1500394134119" expanded="true" signature="2:59" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="30:57" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="69:268" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="238:266" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="278:6617" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="462:6615" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="529:656" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="1433:1600" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="1629:1790" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="1696:1768" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="1816:3500" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="2413:2481" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="2513:2729" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="2763:3371" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="3110:3345" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="3404:3478" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="3535:3805" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="3908:3987" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="4042:6545" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="4591:6519" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="4832:6489" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="5096:5372" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="5418:6312" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="5861:6274" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="6357:6455" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="6628:7769" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="6643:7131" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="7143:7767" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="7270:7751" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="7446:7505" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="7779:8361" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="7925:8086" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="8032:8076" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="8106:8359" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="8203:8303" ph="{...}" />
-            <marker date="1500394134119" expanded="true" signature="8315:8353" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -806,16 +683,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-262">
           <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
-          <folding>
-            <element signature="e#40#54#0#PHP" expanded="true" />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/app.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="52" column="21" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/TeamHuntController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="688" column="41" selection-start-line="688" selection-start-column="41" selection-end-line="688" selection-end-column="41" />
+        <state relative-caret-position="221">
+          <caret line="689" column="37" selection-start-line="689" selection-start-column="37" selection-end-line="689" selection-end-column="37" />
           <folding />
         </state>
       </provider>

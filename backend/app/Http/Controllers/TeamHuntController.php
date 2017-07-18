@@ -687,6 +687,8 @@ class TeamHuntController extends Controller
             'stars'                     => 'star',
             'small rubies'              => 'small ruby',
             'nails'                     => 'nail',
+            'waspoid wings'             => 'waspoid wing',
+            'flash arrows'              => 'flash arrow',
         ];
 
         return isset($names[$name]) ? $names[$name] : $name;
