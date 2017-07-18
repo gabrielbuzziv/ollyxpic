@@ -565,9 +565,12 @@ class TeamHuntController extends Controller
      */
     private function prepareName($name)
     {
-        if (strpos($name, '(active prey bonus)')) {
-            $name = trim(str_replace('(active prey bonus)', '', $name));
-        }
+        $name = trim(str_replace([
+            '(active prey bonus)',
+            '(common)',
+            '(semi-rare)',
+            '(rare)'
+        ], '', $name));
 
         $names = [
             'gold coins'                => 'gold coin',
