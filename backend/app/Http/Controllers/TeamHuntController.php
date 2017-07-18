@@ -569,7 +569,7 @@ class TeamHuntController extends Controller
             '(active prey bonus)',
             '(common)',
             '(semi-rare)',
-            '(rare)'
+            '(rare)',
         ], '', $name));
 
         $names = [
@@ -686,6 +686,7 @@ class TeamHuntController extends Controller
             'sniper arrows'             => 'sniper arrow',
             'stars'                     => 'star',
             'small rubies'              => 'small ruby',
+            'nails'                     => 'nail',
         ];
 
         return isset($names[$name]) ? $names[$name] : $name;
