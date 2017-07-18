@@ -1,0 +1,149 @@
+#equipments {
+    .wrap {
+        background: url('/src/assets/images/equipments-texture.gif');
+        display: block;
+        padding: 40px;
+        width: 100%;
+        text-align: center;
+
+        .items {
+            .item {
+                height: 34px;
+                width: 34px;
+                display: inline-block;
+                margin-right: 5px;
+                margin-bottom: 5px;
+                background: url('/src/assets/images/backpack-slot.png');
+                cursor: move;
+            }
+        }
+
+        .set {
+            background: url('/src/assets/images/equipments-holder.gif');
+            display: block;
+            width: 108px;
+            height: 160px;
+            position: relative;
+            text-align: center;
+            margin: 0 auto;
+
+            > div {
+                .draggable {
+                    display: block;
+                    width: 32px;
+                    height: 32px;
+                    overflow: hidden;
+                }
+
+                &.dragging {
+                    outline: 2px solid rgba(255, 255, 255, .7);
+                }
+
+                .item {
+                    display: block;
+                    background: url('/src/assets/images/backpack-slot.png') -1px -1px;
+                }
+            }
+
+            .amulet {
+                background: url('/src/assets/images/equipments.gif') 0 128px;
+                position: absolute;
+                top: 15px;
+                left: 1px;
+                height: 32px;
+                width: 32px;
+            }
+
+            .helmet {
+                background: url('/src/assets/images/equipments.gif') -32px 128px;
+                position: absolute;
+                top: 1px;
+                left: 38px;
+                height: 32px;
+                width: 32px;
+            }
+
+            .backpack {
+                background: url('/src/assets/images/equipments.gif') -64px 128px;
+                position: absolute;
+                top: 15px;
+                left: 75px;
+                height: 32px;
+                width: 32px;
+            }
+
+            .weapon {
+                background: url('/src/assets/images/equipments.gif') 0 96px;
+                position: absolute;
+                top: 52px;
+                left: 1px;
+                height: 32px;
+                width: 32px;
+            }
+
+            .armor {
+                background: url('/src/assets/images/equipments.gif') -32px 96px;
+                position: absolute;
+                top: 38px;
+                left: 38px;
+                height: 32px;
+                width: 32px;
+            }
+
+            .shield {
+                background: url('/src/assets/images/equipments.gif') -64px 96px;
+                position: absolute;
+                top: 52px;
+                left: 75px;
+                height: 32px;
+                width: 32px;
+            }
+
+            .ring {
+                background: url('/src/assets/images/equipments.gif') 0 64px;
+                position: absolute;
+                top: 89px;
+                left: 1px;
+                height: 32px;
+                width: 32px;
+            }
+
+            .legs {
+                background: url('/src/assets/images/equipments.gif') -32px 64px;
+                position: absolute;
+                top: 75px;
+                left: 38px;
+                height: 32px;
+                width: 32px;
+            }
+
+            .ammunition {
+                background: url('/src/assets/images/equipments.gif') -64px 64px;
+                position: absolute;
+                top: 89px;
+                left: 75px;
+                height: 32px;
+                width: 32px;
+            }
+
+            .boots {
+                background: url('/src/assets/images/equipments.gif') -32px 32px;
+                position: absolute;
+                top: 112px;
+                left: 38px;
+                height: 32px;
+                width: 32px;
+            }
+        }
+    }
+}
+
+.equipmentPopper {
+    .el-popover__title {
+        margin: 0;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 300;
+        color: #444;
+    }
+}

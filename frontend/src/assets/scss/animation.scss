@@ -1,5 +1,13 @@
 @import 'animate';
 
+.fadeIn-enter-active {
+    animation: fadeIn .3s;
+}
+
+.fadeIn-leave-active {
+    display: none;
+}
+
 .page-enter-active {
     animation: fadeIn .7s;
 }

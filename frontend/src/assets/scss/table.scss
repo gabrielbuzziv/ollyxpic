@@ -1,4 +1,33 @@
 table {
+    &.info-table {
+        width: 100%;
+
+        tbody {
+            tr {
+                td {
+                    padding: 10px 5px;
+                    border: 1px solid #ddd;
+
+                    &.head {
+                        background: #444;
+                        color: #fff;
+                        font-weight: 600;
+                        font-size: 12px;
+                        border: 0;
+                    }
+
+                    &.title {
+                        background: #555;
+                        color: #fff;
+                        font-weight: 600;
+                        font-size: 12px;
+                        border: 1px solid #878787;
+                    }
+                }
+            }
+        }
+    }
+
     &.table {
         &.no-top-border {
             tbody {

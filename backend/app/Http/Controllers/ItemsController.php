@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Items;
 use App\WorldObject;
 use Illuminate\Http\Request;
@@ -32,6 +33,39 @@ class ItemsController extends Controller
         $items = Items::where('title', 'like', "%{$query}%")->get();
 
         return $this->respond($items->toArray());
+    }
+
+    /**
+     * Search by category
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function category()
+    {
+        $query = request()->input('query');
+        $items = Items::where('category', 'like', "%{$query}%")->get();
+
+        return $this->respond($items->toArray());
+    }
+
+    public function saveItemCategory()
+    {
+        $data = request()->all();
+
+        foreach ($data as $item) {
+            if ($exist = Category::where('item_id', $item['id'])->first()) {
+                $exist->update([
+                    'category' => $item['category'],
+                    'usable'   => $item['usable'],
+                ]);
+            } else {
+                Category::create([
+                    'item_id'  => $item['id'],
+                    'category' => $item['category'],
+                    'usable'   => $item['usable'],
+                ]);
+            }
+        }
     }
 
     /**
