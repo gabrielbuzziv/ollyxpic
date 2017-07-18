@@ -536,9 +536,9 @@
                             return {
                                 id: item.id,
                                 title: item.title,
-                                category: 'axe',
+                                category: 'sword',
                                 usable: true,
-                                arm: item.properties.filter(prop => prop.property == 'Atk')[0] ?item.properties.filter(prop => prop.property == 'Atk')[0].value : 0
+                                arm: item.properties.filter(prop => prop.property == 'Atk')[0] ? item.properties.filter(prop => prop.property == 'Atk')[0].value : 0
                             }
                         }).sort((a, b) => {
                             return a.arm - b.arm
