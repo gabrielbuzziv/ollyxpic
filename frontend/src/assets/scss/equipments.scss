@@ -19,33 +19,48 @@
         }
     }
 
+    .panel-tibia {
+        background: url('/src/assets/images/equipments-texture.gif');
+        border-top: 2px solid #747474;
+        border-left: 2px solid #747474;
+        border-right: 2px solid #2d2d2d;
+        border-bottom: 2px solid #2d2d2d;
+    }
+
     .equips {
-        height: 200px;
+        height: 150px;
         text-align: center;
         position: relative;
 
         .equip {
             background: #ccc;
-            background: url('/src/assets/images/backpack-slot.png');
             border: 1px solid #999;
-            height: 32px;
-            width: 32px;
+            height: 34px;
+            width: 34px;
             position: absolute;
             left: 50%;
             top: 0;
 
+            &.dragging {
+                outline: 1px solid rgba(255, 255, 255, .8);
+            }
+
             .draggable {
                 display: block;
-                width: 32px;
-                height: 32px;
+                width: 34px;
+                height: 34px;
                 overflow: hidden;
+            }
+
+            &.active {
+                background: url('/src/assets/images/backpack-slot.png') !important;
             }
         }
 
         .amulet {
             background: url('/src/assets/images/equipments.gif') 0 128px;
             top: 10px;
-            transform: translateX(calc(-50% - 37px));
+            transform: translateX(calc(-50% - 39px));
         }
 
         .helmet {
@@ -58,48 +73,48 @@
         .backpack {
             background: url('/src/assets/images/equipments.gif') -63px 128px;
             top: 10px;
-            transform: translateX(calc(-50% + 37px));
+            transform: translateX(calc(-50% + 39px));
         }
 
         .weapon {
             background: url('/src/assets/images/equipments.gif') 0px 96px;
-            top: 47px;
-            transform: translateX(calc(-50% - 37px));
+            top: 49px;
+            transform: translateX(calc(-50% - 39px));
         }
 
         .armor {
             background: url('/src/assets/images/equipments.gif') -32px 96px;
-            top: 37px;
+            top: 39px;
             transform: translateX(-50%);
         }
 
         .shield {
             background: url('/src/assets/images/equipments.gif') -64px 96px;
-            top: 47px;
-            transform: translateX(calc(-50% + 37px));
+            top: 49px;
+            transform: translateX(calc(-50% + 39px));
         }
 
         .ring {
             background: url('/src/assets/images/equipments.gif') 0px 66px;
-            top: 84px;
-            transform: translateX(calc(-50% - 37px));
+            top: 88px;
+            transform: translateX(calc(-50% - 39px));
         }
 
         .legs {
             background: url('/src/assets/images/equipments.gif') -32px 66px;
-            top: 74px;
+            top: 78px;
             transform: translateX(-50%);
         }
 
         .ammunition {
             background: url('/src/assets/images/equipments.gif') -64px 66px;
-            top: 84px;
-            transform: translateX(calc(-50% + 37px));
+            top: 88px;
+            transform: translateX(calc(-50% + 39px));
         }
 
         .boots {
             background: url('/src/assets/images/equipments.gif') -32px 32px;
-            top: 111px;
+            top: 117px;
             transform: translateX(-50%);
         }
     }

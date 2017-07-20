@@ -39,3 +39,5 @@ Route::get('tiles', 'TileController@index');
 Route::get('imbuements', 'ImbuementController@index');
 
 Route::post('contact', 'PageController@sendContact');
+
+//Route::get('properties', 'ItemPropsController@setProperties');
