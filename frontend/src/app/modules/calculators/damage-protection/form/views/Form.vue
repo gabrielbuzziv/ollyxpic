@@ -21,7 +21,7 @@
 
                                     <ul class="props">
                                         <li v-for="prop in equipments[category.slot][0].item.props">
-                                            <b>{{ prop.description }}: {{ prop.value }}</b>
+                                            <b>{{ prop.description }}:</b> {{ getPropValue(prop) }}
                                         </li>
                                     </ul>
 
@@ -55,7 +55,7 @@
 
                             <ul class="props">
                                 <li v-for="prop in item.item.props">
-                                    <b>{{ prop.description }}: {{ prop.value }}</b>
+                                    <b>{{ prop.description }}:</b> {{ getPropValue(prop) }}
                                 </li>
                             </ul>
 
@@ -362,6 +362,33 @@
                 }
 
                 return 0
+            },
+
+            getPropValue (prop) {
+                const percentage         = [
+                    'hit'
+                ]
+                const percentageMultiple = [
+                    'earth',
+                    'fire',
+                    'protection death',
+                    'protection physical',
+                    'ice',
+                    'holy',
+                    'energy',
+                    'life drain'
+                ]
+
+                if (percentage.indexOf(prop.description) > - 1) {
+                    return `${prop.value} %`
+                }
+
+                if (percentageMultiple.indexOf(prop.description) > - 1) {
+                    const value = prop.value * 100
+                    return `${value} %`
+                }
+
+                return prop.value
             }
         },
 

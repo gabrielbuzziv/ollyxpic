@@ -129,11 +129,24 @@
 }
 
 .equipmentPopper {
-    .el-popover__title {
+    strong {
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        display: block;
+    }
+
+    .props {
         margin: 0;
-        text-align: center;
-        font-size: 16px;
-        font-weight: 300;
-        color: #444;
+        padding: 0;
+        list-style: none;
+
+        li {
+            display: block;
+            font-size: 12px;
+
+            b {
+                text-transform: capitalize;
+            }
+        }
     }
 }
