@@ -33,17 +33,7 @@ class Items extends Model
      *
      * @var array
      */
-    protected $with = ['properties', 'sellTo', 'buyFrom'];
-
-    /**
-     * Item Properties.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function properties()
-    {
-        return $this->hasMany(ItemProperties::class, 'itemid');
-    }
+    protected $with = ['props', 'sellTo', 'buyFrom'];
 
     /**
      * Can be sell to
@@ -61,5 +51,15 @@ class Items extends Model
     public function buyFrom()
     {
         return $this->belongsToMany(NPC::class, 'BuyItems', 'itemid', 'vendorid')->withPivot('value');
+    }
+
+    /**
+     * Props
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function props()
+    {
+        return $this->hasMany(ItemProps::class, 'item_id');
     }
 }

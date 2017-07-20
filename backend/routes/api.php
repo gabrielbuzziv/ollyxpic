@@ -21,6 +21,9 @@ Route::get('items/amulets', 'ItemsController@amulets');
 Route::get('items/rings', 'ItemsController@rings');
 Route::get('items/tiles', 'ItemsController@tiles');
 Route::get('items/search', 'ItemsController@search');
+Route::get('items/category', 'ItemsController@category');
+Route::post('items/category', 'ItemsController@saveItemCategory');
+
 
 Route::post('waste/calculate', 'WasteController@calculate');
 Route::get('waste/{waste}', 'WasteController@find');
@@ -36,3 +39,5 @@ Route::get('tiles', 'TileController@index');
 Route::get('imbuements', 'ImbuementController@index');
 
 Route::post('contact', 'PageController@sendContact');
+
+//Route::get('properties', 'ItemPropsController@setProperties');

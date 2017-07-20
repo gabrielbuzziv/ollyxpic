@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/damage-protection/form/views/Form.vue" line="235" mnemonic="1" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="ce10aee6-880d-4f01-bf3e-bf71cc20de41" name="Default" comment="">
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/TeamHuntController.php" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/TeamHuntController.php" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/database/database.db" afterPath="$PROJECT_DIR$/backend/database/database.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/app/Items.php" afterPath="$PROJECT_DIR$/backend/app/Items.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/routes/api.php" afterPath="$PROJECT_DIR$/backend/routes/api.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/modules/calculators/damage-protection/form/views/Form.vue" afterPath="$PROJECT_DIR$/frontend/src/app/modules/calculators/damage-protection/form/views/Form.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/assets/scss/equipments.scss" afterPath="$PROJECT_DIR$/frontend/src/assets/scss/equipments.scss" />
+>>>>>>> damage-protection
     </list>
     <ignored path="ollyxpic.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,21 +37,91 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file leaf-file-name="app.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/app.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1508">
               <caret line="52" column="21" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
+=======
+      <file leaf-file-name="Form.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/damage-protection/form/views/Form.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="92">
+              <caret line="151" column="15" selection-start-line="151" selection-start-column="15" selection-end-line="151" selection-end-column="15" />
+              <folding>
+                <element signature="e#8382#8416#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Items.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/app/Items.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1015">
+              <caret line="35" column="29" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="2017_07_19_122953_create_item_props_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/database/migrations/2017_07_19_122953_create_item_props_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="464">
+              <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+>>>>>>> damage-protection
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
       <file leaf-file-name="TeamHuntController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/TeamHuntController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="247">
               <caret line="1274" column="42" selection-start-line="1274" selection-start-column="42" selection-end-line="1274" selection-end-column="42" />
+=======
+      <file leaf-file-name="ItemProps.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/app/ItemProps.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="783">
+              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ItemPropsController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/ItemPropsController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="609">
+              <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+              <folding>
+                <element signature="e#40#57#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="api.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="471">
+              <caret line="42" column="29" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="equipments.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/equipments.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="957">
+              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+>>>>>>> damage-protection
               <folding />
             </state>
           </provider>
@@ -53,33 +135,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/frontend/src/app/modules/pages/request/request/views/Index.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/app/modules/pages/routes.js" />
-        <option value="$PROJECT_DIR$/frontend/src/app/common/layout/default/Footer.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/bless/form/views/Form.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/assets/scss/tabs.scss" />
-        <option value="$PROJECT_DIR$/frontend/src/assets/scss/cards.scss" />
-        <option value="$PROJECT_DIR$/frontend/src/app/common/components/Card.vue" />
-        <option value="$PROJECT_DIR$/backend/app/Mail/Contact.php" />
-        <option value="$PROJECT_DIR$/frontend/src/app/modules/pages/contact/services/index.js" />
-        <option value="$PROJECT_DIR$/backend/routes/api.php" />
-        <option value="$PROJECT_DIR$/frontend/package.json" />
-        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/PageController.php" />
-        <option value="$PROJECT_DIR$/frontend/src/app/common/layout/default/Header.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/form/views/SuppliesCalculator.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/assets/scss/_variables.scss" />
-        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/form/views/Form.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/form/views/Form.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/assets/scss/form.scss" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/result/views/Result.vue" />
         <option value="$PROJECT_DIR$/backend/app/BuyItems.php" />
-        <option value="$PROJECT_DIR$/backend/app/Items.php" />
         <option value="$PROJECT_DIR$/backend/app/Http/Controllers/WasteController.php" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/result/views/Result.vue" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/loot/form/views/Form.vue" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/loot-counter/form/routes.js" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/loot-acumulator/form/routes.js" />
-        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/routes.js" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/loot-count/form/routes.js" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/loot-count/result/routes.js" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/pages/contact/contact/views/Index.vue" />
@@ -89,7 +151,6 @@
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/index.js" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/form/index.js" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/routes.js" />
-        <option value="$PROJECT_DIR$/frontend/src/assets/scss/layout.scss" />
         <option value="$PROJECT_DIR$/frontend/src/app/common/layout/default/Topbar.vue" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/form/views/Form.vue" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/imbuements/form/views/Form.vue" />
@@ -104,6 +165,27 @@
         <option value="$PROJECT_DIR$/frontend/src/libs/http.js" />
         <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/loot-count/form/views/Form.vue" />
         <option value="$PROJECT_DIR$/backend/app/Http/Controllers/TeamHuntController.php" />
+        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/damage-protection/form/routes.js" />
+        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/routes.js" />
+        <option value="$PROJECT_DIR$/frontend/src/assets/scss/table.scss" />
+        <option value="$PROJECT_DIR$/frontend/src/libs/index.js" />
+        <option value="$PROJECT_DIR$/frontend/src/libs/draggable.js" />
+        <option value="$PROJECT_DIR$/frontend/src/assets/scss/layout.scss" />
+        <option value="$PROJECT_DIR$/frontend/src/assets/scss/animation.scss" />
+        <option value="$PROJECT_DIR$/backend/database/migrations/2017_07_17_193053_create_items_categories_table.php" />
+        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/damage-protection/form/services/index.js" />
+        <option value="$PROJECT_DIR$/backend/app/Category.php" />
+        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/ItemsController.php" />
+        <option value="$PROJECT_DIR$/frontend/src/assets/scss/app.scss" />
+        <option value="$PROJECT_DIR$/frontend/src/assets/scss/tibiabox.scss" />
+        <option value="$PROJECT_DIR$/frontend/src/app/common/components/TabLink.vue" />
+        <option value="$PROJECT_DIR$/backend/app/ItemProps.php" />
+        <option value="$PROJECT_DIR$/backend/app/Items.php" />
+        <option value="$PROJECT_DIR$/backend/database/migrations/2017_07_19_122953_create_item_props_table.php" />
+        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/ItemPropsController.php" />
+        <option value="$PROJECT_DIR$/frontend/src/assets/scss/equipments.scss" />
+        <option value="$PROJECT_DIR$/frontend/src/app/modules/calculators/damage-protection/form/views/Form.vue" />
+        <option value="$PROJECT_DIR$/backend/routes/api.php" />
       </list>
     </option>
   </component>
@@ -138,7 +220,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -151,35 +233,16 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ollyxpic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ollyxpic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ollyxpic" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+<<<<<<< HEAD
     <property name="SearchEverywhereHistoryKey" value="ntcon&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TeamHuntController.php&#10;huntcon&#9;null&#9;null&#10;name&#9;null&#9;null&#10;huntcont&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TeamHuntController.php&#10;itemcon&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/ItemsController.php&#10;loot-count/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot-count/form/views/Form.vue&#10;http.&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/libs/http.js&#10;cors.php&#9;FILE&#9;file:///var/www/ollyxpic/backend/config/cors.php&#10;pi&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;itemcont&#9;null&#9;null&#10;huntst&#9;null&#9;null&#10;hunts&#9;null&#9;null&#10;.env&#9;FILE&#9;file:///var/www/ollyxpic/backend/.env&#10;config/serv&#9;FILE&#9;file:///var/www/ollyxpic/backend/config/services.php&#10;appser&#9;null&#9;null&#10;config/app.php&#9;FILE&#9;file:///var/www/ollyxpic/backend/config/app.php&#10;pagecont&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/PageController.php&#10;api&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;huntcontr&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TeamHuntController.php&#10;email.bl&#9;FILE&#9;file:///var/www/ollyxpic/backend/resources/views/email.blade.php&#10;pagecontr&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/PageController.php&#10;loot-ac/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot-acumulator/form/views/Form.vue&#10;nav.vue&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Nav.vue&#10;pages/home/ind&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/pages/home/home/views/Index.vue&#10;loot-count/fo&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot-count/form/views/Form.vue&#10;imbue/for&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/imbuements/form/views/Form.vue&#10;loot-coun/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot-count/form/views/Form.vue&#10;topbar&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Topbar.vue&#10;layout&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/layout.scss&#10;imbuement/for&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/imbuements/form/views/Form.vue&#10;layo&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/layout.scss&#10;acumulator/for&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot-acumulator/form/views/Form.vue&#10;loot-co/f&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot-count/form/views/Form.vue&#10;loot/for&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot-acumulator/form/views/Form.vue&#10;layout.sc&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/layout.scss&#10;nav&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Nav.vue&#10;loot/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot/form/views/Form.vue&#10;imbuement/f&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/imbuements/form/views/Form.vue&#10;waste/resu&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/waste/result/views/Result.vue&#10;api.ph&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;wastecontr&#9;null&#9;null&#10;buyite&#9;null&#9;null&#10;item.php&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Items.php&#10;form.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/form.scss&#10;hunt/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/hunt/form/views/Form.vue&#10;varia&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/_variables.scss&#10;header.vue&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Header.vue&#10;package.json&#9;FILE&#9;file:///var/www/ollyxpic/frontend/package.json&#10;email&#9;FILE&#9;file:///var/www/ollyxpic/backend/resources/views/email.blade.php&#10;home/index.vue&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/pages/home/home/views/Index.vue" />
+=======
+    <property name="SearchEverywhereHistoryKey" value="api&#9;FILE&#9;file:///var/www/ollyxpic/backend/routes/api.php&#10;config/data&#9;FILE&#9;file:///var/www/ollyxpic/backend/config/database.php&#10;itempro&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/ItemProps.php&#10;item&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Items.php&#10;itempropscon&#9;null&#9;null&#10;itemprops&#9;null&#9;null&#10;item_pro&#9;FILE&#9;file:///var/www/ollyxpic/backend/database/migrations/2017_07_19_122953_create_item_props_table.php&#10;item.php&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Items.php&#10;damage/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/damage-protection/form/views/Form.vue&#10;tablin&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/components/TabLink.vue&#10;waste/for&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/waste/form/views/Form.vue&#10;app.s&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/app.scss&#10;equ&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/equipments.scss&#10;app.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/app.scss&#10;ca&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Category.php&#10;dama/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/damage-protection/form/views/Form.vue&#10;count/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot-count/form/views/Form.vue&#10;itemcont&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/ItemsController.php&#10;category&#9;null&#9;null&#10;item_ca&#9;FILE&#9;file:///var/www/ollyxpic/backend/database/migrations/2017_07_17_193053_create_items_categories_table.php&#10;animation&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/animation.scss&#10;.env&#9;FILE&#9;file:///var/www/ollyxpic/backend/.env&#10;imagecont&#9;null&#9;null&#10;spells&#9;null&#9;null&#10;table.scs&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/table.scss&#10;huntst&#9;null&#9;null&#10;hunts&#9;null&#9;null&#10;huntcon&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TeamHuntController.php&#10;config/serv&#9;FILE&#9;file:///var/www/ollyxpic/backend/config/services.php&#10;appser&#9;null&#9;null&#10;config/app.php&#9;FILE&#9;file:///var/www/ollyxpic/backend/config/app.php&#10;pagecont&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/PageController.php&#10;loot-count/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot-count/form/views/Form.vue&#10;huntcontr&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/TeamHuntController.php&#10;email.bl&#9;FILE&#9;file:///var/www/ollyxpic/backend/resources/views/email.blade.php&#10;pagecontr&#9;FILE&#9;file:///var/www/ollyxpic/backend/app/Http/Controllers/PageController.php&#10;loot-ac/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot-acumulator/form/views/Form.vue&#10;nav.vue&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Nav.vue&#10;pages/home/ind&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/pages/home/home/views/Index.vue&#10;loot-count/fo&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot-count/form/views/Form.vue&#10;imbue/for&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/imbuements/form/views/Form.vue&#10;loot-coun/form&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot-count/form/views/Form.vue&#10;topbar&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/common/layout/default/Topbar.vue&#10;layout&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/layout.scss&#10;imbuement/for&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/imbuements/form/views/Form.vue&#10;layo&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/layout.scss&#10;acumulator/for&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot-acumulator/form/views/Form.vue&#10;loot-co/f&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot-count/form/views/Form.vue&#10;loot/for&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/app/modules/calculators/loot-acumulator/form/views/Form.vue&#10;layout.sc&#9;FILE&#9;file:///var/www/ollyxpic/frontend/src/assets/scss/layout.scss" />
+>>>>>>> damage-protection
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="JavaScriptPreferStrict" value="false" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
@@ -274,13 +337,24 @@
       <workItem from="1499945509579" duration="11140000" />
       <workItem from="1499967855450" duration="1239000" />
       <workItem from="1500030705146" duration="15755000" />
+<<<<<<< HEAD
       <workItem from="1500288250830" duration="2132000" />
       <workItem from="1500462163097" duration="797000" />
+=======
+      <workItem from="1500288250830" duration="24891000" />
+      <workItem from="1500375973367" duration="1880000" />
+      <workItem from="1500548263409" duration="7747000" />
+      <workItem from="1500560892781" duration="373000" />
+>>>>>>> damage-protection
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="365065000" />
+=======
+    <option name="totallyTimeSpent" value="431238000" />
+>>>>>>> damage-protection
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="744" extended-state="6" />
@@ -292,7 +366,11 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930514" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902297" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24944155" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35007173" sideWeight="0.4941435" order="9" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35007173" sideWeight="0.4941435" order="9" side_tool="false" content_ui="tabs" />
+>>>>>>> damage-protection
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -351,135 +429,9 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/frontend/src/app/common/layout/default/Header.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/_variables.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="41" column="41" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/form/views/SuppliesCalculator.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/speedboost/form/views/Form.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="49" column="20" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/form/views/Form.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/form.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/result/views/Result.vue" />
-    <entry file="file://$PROJECT_DIR$/backend/app/BuyItems.php" />
-    <entry file="file://$PROJECT_DIR$/backend/app/Items.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/result/views/Result.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/WasteController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="81" column="50" selection-start-line="81" selection-start-column="50" selection-end-line="81" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/loot-count/form/vuex/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/loot-acumulator/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/loot-acumulator/form/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/loot-count/result/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/loot-count/form/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
-          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/loot-count/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/loot-count/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+=======
     <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/pages/contact/contact/views/Index.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="348">
@@ -510,6 +462,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/hunt/form/index.js">
+>>>>>>> damage-protection
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="33" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />
@@ -527,13 +480,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="87">
           <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/layout.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="3" selection-start-line="0" selection-start-column="3" selection-end-line="0" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -560,8 +506,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/common/layout/default/Nav.vue">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="119">
+          <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+=======
         <state relative-caret-position="525">
           <caret line="71" column="66" selection-start-line="71" selection-start-column="62" selection-end-line="71" selection-end-column="66" />
+>>>>>>> damage-protection
         </state>
       </provider>
     </entry>
@@ -600,6 +551,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/libs/http.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/backend/config/app.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="377">
@@ -621,13 +579,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/database/migrations/2017_06_08_110144_create_hunts_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="319">
@@ -637,6 +588,252 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/database/migrations/2017_07_17_112518_update_loot_total_in_hunts_table.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/damage-protection/form/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/damage-protection/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Spells.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-200">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/ImageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2349">
+          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/table.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/libs/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/libs/draggable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/layout.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="1" column="3" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/.env">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="0">
+          <caret line="0" column="3" selection-start-line="0" selection-start-column="3" selection-end-line="0" selection-end-column="3" />
+=======
+        <state relative-caret-position="442">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="33" selection-end-column="19" />
+>>>>>>> damage-protection
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/database/migrations/2017_07_17_193053_create_items_categories_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/damage-protection/form/services/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="10" column="55" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/loot-count/form/views/Form.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1758">
+          <caret line="192" column="0" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Category.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/TeamHuntController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-562">
+          <caret line="656" column="48" selection-start-line="656" selection-start-column="48" selection-end-line="656" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/animation.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/ItemsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="41" column="7" selection-start-line="41" selection-start-column="7" selection-end-line="41" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/PageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="754">
+          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="31" selection-end-column="11" />
+=======
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/common/components/TabLink.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/waste/form/views/Form.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="38" column="54" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/tibiabox.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+>>>>>>> damage-protection
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/app.scss">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="0">
+          <caret line="0" column="26" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+=======
+        <state relative-caret-position="368">
+          <caret line="54" column="19" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2349">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> damage-protection
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Items.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="377">
+          <caret line="172" column="0" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
+=======
+        <state relative-caret-position="1015">
+          <caret line="35" column="29" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
+          <folding />
+>>>>>>> damage-protection
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/database/migrations/2017_07_19_122953_create_item_props_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="113">
+          <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+=======
+        <state relative-caret-position="464">
+          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+          <folding />
+>>>>>>> damage-protection
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/ItemPropsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="169">
+          <caret line="41" column="6" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
+=======
+        <state relative-caret-position="609">
+          <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+          <folding>
+            <element signature="e#40#57#0#PHP" expanded="true" />
+          </folding>
+>>>>>>> damage-protection
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/ItemProps.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="140">
+          <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
+=======
+        <state relative-caret-position="783">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+>>>>>>> damage-protection
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss/equipments.scss">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="319">
+          <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="42" />
+=======
+        <state relative-caret-position="957">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+>>>>>>> damage-protection
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/modules/calculators/damage-protection/form/views/Form.vue">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="123">
           <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
         </state>
@@ -689,13 +886,25 @@
         <state relative-caret-position="1508">
           <caret line="52" column="21" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
           <folding />
+=======
+        <state relative-caret-position="92">
+          <caret line="151" column="15" selection-start-line="151" selection-start-column="15" selection-end-line="151" selection-end-column="15" />
+          <folding>
+            <element signature="e#8382#8416#0" expanded="true" />
+          </folding>
+>>>>>>> damage-protection
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/TeamHuntController.php">
+    <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="247">
           <caret line="1274" column="42" selection-start-line="1274" selection-start-column="42" selection-end-line="1274" selection-end-column="42" />
+=======
+        <state relative-caret-position="471">
+          <caret line="42" column="29" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
+>>>>>>> damage-protection
           <folding />
         </state>
       </provider>

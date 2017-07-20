@@ -1,0 +1,139 @@
+#equipments {
+    .tabs {
+        li {
+            a {
+                padding: 0 6px;
+                height: 52px;
+                line-height: 52px;
+            }
+        }
+    }
+
+    .items {
+        .item {
+            display: inline-block;
+            margin: 5px;
+            min-height: 32px;
+            min-width: 32px;
+            cursor: move;
+        }
+    }
+
+    .panel-tibia {
+        background: url('/src/assets/images/equipments-texture.gif');
+        border-top: 2px solid #747474;
+        border-left: 2px solid #747474;
+        border-right: 2px solid #2d2d2d;
+        border-bottom: 2px solid #2d2d2d;
+    }
+
+    .equips {
+        height: 150px;
+        text-align: center;
+        position: relative;
+
+        .equip {
+            background: #ccc;
+            border: 1px solid #999;
+            height: 34px;
+            width: 34px;
+            position: absolute;
+            left: 50%;
+            top: 0;
+
+            &.dragging {
+                outline: 1px solid rgba(255, 255, 255, .8);
+            }
+
+            .draggable {
+                display: block;
+                width: 34px;
+                height: 34px;
+                overflow: hidden;
+            }
+
+            &.active {
+                background: url('/src/assets/images/backpack-slot.png') !important;
+            }
+        }
+
+        .amulet {
+            background: url('/src/assets/images/equipments.gif') 0 128px;
+            top: 10px;
+            transform: translateX(calc(-50% - 39px));
+        }
+
+        .helmet {
+            background: url('/src/assets/images/equipments.gif') -32px 128px;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .backpack {
+            background: url('/src/assets/images/equipments.gif') -63px 128px;
+            top: 10px;
+            transform: translateX(calc(-50% + 39px));
+        }
+
+        .weapon {
+            background: url('/src/assets/images/equipments.gif') 0px 96px;
+            top: 49px;
+            transform: translateX(calc(-50% - 39px));
+        }
+
+        .armor {
+            background: url('/src/assets/images/equipments.gif') -32px 96px;
+            top: 39px;
+            transform: translateX(-50%);
+        }
+
+        .shield {
+            background: url('/src/assets/images/equipments.gif') -64px 96px;
+            top: 49px;
+            transform: translateX(calc(-50% + 39px));
+        }
+
+        .ring {
+            background: url('/src/assets/images/equipments.gif') 0px 66px;
+            top: 88px;
+            transform: translateX(calc(-50% - 39px));
+        }
+
+        .legs {
+            background: url('/src/assets/images/equipments.gif') -32px 66px;
+            top: 78px;
+            transform: translateX(-50%);
+        }
+
+        .ammunition {
+            background: url('/src/assets/images/equipments.gif') -64px 66px;
+            top: 88px;
+            transform: translateX(calc(-50% + 39px));
+        }
+
+        .boots {
+            background: url('/src/assets/images/equipments.gif') -32px 32px;
+            top: 117px;
+            transform: translateX(-50%);
+        }
+    }
+
+    .wrap {
+        background: url('/src/assets/images/equipments-texture.gif');
+        display: block;
+        padding: 20px;
+        width: 100%;
+        text-align: left;
+    }
+}
+
+.equipmentPopper {
+    .el-popover__title {
+        margin: 0;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 300;
+        color: #444;
+    }
+}

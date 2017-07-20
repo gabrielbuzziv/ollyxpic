@@ -41,6 +41,7 @@
         methods: {
             onClick () {
                 this.$root.$emit('show::tab', this.tab)
+                this.$emit('click')
             },
 
             activate () {

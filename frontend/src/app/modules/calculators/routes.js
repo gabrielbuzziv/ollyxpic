@@ -6,6 +6,7 @@ import { routes as lootAcumulator } from './loot-acumulator'
 import { routes as bless } from './bless'
 import { routes as speedboost } from './speedboost'
 import { routes as imbuements } from './imbuements'
+import { routes as damageProtection } from './damage-protection'
 
 export default [
     {
@@ -27,4 +28,6 @@ export default [
     ...speedboost,
 
     ...imbuements,
+    
+    ...damageProtection
 ]
