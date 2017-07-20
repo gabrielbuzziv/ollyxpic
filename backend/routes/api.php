@@ -41,3 +41,6 @@ Route::get('imbuements', 'ImbuementController@index');
 Route::post('contact', 'PageController@sendContact');
 
 //Route::get('properties', 'ItemPropsController@setProperties');
+
+Route::get('mvp/{mvp}', 'MVPController@show');
+Route::post('mvp', 'MVPController@calculate');

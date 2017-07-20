@@ -7,6 +7,7 @@ import { routes as bless } from './bless'
 import { routes as speedboost } from './speedboost'
 import { routes as imbuements } from './imbuements'
 import { routes as damageProtection } from './damage-protection'
+import { routes as mvp } from './mvp'
 
 export default [
     {
@@ -29,5 +30,7 @@ export default [
 
     ...imbuements,
     
-    ...damageProtection
+    ...damageProtection,
+
+    ...mvp
 ]
