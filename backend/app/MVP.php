@@ -26,7 +26,7 @@ class MVP extends Model
      *
      * @var array
      */
-    protected $fillable = ['title', 'log'];
+    protected $fillable = ['title', 'log', 'boss'];
 
     /**
      * With collection.

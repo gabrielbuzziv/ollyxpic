@@ -101,6 +101,18 @@
                             </span>
                         </a>
                     </router-link>
+
+                    <router-link :to="{ name: 'calculators.speedboost' }" tag="li">
+                        <a href="">
+                            <span class="left">
+                                <img :src="image_path('item', 862)">
+                            </span>
+                            <span class="center">
+                                <span>Warzone</span>
+                                <small>MVP's</small>
+                            </span>
+                        </a>
+                    </router-link>
                 </ul>
             </li>
 

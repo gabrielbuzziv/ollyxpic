@@ -19,21 +19,58 @@ class MVPController extends Controller
     protected $players;
 
     /**
+     * Warzone bosses and stats.
+     *
+     * @var array
+     */
+    protected $creature = [
+        1 => [
+            'name'      => 'Deathstrike',
+            'hitpoints' => 200000,
+        ],
+        2 => [
+            'name'      => 'Gnomevil',
+            'hitpoints' => 250000,
+        ],
+        3 => [
+            'name'      => 'Abyssador',
+            'hitpoints' => 300000,
+        ],
+    ];
+
+    /**
      * Calculate MVP
      *
      * @return mixed
      */
     public function calculate()
     {
-        $this->readLog();
+        $this->validate(request(), [
+            'warzone' => 'required',
+            'log'     => 'required',
+        ]);
 
-        $mvp = MVP::create(request()->all());
+        $this->readLog();
+        $this->calculateParticipation();
+
+        if (! $this->validateMVPS()) {
+            abort(400, 'Sorry, but data is not right.');
+        }
+
+        $data = request()->all();
+        $mvp = MVP::create([
+            'title' => "Warzone {$data['warzone']}",
+            'log'   => $data['log'],
+            'boss'  => $this->creature[$data['warzone']]['name']
+        ]);
 
         foreach ($this->players as $name => $player) {
             $mvp->players()->create([
-                'player'     => $name,
-                'experience' => isset($player['experience']) ? $player['experience'] : 0,
-                'besthit'    => isset($player['besthit']) ? $player['besthit'] : 0,
+                'player'        => $name,
+                'experience'    => isset($player['experience']) ? $player['experience'] : 0,
+                'besthit'       => isset($player['besthit']) ? $player['besthit'] : 0,
+                'damage'        => isset($player['damage']) ? $player['damage'] : 0,
+                'participation' => isset($player['participation']) ? $player['participation'] : 0,
             ]);
         }
 
@@ -53,7 +90,7 @@ class MVPController extends Controller
 
     /**
      * Read Log
-     * 
+     *
      * @return array
      */
     private function readLog()
@@ -64,10 +101,24 @@ class MVPController extends Controller
 
         return array_map(function ($log) {
             $log = substr($log, 6);
+            $creature = $this->creature[request()->input('warzone')];
 
-            if (strpos($log, 'hitpoints due to')) {
-                $player = trim(str_replace(['attack by', '.'], '', substr($log, strpos($log, 'attack by'))));
+            // Deal Damage
+            if (strpos($log, "{$creature['name']} loses") !== false) {
+                if (strpos($log, "due to your attack") !== false) {
+                    $player = 'You';
+                } else {
+                    $player = explode('attack by', $log);
+                    $player = trim(str_replace('.', '', $player[1]));
+                }
+
                 $damage = (int) filter_var($log, FILTER_SANITIZE_NUMBER_INT);
+
+                if (isset($this->players[$player]['damage'])) {
+                    $this->players[$player]['damage'] = $this->players[$player]['damage'] + $damage;
+                } else {
+                    $this->players[$player]['damage'] = $damage;
+                }
 
                 if (isset($this->players[$player]['besthit'])) {
                     if ($this->players[$player]['besthit'] < $damage) {
@@ -76,8 +127,12 @@ class MVPController extends Controller
                 } else {
                     $this->players[$player]['besthit'] = $damage;
                 }
-            } else {
-                $player = trim(substr($log, 0, strpos($log, 'gained')));
+
+                return $player;
+            } else if (strpos($log, "gained") !== false) {
+                $player = explode('gained', $log);
+                $player = trim(str_replace('.', '', $player[0]));
+
                 $experience = (int) filter_var($log, FILTER_SANITIZE_NUMBER_INT);
 
                 $this->players[$player]['experience'] = $experience;
@@ -85,5 +140,35 @@ class MVPController extends Controller
         }, $log);
 
 
+    }
+
+    /**
+     * Calculate participation by damage.
+     */
+    private function calculateParticipation()
+    {
+        array_walk($this->players, function ($player, $key) {
+            $creature = $this->creature[request()->input('warzone')];
+
+            if (isset($this->players[$key]['damage'])) {
+                $this->players[$key]['participation'] = ($this->players[$key]['damage'] * 100) / $creature['hitpoints'];
+            }
+        });
+    }
+
+    /**
+     * Validate
+     *
+     * @return bool
+     */
+    private function validateMVPS()
+    {
+        return (bool) array_reduce($this->players, function ($carry, $player) {
+            if (isset($player['damage'])) {
+                return $carry + $player['damage'];
+            }
+
+            return $carry;
+        });
     }
 }

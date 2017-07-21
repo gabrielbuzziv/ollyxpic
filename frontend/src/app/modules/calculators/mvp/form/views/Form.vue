@@ -2,29 +2,58 @@
     <page-load id="blessings">
         <page-title>
             <img :src="image_path('item', 862)" alt="">
-            Boss
-            <span>MVP</span>
+            Warzone
+            <span>MVP's</span>
         </page-title>
 
-        <panel>
-            <form action="" ref="form" @submit.prevent="onSubmit">
-                <form-group label="Title">
-                    <form-input name="title" placeholder="Title"/>
-                </form-group>
+        <div class="alert alert-warning">
+            <p>Reset the server log when enter in the boss, for a cleaner data</p>
+        </div>
 
-                <form-group label="Server Log">
-                    <form-textarea name="log" rows="12" placeholder="Paste your serve log here"/>
-                </form-group>
+        <form action="" ref="form" @submit.prevent="onSubmit">
+            <div class="row">
+                <div class="col-md-3">
+                    <panel>
+                        <el-radio name="warzone" v-model="warzone" :label="1" class="block">
+                            <img :src="image_path('creature', 747)" class="margin-right-10 margin-left-20">
+                            <span>Warzone 1</span>
+                        </el-radio>
+                    </panel>
 
-                <button class="btn btn-success" type="submit" :disabled="calculating">
-                    <span v-if="calculating">
-                        <i class="mdi mdi-loading"></i>
-                        Calculating
-                    </span>
-                    <span v-else>Find MVP</span>
-                </button>
-            </form>
-        </panel>
+                    <panel>
+                        <el-radio name="warzone" v-model="warzone" :label="2" class="block">
+                            <img :src="image_path('creature', 746)" class="margin-right-10 margin-left-20">
+                            <span>Warzone 2</span>
+                        </el-radio>
+                    </panel>
+
+                    <panel>
+                        <el-radio name="warzone" v-model="warzone" :label="3" class="block">
+                            <img :src="image_path('creature', 748)" class="margin-right-10 margin-left-20">
+                            <span>Warzone 3</span>
+                        </el-radio>
+                    </panel>
+                </div>
+                <div class="col-md-9">
+                    <panel title="Server Log" icon="view-list">
+                        <form-group class="margin-bottom-0">
+                            <form-textarea name="log" rows="12" placeholder="Paste your serve log here"/>
+                        </form-group>
+                    </panel>
+
+                    <button class="btn btn-danger btn-block btn-lg" type="submit" :disabled="calculating">
+                        <span v-if="calculating">
+                            <i class="mdi mdi-loading margin-right-10"></i>
+                            Searching the best player of Warzone {{ warzone }}
+                        </span>
+
+                        <span v-else>
+                            Let me know the MVP's
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </form>
     </page-load>
 </template>
 
@@ -35,7 +64,8 @@
     export default {
         data () {
             return {
-                calculating: false
+                calculating: false,
+                warzone: 1
             }
         },
 
@@ -48,9 +78,11 @@
                 services.calculate(new FormData(form))
                         .then(response => {
                             this.calculating = false
-                            this.$router.push({ name: 'calculators.mvp.result', params: { id: response.data.id }})
+                            this.$router.push({ name: 'calculators.mvp.result', params: { id: response.data.id } })
                         })
                         .catch(error => {
+                            this.$message.error('Ops, something went wrong (Right log? Right Boss? Filled fields?).')
+
                             this.calculating = false
                         })
             }

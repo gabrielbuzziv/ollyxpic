@@ -25,5 +25,5 @@ class MVPPlayer extends Model
      *
      * @var array
      */
-    protected $fillable = ['mvp_id', 'player', 'experience', 'besthit'];
+    protected $fillable = ['mvp_id', 'player', 'experience', 'besthit', 'damage', 'participation'];
 }

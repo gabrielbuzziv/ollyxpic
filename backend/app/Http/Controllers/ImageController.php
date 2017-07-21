@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Creature;
 use App\Helper\GifCreator;
 use App\Helper\GifFrameExtractor;
 use App\Items;
@@ -110,6 +111,8 @@ class ImageController extends Controller
                 return WorldObject::find($id)->image;
             case 'spell':
                 return Spells::find($id)->image;
+            case 'creature':
+                return Creature::find($id)->image;
             case 'map':
                 return WorldMap::where('z', $id)->first()->image;
         }
