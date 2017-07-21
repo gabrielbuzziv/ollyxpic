@@ -37,7 +37,7 @@
 
                         <form-group class="margin-bottom-0">
                             <el-checkbox v-model="look_at" label="true">
-                                Loot at
+                                Look at
 
                                 <el-tooltip content="To turn look items readable.">
                                     <i class="mdi mdi-information margin-left-5"></i>

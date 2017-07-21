@@ -7,13 +7,5 @@ export default [
         path: '/',
         component: Default,
         children: [...calculators, ...pages]
-    },
-    {
-        path: '/referral/pato',
-        redirect: '/'
-    },
-    {
-        path: '/referral/mousquer',
-        redirect: '/'
     }
 ]
