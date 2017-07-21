@@ -67,6 +67,15 @@
                     </router-link>
                 </card>
             </div>
+
+            <div class="col-md-4">
+                <card title="Warzone" subtitle="MVP's" dark>
+                    <img :src="image_path('item', 862)" slot="icon">
+                    <router-link :to="{ name: 'calculators.mvp' }" slot="anchor">
+                        <i class="mdi mdi-chevron-right"></i>
+                    </router-link>
+                </card>
+            </div>
         </div>
     </page-load>
 </template>

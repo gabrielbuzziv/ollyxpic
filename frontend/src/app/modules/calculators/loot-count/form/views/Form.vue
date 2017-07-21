@@ -34,6 +34,16 @@
                         <form-group label="Loot Log">
                             <form-textarea rows="12" v-model="loot" placeholder="Paste your loot log here"/>
                         </form-group>
+
+                        <form-group class="margin-bottom-0">
+                            <el-checkbox v-model="look_at" label="true">
+                                Loot at
+
+                                <el-tooltip content="To turn look items readable.">
+                                    <i class="mdi mdi-information margin-left-5"></i>
+                                </el-tooltip>
+                            </el-checkbox>
+                        </form-group>
                     </tab-content>
 
                     <tab-content tab="waste">
@@ -150,6 +160,7 @@
                 selectedTeammate: null,
                 calculating: false,
                 loot: '',
+                look_at: false,
                 teammates: [{ name: null, waste: null, supplies: []  }],
                 filters: {
                     effective: false,
@@ -192,7 +203,8 @@
                 const data = {
                     loot: this.loot,
                     teammates: this.teammates,
-                    filters: this.filters
+                    filters: this.filters,
+                    loot_at: this.look_at
                 }
 
                 services.calculate(data)
