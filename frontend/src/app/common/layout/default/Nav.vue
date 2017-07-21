@@ -102,7 +102,7 @@
                         </a>
                     </router-link>
 
-                    <router-link :to="{ name: 'calculators.speedboost' }" tag="li">
+                    <router-link :to="{ name: 'calculators.mvp' }" tag="li">
                         <a href="">
                             <span class="left">
                                 <img :src="image_path('item', 862)">
