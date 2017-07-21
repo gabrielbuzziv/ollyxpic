@@ -13,7 +13,8 @@ export default [
     {
         name: 'calculators.index',
         path: '/calculators',
-        component: Calculators
+        component: Calculators,
+        redirect: '/'
     },
 
     ...waste,
