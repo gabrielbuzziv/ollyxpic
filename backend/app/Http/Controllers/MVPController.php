@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\MVP;
+use App\MVPPlayer;
 use Illuminate\Http\Request;
 
 class MVPController extends Controller
@@ -50,14 +51,16 @@ class MVPController extends Controller
             'log'     => 'required',
         ]);
 
+        $data = request()->all();
+
         $this->readLog();
         $this->calculateParticipation();
 
         if (! $this->validateMVPS()) {
-            abort(400, 'Sorry, but data is not right.');
+            abort(400, "The log is not valid, did you selected the right boss? Check if the log have data about the {$this->creature[$data['warzone']]['name']}");
         }
 
-        $data = request()->all();
+
         $mvp = MVP::create([
             'title' => "Warzone {$data['warzone']}",
             'log'   => $data['log'],
@@ -147,13 +150,15 @@ class MVPController extends Controller
      */
     private function calculateParticipation()
     {
-        array_walk($this->players, function ($player, $key) {
-            $creature = $this->creature[request()->input('warzone')];
+        if (count($this->players) > 0) {
+            array_walk($this->players, function ($player, $key) {
+                $creature = $this->creature[request()->input('warzone')];
 
-            if (isset($this->players[$key]['damage'])) {
-                $this->players[$key]['participation'] = ($this->players[$key]['damage'] * 100) / $creature['hitpoints'];
-            }
-        });
+                if (isset($this->players[$key]['damage'])) {
+                    $this->players[$key]['participation'] = ($this->players[$key]['damage'] * 100) / $creature['hitpoints'];
+                }
+            });
+        }
     }
 
     /**
@@ -163,12 +168,16 @@ class MVPController extends Controller
      */
     private function validateMVPS()
     {
-        return (bool) array_reduce($this->players, function ($carry, $player) {
-            if (isset($player['damage'])) {
-                return $carry + $player['damage'];
-            }
+        if (count($this->players) > 0) {
+            return (bool) array_reduce($this->players, function ($carry, $player) {
+                if (isset($player['damage'])) {
+                    return $carry + $player['damage'];
+                }
 
-            return $carry;
-        });
+                return $carry;
+            });
+        }
+
+        return 0;
     }
 }

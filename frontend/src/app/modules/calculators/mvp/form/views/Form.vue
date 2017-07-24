@@ -8,6 +8,8 @@
 
         <div class="alert alert-warning">
             <p>Reset the server log when enter in the boss, for a cleaner data</p>
+
+            <p><b>During these bosses the server log contains a lot of spam, this can influence the accuracy of the final results.</b></p>
         </div>
 
         <form action="" ref="form" @submit.prevent="onSubmit">
@@ -81,7 +83,20 @@
                             this.$router.push({ name: 'calculators.mvp.result', params: { id: response.data.id } })
                         })
                         .catch(error => {
-                            this.$message.error('Ops, something went wrong (Right log? Right Boss? Filled fields?).')
+                            if (error.type && error.type == 'validation') {
+                                let validateMessage = error.data.log[0]
+
+                                this.$notify.error({
+                                    title: 'Validation',
+                                    message: validateMessage
+                                })
+                            } else {
+                                this.$notify.error({
+                                    title: '= (',
+                                    message: error.data.message
+                                })
+                            }
+//                            this.$message.error('Ops, something went wrong (Right log? Right Boss? Filled fields?).')
 
                             this.calculating = false
                         })

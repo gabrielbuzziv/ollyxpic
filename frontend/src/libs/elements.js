@@ -10,7 +10,8 @@ import {
     Option,
     Checkbox,
     Radio,
-    RadioButton
+    RadioButton,
+    Notification
 } from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 
@@ -25,3 +26,4 @@ Vue.use(Radio)
 Vue.use(RadioButton)
 Vue.prototype.$message = Message
 Vue.prototype.$confirm = MessageBox.confirm
+Vue.prototype.$notify = Notification

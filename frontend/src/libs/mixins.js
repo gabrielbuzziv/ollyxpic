@@ -14,6 +14,12 @@ Vue.mixin({
             }
 
             return 'http://localhost:8888';
+        },
+
+        errors () {
+            console.log(this.$store.getters('global/GET_VALIDATION_ERROR'))
+
+            return this.$store.getters('global/GET_VALIDATION_ERROR')
         }
     },
 
@@ -36,5 +42,5 @@ Vue.mixin({
 
             return value % 1 == 0 ? value.formatMoney(0, '.', '.') + ext : value.formatMoney(1, '.', '.') + ext
         }
-    },
+    }
 })
