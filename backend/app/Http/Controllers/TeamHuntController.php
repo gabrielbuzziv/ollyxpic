@@ -489,7 +489,7 @@ class TeamHuntController extends Controller
                     $name = $this->getItemName($item);
 
                     if (! Items::where('name', $name)->first()) {
-                        Mail::send('itemerror', ['name' => $name], function ($message) {
+                        Mail::send('itemerror', ['name' => $name, 'log' => request()->input('loot')], function ($message) {
                             $message->subject('Ops... item not found (Loot)');
                             $message->to('ollyxpic@gmail.com');
                         });
@@ -541,7 +541,7 @@ class TeamHuntController extends Controller
                 $item = Items::where('name', 'like', "%{$name}%")->first();
 
                 if (! $item) {
-                    Mail::send('itemerror', ['name' => $name], function ($message) {
+                    Mail::send('itemerror', ['name' => $name, 'log' => request()->input('loot')], function ($message) {
                         $message->subject('Ops... item not found (Look at)');
                         $message->to('ollyxpic@gmail.com');
                     });
@@ -920,10 +920,7 @@ class TeamHuntController extends Controller
             "wyvern talismans"               => "wyvern talisman",
             "lancer beetle shells"           => "lancer beetle shell",
             "red lanterns"                   => "red lantern",
-            "legionnaire flags"              => "legionnaire flag",
-            "high guard shoulderplates"      => "high guard shoulderplate",
             "antlers"                        => "antler",
-            "bloody pincers"                 => "bloody pincer",
             "cyclops toes"                   => "cyclops toe",
             "frosty ear of a trolls"         => "frosty ear of a troll",
             "sabretooths"                    => "sabretooth",
