@@ -8,7 +8,7 @@
 
         <div class="row">
             <div class="col-md-12">
-                <panel>
+                <panel class="form">
                     <div class="row">
                         <div class="col-md-6">
                             <form-input class="level" v-model="settings.level" placeholder="Level"/>
@@ -27,8 +27,8 @@
                         <thead>
                             <tr>
                                 <th class="text-center">Amount of Blessings</th>
-                                <th class="text-center">Death Penalty</th>
-                                <th class="text-center">Equipement</th>
+                                <th class="text-center">Experience</th>
+                                <th class="text-center">Equipment</th>
                                 <th class="text-center">Container</th>
                             </tr>
                         </thead>
@@ -54,22 +54,27 @@
                     <table class="table">
                         <thead>
                             <tr>
+                                <th class="text-left">Sum</th>
                                 <th class="text-center">Bless</th>
-                                <th class="text-center">Price</th>
+                                <th class="text-right">Price</th>
                             </tr>
                         </thead>
 
                         <tbody>
                             <tr v-for="bless in prices">
+                                <td class="text-left">
+                                    <el-checkbox v-model="bless.sum" style="line-height: 0;"></el-checkbox>
+                                </td>
                                 <td class="text-center">{{ bless.name }}</td>
-                                <td class="text-center">{{ getPrice(bless.name).formatMoney(0, '.', '.') }} gp</td>
+                                <td class="text-right">{{ getPrice(bless.name).formatMoney(0, '.', '.') }} gp</td>
                             </tr>
                         </tbody>
 
                         <tfoot>
                             <tr>
+                                <td class="text-center"></td>
                                 <td class="text-center">Total</td>
-                                <td class="text-center">{{ totalBless.formatMoney(0, '.', '.') }} gp</td>
+                                <td class="text-right">{{ totalBless.formatMoney(0, '.', '.') }} gp</td>
                             </tr>
                         </tfoot>
                     </table>
@@ -93,13 +98,14 @@
 
                 blesses: [0, 1, 2, 3, 4, 5, 6, 7],
                 prices: [
-                    { name: 'Spiritual Shielding' },
-                    { name: 'Embrace of TIbia' },
-                    { name: 'Fire of the Suns' },
-                    { name: 'Wisdom of Solitude' },
-                    { name: 'Spark of the Phoenix' },
-                    { name: 'Blood of the Mountain' },
-                    { name: 'Heart of the Mountain' },
+                    { sum: true, name: 'Spiritual Shielding' },
+                    { sum: true, name: 'Embrace of TIbia' },
+                    { sum: true, name: 'Fire of the Suns' },
+                    { sum: true, name: 'Wisdom of Solitude' },
+                    { sum: true, name: 'Spark of the Phoenix' },
+                    { sum: true, name: 'Blood of the Mountain' },
+                    { sum: true, name: 'Heart of the Mountain' },
+                    { sum: false, name: 'Twist of Fate' },
                 ]
             }
         },
@@ -113,7 +119,7 @@
 
             totalBless () {
                 return this.prices.reduce((carry, bless) => {
-                    return carry + parseInt(this.getPrice(bless.name))
+                    return bless.sum ? carry + parseInt(this.getPrice(bless.name)) : carry
                 }, 0)
             }
         },

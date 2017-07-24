@@ -1,14 +1,17 @@
 #blessings {
-    .level {
-        height: 60px;
-        font-size: 20px;
-    }
+    .form {
+        .level {
+            height: 60px;
+            font-size: 20px;
+        }
 
-    .el-checkbox {
-        line-height: 55px;
 
-        .el-checkbox__label {
-            font-weight: 400;
+        .el-checkbox {
+            line-height: 55px;
+
+            .el-checkbox__label {
+                font-weight: 400;
+            }
         }
     }
 }
