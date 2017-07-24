@@ -38,6 +38,13 @@ class TeamHuntController extends Controller
     protected $teammates;
 
     /**
+     * Error
+     *
+     * @var array
+     */
+    protected $error = [];
+
+    /**
      * Calculate the profit/waste in teamhunt.
      *
      * @return array|string
@@ -71,6 +78,13 @@ class TeamHuntController extends Controller
 
         $this->saveTeammates($hunt, $teammateProfit);
         $this->saveItems($hunt, $this->items);
+
+        if (count($this->error) > 0) {
+            Mail::send('itemerror', ['errors' => $this->error, 'log' => request()->input('loot')], function ($message) {
+                $message->subject('Ops... Loot count error');
+                $message->to('ollyxpic@gmail.com');
+            });
+        }
 
         return array_merge($hunt->toArray(), ['password' => $password]);
     }
@@ -489,10 +503,8 @@ class TeamHuntController extends Controller
                     $name = $this->getItemName($item);
 
                     if (! Items::where('name', $name)->first()) {
-                        Mail::send('itemerror', ['name' => $name, 'log' => request()->input('loot')], function ($message) {
-                            $message->subject('Ops... item not found (Loot)');
-                            $message->to('ollyxpic@gmail.com');
-                        });
+                        $this->error[] = $name;
+
                     } else {
                         if (! isset($items[$name])) {
                             $items[$name] = ['quantity' => 0, 'data' => Items::where('name', $name)->first()->toArray()];
@@ -518,7 +530,7 @@ class TeamHuntController extends Controller
         // Loots
         $loots = array_map(function ($loot) {
             return [
-                'loot'    => $loot,
+                'loot'    => trim($loot),
                 'monster' => substr(explode(':', $loot)[1], 13),
                 'items'   => array_map(function ($item) {
                     return trim($item);
@@ -541,10 +553,7 @@ class TeamHuntController extends Controller
                 $item = Items::where('name', 'like', "%{$name}%")->first();
 
                 if (! $item) {
-                    Mail::send('itemerror', ['name' => $name, 'log' => request()->input('loot')], function ($message) {
-                        $message->subject('Ops... item not found (Look at)');
-                        $message->to('ollyxpic@gmail.com');
-                    });
+                    $this->error[] = $name;
                 } else {
                     $name = $amount > 0 ? "{$amount} {$name}" : $name;
 

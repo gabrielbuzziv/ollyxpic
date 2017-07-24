@@ -1,4 +1,10 @@
-Ops... {{ $name }} not found in loot count.
+<h4>List of Errors</h4>
+<br>
+<ul>
+    @foreach ($errors as $error)
+    <li>{{ $error }}</li>
+    @endforeach
+</ul>
 
 ________________________________
 
