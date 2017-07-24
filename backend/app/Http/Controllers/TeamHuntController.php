@@ -530,16 +530,17 @@ class TeamHuntController extends Controller
         if (request()->input('loot_at')) {
             $looks = array_map(function ($loot) {
                 $item = explode('You see', $loot);
-                $amount = 0;
+                $name = explode('(', $item[1]);
 
-                preg_match('/\d+/', $item[1], $matches);
-                $amount = isset($matches[0]) ? (int) $matches[0] : 0;
-                $item = trim($item[1]);
-                $item = Items::where('look_text', 'like', "%{$item}%")->first();
+                $name = $this->getItemName(trim(str_replace(['.'], '', $name[0])));
+                $item = Items::where('name', 'like', "%{$name}%")->first();
 
-                if ($item) {
-                    $name = $amount > 0 ? "{$amount} {$item->name}" : $item->name;
-
+                if (! $item) {
+                    Mail::send('itemerror', ['name' => $name], function ($message) {
+                        $message->subject('Ops... item not found');
+                        $message->to('ollyxpic@gmail.com');
+                    });
+                } else {
                     return [
                         'loot'    => '',
                         'monster' => '',
