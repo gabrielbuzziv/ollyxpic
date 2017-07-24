@@ -15,12 +15,6 @@ Vue.mixin({
 
             return 'http://localhost:8888';
         },
-
-        errors () {
-            console.log(this.$store.getters('global/GET_VALIDATION_ERROR'))
-
-            return this.$store.getters('global/GET_VALIDATION_ERROR')
-        }
     },
 
     methods: {
