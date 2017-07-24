@@ -515,6 +515,7 @@ class TeamHuntController extends Controller
      */
     private function getLoots()
     {
+        // Loots
         $loots = array_map(function ($loot) {
             return [
                 'loot'    => $loot,
@@ -527,12 +528,16 @@ class TeamHuntController extends Controller
             return strpos($loot, 'Loot of');
         }));
 
+        // Look At
         if (request()->input('loot_at')) {
             $looks = array_map(function ($loot) {
                 $item = explode('You see', $loot);
                 $name = explode('(', $item[1]);
+                $name = trim(str_replace(['.'], '', $name[0]));
 
-                $name = $this->getItemName(trim(str_replace(['.'], '', $name[0])));
+                $amount = (int) filter_var($name, FILTER_SANITIZE_NUMBER_INT);
+
+                $name = $this->getItemName($name);
                 $item = Items::where('name', 'like', "%{$name}%")->first();
 
                 if (! $item) {
@@ -541,6 +546,8 @@ class TeamHuntController extends Controller
                         $message->to('ollyxpic@gmail.com');
                     });
                 } else {
+                    $name = $amount > 0 ? "{$amount} {$name}" : $name;
+
                     return [
                         'loot'    => '',
                         'monster' => '',
@@ -824,7 +831,7 @@ class TeamHuntController extends Controller
             "scarab pincers"                 => "scarab pincer",
             "shaggy tails"                   => "shaggy tail",
             "sandcrawler shells"             => "sandcrawler shell",
-            "zaogun shoulderplates"          => "zaogun shoulderplate",
+            "zaogun shoulderplates"          => "zaogun shoulderplates",
             "warwolf furs"                   => "warwolf fur",
             "bony tails"                     => "bony tail",
             "crab pincers"                   => "crab pincer",
@@ -925,7 +932,6 @@ class TeamHuntController extends Controller
             "terramite shells"               => "terramite shell",
             "terrorbird beaks"               => "terrorbird beak",
             "broken halberds"                => "broken halberd",
-            "warmaster's wristguards"        => "warmaster's wristguard",
             "cursed shoulder spikes"         => "cursed shoulder spike",
             "high guard flags"               => "high guard flag",
             "corrupted flags"                => "corrupted flag",
@@ -989,10 +995,10 @@ class TeamHuntController extends Controller
             "brimstone shells"               => "brimstone shell",
             "brimstone fangs"                => "brimstone fang",
             "draken sulphurs"                => "draken sulphur",
-            "eye of corruptions"             => "eye of corruption",
+            "eyes of corruption"             => "eye of corruption",
             "lizard essences"                => "lizard essence",
-            "scale of corruptions"           => "scale of corruption",
-            "tail of corruptions"            => "tail of corruption",
+            "scales of corruption"           => "scale of corruption",
+            "tails of corruption"            => "tail of corruption",
             "tentacle pieces"                => "tentacle piece",
             "skull belts"                    => "skull belt",
             "draken wristbands"              => "draken wristband",
@@ -1317,7 +1323,7 @@ class TeamHuntController extends Controller
             "throwing stars"                 => "throwing star",
             "bunches of ripe rice"           => "bunch of ripe rice",
             "peacock feather fans"           => "peacock feather fan",
-            "lost husher's staff"            => "Lost Husher's Staff"
+            "lost husher's staff"            => "Lost Husher's Staff",
         ];
 
         return isset($names[$name]) ? $names[$name] : $name;
