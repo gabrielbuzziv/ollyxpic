@@ -828,7 +828,6 @@ class TeamHuntController extends Controller
             "lump of dirts"                  => "lump of dirt",
             "orc tooths"                     => "orc tooth",
             "spider fangs"                   => "spider fang",
-            "scarab pincers"                 => "scarab pincer",
             "shaggy tails"                   => "shaggy tail",
             "sandcrawler shells"             => "sandcrawler shell",
             "zaogun shoulderplates"          => "zaogun shoulderplates",

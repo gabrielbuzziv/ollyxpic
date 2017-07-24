@@ -15,7 +15,7 @@
                         </div>
 
                         <div class="col-md-6">
-                            <el-checkbox v-model="settings.promoted">Promoted?</el-checkbox>
+                            <el-checkbox v-model="settings.promoted">Promotion</el-checkbox>
                         </div>
                     </div>
                 </panel>
@@ -28,6 +28,8 @@
                             <tr>
                                 <th class="text-center">Amount of Blessings</th>
                                 <th class="text-center">Death Penalty</th>
+                                <th class="text-center">Equipement</th>
+                                <th class="text-center">Container</th>
                             </tr>
                         </thead>
 
@@ -39,6 +41,8 @@
                                     <div v-if="bless > 1">{{ bless }} blessings</div>
                                 </td>
                                 <td class="text-center">{{ getPenalty(bless) }} exp</td>
+                                <td class="text-center">{{ getEquipmentLoss(bless) }} %</td>
+                                <td class="text-center">{{ getContainerLoss(bless) }} %</td>
                             </tr>
                         </tbody>
                     </table>
@@ -136,6 +140,40 @@
                 }
 
                 return 0
+            },
+
+            getEquipmentLoss (bless) {
+                switch (bless) {
+                    case 0:
+                        return 10
+                    case 1:
+                        return 7
+                    case 2:
+                        return 4.5
+                    case 3:
+                        return 2.5
+                    case 4:
+                        return 1
+                    default:
+                        return 0
+                }
+            },
+
+            getContainerLoss (bless) {
+                switch (bless) {
+                    case 0:
+                        return 100
+                    case 1:
+                        return 70
+                    case 2:
+                        return 45
+                    case 3:
+                        return 25
+                    case 4:
+                        return 10
+                    default:
+                        return 0
+                }
             },
 
             getPrice (bless) {
