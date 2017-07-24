@@ -490,7 +490,7 @@ class TeamHuntController extends Controller
 
                     if (! Items::where('name', $name)->first()) {
                         Mail::send('itemerror', ['name' => $name], function ($message) {
-                            $message->subject('Ops... item not found');
+                            $message->subject('Ops... item not found (Loot)');
                             $message->to('ollyxpic@gmail.com');
                         });
                     } else {
@@ -542,7 +542,7 @@ class TeamHuntController extends Controller
 
                 if (! $item) {
                     Mail::send('itemerror', ['name' => $name], function ($message) {
-                        $message->subject('Ops... item not found');
+                        $message->subject('Ops... item not found (Look at)');
                         $message->to('ollyxpic@gmail.com');
                     });
                 } else {
