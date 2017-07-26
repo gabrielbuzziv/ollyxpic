@@ -1,83 +1,79 @@
 <template>
-    <page-load id="blessings">
+    <page-load id="damage">
         <page-title>
-            <img :src="item_path('spiritual-charm')" alt="">
-            Blessing
-            <span>Penalty</span>
+            <img :src="item_path('sudden-death-rune')" alt="">
+            Damage
+            <span>Something here</span>
         </page-title>
 
         <div class="row">
             <div class="col-md-12">
                 <panel class="form">
                     <div class="row">
-                        <div class="col-md-6">
-                            <form-input class="level" v-model="settings.level" placeholder="Level"/>
-                        </div>
+                        <form-group :columns="3">
+                            <form-input v-model="level" placeholder="Level" />
+                        </form-group>
 
-                        <div class="col-md-6">
-                            <el-checkbox v-model="settings.promoted">Promotion</el-checkbox>
-                        </div>
+                        <form-group :columns="3">
+                            <form-input v-model="magiclevel" placeholder="Magic Level" />
+                        </form-group>
+
+                        <form-group :columns="3">
+                            <form-input v-model="melee" placeholder="Melee Skill" />
+                        </form-group>
+
+                        <form-group :columns="3">
+                            <form-input v-model="attack" placeholder="Weapon Damage" />
+                        </form-group>
+                    </div>
+
+                    <div class="row">
+                        <form-group label="Vocation" class="margin-bottom-0" :columns="5">
+                            <el-radio v-model="vocation" :label="1">Knight</el-radio>
+                            <el-radio v-model="vocation" :label="2">Paladin</el-radio>
+                            <el-radio v-model="vocation" :label="3">Druid</el-radio>
+                            <el-radio v-model="vocation" :label="4">Sorcerer</el-radio>
+                        </form-group>
+
+                        <form-group label="Critical Damage" class="margin-bottom-0" :columns="5">
+                            <el-radio v-model="critical" :label="0">0%</el-radio>
+                            <el-radio v-model="critical" :label="10">10%</el-radio>
+                            <el-radio v-model="critical" :label="25">25%</el-radio>
+                            <el-radio v-model="critical" :label="50">50%</el-radio>
+                        </form-group>
+
+                        <form-group label="Creature">
+                            <el-checkbox v-model="creature" class="margin-bottom-0" :label="true">
+                                <img :src="image_path('creature', 2)" alt="">
+                            </el-checkbox>
+                        </form-group>
                     </div>
                 </panel>
             </div>
+        </div>
 
-            <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-12">
                 <panel>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th class="text-center">Amount of Blessings</th>
-                                <th class="text-center">Experience</th>
-                                <th class="text-center">Equipment</th>
-                                <th class="text-center">Container</th>
-                            </tr>
-                        </thead>
+                    <table>
 
-                        <tbody>
-                            <tr v-for="bless in blesses">
-                                <td class="text-center">
-                                    <div v-if="bless == 0">No blessing</div>
-                                    <div v-if="bless == 1">{{ bless }} blessing</div>
-                                    <div v-if="bless > 1">{{ bless }} blessings</div>
-                                </td>
-                                <td class="text-center">{{ getPenalty(bless) }} exp</td>
-                                <td class="text-center">{{ getEquipmentLoss(bless) }} %</td>
-                                <td class="text-center">{{ getContainerLoss(bless) }} %</td>
-                            </tr>
-                        </tbody>
+                    </table>
+                </panel>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <panel>
+                    <table>
+
                     </table>
                 </panel>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <panel>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th class="text-left">Sum</th>
-                                <th class="text-center">Bless</th>
-                                <th class="text-right">Price</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr v-for="bless in prices">
-                                <td class="text-left">
-                                    <el-checkbox v-model="bless.sum" style="line-height: 0;"></el-checkbox>
-                                </td>
-                                <td class="text-center">{{ bless.name }}</td>
-                                <td class="text-right">{{ getPrice(bless.name).formatMoney(0, '.', '.') }} gp</td>
-                            </tr>
-                        </tbody>
-
-                        <tfoot>
-                            <tr>
-                                <td class="text-center"></td>
-                                <td class="text-center">Total</td>
-                                <td class="text-right">{{ totalBless.formatMoney(0, '.', '.') }} gp</td>
-                            </tr>
-                        </tfoot>
-                    </table>
+                    <table></table>
                 </panel>
             </div>
         </div>
@@ -91,122 +87,13 @@
     export default {
         data () {
             return {
-                settings: {
-                    level: 0,
-                    promoted: false
-                },
-
-                blesses: [0, 1, 2, 3, 4, 5, 6, 7],
-                prices: [
-                    { sum: true, name: 'Spiritual Shielding' },
-                    { sum: true, name: 'Embrace of TIbia' },
-                    { sum: true, name: 'Fire of the Suns' },
-                    { sum: true, name: 'Wisdom of Solitude' },
-                    { sum: true, name: 'Spark of the Phoenix' },
-                    { sum: true, name: 'Blood of the Mountain' },
-                    { sum: true, name: 'Heart of the Mountain' },
-                    { sum: false, name: 'Twist of Fate' },
-                ]
+                level: '',
+                magiclevel: '',
+                melee: '',
+                vocation: 1,
+                critical: 0,
+                creature: false
             }
-        },
-
-        computed: {
-            experience () {
-                const level = this.settings.level
-
-                return (50 * Math.pow(level, 3) / 3) - (100 * Math.pow(level, 2)) + (850 * level / 3) - 200
-            },
-
-            totalBless () {
-                return this.prices.reduce((carry, bless) => {
-                    return bless.sum ? carry + parseInt(this.getPrice(bless.name)) : carry
-                }, 0)
-            }
-        },
-
-        methods: {
-            getPenalty (bless) {
-                const level      = parseInt(this.settings.level)
-                const promoted   = this.settings.promoted
-                const experience = this.experience
-
-                if (level > 0) {
-                    let penalty = 0
-
-                    if (level < 24) {
-                        penalty = experience * 0.10
-                    } else {
-                        penalty = ((level + 50) / 100) * (50 * (Math.pow(level, 2) - (5 * level) + 8))
-                    }
-
-                    const promotedPercentage = promoted ? 30 : 0
-                    const blessPercentage    = (100 - ((8 * bless) + promotedPercentage)) / 100
-
-                    return (penalty * blessPercentage).formatMoney(0, '.', '.')
-                }
-
-                return 0
-            },
-
-            getEquipmentLoss (bless) {
-                switch (bless) {
-                    case 0:
-                        return 10
-                    case 1:
-                        return 7
-                    case 2:
-                        return 4.5
-                    case 3:
-                        return 2.5
-                    case 4:
-                        return 1
-                    default:
-                        return 0
-                }
-            },
-
-            getContainerLoss (bless) {
-                switch (bless) {
-                    case 0:
-                        return 100
-                    case 1:
-                        return 70
-                    case 2:
-                        return 45
-                    case 3:
-                        return 25
-                    case 4:
-                        return 10
-                    default:
-                        return 0
-                }
-            },
-
-            getPrice (bless) {
-                const level = parseInt(this.settings.level)
-
-                if (level > 0) {
-
-                    let price = 0
-
-                    if (level <= 30) {
-                        price = 2000
-                    } else if (level > 30 && level < 120) {
-                        price = 2000 + (200 * (level - 30))
-                    } else {
-                        price = 20000
-                    }
-
-                    if (bless == 'Blood of the Mountain' || bless == 'Heart of the Mountain') {
-                        price = price * 1.3
-                    }
-
-                    return price
-
-                }
-
-                return 0
-            }
-        },
+        }
     }
 </script>

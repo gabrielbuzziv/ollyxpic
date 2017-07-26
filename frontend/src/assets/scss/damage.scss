@@ -1,0 +1,15 @@
+#damage {
+    .form {
+        input[type=text] {
+            height: 60px;
+            font-size: 20px;
+        }
+
+        .form-group {
+            .form-label {
+                display: block;
+                margin: 0 0 10px;
+            }
+        }
+    }
+}
