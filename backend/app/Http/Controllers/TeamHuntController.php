@@ -848,7 +848,7 @@ class TeamHuntController extends Controller
             "mutated fleshs"                 => "mutated flesh",
             "essence of a bad dreams"        => "essence of a bad dream",
             "tarantula eggs"                 => "tarantula egg",
-            "lump of earths"                 => "lump of earth",
+            "lumps of earth"                 => "lump of earth",
             "centipede legs"                 => "centipede leg",
             "hydra heads"                    => "hydra head",
             "spiked iron balls"              => "spiked iron ball",
