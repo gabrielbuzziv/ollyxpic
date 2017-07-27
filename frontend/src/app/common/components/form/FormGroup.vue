@@ -1,6 +1,9 @@
 <template>
     <div :class="classes">
-        <label class="form-label" v-if="hasLabel">{{ label }}</label>
+        <label class="form-label" v-if="hasLabel">
+            <slot name="icon"></slot>
+            {{ label }}
+        </label>
 
         <slot></slot>
     </div>

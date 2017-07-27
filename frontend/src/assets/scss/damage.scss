@@ -12,4 +12,45 @@
             }
         }
     }
+
+    .damage {
+        img {
+            width: 16px;
+            opacity: .4;
+        }
+
+        .critical {
+            margin-left: 10px;
+            font-weight: 600;
+        }
+    }
+
+    .creature-detail {
+        .panel-body {
+            padding: 30px;
+
+            .image {
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 30px;
+            }
+
+            .status {
+                display: inline-block;
+                width: calc(100% - 100px);
+                vertical-align: middle;
+
+                h3 {
+                    margin: 0 0 10px;
+                    font-size: 22px;
+                    font-weight: 400;
+                }
+
+                .health {
+                    font-size: 14px;
+                    font-weight: 300;
+                }
+            }
+        }
+    }
 }

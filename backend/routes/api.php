@@ -45,4 +45,6 @@ Route::post('contact', 'PageController@sendContact');
 Route::get('mvp/{mvp}', 'MVPController@show');
 Route::post('mvp', 'MVPController@calculate');
 
-Route::get('database', 'DatabaseController@update');
+Route::get('creatures/search', 'CreatureController@search');
+
+//Route::get('database', 'DatabaseController@update');
