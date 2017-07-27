@@ -105,6 +105,18 @@
                     <router-link :to="{ name: 'calculators.mvp' }" tag="li">
                         <a href="">
                             <span class="left">
+                                <img :src="image_path('item', 117)" alt="">
+                            </span>
+                            <span class="center">
+                                <span>Dealt Damage</span>
+                                <small>Spells & Runes</small>
+                            </span>
+                        </a>
+                    </router-link>
+
+                    <router-link :to="{ name: 'calculators.mvp' }" tag="li">
+                        <a href="">
+                            <span class="left">
                                 <img :src="image_path('item', 862)">
                             </span>
                             <span class="center">

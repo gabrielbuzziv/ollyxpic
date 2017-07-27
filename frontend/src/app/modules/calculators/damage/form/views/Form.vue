@@ -1,10 +1,14 @@
 <template>
     <page-load id="damage">
         <page-title>
-            <img :src="item_path('sudden-death-rune')" alt="">
-            Damage
-            <span>Something here</span>
+            <img :src="image_path('item', 117)" alt="">
+            Dealt Damage
+            <span>Spells & Runes</span>
         </page-title>
+
+        <div class="alert alert-warning">
+            <p>Under development</p>
+        </div>
 
         <div class="row">
             <div class="col-md-12">
@@ -29,8 +33,8 @@
 
                     <div class="row margin-top-20">
                         <form-group label="Vocation" class="margin-bottom-0" :columns="5">
-                            <el-radio v-model="form.vocation" :label="1">Knight</el-radio>
-                            <el-radio v-model="form.vocation" :label="2">Paladin</el-radio>
+                            <!--<el-radio v-model="form.vocation" :label="1">Knight</el-radio>-->
+                            <!--<el-radio v-model="form.vocation" :label="2">Paladin</el-radio>-->
                             <el-radio v-model="form.vocation" :label="3">Druid</el-radio>
                             <el-radio v-model="form.vocation" :label="4">Sorcerer</el-radio>
                         </form-group>
