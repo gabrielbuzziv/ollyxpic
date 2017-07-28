@@ -841,7 +841,6 @@ class TeamHuntController extends Controller
             "zaogun shoulderplates"          => "zaogun shoulderplates",
             "warwolf furs"                   => "warwolf fur",
             "bony tails"                     => "bony tail",
-            "crab pincers"                   => "crab pincer",
             "half-digested piece of meats"   => "half-digested piece of meat",
             "hellspawn tails"                => "hellspawn tail",
             "piece of crocodile leathers"    => "piece of crocodile leather",

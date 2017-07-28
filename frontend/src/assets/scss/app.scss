@@ -27,6 +27,7 @@ $mdi-font-path: "~mdi/fonts/";
 /* Helpers */
 @import 'helpers';
 @import 'animation';
+@import 'loader';
 
 /* Default */
 @import 'nav';
@@ -54,4 +55,4 @@ $mdi-font-path: "~mdi/fonts/";
 @import 'equipments';
 @import 'tibiabox';
 @import 'warzone';
-@import 'damage';
+@import 'spellcast';

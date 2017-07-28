@@ -1,0 +1,101 @@
+#spellcast {
+    .form {
+        input[type=text] {
+            height: 60px;
+            font-size: 20px;
+        }
+
+        .form-group {
+            .form-label {
+                display: block;
+                margin: 0 0 10px;
+            }
+        }
+
+        .creature-select {
+            width: 100%;
+
+            input {
+                border: 1px solid #ccd0d2;
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+
+                ::-webkit-input-placeholder,
+                :-moz-placeholder,
+                ::-moz-placeholder,
+                :-ms-input-placeholder,
+                ::-ms-input-placeholder {
+                    color: #B3B7BA;
+                }
+            }
+        }
+    }
+
+    .damage {
+        img {
+            width: 16px;
+            opacity: .4;
+        }
+
+        .critical {
+            margin-left: 10px;
+            font-weight: 600;
+        }
+    }
+
+    .creature-detail {
+        .panel-body {
+            padding: 20px 30px;
+            height: 127px;
+            line-height: 81px;
+
+            .image {
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 30px;
+            }
+
+            .status {
+                display: inline-block;
+                width: calc(100% - 100px);
+                vertical-align: middle;
+                line-height: normal;
+
+                h3 {
+                    margin: 0;
+                    font-size: 22px;
+                    font-weight: 400;
+                    line-height: 28px;
+                }
+
+                .health {
+                    font-size: 14px;
+                    font-weight: 300;
+                }
+            }
+        }
+    }
+
+    .loading-panel {
+        .load {
+            text-align: center;
+            margin: 0 auto;
+
+            .loader {
+                display: inline-block;
+                text-align: center;
+                border-width: 5px;
+                width: 60px;
+                height: 60px;
+                vertical-align: middle;
+                margin-right: 20px;
+            }
+
+            span {
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 20px;
+                font-weight: 300;
+            }
+        }
+    }
+}

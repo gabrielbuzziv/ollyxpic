@@ -19,10 +19,21 @@ table {
 
         tbody {
             tr {
+                th {
+                    background: #e3e3e3;
+                    padding: 10px 5px;
+                    font-size: 16px;
+                    font-weight: 300;
+
+                    &:nth-child(2n) {
+                        background: darken(#eee, 3%)
+                    }
+                }
+
                 td {
                     background: #f3f3f3;
                     padding: 10px 5px;
-                    font-size: 16px;
+                    font-size: 14px;
                     font-weight: 400;
 
                     &:nth-child(2n) {

@@ -16,8 +16,20 @@ class CreatureController extends Controller
     public function search()
     {
         $query = request()->input('query');
-        $creatures = Creature::where('name', 'like', "%{$query}%")->get();
+        $creatures = Creature::where('name', 'like', "%{$query}%")
+            ->where('health', '>', 200)->get();
 
         return $this->respond($creatures->toArray());
+    }
+
+    /**
+     * Find creature.
+     *
+     * @param Creature $creature
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function find(Creature $creature)
+    {
+        return $this->respond($creature->toArray());
     }
 }

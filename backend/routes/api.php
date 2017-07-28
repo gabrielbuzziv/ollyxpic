@@ -46,5 +46,6 @@ Route::get('mvp/{mvp}', 'MVPController@show');
 Route::post('mvp', 'MVPController@calculate');
 
 Route::get('creatures/search', 'CreatureController@search');
+Route::get('creatures/{creature}', 'CreatureController@find');
 
 //Route::get('database', 'DatabaseController@update');

@@ -102,14 +102,14 @@
                         </a>
                     </router-link>
 
-                    <router-link :to="{ name: 'calculators.mvp' }" tag="li">
+                    <router-link :to="{ name: 'calculators.spellcaster' }" tag="li">
                         <a href="">
                             <span class="left">
                                 <img :src="image_path('item', 117)" alt="">
                             </span>
                             <span class="center">
-                                <span>Dealt Damage</span>
-                                <small>Spells & Runes</small>
+                                <span>Spell Caster</span>
+                                <small>Damage & Healing</small>
                             </span>
                         </a>
                     </router-link>
