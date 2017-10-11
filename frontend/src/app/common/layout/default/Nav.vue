@@ -21,7 +21,7 @@
                     <router-link :to="{ name: 'calculators.waste' }" tag="li">
                         <a href="">
                             <span class="left">
-                                <img :src="item_path('ultimate-mana-potion')">
+                                <img :src="image_path('item', 3147)">
                             </span>
                             <span class="center">
                                 <span>Supplies</span>
