@@ -25,7 +25,7 @@
                             </span>
                             <span class="center">
                                 <span>Supplies</span>
-                                <small>Waste</small>
+                                <small>Waste1</small>
                             </span>
                         </a>
                     </router-link>
