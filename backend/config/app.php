@@ -169,7 +169,6 @@ return [
         Laravel\Tinker\TinkerServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-        Jenssegers\Rollbar\RollbarServiceProvider::class,
 
         /*
          * Application Service Providers...

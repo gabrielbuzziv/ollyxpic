@@ -10,7 +10,6 @@
         "doctrine/dbal": "^2.5",
         "guzzlehttp/guzzle": "^6.3",
         "intervention/image": "^2.3",
-        "jenssegers/rollbar": "^1.5",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
         "stil/gif-endec": "^0.2.0"
