@@ -55,8 +55,8 @@
 
                     <div class="row">
                         <form-group label="Vocation" :columns="6" class="text-center margin-top-10 margin-bottom-0">
-                            <el-radio v-model="form.vocation" :label="1">Knight</el-radio>
-                            <el-radio v-model="form.vocation" :label="2">Paladin</el-radio>
+                            <!--<el-radio v-model="form.vocation" :label="1">Knight</el-radio>-->
+                            <!--<el-radio v-model="form.vocation" :label="2">Paladin</el-radio>-->
                             <el-radio v-model="form.vocation" :label="3">Druid</el-radio>
                             <el-radio v-model="form.vocation" :label="4">Sorcerer</el-radio>
                         </form-group>
@@ -189,14 +189,14 @@
                     attack: 0,
                 },
                 spellsList: [
-//                    { id: 73, name: 'Wound Cleansing', ml: 0, element: 'heal', vocations: ['knight'], max: [7.95, 51], min: [4, 25], type: 'healing', image: 'spell', formula: 'normal' },
-//                    { id: 3, name: 'Light Healing', ml: 0, element: 'heal', vocations: ['paladin', 'sorcerer', 'druid'], max: [1.795, 11], min: [1.4, 8], type: 'healing', image: 'spell', formula: 'normal' },
-//                    { id: 23, name: 'Intense Healing', ml: 0, element: 'heal', vocations: ['sorcerer', 'druid'], max: [5.59, 35], min: [3.184, 20], type: 'healing', image: 'spell', formula: 'normal' },
-//                    { id: 37, name: 'Ultimate Healing', ml: 0, element: 'heal', vocations: ['sorcerer', 'druid'], max: [12.79, 79], min: [7.22, 44], type: 'healing', image: 'spell', formula: 'normal' },
-//                    { id: 35, name: 'Heal Friend', ml: 0, element: 'heal', vocations: ['druid'], max: 14, min: 10, type: 'healing', image: 'spell', formula: 'advanced' },
-//                    { id: 58, name: 'Mass Healing', ml: 0, element: 'heal', vocations: ['druid'], max: [10.43, 62], min: [5.7, 26], type: 'healing', image: 'spell', formula: 'normal' },
-//                    { id: 86, name: 'Divine Healing', ml: 0, element: 'heal', vocations: ['paladin'], max: 25, min: 18.5, type: 'healing', image: 'spell', formula: 'advanced' },
-//                    { id: 119, name: 'Salvation', ml: 0, element: 'heal', vocations: ['paladin'], max: [19, 50], min: [19, 50], type: 'healing', image: 'spell', formula: 'normal' },
+                    { id: 73, name: 'Wound Cleansing', ml: 0, element: 'heal', vocations: ['knight'], max: [7.95, 51], min: [4, 25], type: 'healing', image: 'spell', formula: 'normal' },
+                    { id: 3, name: 'Light Healing', ml: 0, element: 'heal', vocations: ['paladin', 'sorcerer', 'druid'], max: [1.795, 11], min: [1.4, 8], type: 'healing', image: 'spell', formula: 'normal' },
+                    { id: 23, name: 'Intense Healing', ml: 0, element: 'heal', vocations: ['sorcerer', 'druid'], max: [5.59, 35], min: [3.184, 20], type: 'healing', image: 'spell', formula: 'normal' },
+                    { id: 37, name: 'Ultimate Healing', ml: 0, element: 'heal', vocations: ['sorcerer', 'druid'], max: [12.79, 79], min: [7.22, 44], type: 'healing', image: 'spell', formula: 'normal' },
+                    { id: 35, name: 'Heal Friend', ml: 0, element: 'heal', vocations: ['druid'], max: 14, min: 10, type: 'healing', image: 'spell', formula: 'advanced' },
+                    { id: 58, name: 'Mass Healing', ml: 0, element: 'heal', vocations: ['druid'], max: [10.43, 62], min: [5.7, 26], type: 'healing', image: 'spell', formula: 'normal' },
+                    { id: 86, name: 'Divine Healing', ml: 0, element: 'heal', vocations: ['paladin'], max: 25, min: 18.5, type: 'healing', image: 'spell', formula: 'advanced' },
+                    { id: 119, name: 'Salvation', ml: 0, element: 'heal', vocations: ['paladin'], max: [19, 50], min: [19, 50], type: 'healing', image: 'spell', formula: 'normal' },
                     { id: 117, name: 'Sudden Death Rune', ml: 15, element: 'death', vocations: ['knight', 'paladin', 'sorcerer', 'druid'], max: [7.395, 46], min: [4.605, 28], type: 'rune', image: 'item', formula: 'normal' },
                     { id: 2024, name: 'Avalanche Rune', ml: 4, element: 'ice', vocations: ['knight', 'paladin', 'sorcerer', 'druid'], max: [2.8, 17], min: [1.2, 7], type: 'rune', image: 'item', formula: 'normal' },
                     { id: 2019, name: 'Icicle Rune', ml: 4, element: 'ice', vocations: ['knight', 'paladin', 'sorcerer', 'druid'], max: [3, 18], min: [1.81, 10], type: 'rune', image: 'item', formula: 'normal' },
