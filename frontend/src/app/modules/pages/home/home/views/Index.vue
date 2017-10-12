@@ -80,6 +80,15 @@
                     </router-link>
                 </card>
             </div>
+			
+            <div class="col-md-4">
+                <card title="Damage" subtitle="Protection">
+                    <img :src="image_path('item', 208)" slot="icon">
+                    <router-link :to="{ name: 'calculators.damage.protection' }" slot="anchor">
+                        <i class="mdi mdi-chevron-right"></i>
+                    </router-link>
+                </card>
+            </div>
         </div>
     </page-load>
 </template>
