@@ -133,7 +133,7 @@
                             <td class="text-center title">Fist Fighting</td>
                             <td class="text-center title">Sword Fighting</td>
                             <td class="text-center title">Axe Fighting</td>
-                            <td class="text-center title">Club Fihghting</td>
+                            <td class="text-center title">Club Fighting</td>
                             <td class="text-center title" colspan="2">Distance Fighting</td>
                             <td class="text-center title" colspan="2">Shielding</td>
                         </tr>

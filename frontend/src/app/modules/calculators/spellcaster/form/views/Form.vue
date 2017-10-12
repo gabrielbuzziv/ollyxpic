@@ -55,8 +55,8 @@
 
                     <div class="row">
                         <form-group label="Vocation" :columns="6" class="text-center margin-top-10 margin-bottom-0">
-                            <!--<el-radio v-model="form.vocation" :label="1">Knight</el-radio>-->
-                            <!--<el-radio v-model="form.vocation" :label="2">Paladin</el-radio>-->
+                            <el-radio v-model="form.vocation" :label="1">Knight</el-radio>
+                            <el-radio v-model="form.vocation" :label="2">Paladin</el-radio>
                             <el-radio v-model="form.vocation" :label="3">Druid</el-radio>
                             <el-radio v-model="form.vocation" :label="4">Sorcerer</el-radio>
                         </form-group>
