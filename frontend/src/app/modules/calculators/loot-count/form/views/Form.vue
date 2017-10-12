@@ -10,7 +10,7 @@
             <div class="col-md-12">
                 <ul class="tabs">
                     <tab-link tab="loot" active>
-                        <img :src="item_path('steel-boots')" class="margin-right-5">
+                        <img :src="image_path('item', 3146)" class="margin-right-5">
                         <span>Loot</span>
                     </tab-link>
 

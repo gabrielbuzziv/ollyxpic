@@ -9,8 +9,8 @@
         <panel>
             <p class="margin-bottom-0">
                 You can contact me ingame by sending a letter to
-                <a href="https://secure.tibia.com/community/?subtopic=characters&name=Ollyxsz" class="text-danger" target="_blank">Ollyxsz</a> in
-                <a href="https://secure.tibia.com/community/?subtopic=worlds&world=Belobra" class="text-danger" target="_blank">Belobra</a> world.
+                <a href="https://secure.tibia.com/community/?subtopic=characters&name=Lennart the smith" class="text-danger" target="_blank">Lennart the smith</a> on
+                <a href="https://secure.tibia.com/community/?subtopic=worlds&world=Harmonia" class="text-danger" target="_blank">Harmonia</a>.
             </p>
         </panel>
 

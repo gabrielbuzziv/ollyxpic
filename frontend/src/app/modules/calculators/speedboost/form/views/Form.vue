@@ -1,7 +1,7 @@
 <template>
     <page-load id="speedboost">
         <page-title>
-            <img :src="item_path('boots-of-haste')" class="margin-right-5">
+            <img :src="image_path('item', 1)" class="margin-right-5">
             Speed
             <span class="margin-left-45">Boost</span>
         </page-title>

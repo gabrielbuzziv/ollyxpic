@@ -1,11 +1,11 @@
 <template>
     <page-load>
         <div class="alert alert-warning">
-            <p>We are updating the database, as soon as everything got green we will deploy on live.</p>
+            <p>We are currently updating to the newest update so items from summer update might not show up yet.</p>
         </div>
 
         <panel title="News" class="margin-bottom-50">
-            Soon ...
+            Ollyxpic is up and running again!
         </panel>
 
         <div class="row">

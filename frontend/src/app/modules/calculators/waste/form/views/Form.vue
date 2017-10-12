@@ -1,7 +1,7 @@
 <template>
     <page-load>
         <page-title>
-            <img :src="item_path('ultimate-mana-potion')" class="margin-right-10">
+            <img :src="image_path('item', 3147)" class="margin-right-10">
             Supplies
             <span>Waste</span>
         </page-title>
@@ -15,22 +15,22 @@
                     </tab-link>
 
                     <tab-link tab="ammunition">
-                        <img :src="item_path('assassin-star')" class="margin-right-5">
+                        <img :src="image_path('item', 919)" class="margin-right-5">
                         Ammunition
                     </tab-link>
 
                     <tab-link tab="runes">
-                        <img :src="item_path('avalanche-rune')" class="margin-right-5">
+                        <img :src="image_path('item', 2024)" class="margin-right-5">
                         Runes
                     </tab-link>
 
                     <tab-link tab="amulets">
-                        <img :src="item_path('stone-skin-amulet')" class="margin-right-5">
+                        <img :src="image_path('item', 178)" class="margin-right-5">
                         Amulets
                     </tab-link>
 
                     <tab-link tab="rings">
-                        <img :src="item_path('life-ring')" class="margin-right-5">
+                        <img :src="image_path('item', 104)" class="margin-right-5">
                         Rings
                     </tab-link>
                 </ul>

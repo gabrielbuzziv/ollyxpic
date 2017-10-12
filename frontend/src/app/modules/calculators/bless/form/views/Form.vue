@@ -1,7 +1,7 @@
 <template>
     <page-load id="blessings">
         <page-title>
-            <img :src="item_path('spiritual-charm')" alt="">
+            <img :src="image_path('item', 1922)" alt="">
             Blessing
             <span>Penalty</span>
         </page-title>

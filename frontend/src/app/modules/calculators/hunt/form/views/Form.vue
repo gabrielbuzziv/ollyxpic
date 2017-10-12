@@ -1,7 +1,7 @@
 <template>
     <page-load>
         <page-title>
-            <img :src="item_path('crystal-coin')" class="margin-right-10">
+            <img :src="image_path('item', 296)" class="margin-right-10">
             Hunt
             <span>Profit/Waste</span>
         </page-title>
