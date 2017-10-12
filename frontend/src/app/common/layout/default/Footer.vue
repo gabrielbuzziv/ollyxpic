@@ -3,7 +3,7 @@
         <div class="bar">
             <div class="container">
                 <router-link :to="{ name: 'pages.contact' }">
-                    Found some bug? Report us! (:
+                    Found some bug? Report it here! (:
                 </router-link>
             </div>
         </div>

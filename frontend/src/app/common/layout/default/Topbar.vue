@@ -8,11 +8,7 @@
             </div>
 
             <div class="pull-right">
-                <router-link :to="{ name: 'pages.contact' }">
-                    <span class="url">
-                        Contact Us
-                    </span>
-                </router-link>
+
             </div>
         </div>
     </div>

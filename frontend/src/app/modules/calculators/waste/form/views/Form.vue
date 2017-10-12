@@ -10,7 +10,7 @@
             <div class="col-md-12">
                 <ul class="tabs">
                     <tab-link tab="potions" active>
-                        <img :src="item_path('supreme-health-potion')" class="margin-right-5">
+                        <img :src="image_path('item', 3146)" class="margin-right-5">
                         Potions
                     </tab-link>
 
