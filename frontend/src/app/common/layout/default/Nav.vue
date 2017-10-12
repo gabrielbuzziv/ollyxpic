@@ -125,6 +125,18 @@
                             </span>
                         </a>
                     </router-link>
+					
+                    <router-link :to="{ name: 'calculators.damage.protection' }" tag="li">
+                        <a href="">
+                            <span class="left">
+                                <img :src="image_path('item', 208)">
+                            </span>
+                            <span class="center">
+                                <span>Damage</span>
+                                <small>Protection</small>
+                            </span>
+                        </a>
+                    </router-link>
                 </ul>
             </li>
 
