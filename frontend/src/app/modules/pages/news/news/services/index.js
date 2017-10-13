@@ -1,5 +1,5 @@
 export default {
-    fetchSupplies () {
-        return window.axios.get(`items/supplies`)
+    sendContact (data) {
+        return window.axios.post(`contact`, data)
     }
 }
