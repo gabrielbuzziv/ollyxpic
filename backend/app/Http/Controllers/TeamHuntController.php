@@ -626,6 +626,7 @@ class TeamHuntController extends Controller
         $names = [
 			'ring of healing that is brand-new'                     => 'ring of healing',
 			'life ring that is brand-new'                     		=> 'life ring',
+			'clusters of solace'			 => 'cluster of solace',
 			'moonlight crystal'				 => 'moonlight crystals',
 			'gear wheels'					 => 'gear wheel',
 			'bronze gear wheels'			 => 'bronze gear wheel',
