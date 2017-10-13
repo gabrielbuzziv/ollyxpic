@@ -624,8 +624,17 @@ class TeamHuntController extends Controller
         ], '', $name));
 
         $names = [
-			'ring of healing that is brand-new'                     => 'ring of healing',
+			'death ring that is brand-new'							=> 'death ring',
+			'ting ring that is brand-new'							=> 'time ring',
+			'dwarven ring that is brand-new'						=> 'dwarven ring',
+			'axe ring that is brand-new'							=> 'axe ring',
+			'club ring that is brand-new'							=> 'club ring',
+			'sword ring that is brand-new'							=> 'sword ring',
+			'power ring that is brand-new'							=> 'power ring',
 			'life ring that is brand-new'                     		=> 'life ring',
+			'ring of healing that is brand-new'                     => 'ring of healing',
+			'energy ring that is brand-new'                     	=> 'energy ring',
+			'stealth ring that is brand-new'						=> 'stealth ring',
 			'mystical hourgla'				 => 'mystical hourglass',
 			'clusters of solace'			 => 'cluster of solace',
 			'moonlight crystal'				 => 'moonlight crystals',
