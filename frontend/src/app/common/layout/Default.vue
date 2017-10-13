@@ -10,13 +10,13 @@
 </template>
 
 <script type="text/babel">
-    import LayoutTopbar from './default/Topbar'
+    
     import LayoutHeader from './default/Header'
     import LayoutContent from './default/Content'
     import LayoutFooter from './default/Footer'
 
     export default {
-        components: { LayoutTopbar, LayoutHeader, LayoutContent, LayoutFooter }
+        components: { LayoutHeader, LayoutContent, LayoutFooter }
     }
 </script>
 
