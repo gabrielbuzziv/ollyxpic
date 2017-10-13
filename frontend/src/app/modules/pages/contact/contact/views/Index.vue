@@ -3,14 +3,15 @@
         <page-title>
             <img :src="image_path('item', 313)" class="margin-right-10">
             Contact
-            <span>Send a message</span>
+            <span>Send us a message</span>
         </page-title>
 
         <panel>
             <p class="margin-bottom-0">
                 You can contact me ingame by sending a letter to
                 <a href="https://secure.tibia.com/community/?subtopic=characters&name=Lennart the smith" class="text-danger" target="_blank">Lennart the smith</a> on
-                <a href="https://secure.tibia.com/community/?subtopic=worlds&world=Harmonia" class="text-danger" target="_blank">Harmonia</a>.
+                <a href="https://secure.tibia.com/community/?subtopic=worlds&world=Harmonia" class="text-danger" target="_blank">Harmonia</a>,
+				 This is the best option since i'm more active in Tibia.
             </p>
         </panel>
 
@@ -27,7 +28,7 @@
                 </div>
 
                 <form-group label="Subject">
-                    <form-input name="subject" placeholder="Subject of the contact" required />
+                    <form-input name="subject" placeholder="Subject" required />
                 </form-group>
 
                 <form-group label="Message">

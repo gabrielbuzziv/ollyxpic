@@ -177,7 +177,7 @@
                     </span>
                     <span class="center">
                         <span>Contact Us</span>
-                        <small>Send us message</small>
+                        <small>Send us a message</small>
                     </span>
                 </a>
             </router-link>
