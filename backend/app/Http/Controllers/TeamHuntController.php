@@ -626,6 +626,7 @@ class TeamHuntController extends Controller
         $names = [
 			'ring of healing that is brand-new'                     => 'ring of healing',
 			'life ring that is brand-new'                     		=> 'life ring',
+			'mystical hourgla'				 => 'mystical hourglass',
 			'clusters of solace'			 => 'cluster of solace',
 			'moonlight crystal'				 => 'moonlight crystals',
 			'gear wheels'					 => 'gear wheel',
@@ -894,7 +895,7 @@ class TeamHuntController extends Controller
             "giant eyes"                     => "giant eye",
             "petrified screams"              => "petrified scream",
             "nettle blossoms"                => "nettle blossom",
-            "mystical hourglass"             => "mystical hourgla",
+            //"mystical hourglass"             => "mystical hourgla",
             "mutated rat tails"              => "mutated rat tail",
             "metal spikes"                   => "metal spike",
             "lion's manes"                   => "lion's mane",
