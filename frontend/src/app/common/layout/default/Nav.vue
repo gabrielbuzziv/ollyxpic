@@ -140,7 +140,7 @@
                 </ul>
             </li>
 
-            <li>
+			<router-link :to="{ name: 'pages.news' }" tag="li">
                 <a href="#">
                     <span class="left">
                         <img :src="image_path('item', 1291)" alt="">
@@ -149,13 +149,10 @@
                         <span>News</span>
                         <small>All about Tibia</small>
                     </span>
-                    <span class="label label-primary">
-                        Soon
-                    </span>
                 </a>
-            </li>
+			</router-link>
 
-            <li>
+            <router-link :to="{ name: 'pages.changelog' }" tag="li">
                 <a href="#">
                     <span class="left">
                         <img :src="image_path('item', 357)" alt="">
@@ -164,11 +161,8 @@
                         <span>Change Log</span>
                         <small>All about OllyxPic</small>
                     </span>
-                    <span class="label label-primary">
-                        Soon
-                    </span>
                 </a>
-            </li>
+			</router-link>
 
             <router-link :to="{ name: 'pages.contact' }" tag="li">
                 <a href="#">

@@ -73,8 +73,17 @@
             </div>
 
             <div class="col-md-4">
+				<router-link :to="{ name: 'calculators.spellcaster' }" slot="anchor">
+                <card title="Spellcaster" subtitle="Damage & Healing" dark>
+                    <img :src="image_path('item', 117)" slot="icon">
+                    <i class="mdi mdi-chevron-right"></i>
+                </card>
+				</router-link>
+            </div>			
+			
+            <div class="col-md-4">
 				<router-link :to="{ name: 'calculators.mvp' }" slot="anchor">
-                <card title="Warzone" subtitle="MVP's" dark>
+                <card title="Warzone" subtitle="MVP's">
                     <img :src="image_path('item', 862)" slot="icon">
                         <i class="mdi mdi-chevron-right"></i>
                 </card>
@@ -86,15 +95,6 @@
                 <card title="Damage" subtitle="Protection">
                     <img :src="image_path('item', 208)" slot="icon">
                         <i class="mdi mdi-chevron-right"></i>
-                </card>
-				</router-link>
-            </div>
-			
-            <div class="col-md-4">
-				<router-link :to="{ name: 'calculators.spellcaster' }" slot="anchor">
-                <card title="Spellcaster" subtitle="Damage & Healing">
-                    <img :src="image_path('item', 117)" slot="icon">
-                    <i class="mdi mdi-chevron-right"></i>
                 </card>
 				</router-link>
             </div>
