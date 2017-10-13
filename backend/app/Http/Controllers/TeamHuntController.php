@@ -690,7 +690,7 @@ class TeamHuntController extends Controller
             'shaggy ogre bags'               => 'shaggy ogre bag',
             'arena badges'                   => 'arena badge',
             'solid rages'                    => 'solid rage',
-            'prismatic quartzs'              => 'prismatic quartz',
+            'prismatic quartzes'              => 'prismatic quartz',
             'tiger eyes'                     => 'tiger eye',
             'berserk potions'                => 'berserk potion',
             'bullseye potions'               => 'bullseye potion',
