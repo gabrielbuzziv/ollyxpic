@@ -1,21 +1,15 @@
 <template>
     <page-load>
-        <page-title>
-            <img :src="image_path('item', 201)" class="margin-right-10">
-            News
-            <span>All about tibia</span>
-        </page-title>
+        <div class="alert alert-warning">
+            <p>We are currently updating to the newest update so items from summer update might not show up yet.</p>
+        </div>
 
-        <panel>
-            <p class="margin-bottom-0">
-            This is a TEST
-            </p>
+        <panel title="News" class="margin-bottom-50">
+            Ollyxpic is up and running again!
         </panel>
 
-        <panel>
-        	<p class="margin-bottom-0"
-        	This is another TEST
-        	</p>
-        </panel>
+        <div class="row">
+
+        </div>
     </page-load>
 </template>
