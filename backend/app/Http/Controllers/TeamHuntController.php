@@ -624,6 +624,11 @@ class TeamHuntController extends Controller
         ], '', $name));
 
         $names = [
+			'ring of healing that is brand-new'                     => 'ring of healing',
+			'life ring that is brand-new'                     		=> 'life ring',
+			'moonlight crystal'				 => 'moonlight crystals',
+			'gear wheels'					 => 'gear wheel',
+			'bronze gear wheels'			 => 'bronze gear wheel',
             'gold coins'                     => 'gold coin',
             'platinum coins'                 => 'platinum coin',
             'crystal coins'                  => 'crystal coin',
@@ -845,7 +850,7 @@ class TeamHuntController extends Controller
             "hellspawn tails"                => "hellspawn tail",
             "piece of crocodile leathers"    => "piece of crocodile leather",
             "mutated fleshs"                 => "mutated flesh",
-            "essence of a bad dreams"        => "essence of a bad dream",
+            "essences of a bad dreams"       => "essence of a bad dream",
             "tarantula eggs"                 => "tarantula egg",
             "lumps of earth"                 => "lump of earth",
             "centipede legs"                 => "centipede leg",
@@ -863,7 +868,7 @@ class TeamHuntController extends Controller
             "broken gladiator shields"       => "broken gladiator shield",
             "carniphila seeds"               => "carniphila seed",
             "carrion worm fangs"             => "carrion worm fang",
-            "bundle of cursed straws"        => "bundle of cursed straw",
+            "bundles of cursed straws"       => "bundle of cursed straw",
             "cobra tongues"                  => "cobra tongue",
             "compass"                        => "compa",
             "weaver's wandtips"              => "weaver's wandtip",
