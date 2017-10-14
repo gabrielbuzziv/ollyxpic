@@ -613,7 +613,7 @@ class TeamHuntController extends Controller
      *
      * @param $name
      * @return mixed
-     */
+     */1
     private function prepareName($name)
     {
         $name = trim(str_replace([
