@@ -325,7 +325,7 @@
                 if (this.result && this.result.items) {
                     return this.result.items.filter(item => {
                         if (this.getBestNpc(item.data.sell_to)) {
-                            return this.getBestNpc(item.data.sell_to).name == "Nah'Bob" || this.getBestNpc(item.data.sell_to).name == "Hauron"
+                            return this.getBestNpc(item.data.sell_to).name == "Nah'Bob" || this.getBestNpc(item.data.sell_to).name == "Haroun"
                         }
                     })
                 }
