@@ -635,6 +635,8 @@ class TeamHuntController extends Controller
 			'ring of healing that is brand-new'                     => 'ring of healing',
 			'energy ring that is brand-new'                     	=> 'energy ring',
 			'stealth ring that is brand-new'						=> 'stealth ring',
+			'coral brooches'				 => 'coral brooch',
+			'pieces of royal steel'			 => 'piece of royal steel',
 			'mystical hourgla'				 => 'mystical hourglass',
 			'clusters of solace'			 => 'cluster of solace',
 			'moonlight crystal'				 => 'moonlight crystals',
