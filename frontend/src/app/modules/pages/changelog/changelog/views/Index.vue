@@ -1,5 +1,12 @@
 <template>
     <page-load>
+	
+        <panel title="Changelog 2017-10-14" class="margin-bottom-50">
+			Fixed some minor spelling issues in the code, loot foor<br>
+			blue djinn (Haroun) should now properly show up in the<br>
+			blue djinn loot list to the right in Loot Count.<br>
+        </panel>	
+	
         <panel title="Changelog 2017-10-13" class="margin-bottom-50">
             Added Damage Protection calculator, Still in testing phase.<br>
 			Spellcaster calculator is still beeing tested aswell.<br>

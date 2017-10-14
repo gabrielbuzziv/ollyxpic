@@ -386,8 +386,8 @@
                     index = this.isMainNPC(buyers, 'Yasir')
                 } else if (this.isMainNPC(buyers, "Nah'Bob")) {
                     index = this.isMainNPC(buyers, "Nah'Bob")
-                } else if (this.isMainNPC(buyers, 'Hauron')) {
-                    index = this.isMainNPC(buyers, 'Hauron')
+                } else if (this.isMainNPC(buyers, 'Haroun')) {
+                    index = this.isMainNPC(buyers, 'Haroun')
                 } else if (this.isMainNPC(buyers, 'Alesar')) {
                     index = this.isMainNPC(buyers, 'Alesar')
                 } else if (this.isMainNPC(buyers, 'Yaman')) {
