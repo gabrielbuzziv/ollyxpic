@@ -2,7 +2,7 @@
     <page-load>
 	
         <panel title="Changelog 2017-10-14" class="margin-bottom-50">
-			Fixed some minor spelling issues in the code, loot foor<br>
+			Fixed some minor spelling issues in the code, loot for<br>
 			blue djinn (Haroun) should now properly show up in the<br>
 			blue djinn loot list to the right in Loot Count.<br>
         </panel>	
