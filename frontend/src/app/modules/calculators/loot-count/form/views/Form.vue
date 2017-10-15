@@ -28,9 +28,13 @@
                 <form action="" @submit.prevent="onSubmit" ref="form">
                     <tab-content tab="loot" active>
                         <div class="alert alert-warning">
-                            <p>If you use the server log instead of loot log the calculation may take a while.</p>
+                            <p>We are aware that Loot Count is currently not working properly and we are working on fixing this!</p>
                         </div>
 
+                        <div class="alert alert-warning">
+                            <p>Some items may not show upp when calculating, however we are working to fix this.</p>
+                        </div>						
+						
                         <form-group label="Loot Log">
                             <form-textarea rows="12" v-model="loot" placeholder="Paste your loot log here"/>
                         </form-group>
