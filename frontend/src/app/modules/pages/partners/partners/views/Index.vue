@@ -2,13 +2,13 @@
     <page-load>
 	
         <panel title="Holy Mouse" class="margin-bottom-50">
-		<a href="https://www.twitch.tv/brosehd">
+		<a target="_blank" href="https://www.twitch.tv/brosehd">
 		<img border="0" alt="Holy Mouse" src="/src/assets/images/twitch.png" width="50" height="50">
 		</a>
         </panel>	
 	
         <panel title="Ix Maxwell" class="margin-bottom-50">
-		<a href="https://www.twitch.tv/loremester">
+		<a target="_blank" href="https://www.twitch.tv/loremester">
 		<img border="0" alt="Ix Maxwell" src="/src/assets/images/twitch.png" width="50" height="50">
 		</a>
         </panel>
