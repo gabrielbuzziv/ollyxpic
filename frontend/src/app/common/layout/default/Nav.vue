@@ -164,7 +164,17 @@
                 </a>
 			</router-link>
 
-		
+            <router-link :to="{ name: 'pages.partners' }" tag="li">
+                <a href="#">
+                    <span class="left">
+                        <img :src="image_path('item', 2040)" alt="">
+                    </span>
+                    <span class="center">
+                        <span>Partners</span>
+                        <small>Streamers etc</small>
+                    </span>
+                </a>
+			</router-link>
 			
             <router-link :to="{ name: 'pages.contact' }" tag="li">
                 <a href="#">

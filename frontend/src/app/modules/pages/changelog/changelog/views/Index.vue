@@ -1,5 +1,12 @@
 <template>
     <page-load>
+
+        <panel title="Changelog 2017-10-15" class="margin-bottom-50">
+			Added a partner tab where streamers and other partners will be shown,<br>
+			We are working on fixing a problem with the Loot Count Calculator and<br>
+			it should be fixed soon, also the work on the items from summer update<br>
+			has started and should be implemented soon.<br>
+        </panel>	
 	
         <panel title="Changelog 2017-10-14" class="margin-bottom-50">
 			Fixed some minor spelling issues in the code, loot for<br>
