@@ -11,6 +11,33 @@ a, button {
     height: 75px;
     line-height: 74px;
 
+    .rashid {
+        img {
+            display: inline;
+            margin-right: 15px;
+            vertical-align: middle;
+        }
+
+        > span {
+            line-height: normal;
+            display: inline-block;
+            vertical-align: middle;
+
+            .welcome {
+                display: block;
+            }
+
+            .visit {
+                display: block;
+
+                b {
+                    fons-weight: 700;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
     .url {
         text-transform: uppercase;
         font-size: 12px;
@@ -24,9 +51,7 @@ a, button {
 #header {
     background: url('/src/assets/images/header.jpg') top center;
     display: block;
-    //height: 329px;
-    //height: 230px;
-	height: 305px;
+	height: 270px;
     width: 100%;
     position: relative;
 
@@ -38,7 +63,7 @@ a, button {
             font-size: 70px;
             font-weight: 300;
             color: #fff;
-            line-height: 130px;
+            line-height: 170px;
         }
 
         #nav {

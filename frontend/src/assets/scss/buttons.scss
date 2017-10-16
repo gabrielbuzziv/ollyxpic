@@ -3,6 +3,15 @@
     padding: 10px 20px;
     border-radius: $border-radius-base;
 
+    &.btn-default {
+        background: darken(#c5493c, 5%);
+        color: #fff;
+
+        &:hover {
+            background: darken(#c5493c, 10%)
+        }
+    }
+
     &.btn-xs {
         padding: 3px 6px;
     }

@@ -47,22 +47,30 @@
 
             <tab-content class="items" :tab="category.id" :active="isShowing(category.id)"
                          v-for="category in categories" :key="category.id">
-                <draggable v-model="category.items" :options="{ group: category.slot }"
-                           @start="startDrag(category.slot)" @end="endDrag(category.slot)">
-                    <div class="item" v-for="item in category.items">
-                        <el-popover popper-class="equipmentPopper">
-                            <strong>{{ item.item.title }}</strong>
+                <div v-if="! loading">
+                    <draggable v-model="category.items" :options="{ group: category.slot }"
+                               @start="startDrag(category.slot)" @end="endDrag(category.slot)">
+                        <div class="item" v-for="item in category.items">
+                            <el-popover popper-class="equipmentPopper">
+                                <strong>{{ item.item.title }}</strong>
 
-                            <ul class="props">
-                                <li v-for="prop in item.item.props">
-                                    <b>{{ prop.description }}:</b> {{ getPropValue(prop) }}
-                                </li>
-                            </ul>
+                                <ul class="props">
+                                    <li v-for="prop in item.item.props">
+                                        <b>{{ prop.description }}:</b> {{ getPropValue(prop) }}
+                                    </li>
+                                </ul>
 
-                            <img :src="image_path('item', item.item.id)" slot="reference">
-                        </el-popover>
+                                <img :src="image_path('item', item.item.id)" slot="reference">
+                            </el-popover>
+                        </div>
+                    </draggable>
+                </div>
+
+                <div v-else>
+                    <div class="text-center">
+                        <img src="/src/assets/images/loader.gif" alt="">
                     </div>
-                </draggable>
+                </div>
             </tab-content>
         </div>
 
@@ -74,79 +82,79 @@
 
                 <table class="info-table">
                     <thead>
-                        <tr>
-                            <th></th>
-                            <th></th>
-                        </tr>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                    </tr>
                     </thead>
 
                     <tbody>
-                        <tr rowspan="2">
-                            <td class="text-center head" rowspan="2">Attributes</td>
-                            <td class="text-center title">Arm</td>
-                            <td class="text-center title">Def</td>
-                            <td class="text-center title">Atk</td>
-                            <td class="text-center title">Hit</td>
-                            <td class="text-center title">Speed</td>
-                            <td class="text-center title" colspan="2">Required Level</td>
-                            <td class="text-center title" colspan="2">Weight</td>
-                        </tr>
+                    <tr rowspan="2">
+                        <td class="text-center head" rowspan="2">Attributes</td>
+                        <td class="text-center title">Arm</td>
+                        <td class="text-center title">Def</td>
+                        <td class="text-center title">Atk</td>
+                        <td class="text-center title">Hit</td>
+                        <td class="text-center title">Speed</td>
+                        <td class="text-center title" colspan="2">Required Level</td>
+                        <td class="text-center title" colspan="2">Weight</td>
+                    </tr>
 
-                        <tr>
-                            <td class="text-center">{{ getAttribute('arm') }}</td>
-                            <td class="text-center">{{ getAttribute('def') }}</td>
-                            <td class="text-center">{{ getAttribute('atk') }}</td>
-                            <td class="text-center">{{ getAttribute('hit') }} %</td>
-                            <td class="text-center">{{ getAttribute('speed') }}</td>
-                            <td class="text-center" colspan="2">{{ level }}</td>
-                            <td class="text-center" colspan="2">{{ weight }} oz.</td>
-                        </tr>
+                    <tr>
+                        <td class="text-center">{{ getAttribute('arm') }}</td>
+                        <td class="text-center">{{ getAttribute('def') }}</td>
+                        <td class="text-center">{{ getAttribute('atk') }}</td>
+                        <td class="text-center">{{ getAttribute('hit') }} %</td>
+                        <td class="text-center">{{ getAttribute('speed') }}</td>
+                        <td class="text-center" colspan="2">{{ level }}</td>
+                        <td class="text-center" colspan="2">{{ weight }} oz.</td>
+                    </tr>
 
-                        <tr rowspan="2">
-                            <td class="text-center head" rowspan="2">Resistances</td>
-                            <td class="text-center title">Death</td>
-                            <td class="text-center title">Energy</td>
-                            <td class="text-center title">Earth</td>
-                            <td class="text-center title">Fire</td>
-                            <td class="text-center title">Ice</td>
-                            <td class="text-center title">Holy</td>
-                            <td class="text-center title">Physical</td>
-                            <td class="text-center title">Life Drain</td>
-                            <td class="text-center title">Mana Drain</td>
-                        </tr>
+                    <tr rowspan="2">
+                        <td class="text-center head" rowspan="2">Resistances</td>
+                        <td class="text-center title">Death</td>
+                        <td class="text-center title">Energy</td>
+                        <td class="text-center title">Earth</td>
+                        <td class="text-center title">Fire</td>
+                        <td class="text-center title">Ice</td>
+                        <td class="text-center title">Holy</td>
+                        <td class="text-center title">Physical</td>
+                        <td class="text-center title">Life Drain</td>
+                        <td class="text-center title">Mana Drain</td>
+                    </tr>
 
-                        <tr>
-                            <td class="text-center">{{ getResistance('death') }} %</td>
-                            <td class="text-center">{{ getResistance('energy') }} %</td>
-                            <td class="text-center">{{ getResistance('earth') }} %</td>
-                            <td class="text-center">{{ getResistance('fire') }} %</td>
-                            <td class="text-center">{{ getResistance('ice') }} %</td>
-                            <td class="text-center">{{ getResistance('holy') }} %</td>
-                            <td class="text-center">{{ getResistance('protection physical') }} %</td>
-                            <td class="text-center">{{ getResistance('life drain') }} %</td>
-                            <td class="text-center">{{ getResistance('mana drain') }} %</td>
-                        </tr>
+                    <tr>
+                        <td class="text-center">{{ getResistance('death') }} %</td>
+                        <td class="text-center">{{ getResistance('energy') }} %</td>
+                        <td class="text-center">{{ getResistance('earth') }} %</td>
+                        <td class="text-center">{{ getResistance('fire') }} %</td>
+                        <td class="text-center">{{ getResistance('ice') }} %</td>
+                        <td class="text-center">{{ getResistance('holy') }} %</td>
+                        <td class="text-center">{{ getResistance('protection physical') }} %</td>
+                        <td class="text-center">{{ getResistance('life drain') }} %</td>
+                        <td class="text-center">{{ getResistance('mana drain') }} %</td>
+                    </tr>
 
-                        <tr rowspan="2">
-                            <td class="text-center head" rowspan="2">Skilling</td>
-                            <td class="text-center title">Magic Level</td>
-                            <td class="text-center title">Fist Fighting</td>
-                            <td class="text-center title">Sword Fighting</td>
-                            <td class="text-center title">Axe Fighting</td>
-                            <td class="text-center title">Club Fighting</td>
-                            <td class="text-center title" colspan="2">Distance Fighting</td>
-                            <td class="text-center title" colspan="2">Shielding</td>
-                        </tr>
+                    <tr rowspan="2">
+                        <td class="text-center head" rowspan="2">Skilling</td>
+                        <td class="text-center title">Magic Level</td>
+                        <td class="text-center title">Fist Fighting</td>
+                        <td class="text-center title">Sword Fighting</td>
+                        <td class="text-center title">Axe Fighting</td>
+                        <td class="text-center title">Club Fighting</td>
+                        <td class="text-center title" colspan="2">Distance Fighting</td>
+                        <td class="text-center title" colspan="2">Shielding</td>
+                    </tr>
 
-                        <tr>
-                            <td class="text-center">{{ getAttribute('magic level') }}</td>
-                            <td class="text-center">{{ getAttribute('fist fighting') }}</td>
-                            <td class="text-center">{{ getAttribute('sword fighting') }}</td>
-                            <td class="text-center">{{ getAttribute('axe fighting') }}</td>
-                            <td class="text-center">{{ getAttribute('club fighting') }}</td>
-                            <td class="text-center" colspan="2">{{ getAttribute('distance fighting') }}</td>
-                            <td class="text-center" colspan="2">{{ getAttribute('shielding') }}</td>
-                        </tr>
+                    <tr>
+                        <td class="text-center">{{ getAttribute('magic level') }}</td>
+                        <td class="text-center">{{ getAttribute('fist fighting') }}</td>
+                        <td class="text-center">{{ getAttribute('sword fighting') }}</td>
+                        <td class="text-center">{{ getAttribute('axe fighting') }}</td>
+                        <td class="text-center">{{ getAttribute('club fighting') }}</td>
+                        <td class="text-center" colspan="2">{{ getAttribute('distance fighting') }}</td>
+                        <td class="text-center" colspan="2">{{ getAttribute('shielding') }}</td>
+                    </tr>
                     </tbody>
                 </table>
             </panel>
@@ -220,7 +228,9 @@
                     sword: [],
                     distance: [],
                     wand: [],
-                }
+                },
+
+                loading: false
             }
         },
 
@@ -279,9 +289,9 @@
 
             onChange (event) {
                 if (event.added) {
-                    const item          = event.added.element
+                    const item = event.added.element
                     const categoryIndex = this.categories.map(category => category.id).indexOf(item.category)
-                    let category        = this.categories[categoryIndex]
+                    let category = this.categories[categoryIndex]
 
                     this.equipments[category.slot] = [item]
 
@@ -298,8 +308,8 @@
                     if (category.id != exception) {
                         this.categories[index].items = this.list[category.id]
                     } else {
-                        const index                  = this.categories.map(category => category.id).indexOf(exception)
-                        const item                   = this.equipments[category.slot][0]
+                        const index = this.categories.map(category => category.id).indexOf(exception)
+                        const item = this.equipments[category.slot][0]
                         this.categories[index].items = this.list[category.id].filter(list => list.item_id != item.item_id)
                     }
                 })
@@ -316,12 +326,15 @@
             show (type) {
                 const categoryIndex = this.categories.map(category => category.id).indexOf(type)
                 if (this.categories[categoryIndex].items.length == 0) {
+                    this.loading = true
                     services.searchItem(type)
-                            .then(response => {
-                                this.list[type]                      = response.data
-                                this.categories[categoryIndex].items = response.data
-                                this.showing                         = type
-                            })
+                        .then(response => {
+                            this.list[type] = response.data
+                            this.categories[categoryIndex].items = response.data
+                            this.showing = type
+                            this.loading = false
+                        })
+                        .catch(() => this.loading = false)
                 } else {
                     this.showing = type
                 }
@@ -365,7 +378,7 @@
             },
 
             getPropValue (prop) {
-                const percentage         = [
+                const percentage = [
                     'hit'
                 ]
                 const percentageMultiple = [

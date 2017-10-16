@@ -16,6 +16,12 @@
             min-height: 32px;
             min-width: 32px;
             cursor: move;
+
+            img {
+                min-height: 32px;
+                min-width: 32px;
+                display: block;
+            }
         }
     }
 
@@ -41,6 +47,23 @@
             left: 50%;
             top: 0;
 
+            &.amulet,
+            &.armor,
+            &.weapon,
+            &.ring,
+            &.ammunition,
+            &.backpack,
+            &.shield,
+            &.boots,
+            &.helmet {
+                .item {
+                    > span {
+                        position: relative;
+                        left: -1px;
+                    }
+                }
+            }
+
             &.dragging {
                 outline: 1px solid rgba(255, 255, 255, .8);
             }
@@ -58,7 +81,7 @@
         }
 
         .amulet {
-            background: url('/src/assets/images/equipments.gif') 0 128px;
+            background: url('/src/assets/images/equipments.gif') 1px 127px;
             top: 10px;
             transform: translateX(calc(-50% - 39px));
         }
@@ -95,25 +118,25 @@
         }
 
         .ring {
-            background: url('/src/assets/images/equipments.gif') 0px 66px;
+            background: url('/src/assets/images/equipments.gif') 0px 64px;
             top: 88px;
             transform: translateX(calc(-50% - 39px));
         }
 
         .legs {
-            background: url('/src/assets/images/equipments.gif') -32px 66px;
+            background: url('/src/assets/images/equipments.gif') -32px 64px;
             top: 78px;
             transform: translateX(-50%);
         }
 
         .ammunition {
-            background: url('/src/assets/images/equipments.gif') -64px 66px;
+            background: url('/src/assets/images/equipments.gif') -64px 64px;
             top: 88px;
             transform: translateX(calc(-50% + 39px));
         }
 
         .boots {
-            background: url('/src/assets/images/equipments.gif') -32px 32px;
+            background: url('/src/assets/images/equipments.gif') -32px 31px;
             top: 117px;
             transform: translateX(-50%);
         }
