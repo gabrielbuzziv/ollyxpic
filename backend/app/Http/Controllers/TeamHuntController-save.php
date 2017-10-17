@@ -638,7 +638,6 @@ class TeamHuntController extends Controller
 		   'pools of chitinous glue'		 => 'pool of chitinous glue',
 		   'mystical hourglasses'			 => 'mystical hourglass',
            'bowls of terror sweat'			 => 'bowl of terror sweat',
-           'pools of chitinous glue'		 => 'pool of chitinous glue',
 		   'broken dreams'					 => 'broken dream',   
            'coral brooches'				 => 'coral brooch',
            'pieces of royal steel'			 => 'piece of royal steel',
