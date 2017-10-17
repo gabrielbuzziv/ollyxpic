@@ -5,7 +5,7 @@
         </div>
 
         <panel title="News" class="margin-bottom-50">
-            Ollyxpic is up and running again!
+            Character copy date for test server is set! see news section for more info!
         </panel>
 
         <div class="row">
