@@ -48,4 +48,22 @@ Route::post('mvp', 'MVPController@calculate');
 Route::get('creatures/search', 'CreatureController@search');
 Route::get('creatures/{creature}', 'CreatureController@find');
 
-//Route::get('database', 'DatabaseController@update');
+/**
+ * Authentication routes.
+ */
+Route::get('auth/token', 'AuthController@refreshToken');
+Route::post('auth', 'AuthController@authenticate');
+
+
+/**
+ * All the routes in this group will need to send a Header
+ * Authorization with a valide token, withou this the user will
+ * not be authorized to access the route.
+ */
+Route::group(['middleware' => 'auth:api'], function () {
+    
+    /**
+     * AuthController routes.
+     */
+    Route::post('auth/user', 'AuthController@getAuthenticatedUser');
+});

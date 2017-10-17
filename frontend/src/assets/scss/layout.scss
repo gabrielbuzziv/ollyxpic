@@ -51,7 +51,7 @@ a, button {
 #header {
     background: url('/src/assets/images/header.jpg') top center;
     display: block;
-	height: 270px;
+    height: 270px;
     width: 100%;
     position: relative;
 
@@ -237,6 +237,38 @@ a, button {
                     }
                 }
             }
+
+            > ul {
+                &.admin-menu {
+                    background: #3d3d3d;
+                    height: 40px;
+
+                    li {
+                        display: block;
+                        float: left;
+
+                        a {
+                            height: 40px;
+                            line-height: 40px;
+                            color: #fff;
+
+                            i {
+                                font-size: 14px;
+                            }
+                        }
+
+                        > span {
+                            display: block;
+                            line-height: 40px;
+                            height: 40px;
+                            color: #888;
+                            padding: 0 20px;
+                            font-weight: 300;
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -295,7 +327,6 @@ a, button {
     display: block;
     margin-top: 30px;
     text-align: center;
-
 
     .bar {
         background: #292929;

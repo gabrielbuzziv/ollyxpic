@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('http://www.ollyxpic.com');
 });
 
 Route::get('images/blob/{type}/{id}', 'ImageController@loadImage');

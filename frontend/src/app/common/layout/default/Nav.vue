@@ -188,6 +188,33 @@
                 </a>
             </router-link>
         </ul>
+
+        <ul class="admin-menu" v-if="isLogged">
+            <li class="header">
+                <span>Admin Menu</span>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="mdi mdi-newspaper margin-right-5"></i>
+                    News
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="mdi mdi-tumblr-reblog margin-right-5"></i>
+                    Patch Notes
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="mdi mdi-face margin-right-5"></i>
+                    Partners
+                </a>
+            </li>
+        </ul>
     </nav>
 </template>
 
@@ -200,6 +227,10 @@
                 }
 
                 return false
+            },
+
+            isLogged () {
+                return this.$store.getters['global/IS_LOGGED']
             }
         }
     }

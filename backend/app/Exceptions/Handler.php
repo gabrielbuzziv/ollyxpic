@@ -5,10 +5,12 @@ namespace App\Exceptions;
 use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Validation\ValidationException;
 
 class Handler extends ExceptionHandler
 {
+
     /**
      * A list of the exception types that should not be reported.
      *
@@ -21,6 +23,8 @@ class Handler extends ExceptionHandler
         \Illuminate\Database\Eloquent\ModelNotFoundException::class,
         \Illuminate\Session\TokenMismatchException::class,
         \Illuminate\Validation\ValidationException::class,
+        \Illuminate\Database\Eloquent\ModelNotFoundException::class,
+        \Symfony\Component\HttpKernel\Exception\NotFoundHttpException::class,
     ];
 
     /**
@@ -28,19 +32,22 @@ class Handler extends ExceptionHandler
      *
      * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
      *
-     * @param  \Exception  $exception
+     * @param  \Exception $exception
      * @return void
      */
     public function report(Exception $exception)
     {
+        \Log::useFiles(storage_path().'/laravel.log');
+        \Log::error($exception);
+
         parent::report($exception);
     }
 
     /**
      * Render an exception into an HTTP response.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $exception
+     * @param  \Illuminate\Http\Request $request
+     * @param  \Exception $exception
      * @return \Illuminate\Http\Response
      */
     public function render($request, Exception $exception)
@@ -53,20 +60,18 @@ class Handler extends ExceptionHandler
             if (config('app.debug')) {
                 $response['exception'] = get_class($exception);
                 $response['message'] = $exception->getMessage();
-                $response['validation'] = false;
                 $response['trace'] = $exception->getTrace();
             }
 
             $status = 400;
 
             switch ($exception) {
-                case $exception instanceof ValidationException:
+                case $exception instanceof ValidationException :
                     return parent::render($request, $exception);
-                case $exception instanceof AuthenticationException:
+                case $exception instanceof AuthenticationException :
                     return $this->unauthenticated($request, $exception);
-                case $this->isHttpException($exception):
+                case $this->isHttpException($exception) :
                     $status = $exception->getStatusCode();
-//                    $response['errors'] = Response::$statusTexts[$status];
                     break;
                 default :
                     break;
@@ -81,8 +86,8 @@ class Handler extends ExceptionHandler
     /**
      * Convert an authentication exception into an unauthenticated response.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Illuminate\Auth\AuthenticationException  $exception
+     * @param  \Illuminate\Http\Request $request
+     * @param  \Illuminate\Auth\AuthenticationException $exception
      * @return \Illuminate\Http\Response
      */
     protected function unauthenticated($request, AuthenticationException $exception)
@@ -91,6 +96,6 @@ class Handler extends ExceptionHandler
             return response()->json(['error' => 'Unauthenticated.'], 401);
         }
 
-        return redirect()->guest(route('login'));
+        return redirect()->guest('login');
     }
 }
