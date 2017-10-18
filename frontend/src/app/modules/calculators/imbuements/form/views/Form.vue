@@ -94,9 +94,9 @@
                     <tbody>
                         <tr v-for="imbuement in imbuements">
                             <td>
-                                <p>{{ imbuement.title }} ({{ imbuement.name }})</p>
+                                <p class="inline">{{ imbuement.title }} ({{ imbuement.name }})</p>
                                 <el-tooltip :content="imbuement.description">
-                                    <i class="mdi mdi-information"></i>
+                                    <i class="mdi mdi-information inline"></i>
                                 </el-tooltip>
                             </td>
                             <td class="text-center" width="110">
@@ -253,7 +253,7 @@
                                     basic: basic,
                                     intricate: intricate,
                                     powerful: powerful,
-                                    charm: charm,
+                                    charm: charm == 'true' ? true : false,
                                     items: imbuement.items
                                 }
                             })
