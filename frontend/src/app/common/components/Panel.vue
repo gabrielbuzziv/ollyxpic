@@ -1,8 +1,7 @@
 <template>
     <div :class="panelClass">
         <div class="panel-heading" v-if="showHeading">
-            <slot name="heading" v-if="$slots.heading"></slot>
-            <div v-else>
+            <slot name="heading">
                 <div class="pull-left">
                     <h3 class="panel-title">
                         <i :class="iconClass" v-if="icon"></i>
@@ -21,7 +20,7 @@
                 </div>
 
                 <div class="clearfix"></div>
-            </div>
+            </slot>
         </div>
 
         <transition name="fade">

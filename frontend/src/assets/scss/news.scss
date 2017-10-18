@@ -1,0 +1,51 @@
+#news {
+    .panel {
+        .panel-heading  {
+            background: $theme;
+            color: #fff;
+        }
+
+        .panel-body {
+            padding: 30px
+        }
+
+        &.main-post {
+            .author {
+                display: block;
+                margin-bottom: 20px;
+                padding-bottom: 15px;
+                font-style: italic;
+                color: #999;
+                border-bottom: 1px solid #eee;
+            }
+        }
+
+        &.list {
+            ul {
+                padding: 0;
+                list-style: none;
+
+                li {
+                    display: block;
+                    margin-bottom: 10px;
+                    border-bottom: 1px solid #eee;
+                    padding-bottom: 10px;
+
+                    &:last-child {
+                        margin: 0;
+                        padding: 0;
+                        border: 0;
+                    }
+
+                    a {
+                        display: block;
+                    }
+
+                    small {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}

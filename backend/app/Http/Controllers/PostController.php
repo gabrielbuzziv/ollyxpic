@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
 use App\Post;
+use Carbon\Carbon;
 
 class PostController extends ApiController
 {
@@ -15,9 +16,9 @@ class PostController extends ApiController
      */
     public function index()
     {
-        $news = Post::with('author')->latest()->take(50)->get();
+        $posts = Post::with('author')->latest()->take(50)->get();
 
-        return $this->respond($news->toArray());
+        return $this->respond($posts->toArray());
     }
 
     /**
@@ -74,5 +75,47 @@ class PostController extends ApiController
     public function show(Post $post)
     {
         return $this->respond($post->toArray());
+    }
+
+    /**
+     * Return news to guest users.
+     *
+     * @return mixed
+     */
+    public function news()
+    {
+        if (request('id')) {
+            $post = Post::with('author')
+                ->where('created_at', '<=', Carbon::now())
+                ->where('active', 1)
+                ->find(request('id'));
+
+            return $this->respond($post->toArray());
+        }
+
+        $post = Post::with('author')
+            ->where('created_at', '<=', Carbon::now())
+            ->where('active', 1)
+            ->latest()
+            ->first();
+
+        return $this->respond($post->toArray());
+    }
+
+    /**
+     * News List
+     *
+     * @return mixed
+     */
+    public function newsList()
+    {
+        $news = Post::with('author')
+            ->latest()
+            ->where('created_at', '<=', Carbon::now())
+            ->where('active', 1)
+            ->take(20)
+            ->get();
+
+        return $this->respond($news->toArray());
     }
 }

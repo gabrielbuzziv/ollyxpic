@@ -24,7 +24,7 @@
                     title: '',
                     body: '',
                     active: 1,
-                    created_at: null
+                    created_at: ''
                 }
             }
         }

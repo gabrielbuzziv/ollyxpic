@@ -5,7 +5,9 @@ import './mixins'
 import './elements'
 import './draggable'
 import './wysiwyg'
+import './disqus'
 
 import moment from 'moment'
+import 'moment-timezone';
 window.moment = moment
 // import 'leaflet'

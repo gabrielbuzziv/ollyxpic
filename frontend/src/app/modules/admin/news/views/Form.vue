@@ -25,6 +25,9 @@
                         </div>
                     </div>
                 </div>
+                <small class="helper-block">
+                    Current Time: {{ currentTime }}
+                </small>
             </div>
 
             <div class="form-group col-md-6">
@@ -58,7 +61,13 @@
         data () {
             return {
                 scheduleDisabled: true,
-                submiting: false
+                submiting: false,
+            }
+        },
+
+        computed: {
+            currentTime () {
+                return moment.tz('America/New_York').format('DD-MM-YYYY HH:mm')
             }
         },
 
@@ -90,6 +99,8 @@
 
         mounted () {
             setTimeout(() => {
+                this.scheduleDisabled = this.data && this.data.created_at.length ? false : true
+
                 const editor = this.$refs.editor
                 editor.$on('onChange', content => this.data.body = content)
                 editor.run('code', this.data.body)

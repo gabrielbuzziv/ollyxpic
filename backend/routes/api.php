@@ -56,6 +56,12 @@ Route::post('auth', 'AuthController@authenticate');
 
 
 /**
+ * PostController routes
+ */
+Route::get('news', 'PostController@news');
+Route::get('news/list', 'PostController@newsList');
+
+/**
  * All the routes in this group will need to send a Header
  * Authorization with a valide token, withou this the user will
  * not be authorized to access the route.

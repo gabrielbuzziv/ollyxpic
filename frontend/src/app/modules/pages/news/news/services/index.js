@@ -1,5 +1,9 @@
 export default {
-    sendContact (data) {
-        return window.axios.post(`contact`, data)
+    getPost (id) {
+        return window.axios.get(`news`, { params: { id } })
+    },
+
+    fetchNews () {
+        return window.axios.get(`news/list`)
     }
 }
