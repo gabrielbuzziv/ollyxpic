@@ -109,7 +109,7 @@
                 const editor = this.$refs.editor
                 editor.$on('onChange', content => this.data.body = content)
                 editor.run('code', this.data.body)
-            }, 100)
+            }, 1000)
         }
     }
 </script>
