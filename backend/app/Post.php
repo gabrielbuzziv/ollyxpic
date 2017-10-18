@@ -13,7 +13,7 @@ class Post extends Model
      *
      * @var array
      */
-    protected $fillable = ['title', 'body', 'user_id', 'active', 'created_at'];
+    protected $fillable = ['title', 'body', 'user_id', 'active', 'source', 'created_at'];
 
     /**
      * Set created at attribute.

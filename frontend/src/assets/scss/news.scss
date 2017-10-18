@@ -18,6 +18,16 @@
                 color: #999;
                 border-bottom: 1px solid #eee;
             }
+
+            .source {
+                display: block;
+                margin-top: 20px;
+
+                a {
+                    color: $theme;
+                    font-weight: bold;
+                }
+            }
         }
 
         &.list {

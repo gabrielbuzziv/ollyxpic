@@ -23,6 +23,7 @@
                 post: {
                     title: '',
                     body: '',
+                    source: '',
                     active: 1,
                     created_at: ''
                 }

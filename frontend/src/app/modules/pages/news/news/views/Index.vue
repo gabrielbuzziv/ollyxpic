@@ -17,6 +17,11 @@
                     {{ getDateForHuman(post.created_at) }}
                 </small>
                 <div v-html="post.body"></div>
+
+                <span class="source" v-if="post.source">
+                    Source:
+                    <a :href="post.source" target="_blank">{{ post.source }}</a>
+                </span>
             </panel>
 
             <panel title="Comments">
