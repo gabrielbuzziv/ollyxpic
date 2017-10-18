@@ -6,10 +6,6 @@
             <span>Damage & Healing</span>
         </page-title>
 
-        <div class="alert alert-warning">
-            <p>Still in development</p>
-        </div>
-
         <div class="row" v-if="! loading">
             <div class="col-md-12">
                 <panel class="form">
@@ -116,7 +112,7 @@
         </div>
 
         <div class="row" v-if="level">
-            <div class="col-md-6" v-for="type, index in types">
+            <div class="col-md-6" :class="{ 'col-md-12': index == 0 }" v-for="type, index in types">
                 <panel>
                     <table class="simple margin-bottom-0">
                         <thead>

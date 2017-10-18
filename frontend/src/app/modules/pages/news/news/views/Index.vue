@@ -1,43 +1,45 @@
 <template>
     <page-load id="news">
-        <div class="col-md-8">
-            <panel class="main-post">
-                <template slot="heading">
-                    <div class="pull-left">
-                        <h3 class="panel-title">
-                            {{ post.title }}
-                        </h3>
-                    </div>
+        <div class="row">
+            <div class="col-md-8">
+                <panel class="main-post">
+                    <template slot="heading">
+                        <div class="pull-left">
+                            <h3 class="panel-title">
+                                {{ post.title }}
+                            </h3>
+                        </div>
 
-                    <div class="clearfix"></div>
-                </template>
+                        <div class="clearfix"></div>
+                    </template>
 
-                <small class="author">
-                    Posted by {{ post.author.name }}
-                    {{ getDateForHuman(post.created_at) }}
-                </small>
-                <div v-html="post.body"></div>
+                    <small class="author">
+                        Posted by {{ post.author.name }}
+                        {{ getDateForHuman(post.created_at) }}
+                    </small>
+                    <div v-html="post.body"></div>
 
-                <span class="source" v-if="post.source">
+                    <span class="source" v-if="post.source">
                     Source:
                     <a :href="post.source" target="_blank">{{ post.source }}</a>
                 </span>
-            </panel>
-        </div>
+                </panel>
+            </div>
 
-        <div class="col-md-4">
-            <panel class="list" title="Other posts">
-                <ul class="posts" >
-                    <li class="post" v-for="post in news" :key="post.id">
-                        <router-link :to="{ name: 'pages.news', params: { id: post.id } }">
-                            {{ post.title }}
-                        </router-link>
-                        <small>
-                            ({{ getDateForHuman(post.created_at) }})
-                        </small>
-                    </li>
-                </ul>
-            </panel>
+            <div class="col-md-4">
+                <panel class="list" title="Other posts">
+                    <ul class="posts" >
+                        <li class="post" v-for="post in news" :key="post.id">
+                            <router-link :to="{ name: 'pages.news', params: { id: post.id } }">
+                                {{ post.title }}
+                            </router-link>
+                            <small>
+                                ({{ getDateForHuman(post.created_at) }})
+                            </small>
+                        </li>
+                    </ul>
+                </panel>
+            </div>
         </div>
     </page-load>
 </template>
