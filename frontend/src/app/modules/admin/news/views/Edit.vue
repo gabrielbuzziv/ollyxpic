@@ -7,7 +7,7 @@
         </page-title>
 
         <panel>
-            <news-form :action="`/posts/${$route.params.id}`" method="patch" :data="post" />
+            <news-form :action="`/posts/${$route.params.id}`" method="patch" :data="post" v-if="! loading" />
         </panel>
     </page-load>
 </template>
@@ -27,7 +27,8 @@
                     source: '',
                     active: 1,
                     created_at: null
-                }
+                },
+                loading: true
             }
         },
 
@@ -35,7 +36,9 @@
             services.find(this.$route.params.id)
                 .then(response => {
                     this.post = response.data
+                    this.loading = false
                 })
+                .catch(() => this.loading = false)
         }
     }
 </script>

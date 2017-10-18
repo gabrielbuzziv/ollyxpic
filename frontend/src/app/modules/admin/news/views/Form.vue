@@ -104,13 +104,11 @@
 
         mounted () {
             setTimeout(() => {
-//                this.scheduleDisabled = this.data && this.data.created_at  && this.data.created_at.length ? false : true
+                this.scheduleDisabled = this.data && this.data.created_at  && this.data.created_at.length ? false : true
 
                 const editor = this.$refs.editor
-                console.log(editor)
-
-                editor.$on('onChange', content => this.data.body = content)
                 editor.run('code', this.data.body)
+                editor.$on('onChange', content => this.data.body = content)
             }, 100)
         }
     }
