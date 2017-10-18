@@ -194,12 +194,12 @@
                 <span>Admin Menu</span>
             </li>
 
-            <li>
+            <router-link :to="{ name: 'admin.news.list' }" tag="li">
                 <a href="#">
                     <i class="mdi mdi-newspaper margin-right-5"></i>
                     News
                 </a>
-            </li>
+            </router-link>
 
             <li>
                 <a href="#">

@@ -7,7 +7,7 @@
                         <i class="mdi mdi-email"></i>
                     </div>
 
-                    <input type="text" class="form-control" placeholder="Not that secret e-mail" v-model="user.email">
+                    <input type="text" class="form-control" placeholder="Not that secret e-mail" v-model="user.email" required>
                 </div>
             </div>
 
@@ -17,7 +17,7 @@
                         <i class="mdi mdi-key-variant"></i>
                     </div>
 
-                    <input type="password" class="form-control" placeholder="Super secret password" v-model="user.password">
+                    <input type="password" class="form-control" placeholder="Super secret password" v-model="user.password" required>
                 </div>
             </div>
 
@@ -62,20 +62,7 @@
                             .catch(() => this.submiting = false)
                     })
                     .catch (error => {
-                        const validations = this.$store.getters['global/GET_VALIDATION']
-
-                        if (! isEmpty(validations)) {
-                            forEach(validations, validation => {
-                                setTimeout(() => {
-                                    this.$notify.warning({
-                                        message: validation[0]
-                                    })
-                                }, 1)
-                            }, '')
-                        }
-
-                        this.$store.dispatch('global/SET_VALIDATION', null)
-
+                        this.validation()
                         this.submiting = false
                     })
             }

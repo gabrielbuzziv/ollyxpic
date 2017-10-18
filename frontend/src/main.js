@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import router from 'router'
 import store from 'common/vuex'
-import 'common/components'
 import './libs'
+import 'common/components'
 
 
 import App from './App.vue'

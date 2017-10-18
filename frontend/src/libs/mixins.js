@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { isEmpty, forEach } from 'lodash'
 
 Vue.mixin({
     filters: {
@@ -35,6 +36,22 @@ Vue.mixin({
             ext   = ext ? 'k' : ''
 
             return value % 1 == 0 ? value.formatMoney(0, '.', '.') + ext : value.formatMoney(1, '.', '.') + ext
+        },
+
+        validation () {
+            const validations = this.$store.getters['global/GET_VALIDATION']
+
+            if (! isEmpty(validations)) {
+                forEach(validations, validation => {
+                    setTimeout(() => {
+                        this.$notify.warning({
+                            message: validation[0]
+                        })
+                    }, 1)
+                }, '')
+            }
+
+            this.$store.dispatch('global/SET_VALIDATION', null)
         }
     }
 })

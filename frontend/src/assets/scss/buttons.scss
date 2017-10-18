@@ -13,6 +13,13 @@
         }
     }
 
+    &.btn-blank {
+        background: none;
+        border: none;
+        color: #444;
+        box-shadow: none;
+    }
+
     &.btn-xs {
         padding: 3px 6px;
     }

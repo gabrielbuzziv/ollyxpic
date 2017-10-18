@@ -58,6 +58,7 @@ module.exports = {
             'app': path.resolve(__dirname, './src/app'),
             'modules': path.resolve(__dirname, './src/app/modules'),
             'common': path.resolve(__dirname, './src/app/common'),
+            'jquery': path.resolve(__dirname, './node_modules/jquery/dist/jquery.js')
         },
         extensions: ['*', '.js', '.vue']
     },
@@ -68,7 +69,13 @@ module.exports = {
     performance: {
         hints: false
     },
-    devtool: '#eval-source-map'
+    devtool: '#eval-source-map',
+    plugins: [
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        })
+    ]
 }
 
 if (process.env.NODE_ENV === 'production') {

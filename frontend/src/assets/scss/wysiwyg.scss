@@ -1,0 +1,16 @@
+.note-editor {
+    .btn-default {
+        background: #fff;
+        border: 1px solid #d1d1d1;
+        color: #444;
+
+        &:hover {
+            background: #f2f2f2;
+            color: #444;
+        }
+    }
+
+    .note-icon-font {
+        background: none !important;
+    }
+}

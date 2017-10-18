@@ -1,5 +1,6 @@
 form {
-    input {
+    input,
+    select {
         &.form-control {
             height: 44px;
         }
@@ -119,5 +120,9 @@ form {
             line-height: 40px;
             height: 44px;
         }
+    }
+
+    .checkbox {
+        line-height: 22px;
     }
 }
