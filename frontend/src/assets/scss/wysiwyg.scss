@@ -13,4 +13,19 @@
     .note-icon-font {
         background: none !important;
     }
+    
+    .note-group-select-from-files {
+        display: none;
+    }
+
+    .note-editable {
+        a {
+            color: $theme;
+        }
+    }
+
+    .panel-heading.note-toolbar .note-para .dropdown-menu {
+        min-width: 336px;
+    }
+
 }
