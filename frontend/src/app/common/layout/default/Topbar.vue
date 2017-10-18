@@ -28,7 +28,7 @@
                 <span class="margin-left-15" v-else>
                     {{ user.name }}
                     <span class="margin-right-5 margin-left-5">|</span>
-                    <a href="">Logout</a>
+                    <a href="#" @click.prevent="logout">Logout</a>
                 </span>
             </div>
         </div>
@@ -51,6 +51,13 @@
 
             isLogged () {
                 return this.$store.getters['global/IS_LOGGED']
+            },
+
+            logout () {
+                this.$store.commit('global/TOKEN', '')
+                this.$store.commit('global/USER', '')
+
+                localStorage.clear()
             }
         }
     }
