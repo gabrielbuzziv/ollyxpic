@@ -635,6 +635,7 @@ class TeamHuntController extends Controller
 			'ring of healing that is brand-new'                     => 'ring of healing',
 			'energy ring that is brand-new'                     	=> 'energy ring',
 			'stealth ring that is brand-new'						=> 'stealth ring',
+			'demonic essences'				 => 'demonic essence',
 			'pools of chitinous glue'		 => 'pool of chitinous glue',
 		    'mystical hourglasses'			 => 'mystical hourglass',
             'bowls of terror sweat'			 => 'bowl of terror sweat',

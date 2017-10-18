@@ -26,14 +26,7 @@
                 </ul>
 
                 <form action="" @submit.prevent="onSubmit" ref="form">
-                    <tab-content tab="loot" active>
-                        <div class="alert alert-warning">
-                            <p>We are aware that Loot Count is currently not working properly and we are working on fixing this!</p>
-                        </div>
-
-                        <div class="alert alert-warning">
-                            <p>Some items may not show upp when calculating, however we are working to fix this.</p>
-                        </div>						
+                    <tab-content tab="loot" active>					
 						
                         <form-group label="Loot Log">
                             <form-textarea rows="12" v-model="loot" placeholder="Paste your loot log here"/>

@@ -1,6 +1,14 @@
 <template>
     <page-load>
 
+        <panel title="Changelog 2017-10-19" class="margin-bottom-50">
+			Updated the imbuement Calculator so it should be working properly now.<br>
+			Updated the Loot Count Calculator and added a few translations.<br>
+			Damage Reduction should now only show 1 of each item.<br>
+			News section got fully reworked and updated.<br>
+			Rashid locator added.<br>
+        </panel>	
+	
         <panel title="Changelog 2017-10-15" class="margin-bottom-50">
 			Added a partner tab where streamers and other partners will be shown,<br>
 			We are working on fixing a problem with the Loot Count Calculator and<br>
