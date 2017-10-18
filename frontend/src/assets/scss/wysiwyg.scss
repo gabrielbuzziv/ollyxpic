@@ -13,7 +13,21 @@
     //.note-icon-font {
     //    background: none !important;
     //}
-    
+
+    img {
+        &.note-float-left {
+            margin-right: 15px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        &.note-float-right {
+            margin-left: 15px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+    }
+
     .note-group-select-from-files {
         display: none;
     }
