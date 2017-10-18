@@ -23,10 +23,6 @@
                     <a :href="post.source" target="_blank">{{ post.source }}</a>
                 </span>
             </panel>
-
-            <!--<panel title="Comments">-->
-                <!--<disqus shortname="ollyxpic" :title="post.title" :identifier="disqus_url" :url="disqus_url"></disqus>-->
-            <!--</panel>-->
         </div>
 
         <div class="col-md-4">

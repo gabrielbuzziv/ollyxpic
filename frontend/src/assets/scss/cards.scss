@@ -2,22 +2,21 @@
     background: #fff;
     display: block;
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 
-    &.dark {
-        .icon {
-            background: #3d3d3d;
-        }
-    }
+    //&.dark {
+    //    .icon {
+    //        background: #3d3d3d;
+    //    }
+    //}
 
     .icon {
         background: $theme;
         display: block;
         float: left;
-        height: 89px;
-        padding: 20px;
-        line-height: 48px;
-        width: 89px;
+        height: 70px;
+        line-height: 70px;
+        width: 70px;
         text-align: center;
     }
 
@@ -25,16 +24,17 @@
         float: left;
         display: block;
         padding: 20px;
+        height: 70px;
 
         h3 {
             margin: 0 0 5px;
-            font-size: 25px;
+            font-size: 16px;
             font-weight: 600;
         }
 
         h5 {
             margin: 0;
-            font-size: 16px;
+            font-size: 12px;
             font-weight: 300;
         }
     }

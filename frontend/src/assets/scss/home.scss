@@ -1,0 +1,48 @@
+#home {
+    .panel {
+        &.main-post {
+            .panel-heading {
+                background: $theme;
+                color: #fff;
+            }
+
+            .panel-body {
+                padding: 30px
+            }
+
+            .author {
+                display: block;
+                margin-bottom: 20px;
+                padding-bottom: 15px;
+                font-style: italic;
+                color: #999;
+                border-bottom: 1px solid #eee;
+            }
+
+            .source {
+                display: block;
+                margin-top: 20px;
+
+                a {
+                    color: $theme;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    .news,
+    .calculators {
+        header {
+            > h3 {
+                margin: 0 0 30px;
+                font-size: 25px;
+                font-weight: 700;
+                color: #444;
+                text-align: left;
+                text-transform: uppercase;
+                display: inline-block;
+            }
+        }
+    }
+}

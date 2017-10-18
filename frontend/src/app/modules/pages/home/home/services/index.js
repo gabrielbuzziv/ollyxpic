@@ -1,5 +1,5 @@
 export default {
-    fetchSupplies () {
-        return window.axios.get(`items/supplies`)
+    getPost () {
+        return window.axios.get(`news`)
     }
 }
