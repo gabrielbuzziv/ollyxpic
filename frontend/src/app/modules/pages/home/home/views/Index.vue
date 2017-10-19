@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-9 news">
                 <header>
-                    <h3>Lastest news</h3>
+                    <h3>Latest news</h3>
                 </header>
 
                 <panel class="main-post">

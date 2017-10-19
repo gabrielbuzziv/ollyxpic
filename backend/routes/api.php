@@ -62,6 +62,11 @@ Route::get('news', 'PostController@news');
 Route::get('news/list', 'PostController@newsList');
 
 /**
+ * ChangeController routes
+ */
+Route::get('change-log', 'ChangeController@getChanges');
+
+/**
  * All the routes in this group will need to send a Header
  * Authorization with a valide token, withou this the user will
  * not be authorized to access the route.
@@ -81,4 +86,13 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('posts', 'PostController@store');
     Route::patch('posts/{post}', 'PostController@update');
     Route::delete('posts/{post}', 'PostController@destroy');
+
+    /**
+     * ChangeController routes
+     */
+    Route::get('changes', 'ChangeController@index');
+    Route::get('changes/{change}', 'ChangeController@show');
+    Route::post('changes', 'ChangeController@store');
+    Route::patch('changes/{change}', 'ChangeController@update');
+    Route::delete('changes/{change}', 'ChangeController@destroy');
 });

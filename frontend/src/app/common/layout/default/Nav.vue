@@ -201,12 +201,12 @@
                 </a>
             </router-link>
 
-            <li>
+            <router-link :to="{ name: 'admin.changes.list' }" tag="li">
                 <a href="#">
                     <i class="mdi mdi-tumblr-reblog margin-right-5"></i>
-                    Patch Notes
+                    Change Logs
                 </a>
-            </li>
+            </router-link>
 
             <li>
                 <a href="#">

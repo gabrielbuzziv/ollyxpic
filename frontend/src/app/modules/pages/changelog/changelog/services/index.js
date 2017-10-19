@@ -1,5 +1,5 @@
 export default {
-    sendContact (data) {
-        return window.axios.post(`contact`, data)
-    }
+    getChanges () {
+        return window.axios.get(`change-log`)
+    },
 }

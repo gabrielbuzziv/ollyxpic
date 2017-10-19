@@ -1,5 +1,11 @@
 <template>
     <page-load id="news">
+        <page-title>
+            <img :src="image_path('item', 1291)" class="margin-right-10">
+            News
+            <span>All about Tibia</span>
+        </page-title>
+
         <div class="row">
             <div class="col-md-8">
                 <panel class="main-post">
