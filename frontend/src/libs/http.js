@@ -21,12 +21,12 @@ window.axios.interceptors.request.use(config => {
 
     if (! isEmpty(token)) {
         if (jwt_decode(token).exp < (Date.now() / 1000) && ! config.url.includes('/auth/token')) {
-            // return window.axios.get(`/auth/token`)
-            //     .then(response => {
-            //         store.commit('auth/TOKEN', response.data.token)
-            //         config.headers.Authorization = `Bearer ${response.data.token}`
-            //         return config
-            //     })
+            return window.axios.get(`/auth/token`)
+                .then(response => {
+                    store.commit('global/TOKEN', response.data.token)
+                    config.headers.Authorization = `Bearer ${response.data.token}`
+                    return config
+                })
         }
 
         config.headers.Authorization = `Bearer ${localStorage.getItem('auth_token')}`
