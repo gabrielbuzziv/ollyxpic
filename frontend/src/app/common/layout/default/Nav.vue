@@ -18,17 +18,6 @@
                 </a>
 
                 <ul>
-                    <router-link :to="{ name: 'calculators.waste' }" tag="li">
-                        <a href="">
-                            <span class="left">
-                                <img :src="image_path('item', 3147)">
-                            </span>
-                            <span class="center">
-                                <span>Supplies</span>
-                                <small>Waste</small>
-                            </span>
-                        </a>
-                    </router-link>
 
                     <router-link :to="{ name: 'calculators.imbuements' }" tag="li">
                         <a href="">
@@ -42,18 +31,6 @@
                         </a>
                     </router-link>
 
-                    <router-link :to="{ name: 'calculators.hunt' }" tag="li">
-                        <a href="">
-                            <span class="left">
-                                <img :src="image_path('item', 296)">
-                            </span>
-                            <span class="center">
-                                <span>Hunt</span>
-                                <small>Waste/Profit</small>
-                            </span>
-                        </a>
-                    </router-link>
-
                     <router-link :to="{ name: 'calculators.loot.count' }" tag="li">
                         <a href="">
                             <span class="left">
@@ -62,18 +39,6 @@
                             <span class="center">
                                 <span>Loot</span>
                                 <small>Count</small>
-                            </span>
-                        </a>
-                    </router-link>
-
-                    <router-link :to="{ name: 'calculators.loot.acumulator' }" tag="li">
-                        <a href="">
-                            <span class="left">
-                                <img :src="image_path('item', 1613)">
-                            </span>
-                            <span class="center">
-                                <span>Loot</span>
-                                <small>Acumulator</small>
                             </span>
                         </a>
                     </router-link>
