@@ -7,7 +7,7 @@
                 </a>
             </router-link>
 
-            <li class="with-child" :class="{ 'active': isCalculator }">
+            <!--<li class="with-child" :class="{ 'active': isCalculator }">
                 <a href="javascript:void(0)">
                     <span class="left">
                         <img :src="image_path('item', 1288)" alt="">
@@ -103,7 +103,7 @@
                         </a>
                     </router-link>
                 </ul>
-            </li>
+            </li>-->
 
 			<router-link :to="{ name: 'pages.news' }" tag="li">
                 <a href="#">
