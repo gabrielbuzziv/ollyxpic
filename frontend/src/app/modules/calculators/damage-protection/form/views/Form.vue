@@ -1,7 +1,7 @@
 <template>
     <page-load id="equipments">
         <page-title>
-            <img :src="image_path('item', 1014)" alt="">
+            <img :src="image_path('item', 208)" alt="">
             Damage
             <span>Protection</span>
         </page-title>
