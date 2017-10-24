@@ -1,6 +1,9 @@
 <template>
     <page-load id="home">
         <div class="row">
+        <div class="alert alert-warning">
+            We are looking for tips about new calculators to Ollyxpic, Look <a href="http://ollyxpic.com/#/news/5">here</a>.
+        </div>
             <div class="col-md-9 news">
                 <header>
                     <h3>Latest news</h3>
