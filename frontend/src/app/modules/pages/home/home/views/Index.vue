@@ -42,12 +42,12 @@
                     <h3>Calculators</h3>
                 </header>
 
-                <router-link :to="{ name: 'calculators.imbuements' }" slot="anchor">
-                    <card title="Imbuements" subtitle="Waste/Time" dark>
-                        <img :src="image_path_by_name('item', 'silencer claws')" slot="icon">
-                        <i class="mdi mdi-chevron-right"></i>
-                    </card>
-                </router-link>
+                <!--<router-link :to="{ name: 'calculators.imbuements' }" slot="anchor">-->
+                    <!--<card title="Imbuements" subtitle="Waste/Time" dark>-->
+                        <!--<img :src="image_path_by_name('item', 'silencer claws')" slot="icon">-->
+                        <!--<i class="mdi mdi-chevron-right"></i>-->
+                    <!--</card>-->
+                <!--</router-link>-->
 
                 <router-link :to="{ name: 'calculators.loot.count' }" slot="anchor">
                     <card title="Loot" subtitle="Count">
