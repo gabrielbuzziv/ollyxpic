@@ -21,8 +21,8 @@ Route::get('items/amulets', 'ItemsController@amulets');
 Route::get('items/rings', 'ItemsController@rings');
 Route::get('items/tiles', 'ItemsController@tiles');
 Route::get('items/search', 'ItemsController@search');
-Route::get('items/category', 'ItemsController@category');
-Route::post('items/category', 'ItemsController@saveItemCategory');
+//Route::get('items/category', 'ItemsController@category');
+//Route::get('items/category', 'ItemsController@saveItemCategory');
 
 
 Route::post('waste/calculate', 'WasteController@calculate');

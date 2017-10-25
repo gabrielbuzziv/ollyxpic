@@ -129,7 +129,8 @@
                                 v-if="spell.vocations.indexOf(vocation) > -1 && spell.ml <= magiclevel">
                                 <td class="text-center">
                                     <el-tooltip :content="spell.name" placement="top">
-                                        <img :src="image_path(spell.image, spell.id)" alt="">
+                                        <img :src="image_path_by_name(spell.image, spell.name)" alt="" v-if="spell.type == 'spell' || spell.type == 'healing'">
+                                        <img :src="image_path_by_name(spell.image, spell.name.toLowerCase())" alt="" v-else>
                                     </el-tooltip>
                                 </td>
                                 <td class="text-center damage">
@@ -208,7 +209,7 @@
                     { id: 74, name: 'Ice Strike', ml: 0, element: 'ice', vocations: ['sorcerer', 'druid'], max: [2.203, 13], min: [1.403, 8], type: 'spell', image: 'spell', formula: 'normal' },
                     { id: 25, name: 'Flame Strike', ml: 0, element: 'fire', vocations: ['sorcerer', 'druid'], max: [2.203, 13], min: [1.403, 8], type: 'spell', image: 'spell', formula: 'normal' },
                     { id: 26, name: 'Energy Strike', ml: 0, element: 'energy', vocations: ['sorcerer', 'druid'], max: [2.203, 13], min: [1.403, 8], type: 'spell', image: 'spell', formula: 'normal' },
-                    { id: 75, name: 'Terra strike', ml: 0, element: 'earth', vocations: ['sorcerer', 'druid'], max: [2.203, 13], min: [1.403, 8], type: 'spell', image: 'spell', formula: 'normal' },
+                    { id: 75, name: 'Terra Strike', ml: 0, element: 'earth', vocations: ['sorcerer', 'druid'], max: [2.203, 13], min: [1.403, 8], type: 'spell', image: 'spell', formula: 'normal' },
                     { id: 129, name: 'Fire Wave', ml: 0, element: 'fire', vocations: ['sorcerer'], max: [2, 12], min: [1.25, 4], type: 'spell', image: 'spell', formula: 'normal' },
                     { id: 87, name: 'Ice Wave', ml: 0, element: 'ice', vocations: ['druid'], max: [2, 12], min: [0.81, 4], type: 'spell', image: 'spell', formula: 'normal' },
                     { id: 43, name: 'Energy Beam', ml: 0, element: 'energy', vocations: ['sorcerer'], max: 4, min: 2.5, type: 'spell', image: 'spell', formula: 'advanced' },
@@ -218,7 +219,7 @@
                     { id: 128, name: 'Ice Wave', ml: 0, element: 'ice', vocations: ['druid'], max: 10, min: 5, type: 'spell', image: 'spell', formula: 'advanced' },
                     { id: 88, name: 'Strong Ice Wave', ml: 0, element: 'ice', vocations: ['druid'], max: 10, min: 4, type: 'spell', image: 'spell', formula: 'advanced' },
                     { id: 59, name: 'Energy Wave', ml: 0, element: 'energy', vocations: ['sorcerer'], max: 9, min: 4.5, type: 'spell', image: 'spell', formula: 'advanced' },
-                    { id: 76, name: 'Rage of The Skies', ml: 0, element: 'energy', vocations: ['sorcerer'], max: 12, min: 5, type: 'spell', image: 'spell', formula: 'advanced' },
+                    { id: 76, name: 'Rage of the Skies', ml: 0, element: 'energy', vocations: ['sorcerer'], max: 12, min: 5, type: 'spell', image: 'spell', formula: 'advanced' },
                     { id: 80, name: 'Hell\'s Core', ml: 0, element: 'fire', vocations: ['sorcerer'], max: 14, min: 7, type: 'spell', image: 'spell', formula: 'advanced' },
                     { id: 82, name: 'Wrath of Nature', ml: 0, element: 'earth', vocations: ['druid'], max: 10, min: 5, type: 'spell', image: 'spell', formula: 'advanced' },
                     { id: 83, name: 'Eternal Winter', ml: 0, element: 'ice', vocations: ['druid'], max: 12, min: 6, type: 'spell', image: 'spell', formula: 'advanced' },

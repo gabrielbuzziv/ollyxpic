@@ -7,10 +7,10 @@
                 </a>
             </router-link>
 
-            <!--<li class="with-child" :class="{ 'active': isCalculator }">
+            <li class="with-child" :class="{ 'active': isCalculator }">
                 <a href="javascript:void(0)">
                     <span class="left">
-                        <img :src="image_path('item', 1288)" alt="">
+                        <img :src="image_path_by_name('item', 'abacus')" alt="">
                     </span>
                     <span class="center">
                         Calculators
@@ -22,7 +22,7 @@
                     <router-link :to="{ name: 'calculators.imbuements' }" tag="li">
                         <a href="">
                             <span class="left">
-                                <img :src="image_path('item', 2655)">
+                                <img :src="image_path_by_name('item', 'silencer claws')">
                             </span>
                             <span class="center">
                                 <span>Imbuements</span>
@@ -34,7 +34,7 @@
                     <router-link :to="{ name: 'calculators.loot.count' }" tag="li">
                         <a href="">
                             <span class="left">
-                                <img :src="image_path('item', 93)">
+                                <img :src="image_path_by_name('item', 'steel boots')">
                             </span>
                             <span class="center">
                                 <span>Loot</span>
@@ -46,7 +46,7 @@
                     <router-link :to="{ name: 'calculators.blessing' }" tag="li">
                         <a href="">
                             <span class="left">
-                                <img :src="image_path('item', 1922)">
+                                <img :src="image_path_by_name('item', 'spiritual charm')">
                             </span>
                             <span class="center">
                                 <span>Blessings</span>
@@ -58,7 +58,7 @@
                     <router-link :to="{ name: 'calculators.speedboost' }" tag="li">
                         <a href="">
                             <span class="left">
-                                <img :src="image_path('item', 1)">
+                                <img :src="image_path_by_name('item', 'boots of haste')">
                             </span>
                             <span class="center">
                                 <span>Speed</span>
@@ -70,7 +70,7 @@
                     <router-link :to="{ name: 'calculators.spellcaster' }" tag="li">
                         <a href="">
                             <span class="left">
-                                <img :src="image_path('item', 117)" alt="">
+                                <img :src="image_path_by_name('item', 'sudden death rune')" alt="">
                             </span>
                             <span class="center">
                                 <span>Spell Caster</span>
@@ -82,7 +82,7 @@
                     <router-link :to="{ name: 'calculators.mvp' }" tag="li">
                         <a href="">
                             <span class="left">
-                                <img :src="image_path('item', 862)">
+                                <img :src="image_path_by_name('item', 'medal of honour')">
                             </span>
                             <span class="center">
                                 <span>Warzone</span>
@@ -90,61 +90,61 @@
                             </span>
                         </a>
                     </router-link>
-					
-                    <router-link :to="{ name: 'calculators.damage.protection' }" tag="li">
-                        <a href="">
-                            <span class="left">
-                                <img :src="image_path('item', 208)">
-                            </span>
-                            <span class="center">
-                                <span>Damage</span>
-                                <small>Protection</small>
-                            </span>
-                        </a>
-                    </router-link>
-                </ul>
-            </li>-->
 
-			<router-link :to="{ name: 'pages.news' }" tag="li">
+                    <!--<router-link :to="{ name: 'calculators.damage.protection' }" tag="li">-->
+                        <!--<a href="">-->
+                            <!--<span class="left">-->
+                                <!--<img :src="image_path_by_name('item', 'great shield')">-->
+                            <!--</span>-->
+                            <!--<span class="center">-->
+                                <!--<span>Damage</span>-->
+                                <!--<small>Protection</small>-->
+                            <!--</span>-->
+                        <!--</a>-->
+                    <!--</router-link>-->
+                </ul>
+            </li>
+
+            <router-link :to="{ name: 'pages.news' }" tag="li">
                 <a href="#">
                     <span class="left">
-                        <img :src="image_path('item', 1291)" alt="">
+                        <img :src="image_path_by_name('item', 'golden newspaper')" alt="">
                     </span>
                     <span class="center">
                         <span>News</span>
                         <small>All about Tibia</small>
                     </span>
                 </a>
-			</router-link>
+            </router-link>
 
             <router-link :to="{ name: 'pages.changelog' }" tag="li">
                 <a href="#">
                     <span class="left">
-                        <img :src="image_path('item', 357)" alt="">
+                        <img :src="image_path_by_name('item', 'scroll')" alt="">
                     </span>
                     <span class="center">
                         <span>Change Log</span>
                         <small>All about OllyxPic</small>
                     </span>
                 </a>
-			</router-link>
+            </router-link>
 
             <router-link :to="{ name: 'pages.partners' }" tag="li">
                 <a href="#">
                     <span class="left">
-                        <img :src="image_path('item', 2040)" alt="">
+                        <img :src="image_path_by_name('item', 'Cateroide\'s doll')" alt="">
                     </span>
                     <span class="center">
                         <span>Partners</span>
                         <small>Streamers etc</small>
                     </span>
                 </a>
-			</router-link>
-			
+            </router-link>
+
             <router-link :to="{ name: 'pages.contact' }" tag="li">
                 <a href="#">
                     <span class="left">
-                        <img :src="image_path('item', 313)" alt="">
+                        <img :src="image_path_by_name('item', 'letter')" alt="">
                     </span>
                     <span class="center">
                         <span>Contact Us</span>

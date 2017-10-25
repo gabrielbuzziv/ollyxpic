@@ -1,7 +1,7 @@
 <template>
     <page-load id="warzone">
         <page-title>
-            <img :src="image_path('item', 862)" alt="">
+            <img :src="image_path_by_name('item', 'medal of honour')" alt="">
             Warzone
             <span>MVP's</span>
         </page-title>
@@ -10,7 +10,7 @@
             <div class="col-md-4">
                 <panel>
                     <div class="icon">
-                        <img :src="image_path('item', 862)" class="margin-right-10">
+                        <img :src="image_path_by_name('item', 'medal of honour')" class="margin-right-10">
                     </div>
 
                     <div class="info">
@@ -23,7 +23,7 @@
             <div class="col-md-4">
                 <panel>
                     <div class="icon">
-                        <img :src="image_path('item', 862)" class="margin-right-10">
+                        <img :src="image_path_by_name('item', 'medal of honour')" class="margin-right-10">
                     </div>
 
                     <div class="info">
@@ -36,7 +36,7 @@
             <div class="col-md-4">
                 <panel>
                     <div class="icon">
-                        <img :src="image_path('item', 862)" class="margin-right-10">
+                        <img :src="image_path_by_name('item', 'medal of honour')" class="margin-right-10">
                     </div>
 
                     <div class="info">

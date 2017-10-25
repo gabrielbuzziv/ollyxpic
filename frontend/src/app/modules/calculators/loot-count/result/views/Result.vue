@@ -1,7 +1,7 @@
 <template>
     <page-load class="teamhunt-result">
         <page-title>
-            <img :src="image_path('item', 93)">
+            <img :src="image_path_by_name('item', 'steel boots')">
             Loot
             <span>Count</span>
         </page-title>

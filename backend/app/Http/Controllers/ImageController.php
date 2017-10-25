@@ -53,7 +53,21 @@ class ImageController extends Controller
 
         return Response::make($image, 200)->header('Content-Type', 'image/gif');
     }
-    
+
+    /**
+     * Load blob images by name.
+     *
+     * @param $type
+     * @param $name
+     * @return mixed
+     */
+    public function loadImageByName($type, $name)
+    {
+        $image = $this->loadBlobImageByName($type, $name);
+
+        return Response::make($image, 200)->header('Content-Type', 'image/gif');
+    }
+
     /**
      * Split multiple frames gifs.
      */
@@ -115,6 +129,27 @@ class ImageController extends Controller
                 return Creature::find($id)->image;
             case 'map':
                 return WorldMap::where('z', $id)->first()->image;
+        }
+    }
+
+    /**
+     * Convert blob images.
+     *
+     * @param $type
+     * @param $id
+     * @return mixed
+     */
+    private function loadBlobImageByName($type, $name)
+    {
+        switch ($type) {
+            case 'npc':
+                return NPC::where('name', $name)->first->image;
+            case 'item':
+                return Items::where('name', $name)->first()->image;
+            case 'spell':
+                return Spells::where('name', $name)->first()->image;
+            case 'creature':
+                return Creature::where('name', $name)->first()->image;
         }
     }
 

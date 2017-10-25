@@ -1,7 +1,7 @@
 <template>
     <page-load id="blessings">
         <page-title>
-            <img :src="image_path('item', 862)" alt="">
+            <img :src="image_path_by_name('item', 'medal of honour')" alt="">
             Warzone
             <span>MVP's</span>
         </page-title>

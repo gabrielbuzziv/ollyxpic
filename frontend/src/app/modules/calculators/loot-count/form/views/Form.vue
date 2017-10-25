@@ -1,7 +1,7 @@
 <template>
     <page-load>
         <page-title>
-            <img :src="image_path('item', 93)">
+            <img :src="image_path_by_name('item', 'steel boots')">
             Loot
             <span>Count</span>
         </page-title>
@@ -10,12 +10,12 @@
             <div class="col-md-12">
                 <ul class="tabs">
                     <tab-link tab="loot" active>
-                        <img :src="image_path('item', 93)" class="margin-right-5">
+                        <img :src="image_path_by_name('item', 'steel boots')" class="margin-right-5">
                         <span>Loot</span>
                     </tab-link>
 
                     <tab-link tab="waste">
-                        <img :src="image_path('item', 3146)" class="margin-right-5">
+                        <img :src="image_path_by_name('item', 'ultimate mana potion')" class="margin-right-5">
                         <span>Waste</span>
                     </tab-link>
 

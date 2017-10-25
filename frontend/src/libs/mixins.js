@@ -31,6 +31,10 @@ Vue.mixin({
             return `${this.baseURL}/images/blob/${type}/${id}`
         },
 
+        image_path_by_name (type, name) {
+            return `${this.baseURL}/images/blob/${type}/name/${name}`
+        },
+
         convertToCrystal (value, ext = false) {
             value = value / 1000
             ext   = ext ? 'k' : ''

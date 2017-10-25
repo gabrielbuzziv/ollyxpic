@@ -54,21 +54,33 @@ class ItemsController extends Controller
      */
     public function saveItemCategory()
     {
-        $data = request()->all();
+//        $data = request()->all();
 
+        $data = Items::whereIn('category', [
+            'Club Weapons', 'Sword Weapons', 'Axe Weapons', 'Shields', 'Armor', 'Legs', 'Ammunition', 'Distance Weapon',
+            'Container'
+        ])->get();
+
+
+        return $data;
         foreach ($data as $item) {
-            if ($exist = Category::where('item_id', $item['id'])->first()) {
-                $exist->update([
-                    'category' => $item['category'],
-                    'usable'   => $item['usable'],
-                ]);
-            } else {
-                Category::create([
-                    'item_id'  => $item['id'],
-                    'category' => $item['category'],
-                    'usable'   => $item['usable'],
-                ]);
-            }
+            Category::firstOrCreate(['item_id', $item->id], [
+                'category' => $item->category,
+                'usable' => true
+            ]);
+
+//            if ($exist = Category::where('item_id', $item['id'])->first()) {
+//                $exist->update([
+//                    'category' => $item['category'],
+//                    'usable'   => $item['usable'],
+//                ]);
+//            } else {
+//                Category::create([
+//                    'item_id'  => $item['id'],
+//                    'category' => $item['category'],
+//                    'usable'   => $item['usable'],
+//                ]);
+//            }
         }
     }
 

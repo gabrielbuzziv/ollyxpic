@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('images/blob/{type}/{id}', 'ImageController@loadImage');
+Route::get('images/blob/{type}/name/{name}', 'ImageController@loadImageByName');
 Route::get('images/{directory}/{filename}/{ext}', 'ImageController@load');
 Route::get('images/stackable', 'ImageController@stackables');
 
