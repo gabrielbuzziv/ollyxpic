@@ -90,6 +90,21 @@
                         <!--<i class="mdi mdi-chevron-right"></i>-->
                     <!--</card>-->
                 <!--</router-link>-->
+
+                <router-link :to="{ name: 'calculators.expshare' }" slot="anchor">
+                    <card title="Exp" subtitle="Share">
+                        <img :src="image_path_by_name('item', 'purple tome')" slot="icon">
+                        <i class="mdi mdi-chevron-right"></i>
+                    </card>
+                </router-link>
+
+                <router-link :to="{ name: 'calculators.capcount' }" slot="anchor">
+                    <card title="Cap" subtitle="Count">
+                        <img :src="image_path_by_name('item', 'blossom bag')" slot="icon">
+                        <i class="mdi mdi-chevron-right"></i>
+                    </card>
+                </router-link>
+
             </div>
         </div>
     </page-load>
