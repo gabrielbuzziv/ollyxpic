@@ -16,17 +16,7 @@
 				<div class="col-md-3"></div>
 
 				<div class="col-md-6">
-					<center><b>This calculator will show you the bonucs cap you will get from the featherweight imbuement</b></center>
-				</div>
-
-				<div class="col-md-3"></div>
-			</div>
-
-			<div class="row">
-				<div class="col-md-3"></div>
-
-				<div class="col-md-6">
-					<form-input placeholder="cap" v-model="cap" style="text-align:center;" />
+					<center><b>This calculator will show you the bonus cap you will get from the featherweight imbuement</b></center>
 				</div>
 
 				<div class="col-md-3"></div>
@@ -36,13 +26,44 @@
 				<div class="col-md-3"></div>
 				<div class="col-md-6">
 					<center>
-					<el-radio class="radio" v-model="capperc" :label="1">
+					<el-radio class="radio" v-model="voc" :label="1">
+							Knight
+					</el-radio>
+					<el-radio class="radio" v-model="voc" :label="2">
+							Paladin
+					</el-radio>
+					<el-radio class="radio" v-model="voc" :label="3">
+							Druid
+					</el-radio>
+					<el-radio class="radio" v-model="voc" :label="4">
+							Sorcerer
+					</el-radio>
+					</center>
+				<div class="col-md-3"></div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-3"></div>
+
+				<div class="col-md-6">
+					<form-input placeholder="level" v-model="level" style="text-align:center;" />
+				</div>
+
+				<div class="col-md-3"></div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class="col-md-6">
+					<center>
+					<el-radio class="radio" v-model="capperc" :label="5">
 							4%
 					</el-radio>
-					<el-radio class="radio" v-model="capperc" :label="2">
+					<el-radio class="radio" v-model="capperc" :label="6">
 							8%
 					</el-radio>
-					<el-radio class="radio" v-model="capperc" :label="3">
+					<el-radio class="radio" v-model="capperc" :label="7">
 							12%
 					</el-radio>
 					</center>
@@ -53,7 +74,7 @@
 		</panel>
 
 		<panel class="shareexp" v-if="capcalc">
-			<center>You will get <b>{{ capcalc }}</b> extra cap from this imbuement.</center>
+			<center>You will get <b>{{ capcalc.toFixed() }}</b> extra cap from this imbuement.</center>
 		</panel>
 	</div>
 
@@ -66,26 +87,44 @@ export default {
     data () {
 	return {
 		capperc: '',
-		cap: '',
+		level: '',
+		voc: '',
 	}
 },
 
 computed: {
 
+		voccalc() {
+			const voc = parseInt(this.voc)
+			switch (voc) {
+				case 0:
+				   return (this.level * 0)
+				case 1:
+				   return ((this.level - 8) * 25 + 470)
+				case 2:
+				   return ((this.level - 8) * 20 + 470)
+				case 3:
+				   return ((this.level - 8) * 10 + 470)
+				case 4:
+				   return ((this.level - 8) * 10 + 470)
+					}
+			},
+
 		capcalc() {
 			const capperc = parseInt(this.capperc)
 			switch (capperc) {
 				case 0:
-				   return (this.cap * 0)
-				case 1:
-				   return (this.cap * 0.04)
-				case 2:
-				   return (this.cap * 0.08)
-				case 3:
-				   return (this.cap * 0.12)
-	  	}
+				   return (this.voccalc * 0)
+				case 5:
+				   return (this.voccalc * 0.04)
+				case 6:
+				   return (this.voccalc * 0.08)
+				case 7:
+				   return (this.voccalc * 0.12)
+	  				}
+			}
+
 	}
-}
 }
 </script>
 
