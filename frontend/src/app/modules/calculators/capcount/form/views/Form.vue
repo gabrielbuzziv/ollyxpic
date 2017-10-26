@@ -6,12 +6,11 @@
             <span class="margin-left-45">Calculator</span>
         </page-title>
 
-	<div class="col-md-12">
-
         <div class="alert alert-warning">
             <center> NOTE: This calculator is experimental and imbuement % can change whenever since this is not live yet.</center>
         </div>
 
+	<div class="col-md-12">
 		<panel class="form">
 			<div class="row">
 				<div class="col-md-3"></div>
@@ -50,13 +49,13 @@
 				<div class="col-md-3"></div>
 				</div>
 			</div>
-		</panel>
-	</div>
 
+		</panel>
 
 		<panel class="shareexp" v-if="capcalc">
 			<center>You will get <b>{{ capcalc }}</b> extra cap from this imbuement.</center>
 		</panel>
+	</div>
 
     </page-load>
 </template>
