@@ -31,6 +31,12 @@
         watch: {
             active () {
                 this.isActive = this.active
+            },
+
+            isActive () {
+                if (this.isActive) {
+                    this.$emit('active')
+                }
             }
         },
 

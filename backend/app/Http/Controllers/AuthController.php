@@ -47,7 +47,7 @@ class AuthController extends ApiController
                 return $this->respondNotFound(null, 'E-mail ou senha incorretos, tente novamente.');
             }
         } catch (JWTException $e) {
-            Log::critical(logMessage($e, 'Não foi possível criar o token.'), $credentials);
+            Log::critical('Não foi possível criar o token.', $credentials);
 
             return $this->respondInternalError($e, 'Não foi possível autenticar o usuário devido a problemas internos, tente novamente mais tarde.');
         }
@@ -107,7 +107,7 @@ class AuthController extends ApiController
             $token = JWTAuth::refresh($token);
             Log::info("Token atualizado: ({$token})");
         } catch (TokenInvalidException $e) {
-            Log::warning(logMessage($e, 'Não encontrou o token em tentativa de atualizar o token.'));
+            Log::warning('Não encontrou o token em tentativa de atualizar o token.');
 
             return $this->respondNotFound('Sessão expirada, conecte novamente.');
         }

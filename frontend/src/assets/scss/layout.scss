@@ -296,6 +296,10 @@ a, button {
     .page {
         padding: 50px 0;
 
+        &.no-padding {
+            padding: 0;
+        }
+
         .page-title {
             display: block;
             margin-bottom: 50px;

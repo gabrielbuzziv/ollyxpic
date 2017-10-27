@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectCodeStyleSettingsManager">
+    <option name="PER_PROJECT_SETTINGS">
+      <value>
+        <JSCodeStyleSettings>
+          <option name="SPACES_WITHIN_OBJECT_LITERAL_BRACES" value="true" />
+          <option name="SPACES_WITHIN_IMPORTS" value="true" />
+        </JSCodeStyleSettings>
+        <PHPCodeStyleSettings>
+          <option name="ALIGN_KEY_VALUE_PAIRS" value="true" />
+          <option name="LOWER_CASE_BOOLEAN_CONST" value="true" />
+          <option name="LOWER_CASE_NULL_CONST" value="true" />
+          <option name="BLANK_LINE_BEFORE_RETURN_STATEMENT" value="true" />
+          <option name="SPACE_BEFORE_UNARY_NOT" value="true" />
+          <option name="SPACE_AFTER_UNARY_NOT" value="true" />
+        </PHPCodeStyleSettings>
+        <codeStyleSettings language="JavaScript">
+          <option name="SPACE_AROUND_UNARY_OPERATOR" value="true" />
+          <option name="SPACE_BEFORE_METHOD_PARENTHESES" value="true" />
+        </codeStyleSettings>
+        <codeStyleSettings language="PHP">
+          <option name="BLANK_LINES_AFTER_CLASS_HEADER" value="1" />
+          <option name="SPACE_AROUND_UNARY_OPERATOR" value="true" />
+          <option name="SPACE_AFTER_TYPE_CAST" value="true" />
+        </codeStyleSettings>
+        <codeStyleSettings language="SCSS">
+          <indentOptions>
+            <option name="INDENT_SIZE" value="4" />
+          </indentOptions>
+        </codeStyleSettings>
+      </value>
+    </option>
+    <option name="PREFERRED_PROJECT_CODE_STYLE" value="Default" />
+  </component>
+</project>

@@ -67,6 +67,12 @@ Route::get('news/list', 'PostController@newsList');
 Route::get('change-log', 'ChangeController@getChanges');
 
 /**
+ * CategoriesController
+ */
+Route::get('categories', 'CategoriesController@index');
+Route::get('categories/{category}/items', 'CategoriesController@items');
+
+/**
  * All the routes in this group will need to send a Header
  * Authorization with a valide token, withou this the user will
  * not be authorized to access the route.
@@ -95,4 +101,10 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('changes', 'ChangeController@store');
     Route::patch('changes/{change}', 'ChangeController@update');
     Route::delete('changes/{change}', 'ChangeController@destroy');
+
+    /**
+     * DamageProtection routes
+     */
+    Route::get('admin/damage-protection/items', 'DamageProtectionController@itemsByCategory');
+    Route::post('admin/damage-protection/toggle/{item}/{category}', 'DamageProtectionController@syncItemCategory');
 });

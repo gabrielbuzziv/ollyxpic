@@ -60,6 +60,16 @@ class Items extends Model
      */
     public function props()
     {
-        return $this->hasMany(ItemProps::class, 'item_id');
+        return $this->hasMany(ItemProperties::class, 'itemid');
+    }
+
+    /**
+     * A item has category
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function categories()
+    {
+        return $this->belongsToMany(Categories::class, 'item_category', 'item_id','category_id');
     }
 }

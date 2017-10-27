@@ -173,6 +173,13 @@
                 </a>
             </router-link>
 
+            <router-link :to="{ name: 'admin.damage.list' }" tag="li">
+                <a href="#">
+                    <i class="mdi mdi-tumblr-reblog margin-right-5"></i>
+                    Damage Protection
+                </a>
+            </router-link>
+
             <li>
                 <a href="#">
                     <i class="mdi mdi-face margin-right-5"></i>

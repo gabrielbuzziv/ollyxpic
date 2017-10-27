@@ -8,156 +8,158 @@
             </span>
         </page-title>
 
-        <div class="col-md-12">
-            <panel>
-                <table class="table margin-bottom-0">
-                    <thead>
-                        <tr>
-                            <th>Total</th>
-                            <th class="text-center">Total/Hour</th>
-                            <th class="text-center" width="110">
-                                Time Used
+        <div class="row">
+            <div class="col-md-12">
+                <panel>
+                    <table class="table margin-bottom-0">
+                        <thead>
+                            <tr>
+                                <th>Total</th>
+                                <th class="text-center">Total/Hour</th>
+                                <th class="text-center" width="110">
+                                    Time Used
 
-                                <el-tooltip placement="top">
-                                    <p class="margin-bottom-0" slot="content">
-                                        Time you used the imbuiment in hunt, time in hours.<br> e.g. 02:00 (2 hours)
-                                    </p>
-                                    <i class="mdi mdi-information"></i>
-                                </el-tooltip>
-                            </th>
-                            <th class="text-right">Value</th>
-                        </tr>
-                    </thead>
+                                    <el-tooltip placement="top">
+                                        <p class="margin-bottom-0" slot="content">
+                                            Time you used the imbuiment in hunt, time in hours.<br> e.g. 02:00 (2 hours)
+                                        </p>
+                                        <i class="mdi mdi-information"></i>
+                                    </el-tooltip>
+                                </th>
+                                <th class="text-right">Value</th>
+                            </tr>
+                        </thead>
 
-                    <tbody>
-                        <tr>
-                            <td>
-                                {{ total.formatMoney(0, '.', '.') }} gp
-                            </td>
-                            <td class="text-center">
-                                {{ (totalPerMinute * 60).formatMoney(0, '.', '.') }} gp / hour
-                            </td>
-                            <td class="text-center" width="100">
-                                <form-input :data="used" v-model="used" v-mask="'##:##'" class="normal"/>
-                            </td>
-                            <td class="text-right">
-                                {{ totalPerUsedTime.formatMoney(0, '.', '.') }} gp
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </panel>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    {{ total.formatMoney(0, '.', '.') }} gp
+                                </td>
+                                <td class="text-center">
+                                    {{ (totalPerMinute * 60).formatMoney(0, '.', '.') }} gp / hour
+                                </td>
+                                <td class="text-center" width="100">
+                                    <form-input :data="used" v-model="used" v-mask="'##:##'" class="normal"/>
+                                </td>
+                                <td class="text-right">
+                                    {{ totalPerUsedTime.formatMoney(0, '.', '.') }} gp
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </panel>
 
-            <panel>
-                <table class="table margin-bottom-0">
-                    <thead>
-                        <tr>
-                            <th>Imbuiment</th>
-                            <th class="text-center">
-                                Amount
-                                <el-tooltip content="Amount of items you have this imbuement." class="margin-left-5"
-                                            placement="top">
-                                    <i class="mdi mdi-information"></i>
-                                </el-tooltip>
-                            </th>
-                            <th class="text-center">
-                                Basic
-                                <el-tooltip content="Unit price of basic imbuement item." class="margin-left-5"
-                                            placement="top">
-                                    <i class="mdi mdi-information"></i>
-                                </el-tooltip>
-                            </th>
-                            <th class="text-center">
-                                Intricate
-                                <el-tooltip content="Unit price of intricate imbuement item." class="margin-left-5"
-                                            placement="top">
-                                    <i class="mdi mdi-information"></i>
-                                </el-tooltip>
-                            </th>
-                            <th class="text-center">
-                                Powerful
-                                <el-tooltip content="Unit price of powerful imbuement item." class="margin-left-5"
-                                            placement="top">
-                                    <i class="mdi mdi-information"></i>
-                                </el-tooltip>
-                            </th>
-                            <th class="text-center">
-                                Charm
-                                <el-tooltip content="Protection charm (100% chance)" class="margin-left-5"
-                                            placement="top">
-                                    <i class="mdi mdi-information"></i>
-                                </el-tooltip>
-                            </th>
-                        </tr>
-                    </thead>
+                <panel>
+                    <table class="table margin-bottom-0">
+                        <thead>
+                            <tr>
+                                <th>Imbuiment</th>
+                                <th class="text-center">
+                                    Amount
+                                    <el-tooltip content="Amount of items you have this imbuement." class="margin-left-5"
+                                                placement="top">
+                                        <i class="mdi mdi-information"></i>
+                                    </el-tooltip>
+                                </th>
+                                <th class="text-center">
+                                    Basic
+                                    <el-tooltip content="Unit price of basic imbuement item." class="margin-left-5"
+                                                placement="top">
+                                        <i class="mdi mdi-information"></i>
+                                    </el-tooltip>
+                                </th>
+                                <th class="text-center">
+                                    Intricate
+                                    <el-tooltip content="Unit price of intricate imbuement item." class="margin-left-5"
+                                                placement="top">
+                                        <i class="mdi mdi-information"></i>
+                                    </el-tooltip>
+                                </th>
+                                <th class="text-center">
+                                    Powerful
+                                    <el-tooltip content="Unit price of powerful imbuement item." class="margin-left-5"
+                                                placement="top">
+                                        <i class="mdi mdi-information"></i>
+                                    </el-tooltip>
+                                </th>
+                                <th class="text-center">
+                                    Charm
+                                    <el-tooltip content="Protection charm (100% chance)" class="margin-left-5"
+                                                placement="top">
+                                        <i class="mdi mdi-information"></i>
+                                    </el-tooltip>
+                                </th>
+                            </tr>
+                        </thead>
 
-                    <tbody>
-                        <tr v-for="imbuement in imbuements">
-                            <td>
-                                <p class="inline">{{ imbuement.title }} ({{ imbuement.name }})</p>
-                                <el-tooltip :content="imbuement.description">
-                                    <i class="mdi mdi-information inline"></i>
-                                </el-tooltip>
-                            </td>
-                            <td class="text-center" width="110">
-                                <select v-model="imbuement.amount" class="form-control" @change="update(imbuement)">
-                                    <option value="0">0</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                </select>
-                            </td>
-                            <td class="text-center" width="150">
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <el-tooltip placement="top">
-                                            <template slot="content">
-                                                {{getItem(imbuement.items, 1).amount}} {{ getItem(imbuement.items, 1).item.title }}
-                                            </template>
+                        <tbody>
+                            <tr v-for="imbuement in imbuements">
+                                <td>
+                                    <p class="inline">{{ imbuement.title }} ({{ imbuement.name }})</p>
+                                    <el-tooltip :content="imbuement.description">
+                                        <i class="mdi mdi-information inline"></i>
+                                    </el-tooltip>
+                                </td>
+                                <td class="text-center" width="110">
+                                    <select v-model="imbuement.amount" class="form-control" @change="update(imbuement)">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                    </select>
+                                </td>
+                                <td class="text-center" width="150">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <el-tooltip placement="top">
+                                                <template slot="content">
+                                                    {{getItem(imbuement.items, 1).amount}} {{ getItem(imbuement.items, 1).item.title }}
+                                                </template>
 
-                                            <img :src="image_path('item', getItem(imbuement.items, 1).item_id)" alt="">
-                                        </el-tooltip>
+                                                <img :src="image_path('item', getItem(imbuement.items, 1).item_id)" alt="">
+                                            </el-tooltip>
+                                        </div>
+                                        <form-input :data="imbuement.basic" v-model="imbuement.basic" placeholder="Basic"
+                                                    class="text-right" @input="update(imbuement)"/>
                                     </div>
-                                    <form-input :data="imbuement.basic" v-model="imbuement.basic" placeholder="Basic"
-                                                class="text-right" @input="update(imbuement)"/>
-                                </div>
-                            </td>
-                            <td class="text-center" width="150">
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <el-tooltip placement="top">
-                                            <template slot="content">
-                                                {{getItem(imbuement.items, 2).amount}} {{ getItem(imbuement.items, 2).item.title }}
-                                            </template>
+                                </td>
+                                <td class="text-center" width="150">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <el-tooltip placement="top">
+                                                <template slot="content">
+                                                    {{getItem(imbuement.items, 2).amount}} {{ getItem(imbuement.items, 2).item.title }}
+                                                </template>
 
-                                            <img :src="image_path('item', getItem(imbuement.items, 2).item_id)" alt="">
-                                        </el-tooltip>
+                                                <img :src="image_path('item', getItem(imbuement.items, 2).item_id)" alt="">
+                                            </el-tooltip>
+                                        </div>
+                                        <form-input :data="imbuement.intricate" v-model="imbuement.intricate"
+                                                    placeholder="Basic" class="text-right" @input="update(imbuement)"/>
                                     </div>
-                                    <form-input :data="imbuement.intricate" v-model="imbuement.intricate"
-                                                placeholder="Basic" class="text-right" @input="update(imbuement)"/>
-                                </div>
-                            </td>
-                            <td class="text-center" width="150">
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <el-tooltip placement="top">
-                                            <template slot="content">
-                                                {{getItem(imbuement.items, 3).amount}} {{ getItem(imbuement.items, 3).item.title }}
-                                            </template>
+                                </td>
+                                <td class="text-center" width="150">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <el-tooltip placement="top">
+                                                <template slot="content">
+                                                    {{getItem(imbuement.items, 3).amount}} {{ getItem(imbuement.items, 3).item.title }}
+                                                </template>
 
-                                            <img :src="image_path('item', getItem(imbuement.items, 3).item_id)" alt="">
-                                        </el-tooltip>
+                                                <img :src="image_path('item', getItem(imbuement.items, 3).item_id)" alt="">
+                                            </el-tooltip>
+                                        </div>
+                                        <form-input :data="imbuement.powerful" v-model="imbuement.powerful"
+                                                    placeholder="Basic" class="text-right" @input="update(imbuement)"/>
                                     </div>
-                                    <form-input :data="imbuement.powerful" v-model="imbuement.powerful"
-                                                placeholder="Basic" class="text-right" @input="update(imbuement)"/>
-                                </div>
-                            </td>
-                            <td class="text-center" width="90">
-                                <el-checkbox v-model="imbuement.charm" @change="update(imbuement)"/>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </panel>
+                                </td>
+                                <td class="text-center" width="90">
+                                    <el-checkbox v-model="imbuement.charm" @change="update(imbuement)"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </panel>
+            </div>
         </div>
     </page-load>
 </template>

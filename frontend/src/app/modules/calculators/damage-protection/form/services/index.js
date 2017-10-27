@@ -1,13 +1,9 @@
 export default {
-    searchItem (type) {
-        const params = {
-            query: type
-        }
-
-        return window.axios.get(`items/category`, { params })
+    getCategories () {
+        return window.axios.get('categories')
     },
 
-    saveItem (item) {
-        return window.axios.post(`items/category`, item)
-    },
+    getItems (id) {
+        return window.axios.get(`categories/${id}/items`)
+    }
 }
