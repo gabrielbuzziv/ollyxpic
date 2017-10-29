@@ -6,6 +6,14 @@
             <span>Count</span>
         </page-title>
 
+	<div class="row">
+	    <div class="col-md-12">
+		<panel>
+	<center><b>This calculator counts loot value from either server log (by looking at items in-game and pasting it here, Dont forget to click the "look at" button) or loot log.</b></center>
+		</panel>
+	    </div>
+	</div>
+
         <div class="row">
             <div class="col-md-12">
                 <ul class="tabs">
@@ -26,6 +34,7 @@
                 </ul>
 
                 <form action="" @submit.prevent="onSubmit" ref="form">
+
                     <tab-content tab="loot" active>					
 						
                         <form-group label="Loot Log">

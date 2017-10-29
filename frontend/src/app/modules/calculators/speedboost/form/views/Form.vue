@@ -6,6 +6,12 @@
             <span class="margin-left-45">Boost</span>
         </page-title>
 
+	    <div class="col-md-12">
+		<panel>
+	<center><b>This calculator shows you when you will get a speed-boost at various tiles.</b></center>
+		</panel>
+	    </div>
+
         <div class="col-md-12">
             <panel class="form">
                 <div class="row">

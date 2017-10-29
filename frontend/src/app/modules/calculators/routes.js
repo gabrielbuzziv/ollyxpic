@@ -43,4 +43,5 @@ export default [
     ...expshare,
 
     ...capcount,
+
 ]

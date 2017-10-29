@@ -6,18 +6,14 @@
             <span class="margin-left-45">Share</span>
         </page-title>
 
+	    <div class="col-md-12">
+		<panel>
+	<center><b>This calculator will show you what minimum/maximum level another player has to be to share exp with you.</b></center>
+		</panel>
+	    </div>
+
 	<div class="col-md-12">
 		<panel class="form">
-
-			<div class="row">
-				<div class="col-md-3"></div>
-
-				<div class="col-md-6">
-					<center><b>This calculator will show you what minimum/maximum level another player has to be to share exp with you.</b></center>
-				</div>
-
-				<div class="col-md-3"></div>
-			</div>
 
 			<div class="row">
 				<div class="col-md-3"></div>

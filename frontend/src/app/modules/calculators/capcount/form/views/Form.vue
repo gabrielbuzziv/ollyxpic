@@ -10,17 +10,17 @@
             <center> NOTE: This calculator is experimental and imbuement % can change whenever since this is not live yet.</center>
         </div>
 
+	<div class="row">
+	    <div class="col-md-12">
+		<panel>
+			<center><b>This calculator will show you the bonus cap you will get from the featherweight imbuement.</b></center>
+		</panel>
+	    </div>
+	</div>
+	
+	<div class="row">
 	<div class="col-md-12">
 		<panel class="form">
-			<div class="row">
-				<div class="col-md-3"></div>
-
-				<div class="col-md-6">
-					<center><b>This calculator will show you the bonus cap you will get from the featherweight imbuement</b></center>
-				</div>
-
-				<div class="col-md-3"></div>
-			</div>
 
 			<div class="row">
 				<div class="col-md-3"></div>
@@ -76,6 +76,7 @@
 		<panel class="shareexp" v-if="capcalc">
 			<center>You will get <b>{{ capcalc.toFixed() }}</b> extra cap from this imbuement.</center>
 		</panel>
+	</div>
 	</div>
 
     </page-load>

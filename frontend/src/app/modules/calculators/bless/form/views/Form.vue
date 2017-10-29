@@ -7,6 +7,15 @@
         </page-title>
 
         <div class="row">
+
+
+	    <div class="col-md-12">
+		<panel>
+	<center><b>This calculator shows you how much experience you will loose with blessings.</b></center>
+		</panel>
+	    </div>
+
+
             <div class="col-md-12">
                 <panel class="form">
                     <div class="row">

@@ -6,6 +6,14 @@
             <span>Damage & Healing</span>
         </page-title>
 
+	<div class="row">
+	    <div class="col-md-12">
+		<panel>
+	<center><b>This calculator shows you min/avg/max damage against selected creatures.</b></center>
+		</panel>
+	    </div>
+	</div>
+
         <div class="row" v-if="! loading">
             <div class="col-md-12">
                 <panel class="form">
