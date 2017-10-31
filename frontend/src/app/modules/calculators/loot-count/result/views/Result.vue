@@ -129,18 +129,17 @@
                                                 @input="updateItem(item)" :readonly="! granted"/>
                                 </td>
                                 <td>
-                                    {{ item.data.title }}
-
-                                    <el-popover class="block" placement="right" v-if="item.data.sell_to.length"
+                                    <el-popover class="block" placement="right" v-if="item.data.sells && item.data.sells.length"
                                                 trigger="hover">
                                         <div class="npc-popover">
-                                            <el-tooltip placement="top" v-for="seller in item.data.sell_to"
+                                            <el-tooltip placement="top" v-for="seller in item.data.sells"
                                                         :key="seller.id">
                                                 <template slot="content">
                                                     <div class="npc-details">
                                                         <ul>
+                                                            <li><pre>{{ seller }}</pre></li>
                                                             <li>Name: {{ seller.name }}</li>
-                                                            <li>Live in: {{ seller.city.capitalize() }}</li>
+                                                            <!--<li>Live in: {{ seller.city.capitalize() }}</li>-->
                                                             <li>Job: {{ seller.job }}</li>
                                                         </ul>
                                                     </div>
@@ -213,25 +212,25 @@
                     </form>
                 </panel>
 
-                <panel class="npc-items" title="Gren Djinn" v-if="green.length">
-                    <img :src="image_path('item', item.data.id)" v-for="item in green">
-                </panel>
+                <!--<panel class="npc-items" title="Gren Djinn" v-if="green.length">-->
+                    <!--<img :src="image_path('item', item.data.id)" v-for="item in green">-->
+                <!--</panel>-->
 
-                <panel class="npc-items" title="Blue Djinn" v-if="blue.length">
-                    <img :src="image_path('item', item.data.id)" v-for="item in blue">
-                </panel>
+                <!--<panel class="npc-items" title="Blue Djinn" v-if="blue.length">-->
+                    <!--<img :src="image_path('item', item.data.id)" v-for="item in blue">-->
+                <!--</panel>-->
 
-                <panel class="npc-items" title="Rashid" v-if="rashid.length">
-                    <img :src="image_path('item', item.data.id)" v-for="item in rashid">
-                </panel>
+                <!--<panel class="npc-items" title="Rashid" v-if="rashid.length">-->
+                    <!--<img :src="image_path('item', item.data.id)" v-for="item in rashid">-->
+                <!--</panel>-->
 
-                <panel class="npc-items" title="Yasir" v-if="yasir.length">
-                    <img :src="image_path('item', item.data.id)" v-for="item in yasir">
-                </panel>
+                <!--<panel class="npc-items" title="Yasir" v-if="yasir.length">-->
+                    <!--<img :src="image_path('item', item.data.id)" v-for="item in yasir">-->
+                <!--</panel>-->
 
-                <panel class="npc-items" title="Others" v-if="others.length">
-                    <img :src="image_path('item', item.data.id)" v-for="item in others">
-                </panel>
+                <!--<panel class="npc-items" title="Others" v-if="others.length">-->
+                    <!--<img :src="image_path('item', item.data.id)" v-for="item in others">-->
+                <!--</panel>-->
             </div>
         </div>
 
@@ -291,7 +290,7 @@
                     const flag = []
 
                     return [].concat.apply([], this.result.items.map(item => {
-                        return item.data.sell_to.map(seller => {
+                        return item.data.sells.map(seller => {
                             return {
                                 id: seller.id,
                                 name: seller.name,
@@ -312,8 +311,8 @@
             green () {
                 if (this.result && this.result.items) {
                     return this.result.items.filter(item => {
-                        if (this.getBestNpc(item.data.sell_to)) {
-                            return this.getBestNpc(item.data.sell_to).name == "Alesar" || this.getBestNpc(item.data.sell_to).name == "Yaman"
+                        if (this.getBestNpc(item.data.sells)) {
+                            return this.getBestNpc(item.data.sells).name == "Alesar" || this.getBestNpc(item.data.sells).name == "Yaman"
                         }
                     })
                 }
@@ -324,8 +323,8 @@
             blue () {
                 if (this.result && this.result.items) {
                     return this.result.items.filter(item => {
-                        if (this.getBestNpc(item.data.sell_to)) {
-                            return this.getBestNpc(item.data.sell_to).name == "Nah'Bob" || this.getBestNpc(item.data.sell_to).name == "Haroun"
+                        if (this.getBestNpc(item.data.sells)) {
+                            return this.getBestNpc(item.data.sells).name == "Nah'Bob" || this.getBestNpc(item.data.sells).name == "Haroun"
                         }
                     })
                 }
@@ -336,8 +335,8 @@
             rashid () {
                 if (this.result && this.result.items) {
                     return this.result.items.filter(item => {
-                        if (this.getBestNpc(item.data.sell_to)) {
-                            return this.getBestNpc(item.data.sell_to).name == "Rashid"
+                        if (this.getBestNpc(item.data.sells)) {
+                            return this.getBestNpc(item.data.sells).name == "Rashid"
                         }
                     })
                 }
@@ -348,8 +347,8 @@
             yasir () {
                 if (this.result && this.result.items) {
                     return this.result.items.filter(item => {
-                        if (this.getBestNpc(item.data.sell_to)) {
-                            return this.getBestNpc(item.data.sell_to).name == "Yasir"
+                        if (this.getBestNpc(item.data.sells)) {
+                            return this.getBestNpc(item.data.sells).name == "Yasir"
                         }
                     })
                 }
@@ -360,14 +359,14 @@
             others () {
                 if (this.result && this.result.items) {
                     return this.result.items.filter(item => {
-                        if (item.data.sell_to.length) {
-                            if (this.getBestNpc(item.data.sell_to)) {
-                                return this.getBestNpc(item.data.sell_to).name != "Nah'Bob"
-                                        && this.getBestNpc(item.data.sell_to).name != "Haroun"
-                                        && this.getBestNpc(item.data.sell_to).name != "Yaman"
-                                        && this.getBestNpc(item.data.sell_to).name != "Alesar"
-                                        && this.getBestNpc(item.data.sell_to).name != "Yasir"
-                                        && this.getBestNpc(item.data.sell_to).name != "Rashid"
+                        if (item.data.sells && item.data.sells.length) {
+                            if (this.getBestNpc(item.data.sells)) {
+                                return this.getBestNpc(item.data.sells).name != "Nah'Bob"
+                                        && this.getBestNpc(item.data.sells).name != "Haroun"
+                                        && this.getBestNpc(item.data.sells).name != "Yaman"
+                                        && this.getBestNpc(item.data.sells).name != "Alesar"
+                                        && this.getBestNpc(item.data.sells).name != "Yasir"
+                                        && this.getBestNpc(item.data.sells).name != "Rashid"
                             }
                         }
                     })

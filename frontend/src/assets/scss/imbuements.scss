@@ -1,3 +1,22 @@
+.imbuements-form {
+    .items {
+        .item {
+            background: #f3f3f3;
+            padding: 10px;
+
+            h4 {
+                margin: 0 0 20px;
+            }
+
+            .form-group {
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
 #imbuements {
     table {
         tr {

@@ -1,6 +1,6 @@
 export default {
     fetchPosts () {
-        return window.axios.get(`posts`)
+        return window.axios.get(`admin/posts`)
     },
 
     save (action, data) {
@@ -8,10 +8,10 @@ export default {
     },
 
     find (id) {
-        return window.axios.get(`posts/${id}`)
+        return window.axios.get(`admin/posts/${id}`)
     },
 
     remove (id) {
-        return window.axios.post(`posts/${id}`, { _method: 'DELETE' })
+        return window.axios.post(`admin/posts/${id}`, { _method: 'DELETE' })
     }
 }

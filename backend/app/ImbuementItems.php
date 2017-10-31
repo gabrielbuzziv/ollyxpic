@@ -8,18 +8,18 @@ class ImbuementItems extends Model
 {
 
     /**
-     * Table name.
-     *
-     * @var string
-     */
-    protected $table = 'imbuiments_items';
-
-    /**
-     * With Item
+     * The attributes that can be assign.
      *
      * @var array
      */
-    protected $with = ['item'];
+    protected $fillable = ['item_id', 'imbuement_id', 'tier', 'amount'];
+
+    /**
+     * Disable timestamps.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
 
     /**
      * Has Item
@@ -28,7 +28,7 @@ class ImbuementItems extends Model
      */
     public function item()
     {
-        return $this->hasOne(Items::class, 'id', 'item_id');
+        return $this->hasOne(Item::class, 'id', 'item_id');
     }
 
 }

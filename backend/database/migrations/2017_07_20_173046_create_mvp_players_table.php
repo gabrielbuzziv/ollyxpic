@@ -18,6 +18,8 @@ class CreateMvpPlayersTable extends Migration
             $table->string('player');
             $table->string('experience');
             $table->string('besthit');
+            $table->integer('damage')->default(0);
+            $table->float('participation')->default(0);
 
             $table->foreign('mvp_id')->references('id')->on('mvps')->onDelete('cascade');
             $table->timestamps();

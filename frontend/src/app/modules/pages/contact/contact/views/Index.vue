@@ -1,7 +1,7 @@
 <template>
     <page-load>
         <page-title>
-            <img :src="image_path('item', 313)" class="margin-right-10">
+            <img :src="image_path_by_name('item', 'letter')" class="margin-right-10">
             Contact
             <span>Send us a message</span>
         </page-title>

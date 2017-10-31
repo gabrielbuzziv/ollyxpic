@@ -1,7 +1,7 @@
 <template>
     <page-load>
 		<page-title>
-			<img :src="image_path('item', 357)" class="margin-right-10">
+			<img :src="image_path_by_name('item', 'scroll of heroic deeds')" class="margin-right-10">
 			Change Log
 			<span>All about OllyxPic</span>
 		</page-title>

@@ -91,17 +91,17 @@
                         </a>
                     </router-link>
 
-                    <!--<router-link :to="{ name: 'calculators.damage.protection' }" tag="li">-->
-                        <!--<a href="">-->
-                            <!--<span class="left">-->
-                                <!--<img :src="image_path_by_name('item', 'great shield')">-->
-                            <!--</span>-->
-                            <!--<span class="center">-->
-                                <!--<span>Damage</span>-->
-                                <!--<small>Protection</small>-->
-                            <!--</span>-->
-                        <!--</a>-->
-                    <!--</router-link>-->
+                    <router-link :to="{ name: 'calculators.damage.protection' }" tag="li">
+                        <a href="">
+                            <span class="left">
+                                <img :src="image_path_by_name('item', 'great shield')">
+                            </span>
+                            <span class="center">
+                                <span>Damage</span>
+                                <small>Protection</small>
+                            </span>
+                        </a>
+                    </router-link>
                 </ul>
             </li>
 
@@ -120,7 +120,7 @@
             <router-link :to="{ name: 'pages.changelog' }" tag="li">
                 <a href="#">
                     <span class="left">
-                        <img :src="image_path_by_name('item', 'scroll')" alt="">
+                        <img :src="image_path_by_name('item', 'scroll of heroic deeds')" alt="">
                     </span>
                     <span class="center">
                         <span>Change Log</span>
@@ -168,24 +168,38 @@
 
             <router-link :to="{ name: 'admin.changes.list' }" tag="li">
                 <a href="#">
-                    <i class="mdi mdi-tumblr-reblog margin-right-5"></i>
+                    <i class="mdi mdi-magnify margin-right-5"></i>
                     Change Logs
                 </a>
             </router-link>
 
-            <router-link :to="{ name: 'admin.damage.list' }" tag="li">
+            <router-link :to="{ name: 'admin.categories' }" tag="li">
                 <a href="#">
-                    <i class="mdi mdi-tumblr-reblog margin-right-5"></i>
-                    Damage Protection
+                    <i class="mdi mdi-tag margin-right-5"></i>
+                    Categories
                 </a>
             </router-link>
 
-            <li>
+            <router-link :to="{ name: 'admin.items' }" tag="li">
                 <a href="#">
-                    <i class="mdi mdi-face margin-right-5"></i>
-                    Partners
+                    <i class="mdi mdi-view-list margin-right-5"></i>
+                    Items
                 </a>
-            </li>
+            </router-link>
+
+            <router-link :to="{ name: 'admin.imbuements' }" tag="li">
+                <a href="#">
+                    <i class="mdi mdi-washing-machine margin-right-5"></i>
+                    Imbuements
+                </a>
+            </router-link>
+
+            <router-link :to="{ name: 'admin.syncronizer' }" tag="li">
+                <a href="#">
+                    <i class="mdi mdi-database margin-right-5"></i>
+                    Database Sync
+                </a>
+            </router-link>
         </ul>
     </nav>
 </template>

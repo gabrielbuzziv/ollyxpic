@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Categories;
-use App\Items;
+use App\Category;
+use App\Item;
 use Illuminate\Http\Request;
 
 class DamageProtectionController extends Controller
@@ -16,7 +16,7 @@ class DamageProtectionController extends Controller
      */
     public function itemsByCategory()
     {
-        $items = Items::with('categories')
+        $items = Item::with('categories')
             ->whereIn('category', request('categories'))
             ->get();
 
@@ -26,11 +26,11 @@ class DamageProtectionController extends Controller
     /**
      * Sync items with categories
      *
-     * @param Items $item
-     * @param Categories $category
+     * @param Item $item
+     * @param Category $category
      * @return mixed
      */
-    public function syncItemCategory(Items $item, Categories $category)
+    public function syncItemCategory(Item $item, Category $category)
     {
         return $item->categories()->toggle($category);
     }

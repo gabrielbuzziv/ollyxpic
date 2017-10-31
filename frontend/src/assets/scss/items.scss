@@ -1,0 +1,45 @@
+.table-items {
+    tbody {
+        border-bottom: 1px solid #eee;
+        border-top: 0 !important;
+
+        tr {
+            td {
+                border: 0 !important;
+            }
+        }
+
+        .details {
+            td {
+                background: #f9f9f9;
+                padding: 20px;
+            }
+
+            h4 {
+                display: block;
+                font-size: 16px;
+                font-weight: 700;
+                margin: 0 0 10px;
+            }
+
+            .data {
+                background: #eee;
+                padding: 10px;
+                margin-bottom: 10px;
+
+                b {
+                    font-size: 12px;
+                    display: block;
+                    margin-bottom: 2px;
+                    font-weight: 300;
+                }
+
+                span {
+                    display: block;
+                    font-size: 14px;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}

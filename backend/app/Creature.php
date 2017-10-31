@@ -8,16 +8,49 @@ class Creature extends Model
 {
 
     /**
-     * Database connections.
+     * The attributes that can be assign.
      *
-     * @var string
+     * @var array
      */
-    protected $connection = 'sqlite';
+    protected $fillable = [
+        'id',
+        'title',
+        'name',
+        'health',
+        'experience',
+        'maxdamage',
+        'summon',
+        'illusionable',
+        'pushable',
+        'pushes',
+        'physical',
+        'holy',
+        'death',
+        'fire',
+        'ice',
+        'earth',
+        'drown',
+        'lifedrain',
+        'paralysable',
+        'senseinvis',
+        'image',
+        'abilities',
+        'speed',
+        'armor',
+        'boss'
+    ];
 
     /**
-     * Hidden in collection.
+     * Hidden attributes.
      *
      * @var array
      */
     protected $hidden = ['image'];
+
+    /**
+     * Disable timestamps.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
 }

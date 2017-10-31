@@ -86,12 +86,12 @@
                     </card>
                 </router-link>
 
-                <!--<router-link :to="{ name: 'calculators.damage.protection' }" slot="anchor">-->
-                <!--<card title="Damage" subtitle="Protection">-->
-                <!--<img :src="image_path_by_name('item', 'great shield')" slot="icon">-->
-                <!--<i class="mdi mdi-chevron-right"></i>-->
-                <!--</card>-->
-                <!--</router-link>-->
+                <router-link :to="{ name: 'calculators.damage.protection' }" slot="anchor">
+                    <card title="Damage" subtitle="Protection">
+                        <img :src="image_path_by_name('item', 'great shield')" slot="icon">
+                        <i class="mdi mdi-chevron-right"></i>
+                    </card>
+                </router-link>
             </div>
         </div>
     </page-load>
@@ -105,7 +105,9 @@
         data () {
             return {
                 post: {
-                    author: {}
+                    author: {
+                        name: ''
+                    }
                 }
             }
         },
@@ -113,7 +115,7 @@
         methods: {
             load () {
                 services.getPost()
-                    .then(response => this.post = response.data)
+                    .then(response => response.data.length ? this.post = response.data : '')
             },
 
             getDateForHuman (date) {

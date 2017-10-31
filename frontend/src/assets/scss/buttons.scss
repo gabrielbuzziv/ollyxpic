@@ -2,6 +2,23 @@
     border: 0;
     padding: 10px 20px;
     border-radius: $border-radius-base;
+    background-color: #ddd;
+
+    &.btn-primary {
+        background-color: $brand-primary;
+    }
+
+    &.btn-success {
+        background-color: $brand-success;
+    }
+
+    &.btn-warning {
+        background-color: $brand-warning;
+    }
+
+    &.btn-danger {
+        background-color: $brand-danger;
+    }
 
     &.btn-default {
         background: darken(#c5493c, 5%);

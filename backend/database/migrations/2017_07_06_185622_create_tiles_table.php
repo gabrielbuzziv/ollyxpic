@@ -18,7 +18,6 @@ class CreateTilesTable extends Migration
             $table->string('name');
             $table->integer('friction');
             $table->integer('object_id');
-            $table->timestamps();
         });
     }
 
