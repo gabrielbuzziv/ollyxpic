@@ -103,18 +103,6 @@
                         </a>
                     </router-link>
 
-                    <router-link :to="{ name: 'calculators.damage.protection' }" tag="li">
-                        <a href="">
-                            <span class="left">
-                                <img :src="image_path_by_name('item', 'great shield')">
-                            </span>
-                            <span class="center">
-                                <span>Damage</span>
-                                <small>Protection</small>
-                            </span>
-                        </a>
-                    </router-link>
-
                     <router-link :to="{ name: 'calculators.capcount' }" tag="li">
                         <a href="">
                             <span class="left">
@@ -123,6 +111,18 @@
                             <span class="center">
                                 <span>Cap</span>
                                 <small>Count</small>
+                            </span>
+                        </a>
+                    </router-link>
+
+                    <router-link :to="{ name: 'calculators.damage.protection' }" tag="li">
+                        <a href="">
+                            <span class="left">
+                                <img :src="image_path_by_name('item', 'great shield')">
+                            </span>
+                            <span class="center">
+                                <span>Damage</span>
+                                <small>Protection</small>
                             </span>
                         </a>
                     </router-link>

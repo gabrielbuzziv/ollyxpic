@@ -99,6 +99,13 @@
                         <i class="mdi mdi-chevron-right"></i>
                     </card>
                 </router-link>
+
+                <router-link :to="{ name: 'calculators.currencies' }" slot="anchor">
+                    <card title="Tibia Currency" subtitle="Stock Exchange">
+                        <img :src="image_path_by_name('item', 'tibia coins')" slot="icon">
+                        <i class="mdi mdi-chevron-right"></i>
+                    </card>
+                </router-link>
             </div>
         </div>
     </page-load>
