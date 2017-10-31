@@ -100,7 +100,7 @@ class TeamHuntController extends Controller
         if ($_SERVER['REMOTE_ADDR'] == $hunt->owner || request()->input('password') == $hunt->password) {
             $password = ['password' => $hunt->password];
 
-            $hunt = Hunts::with('items.data.sells', 'items.data.buys', 'teammates')->find($hunt->id);
+            $hunt = Hunts::with('items.data.sells.npc', 'items.data.buys.npc', 'teammates')->find($hunt->id);
 
             return $this->respond(array_merge(
                 $hunt->toArray(),

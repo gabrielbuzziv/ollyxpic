@@ -132,19 +132,18 @@
                                     <el-popover class="block" placement="right" v-if="item.data.sells && item.data.sells.length"
                                                 trigger="hover">
                                         <div class="npc-popover">
-                                            <el-tooltip placement="top" v-for="seller in item.data.sells"
-                                                        :key="seller.id">
+                                            <el-tooltip placement="top" v-for="sell in item.data.sells"
+                                                        :key="sell.id">
                                                 <template slot="content">
                                                     <div class="npc-details">
                                                         <ul>
-                                                            <li><pre>{{ seller }}</pre></li>
-                                                            <li>Name: {{ seller.name }}</li>
-                                                            <!--<li>Live in: {{ seller.city.capitalize() }}</li>-->
-                                                            <li>Job: {{ seller.job }}</li>
+                                                            <li>Name: {{ sell.npc.name }}</li>
+                                                            <li>Live in: {{ sell.npc.city.capitalize() }}</li>
+                                                            <li>Job: {{ sell.npc.job }}</li>
                                                         </ul>
                                                     </div>
                                                 </template>
-                                                <img :src="image_path('npc', seller.id)" class="cursor-inspect">
+                                                <img :src="image_path('npc', sell.npc.id)" class="cursor-inspect">
                                             </el-tooltip>
                                         </div>
 
