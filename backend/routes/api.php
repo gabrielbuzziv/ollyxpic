@@ -64,6 +64,12 @@ Route::get('categories', 'CategoryController@usables');
 Route::get('items/{category}', 'ItemController@usables');
 
 /**
+ * WorldController routes
+ */
+Route::get('worlds', 'WorldController@index');
+Route::get('worlds/{world}', 'WorldController@show');
+
+/**
  * All the routes in this group will need to send a Header
  * Authorization with a valide token, withou this the user will
  * not be authorized to access the route.
@@ -132,4 +138,17 @@ Route::group(['middleware' => 'auth:api', 'prefix' => 'admin'], function () {
     Route::get('imbuements/{imbuement}', 'ImbuementController@show');
     Route::post('imbuements', 'ImbuementController@store');
     Route::patch('imbuements/{imbuement}', 'ImbuementController@update');
+
+    /**
+     * WorldController routes.
+     */
+    Route::get('worlds', 'WorldController@index');
+    Route::get('worlds/{world}', 'WorldController@show');
+    Route::post('worlds', 'WorldController@store');
+    Route::patch('worlds/{world}', 'WorldController@update');
+
+    /**
+     * WorldCurrencyController
+     */
+    Route::post('worlds/{world}/currencies', 'WorldCurrencyController@store');
 });
