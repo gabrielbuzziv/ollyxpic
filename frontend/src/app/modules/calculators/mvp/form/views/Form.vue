@@ -6,11 +6,13 @@
             <span>MVP's</span>
         </page-title>
 
-        <div class="alert alert-warning">
-            <p>Reset the server log when enter in the boss, for a cleaner data</p>
-
-            <p><b>During these bosses the server log contains a lot of spam, this can influence the accuracy of the final results.</b></p>
-        </div>
+	<div class="row">
+	    <div class="col-md-12">
+		<panel>
+	<center><b>This calculator MVP's during warzones, it is recomended to clear server log before starting on a new boss,<br> As the spam can cause the accuracy of the result.</b></center>
+		</panel>
+	    </div>
+	</div>
 
         <form action="" ref="form" @submit.prevent="onSubmit">
             <div class="row">

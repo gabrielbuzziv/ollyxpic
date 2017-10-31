@@ -44,12 +44,12 @@
                     <h3>Calculators</h3>
                 </header>
 
-                <router-link :to="{ name: 'calculators.imbuements' }" slot="anchor">
-                    <card title="Imbuements" subtitle="Waste/Time" dark>
-                        <img :src="image_path_by_name('item', 'silencer claws')" slot="icon">
-                        <i class="mdi mdi-chevron-right"></i>
-                    </card>
-                </router-link>
+                <!--<router-link :to="{ name: 'calculators.imbuements' }" slot="anchor">-->
+                    <!--<card title="Imbuements" subtitle="Waste/Time" dark>-->
+                        <!--<img :src="image_path_by_name('item', 'silencer claws')" slot="icon">-->
+                        <!--<i class="mdi mdi-chevron-right"></i>-->
+                    <!--</card>-->
+                <!--</router-link>-->
 
                 <router-link :to="{ name: 'calculators.loot.count' }" slot="anchor">
                     <card title="Loot" subtitle="Count">
@@ -92,6 +92,21 @@
                 <!--<i class="mdi mdi-chevron-right"></i>-->
                 <!--</card>-->
                 <!--</router-link>-->
+
+                <router-link :to="{ name: 'calculators.expshare' }" slot="anchor">
+                    <card title="Exp" subtitle="Share">
+                        <img :src="image_path_by_name('item', 'purple tome')" slot="icon">
+                        <i class="mdi mdi-chevron-right"></i>
+                    </card>
+                </router-link>
+
+                <router-link :to="{ name: 'calculators.capcount' }" slot="anchor">
+                    <card title="Cap" subtitle="Count">
+                        <img :src="image_path_by_name('item', 'blossom bag')" slot="icon">
+                        <i class="mdi mdi-chevron-right"></i>
+                    </card>
+                </router-link>
+
             </div>
         </div>
     </page-load>

@@ -1,12 +1,21 @@
 <template>
     <page-load id="blessings">
         <page-title>
-            <img :src="image_path('item', 1922)" alt="">
+            <img :src="image_path_by_name('item', 'spiritual charm')" alt="" class="margin-right-5">
             Blessing
             <span>Penalty</span>
         </page-title>
 
         <div class="row">
+
+
+	    <div class="col-md-12">
+		<panel>
+	<center><b>This calculator shows you how much experience you will loose with blessings.</b></center>
+		</panel>
+	    </div>
+
+
             <div class="col-md-12">
                 <panel class="form">
                     <div class="row">

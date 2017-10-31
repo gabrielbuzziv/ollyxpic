@@ -1,10 +1,16 @@
 <template>
     <page-load id="speedboost">
         <page-title>
-            <img :src="image_path('item', 1)" class="margin-right-5">
+	    <img :src="image_path_by_name('item', 'boots of haste')" alt="" class="margin-right-5">
             Speed
             <span class="margin-left-45">Boost</span>
         </page-title>
+
+	    <div class="col-md-12">
+		<panel>
+	<center><b>This calculator shows you when you will get a speed-boost at various tiles.</b></center>
+		</panel>
+	    </div>
 
         <div class="col-md-12">
             <panel class="form">
