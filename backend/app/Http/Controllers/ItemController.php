@@ -56,8 +56,8 @@ class ItemController extends Controller
             ->get();
 
         return $items->each(function ($item) {
-            $data = Item::firstOrNew(['name' => $item->name]);
-            $data->title = $item->title;
+            $data = Item::firstOrNew(['title' => $item->title]);
+            $data->name = $item->name;
             $data->vendor_value = $item->vendor_value;
             $data->actual_value = $item->actual_value;
             $data->capacity = $item->capacity;
