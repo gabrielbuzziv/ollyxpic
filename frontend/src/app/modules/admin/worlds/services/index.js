@@ -1,6 +1,6 @@
 export default {
-    fetchImbuements () {
-        return window.axios.get(`admin/imbuements`)
+    fetchWorlds () {
+        return window.axios.get(`admin/worlds`)
     },
 
     save (action, data) {
@@ -8,14 +8,14 @@ export default {
     },
 
     find (id) {
-        return window.axios.get(`admin/imbuements/${id}`)
+        return window.axios.get(`admin/worlds/${id}`)
     },
 
     remove (id) {
-        return window.axios.post(`admin/imbuements/${id}`, { _method: 'DELETE' })
+        return window.axios.post(`admin/worlds/${id}`, { _method: 'DELETE' })
     },
 
-    getItems () {
-        return window.axios.get(`admin/items/13`)
-    },
+    addCurrency (id, currency) {
+        return window.axios.post(`admin/worlds/${id}/currencies`, currency)
+    }
 }

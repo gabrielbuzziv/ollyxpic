@@ -6,6 +6,7 @@ import { routes as imbuements } from './imbuements'
 import { routes as damageProtection } from './damage-protection'
 import { routes as mvp } from './mvp'
 import { routes as spellcaster } from './spellcaster'
+import { routes as currency } from './currency'
 
 export default [
     {
@@ -28,4 +29,6 @@ export default [
     ...mvp,
 
     ...spellcaster,
+
+    ...currency,
 ]

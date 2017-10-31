@@ -1,47 +1,56 @@
 <template>
     <page-load>
         <page-title>
-            <img :src="image_path_by_name('item', 'silencer claws')" class="margin-right-10">
-            Imbuements:
-            <span>Manage Imbuements</span>
+            <img :src="image_path_by_name('item', 'globe')" class="margin-right-10">
+            Worlds
+            <span>Edit a World</span>
         </page-title>
 
-        <panel>
-            <imbuement-form :action="`/admin/imbuements/${$route.params.id}`" method="patch" :data="imbuement" v-if="! loading" />
-        </panel>
+        <div class="col-md-4">
+            <panel>
+                <world-form :action="`/admin/worlds/${$route.params.id}`" method="patch" :data="world" v-if="! loading" />
+            </panel>
+        </div>
+
+        <div class="col-md-8">
+            <panel>
+                <world-currencies :world="world" @updated="load"></world-currencies>
+            </panel>
+        </div>
     </page-load>
 </template>
 
 <script>
-    import ImbuementForm from './Form'
+    import WorldForm from './Form'
+    import WorldCurrencies from './Currencies'
     import services from '../services'
 
     export default {
-        components: { ImbuementForm },
+        components: { WorldForm, WorldCurrencies },
 
         data () {
             return {
-                imbuement: {
-                    title: '',
+                world: {
                     name: '',
-                    description: '',
-                    items: [
-                        { item_id: '', imbuement_id: '', tier: 1, amount: '' },
-                        { item_id: '', imbuement_id: '', tier: 2, amount: '' },
-                        { item_id: '', imbuement_id: '', tier: 3, amount: '' },
-                    ]
+                    type: ''
                 },
                 loading: true
             }
         },
 
+        methods: {
+            load () {
+                services.find(this.$route.params.id)
+                    .then(response => {
+                        this.world = response.data
+                        this.loading = false
+                    })
+                    .catch(() => this.loading = false)
+            }
+        },
+
         mounted () {
-            services.find(this.$route.params.id)
-                .then(response => {
-                    this.imbuement = response.data
-                    this.loading = false
-                })
-                .catch(() => this.loading = false)
+            this.load()
         }
     }
 </script>

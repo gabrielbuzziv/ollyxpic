@@ -4,20 +4,20 @@ import Edit from './views/Edit'
 
 export default [
     {
-        path: '/admin/imbuements',
-        name: 'admin.imbuements',
+        path: '/admin/worlds',
+        name: 'admin.worlds',
         component: List,
         meta: { auth: true }
     },
     {
-        path: '/admin/imbuements/create',
-        name: 'admin.imbuements.create',
+        path: '/admin/worlds/create',
+        name: 'admin.worlds.create',
         component: Create,
         meta: { auth: true }
     },
     {
-        path: '/admin/imbuements/:id/edit',
-        name: 'admin.imbuements.edit',
+        path: '/admin/worlds/:id/edit',
+        name: 'admin.worlds.edit',
         component: Edit,
         meta: { auth: true }
     }

@@ -1,34 +1,28 @@
 <template>
     <page-load>
         <page-title>
-            <img :src="image_path_by_name('item', 'silencer claws')" class="margin-right-10">
-            Imbuements
-            <span>Manage Imbuements</span>
+            <img :src="image_path_by_name('item', 'globe')" class="margin-right-10">
+            Worlds
+            <span>Create a new World</span>
         </page-title>
 
         <panel>
-            <imbuement-form action="/admin/imbuements" method="post" :data="imbuement" />
+            <world-form action="/admin/worlds" method="post" :data="world" />
         </panel>
     </page-load>
 </template>
 
 <script>
-    import ImbuementForm from './Form'
+    import WorldForm from './Form'
 
     export default {
-        components: { ImbuementForm },
+        components: { WorldForm },
 
         data () {
             return {
-                imbuement: {
-                    title: '',
+                world: {
                     name: '',
-                    description: '',
-                    items: [
-                        { item_id: '', imbuement_id: '', tier: 1, amount: '' },
-                        { item_id: '', imbuement_id: '', tier: 2, amount: '' },
-                        { item_id: '', imbuement_id: '', tier: 3, amount: '' },
-                    ]
+                    type: ''
                 }
             }
         }

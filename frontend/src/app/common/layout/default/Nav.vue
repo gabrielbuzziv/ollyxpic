@@ -102,6 +102,18 @@
                             </span>
                         </a>
                     </router-link>
+
+                    <router-link :to="{ name: 'calculators.currencies' }" tag="li">
+                        <a href="">
+                            <span class="left">
+                                <img :src="image_path_by_name('item', 'tibia coins')">
+                            </span>
+                            <span class="center">
+                                <span>Tibia Currency</span>
+                                <small>Stock Exchange</small>
+                            </span>
+                        </a>
+                    </router-link>
                 </ul>
             </li>
 
@@ -155,10 +167,6 @@
         </ul>
 
         <ul class="admin-menu" v-if="isLogged">
-            <li class="header">
-                <span>Admin Menu</span>
-            </li>
-
             <router-link :to="{ name: 'admin.news.list' }" tag="li">
                 <a href="#">
                     <i class="mdi mdi-newspaper margin-right-5"></i>
@@ -191,6 +199,13 @@
                 <a href="#">
                     <i class="mdi mdi-washing-machine margin-right-5"></i>
                     Imbuements
+                </a>
+            </router-link>
+
+            <router-link :to="{ name: 'admin.worlds' }" tag="li">
+                <a href="#">
+                    <i class="mdi mdi-earth margin-right-5"></i>
+                    Worlds
                 </a>
             </router-link>
 

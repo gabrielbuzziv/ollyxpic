@@ -4,6 +4,7 @@ import { routes as items } from './items'
 import { routes as syncronizer } from './syncronizer'
 import { routes as categories } from './categories'
 import { routes as imbuements } from './imbuements'
+import { routes as worlds } from './worlds'
 
 export default [
     ...news,
@@ -12,4 +13,5 @@ export default [
     ...syncronizer,
     ...categories,
     ...imbuements,
+    ...worlds,
 ]

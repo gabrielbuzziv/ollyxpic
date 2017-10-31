@@ -1,5 +1,5 @@
-import { routes as form } from './form'
+import { routes as list } from './list'
 
 export default [
-    ...form
+    ...list
 ]
