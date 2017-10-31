@@ -4,6 +4,6 @@ export default {
     },
 
     getItems (id) {
-        return window.axios.get(`categories/${id}/items`)
+        return window.axios.get(`items/${id}`)
     }
 }

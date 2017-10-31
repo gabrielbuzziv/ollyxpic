@@ -8,7 +8,7 @@
                 </router-link>
             </div>
 
-            <img :src="image_path('item', 1291)" class="margin-right-10">
+            <img :src="image_path_by_name('item', 'golden newspaper')" class="margin-right-10">
             News
             <span>Manage news</span>
         </page-title>

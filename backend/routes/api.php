@@ -13,23 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('items', 'ItemsController@index');
-Route::get('items/potions', 'ItemsController@potions');
-Route::get('items/ammunitions', 'ItemsController@ammunitions');
-Route::get('items/runes', 'ItemsController@runes');
-Route::get('items/amulets', 'ItemsController@amulets');
-Route::get('items/rings', 'ItemsController@rings');
-Route::get('items/tiles', 'ItemsController@tiles');
-Route::get('items/search', 'ItemsController@search');
-//Route::get('items/category', 'ItemsController@category');
-//Route::get('items/category', 'ItemsController@saveItemCategory');
 
-
-Route::post('waste/calculate', 'WasteController@calculate');
-Route::get('waste/{waste}', 'WasteController@find');
-
-Route::post('teamhunt/calculate', 'TeamHuntController@calculate');
 Route::get('teamhunt/{hunt}', 'TeamHuntController@find');
+Route::post('teamhunt/calculate', 'TeamHuntController@calculate');
 Route::post('teamhunt/{hunt}/item/{item}', 'TeamHuntController@updateItem');
 Route::post('teamhunt/{hunt}/teammate/{teammate}', 'TeamHuntController@updateTeammate');
 Route::post('teamhunt/{hunt}/sign', 'TeamHuntController@signPassword');
@@ -40,13 +26,14 @@ Route::get('imbuements', 'ImbuementController@index');
 
 Route::post('contact', 'PageController@sendContact');
 
-//Route::get('properties', 'ItemPropsController@setProperties');
-
 Route::get('mvp/{mvp}', 'MVPController@show');
 Route::post('mvp', 'MVPController@calculate');
 
-Route::get('creatures/search', 'CreatureController@search');
-Route::get('creatures/{creature}', 'CreatureController@find');
+/**
+ * CreatureController routes.
+ */
+Route::get('creatures', 'CreatureController@index');
+Route::get('creatures/{creature}', 'CreatureController@show');
 
 /**
  * Authentication routes.
@@ -67,22 +54,64 @@ Route::get('news/list', 'PostController@newsList');
 Route::get('change-log', 'ChangeController@getChanges');
 
 /**
- * CategoriesController
+ * CategoryController
  */
-Route::get('categories', 'CategoriesController@index');
-Route::get('categories/{category}/items', 'CategoriesController@items');
+Route::get('categories', 'CategoryController@usables');
+
+/**
+ * ItemController
+ */
+Route::get('items/{category}', 'ItemController@usables');
+
+/**
+ * WorldController routes
+ */
+Route::get('worlds', 'WorldController@index');
+Route::get('worlds/{world}', 'WorldController@show');
 
 /**
  * All the routes in this group will need to send a Header
  * Authorization with a valide token, withou this the user will
  * not be authorized to access the route.
  */
-Route::group(['middleware' => 'auth:api'], function () {
+Route::group(['middleware' => 'auth:api', 'prefix' => 'admin'], function () {
     
     /**
      * AuthController routes.
      */
     Route::post('auth/user', 'AuthController@getAuthenticatedUser');
+
+    /**
+     * CategoryController routes.
+     */
+    Route::get('categories', 'CategoryController@index');
+    Route::get('categories/{category}/show', 'CategoryController@show');
+    Route::get('categories/{category}/usable', 'CategoryController@toggleUsable');
+    Route::patch('categories/{category}', 'CategoryController@update');
+    Route::post('categories/sync', 'CategoryController@syncronize');
+
+    /**
+     * ItemController routes.
+     */
+    Route::get('items/{category}', 'ItemController@index');
+    Route::get('items/{item}/show', 'ItemController@show');
+    Route::get('items/{item}/usable', 'ItemController@toggleUsable');
+    Route::post('items/sync', 'ItemController@syncronize');
+
+    /**
+     * ItemController routes.
+     */
+    Route::post('npcs/sync', 'NPCController@syncronize');
+
+    /**
+     * CreatureController routes.
+     */
+    Route::post('creatures/sync', 'CreatureController@syncronize');
+
+    /**
+     * TileController routes.
+     */
+    Route::post('tiles/sync', 'TileController@syncronize');
 
     /**
      * NewsController routes
@@ -103,8 +132,23 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::delete('changes/{change}', 'ChangeController@destroy');
 
     /**
-     * DamageProtection routes
+     * ImbuementController routes.
      */
-    Route::get('admin/damage-protection/items', 'DamageProtectionController@itemsByCategory');
-    Route::post('admin/damage-protection/toggle/{item}/{category}', 'DamageProtectionController@syncItemCategory');
+    Route::get('imbuements', 'ImbuementController@index');
+    Route::get('imbuements/{imbuement}', 'ImbuementController@show');
+    Route::post('imbuements', 'ImbuementController@store');
+    Route::patch('imbuements/{imbuement}', 'ImbuementController@update');
+
+    /**
+     * WorldController routes.
+     */
+    Route::get('worlds', 'WorldController@index');
+    Route::get('worlds/{world}', 'WorldController@show');
+    Route::post('worlds', 'WorldController@store');
+    Route::patch('worlds/{world}', 'WorldController@update');
+
+    /**
+     * WorldCurrencyController
+     */
+    Route::post('worlds/{world}/currencies', 'WorldCurrencyController@store');
 });

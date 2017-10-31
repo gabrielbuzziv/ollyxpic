@@ -99,7 +99,7 @@ class PostController extends ApiController
             ->latest()
             ->first();
 
-        return $this->respond($post->toArray());
+        return $this->respond($post ? $post->toArray() : []);
     }
 
     /**

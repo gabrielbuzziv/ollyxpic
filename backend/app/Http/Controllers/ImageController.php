@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Creature;
 use App\Helper\GifCreator;
 use App\Helper\GifFrameExtractor;
-use App\Items;
+use App\Item;
 use App\NPC;
 use App\Spells;
 use App\WorldMap;
@@ -73,7 +73,7 @@ class ImageController extends Controller
      */
     public function stackables()
     {
-        $items = Items::where('stackable', true)->get();
+        $items = Item::where('stackable', true)->get();
 
         foreach ($items as $item) {
             $filename = str_slug($item->title);
@@ -120,7 +120,7 @@ class ImageController extends Controller
             case 'npc':
                 return NPC::find($id)->image;
             case 'item':
-                return Items::find($id)->image;
+                return Item::find($id)->image;
             case 'object':
                 return WorldObject::find($id)->image;
             case 'spell':
@@ -145,7 +145,7 @@ class ImageController extends Controller
             case 'npc':
                 return NPC::where('name', $name)->first->image;
             case 'item':
-                return Items::where('name', $name)->first()->image;
+                return Item::where('name', $name)->first()->image;
             case 'spell':
                 return Spells::where('name', $name)->first()->image;
             case 'creature':

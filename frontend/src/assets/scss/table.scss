@@ -89,9 +89,16 @@ table {
         thead {
             tr {
                 th {
-                    padding: 12px 8px;
-                    background: #444;
-                    color: #fff;
+                    padding: 12px;
+                    background: #eee;
+                    color: #444;
+                    vertical-align: middle;
+
+                    small {
+                        display: block;
+                        font-size: 10px;
+                        font-weight: 300;
+                    }
 
                     &:first-child {
                         border-top-left-radius: $border-radius-base;
@@ -107,6 +114,7 @@ table {
         tbody {
             tr {
                 td {
+                    padding: 12px;
                     vertical-align: middle;
                 }
             }

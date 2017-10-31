@@ -12,7 +12,7 @@ export default {
     },
 
     'global/FETCH_USER' (context) {
-        return window.axios.post(`/auth/user`)
+        return window.axios.post(`/admin/auth/user`)
             .then(response => {
                 context.commit('global/TOKEN', response.data.token)
                 context.commit('global/USER', response.data.user)

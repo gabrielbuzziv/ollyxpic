@@ -1,7 +1,7 @@
 <template>
     <page-load id="news">
         <page-title>
-            <img :src="image_path('item', 1291)" class="margin-right-10">
+            <img :src="image_path_by_name('item', 'golden newspaper')" class="margin-right-10">
             News
             <span>All about Tibia</span>
         </page-title>

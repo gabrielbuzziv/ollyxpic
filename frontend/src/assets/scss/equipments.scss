@@ -15,12 +15,19 @@
             margin: 5px;
             min-height: 32px;
             min-width: 32px;
-            cursor: move;
+            cursor: pointer;
+
+            &.active {
+                img {
+                    opacity: 1;
+                }
+            }
 
             img {
                 min-height: 32px;
                 min-width: 32px;
                 display: block;
+                opacity: 0.7;
             }
         }
     }

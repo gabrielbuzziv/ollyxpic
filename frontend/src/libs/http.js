@@ -24,11 +24,10 @@ window.axios.interceptors.request.use(config => {
             return window.axios.get(`/auth/token`)
                 .then(response => {
                     store.commit('global/TOKEN', response.data.token)
-                    config.headers.Authorization = `Bearer ${response.data.token}`
+                    config.headers.Authorization = `Bearer ${localStorage.getItem('auth_token')}`
                     return config
                 })
         }
-
         config.headers.Authorization = `Bearer ${localStorage.getItem('auth_token')}`
         return config
     }

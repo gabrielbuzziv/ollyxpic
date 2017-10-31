@@ -1,9 +1,17 @@
 import { routes as news } from './news'
 import { routes as changes } from './changes'
-import { routes as damageProtection } from './damage-protection'
+import { routes as items } from './items'
+import { routes as syncronizer } from './syncronizer'
+import { routes as categories } from './categories'
+import { routes as imbuements } from './imbuements'
+import { routes as worlds } from './worlds'
 
 export default [
     ...news,
     ...changes,
-    ...damageProtection
+    ...items,
+    ...syncronizer,
+    ...categories,
+    ...imbuements,
+    ...worlds,
 ]

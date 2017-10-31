@@ -1,13 +1,13 @@
 <template>
     <page-load>
         <page-title>
-            <img :src="image_path('item', 1291)" class="margin-right-10">
+            <img :src="image_path_by_name('item', 'golden newspaper')" class="margin-right-10">
             News: {{ post.title }}
             <span>Edit post</span>
         </page-title>
 
         <panel>
-            <news-form :action="`/posts/${$route.params.id}`" method="patch" :data="post" v-if="! loading" />
+            <news-form :action="`/admin/posts/${$route.params.id}`" method="patch" :data="post" v-if="! loading" />
         </panel>
     </page-load>
 </template>

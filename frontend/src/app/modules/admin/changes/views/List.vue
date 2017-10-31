@@ -8,7 +8,7 @@
                 </router-link>
             </div>
 
-            <img :src="image_path('item', 357)" class="margin-right-10">
+            <img :src="image_path_by_name('item', 'scroll of heroic deeds')" class="margin-right-10">
             Change Log
             <span>Manage changes</span>
         </page-title>

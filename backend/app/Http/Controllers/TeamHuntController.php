@@ -7,7 +7,7 @@ use App\Helper\Helper;
 use App\HuntItems;
 use App\Hunts;
 use App\HuntTeammates;
-use App\Items;
+use App\Item;
 use \App\Helper\GifFrameExtractor;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -99,6 +99,8 @@ class TeamHuntController extends Controller
     {
         if ($_SERVER['REMOTE_ADDR'] == $hunt->owner || request()->input('password') == $hunt->password) {
             $password = ['password' => $hunt->password];
+
+            $hunt = Hunts::with('items.data.sells.npc', 'items.data.buys.npc', 'teammates')->find($hunt->id);
 
             return $this->respond(array_merge(
                 $hunt->toArray(),
@@ -502,12 +504,12 @@ class TeamHuntController extends Controller
                 if ($item != 'nothing') {
                     $name = $this->getItemName($item);
 
-                    if (! Items::where('name', $name)->first()) {
+                    if (! Item::where('name', $name)->first()) {
                         $this->error[] = $name;
 
                     } else {
                         if (! isset($items[$name])) {
-                            $items[$name] = ['quantity' => 0, 'data' => Items::where('name', $name)->first()->toArray()];
+                            $items[$name] = ['quantity' => 0, 'data' => Item::where('name', $name)->first()->toArray()];
                         }
 
                         $items[$name]['quantity'] = $items[$name]['quantity'] + $this->getItemQuantity($item);
@@ -550,7 +552,7 @@ class TeamHuntController extends Controller
                 $amount = (int) filter_var($name, FILTER_SANITIZE_NUMBER_INT);
 
                 $name = $this->getItemName($name);
-                $item = Items::where('name', 'like', "%{$name}%")->first();
+                $item = Item::where('name', 'like', "%{$name}%")->first();
 
                 if (! $item) {
                     $this->error[] = $name;

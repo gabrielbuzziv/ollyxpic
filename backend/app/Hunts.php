@@ -25,13 +25,6 @@ class Hunts extends Model
     ];
 
     /**
-     * Return the collection with relationships.
-     *
-     * @var array
-     */
-    protected $with = ['items', 'teammates'];
-
-    /**
      * Attribute that will not be shown in collection.
      *
      * @var array

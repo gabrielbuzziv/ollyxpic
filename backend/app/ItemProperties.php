@@ -8,16 +8,26 @@ class ItemProperties extends Model
 {
 
     /**
-     * Database connection.
+     * Attributes that can be assign.
      *
-     * @var string
+     * @var array
      */
-    protected $connection = 'sqlite';
+    protected $fillable = ['item_id', 'property', 'value'];
 
     /**
-     * Table name.
+     * Disable timestamps.
      *
-     * @var string
+     * @var bool
      */
-    protected $table = 'ItemProperties';
+    public $timestamps = false;
+
+    /**
+     * A item property belongs to an item.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function item()
+    {
+        return $this->belongsTo(Item::class);
+    }
 }

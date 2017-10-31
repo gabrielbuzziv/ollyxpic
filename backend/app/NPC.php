@@ -8,34 +8,49 @@ class NPC extends Model
 {
 
     /**
-     * Database connection.
+     * Database table name.
      *
      * @var string
      */
-    protected $connection = 'sqlite';
+    protected $table = 'npcs';
 
     /**
-     * Table name.
+     * Attributes that can be assign.
      *
-     * @var string
+     * @var array
      */
-    protected $table = 'NPCs';
+    protected $fillable = [
+        'title',
+        'name',
+        'city',
+        'job',
+        'x',
+        'y',
+        'z',
+        'image'
+    ];
 
     /**
-     * The attributes that is hidden in collection.
+     * Hidden attributes.
      *
      * @var array
      */
     protected $hidden = ['image'];
 
     /**
-     * Items the NPC Sell
+     * Disable timestamps;
      *
-     * @return $this
+     * @var bool
      */
+    public $timestamps = false;
+
     public function sells()
     {
-        return $this->belongsToMany(Items::class, 'SellItems', 'vendorid', 'itemid')->withPivot('value');
+        // Items that he sells
     }
-    
+
+    public function buys()
+    {
+        // Items that he buys.
+    }
 }

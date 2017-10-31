@@ -27,28 +27,11 @@ class HuntItems extends Model
     ];
 
     /**
-     * Attributes appended in collection.
-     *
-     * @var array
-     */
-    protected $appends = ['data'];
-
-    /**
      * Disabled timestamps.
      *
      * @var bool
      */
     public $timestamps = false;
-
-    /**
-     * Get item object
-     *
-     * @return mixed
-     */
-    public function getDataAttribute()
-    {
-        return Items::find($this->item_id);
-    }
 
     /**
      * A item belongs to a hunt.
@@ -58,5 +41,15 @@ class HuntItems extends Model
     public function hunt()
     {
         return $this->belongsTo(Hunts::class);
+    }
+
+    /**
+     * Items
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function data()
+    {
+        return $this->hasOne(Item::class, 'id', 'item_id');
     }
 }

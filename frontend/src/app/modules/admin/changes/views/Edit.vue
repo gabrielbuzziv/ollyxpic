@@ -1,13 +1,13 @@
 <template>
     <page-load>
         <page-title>
-            <img :src="image_path('item', 357)" class="margin-right-10">
+            <img :src="image_path_by_name('item', 'scroll of heroic deeds')" class="margin-right-10">
             Changes: {{ change.title }}
             <span>Edit change</span>
         </page-title>
 
         <panel>
-            <changes-form :action="`/changes/${$route.params.id}`" method="patch" :data="change" v-if="! loading" />
+            <changes-form :action="`/admin/changes/${$route.params.id}`" method="patch" :data="change" v-if="! loading" />
         </panel>
     </page-load>
 </template>

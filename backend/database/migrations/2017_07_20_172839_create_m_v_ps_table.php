@@ -17,6 +17,7 @@ class CreateMVPsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->longText('log');
+            $table->string('boss');
             $table->timestamps();
         });
     }
