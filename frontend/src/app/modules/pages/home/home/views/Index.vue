@@ -1,10 +1,5 @@
 <template>
     <page-load id="home">
-        <div class="alert alert-warning">
-            We are looking for tips about new calculators to Ollyxpic, Look <a
-                href="http://ollyxpic.com/#/news/5">here</a>.
-        </div>
-
         <div class="row">
             <div class="col-md-9 news">
                 <header>
@@ -43,6 +38,13 @@
                 <header>
                     <h3>Calculators</h3>
                 </header>
+
+                <router-link :to="{ name: 'calculators.imbuements' }" slot="anchor">
+                    <card title="Imbuements" subtitle="Waste/Time">
+                        <img :src="image_path_by_name('item', 'silencer claw')" slot="icon">
+                        <i class="mdi mdi-chevron-right"></i>
+                    </card>
+                </router-link>
 
                 <router-link :to="{ name: 'calculators.loot.count' }" slot="anchor">
                     <card title="Loot" subtitle="Count">

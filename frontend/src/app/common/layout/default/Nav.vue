@@ -19,17 +19,17 @@
 
                 <ul>
 
-                    <!--<router-link :to="{ name: 'calculators.imbuements' }" tag="li">-->
-                        <!--<a href="">-->
-                            <!--<span class="left">-->
-                                <!--<img :src="image_path_by_name('item', 'silencer claws')">-->
-                            <!--</span>-->
-                            <!--<span class="center">-->
-                                <!--<span>Imbuements</span>-->
-                                <!--<small>Waste/Time</small>-->
-                            <!--</span>-->
-                        <!--</a>-->
-                    <!--</router-link>-->
+                    <router-link :to="{ name: 'calculators.imbuements' }" tag="li">
+                        <a href="">
+                            <span class="left">
+                                <img :src="image_path_by_name('item', 'silencer claws')">
+                            </span>
+                            <span class="center">
+                                <span>Imbuements</span>
+                                <small>Waste/Time</small>
+                            </span>
+                        </a>
+                    </router-link>
 
                     <router-link :to="{ name: 'calculators.loot.count' }" tag="li">
                         <a href="">
