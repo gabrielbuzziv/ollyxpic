@@ -12,6 +12,10 @@
             <div class="container">
                 <p class="ollyxpic">
 				<a href="http://ollyxpic.com">OllyxPic.com</a> &copy; 2017. All rights reserved.</p>
+                <p>
+                    We would like to thanks <a href="http://tibia.wikia.com">Tibia Wikia</a> to
+                    provide us tibia content.
+                </p>
                 <p class="tibia">
                     Please note that the only official website is <a href="http://www.tibia.com" target="_blank">www.tibia.com</a>
                     and from there part of statistical information as well as creature and item graphic info is gathered.
