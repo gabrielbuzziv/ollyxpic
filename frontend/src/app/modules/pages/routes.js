@@ -3,6 +3,9 @@ import { routes as contact } from './contact'
 import { routes as news } from './news'
 import { routes as changelog } from './changelog'
 import { routes as partners } from './partners'
+import { routes as tibiabosses } from './tibiabosses'
+
+
 
 export default [
     ...home,
@@ -10,4 +13,5 @@ export default [
 	...news,
 	...changelog,
 	...partners,
+	...tibiabosses,
 ]

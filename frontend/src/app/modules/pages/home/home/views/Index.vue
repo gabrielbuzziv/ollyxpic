@@ -41,7 +41,7 @@
 
                 <router-link :to="{ name: 'calculators.imbuements' }" slot="anchor">
                     <card title="Imbuements" subtitle="Waste/Time">
-                        <img :src="image_path_by_name('item', 'silencer claw')" slot="icon">
+                        <img :src="image_path_by_name('item', 'silencer claws')" slot="icon">
                         <i class="mdi mdi-chevron-right"></i>
                     </card>
                 </router-link>
