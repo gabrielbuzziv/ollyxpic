@@ -20,7 +20,7 @@
                 Save <span v-if="submiting">...</span>
             </button>
 
-            <router-link :to="{ name: 'admin.worlds.list' }" class="btn btn-blank">
+            <router-link :to="{ name: 'admin.worlds' }" class="btn btn-blank">
                 Cancel
             </router-link>
         </div>

@@ -1,6 +1,12 @@
 <template>
     <page-load>
         <page-title>
+            <div class="pull-right">
+                <router-link :to="{ name: 'admin.worlds' }" class="btn btn-default">
+                    <i class="mdi mdi-arrow-left"></i>
+                </router-link>
+            </div>
+
             <img :src="image_path_by_name('item', 'globe')" class="margin-right-10">
             Worlds
             <span>Create a new World</span>

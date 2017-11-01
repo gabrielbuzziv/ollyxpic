@@ -1,6 +1,12 @@
 <template>
     <page-load>
         <page-title>
+            <div class="pull-right">
+                <router-link :to="{ name: 'admin.imbuements' }" class="btn btn-default">
+                    <i class="mdi mdi-arrow-left"></i>
+                </router-link>
+            </div>
+
             <img :src="image_path_by_name('item', 'silencer claws')" class="margin-right-10">
             Imbuements:
             <span>Manage Imbuements</span>

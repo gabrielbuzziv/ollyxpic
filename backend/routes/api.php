@@ -97,6 +97,7 @@ Route::group(['middleware' => 'auth:api', 'prefix' => 'admin'], function () {
     Route::get('items/{item}/show', 'ItemController@show');
     Route::get('items/{item}/usable', 'ItemController@toggleUsable');
     Route::post('items/sync', 'ItemController@syncronize');
+    Route::delete('items/{item}', 'ItemController@destroy');
 
     /**
      * ItemController routes.
@@ -151,4 +152,6 @@ Route::group(['middleware' => 'auth:api', 'prefix' => 'admin'], function () {
      * WorldCurrencyController
      */
     Route::post('worlds/{world}/currencies', 'WorldCurrencyController@store');
+    Route::patch('worlds/currencies/{currency}', 'WorldCurrencyController@update');
+    Route::delete('worlds/currencies/{currency}', 'WorldCurrencyController@destroy');
 });

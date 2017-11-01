@@ -56,8 +56,7 @@ class ItemController extends Controller
             ->get();
 
         return $items->each(function ($item) {
-            $data = Item::firstOrNew(['title' => $item->title]);
-            $data->name = $item->name;
+            $data = Item::firstOrNew(['title' => $item->title, 'name' => $item->name]);
             $data->vendor_value = $item->vendor_value;
             $data->actual_value = $item->actual_value;
             $data->capacity = $item->capacity;
@@ -122,6 +121,19 @@ class ItemController extends Controller
     }
 
     /**
+     * Delete items
+     *
+     * @param Item $item
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function destroy(Item $item)
+    {
+        $item->delete();
+
+        return $this->respond(['removed' => true]);
+    }
+
+    /**
      * Get all items from category.
      *
      * @param Category $category
@@ -163,12 +175,14 @@ class ItemController extends Controller
             if ($this->isValidProperty($property)) {
                 $default[] = [
                     'property' => $this->getProperty($property)->description,
-                    'value'       => $this->getProperty($property)->value
+                    'value'    => $this->getProperty($property)->value
                 ];
             }
         }
+
         return $default;
     }
+
     /**
      * Get level prop.
      *
@@ -186,11 +200,13 @@ class ItemController extends Controller
             }
             $props[] = [
                 'property' => 'level',
-                'value' => (int) filter_var($matches[0], FILTER_SANITIZE_NUMBER_INT)
+                'value'    => (int) filter_var($matches[0], FILTER_SANITIZE_NUMBER_INT)
             ];
         }
+
         return $props;
     }
+
     /**
      * Is Valid Property
      *
@@ -204,8 +220,10 @@ class ItemController extends Controller
                 return $type;
             }
         }
+
         return false;
     }
+
     /**
      * Get property type.
      *
@@ -216,17 +234,19 @@ class ItemController extends Controller
     {
         $prop = [
             'description' => '',
-            'value' => ''
+            'value'       => ''
         ];
         $prop['description'] = $this->isValidProperty($property);
         $value = (int) filter_var($property, FILTER_SANITIZE_NUMBER_INT);
-        if (substr($property, -1) == '%') {
+        if (substr($property, - 1) == '%') {
             $prop['value'] = $value / 100;
         } else {
             $prop['value'] = $value;
         }
+
         return (object) $prop;
     }
+
     /**
      * Get text between 2 strings.
      *
@@ -243,7 +263,8 @@ class ItemController extends Controller
         if ($dd == 0) {
             $dd = strlen($result);
         }
+
         return substr($result, 0, $dd);
     }
-    
+
 }

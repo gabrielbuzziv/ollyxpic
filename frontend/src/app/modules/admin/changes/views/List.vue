@@ -30,16 +30,12 @@
                     <td>{{ change.author.name }}</td>
                     <td>{{ change.created_at }}</td>
                     <td class="text-right">
-                        <button class="btn btn-sm">
-                            <i class="mdi mdi-eye"></i>
-                        </button>
-
-                        <router-link :to="{ name: 'admin.changes.edit', params: { id: change.id } }" class="btn btn-sm"
+                        <router-link :to="{ name: 'admin.changes.edit', params: { id: change.id } }" class="btn btn-xs"
                                      tag="button">
                             <i class="mdi mdi-pencil"></i>
                         </router-link>
 
-                        <button class="btn btn-sm" @click.prevent="remove(change)">
+                        <button class="btn btn-xs" @click.prevent="remove(change)">
                             <i class="mdi mdi-delete"></i>
                         </button>
                     </td>

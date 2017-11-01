@@ -1,11 +1,11 @@
 <template>
     <tbody>
         <tr>
-            <td @click.prevent="toggleDetails">
+            <td>
                 <img :src="image_path('item', item.id)" alt="">
             </td>
 
-            <td @click.prevent="toggleDetails">
+            <td>
                 {{ item.title }}
             </td>
 
@@ -13,8 +13,13 @@
                 <el-checkbox :checked="!! item.usable" @change="toggleUsable"></el-checkbox>
             </td>
 
-            <td class="text-right" @click.prevent="toggleDetails">
-                <button class="btn btn-xs">
+            <td class="text-right">
+                <button class="btn btn-xs" @click.prevente="remove">
+                    <i class="mdi mdi-delete margin-right-5"></i>
+                    Remove
+                </button>
+
+                <button class="btn btn-xs" @click.prevent="toggleDetails">
                     <i class="mdi mdi-chevron-up" v-if="showDetails"></i>
                     <i class="mdi mdi-chevron-down" v-else></i>
                 </button>
@@ -86,6 +91,8 @@
 </template>
 
 <script>
+    import services from '../../services'
+
     export default {
         props: ['item'],
 
@@ -127,6 +134,20 @@
                 }
 
                 return property.value
+            },
+
+            remove () {
+                this.$confirm(`If you remove this item, will not be recoverable.`, 'Are you sure about this?', {
+                    cancelButtonText: 'Cancel',
+                    confirmButtonText: 'Yes, remove it',
+                    type: 'error',
+                }).then(() => {
+                    services.remove(this.item.id)
+                        .then(() => {
+                            this.$message.success(`The item ${this.item.title} has been removed.`)
+                            this.$emit('updated')
+                        })
+                })
             }
         }
     }

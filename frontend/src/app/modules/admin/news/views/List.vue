@@ -30,16 +30,12 @@
                     <td>{{ post.author.name }}</td>
                     <td>{{ post.created_at }}</td>
                     <td class="text-right">
-                        <button class="btn btn-sm">
-                            <i class="mdi mdi-eye"></i>
-                        </button>
-
-                        <router-link :to="{ name: 'admin.news.edit', params: { id: post.id } }" class="btn btn-sm"
+                        <router-link :to="{ name: 'admin.news.edit', params: { id: post.id } }" class="btn btn-xs"
                                      tag="button">
                             <i class="mdi mdi-pencil"></i>
                         </router-link>
 
-                        <button class="btn btn-sm" @click.prevent="remove(post)">
+                        <button class="btn btn-xs" @click.prevent="remove(post)">
                             <i class="mdi mdi-delete"></i>
                         </button>
                     </td>

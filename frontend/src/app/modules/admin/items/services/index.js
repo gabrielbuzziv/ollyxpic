@@ -9,5 +9,9 @@ export default {
 
     toggleUsable (id) {
         return window.axios.get(`admin/items/${id}/usable`)
+    },
+
+    remove (id) {
+        return window.axios.post(`admin/items/${id}`, { _method: 'delete' })
     }
 }

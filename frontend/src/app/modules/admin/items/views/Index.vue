@@ -37,7 +37,7 @@
                                 </tr>
                             </thead>
 
-                            <item :item="item" v-for="item in items" :key="item.id"></item>
+                            <item :item="item" v-for="item in items" :key="item.id" @updated="load"></item>
                         </table>
                     </page-load>
                 </panel>
@@ -71,6 +71,10 @@
         },
 
         methods: {
+            load () {
+                this.setCategory(this.category)
+            },
+
             setCategory (category) {
                 this.category = category
                 this.loadingItems = true
@@ -81,7 +85,7 @@
                     .catch(() => {
                         this.loadingItems = false
                     })
-            }
+            },
         },
 
         mounted () {

@@ -1,6 +1,12 @@
 <template>
     <page-load>
         <page-title>
+            <div class="pull-right">
+                <router-link :to="{ name: 'admin.news.list' }" class="btn btn-default">
+                    <i class="mdi mdi-arrow-left"></i>
+                </router-link>
+            </div>
+
             <img :src="image_path_by_name('item', 'golden newspaper')" class="margin-right-10">
             News
             <span>Add a new post</span>
