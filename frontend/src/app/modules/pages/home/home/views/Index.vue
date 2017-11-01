@@ -129,7 +129,7 @@
         methods: {
             load () {
                 services.getPost()
-                    .then(response => response.data.length ? this.post = response.data : '')
+                    .then(response => response.data.id ? this.post = response.data : '')
             },
 
             getDateForHuman (date) {
