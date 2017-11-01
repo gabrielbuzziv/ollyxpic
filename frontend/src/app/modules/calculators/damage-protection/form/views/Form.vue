@@ -12,7 +12,7 @@
                     <div class="equips">
                         <div :class="['equip', index, slot.id ? 'active' : '']" v-for="slot, index in slots">
                             <div class="item" v-if="slot.id">
-                                <img :src="image_path('item', slot.id)">
+                                <img :src="image_path('item', slot.id)" @click.prenvet="onRemove(index)" title="Click to remove">
                             </div>
                         </div>
                     </div>
@@ -35,8 +35,8 @@
                          :class="{ 'active': isActiveItem(item, category.slot) }"
                          v-for="item in items"
                          :key="item.id">
+
                         <img :src="image_path('item', item.id)"
-                             slot="reference"
                              @click.prevent="onSelect(item, category.slot)">
                     </div>
                 </tab-content>
@@ -175,6 +175,10 @@
                 this.slots[slot] = item
             },
 
+            onRemove (slot) {
+                this.slots[slot] = {}
+            },
+
             isActiveItem (item, slot) {
                 return item == this.slots[slot] ? true : false
             },
@@ -204,6 +208,33 @@
                     ? (100 - this.getProperties(damage).reduce((carry, property) => carry - (carry * parseFloat(property.value)), 100)).formatMoney(2, '.', '.')
                     : 0
             },
+
+            getPropValue (property) {
+                const percentage = [
+                    'hit'
+                ]
+                const percentageMultiple = [
+                    'earth',
+                    'fire',
+                    'protection death',
+                    'protection physical',
+                    'ice',
+                    'holy',
+                    'energy',
+                    'life drain'
+                ]
+
+                if (percentage.indexOf(property.property) > - 1) {
+                    return `${property.value} %`
+                }
+
+                if (percentageMultiple.indexOf(property.property) > - 1) {
+                    const value = property.value * 100
+                    return `${value} %`
+                }
+
+                return property.value
+            }
         },
 
         mounted () {
