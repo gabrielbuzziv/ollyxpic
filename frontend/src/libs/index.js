@@ -6,6 +6,7 @@ import './elements'
 import './draggable'
 import './wysiwyg'
 import './disqus'
+import './analytics'
 
 import moment from 'moment'
 import 'moment-timezone';
