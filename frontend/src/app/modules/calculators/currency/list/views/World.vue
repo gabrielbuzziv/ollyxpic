@@ -48,7 +48,7 @@
             </span>
         </panel>
 
-        <panel>
+        <panel v-if="world.currencies && world.currencies.length > 1">
             <table class="table margin-bottom-0">
                 <thead>
                     <tr>
@@ -97,6 +97,7 @@
                     xAxis: {
                         categories: this.world.currencies && this.world.currencies.length ? this.world.currencies.map(currency => currency.created_at).reverse() : [],
                         crosshair: true,
+                        labels: { enabled: false }
                     },
                     yAxis: { min: 0, title: { text: '' } },
                     series: [
@@ -125,7 +126,7 @@
             },
 
             compareLastTwoCurrencies (currency) {
-                if (this.world.currencies.length > 1) {
+                if (this.world.currencies && this.world.currencies.length > 1) {
                     const last = this.world.currencies[0]
                     const penult = this.world.currencies[1]
 
