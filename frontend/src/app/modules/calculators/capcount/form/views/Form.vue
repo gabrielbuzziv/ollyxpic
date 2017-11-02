@@ -71,10 +71,15 @@
 				</div>
 			</div>
 
+
+
 		</panel>
 
 		<panel class="shareexp" v-if="capcalc">
-			<center>You will get <b>{{ capcalc.toFixed() }}</b> extra cap from this imbuement.</center>
+			<center>Base cap : <b>{{ voccalc.toFixed() }}</b></center>
+			<center>Bonus cap : <b>{{ capcalc.toFixed() }}</b></center>
+			<center>Total cap: <b>{{ totalcap.toFixed() }}</b></center>
+			
 		</panel>
 	</div>
 	</div>
@@ -87,6 +92,7 @@
 export default {
     data () {
 	return {
+		total: '',
 		capperc: '',
 		level: '',
 		voc: '',
@@ -123,6 +129,19 @@ computed: {
 				case 7:
 				   return (this.voccalc * 0.12)
 	  				}
+			},
+		totalcap() {
+			const voc = parseInt(this.voc)
+			switch (voc) {
+				case 1:
+				   return (this.capcalc + this.voccalc)
+				case 2:
+				   return (this.capcalc + this.voccalc)
+				case 3:
+				   return (this.capcalc + this.voccalc)
+				case 4:
+				   return (this.capcalc + this.voccalc)
+				       }
 			}
 
 	}
