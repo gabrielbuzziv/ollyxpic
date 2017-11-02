@@ -65,7 +65,7 @@
                             </span>
                         </td>
                         <td>
-                            <highcharts id="currency" :options="getChartOptions(world)" ref="chart" v-if="world.currencies.length"/>
+                            <highcharts :id="`currency-${world.id}`" :options="getChartOptions(world)" ref="chart" v-if="world.currencies.length"/>
                         </td>
                         <td class="text-right">
                             <router-link :to="{ name: 'calculators.currencies.world', params: { id: world.id } }"
