@@ -65,7 +65,7 @@
                             <td class="text-center">{{ getAttribute('hit') }} %</td>
                             <td class="text-center">{{ getAttribute('speed') }}</td>
                             <td class="text-center" colspan="2">{{ level }}</td>
-                            <td class="text-center" colspan="2">{{ (weight).toFixed(2) }} oz.</td>
+                            <td class="text-center" colspan="2">{{ weight }} oz.</td>
                         </tr>
 
                         <tr rowspan="2">
@@ -117,69 +117,6 @@
                 </table>
             </panel>
         </div>
-
-        <div class="col-md-12 margin-top-30">
-            <panel>
-
-		<div class="col-md-4"></div>
-		<div class="col-md-4"><form-input placeholder="incomming damage" v-model="incdmg" style="text-align:center;" /></div>
-		<div class="col-md-4"></div>
-                <table class="info-table"><br>
-                    <tbody>
-                        <tr rowspan="2">
-                            <td class="text-center head" width="10%"></td>
-                            <td class="text-center title" width="10%">Death</td>
-                            <td class="text-center title" width="10%">Energy</td>
-                            <td class="text-center title" width="10%">Earth</td>
-                            <td class="text-center title" width="10%">Fire</td>
-                            <td class="text-center title" width="10%">Ice</td>
-                            <td class="text-center title" width="10%">Holy</td>
-                            <td class="text-center title" width="10%">Physical</td>
-                            <td class="text-center title" width="10%">Life Drain</td>
-                            <td class="text-center title" width="10%">Mana Drain</td>
-                        </tr>
-
-                        <tr>
-			    <td class="text-center head" rowspan="1">Reduced
-                                    <el-tooltip content="Here is the amount the protection will remove.">
-                                        <i class="mdi mdi-information"></i>
-                                    </el-tooltip>
-			    </tid>
-                            <td class="text-center">{{ (Showincdmg * getResistance('death') / 100).toFixed() }}</td>
-                            <td class="text-center">{{ (Showincdmg * getResistance('energy') / 100).toFixed() }}</td>
-                            <td class="text-center">{{ (Showincdmg * getResistance('earth') / 100).toFixed() }}</td>
-                            <td class="text-center">{{ (Showincdmg * getResistance('fire') / 100).toFixed() }}</td>
-                            <td class="text-center">{{ (Showincdmg * getResistance('ice') / 100).toFixed() }}</td>
-                            <td class="text-center">{{ (Showincdmg * getResistance('holy') / 100).toFixed() }}</td>
-                            <td class="text-center">{{ (Showincdmg * getResistance('protection physical') / 100).toFixed() }}</td>
-                            <td class="text-center">{{ (Showincdmg * getResistance('life drain') / 100).toFixed() }}</td>
-                            <td class="text-center">{{ (Showincdmg * getResistance('mana drain') / 100).toFixed() }}</td>
-                        </tr>
-
-
-                        <tr>
-			    <td class="text-center head">Total
-                                    <el-tooltip content="Here is the incomming damage after resistance is calculated.">
-                                        <i class="mdi mdi-information"></i>
-                                    </el-tooltip>
-			    </td>
-                            <td class="text-center">{{ ((Showincdmg) - Showincdmg * getResistance('death') / 100).toFixed() }}</td>
-                            <td class="text-center">{{ ((Showincdmg) - Showincdmg * getResistance('energy') / 100).toFixed() }}</td>
-                            <td class="text-center">{{ ((Showincdmg) - Showincdmg * getResistance('earth') / 100).toFixed() }}</td>
-                            <td class="text-center">{{ ((Showincdmg) - Showincdmg * getResistance('fire') / 100).toFixed() }}</td>
-                            <td class="text-center">{{ ((Showincdmg) - Showincdmg * getResistance('ice') / 100).toFixed() }}</td>
-                            <td class="text-center">{{ ((Showincdmg) - Showincdmg * getResistance('holy') / 100).toFixed() }}</td>
-                            <td class="text-center">{{ ((Showincdmg) - Showincdmg * getResistance('protection physical') / 100).toFixed() }}</td>
-                            <td class="text-center">{{ ((Showincdmg) - Showincdmg * getResistance('life drain') / 100).toFixed() }}</td>
-                            <td class="text-center">{{ ((Showincdmg) - Showincdmg * getResistance('mana drain') / 100).toFixed() }}</td>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </panel>
-        </div>
-
-
     </page-load>
 </template>
 
@@ -192,7 +129,6 @@
             return {
                 categories: [],
                 items: [],
-		incdmg: '0',
                 slots: {
                     amulet: [],
                     helmet: [],
@@ -209,11 +145,6 @@
         },
 
         computed: {
-
-	    Showincdmg () {
-		return this.incdmg
-	    },
-
             properties () {
                 return reduce(this.slots, (carry, slot) => {
                     carry.push(slot.properties)

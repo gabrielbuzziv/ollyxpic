@@ -64,7 +64,7 @@
 							8%
 					</el-radio>
 					<el-radio class="radio" v-model="capperc" :label="7">
-							12%
+							15%
 					</el-radio>
 					</center>
 				<div class="col-md-3"></div>
@@ -75,11 +75,17 @@
 
 		</panel>
 
-		<panel class="shareexp" v-if="capcalc">
+		<panel class="shareexp" v-if="capcalc && level > 7">
+			<center><b>CAP INFO</b></center>
 			<center>Base cap : <b>{{ voccalc.toFixed() }}</b></center>
 			<center>Bonus cap : <b>{{ capcalc.toFixed() }}</b></center>
-			<center>Total cap: <b>{{ totalcap.toFixed() }}</b></center>
-			
+			<center>Total cap: <b>{{ totalcap.toFixed() }}</b></center>	
+		</panel>
+
+		<panel class="shareexp" v-if="capcalc && level > 7">
+			<center><b>BONUS INFO</b></center>
+			<center> HP: <b>{{ totalhp }}</b></center>
+			<center> MP: <b>{{ totalmp }}</b></center>
 		</panel>
 	</div>
 	</div>
@@ -96,6 +102,8 @@ export default {
 		capperc: '',
 		level: '',
 		voc: '',
+		hp: '',
+		mp: '',
 	}
 },
 
@@ -127,7 +135,7 @@ computed: {
 				case 6:
 				   return (this.voccalc * 0.08)
 				case 7:
-				   return (this.voccalc * 0.12)
+				   return (this.voccalc * 0.15)
 	  				}
 			},
 		totalcap() {
@@ -141,6 +149,32 @@ computed: {
 				   return (this.capcalc + this.voccalc)
 				case 4:
 				   return (this.capcalc + this.voccalc)
+				       }
+			},
+		totalhp() {
+			const voc = parseInt(this.voc)
+			switch (voc) {
+				case 1:
+				   return ((this.level - 8) * 15 + 185)
+				case 2:
+				   return ((this.level - 8) * 10 + 185)
+				case 3:
+				   return ((this.level - 8) * 5 + 185)
+				case 4:
+				   return ((this.level - 8) * 5 + 185)
+				       }
+			},
+		totalmp() {
+			const voc = parseInt(this.voc)
+			switch (voc) {
+				case 1:
+				   return ((this.level - 8) * 5 + 90)
+				case 2:
+				   return ((this.level - 8) * 15 + 90)
+				case 3:
+				   return ((this.level - 8) * 30 + 90)
+				case 4:
+				   return ((this.level - 8) * 30 + 90)
 				       }
 			}
 

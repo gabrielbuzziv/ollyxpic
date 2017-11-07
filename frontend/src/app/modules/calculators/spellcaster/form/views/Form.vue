@@ -55,12 +55,20 @@
                         <form-group :columns="6" v-show="vocation == 'knight'">
                             <form-input v-model="form.attack" placeholder="Weapon Damage"/>
                         </form-group>
+
+                        <form-group :columns="6" v-show="vocation == 'paladin'">
+                            <form-input v-model="form.dist" placeholder="Distance Skill"/>
+                        </form-group>
+
+                        <form-group :columns="6" v-show="vocation == 'paladin'">
+                            <form-input v-model="form.attackdist" placeholder="Weapon Damage + ammo damage"/>
+                        </form-group>
                     </div>
 
                     <div class="row">
                         <form-group label="Vocation" :columns="6" class="text-center margin-top-10 margin-bottom-0">
-                            <!--<el-radio v-model="form.vocation" :label="1">Knight</el-radio>-->
-                            <!--<el-radio v-model="form.vocation" :label="2">Paladin</el-radio>-->
+                            <el-radio v-model="form.vocation" :label="1">Knight</el-radio>
+                            <el-radio v-model="form.vocation" :label="2">Paladin</el-radio>
                             <el-radio v-model="form.vocation" :label="3">Druid</el-radio>
                             <el-radio v-model="form.vocation" :label="4">Sorcerer</el-radio>
                         </form-group>
@@ -119,6 +127,110 @@
             </div>
         </div>
 
+	<div class="row" v-if="form.melee && form.attack && vocation == 'knight'">
+	    <div class="col-md-12">
+		<panel>
+			<center> NOTE: Melee damage shown here is calculated <b>with</b> resistances.</center>
+                    <table class="simple margin-bottom-0">
+                        <thead>
+                            <tr>
+                                <th width="60"></th>
+                                <th class="text-center" width="130">Max</th>
+                                <th class="text-center" width="130">Avg</th>
+                                <th class="text-center" width="130">Min</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td class="text-center">
+                                    <el-tooltip content="Melee damage" placement="top">
+					<img :src="image_path_by_name('item', 'magic sword')" alt="">
+                                    </el-tooltip>
+                                </td>
+                                <td class="text-center damage">
+                                    <img src="/src/assets/images/damage.png" alt="">
+                                    {{ getMeleeDamageMax.toFixed() }}
+                                    <span class="critical" v-if="critical">
+                                        <img src="/src/assets/images/critical.png" alt="">
+                                        {{ Math.ceil(getCriticalDamage(getMeleeDamageMax.toFixed())) }}
+                                    </span>
+                                </td>
+                                <td class="text-center damage">
+                                    <img src="/src/assets/images/damage.png" alt="">
+                                    {{ getMeleeDamageAvg.toFixed() }}
+                                    <span class="critical" v-if="critical">
+                                        <img src="/src/assets/images/critical.png" alt="">
+                                        {{ Math.ceil(getCriticalDamage(getMeleeDamageAvg.toFixed())) }}
+                                    </span>
+                                </td>
+                                <td class="text-center damage">
+                                    <img src="/src/assets/images/damage.png" alt="">
+                                    {{ getMeleeDamageMin.toFixed() }}
+                                    <span class="critical" v-if="critical">
+                                        <img src="/src/assets/images/critical.png" alt="">
+                                        {{ Math.ceil(getCriticalDamage(getMeleeDamageMin.toFixed())) }}
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </panel>
+	    </div>
+	</div>
+
+	<div class="row" v-if="form.dist && form.attackdist && vocation == 'paladin'">
+	    <div class="col-md-12">
+		<panel>
+			<center> NOTE: Distance damage shown here is calculated <b>with</b> resistances.</center>
+                    <table class="simple margin-bottom-0">
+                        <thead>
+                            <tr>
+                                <th width="60"></th>
+                                <th class="text-center" width="130">Max</th>
+                                <th class="text-center" width="130">Avg</th>
+                                <th class="text-center" width="130">Min</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td class="text-center">
+                                    <el-tooltip content="Distance damage" placement="top">
+					<img :src="image_path_by_name('item', 'arbalest')" alt="">
+                                    </el-tooltip>
+                                </td>
+                                <td class="text-center damage">
+                                    <img src="/src/assets/images/damage.png" alt="">
+                                    {{ getMeleeDamageMaxRP.toFixed() }}
+                                    <span class="critical" v-if="critical">
+                                        <img src="/src/assets/images/critical.png" alt="">
+                                        {{ Math.ceil(getCriticalDamage(getMeleeDamageMaxRP.toFixed())) }}
+                                    </span>
+                                </td>
+                                <td class="text-center damage">
+                                    <img src="/src/assets/images/damage.png" alt="">
+                                    {{ getMeleeDamageAvgRP.toFixed() }}
+                                    <span class="critical" v-if="critical">
+                                        <img src="/src/assets/images/critical.png" alt="">
+                                        {{ Math.ceil(getCriticalDamage(getMeleeDamageAvgRP.toFixed())) }}
+                                    </span>
+                                </td>
+                                <td class="text-center damage">
+                                    <img src="/src/assets/images/damage.png" alt="">
+                                    {{ getMeleeDamageMinRP.toFixed() }}
+                                    <span class="critical" v-if="critical">
+                                        <img src="/src/assets/images/critical.png" alt="">
+                                        {{ Math.ceil(getCriticalDamage(getMeleeDamageMinRP.toFixed())) }}
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </panel>
+	    </div>
+	</div>
+
         <div class="row" v-if="level">
             <div class="col-md-6" :class="{ 'col-md-12': index == 0 }" v-for="type, index in types">
                 <panel>
@@ -134,7 +246,7 @@
 
                         <tbody>
                             <tr v-for="spell in spells.filter(spell => spell.type == type)"
-                                v-if="spell.vocations.indexOf(vocation) > -1 && spell.ml <= magiclevel">
+                                v-if="spell.vocations.indexOf(vocation) > -1 && spell.ml <= magiclevel && spell.lvl <= level">
                                 <td class="text-center">
                                     <el-tooltip :content="spell.name" placement="top">
                                         <img :src="image_path_by_name(spell.image, spell.name)" alt="" v-if="spell.type == 'spell' || spell.type == 'healing'">
@@ -194,48 +306,109 @@
                     attack: 0,
                 },
                 spellsList: [
-                    { id: 73, name: 'Wound Cleansing', ml: 0, element: 'heal', vocations: ['knight'], max: [7.95, 51], min: [4, 25], type: 'healing', image: 'spell', formula: 'normal' },
-                    { id: 3, name: 'Light Healing', ml: 0, element: 'heal', vocations: ['paladin', 'sorcerer', 'druid'], max: [1.795, 11], min: [1.4, 8], type: 'healing', image: 'spell', formula: 'normal' },
-                    { id: 23, name: 'Intense Healing', ml: 0, element: 'heal', vocations: ['sorcerer', 'druid'], max: [5.59, 35], min: [3.184, 20], type: 'healing', image: 'spell', formula: 'normal' },
-                    { id: 37, name: 'Ultimate Healing', ml: 0, element: 'heal', vocations: ['sorcerer', 'druid'], max: [12.79, 79], min: [7.22, 44], type: 'healing', image: 'spell', formula: 'normal' },
-                    { id: 35, name: 'Heal Friend', ml: 0, element: 'heal', vocations: ['druid'], max: 14, min: 10, type: 'healing', image: 'spell', formula: 'advanced' },
-                    { id: 58, name: 'Mass Healing', ml: 0, element: 'heal', vocations: ['druid'], max: [10.43, 62], min: [5.7, 26], type: 'healing', image: 'spell', formula: 'normal' },
-                    { id: 86, name: 'Divine Healing', ml: 0, element: 'heal', vocations: ['paladin'], max: 25, min: 18.5, type: 'healing', image: 'spell', formula: 'advanced' },
-                    { id: 119, name: 'Salvation', ml: 0, element: 'heal', vocations: ['paladin'], max: [19, 50], min: [19, 50], type: 'healing', image: 'spell', formula: 'normal' },
-                    { id: 117, name: 'Sudden Death Rune', ml: 15, element: 'death', vocations: ['knight', 'paladin', 'sorcerer', 'druid'], max: [7.395, 46], min: [4.605, 28], type: 'rune', image: 'item', formula: 'normal' },
-                    { id: 2024, name: 'Avalanche Rune', ml: 4, element: 'ice', vocations: ['knight', 'paladin', 'sorcerer', 'druid'], max: [2.8, 17], min: [1.2, 7], type: 'rune', image: 'item', formula: 'normal' },
-                    { id: 2019, name: 'Icicle Rune', ml: 4, element: 'ice', vocations: ['knight', 'paladin', 'sorcerer', 'druid'], max: [3, 18], min: [1.81, 10], type: 'rune', image: 'item', formula: 'normal' },
-                    { id: 2010, name: 'Great Fireball Rune', ml: 4, element: 'fire', vocations: ['knight', 'paladin', 'sorcerer', 'druid'], max: [2.8, 17], min: [1.2, 7], type: 'rune', image: 'item', formula: 'normal' },
-                    { id: 2009, name: 'Fireball Rune', ml: 4, element: 'fire', vocations: ['knight', 'paladin', 'sorcerer', 'druid'], max: [3, 18], min: [1.81, 10], type: 'rune', image: 'item', formula: 'normal' },
-                    { id: 2017, name: 'Thunderstorm Rune', ml: 4, element: 'energy', vocations: ['knight', 'paladin', 'sorcerer', 'druid'], max: [2.6, 16], min: [1, 6], type: 'rune', image: 'item', formula: 'normal' },
-                    { id: 2011, name: 'Heavy Magic Missile Rune', ml: 4, element: 'energy', vocations: ['knight', 'paladin', 'sorcerer', 'druid'], max: [1.59, 10], min: [0.81, 4], type: 'rune', image: 'item', formula: 'normal' },
-                    { id: 2012, name: 'Light Magic Missile Rune', ml: 0, element: 'energy', vocations: ['knight', 'paladin', 'sorcerer', 'druid'], max: [0.81, 4], min: [0.4, 2], type: 'rune', image: 'item', formula: 'normal' },
-                    { id: 2022, name: 'Stone Shower Rune', ml: 4, element: 'earth', vocations: ['knight', 'paladin', 'sorcerer', 'druid'], max: [2.6, 16], min: [1, 6], type: 'rune', image: 'item', formula: 'normal' },
-                    { id: 2016, name: 'Stalagmite Rune', ml: 4, element: 'earth', vocations: ['knight', 'paladin', 'sorcerer', 'druid'], max: [1.59, 10], min: [0.81, 4], type: 'rune', image: 'item', formula: 'normal' },
-                    { id: 2018, name: 'Holy Missile Rune', ml: 4, element: 'holy', vocations: ['paladin'], max: [3.75, 24], min: [1.79, 11], type: 'rune', image: 'item', formula: 'normal' },
-                    { id: 13, name: 'Death Strike', ml: 0, element: 'death', vocations: ['sorcerer', 'druid'], max: [2.203, 13], min: [1.403, 8], type: 'spell', image: 'spell', formula: 'normal' },
-                    { id: 74, name: 'Ice Strike', ml: 0, element: 'ice', vocations: ['sorcerer', 'druid'], max: [2.203, 13], min: [1.403, 8], type: 'spell', image: 'spell', formula: 'normal' },
-                    { id: 25, name: 'Flame Strike', ml: 0, element: 'fire', vocations: ['sorcerer', 'druid'], max: [2.203, 13], min: [1.403, 8], type: 'spell', image: 'spell', formula: 'normal' },
-                    { id: 26, name: 'Energy Strike', ml: 0, element: 'energy', vocations: ['sorcerer', 'druid'], max: [2.203, 13], min: [1.403, 8], type: 'spell', image: 'spell', formula: 'normal' },
-                    { id: 75, name: 'Terra Strike', ml: 0, element: 'earth', vocations: ['sorcerer', 'druid'], max: [2.203, 13], min: [1.403, 8], type: 'spell', image: 'spell', formula: 'normal' },
-                    { id: 129, name: 'Fire Wave', ml: 0, element: 'fire', vocations: ['sorcerer'], max: [2, 12], min: [1.25, 4], type: 'spell', image: 'spell', formula: 'normal' },
-                    { id: 87, name: 'Ice Wave', ml: 0, element: 'ice', vocations: ['druid'], max: [2, 12], min: [0.81, 4], type: 'spell', image: 'spell', formula: 'normal' },
-                    { id: 43, name: 'Energy Beam', ml: 0, element: 'energy', vocations: ['sorcerer'], max: 4, min: 2.5, type: 'spell', image: 'spell', formula: 'advanced' },
-                    { id: 53, name: 'Great Energy Beam', ml: 0, element: 'energy', vocations: ['sorcerer'], max: 7, min: 4, type: 'spell', image: 'spell', formula: 'advanced' },
-                    { id: 85, name: 'Divine Caldera', ml: 0, element: 'holy', vocations: ['paladin'], max: 6, min: 4, type: 'spell', image: 'spell', formula: 'advanced' },
-                    { id: 88, name: 'Terra Wave', ml: 0, element: 'earth', vocations: ['druid'], max: 7, min: 3.5, type: 'spell', image: 'spell', formula: 'advanced' },
-                    { id: 128, name: 'Ice Wave', ml: 0, element: 'ice', vocations: ['druid'], max: 10, min: 5, type: 'spell', image: 'spell', formula: 'advanced' },
-                    { id: 88, name: 'Strong Ice Wave', ml: 0, element: 'ice', vocations: ['druid'], max: 10, min: 4, type: 'spell', image: 'spell', formula: 'advanced' },
-                    { id: 59, name: 'Energy Wave', ml: 0, element: 'energy', vocations: ['sorcerer'], max: 9, min: 4.5, type: 'spell', image: 'spell', formula: 'advanced' },
-                    { id: 76, name: 'Rage of the Skies', ml: 0, element: 'energy', vocations: ['sorcerer'], max: 12, min: 5, type: 'spell', image: 'spell', formula: 'advanced' },
-                    { id: 80, name: 'Hell\'s Core', ml: 0, element: 'fire', vocations: ['sorcerer'], max: 14, min: 7, type: 'spell', image: 'spell', formula: 'advanced' },
-                    { id: 82, name: 'Wrath of Nature', ml: 0, element: 'earth', vocations: ['druid'], max: 10, min: 5, type: 'spell', image: 'spell', formula: 'advanced' },
-                    { id: 83, name: 'Eternal Winter', ml: 0, element: 'ice', vocations: ['druid'], max: 12, min: 6, type: 'spell', image: 'spell', formula: 'advanced' },
+                    { id: 73, name: 'Wound Cleansing', ml: 0, lvl: 8, element: 'heal', vocations: ['knight'], max: [7.95, 51], min: [4, 25], type: 'healing', image: 'spell', formula: 'normal' },
+                    { id: 3, name: 'Light Healing', ml: 0, lvl: 8, element: 'heal', vocations: ['paladin', 'sorcerer', 'druid'], max: [1.795, 11], min: [1.4, 8], type: 'healing', image: 'spell', formula: 'normal' },
+                    { id: 23, name: 'Intense Healing', ml: 0, lvl: 20, element: 'heal', vocations: ['sorcerer', 'druid'], max: [5.59, 35], min: [3.184, 20], type: 'healing', image: 'spell', formula: 'normal' },
+                    { id: 37, name: 'Ultimate Healing', ml: 0, lvl: 30, element: 'heal', vocations: ['sorcerer', 'druid'], max: [12.79, 79], min: [7.22, 44], type: 'healing', image: 'spell', formula: 'normal' },
+                    { id: 35, name: 'Heal Friend', ml: 0, lvl: 18, element: 'heal', vocations: ['druid'], max: 14, min: 10, type: 'healing', image: 'spell', formula: 'advanced' },
+                    { id: 58, name: 'Mass Healing', ml: 0, lvl: 36, element: 'heal', vocations: ['druid'], max: [10.43, 62], min: [5.7, 26], type: 'healing', image: 'spell', formula: 'normal' },
+                    { id: 86, name: 'Divine Healing', ml: 0, lvl: 35, element: 'heal', vocations: ['paladin'], max: 25, min: 18.5, type: 'healing', image: 'spell', formula: 'advanced' },
+                    { id: 119, name: 'Salvation', ml: 0, lvl: 60, element: 'heal', vocations: ['paladin'], max: [19, 50], min: [19, 50], type: 'healing', image: 'spell', formula: 'normal' },
+                    { id: 117, name: 'Sudden Death Rune', ml: 15, lvl: 45, element: 'death', vocations: ['knight', 'paladin', 'sorcerer', 'druid'], max: [7.395, 46], min: [4.605, 28], type: 'rune', image: 'item', formula: 'normal' },
+                    { id: 2024, name: 'Avalanche Rune', ml: 4, lvl: 30, element: 'ice', vocations: ['knight', 'paladin', 'sorcerer', 'druid'], max: [2.8, 17], min: [1.2, 7], type: 'rune', image: 'item', formula: 'normal' },
+                    { id: 2019, name: 'Icicle Rune', ml: 4, lvl: 28, element: 'ice', vocations: ['knight', 'paladin', 'sorcerer', 'druid'], max: [3, 18], min: [1.81, 10], type: 'rune', image: 'item', formula: 'normal' },
+                    { id: 2010, name: 'Great Fireball Rune', ml: 4, lvl: 30, element: 'fire', vocations: ['knight', 'paladin', 'sorcerer', 'druid'], max: [2.8, 17], min: [1.2, 7], type: 'rune', image: 'item', formula: 'normal' },
+                    { id: 2009, name: 'Fireball Rune', ml: 4, lvl: 27, element: 'fire', vocations: ['knight', 'paladin', 'sorcerer', 'druid'], max: [3, 18], min: [1.81, 10], type: 'rune', image: 'item', formula: 'normal' },
+                    { id: 2017, name: 'Thunderstorm Rune', ml: 4, lvl: 28, element: 'energy', vocations: ['knight', 'paladin', 'sorcerer', 'druid'], max: [2.6, 16], min: [1, 6], type: 'rune', image: 'item', formula: 'normal' },
+                    { id: 2011, name: 'Heavy Magic Missile Rune', ml: 4, lvl: 25, element: 'energy', vocations: ['knight', 'paladin', 'sorcerer', 'druid'], max: [1.59, 10], min: [0.81, 4], type: 'rune', image: 'item', formula: 'normal' },
+                    { id: 2012, name: 'Light Magic Missile Rune', ml: 0, lvl: 15, element: 'energy', vocations: ['knight', 'paladin', 'sorcerer', 'druid'], max: [0.81, 4], min: [0.4, 2], type: 'rune', image: 'item', formula: 'normal' },
+                    { id: 2022, name: 'Stone Shower Rune', ml: 4, lvl: 28, element: 'earth', vocations: ['knight', 'paladin', 'sorcerer', 'druid'], max: [2.6, 16], min: [1, 6], type: 'rune', image: 'item', formula: 'normal' },
+                    { id: 2016, name: 'Stalagmite Rune', ml: 3, lvl: 24, element: 'earth', vocations: ['knight', 'paladin', 'sorcerer', 'druid'], max: [1.59, 10], min: [0.81, 4], type: 'rune', image: 'item', formula: 'normal' },
+                    { id: 2018, name: 'Holy Missile Rune', ml: 4, lvl: 27, element: 'holy', vocations: ['paladin'], max: [3.75, 24], min: [1.79, 11], type: 'rune', image: 'item', formula: 'normal' },
+                    { id: 13, name: 'Death Strike', ml: 0, lvl: 16, element: 'death', vocations: ['sorcerer', 'druid'], max: [2.203, 13], min: [1.403, 8], type: 'spell', image: 'spell', formula: 'normal' },
+                    { id: 74, name: 'Ice Strike', ml: 0, lvl: 15, element: 'ice', vocations: ['sorcerer', 'druid'], max: [2.203, 13], min: [1.403, 8], type: 'spell', image: 'spell', formula: 'normal' },
+                    { id: 25, name: 'Flame Strike', ml: 0, lvl: 14, element: 'fire', vocations: ['sorcerer', 'druid'], max: [2.203, 13], min: [1.403, 8], type: 'spell', image: 'spell', formula: 'normal' },
+                    { id: 26, name: 'Energy Strike', ml: 0, lvl: 12, element: 'energy', vocations: ['sorcerer', 'druid'], max: [2.203, 13], min: [1.403, 8], type: 'spell', image: 'spell', formula: 'normal' },
+                    { id: 75, name: 'Terra Strike', ml: 0, lvl: 13, element: 'earth', vocations: ['sorcerer', 'druid'], max: [2.203, 13], min: [1.403, 8], type: 'spell', image: 'spell', formula: 'normal' },
+                    { id: 129, name: 'Fire Wave', lvl: 18, ml: 0, element: 'fire', vocations: ['sorcerer'], max: [2, 12], min: [1.25, 4], type: 'spell', image: 'spell', formula: 'normal' },
+                    { id: 87, name: 'Ice Wave', ml: 0, lvl: 18, element: 'ice', vocations: ['druid'], max: [2, 12], min: [0.81, 4], type: 'spell', image: 'spell', formula: 'normal' },
+                    { id: 43, name: 'Energy Beam', ml: 0, lvl: 23, element: 'energy', vocations: ['sorcerer'], max: 4, min: 2.5, type: 'spell', image: 'spell', formula: 'advanced' },
+                    { id: 53, name: 'Great Energy Beam', ml: 0, lvl: 29, element: 'energy', vocations: ['sorcerer'], max: 7, min: 4, type: 'spell', image: 'spell', formula: 'advanced' },
+                    { id: 85, name: 'Divine Caldera', ml: 0, lvl: 50, element: 'holy', vocations: ['paladin'], max: 6, min: 4, type: 'spell', image: 'spell', formula: 'advanced' },
+                    { id: 88, name: 'Terra Wave', ml: 0, lvl: 38, element: 'earth', vocations: ['druid'], max: 7, min: 3.5, type: 'spell', image: 'spell', formula: 'advanced' },
+                    //{ id: 128, name: 'Ice Wave', ml: 0, lvl: 40, element: 'ice', vocations: ['druid'], max: 10, min: 5, type: 'spell', image: 'spell', formula: 'advanced' },
+                    { id: 88, name: 'Strong Ice Wave', ml: 0, lvl: 40, element: 'ice', vocations: ['druid'], max: 10, min: 4, type: 'spell', image: 'spell', formula: 'advanced' },
+                    { id: 59, name: 'Energy Wave', ml: 0, lvl: 38, element: 'energy', vocations: ['sorcerer'], max: 9, min: 4.5, type: 'spell', image: 'spell', formula: 'advanced' },
+                    { id: 76, name: 'Rage of the Skies', ml: 0, lvl: 55, element: 'energy', vocations: ['sorcerer'], max: 12, min: 5, type: 'spell', image: 'spell', formula: 'advanced' },
+                    { id: 80, name: 'Hell\'s Core', ml: 0, lvl: 60, element: 'fire', vocations: ['sorcerer'], max: 14, min: 7, type: 'spell', image: 'spell', formula: 'advanced' },
+                    { id: 82, name: 'Wrath of Nature', ml: 0, lvl: 55, element: 'earth', vocations: ['druid'], max: 10, min: 5, type: 'spell', image: 'spell', formula: 'advanced' },
+                    { id: 83, name: 'Eternal Winter', ml: 0, lvl: 60, element: 'ice', vocations: ['druid'], max: 12, min: 6, type: 'spell', image: 'spell', formula: 'advanced' },
                 ]
             }
         },
 
         computed: {
+            getMeleeDamageMax () {
+                let damage = (0.085 * 1 * this.form.attack * this.form.melee + this.form.level / 5)
+
+                if (this.creature) {
+                    return damage * (this.creature['physical'] / 100)
+                } else {
+		    return damage
+	    	}
+	    },
+
+            getMeleeDamageMin () {
+                let damage = (this.form.level / 5)
+
+                if (this.creature) {
+                    return damage * (this.creature['physical'] / 100)
+                } else {
+		    return damage
+	    	}
+	    },
+
+            getMeleeDamageAvg () {
+                let damage = (0.085 * 1 * this.form.attack * this.form.melee + this.form.level / 5) / 2
+
+                if (this.creature) {
+                    return damage * (this.creature['physical'] / 100)
+                } else {
+		    return damage
+	    	}
+	    },
+
+            getMeleeDamageMaxRP () {
+                let damage = (0.09 * 1 * this.form.attackdist * this.form.dist + this.form.level / 5)
+
+                if (this.creature) {
+                    return damage * (this.creature['physical'] / 100)
+                } else {
+		    return damage
+	    	}
+	    },
+
+            getMeleeDamageMinRP () {
+                let damage = (this.form.level / 5)
+
+                if (this.creature) {
+                    return damage * (this.creature['physical'] / 100)
+                } else {
+		    return damage
+	    	}
+	    },
+
+            getMeleeDamageAvgRP () {
+                let damage = (0.09 * 1 * this.form.attackdist * this.form.dist + this.form.level / 5) / 2
+
+                if (this.creature) {
+                    return damage * (this.creature['physical'] / 100)
+                } else {
+		    return damage
+	    	}
+	    },
+
+
             spells () {
                 return this.spellsList.filter(spell => {
                     return spell.vocations.indexOf(this.vocation) > - 1 && this.magiclevel >= spell.ml
@@ -261,6 +434,19 @@
                 return critical > 0 ? critical : 0
             },
 
+
+	    distattack () {
+		const distattack = parseInt(this.form.attackdist)
+		return distattack > 0 ? distattack : 0
+	    },
+
+	    distskill () {
+		const distskill = parseInt(this.form.dist)
+		return distskill > 0 ? distskill : 0
+	    },
+
+
+
             vocation () {
                 switch (this.form.vocation) {
                     case 1:
@@ -276,6 +462,7 @@
         },
 
         methods: {
+
             getMaxDamage (spell) {
                 switch (spell.formula) {
                     case 'normal':
