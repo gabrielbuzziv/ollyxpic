@@ -122,7 +122,7 @@
             <panel>
 
 		<div class="col-md-4"></div>
-		<div class="col-md-4"><form-input placeholder="incomming damage" v-model="incdmg" style="text-align:center;" /></div>
+		<div class="col-md-4"><form-input placeholder="incoming damage" v-model="incdmg" style="text-align:center;" /></div>
 		<div class="col-md-4"></div>
                 <table class="info-table"><br>
                     <tbody>
@@ -144,7 +144,7 @@
                                     <el-tooltip content="Here is the amount the protection will remove.">
                                         <i class="mdi mdi-information"></i>
                                     </el-tooltip>
-			    </tid>
+			    </td>
                             <td class="text-center">{{ (Showincdmg * getResistance('death') / 100).toFixed() }}</td>
                             <td class="text-center">{{ (Showincdmg * getResistance('energy') / 100).toFixed() }}</td>
                             <td class="text-center">{{ (Showincdmg * getResistance('earth') / 100).toFixed() }}</td>
@@ -159,7 +159,7 @@
 
                         <tr>
 			    <td class="text-center head">Total
-                                    <el-tooltip content="Here is the incomming damage after resistance is calculated.">
+                                    <el-tooltip content="Here is the incoming damage after resistance is calculated.">
                                         <i class="mdi mdi-information"></i>
                                     </el-tooltip>
 			    </td>

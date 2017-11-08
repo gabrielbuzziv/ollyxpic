@@ -13,8 +13,8 @@
                 <p class="ollyxpic">
 				<a href="http://ollyxpic.com">OllyxPic.com</a> &copy; 2017. All rights reserved.</p>
                 <p>
-                    We would like to thanks <a href="http://tibia.wikia.com">Tibia Wikia</a> to
-                    provide us tibia content.
+                    We would like to thank <a href="http://tibia.wikia.com">TibiaWiki</a> for
+                    providing us with tibia content.
                 </p>
                 <p class="tibia">
                     Please note that the only official website is <a href="http://www.tibia.com" target="_blank">www.tibia.com</a>

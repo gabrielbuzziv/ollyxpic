@@ -8,7 +8,7 @@
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
 		<a href="/#/tibiabosses">
-		<img src="/src/assets/images/logoboss.png" alt="">
+		<img src="/src/assets/images/logoboss1.png" alt="">
 		</a>
 		</div>
             </div>

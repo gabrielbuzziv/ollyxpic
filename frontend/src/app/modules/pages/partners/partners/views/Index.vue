@@ -24,6 +24,21 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-sm-6">
+                <panel title="TibiaBosses" class="margin-bottom-50">
+                    <a href="/#/tibiabosses">
+                        <img src="/src/assets/images/logoboss.png" alt="">
+                    </a>
+                </panel>
+            </div>
+
+            <!--<div class="col-sm-6">
+                <panel title="" class="margin-bottom-50">
+                </panel>
+            </div>-->
+        </div>
+
         <panel title="More to come" class="margin-bottom-50">
             We will add more partners in the future, if you would like to partner<br>
             with us please use the contact form.<br>
