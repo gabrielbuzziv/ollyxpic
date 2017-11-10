@@ -73,7 +73,7 @@
                                 <img :src="image_path_by_name('item', 'sudden death rune')" alt="">
                             </span>
                             <span class="center">
-                                <span>Spell Caster</span>
+                                <span>Damage Calc</span>
                                 <small>Damage & Healing</small>
                             </span>
                         </a>

@@ -134,7 +134,7 @@
                             <td class="text-center title" width="10%">Fire</td>
                             <td class="text-center title" width="10%">Ice</td>
                             <td class="text-center title" width="10%">Holy</td>
-                            <td class="text-center title" width="10%">Physical</td>
+                            <td class="text-center title" width="10%">Physical<el-tooltip content="Physical reduction calculates from phys% + armor"><i class="mdi mdi-information"></i></el-tooltip></td>
                             <td class="text-center title" width="10%">Life Drain</td>
                             <td class="text-center title" width="10%">Mana Drain</td>
                         </tr>
@@ -169,7 +169,7 @@
                             <td class="text-center">{{ ((Showincdmg) - Showincdmg * getResistance('fire') / 100).toFixed() }}</td>
                             <td class="text-center">{{ ((Showincdmg) - Showincdmg * getResistance('ice') / 100).toFixed() }}</td>
                             <td class="text-center">{{ ((Showincdmg) - Showincdmg * getResistance('holy') / 100).toFixed() }}</td>
-                            <td class="text-center">{{ ((Showincdmg) - Showincdmg * getResistance('protection physical') / 100).toFixed() }}</td>
+                            <td class="text-center">{{ ((Showincdmg) - Showincdmg * getResistance('protection physical') / 100 - (getAttribute('arm') / 2 * 2 - 1)).toFixed() }} - {{ ((Showincdmg) - Showincdmg * getResistance('protection physical') / 100 - (getAttribute('arm') / 2)).toFixed() }}</td>
                             <td class="text-center">{{ ((Showincdmg) - Showincdmg * getResistance('life drain') / 100).toFixed() }}</td>
                             <td class="text-center">{{ ((Showincdmg) - Showincdmg * getResistance('mana drain') / 100).toFixed() }}</td>
                         </tr>

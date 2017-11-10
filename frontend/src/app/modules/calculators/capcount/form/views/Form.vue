@@ -58,7 +58,7 @@
 				<div class="col-md-6">
 					<center>
 					<el-radio class="radio" v-model="capperc" :label="5">
-							4%
+							3%
 					</el-radio>
 					<el-radio class="radio" v-model="capperc" :label="6">
 							8%
@@ -131,7 +131,7 @@ computed: {
 				case 0:
 				   return (this.voccalc * 0)
 				case 5:
-				   return (this.voccalc * 0.04)
+				   return (this.voccalc * 0.03)
 				case 6:
 				   return (this.voccalc * 0.08)
 				case 7:

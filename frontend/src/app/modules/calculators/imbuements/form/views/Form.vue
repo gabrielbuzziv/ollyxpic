@@ -1,7 +1,7 @@
 <template>
     <page-load id="imbuements">
         <page-title>
-            <img :src="image_path('item', 2655)">
+            <img :src="image_path_by_name('item', 'silencer claws')">
             Imbuements
             <span>
                 Waste/Time

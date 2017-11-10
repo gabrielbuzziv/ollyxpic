@@ -2,7 +2,7 @@
     <page-load id="spellcast">
         <page-title>
             <img :src="image_path('item', 117)" alt="">
-            Spell Caster
+            Damage Calc
             <span>Damage & Healing</span>
         </page-title>
 
