@@ -986,7 +986,7 @@ class TeamHuntController extends Controller
             "terramite shells"               => "terramite shell",
             "terrorbird beaks"               => "terrorbird beak",
             "broken halberds"                => "broken halberd",
-            "cursed shoulder spikes"         => "cursed shoulder spike",
+            "cursed shoulder spike"         => "cursed shoulder spikes",
             "high guard flags"               => "high guard flag",
             "corrupted flags"                => "corrupted flag",
             "haunted piece of woods"         => "haunted piece of wood",

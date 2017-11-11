@@ -68,7 +68,7 @@
                 </router-link>
 
                 <router-link :to="{ name: 'calculators.spellcaster' }" slot="anchor">
-                    <card title="Spellcaster" subtitle="Damage & Healing" dark>
+                    <card title="Damage Calc" subtitle="Damage & Healing" dark>
                         <img :src="image_path_by_name('item', 'sudden death rune')" slot="icon">
                         <i class="mdi mdi-chevron-right"></i>
                     </card>
