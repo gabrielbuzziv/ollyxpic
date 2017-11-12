@@ -33,7 +33,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                   <b>With mats :</b> {{ (total) }} gp
+                                    {{ total.formatMoney(0, '.', '.') }} gp
                                 </td>
                                 <td class="text-center">
                                     {{ (totalPerMinute * 60).formatMoney(0, '.', '.') }} gp / hour
@@ -45,160 +45,39 @@
                                     {{ totalPerUsedTime.formatMoney(0, '.', '.') }} gp
                                 </td>
                             </tr>
-
-
-                            <tr v-if="goldtokentotal > 0">
-                                <td>
-                                   <b>With token:</b> {{ (goldtokentotal) }} gp
-                                </td>
-                                <td class="text-center">
-                                    {{ (totalPerMinuteToken * 60).formatMoney(0, '.', '.') }} gp / hour
-                                </td>
-                                <td class="text-center" width="100">
-                                    <form-input :data="usedtoken" v-model="usedtoken" v-mask="'##:##'" class="normal"/>
-                                </td>
-                                <td class="text-right">
-                                    {{ totalPerUsedTimeToken.formatMoney(0, '.', '.') }} gp
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                 </panel>
 
                 <panel>
                     <table class="table margin-bottom-0">
-
-
-                        <thead>
-                            <tr>
-                                <th>Gold Token</th>
-                                <th class="text-center">
-                                    Amount
-                                    <el-tooltip content="Number of imbuements." class="margin-left-5"
-                                                placement="top">
-                                        <i class="mdi mdi-information"></i>
-                                    </el-tooltip>
-                                </th>
-                                <th class="text-center">
-                                    Basic
-
-                                </th>
-                                <th class="text-center">
-                                    Intricate
-
-                                </th>
-                                <th class="text-center">
-                                    Powerful
-
-                                </th>
-                                <th class="text-center">
-
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-
-                                <div class="input-group">
-									<div class="input-group-addon">
-                                        <el-tooltip placement="top">
-                                            <template slot="content">
-                                                Gold Token
-                                            </template>
-
-                                            <img :src="image_path_by_name('item', 'Gold Token')">
-                                        </el-tooltip>
-                                    </div>
-                                        <form-input :data="goldtokenbasic" v-model="goldtokenbasic" placeholder="0" class="text-right"/>
-                                </div>
-
-                                </td>
-                                <td class="text-center" width="110">
-                                    <select v-model="goldtoken" class="form-control">
-                                        <option value="3">0</option>
-                                        <option value="4">1</option>
-                                        <option value="5">2</option>
-                                        <option value="6">3</option>
-                                        <option value="7">4</option>
-                                        <option value="8">5</option>
-                                    </select>
-
-                                </td>
-                                <td class="text-center" width="150">
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-
-											<el-radio class="radio" v-model="goldtokenvalue" :label="9">
-											<b style="opacity:0;">-</b>
-											</el-radio>
-
-                                        </div>
-                                    </div>
-                                </td>
-
-                                <td class="text-center" width="150">
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                        	
-											<el-radio class="radio" v-model="goldtokenvalue" :label="10">
-											<b style="opacity:0;">-</b>
-											</el-radio>
-
-                                        </div>
-                                    </div>
-                                </td>
-
-                                <td class="text-center" width="150">
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                        	
-											<el-radio class="radio" v-model="goldtokenvalue" :label="11">
-											<b style="opacity:0;">-</b>
-											</el-radio>
-
-                                        </div>
-                                    </div>
-                                </td>
-
-                                <td class="text-center" width="90">
-                                </td>
-                            </tr>
-                        </tbody>
-
-
-
-
-
-
-
                         <thead>
                             <tr>
                                 <th>Imbuiment</th>
                                 <th class="text-center">
                                     Amount
-                                    <el-tooltip content="Number of imbuements." class="margin-left-5"
+                                    <el-tooltip content="Amount of items you have this imbuement." class="margin-left-5"
                                                 placement="top">
                                         <i class="mdi mdi-information"></i>
                                     </el-tooltip>
                                 </th>
                                 <th class="text-center">
                                     Basic
-                                    <el-tooltip content="Unit price for basic imbuement materials." class="margin-left-5"
+                                    <el-tooltip content="Unit price of basic imbuement item." class="margin-left-5"
                                                 placement="top">
                                         <i class="mdi mdi-information"></i>
                                     </el-tooltip>
                                 </th>
                                 <th class="text-center">
                                     Intricate
-                                    <el-tooltip content="Unit price for intricate imbuement materials." class="margin-left-5"
+                                    <el-tooltip content="Unit price of intricate imbuement item." class="margin-left-5"
                                                 placement="top">
                                         <i class="mdi mdi-information"></i>
                                     </el-tooltip>
                                 </th>
                                 <th class="text-center">
                                     Powerful
-                                    <el-tooltip content="Unit price for powerful imbuement materials." class="margin-left-5"
+                                    <el-tooltip content="Unit price of powerful imbuement item." class="margin-left-5"
                                                 placement="top">
                                         <i class="mdi mdi-information"></i>
                                     </el-tooltip>
@@ -294,60 +173,11 @@
             return {
                 imbuements: [],
                 imbuement: null,
-                used: '00:00',
-                usedtoken: '00:00',
-                showgold: '',
-                goldtoken: '',
-                goldtokenvalue: '',
-                goldtokenbasic: '',
-                goldtokenintricate: '',
-                goldtokenpowerfull: '',
-
+                used: '00:00'
             }
         },
 
         computed: {
-        	goldtokenselect () {
-        			const goldtoken = parseInt(this.goldtoken)
-        				switch (goldtoken) {
-        					case 3:
-        						return ("0")
-        					case 4:
-        						return ("1")
-        					case 5:
-        						return ("2")
-        					case 6:
-        						return ("3")
-        					case 7:
-        						return ("4")
-        					case 8:
-        						return ("5")
-        			}
-        	},
-
-
-        	goldtokentotal () {
-        			const goldtokenvalue = parseInt(this.goldtokenvalue)
-        				switch (goldtokenvalue) {
-        					case 9:
-        						return (this.goldtokenbasic * this.goldtokenselect) * 2 + (15000 * this.goldtokenselect)
-        					case 10:
-        						return (this.goldtokenbasic * this.goldtokenselect) * 4 + (55000 * this.goldtokenselect)
-        					case 11:
-        						return (this.goldtokenbasic * this.goldtokenselect) * 6 + (150000 * this.goldtokenselect)
-        				}
-        	},
-
-
-            totalPerMinuteToken () {
-                return this.goldtokentotal / 1200
-            },
-
-            totalPerUsedTimeToken () {
-                const minutes = window.moment.duration(this.usedtoken).asMinutes()
-                return this.totalPerMinuteToken * minutes
-            },     
-
             total () {
                 return this.imbuements.reduce((carry, imbuement) => {
                     const charm = imbuement.charm ? this.getTax(imbuement).charm : 0
@@ -385,7 +215,6 @@
 
                 return null
             },
-
 
             getTax (imbuement) {
                 if (imbuement.powerful > 0) {
