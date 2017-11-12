@@ -61,6 +61,15 @@
                                     {{ totalPerUsedTimeToken.formatMoney(0, '.', '.') }} gp
                                 </td>
                             </tr>
+
+                            <tr v-if="goldtokentotal > 0">
+                                <td v-if="goldtokentotal > total">
+                                   <b>Best choice is buying mats, you save:</b> {{ (goldtokentotal - total) }} gp
+                                </td>
+                                <td v-if="total > goldtokentotal">
+                                   <b>Best choice is buying tokens, you save:</b> {{ (total - goldtokentotal) }} gp
+                                </td>                                
+                            </tr>                            
                         </tbody>
                     </table>
                 </panel>
@@ -162,6 +171,7 @@
                                 </td>
 
                                 <td class="text-center" width="90">
+                                	<img :src="image_path_by_name('item', 'Gold Token')">x{{ goldtokenamount }}
                                 </td>
                             </tr>
                         </tbody>
@@ -336,6 +346,18 @@
         					case 11:
         						return (this.goldtokenbasic * this.goldtokenselect) * 6 + (150000 * this.goldtokenselect)
         				}
+        	},
+
+        	goldtokenamount () {
+					const goldtokenvale = parseInt(this.goldtokenvalue)
+						switch (goldtokenvale) {
+							case 9:
+								return (this.goldtokenselect * 2)
+							case 10:
+								return (this.goldtokenselect * 4)
+							case 11:
+								return (this.goldtokenselect * 6)
+						}
         	},
 
 
