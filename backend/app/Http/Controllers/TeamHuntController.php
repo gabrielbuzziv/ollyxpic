@@ -544,11 +544,19 @@ class TeamHuntController extends Controller
 
         // Look At
         if (request()->input('loot_at')) {
-            $looks = array_map(function ($loot) {
-                $item = explode('You see', $loot);
-                $name = explode('(', $item[1]);
-                $name = trim(str_replace(['.'], '', $name[0]));
+            $items = array_map(function ($loot) {
+                return array_map(function ($l) {
+                    return trim($l);
+                }, array_filter(explode(PHP_EOL, $loot), function ($l) {
+                    return ! empty($l);
+                }));
+            }, array_filter(preg_split('/\b\d{2}:\d{2}\b/', request()->input('loot')), function ($loot) {
+                return ! empty($loot) ? trim($loot) : false;
+            }));
 
+            $looks = array_map(function ($item) {
+                $weigth = (int) filter_var($item[1], FILTER_SANITIZE_NUMBER_INT) / 100;
+                $name = trim(str_replace(['.'], '', explode('(', explode('You see', $item[0])[1])[0]));
                 $amount = (int) filter_var($name, FILTER_SANITIZE_NUMBER_INT);
 
                 $name = $this->getItemName($name);
@@ -557,6 +565,11 @@ class TeamHuntController extends Controller
                 if (! $item) {
                     $this->error[] = $name;
                 } else {
+                    if (! $amount) {
+                        $capacity = (int) $item->capacity;
+                        $amount = $weigth / $capacity;
+                    }
+
                     $name = $amount > 0 ? "{$amount} {$name}" : $name;
 
                     return [
@@ -567,9 +580,7 @@ class TeamHuntController extends Controller
                         ],
                     ];
                 }
-            }, array_filter(explode(PHP_EOL, request()->input('loot')), function ($loot) {
-                return strpos($loot, 'You see');
-            }));
+            }, $items);
         } else {
             $looks = [];
         }
