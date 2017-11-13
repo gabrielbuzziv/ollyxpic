@@ -555,7 +555,11 @@ class TeamHuntController extends Controller
             }));
 
             $looks = array_map(function ($item) {
-                $weigth = (int) filter_var($item[1], FILTER_SANITIZE_NUMBER_INT) / 100;
+                $weight = array_filter($item, function ($item) {
+                    return strpos($item, 'weighs');
+                });
+
+                $weigth = (int) filter_var($weight, FILTER_SANITIZE_NUMBER_INT) / 100;
                 $name = trim(str_replace(['.'], '', explode('(', explode('You see', $item[0])[1])[0]));
                 $amount = (int) filter_var($name, FILTER_SANITIZE_NUMBER_INT);
 
