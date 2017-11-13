@@ -555,11 +555,11 @@ class TeamHuntController extends Controller
             }));
 
             $looks = array_map(function ($item) {
-                $weight = array_filter($item, function ($item) {
+                $weight = array_values(array_filter($item, function ($item) {
                     return strpos($item, 'weighs');
-                });
+                }));
 
-                $weigth = (int) filter_var($weight, FILTER_SANITIZE_NUMBER_INT) / 100;
+                $weight = (bool) count($weight) ? (int) filter_var($weight[0], FILTER_SANITIZE_NUMBER_INT) / 100 : 0;
                 $name = trim(str_replace(['.'], '', explode('(', explode('You see', $item[0])[1])[0]));
                 $amount = (int) filter_var($name, FILTER_SANITIZE_NUMBER_INT);
 
@@ -571,7 +571,7 @@ class TeamHuntController extends Controller
                 } else {
                     if (! $amount) {
                         $capacity = (int) $item->capacity;
-                        $amount = $weigth / $capacity;
+                        $amount = $weight / $capacity;
                     }
 
                     $name = $amount > 0 ? "{$amount} {$name}" : $name;
