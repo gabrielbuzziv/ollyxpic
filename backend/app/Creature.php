@@ -48,6 +48,16 @@ class Creature extends Model
     protected $hidden = ['image'];
 
     /**
+     * 
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
+     */
+    public function creaturess()
+    {
+        return $this->belongsToMany(Huntingspot::class, 'huntingspots_creature', 'huntingspots_id', 'creature_id');
+    }
+
+    /**
      * Disable timestamps.
      *
      * @var bool

@@ -36,6 +36,18 @@ Route::get('creatures', 'CreatureController@index');
 Route::get('creatures/{creature}', 'CreatureController@show');
 
 /**
+ * HuntingSpotsController routes.
+ */
+Route::get('huntingspots', 'HuntingSpotsController@index');
+Route::get('huntingspots/{huntingspot}', 'HuntingSpotsController@show');
+
+/**
+ * HuntingCreatureController routes.
+ */
+Route::get('huntingcreature', 'HuntingCreatureController@index');
+Route::get('huntingcreature/{huntingcreature}', 'HuntingCreatureController@show');
+
+/**
  * Authentication routes.
  */
 Route::get('auth/token', 'AuthController@refreshToken');
