@@ -9,6 +9,7 @@ import { routes as spellcaster } from './spellcaster'
 import { routes as expshare } from './expshare'
 import { routes as capcount } from './capcount'
 import { routes as currency } from './currency'
+import { routes as huntingspots } from './huntingspots'
 
 export default [
     {
@@ -37,4 +38,6 @@ export default [
     ...capcount,
 
     ...currency,
+
+    ...huntingspots,
 ]
