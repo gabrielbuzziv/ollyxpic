@@ -50,6 +50,19 @@ class ItemController extends Controller
      */
     public function syncronize()
     {
+        $drops = WikiCreatureDrop::with('creature', 'item');
+        $drops->each(function ($drop) {
+            $item = Item::where('title', $drop->item->title)->where('name', $drop->item->name)->first();
+            $creature = Item::where('title', $drop->creature->title)->where('name', $drop->creature->name)->first();
+
+            $data = CreatureDrop::firstOrNew(['creature_id' => $creature->id, 'item_id' => $item->id]);
+            $data->percentage = $drop->percentage;
+            $data->min = $drop->min;
+            $data->max = $drop->max;
+            $data->save();
+        });
+
+
         $items = WikiItems::with('properties', 'sells.npc', 'buys')
             ->whereNotNull('category')
             ->where('category', '<>', '')

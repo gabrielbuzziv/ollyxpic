@@ -559,7 +559,7 @@ class TeamHuntController extends Controller
                     return strpos($item, 'weighs');
                 }));
 
-                $weight = (bool) count($weight) ? (int) filter_var($weight[0], FILTER_SANITIZE_NUMBER_INT) / 100 : 0;
+                $weight = count($weight) ? (float) trim(str_replace(['It weighs', 'oz.'], '', $weight[0])) : 0;
                 $name = trim(str_replace(['.'], '', explode('(', explode('You see', $item[0])[1])[0]));
                 $amount = (int) filter_var($name, FILTER_SANITIZE_NUMBER_INT);
 
@@ -570,8 +570,7 @@ class TeamHuntController extends Controller
                     $this->error[] = $name;
                 } else {
                     if (! $amount) {
-                        $capacity = (int) $item->capacity;
-                        $amount = $weight / $capacity;
+                        $amount = (int) ($weight / $item->capacity);
                     }
 
                     $name = $amount > 0 ? "{$amount} {$name}" : $name;
