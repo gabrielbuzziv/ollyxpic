@@ -3,7 +3,7 @@
         <page-title>
             <img :src="image_path_by_name('item', 'map')" alt="" class="margin-right-5">
             Hunting
-            <span>Spots</span>
+            <span>Spots1</span>
         </page-title>
 
 
