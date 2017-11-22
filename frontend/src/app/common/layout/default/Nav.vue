@@ -138,6 +138,18 @@
                             </span>
                         </a>
                     </router-link>
+
+                    <router-link :to="{ name: 'calculators.huntingspots' }" tag="li">
+                        <a href="">
+                            <span class="left">
+                                <img :src="image_path_by_name('item', 'map')">
+                            </span>
+                            <span class="center">
+                                <span>Hunting</span>
+                                <small>Spots</small>
+                            </span>
+                        </a>
+                    </router-link>
                 </ul>
             </li>
 

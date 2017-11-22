@@ -108,6 +108,13 @@
                         <i class="mdi mdi-chevron-right"></i>
                     </card>
                 </router-link>
+
+                <router-link :to="{ name: 'calculators.huntingspots' }" slot="anchor">
+                    <card title="Hunting" subtitle="Spots">
+                        <img :src="image_path_by_name('item', 'map')" slot="icon">
+                        <i class="mdi mdi-chevron-right"></i>
+                    </card>
+                </router-link>
             </div>
         </div>
     </page-load>

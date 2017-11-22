@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Huntingspot;
 use App\Creature;
-use App\WikiCreatures;
 use App\Creaturedrops;
 use Illuminate\Http\Request;
 
