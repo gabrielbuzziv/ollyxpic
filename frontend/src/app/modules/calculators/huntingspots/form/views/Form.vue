@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
-                    <form-group :columns="6"><!-- multiple works within -->
+                    <form-group :columns="10"><!-- multiple works within -->
                         <el-select
                                 v-model="form.huntingspot"
                                 placeholder="Huntingspots"
@@ -22,6 +22,7 @@
                                 @change="selectHuntingSpot">
                             <el-option
                                     v-for="huntingspot in form.huntingspots"
+                                    v-if="huntingspot.approved > 0"
                                     :key="huntingspot.id"
                                     :label="huntingspot.title"
                                     :value="huntingspot.id"
@@ -38,7 +39,7 @@
                 <div class="col-md-12">
                     <div class="col-md-4">
                         <panel v-bind:title="huntingspot.title">
-                            <div class="status">
+                            <div>
                                 Average exp/h: {{ huntingspot.exp }} <br>
                                 Average Profit: {{ huntingspot.profit }} <br>
                                 Recomended Level: {{ huntingspot.level }} <br>
@@ -93,7 +94,12 @@
                     This tool is great for finding new and fun spots to hunt at, just search for a monster or spot and if there<br>
                     is any available in our database it will show up in a list, Once you select one some information about that<br>
                     hunting spot will appear.<br><br>
-                    Should you want to submit a huntingspot you can use our form to fill in all the information.
+                    Should you want to submit a huntingspot you can use our form to fill in all the information.<br>
+
+                    <a href="#/calculators/huntingspots/submit" class="btn btn-default margin-top-20">
+                        Submit a huntingspot
+                        <i class="mdi mdi-arrow-right margin-left-5"></i>
+                    </a>
 
                 </panel>
             </div>
@@ -112,6 +118,7 @@
             return {
                 loading: false,
                 huntingspot: '',
+                huntingspots: [],
                     itemdrops: { id: '', itemid: '', percentage: '', },
                     creatures: { id: '', title: '', name: '', },
                 form: {
