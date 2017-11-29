@@ -145,7 +145,7 @@ class ImageController extends Controller
             case 'npc':
                 return NPC::where('name', $name)->first->image;
             case 'item':
-                return Item::where('name', $name)->first()->image;
+                return Item::where('title', $name)->first()->image;
             case 'spell':
                 return Spells::where('name', $name)->first()->image;
             case 'creature':
