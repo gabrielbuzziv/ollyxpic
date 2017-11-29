@@ -2,8 +2,8 @@ import Form from './views/Form'
 
 export default [
     {
-        path: '/calculators/spellcaster',
-        name: 'calculators.spellcaster',
+        path: '/tools/spellcaster',
+        name: 'tools.spellcaster',
         component: Form,
     }
 ]
