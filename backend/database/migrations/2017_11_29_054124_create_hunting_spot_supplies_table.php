@@ -17,7 +17,6 @@ class CreateHuntingSpotSuppliesTable extends Migration
             $table->integer('hunting_spot_id')->unsigned();
             $table->integer('supply_id')->unsigned();
             $table->integer('amount')->default(1);
-            $table->string('description')->nullable();
 
             $table->foreign('hunting_spot_id')->references('id')->on('hunting_spots')->onDelete('cascade');
             $table->foreign('supply_id')->references('id')->on('items')->onDelete('cascade');

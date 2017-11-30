@@ -13,7 +13,6 @@ class Creature extends Model
      * @var array
      */
     protected $fillable = [
-        'id',
         'title',
         'name',
         'health',
@@ -48,19 +47,22 @@ class Creature extends Model
     protected $hidden = ['image'];
 
     /**
-     * 
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
-     */
-    public function creaturess()
-    {
-        return $this->belongsToMany(Huntingspot::class, 'huntingspots_creature', 'huntingspots_id', 'creature_id');
-    }
-
-    /**
      * Disable timestamps.
      *
      * @var bool
      */
     public $timestamps = false;
+
+    /**
+     * Has many drops.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function drops()
+    {
+        return $this->belongsToMany(Item::class, 'creature_item', 'creature_id', 'item_id')
+            ->withPivot('percentage')
+            ->withPivot('min')
+            ->withPivot('max');
+    }
 }

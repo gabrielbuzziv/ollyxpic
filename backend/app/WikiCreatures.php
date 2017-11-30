@@ -26,4 +26,12 @@ class WikiCreatures extends Model
      * @var array
      */
     protected $hidden = ['image'];
+
+    public function drops()
+    {
+        return $this->belongsToMany(WikiItems::class, 'CreatureDrops', 'creatureid', 'itemid')
+            ->withPivot('percentage')
+            ->withPivot('min')
+            ->withPivot('max');
+    }
 }

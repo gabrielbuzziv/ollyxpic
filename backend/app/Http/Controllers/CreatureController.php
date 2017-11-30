@@ -17,7 +17,7 @@ class CreatureController extends ApiController
      */
     public function syncronize()
     {
-        $creatures = WikiCreatures::get();
+        $creatures = WikiCreatures::with('drops')->get();
 
         return $creatures->each(function ($creature) {
             $data = Creature::firstOrNew(['title' => $creature->title]);
@@ -46,6 +46,18 @@ class CreatureController extends ApiController
             $data->armor = $creature->armor;
             $data->boss = $creature->boss;
             $data->save();
+
+            $drops = $creature->drops;
+
+            foreach ($drops as $drop) {
+                $data->drops()->attach([
+                    $drop->id => [
+                        'percentage' => $drop->pivot->percentage,
+                        'min' => $drop->pivot->min,
+                        'max' => $drop->pivot->max,
+                    ]
+                ]);
+            }
 
             return $creature;
         });
