@@ -2,8 +2,8 @@ import Form from './views/Form'
 
 export default [
     {
-        path: '/calculators/mvp',
-        name: 'calculators.mvp',
+        path: '/tools/mvp',
+        name: 'tools.mvp',
         component: Form,
     }
 ]

@@ -1,5 +1,7 @@
-import { vuex as spellcaster } from './spellcaster'
+import { vuex as damageHealing } from './damage-healing'
+import { vuex as huntingSpots } from './hunting-spots'
 
 export default [
-    ...spellcaster,
+    ...damageHealing,
+    ...huntingSpots
 ]

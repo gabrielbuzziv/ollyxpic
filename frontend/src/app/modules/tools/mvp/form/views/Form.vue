@@ -82,7 +82,7 @@
                 services.calculate(new FormData(form))
                         .then(response => {
                             this.calculating = false
-                            this.$router.push({ name: 'calculators.mvp.result', params: { id: response.data.id } })
+                            this.$router.push({ name: 'tools.mvp.result', params: { id: response.data.id } })
                         })
                         .catch(error => {
                             if (error.type && error.type == 'validation') {

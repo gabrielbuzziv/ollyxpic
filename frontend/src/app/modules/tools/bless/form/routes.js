@@ -2,8 +2,8 @@ import Form from './views/Form'
 
 export default [
     {
-        path: '/calculators/blessing',
-        name: 'calculators.blessing',
+        path: '/tools/blessing',
+        name: 'tools.blessing',
         component: Form,
     }
 ]

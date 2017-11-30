@@ -68,7 +68,7 @@
                             <highcharts :id="`currency-${world.id}`" :options="getChartOptions(world)" ref="chart" v-if="world.currencies.length"/>
                         </td>
                         <td class="text-right">
-                            <router-link :to="{ name: 'calculators.currencies.world', params: { id: world.id } }"
+                            <router-link :to="{ name: 'tools.currencies.world', params: { id: world.id } }"
                                          class="btn btn-xs"
                                          title="All currencies"
                                          v-if="world.currencies.length">

@@ -2,8 +2,8 @@ import Form from './views/Form'
 
 export default [
     {
-        path: '/calculators/loot-count',
-        name: 'calculators.loot.count',
+        path: '/tools/loot-count',
+        name: 'tools.loot.count',
         component: Form,
     }
 ]

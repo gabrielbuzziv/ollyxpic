@@ -2,10 +2,10 @@
     <page-load id="hunting-spots">
         <page-title>
             <div class="pull-right">
-                <button class="btn btn-default">
+                <router-link :to="{ name: 'tools.spots.form' }" class="btn btn-default">
                     <i class="mdi mdi-plus-circle margin-right-5"></i>
                     Share your spot
-                </button>
+                </router-link>
             </div>
 
             <img :src="image_path_by_name('item', 'Map (Brown)')" alt="">

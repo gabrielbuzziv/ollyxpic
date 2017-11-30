@@ -1,9 +1,9 @@
 <template>
     <page-load id="spellcast">
         <page-title>
-            <img :src="image_path('item', 117)" alt="">
-            Damage Calc
-            <span>Damage & Healing</span>
+            <img :src="image_path_by_name('item', 'avalanche rune')" alt="">
+            Damage & Healing
+            <span>Spell and Weapons</span>
         </page-title>
 
 	<div class="row">

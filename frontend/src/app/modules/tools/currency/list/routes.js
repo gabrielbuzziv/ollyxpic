@@ -3,13 +3,13 @@ import World from './views/World'
 
 export default [
     {
-        path: '/calculators/currencies',
-        name: 'calculators.currencies',
+        path: '/tools/currencies',
+        name: 'tools.currencies',
         component: List,
     },
     {
-        path: '/calculators/currencies/:id/world',
-        name: 'calculators.currencies.world',
+        path: '/tools/currencies/:id/world',
+        name: 'tools.currencies.world',
         component: World,
     }
 ]

@@ -2,8 +2,8 @@ import Result from './views/Result'
 
 export default [
     {
-        path: '/calculators/mvp/:id/result',
-        name: 'calculators.mvp.result',
+        path: '/tools/mvp/:id/result',
+        name: 'tools.mvp.result',
         component: Result,
     }
 ]

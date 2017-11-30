@@ -216,7 +216,7 @@
                 services.calculate(data)
                         .then(response => {
                             this.calculating = false
-                            this.$router.push({ name: 'calculators.loot.count.result', params: { id: response.data.id }, query: { password: response.data.password } })
+                            this.$router.push({ name: 'tools.loot.count.result', params: { id: response.data.id }, query: { password: response.data.password } })
                         })
                         .catch(error => {
                             this.calculating = false

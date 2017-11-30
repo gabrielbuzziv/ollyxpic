@@ -38,8 +38,7 @@ Route::get('creatures/{creature}', 'CreatureController@show');
 /**
  * HuntingSpotsController routes.
  */
-Route::get('huntingspots', 'HuntingSpotsController@index');
-Route::get('huntingspots/{huntingspot}', 'HuntingSpotsController@show');
+Route::post('hunting-spots', 'HuntingSpotController@store');
 
 /**
  * HuntingCreatureController routes.
@@ -85,6 +84,11 @@ Route::get('worlds/{world}', 'WorldController@show');
  * VocationController routes.
  */
 Route::get('vocations', 'VocationController@index');
+
+/**
+ * SupplyController routes.
+ */
+Route::get('supplies', 'SupplyController@index');
 
 /**
  * All the routes in this group will need to send a Header

@@ -13,13 +13,13 @@
                         <img :src="image_path_by_name('item', 'abacus')" alt="">
                     </span>
                     <span class="center">
-                        Calculators
+                        Tools
                     </span>
                 </a>
 
                 <ul>
 
-                    <router-link :to="{ name: 'calculators.imbuements' }" tag="li">
+                    <router-link :to="{ name: 'tools.imbuements' }" tag="li">
                         <a href="">
                             <span class="left">
                                 <img :src="image_path_by_name('item', 'silencer claws')">
@@ -31,7 +31,7 @@
                         </a>
                     </router-link>
 
-                    <router-link :to="{ name: 'calculators.loot.count' }" tag="li">
+                    <router-link :to="{ name: 'tools.loot.count' }" tag="li">
                         <a href="">
                             <span class="left">
                                 <img :src="image_path_by_name('item', 'steel boots')">
@@ -43,7 +43,7 @@
                         </a>
                     </router-link>
 
-                    <router-link :to="{ name: 'calculators.blessing' }" tag="li">
+                    <router-link :to="{ name: 'tools.blessing' }" tag="li">
                         <a href="">
                             <span class="left">
                                 <img :src="image_path_by_name('item', 'spiritual charm')">
@@ -55,7 +55,7 @@
                         </a>
                     </router-link>
 
-                    <router-link :to="{ name: 'calculators.speedboost' }" tag="li">
+                    <router-link :to="{ name: 'tools.speedboost' }" tag="li">
                         <a href="">
                             <span class="left">
                                 <img :src="image_path_by_name('item', 'boots of haste')">
@@ -67,19 +67,19 @@
                         </a>
                     </router-link>
 
-                    <router-link :to="{ name: 'calculators.spellcaster' }" tag="li">
+                    <router-link :to="{ name: 'tools.damage.healing' }" tag="li">
                         <a href="">
                             <span class="left">
-                                <img :src="image_path_by_name('item', 'sudden death rune')" alt="">
+                                <img :src="image_path_by_name('item', 'avalanche rune')" alt="">
                             </span>
                             <span class="center">
-                                <span>Damage Calc</span>
-                                <small>Damage & Healing</small>
+                                <span>Damage & Healing</span>
+                                <small>Spells and Weapons</small>
                             </span>
                         </a>
                     </router-link>
 
-                    <router-link :to="{ name: 'calculators.mvp' }" tag="li">
+                    <router-link :to="{ name: 'tools.mvp' }" tag="li">
                         <a href="">
                             <span class="left">
                                 <img :src="image_path_by_name('item', 'medal of honour')">
@@ -91,7 +91,7 @@
                         </a>
                     </router-link>
 
-                    <router-link :to="{ name: 'calculators.expshare' }" tag="li">
+                    <router-link :to="{ name: 'tools.expshare' }" tag="li">
                         <a href="">
                             <span class="left">
                                 <img :src="image_path_by_name('item', 'purple tome')">
@@ -103,7 +103,7 @@
                         </a>
                     </router-link>
 
-                    <router-link :to="{ name: 'calculators.capcount' }" tag="li">
+                    <router-link :to="{ name: 'tools.capcount' }" tag="li">
                         <a href="">
                             <span class="left">
                                 <img :src="image_path_by_name('item', 'blossom bag')">
@@ -115,7 +115,7 @@
                         </a>
                     </router-link>
 
-                    <router-link :to="{ name: 'calculators.damage.protection' }" tag="li">
+                    <router-link :to="{ name: 'tools.damage.protection' }" tag="li">
                         <a href="">
                             <span class="left">
                                 <img :src="image_path_by_name('item', 'great shield')">
@@ -127,7 +127,7 @@
                         </a>
                     </router-link>
 
-                    <router-link :to="{ name: 'calculators.currencies' }" tag="li">
+                    <router-link :to="{ name: 'tools.currencies' }" tag="li">
                         <a href="">
                             <span class="left">
                                 <img :src="image_path_by_name('item', 'tibia coins')">
@@ -139,10 +139,10 @@
                         </a>
                     </router-link>
 
-                    <router-link :to="{ name: 'calculators.huntingspots' }" tag="li">
+                    <router-link :to="{ name: 'tools.spots.list' }" tag="li">
                         <a href="">
                             <span class="left">
-                                <img :src="image_path_by_name('item', 'map')">
+                                <img :src="image_path_by_name('item', 'Map (Brown)')">
                             </span>
                             <span class="center">
                                 <span>Hunting</span>
@@ -259,7 +259,7 @@
     export default {
         computed: {
             isCalculator () {
-                if (this.$route.name.includes('calculators')) {
+                if (this.$route.name.includes('tools')) {
                     return true
                 }
 

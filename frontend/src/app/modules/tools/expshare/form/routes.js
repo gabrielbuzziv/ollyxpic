@@ -2,8 +2,8 @@ import Form from './views/Form'
 
 export default [
     {
-        path: '/calculators/expshare',
-        name: 'calculators.expshare',
+        path: '/tools/expshare',
+        name: 'tools.expshare',
         component: Form,
     }
 ]

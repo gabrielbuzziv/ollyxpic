@@ -136,7 +136,7 @@ class ImageController extends Controller
      * Convert blob images.
      *
      * @param $type
-     * @param $id
+     * @param $name
      * @return mixed
      */
     private function loadBlobImageByName($type, $name)

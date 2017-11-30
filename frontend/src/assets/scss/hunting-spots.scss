@@ -1,0 +1,262 @@
+#hunting-spots {
+    .filterVocations {
+        margin-bottom: 20px;
+
+        .el-checkbox-button {
+            width: 25%;
+
+            &.is-checked {
+                .el-checkbox-button__inner {
+                    background-color: $theme;
+                    border-color: $theme;
+                    box-shadow: -1px 0 0 0 darken($theme, 5%);
+
+                    &:hover {
+                        color: #fff;
+                    }
+                }
+            }
+
+            .el-checkbox-button__inner {
+                width: 100%;
+                padding: 20px;
+
+                &:hover {
+                    color: $theme;
+                }
+            }
+        }
+    }
+
+    .hunting-spot-form {
+        .vocations {
+            margin-bottom: 20px;
+
+            .el-checkbox-button {
+                width: 25%;
+
+                &.is-checked {
+                    .el-checkbox-button__inner {
+                        font-weight: 400;
+                    }
+                }
+
+                .el-checkbox-button__inner {
+                    width: 100%;
+                    padding: 20px;
+                }
+            }
+        }
+
+        .note-editor {
+            &.note-frame {
+                border: 1px solid #ccd0d2;
+                border-radius: $border-radius-base;
+                margin-bottom: 0;
+            }
+
+            .note-toolbar {
+                .btn {
+                    padding: 5px 8px;
+                }
+            }
+
+            .note-placeholder {
+                font-weight: 300;
+                color: #999;
+            }
+
+            .note-editable {
+                font-weight: 300;
+            }
+        }
+
+        .el-checkbox-group {
+            text-align: center;
+
+            .el-checkbox-button {
+                margin-bottom: 0;
+
+                .el-checkbox-button__inner {
+                    font-size: 14px;
+                    font-weight: 300;
+                }
+            }
+        }
+
+        input[type=text] {
+            &.form-control {
+                height: 50px;
+                line-height: 50px;
+            }
+        }
+
+        .form-control {
+            font-size: 16px;
+            font-weight: 300;
+            box-shadow: none;
+        }
+
+        .helper-block {
+            display: block;
+            font-size: 12px;
+            font-style: italic;
+            margin-top: 5px;
+            color: #888;
+        }
+
+        .minLevel,
+        .maxLevel {
+            font-size: 20px;
+            display: block;
+            font-weight: 300;
+            float: left;
+        }
+
+        .maxLevel {
+            float: right;
+        }
+
+        .slider-label {
+            label {
+                display: inline-block;
+                font-weight: 300;
+                font-size: 14px;
+                color: #919191;
+                vertical-align: bottom;
+                width: 100px;
+            }
+
+            .value {
+                font-size: 20px;
+                display: inline-block;
+                font-weight: 300;
+                text-align: right;
+                vertical-align: bottom;
+                width: calc(100% - 105px);
+            }
+        }
+
+        .el-select {
+            .el-input__inner {
+                font-weight: 300;
+                height: 50px;
+                line-height: 50px;
+            }
+        }
+
+        .el-input-number {
+            width: 100% !important;
+
+            .el-input-number__decrease {
+                height: 50px;
+                line-height: 50px;
+            }
+
+            .el-input-number__increase {
+                height: 50px;
+                line-height: 50px;
+            }
+
+            .el-input {
+                .el-input__inner {
+                    height: 50px;
+                    line-height: 50px;
+                    font-weight: 300;
+                }
+            }
+        }
+
+        .btn-delete {
+            margin-top: 13px;
+        }
+
+        .el-cascader {
+            .el-input__inner {
+                height: 50px;
+                line-height: 50px;
+            }
+
+            .el-cascader__label {
+                line-height: 50px;
+            }
+        }
+
+        .options {
+            .form-group {
+                label {
+                    display: inline-block;
+                    font-weight: 300;
+                    font-size: 14px;
+                    color: #919191;
+                    vertical-align: middle;
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        .creatures {
+
+            .creature {
+                display: inline-block;
+                padding: 15px;
+                border-radius: $border-radius-base;
+                background: #20a0ff;
+                color: #fff;
+                width: 100%;
+                height: 150px;
+                vertical-align: top;
+                text-align: center;
+                position: relative;
+                margin-top: 30px;
+
+                .btn-delete {
+                    position: absolute;
+                    top: 0;
+                    left: 15px;
+                    background: rgba(0,0,0,.2);
+
+                    &:hover {
+                        color: #fff;
+                        background: rgba(0,0,0,.4);
+                    }
+                }
+
+                .thumb {
+                    height: 64px;
+                    line-height: 64px;
+                    display: block;
+                    margin-bottom: 5px;
+
+                    img {
+                        line-height: normal;
+                        vertical-align: middle;
+                        display: inline-block;
+                    }
+                }
+
+                .name {
+                    display: block;
+                    line-height: 55px;
+                    height: 55px;
+
+                    span {
+                        line-height: normal;
+                        vertical-align: middle;
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+
+        .creature-options {
+            .el-select {
+                width: 100%;
+
+                .el-input__inner {
+                    cursor: text;
+                }
+            }
+        }
+    }
+}
