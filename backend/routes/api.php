@@ -38,6 +38,8 @@ Route::get('creatures/{creature}', 'CreatureController@show');
 /**
  * HuntingSpotsController routes.
  */
+Route::get('hunting-spots', 'HuntingSpotController@index');
+Route::get('hunting-spots/{spot}', 'HuntingSpotController@show');
 Route::post('hunting-spots', 'HuntingSpotController@store');
 
 /**

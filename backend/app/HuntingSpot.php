@@ -18,13 +18,11 @@ class HuntingSpot extends Model
         'tips',
         'experience',
         'profit',
-        'place',
         'level_min',
         'level_max',
         'require_premium',
         'require_quest',
         'has_task',
-        'profitable',
         'soloable',
         'author'
     ];
@@ -46,7 +44,7 @@ class HuntingSpot extends Model
      */
     public function creatures()
     {
-        return $this->belongsToMany(Creature::class);
+        return $this->belongsToMany(Creature::class, 'hunting_spot_creature');
     }
 
     /**
@@ -56,7 +54,9 @@ class HuntingSpot extends Model
      */
     public function supplies()
     {
-        return $this->belongsToMany(Item::class)->withPivot('amount');
+        return $this->belongsToMany(Item::class, 'hunting_spot_supplies', 'hunting_spot_id', 'supply_id')
+            ->withPivot('amount')
+            ->withPivot('description');
     }
 
     /**

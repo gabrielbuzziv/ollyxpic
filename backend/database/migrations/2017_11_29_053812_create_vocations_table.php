@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateVocationsTable extends Migration
 {
@@ -17,6 +18,11 @@ class CreateVocationsTable extends Migration
             $table->increments('id');
             $table->string('title');
         });
+
+        DB::table('vocations')->insert(['title' => 'Knight']);
+        DB::table('vocations')->insert(['title' => 'Druid']);
+        DB::table('vocations')->insert(['title' => 'Sorcerer']);
+        DB::table('vocations')->insert(['title' => 'Paladin']);
     }
 
     /**

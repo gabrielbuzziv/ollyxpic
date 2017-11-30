@@ -17,18 +17,16 @@ class CreateHuntingSpotsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->longText('description');
-            $table->longText('tips');
+            $table->longText('tips')->nullable();
             $table->decimal('experience', 10, 2);
-            $table->decimal('profit', 10, 2);
-            $table->string('place');
+            $table->decimal('profit', 10, 2)->nullable();
             $table->integer('level_min');
             $table->integer('level_max');
-            $table->boolean('require_premium');
-            $table->boolean('require_quest');
-            $table->boolean('has_task');
-            $table->boolean('profitable');
-            $table->boolean('soloable');
-            $table->string('author');
+            $table->boolean('require_premium')->default(true);
+            $table->boolean('require_quest')->default(false);
+            $table->boolean('has_task')->default(false);
+            $table->boolean('soloable')->default(true);
+            $table->string('author')->nullable();
             $table->timestamps();
         });
     }
