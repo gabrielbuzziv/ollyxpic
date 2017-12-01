@@ -13,25 +13,42 @@
             <span>Spots</span>
         </page-title>
 
-        <div class="vocations">
-            <el-checkbox-group v-model="filterVocations">
-                <el-checkbox-button v-for="vocation in vocations" :label="vocation.title" :key="vocation.id">
-                    {{ vocation.title }}
-                </el-checkbox-button>
-            </el-checkbox-group>
-        </div>
 
         <div class="row">
-            <div class="col-md-3">
-                <div class="filters">
-                    <panel>Filters here</panel>
-                </div>
-            </div>
-
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="list">
                     <panel>
-                        List here
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Level</th>
+                                    <th>Experience</th>
+                                    <th>Profit</th>
+                                    <th>Options</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr v-for="spot in spots">
+                                    <td>{{ spot.title }}</td>
+                                    <td>
+                                        {{ spot.level_min }}
+                                        <i class="mdi mdi-arrow-right"></i>
+                                        {{ spot.level_max }}
+                                    </td>
+                                    <td>{{ spot.experience | experience }}</td>
+                                    <td>{{ spot.profit | profit }}</td>
+                                    <td></td>
+                                    <td>
+                                        <router-link :to="{ name: 'tools.spots.show', params: { id: spot.id } }" class="btn btn-xs">
+                                            <i class="mdi mdi-chevron-right"></i>
+                                        </router-link>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </panel>
                 </div>
             </div>
@@ -40,24 +57,29 @@
 </template>
 
 <script>
+    import services from '../services'
+
     export default {
         data () {
             return {
-                filterVocations: []
+                spots: []
             }
         },
 
-        computed: {
-            vocations () {
-                return this.$store.getters['spots/GET_VOCATIONS']
-            }
-        },
-
-        methods: {
+        filters: {
+            experience (value) {
+                return `${value} /h`
+            },
+            profit (value) {
+                return `${value} /h`
+            },
         },
 
         mounted () {
-            this.$store.dispatch('spots/FETCH_VOCATIONS')
+            services.getHuntingSpots()
+                .then(response => {
+                    this.spots = response.data
+                })
         }
     }
 </script>

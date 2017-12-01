@@ -55,8 +55,7 @@ class HuntingSpot extends Model
     public function supplies()
     {
         return $this->belongsToMany(Item::class, 'hunting_spot_supplies', 'hunting_spot_id', 'supply_id')
-            ->withPivot('amount')
-            ->withPivot('description');
+            ->withPivot('amount');
     }
 
     /**
@@ -66,6 +65,6 @@ class HuntingSpot extends Model
      */
     public function equipments()
     {
-        return $this->hasMany(HuntingSpotEquipment::class);
+        return $this->belongsToMany(Item::class, 'hunting_spot_equipments', 'hunting_spot_id', 'equipment_id');
     }
 }

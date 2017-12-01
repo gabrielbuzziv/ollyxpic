@@ -18,8 +18,8 @@ class CreateHuntingSpotsTable extends Migration
             $table->string('title');
             $table->longText('description');
             $table->longText('tips')->nullable();
-            $table->decimal('experience', 10, 2);
-            $table->decimal('profit', 10, 2)->nullable();
+            $table->integer('experience');
+            $table->integer('profit')->nullable();
             $table->integer('level_min');
             $table->integer('level_max');
             $table->boolean('require_premium')->default(true);

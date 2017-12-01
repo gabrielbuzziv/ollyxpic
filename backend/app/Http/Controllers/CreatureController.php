@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Creature;
+use App\Item;
 use App\WikiCreatures;
 use Illuminate\Http\Request;
 
@@ -50,13 +51,17 @@ class CreatureController extends ApiController
             $drops = $creature->drops;
 
             foreach ($drops as $drop) {
-                $data->drops()->attach([
-                    $drop->id => [
-                        'percentage' => $drop->pivot->percentage,
-                        'min' => $drop->pivot->min,
-                        'max' => $drop->pivot->max,
-                    ]
-                ]);
+                $item = Item::where('title', $drop->title)->first();
+
+                if ($item) {
+                    $data->drops()->attach([
+                        $item->id => [
+                            'percentage' => $drop->pivot->percentage,
+                            'min'        => $drop->pivot->min,
+                            'max'        => $drop->pivot->max,
+                        ]
+                    ]);
+                }
             }
 
             return $creature;

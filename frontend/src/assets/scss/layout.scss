@@ -304,23 +304,30 @@ a, button {
             display: block;
             margin-bottom: 50px;
 
-            h1 {
-                font-size: 30px;
-                font-weight: 600;
-                color: $theme;
-                margin: 0;
-                padding: 0;
+            img {
+                margin-right: 20px;
+                display: inline-block;
+                vertical-align: top;
+            }
 
-                img {
-                    margin-right: 10px;
+            .title {
+                display: inline-block;
+                vertical-align: top;
+
+                h2 {
+                    font-size: 30px;
+                    font-weight: 600;
+                    color: $theme;
+                    margin: 0;
+                    padding: 0;
                 }
 
                 span {
                     display: block;
                     font-size: 18px;
-                    margin-left: 51px;
                     font-weight: 300;
-                    color: $theme-dark;
+                    margin-top: 7px;
+                    color: #666;
                 }
             }
         }

@@ -42,6 +42,7 @@
             syncronize () {
                 this.status = 'Syncronizing NPC\'s'
                 this.syncing = true
+
                 services.syncNPCs()
                     .then (response => {
                         this.status = 'Syncronizing Categories'
@@ -65,8 +66,19 @@
                                                 services.syncTiles()
                                                     .then (response => {
                                                         this.syncing = false
-                                                        this.status = 'Done'
-                                                        this.fail = false
+                                                        this.status = 'Syncronizing World Map'
+
+                                                        services.syncWorldMap()
+                                                            .then (response => {
+                                                                this.syncing = false
+                                                                this.status = 'Done'
+                                                                this.fail = false
+                                                            })
+                                                            .catch (() => {
+                                                                this.syncing = false
+                                                                this.status = 'Syncronization Failed'
+                                                                this.fail = true
+                                                            })
                                                     })
                                                     .catch (() => {
                                                         this.syncing = false

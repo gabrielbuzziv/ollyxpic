@@ -2,7 +2,7 @@
     <div>
         <div class="supplies">
             <div class="row" v-for="supply, index in supplies">
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-6">
                     <el-cascader
                             v-model="supply.item"
                             :options="suppliesCategories"
@@ -12,12 +12,8 @@
                     </el-cascader>
                 </div>
 
-                <div class="form-group col-md-3">
+                <div class="form-group col-md-5">
                     <el-input-number v-model="supply.amount" :min="1" :step="1"/>
-                </div>
-
-                <div class="form-group col-md-4">
-                    <input type="text" class="form-control" placeholder="Description ...">
                 </div>
 
                 <div class="col-md-1">
@@ -31,7 +27,7 @@
             <div class="supplies-options">
                 <button class="btn btn-sm" @click.prevent="addSupply">
                     <i class="mdi mdi-plus-circle margin-right-5"></i>
-                    Add more supplies
+                    More Supplies
                 </button>
             </div>
         </div>

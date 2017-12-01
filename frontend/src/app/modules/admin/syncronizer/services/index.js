@@ -17,5 +17,9 @@ export default {
 
     syncTiles () {
         return window.axios.post(`admin/tiles/sync`)
-    }
+    },
+
+    syncWorldMap () {
+        return window.axios.post(`admin/map/sync`)
+    },
 }

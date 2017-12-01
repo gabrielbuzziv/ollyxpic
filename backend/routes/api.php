@@ -40,13 +40,9 @@ Route::get('creatures/{creature}', 'CreatureController@show');
  */
 Route::get('hunting-spots', 'HuntingSpotController@index');
 Route::get('hunting-spots/{spot}', 'HuntingSpotController@show');
+Route::get('supplies', 'HuntingSpotController@supplies');
+Route::get('equipments', 'HuntingSpotController@equipments');
 Route::post('hunting-spots', 'HuntingSpotController@store');
-
-/**
- * HuntingCreatureController routes.
- */
-Route::get('huntingcreature', 'HuntingCreatureController@index');
-Route::get('huntingcreature/{huntingcreature}', 'HuntingCreatureController@show');
 
 /**
  * Authentication routes.
@@ -87,10 +83,6 @@ Route::get('worlds/{world}', 'WorldController@show');
  */
 Route::get('vocations', 'VocationController@index');
 
-/**
- * SupplyController routes.
- */
-Route::get('supplies', 'SupplyController@index');
 
 /**
  * All the routes in this group will need to send a Header
@@ -136,6 +128,11 @@ Route::group(['middleware' => 'auth:api', 'prefix' => 'admin'], function () {
      * TileController routes.
      */
     Route::post('tiles/sync', 'TileController@syncronize');
+
+    /**
+     * WorldMapController routes.
+     */
+    Route::post('map/sync', 'WorldMapController@syncronize');
 
     /**
      * NewsController routes

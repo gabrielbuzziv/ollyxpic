@@ -19,48 +19,59 @@
         </page-title>
 
         <form action="" class="hunting-spot-form" @submit.prevent="onSubmit" ref="form">
-            <button type="submit">sbmit</button>
-
             <div class="row">
-
                 <div class="col-md-8">
+                    <panel>
+                        <div class="form-group vocations" :class="{ 'margin-bottom-0': huntVocations.length <= 1 }">
+                            <el-checkbox-group v-model="huntVocations">
+                                <el-checkbox-button v-for="vocation in vocations" :value="vocation.id" :label="vocation.title"
+                                                    :key="vocation.id"/>
+                            </el-checkbox-group>
+
+                            <input type="hidden" name="vocations[]" :value="vocation" v-for="vocation in huntVocations">
+                        </div>
+
+                        <div class="options">
+                            <div class="form-group margin-bottom-0" v-if="huntVocations.length > 1">
+                                <el-switch
+                                        v-model="team"
+                                        on-text=""
+                                        off-text="">
+                                </el-switch>
+                                <label>Team Hunt</label>
+
+                                <input type="hidden" name="soloable" v-model="soloable">
+                            </div>
+                        </div>
+                    </panel>
+
                     <panel>
                         <div class="form-group">
                             <input type="text" name="title" class="form-control" placeholder="Title">
                         </div>
 
-                        <div class="form-group vocations">
-                            <el-checkbox-group v-model="filterVocations">
-                                <el-checkbox-button v-for="vocation in vocations" :value="vocation.id" :label="vocation.title"
-                                                    :key="vocation.id"/>
-                            </el-checkbox-group>
-
-                            <input type="hidden" name="vocations[]" :value="vocation" v-for="vocation in filterVocations">
+                        <div class="form-group">
+                            <input type="text" name="location" class="form-control" placeholder="Location">
                         </div>
 
                         <el-tabs v-model="activeName">
 
                             <!-- Description -->
-                            <el-tab-pane label="Description" name="description">
+                            <el-tab-pane label="Details" name="description">
                                 <div class="form-group">
-                                    <vue-summernote ref="description" :height="300"
+                                    <vue-summernote ref="description" :height="200"
                                                     placeholder="Insert here how this hunting spot works, give some suggestions ..."/>
                                     <input type="hidden" name="description" v-model="description">
                                 </div>
                             </el-tab-pane>
 
                             <!-- Tips -->
-                            <el-tab-pane label="Some Tips" name="tips">
+                            <el-tab-pane label="Tips" name="tips">
                                 <div class="form-group">
-                                    <vue-summernote ref="tips" :height="300"
+                                    <vue-summernote ref="tips" :height="200"
                                                     placeholder="Insert here some tips and recommendations."/>
                                     <input type="hidden" name="tips" v-model="tips">
                                 </div>
-                            </el-tab-pane>
-
-                            <!-- Location -->
-                            <el-tab-pane label="Location" name="location">
-                                Location
                             </el-tab-pane>
 
                             <!-- Creatures -->
@@ -82,9 +93,11 @@
 
                             <!-- Equipments -->
                             <el-tab-pane label="Equipments" name="equipments">
-                                <div class="form-group">
+                                <equipments :equipments="equipments" />
 
-                                </div>
+                                <template v-for="equipment, index in equipments">
+                                    <input type="hidden" :name="`equipments[${index}][item]`" v-model="equipment.item">
+                                </template>
                             </el-tab-pane>
                         </el-tabs>
                     </panel>
@@ -131,7 +144,7 @@
                                     :show-tooltip="false">
                             </el-slider>
 
-                            <input type="hidden" name="experience" class="form-control">
+                            <input type="hidden" name="experience" class="form-control" v-model="experience">
                         </div>
 
                         <div class="form-group margin-bottom-0">
@@ -148,22 +161,11 @@
                                     :show-tooltip="false">
                             </el-slider>
 
-                            <input type="hidden" name="profit" class="form-control">
+                            <input type="hidden" name="profit" class="form-control" v-model="profit">
                         </div>
                     </panel>
 
                     <panel title="Options" class="options">
-                        <div class="form-group">
-                            <el-switch
-                                    v-model="team"
-                                    on-text=""
-                                    off-text="">
-                            </el-switch>
-                            <label>Require Team</label>
-
-                            <input type="hidden" name="soloable" v-model="soloable">
-                        </div>
-
                         <div class="form-group">
                             <el-switch
                                     v-model="task"
@@ -199,6 +201,11 @@
                     </panel>
                 </div>
             </div>
+
+            <button class="btn btn-success btn-block" type="submit">
+                <i class="mdi mdi-check-circle margin-right-5"></i>
+                Submit
+            </button>
         </form>
 
     </page-load>
@@ -212,15 +219,16 @@
 
     import Creatures from './Creatures'
     import Supplies from './Supplies'
+    import Equipments from './Equipments'
     import services from '../services'
 
     export default {
-        components: { Creatures, Supplies },
+        components: { Creatures, Supplies, Equipments },
 
         data () {
             return {
                 activeName: 'description',
-                filterVocations: [],
+                huntVocations: [],
                 level: [0, 100],
                 experience: 1000000,
                 profit: 50000,
@@ -231,9 +239,8 @@
                 quest: false,
                 premium: true,
                 creatures: [],
-                supplies: [
-                    { item: null, amount: 1, description: '' }
-                ]
+                supplies: [{ item: null, amount: 1, description: '' }],
+                equipments: [{ item: null }],
             }
         },
 
@@ -257,10 +264,17 @@
             }
         },
 
+        watch: {
+            huntVocations () {
+                if (this.huntVocations.length <= 1) {
+                    this.team = false
+                }
+            }
+        },
+
         methods: {
             onSubmit () {
                 const form = this.$refs.form
-                console.log(form)
 
                 services.save(new FormData(form))
                     .then(response => {

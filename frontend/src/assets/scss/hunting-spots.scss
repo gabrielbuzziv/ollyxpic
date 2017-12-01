@@ -43,7 +43,9 @@
 
                 .el-checkbox-button__inner {
                     width: 100%;
-                    padding: 20px;
+                    height: 50px;
+                    line-height: 50px;
+                    padding: 0;
                 }
             }
         }
@@ -99,8 +101,7 @@
 
         .helper-block {
             display: block;
-            font-size: 12px;
-            font-style: italic;
+            font-size: 10px;
             margin-top: 5px;
             color: #888;
         }
@@ -172,6 +173,8 @@
         }
 
         .el-cascader {
+            width: 100%;
+
             .el-input__inner {
                 height: 50px;
                 line-height: 50px;
@@ -196,7 +199,6 @@
         }
 
         .creatures {
-
             .creature {
                 display: inline-block;
                 padding: 15px;
@@ -214,11 +216,11 @@
                     position: absolute;
                     top: 0;
                     left: 15px;
-                    background: rgba(0,0,0,.2);
+                    background: rgba(0, 0, 0, .2);
 
                     &:hover {
                         color: #fff;
-                        background: rgba(0,0,0,.4);
+                        background: rgba(0, 0, 0, .4);
                     }
                 }
 
@@ -255,6 +257,257 @@
 
                 .el-input__inner {
                     cursor: text;
+                }
+            }
+        }
+
+        .location {
+            .btn-delete {
+                margin-top: 13px;
+            }
+        }
+    }
+
+    &.hunting-spots__inner {
+        font-weight: 300;
+
+        .el-tabs {
+            .el-tabs__header {
+                margin: 0;
+                border: 0;
+
+                .el-tabs__item {
+                    border: 0 !important;
+
+                    &.is-active {
+                        background: #fff;
+                        border: 0;
+                        color: #000;
+                    }
+                }
+            }
+        }
+
+        .content {
+            h3 {
+                margin: 0 0 20px;
+                font-weight: 600;
+                display: block;
+                font-size: 18px;
+                border-left: 4px solid $theme;
+                padding-left: 16px;
+                margin-left: -20px;
+                line-height: 40px;
+                color: #666;
+            }
+
+            .content-text {
+                margin-bottom: 30px;
+
+                &:last-child {
+                    margin: 0;
+                }
+            }
+
+            header {
+                h3 {
+                    display: inline-block;
+                    margin-right: 50px;
+                }
+
+                .el-radio-group {
+                    .el-radio-button {
+                        font-weight: 300;
+                    }
+                }
+            }
+        }
+
+        .supplies {
+            display: block;
+
+            .supply {
+                display: inline-block;
+                width: calc(20% - 10px);
+                margin: 0 5px;
+                text-align: center;
+                padding: 15px;
+                vertical-align: top;
+
+                .amount {
+                    background: $theme;
+                    color: #fff;
+                    height: 40px;
+                    line-height: 40px;
+                    padding: 0 15px;
+                    display: inline-block;
+                    border-radius: $border-radius-base;
+                    position: relative;
+                    margin: 0 auto 20px;
+
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        bottom: -10px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        display: block;
+                        border-top: 10px solid $theme;
+                        border-right: 10px solid transparent;
+                        border-left: 10px solid transparent;
+                    }
+                }
+
+                .thumb {
+                    display: block;
+                    text-align: center;
+                    height: 64px;
+                    line-height: 64px;
+                    margin-bottom: 10px;
+
+                    img {
+                        display: inline-block;
+                        vertical-align: middle;
+                        line-height: normal;
+                    }
+                }
+
+                .title {
+                    font-size: 12px;
+                }
+            }
+        }
+
+        .creatures {
+            display: block;
+
+            .creature {
+                display: inline-block;
+                width: calc(20% - 10px);
+                margin: 0 5px;
+                text-align: center;
+                padding: 15px;
+                vertical-align: top;
+
+                .health {
+                    background: $theme;
+                    color: #fff;
+                    height: 40px;
+                    line-height: 40px;
+                    padding: 0 15px;
+                    display: inline-block;
+                    border-radius: $border-radius-base;
+                    position: relative;
+                    margin: 0 auto 20px;
+
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        bottom: -10px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        display: block;
+                        border-top: 10px solid $theme;
+                        border-right: 10px solid transparent;
+                        border-left: 10px solid transparent;
+                    }
+                }
+
+                .thumb {
+                    display: block;
+                    text-align: center;
+                    height: 64px;
+                    line-height: 64px;
+                    margin-bottom: 10px;
+
+                    img {
+                        display: inline-block;
+                        vertical-align: middle;
+                        line-height: normal;
+                    }
+                }
+
+                .title {
+                    font-size: 12px;
+                }
+            }
+        }
+
+        .loots {
+            display: block;
+
+            .loot {
+                display: inline-block;
+                width: calc(20% - 10px);
+                margin: 0 5px;
+                text-align: center;
+                padding: 15px;
+                vertical-align: top;
+
+                .price {
+                    background: #888;
+                    color: #fff;
+                    height: 40px;
+                    line-height: 40px;
+                    padding: 0 15px;
+                    display: inline-block;
+                    border-radius: $border-radius-base;
+                    position: relative;
+                    margin: 0 auto 20px;
+
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        bottom: -10px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        display: block;
+                        border-top: 10px solid #888;
+                        border-right: 10px solid transparent;
+                        border-left: 10px solid transparent;
+                    }
+
+                    &.high {
+                        background: $brand-success;
+
+                        &:after {
+                            border-top-color: $brand-success;
+                        }
+                    }
+
+                    &.mid {
+                        background: $brand-primary;
+
+                        &:after {
+                            border-top-color: $brand-primary;
+                        }
+                    }
+
+                    &.low {
+                        background: $brand-warning;
+
+                        &:after {
+                            border-top-color: $brand-warning;
+                        }
+                    }
+                }
+
+                .thumb {
+                    display: block;
+                    text-align: center;
+                    height: 64px;
+                    line-height: 64px;
+                    margin-bottom: 10px;
+
+                    img {
+                        display: inline-block;
+                        vertical-align: middle;
+                        line-height: normal;
+                    }
+                }
+
+                .title {
+                    font-size: 12px;
                 }
             }
         }

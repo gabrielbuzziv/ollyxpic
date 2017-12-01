@@ -6,7 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateItemsTable extends Migration
 {
-    /**
+    /**$table->binary('image');
      * Run the migrations.
      *
      * @return void
