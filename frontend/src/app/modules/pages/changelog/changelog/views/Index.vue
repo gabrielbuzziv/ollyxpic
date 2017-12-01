@@ -2,8 +2,10 @@
     <page-load>
 		<page-title>
 			<img :src="image_path_by_name('item', 'scroll of heroic deeds')" class="margin-right-10">
-			Change Log
-			<span>All about OllyxPic</span>
+			<div class="title">
+				<h2>Change Log</h2>
+				<span>All about OllyxPic</span>
+			</div>
 		</page-title>
 
 	

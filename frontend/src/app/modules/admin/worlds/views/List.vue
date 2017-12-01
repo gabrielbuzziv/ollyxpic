@@ -9,8 +9,10 @@
             </div>
 
             <img :src="image_path_by_name('item', 'globe')" class="margin-right-10">
-            Worlds
-            <span>Manage Worlds</span>
+            <div class="title">
+                <h2>Worlds</h2>
+                <span>Manage Worlds</span>
+            </div>
         </page-title>
 
         <panel>

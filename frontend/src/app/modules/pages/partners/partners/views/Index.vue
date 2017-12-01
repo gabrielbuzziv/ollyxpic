@@ -2,8 +2,10 @@
     <page-load>
         <page-title>
             <img :src="image_path_by_name('item', 'Cateroide\'s doll')" class="margin-right-10">
-            Partners
-            <span>Streamers etc</span>
+            <div class="title">
+                <h2>Partners</h2>
+                <span>Streamers etc</span>
+            </div>
         </page-title>
 
         <div class="row">

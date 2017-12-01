@@ -2,8 +2,10 @@
     <page-load>
         <page-title>
             <img :src="image_path_by_name('item', 'Signed Contract')" class="margin-right-10">
-            Categories
-            <span>Manage Categories</span>
+            <div class="title">
+                <h2>Categories</h2>
+                <span>Manage Categories</span>
+            </div>
         </page-title>
 
         <panel>

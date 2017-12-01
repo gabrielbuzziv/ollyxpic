@@ -9,8 +9,10 @@
             </div>
 
             <img :src="image_path_by_name('item', 'scroll of heroic deeds')" class="margin-right-10">
-            Change Log
-            <span>Manage changes</span>
+            <div class="title">
+                <h2>Change Log</h2>
+                <span>Manage changes</span>
+            </div>
         </page-title>
 
         <panel>

@@ -8,8 +8,10 @@
             </div>
 
             <img :src="image_path_by_name('item', 'scroll of heroic deeds')" class="margin-right-10">
-            Changes: {{ change.title }}
-            <span>Edit change</span>
+            <div class="title">
+                <h2>Change Log: {{ change.title }}</h2>
+                <span>Manage changes</span>
+            </div>
         </page-title>
 
         <panel>

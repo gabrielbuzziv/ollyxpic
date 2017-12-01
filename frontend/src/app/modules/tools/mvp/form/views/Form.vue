@@ -2,8 +2,10 @@
     <page-load id="blessings">
         <page-title>
             <img :src="image_path_by_name('item', 'medal of honour')" alt="">
-            Warzone
-            <span>MVP's</span>
+            <div class="title">
+                <h2>Warzone</h2>
+                <span>MVP's</span>
+            </div>
         </page-title>
 
 	<div class="row">

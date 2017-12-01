@@ -2,10 +2,10 @@
     <page-load id="imbuements">
         <page-title>
             <img :src="image_path_by_name('item', 'silencer claws')">
-            Imbuements
-            <span>
-                Waste/Time
-            </span>
+            <div class="title">
+                <h2>Imbuements</h2>
+                <span>Waste/Time</span>
+            </div>
         </page-title>
 
         <div class="row">

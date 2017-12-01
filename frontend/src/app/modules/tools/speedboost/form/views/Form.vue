@@ -1,26 +1,22 @@
 <template>
     <page-load id="speedboost">
         <page-title>
-	    <img :src="image_path_by_name('item', 'boots of haste')" alt="" class="margin-right-5">
-            Speed
-            <span class="margin-left-45">Boost</span>
+            <img :src="image_path_by_name('item', 'boots of haste')" alt="" class="margin-right-5">
+            <div class="title">
+                <h2>Speed</h2>
+                <span>Boost</span>
+            </div>
         </page-title>
-
-	    <div class="col-md-12">
-		<panel>
-	<center><b>This calculator shows you when you will get a speed-boost at various tiles.</b></center>
-		</panel>
-	    </div>
 
         <div class="col-md-12">
             <panel class="form">
                 <div class="row">
                     <div class="col-md-6">
-                        <form-input placeholder="Level" v-model="level" />
+                        <form-input placeholder="Level" v-model="level"/>
                     </div>
 
                     <div class="col-md-6">
-                        <form-input placeholder="Speed Bonus" v-model="bonus" />
+                        <form-input placeholder="Speed Bonus" v-model="bonus"/>
                         <small class="helper-block">
                             Boh + Beetle Necklace = 22
                         </small>
@@ -75,7 +71,7 @@
                                 <img :src="tile_path(tile.object_id)" alt="">
                             </td>
                             <!--<td>-->
-                                <!--{{ tile.name }}-->
+                            <!--{{ tile.name }}-->
                             <!--</td>-->
                             <td class="text-center">
                                 {{ tile.friction }}
@@ -84,7 +80,8 @@
                                 {{ getSpeedToBoost(tile.friction) }}
                             </td>
                             <td class="text-center">
-                                <i class="mdi mdi-thumb-up text-success" v-if="canBoost(getSpeedToBoost(tile.friction))"></i>
+                                <i class="mdi mdi-thumb-up text-success"
+                                   v-if="canBoost(getSpeedToBoost(tile.friction))"></i>
                                 <i class="mdi mdi-thumb-down text-danger" v-else></i>
                             </td>
                         </tr>
@@ -105,7 +102,8 @@
                                 {{ getSpeedToBoost(tile.friction) }} speed
                             </td>
                             <td class="text-center">
-                                <i class="mdi mdi-thumb-up text-success" v-if="canBoost(getSpeedToBoost(tile.friction))"></i>
+                                <i class="mdi mdi-thumb-up text-success"
+                                   v-if="canBoost(getSpeedToBoost(tile.friction))"></i>
                                 <i class="mdi mdi-thumb-down text-danger" v-else></i>
                             </td>
                         </tr>
@@ -124,7 +122,8 @@
                                 {{ getSpeedToBoost(tile.friction) }} speed
                             </td>
                             <td class="text-center">
-                                <i class="mdi mdi-thumb-up text-success" v-if="canBoost(getSpeedToBoost(tile.friction))"></i>
+                                <i class="mdi mdi-thumb-up text-success"
+                                   v-if="canBoost(getSpeedToBoost(tile.friction))"></i>
                                 <i class="mdi mdi-thumb-down text-danger" v-else></i>
                             </td>
                         </tr>
@@ -143,7 +142,8 @@
                                 {{ getSpeedToBoost(tile.friction) }} speed
                             </td>
                             <td class="text-center">
-                                <i class="mdi mdi-thumb-up text-success" v-if="canBoost(getSpeedToBoost(tile.friction))"></i>
+                                <i class="mdi mdi-thumb-up text-success"
+                                   v-if="canBoost(getSpeedToBoost(tile.friction))"></i>
                                 <i class="mdi mdi-thumb-down text-danger" v-else></i>
                             </td>
                         </tr>
@@ -162,7 +162,8 @@
                                 {{ getSpeedToBoost(tile.friction) }} speed
                             </td>
                             <td class="text-center">
-                                <i class="mdi mdi-thumb-up text-success" v-if="canBoost(getSpeedToBoost(tile.friction))"></i>
+                                <i class="mdi mdi-thumb-up text-success"
+                                   v-if="canBoost(getSpeedToBoost(tile.friction))"></i>
                                 <i class="mdi mdi-thumb-down text-danger" v-else></i>
                             </td>
                         </tr>
@@ -181,7 +182,8 @@
                                 {{ getSpeedToBoost(tile.friction) }} speed
                             </td>
                             <td class="text-center">
-                                <i class="mdi mdi-thumb-up text-success" v-if="canBoost(getSpeedToBoost(tile.friction))"></i>
+                                <i class="mdi mdi-thumb-up text-success"
+                                   v-if="canBoost(getSpeedToBoost(tile.friction))"></i>
                                 <i class="mdi mdi-thumb-down text-danger" v-else></i>
                             </td>
                         </tr>
@@ -217,7 +219,7 @@
                 const tiles = [9481, 9575]
 
                 return this.tiles.filter(tile => {
-                    return tiles.indexOf(tile.object_id) > -1
+                    return tiles.indexOf(tile.object_id) > - 1
                 })
             },
 
@@ -225,7 +227,7 @@
                 const tiles = [499, 500, 516, 524, 543]
 
                 return this.tiles.filter(tile => {
-                    return tiles.indexOf(tile.object_id) > -1
+                    return tiles.indexOf(tile.object_id) > - 1
                 })
             },
 
@@ -233,7 +235,7 @@
                 const tiles = [19825, 19550, 19558]
 
                 return this.tiles.filter(tile => {
-                    return tiles.indexOf(tile.object_id) > -1
+                    return tiles.indexOf(tile.object_id) > - 1
                 })
             },
 
@@ -241,7 +243,7 @@
                 const tiles = [17544]
 
                 return this.tiles.filter(tile => {
-                    return tiles.indexOf(tile.object_id) > -1
+                    return tiles.indexOf(tile.object_id) > - 1
                 })
             },
 
@@ -249,7 +251,7 @@
                 const tiles = [20712]
 
                 return this.tiles.filter(tile => {
-                    return tiles.indexOf(tile.object_id) > -1
+                    return tiles.indexOf(tile.object_id) > - 1
                 })
             },
 
@@ -326,11 +328,11 @@
 
             loadTiles () {
                 services.fetchTiles()
-                        .then(response => {
-                            this.tiles = response.data.sort((a, b) => {
-                                return a.friction - b.friction
-                            })
+                    .then(response => {
+                        this.tiles = response.data.sort((a, b) => {
+                            return a.friction - b.friction
                         })
+                    })
             }
         },
 

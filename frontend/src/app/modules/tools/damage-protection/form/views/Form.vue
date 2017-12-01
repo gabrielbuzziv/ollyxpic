@@ -2,8 +2,10 @@
     <page-load id="equipments">
         <page-title>
             <img :src="image_path_by_name('item', 'great shield')" alt="">
-            Damage
-            <span>Protection</span>
+            <div class="title">
+                <h2>Damage</h2>
+                <span>Protection</span>
+            </div>
         </page-title>
 
         <div class="row">

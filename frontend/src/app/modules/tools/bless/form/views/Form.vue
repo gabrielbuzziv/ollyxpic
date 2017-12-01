@@ -2,8 +2,10 @@
     <page-load id="blessings">
         <page-title>
             <img :src="image_path_by_name('item', 'spiritual charm')" alt="" class="margin-right-5">
-            Blessing
-            <span>Penalty</span>
+            <div class="title">
+                <h2>Blessing</h2>
+                <span>Penalty</span>
+            </div>
         </page-title>
 
         <div class="row">

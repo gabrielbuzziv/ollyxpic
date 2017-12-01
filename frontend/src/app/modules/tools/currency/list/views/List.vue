@@ -2,8 +2,10 @@
     <page-load id="currencies">
         <page-title>
             <img :src="image_path_by_name('item', 'tibia coins')" class="margin-right-5">
-            Tibia Currency
-            <span class="margin-left-45">Stock Exchange</span>
+            <div class="title">
+                <h2>Tibia Currency</h2>
+                <span>Stock Exchange</span>
+            </div>
         </page-title>
 
 

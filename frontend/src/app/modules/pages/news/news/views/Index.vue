@@ -2,8 +2,10 @@
     <page-load id="news">
         <page-title>
             <img :src="image_path_by_name('item', 'golden newspaper')" class="margin-right-10">
-            News
-            <span>All about Tibia</span>
+            <div class="title">
+                <h2>News</h2>
+                <span>All about Tibia</span>
+            </div>
         </page-title>
 
         <div class="row">

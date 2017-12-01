@@ -6,8 +6,10 @@
             </router-link>
 
             <img :src="image_path_by_name('item', 'Signed Contract')" class="margin-right-10">
-            Categories: {{ category.title }}
-            <span>Edit Categories</span>
+            <div class="title">
+                <h2>Category: {{ category.title }}</h2>
+                <span>Manage Categories</span>
+            </div>
         </page-title>
 
         <panel>

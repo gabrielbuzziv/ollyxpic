@@ -14,8 +14,10 @@
             </div>
 
             <img :src="image_path_by_name('item', 'Map (Brown)')" alt="">
-            Hunting
-            <span>Spots</span>
+            <div class="title">
+                <h2>Hunting</h2>
+                <span>Spots</span>
+            </div>
         </page-title>
 
         <form action="" class="hunting-spot-form" @submit.prevent="onSubmit" ref="form">

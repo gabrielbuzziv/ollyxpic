@@ -1,0 +1,62 @@
+#capacity {
+    .form-control {
+        height: 50px;
+        line-height: 50px;
+        font-weight: 300;
+        font-size: 16px;
+    }
+
+    .el-radio-group {
+        width: 100%;
+
+        .el-radio-button {
+            margin: 0;
+            width: 25%;
+
+            .el-radio-button__inner {
+                height: 50px;
+                line-height: 50px;
+                padding: 0 20px;
+                width: 100%;
+            }
+        }
+    }
+
+    .bonus {
+        h3 {
+            margin: 0 0 15px;
+            font-size: 16px;
+            font-weight: 300;
+
+            span {
+                background: $theme;
+                color: #fff;
+                padding: 3px 5px;
+                border-radius: $border-radius-base;
+                display: inline-block;
+                margin-right: 10px;
+            }
+        }
+
+        .data {
+            display: inline-block;
+            width: calc(33% - 20px);
+            font-weight: 400;
+            font-size: 16px;
+            margin-top: 10px;
+            text-align: center;
+
+            span {
+                font-size: 12px;
+                display: block;
+                margin-bottom: 3px;
+                font-weight: 300;
+            }
+        }
+
+        i {
+            display: inline-block;
+            margin: 0 5px;
+        }
+    }
+}

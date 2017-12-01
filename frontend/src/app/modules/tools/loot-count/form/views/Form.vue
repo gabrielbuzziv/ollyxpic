@@ -2,8 +2,10 @@
     <page-load>
         <page-title>
             <img :src="image_path_by_name('item', 'steel boots')">
-            Loot
-            <span>Count</span>
+            <div class="title">
+                <h2>Loot</h2>
+                <span>Count</span>
+            </div>
         </page-title>
 
 	<div class="row">

@@ -2,8 +2,10 @@
     <page-load>
         <page-title>
             <img :src="image_path_by_name('item', 'Golden Boots')" class="margin-right-10">
-            Items
-            <span>Items categories and properties configuration</span>
+            <div class="title">
+                <h2>Items</h2>
+                <span>Items categories and properties configuration</span>
+            </div>
         </page-title>
 
         <div class="row">

@@ -2,8 +2,10 @@
     <page-load>
         <page-title>
             <img :src="image_path_by_name('item', 'memory box')" class="margin-right-10">
-            Database Sync
-            <span>Syncronize Updates</span>
+            <div class="title">
+                <h2>Database Sync</h2>
+                <span>Syncronize Updates</span>
+            </div>
         </page-title>
 
         <panel>

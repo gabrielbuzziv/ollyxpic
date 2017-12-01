@@ -8,8 +8,10 @@
             </div>
 
             <img :src="image_path_by_name('item', 'golden newspaper')" class="margin-right-10">
-            News: {{ post.title }}
-            <span>Edit post</span>
+            <div class="title">
+                <h2>News: {{ post.title }}</h2>
+                <span>Manage news</span>
+            </div>
         </page-title>
 
         <panel>

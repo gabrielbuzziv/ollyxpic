@@ -2,17 +2,11 @@
     <page-load id="spellcast">
         <page-title>
             <img :src="image_path_by_name('item', 'avalanche rune')" alt="">
-            Damage & Healing
-            <span>Spell and Weapons</span>
+            <div class="title">
+                <h2>Damage & Healing</h2>
+                <span>Spell and Weapons</span>
+            </div>
         </page-title>
-
-	<div class="row">
-	    <div class="col-md-12">
-		<panel>
-	<center><b>This calculator shows you min/avg/max damage against selected creatures.</b></center>
-		</panel>
-	    </div>
-	</div>
 
         <div class="row" v-if="! loading">
             <div class="col-md-12">

@@ -8,8 +8,10 @@
             </div>
 
             <img :src="image_path_by_name('item', 'globe')" class="margin-right-10">
-            Worlds
-            <span>Edit a World</span>
+            <div class="title">
+                <h2>World: {{ world.name }}</h2>
+                <span>Manage Worlds</span>
+            </div>
         </page-title>
 
         <div class="row">

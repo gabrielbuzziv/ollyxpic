@@ -1,185 +1,103 @@
 <template>
-    <page-load id="speedboost">
+    <page-load id="capacity">
         <page-title>
-	    <img :src="image_path_by_name('item', 'blossom bag')" alt="" class="margin-right-5">
-            Cap
-            <span class="margin-left-45">Calculator</span>
+            <img :src="image_path_by_name('item', 'blossom bag')" class="margin-right-5">
+            <div class="title">
+                <h2>Capacity</h2>
+                <span>Count</span>
+            </div>
         </page-title>
 
-        <div class="alert alert-warning">
-            <center> NOTE: This calculator is experimental and imbuement % can change whenever since this is not live yet.</center>
+        <div class="row">
+            <div class="col-md-6">
+                <panel>
+                    <el-radio-group v-model="voc">
+                        <el-radio-button label="Knight"></el-radio-button>
+                        <el-radio-button label="Paladin"></el-radio-button>
+                        <el-radio-button label="Druid"></el-radio-button>
+                        <el-radio-button label="Sorcerer"></el-radio-button>
+                    </el-radio-group>
+                </panel>
+            </div>
+
+            <div class="col-md-6">
+                <panel>
+                    <form-input placeholder="Your Level" v-model="level"/>
+                </panel>
+            </div>
         </div>
 
-	<div class="row">
-	    <div class="col-md-12">
-		<panel>
-			<center><b>This calculator will show you the bonus cap you will get from the featherweight imbuement.</b></center>
-		</panel>
-	    </div>
-	</div>
-	
-	<div class="row">
-	<div class="col-md-12">
-		<panel class="form">
+        <div class="row">
+            <div class="col-md-4" v-for="tier in tiers">
+                <panel class="bonus">
+                    <h3><span>Tier {{ tier.tier }}</span> {{ tier.percentage }} increase bonus</h3>
 
-			<div class="row">
-				<div class="col-md-3"></div>
-				<div class="col-md-6">
-					<center>
-					<el-radio class="radio" v-model="voc" :label="1">
-							Knight
-					</el-radio>
-					<el-radio class="radio" v-model="voc" :label="2">
-							Paladin
-					</el-radio>
-					<el-radio class="radio" v-model="voc" :label="3">
-							Druid
-					</el-radio>
-					<el-radio class="radio" v-model="voc" :label="4">
-							Sorcerer
-					</el-radio>
-					</center>
-				<div class="col-md-3"></div>
-				</div>
-			</div>
+                    <span class="data">
+                        <span>Capacity</span>
+                        {{ capacity.toFixed() }} oz.
+                    </span>
 
-			<div class="row">
-				<div class="col-md-3"></div>
+                    <i class="mdi mdi-plus"></i>
 
-				<div class="col-md-6">
-					<form-input placeholder="level" v-model="level" style="text-align:center;" />
-				</div>
+                    <span class="data">
+                        <span>Cap. Bonus</span>
+                        {{ calculateCapacity(tier.bonus).toFixed() }} oz.
+                    </span>
 
-				<div class="col-md-3"></div>
-			</div>
+                    <i class="mdi mdi-arrow-right"></i>
 
-			<div class="row">
-				<div class="col-md-3"></div>
-				<div class="col-md-6">
-					<center>
-					<el-radio class="radio" v-model="capperc" :label="5">
-							3%
-					</el-radio>
-					<el-radio class="radio" v-model="capperc" :label="6">
-							8%
-					</el-radio>
-					<el-radio class="radio" v-model="capperc" :label="7">
-							15%
-					</el-radio>
-					</center>
-				<div class="col-md-3"></div>
-				</div>
-			</div>
+                    <span class="data">
+                        <span>Result</span>
+                        {{ calculateCapacity(tier.total).toFixed() }} oz.
+                    </span>
+                </panel>
+            </div>
+        </div>
 
-
-
-		</panel>
-
-		<panel class="shareexp" v-if="capcalc && level > 7">
-			<center><b>CAP INFO</b></center>
-			<center>Base cap : <b>{{ voccalc.toFixed() }}</b></center>
-			<center>Bonus cap : <b>{{ capcalc.toFixed() }}</b></center>
-			<center>Total cap: <b>{{ totalcap.toFixed() }}</b></center>	
-		</panel>
-
-		<panel class="shareexp" v-if="capcalc && level > 7">
-			<center><b>BONUS INFO</b></center>
-			<center> HP: <b>{{ totalhp }}</b></center>
-			<center> MP: <b>{{ totalmp }}</b></center>
-		</panel>
-	</div>
-	</div>
 
     </page-load>
 </template>
 
 <script type="text/babel">
 
-export default {
-    data () {
-	return {
-		total: '',
-		capperc: '',
-		level: '',
-		voc: '',
-		hp: '',
-		mp: '',
-	}
-},
+    export default {
+        data () {
+            return {
+                total: '',
+                capperc: '',
+                level: '',
+                voc: '',
+                tiers: [
+                    { tier: 1, percentage: '3%', bonus: 0.03, total: 1.03 },
+                    { tier: 2, percentage: '8%', bonus: 0.08, total: 1.08 },
+                    { tier: 3, percentage: '15%', bonus: 0.15, total: 1.15 },
+                ]
+            }
+        },
 
-computed: {
+        computed: {
+            capacity () {
+                switch (this.voc) {
+                    case 'Knight':
+                        return ((this.level - 8) * 25 + 470)
+                    case 'Paladin':
+                        return ((this.level - 8) * 20 + 470)
+                    case 'Druid':
+                        return ((this.level - 8) * 10 + 470)
+                    case 'Sorcerer':
+                        return ((this.level - 8) * 10 + 470)
+                    default:
+                        return (this.level * 0)
+                }
+            },
+        },
 
-		voccalc() {
-			const voc = parseInt(this.voc)
-			switch (voc) {
-				case 0:
-				   return (this.level * 0)
-				case 1:
-				   return ((this.level - 8) * 25 + 470)
-				case 2:
-				   return ((this.level - 8) * 20 + 470)
-				case 3:
-				   return ((this.level - 8) * 10 + 470)
-				case 4:
-				   return ((this.level - 8) * 10 + 470)
-					}
-			},
-
-		capcalc() {
-			const capperc = parseInt(this.capperc)
-			switch (capperc) {
-				case 0:
-				   return (this.voccalc * 0)
-				case 5:
-				   return (this.voccalc * 0.03)
-				case 6:
-				   return (this.voccalc * 0.08)
-				case 7:
-				   return (this.voccalc * 0.15)
-	  				}
-			},
-		totalcap() {
-			const voc = parseInt(this.voc)
-			switch (voc) {
-				case 1:
-				   return (this.capcalc + this.voccalc)
-				case 2:
-				   return (this.capcalc + this.voccalc)
-				case 3:
-				   return (this.capcalc + this.voccalc)
-				case 4:
-				   return (this.capcalc + this.voccalc)
-				       }
-			},
-		totalhp() {
-			const voc = parseInt(this.voc)
-			switch (voc) {
-				case 1:
-				   return ((this.level - 8) * 15 + 185)
-				case 2:
-				   return ((this.level - 8) * 10 + 185)
-				case 3:
-				   return ((this.level - 8) * 5 + 185)
-				case 4:
-				   return ((this.level - 8) * 5 + 185)
-				       }
-			},
-		totalmp() {
-			const voc = parseInt(this.voc)
-			switch (voc) {
-				case 1:
-				   return ((this.level - 8) * 5 + 90)
-				case 2:
-				   return ((this.level - 8) * 15 + 90)
-				case 3:
-				   return ((this.level - 8) * 30 + 90)
-				case 4:
-				   return ((this.level - 8) * 30 + 90)
-				       }
-			}
-
-	}
-}
+        methods: {
+            calculateCapacity (percentage) {
+                return this.capacity * percentage;
+            },
+        }
+    }
 </script>
 
 

@@ -1,59 +1,63 @@
 <template>
-    <page-load id="speedboost">
+    <page-load id="expshare">
         <page-title>
-	    <img :src="image_path_by_name('item', 'purple tome')" alt="" class="margin-right-5">
-            Exp
-            <span class="margin-left-45">Share</span>
+            <img :src="image_path_by_name('item', 'purple tome')" alt="" class="margin-right-5">
+            <div class="title">
+                <h2>Exp</h2>
+                <span>Share</span>
+            </div>
         </page-title>
 
-	    <div class="col-md-12">
-		<panel>
-	<center><b>This calculator will show you what minimum/maximum level another player has to be to share exp with you.</b></center>
-		</panel>
-	    </div>
+        <panel>
+            <div class="col-md-2">
+                <div class="level-range">
+                    <b>Min Level</b>
+                    <span>{{ minShare | fixed }}</span>
+                </div>
+            </div>
 
-	<div class="col-md-12">
-		<panel class="form">
+            <div class="col-md-2 col-md-offset-3">
+                <div class="level-range">
+                    <b>Your Level</b>
+                    <form-input placeholder="Your Level" v-model="level"/>
+                </div>
+            </div>
 
-			<div class="row">
-				<div class="col-md-3"></div>
-
-				<div class="col-md-6">
-					<form-input placeholder="Level" v-model="level" style="text-align:center;" />
-				</div>
-
-				<div class="col-md-3"></div>
-			</div>
-		</panel>
-
-		<panel class="shareexp" v-if="level">
-			<center>minimum level to share exp with you: <b>{{ minShare.toFixed() }}</b> And maximum level to share with you: <b>{{ maxShare.toFixed() }}</b></center>
-		</panel>
-	</div>
+            <div class="col-md-2 col-md-offset-3">
+                <div class="level-range">
+                    <b>Max Level</b>
+                    <span>{{ maxShare | fixed }}</span>
+                </div>
+            </div>
+        </panel>
     </page-load>
 </template>
 
 <script type="text/babel">
 
-export default {
-data () {
-	return {
-		level: ''
-	}
-},
+    export default {
+        data () {
+            return {
+                level: ''
+            }
+        },
 
-computed: {
-		minShare () {
-			return parseInt(this.level) / 3 * 2;
-		},
+        computed: {
+            minShare () {
+                return this.level.length ? parseInt(this.level) / 3 * 2 : null;
+            },
 
-		maxShare () {
-			return parseInt(this.level) * 3 / 2;
-		},
-	}
-}
+            maxShare () {
+                return this.level.length ? parseInt(this.level) * 3 / 2 : null;
+            },
+        },
 
-
+        filters: {
+            fixed (value) {
+                return value != null && value != '' && typeof value == 'number' ? value.toFixed() : '-'
+            }
+        }
+    }
 
 
 </script>

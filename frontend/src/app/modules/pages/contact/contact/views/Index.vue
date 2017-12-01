@@ -2,8 +2,10 @@
     <page-load>
         <page-title>
             <img :src="image_path_by_name('item', 'letter')" class="margin-right-10">
-            Contact
-            <span>Send us a message</span>
+            <div class="title">
+                <h2>Contact</h2>
+                <span>Send us a message</span>
+            </div>
         </page-title>
 
         <panel>

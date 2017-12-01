@@ -2,8 +2,10 @@
     <page-load>
         <page-title>
             <img :src="image_path_by_name('creature', 'Ferumbras')" class="margin-right-10">
-            Tibiabosses
-            <span class="margin-left-80">Supported Fansite</span>
+            <div class="title">
+                <h2>Tibiabosses</h2>
+                <span>Supported Fansite</span>
+            </div>
         </page-title>
 
         <div class="row">

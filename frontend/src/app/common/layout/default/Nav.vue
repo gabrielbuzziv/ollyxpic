@@ -109,7 +109,7 @@
                                 <img :src="image_path_by_name('item', 'blossom bag')">
                             </span>
                             <span class="center">
-                                <span>Cap</span>
+                                <span>Capacity</span>
                                 <small>Count</small>
                             </span>
                         </a>
