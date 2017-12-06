@@ -55,7 +55,7 @@ class ItemController extends Controller
             ->where('category', '<>', '')
             ->get();
 
-        return $items->each(function ($item) {
+        $itemsSync = $items->each(function ($item) {
             $data = Item::firstOrNew(['title' => $item->title, 'name' => $item->name]);
             $data->vendor_value = $item->vendor_value;
             $data->actual_value = $item->actual_value;
@@ -95,7 +95,10 @@ class ItemController extends Controller
             return $data;
         });
 
+
         $this->syncronizeItemID();
+
+        return $itemsSync;
     }
 
     /**
