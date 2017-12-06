@@ -94,6 +94,8 @@ class ItemController extends Controller
 
             return $data;
         });
+
+        $this->syncronizeItemID();
     }
 
     /**
@@ -147,6 +149,21 @@ class ItemController extends Controller
     }
 
     /**
+     * Get items with identifier
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function blacklist()
+    {
+        $items = Item::whereNotNull('identifier')
+            ->whereNotIn('category_id', [4, 12, 14, 18, 22, 23, 24, 26, 47])
+            ->orderBy('title', 'asc')
+            ->get();
+
+        return $this->respond($items->toArray());
+    }
+
+    /**
      * Toggle Usable.
      *
      * @param Item $item
@@ -158,6 +175,22 @@ class ItemController extends Controller
         $item->save();
 
         return $this->respond($item->toArray());
+    }
+
+    /**
+     * Syncronize Item Ids
+     */
+    private function syncronizeItemID()
+    {
+        $items = storage_path('app/ItemsId.csv');
+        $items = array_map("str_getcsv", preg_split('/\r*\n+|\r+/', file_get_contents($items)));
+
+        foreach ($items as $item) {
+            if (($i = Item::where('title', $item[0])->first()) && count($item) == 2) {
+                $i->identifier = $item[1];
+                $i->save();
+            }
+        }
     }
 
     /**
@@ -266,5 +299,4 @@ class ItemController extends Controller
 
         return substr($result, 0, $dd);
     }
-
 }

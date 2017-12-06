@@ -66,10 +66,12 @@ Route::get('change-log', 'ChangeController@getChanges');
  * CategoryController
  */
 Route::get('categories', 'CategoryController@usables');
+Route::get('categories/blacklist', 'CategoryController@blacklist');
 
 /**
  * ItemController
  */
+Route::get('items/blacklist', 'ItemController@blacklist');
 Route::get('items/{category}', 'ItemController@usables');
 
 /**
