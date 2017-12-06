@@ -26,7 +26,8 @@
 
             <div class="loots">
                 <div class="loot" v-for="loot in loots">
-                    <div class="price" :class="getPriceClass(loot.vendor_value)">{{ loot.vendor_value | format }} gp</div>
+                    <div class="price" :class="getPriceClass(loot.actual_value)">{{ loot.actual_value | format }} gp
+                    </div>
                     <div class="thumb">
                         <img :src="image_path('item', loot.id)"/>
                     </div>
@@ -48,28 +49,30 @@
 
         data () {
             return {
-                lootPrice: 'above 10k'
+                lootPrice: 'All'
             }
         },
 
         computed: {
             loots () {
-                return this.creatures.map(creature => creature.drops)
-                    .reduce((carry, drop) => carry.concat(drop))
-                    .sort((a, b) => b.vendor_value - a.vendor_value)
-                    .filter((value, index, self) => self.map(v => v.id).indexOf(value.id) === index)
-                    .filter(loot => {
-                        switch(this.lootPrice) {
-                            case 'above 1k':
-                                return loot.vendor_value >= 1000
-                            case 'above 5k':
-                                return loot.vendor_value >= 5000
-                            case 'above 10k':
-                                return loot.vendor_value >= 10000
-                            default:
-                                return loot.vendor_value >= 0
-                        }
-                    })
+                return this.creatures && this.creatures.length
+                    ? this.creatures.map(creature => creature.drops)
+                        .reduce((carry, drop) => carry.concat(drop))
+                        .sort((a, b) => b.actual_value - a.actual_value)
+                        .filter((value, index, self) => self.map(v => v.id).indexOf(value.id) === index)
+                        .filter(loot => {
+                            switch (this.lootPrice) {
+                                case 'above 1k':
+                                    return loot.actual_value >= 1000
+                                case 'above 5k':
+                                    return loot.actual_value >= 5000
+                                case 'above 10k':
+                                    return loot.actual_value >= 10000
+                                default:
+                                    return loot.actual_value >= 0
+                            }
+                        })
+                    : []
             }
         },
 

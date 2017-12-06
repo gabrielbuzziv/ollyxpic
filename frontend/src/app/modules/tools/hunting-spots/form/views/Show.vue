@@ -8,12 +8,46 @@
                 </router-link>
             </div>
 
-            <img :src="image_path('creature', spot.creatures[0].id)" alt="">
+            <img :src="image_path('creature', creature)" alt="">
             <div class="title">
                 <h2>{{ spot.title }}</h2>
                 <span>by {{ spot.author || 'OllyxPic' }}</span>
             </div>
         </page-title>
+
+        <div class="row features">
+            <div class="col-md-3">
+                <panel>
+                    <span>Level Required</span>
+                    <b>
+                        {{ spot.level_min }}
+                        <i class="mdi mdi-arrow-right"></i>
+                        {{ spot.level_max }}
+                    </b>
+                </panel>
+            </div>
+
+            <div class="col-md-3">
+                <panel>
+                    <span>Experience</span>
+                    <b>{{ spot.experience | experience }}</b>
+                </panel>
+            </div>
+
+            <div class="col-md-3">
+                <panel>
+                    <span>Profit</span>
+                    <b>{{ spot.profit | profit }}</b>
+                </panel>
+            </div>
+
+            <div class="col-md-3">
+                <panel>
+                    <span>Location</span>
+                    <b>{{ spot.location }}</b>
+                </panel>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-md-10">
@@ -30,27 +64,48 @@
                     </el-tab-pane>
 
                     <el-tab-pane label="Supplies & Equipments" name="supplies">
-                        <supplies :supplies="spot.supplies"/>
+                        <supplies :supplies="spot.supplies" :equipments="spot.equipments"/>
                     </el-tab-pane>
 
                     <el-tab-pane label="Creatures & Loot" name="loot">
                         <creatures :creatures="spot.creatures"/>
                     </el-tab-pane>
-
-                    <el-tab-pane label="Pictures & Videos" name="gallery">
-                        <panel>
-                            Gallery
-                        </panel>
-                    </el-tab-pane>
                 </el-tabs>
             </div>
 
-            <div class="col-md-2"></div>
+            <div class="col-md-2">
+                <panel class="requirements">
+                    <ul>
+                        <li>
+                            <span>Task Available?</span>
+                            <b class="label" :class="[spot.has_task ? 'label-success' : 'label-danger']">{{ spot.has_task ? 'Yes' : 'No' }}</b>
+                        </li>
+
+                        <li>
+                            <span>Require Quest?</span>
+                            <b class="label" :class="[spot.require_quest ? 'label-success' : 'label-danger']">{{ spot.require_quest ? 'Yes' : 'No' }}</b>
+                        </li>
+
+                        <li>
+                            <span>Require Premium?</span>
+                            <b class="label" :class="[spot.require_premium ? 'label-success' : 'label-danger']">{{ spot.require_premium ? 'Yes' : 'No' }}</b>
+                        </li>
+
+
+                    </ul>
+                </panel>
+            </div>
         </div>
     </page-load>
 </template>
 
 <script>
+
+    Number.prototype.format = function (n, x) {
+        var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\.' : '$') + ')';
+        return this.toFixed(Math.max(0, ~ ~ n)).replace(new RegExp(re, 'g'), '$&.');
+    };
+
     import Supplies from './show/Supplies'
     import Creatures from './show/Creatures'
     import services from '../services'
@@ -66,13 +121,21 @@
             }
         },
 
+        computed: {
+            creature () {
+                return this.spot.creatures && this.spot.creatures.length ? this.spot.creatures[0].id : 0
+            }
+        },
+
         filters: {
             experience (value) {
-                return `${value} exp/h`
+                const data = value.format()
+                return `${data} exp/h`
             },
 
             profit (value) {
-                return value > 0 ? `${value} gp/h` : 'Waste'
+                const data = value.format()
+                return value > 0 ? `${data} gp/h` : 'Waste'
             }
         },
 

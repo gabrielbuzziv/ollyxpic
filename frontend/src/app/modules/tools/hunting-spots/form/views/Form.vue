@@ -201,6 +201,12 @@
                             <input type="hidden" name="require_premium" v-model="premium">
                         </div>
                     </panel>
+
+                    <panel>
+                        <div class="form-group margin-bottom-0">
+                            <input type="text" name="author" class="form-control" placeholder="Author name">
+                        </div>
+                    </panel>
                 </div>
             </div>
 

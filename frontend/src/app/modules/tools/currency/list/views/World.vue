@@ -1,6 +1,13 @@
 <template>
     <page-load id="currencies">
         <page-title>
+            <div class="pull-right">
+                <router-link :to="{ name: 'tools.currencies' }" class="btn" exact>
+                    <i class="mdi mdi-chevron-left margin-right-5"></i>
+                    Back to List
+                </router-link>
+            </div>
+
             <img :src="image_path_by_name('item', 'tibia coins')" class="margin-right-5">
             <div class="title">
                 <h2>Tibia Currency of {{ world.name }}</h2>

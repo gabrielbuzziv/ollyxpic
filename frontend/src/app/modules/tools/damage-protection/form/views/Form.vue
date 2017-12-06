@@ -14,7 +14,8 @@
                     <div class="equips">
                         <div :class="['equip', index, slot.id ? 'active' : '']" v-for="slot, index in slots">
                             <div class="item" v-if="slot.id">
-                                <img :src="image_path('item', slot.id)" @click.prenvet="onRemove(index)" title="Click to remove">
+                                <img :src="image_path('item', slot.id)" @click.prenvet="onRemove(index)"
+                                     title="Click to remove">
                             </div>
                         </div>
                     </div>
@@ -23,7 +24,8 @@
 
             <div class="col-md-10">
                 <ul class="tabs">
-                    <tab-link :tab="category.name" v-for="category, index in categories" :key="category.id" :active="index == 0">
+                    <tab-link :tab="category.name" v-for="category, index in categories" :key="category.id"
+                              :active="index == 0">
                         <img :src="image_path_by_name('item', category.image)" :title="category.title">
                     </tab-link>
                 </ul>
@@ -45,87 +47,91 @@
             </div>
         </div>
 
-        <div class="col-md-12 margin-top-30">
-            <panel>
-                <table class="info-table">
-                    <tbody>
-                        <tr rowspan="2">
-                            <td class="text-center head" rowspan="2">Attributes</td>
-                            <td class="text-center title">Arm</td>
-                            <td class="text-center title">Def</td>
-                            <td class="text-center title">Atk</td>
-                            <td class="text-center title">Hit</td>
-                            <td class="text-center title">Speed</td>
-                            <td class="text-center title" colspan="2">Required Level</td>
-                            <td class="text-center title" colspan="2">Weight</td>
-                        </tr>
+        <div class="row">
+            <div class="col-md-12 margin-top-30">
+                <panel>
+                    <table class="info-table">
+                        <tbody>
+                            <tr rowspan="2">
+                                <td class="text-center head" rowspan="2">Attributes</td>
+                                <td class="text-center title">Arm</td>
+                                <td class="text-center title">Def</td>
+                                <td class="text-center title">Atk</td>
+                                <td class="text-center title">Hit</td>
+                                <td class="text-center title">Speed</td>
+                                <td class="text-center title" colspan="2">Required Level</td>
+                                <td class="text-center title" colspan="2">Weight</td>
+                            </tr>
 
-                        <tr>
-                            <td class="text-center">{{ getAttribute('arm') }}</td>
-                            <td class="text-center">{{ getAttribute('def') }}</td>
-                            <td class="text-center">{{ getAttribute('atk') }}</td>
-                            <td class="text-center">{{ getAttribute('hit') }} %</td>
-                            <td class="text-center">{{ getAttribute('speed') }}</td>
-                            <td class="text-center" colspan="2">{{ level }}</td>
-                            <td class="text-center" colspan="2">{{ (weight).toFixed(2) }} oz.</td>
-                        </tr>
+                            <tr>
+                                <td class="text-center">{{ getAttribute('arm') }}</td>
+                                <td class="text-center">{{ getAttribute('def') }}</td>
+                                <td class="text-center">{{ getAttribute('atk') }}</td>
+                                <td class="text-center">{{ getAttribute('hit') }} %</td>
+                                <td class="text-center">{{ getAttribute('speed') }}</td>
+                                <td class="text-center" colspan="2">{{ level }}</td>
+                                <td class="text-center" colspan="2">{{ (weight).toFixed(2) }} oz.</td>
+                            </tr>
 
-                        <tr rowspan="2">
-                            <td class="text-center head" rowspan="2">Resistances</td>
-                            <td class="text-center title">Death</td>
-                            <td class="text-center title">Energy</td>
-                            <td class="text-center title">Earth</td>
-                            <td class="text-center title">Fire</td>
-                            <td class="text-center title">Ice</td>
-                            <td class="text-center title">Holy</td>
-                            <td class="text-center title">Physical</td>
-                            <td class="text-center title">Life Drain</td>
-                            <td class="text-center title">Mana Drain</td>
-                        </tr>
+                            <tr rowspan="2">
+                                <td class="text-center head" rowspan="2">Resistances</td>
+                                <td class="text-center title">Death</td>
+                                <td class="text-center title">Energy</td>
+                                <td class="text-center title">Earth</td>
+                                <td class="text-center title">Fire</td>
+                                <td class="text-center title">Ice</td>
+                                <td class="text-center title">Holy</td>
+                                <td class="text-center title">Physical</td>
+                                <td class="text-center title">Life Drain</td>
+                                <td class="text-center title">Mana Drain</td>
+                            </tr>
 
-                        <tr>
-                            <td class="text-center">{{ getResistance('death') }} %</td>
-                            <td class="text-center">{{ getResistance('energy') }} %</td>
-                            <td class="text-center">{{ getResistance('earth') }} %</td>
-                            <td class="text-center">{{ getResistance('fire') }} %</td>
-                            <td class="text-center">{{ getResistance('ice') }} %</td>
-                            <td class="text-center">{{ getResistance('holy') }} %</td>
-                            <td class="text-center">{{ getResistance('protection physical') }} %</td>
-                            <td class="text-center">{{ getResistance('life drain') }} %</td>
-                            <td class="text-center">{{ getResistance('mana drain') }} %</td>
-                        </tr>
+                            <tr>
+                                <td class="text-center">{{ getResistance('death') }} %</td>
+                                <td class="text-center">{{ getResistance('energy') }} %</td>
+                                <td class="text-center">{{ getResistance('earth') }} %</td>
+                                <td class="text-center">{{ getResistance('fire') }} %</td>
+                                <td class="text-center">{{ getResistance('ice') }} %</td>
+                                <td class="text-center">{{ getResistance('holy') }} %</td>
+                                <td class="text-center">{{ getResistance('protection physical') }} %</td>
+                                <td class="text-center">{{ getResistance('life drain') }} %</td>
+                                <td class="text-center">{{ getResistance('mana drain') }} %</td>
+                            </tr>
 
-                        <tr rowspan="2">
-                            <td class="text-center head" rowspan="2">Skilling</td>
-                            <td class="text-center title">Magic Level</td>
-                            <td class="text-center title">Fist Fighting</td>
-                            <td class="text-center title">Sword Fighting</td>
-                            <td class="text-center title">Axe Fighting</td>
-                            <td class="text-center title">Club Fighting</td>
-                            <td class="text-center title" colspan="2">Distance Fighting</td>
-                            <td class="text-center title" colspan="2">Shielding</td>
-                        </tr>
+                            <tr rowspan="2">
+                                <td class="text-center head" rowspan="2">Skilling</td>
+                                <td class="text-center title">Magic Level</td>
+                                <td class="text-center title">Fist Fighting</td>
+                                <td class="text-center title">Sword Fighting</td>
+                                <td class="text-center title">Axe Fighting</td>
+                                <td class="text-center title">Club Fighting</td>
+                                <td class="text-center title" colspan="2">Distance Fighting</td>
+                                <td class="text-center title" colspan="2">Shielding</td>
+                            </tr>
 
-                        <tr>
-                            <td class="text-center">{{ getAttribute('magic level') }}</td>
-                            <td class="text-center">{{ getAttribute('fist fighting') }}</td>
-                            <td class="text-center">{{ getAttribute('sword fighting') }}</td>
-                            <td class="text-center">{{ getAttribute('axe fighting') }}</td>
-                            <td class="text-center">{{ getAttribute('club fighting') }}</td>
-                            <td class="text-center" colspan="2">{{ getAttribute('distance fighting') }}</td>
-                            <td class="text-center" colspan="2">{{ getAttribute('shielding') }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </panel>
+                            <tr>
+                                <td class="text-center">{{ getAttribute('magic level') }}</td>
+                                <td class="text-center">{{ getAttribute('fist fighting') }}</td>
+                                <td class="text-center">{{ getAttribute('sword fighting') }}</td>
+                                <td class="text-center">{{ getAttribute('axe fighting') }}</td>
+                                <td class="text-center">{{ getAttribute('club fighting') }}</td>
+                                <td class="text-center" colspan="2">{{ getAttribute('distance fighting') }}</td>
+                                <td class="text-center" colspan="2">{{ getAttribute('shielding') }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </panel>
+            </div>
         </div>
 
-        <div class="col-md-12 margin-top-30">
+        <div class="col-md-12 margin-top-30" v-if="false">
             <panel>
 
-		<div class="col-md-4"></div>
-		<div class="col-md-4"><form-input placeholder="incoming damage" v-model="incdmg" style="text-align:center;" /></div>
-		<div class="col-md-4"></div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <form-input placeholder="incoming damage" v-model="incdmg" style="text-align:center;"/>
+                </div>
+                <div class="col-md-4"></div>
                 <table class="info-table"><br>
                     <tbody>
                         <tr rowspan="2">
@@ -136,44 +142,71 @@
                             <td class="text-center title" width="10%">Fire</td>
                             <td class="text-center title" width="10%">Ice</td>
                             <td class="text-center title" width="10%">Holy</td>
-                            <td class="text-center title" width="10%">Physical<el-tooltip content="Physical reduction calculates from phys% + armor"><i class="mdi mdi-information"></i></el-tooltip></td>
+                            <td class="text-center title" width="10%">Physical
+                                <el-tooltip content="Physical reduction calculates from phys% + armor"><i
+                                        class="mdi mdi-information"></i></el-tooltip>
+                            </td>
                             <td class="text-center title" width="10%">Life Drain</td>
                             <td class="text-center title" width="10%">Mana Drain</td>
                         </tr>
 
                         <tr>
-			    <td class="text-center head" rowspan="1">Reduced
-                                    <el-tooltip content="Here is the amount the protection will remove.">
-                                        <i class="mdi mdi-information"></i>
-                                    </el-tooltip>
-			    </td>
+                            <td class="text-center head" rowspan="1">Reduced
+                                <el-tooltip content="Here is the amount the protection will remove.">
+                                    <i class="mdi mdi-information"></i>
+                                </el-tooltip>
+                            </td>
                             <td class="text-center">{{ (Showincdmg * getResistance('death') / 100).toFixed() }}</td>
                             <td class="text-center">{{ (Showincdmg * getResistance('energy') / 100).toFixed() }}</td>
                             <td class="text-center">{{ (Showincdmg * getResistance('earth') / 100).toFixed() }}</td>
                             <td class="text-center">{{ (Showincdmg * getResistance('fire') / 100).toFixed() }}</td>
                             <td class="text-center">{{ (Showincdmg * getResistance('ice') / 100).toFixed() }}</td>
                             <td class="text-center">{{ (Showincdmg * getResistance('holy') / 100).toFixed() }}</td>
-                            <td class="text-center">{{ (Showincdmg * getResistance('protection physical') / 100).toFixed() }}</td>
-                            <td class="text-center">{{ (Showincdmg * getResistance('life drain') / 100).toFixed() }}</td>
-                            <td class="text-center">{{ (Showincdmg * getResistance('mana drain') / 100).toFixed() }}</td>
+                            <td class="text-center">
+                                {{ (Showincdmg * getResistance('protection physical') / 100).toFixed() }}
+                            </td>
+                            <td class="text-center">{{ (Showincdmg * getResistance('life drain') / 100).toFixed() }}
+                            </td>
+                            <td class="text-center">{{ (Showincdmg * getResistance('mana drain') / 100).toFixed() }}
+                            </td>
                         </tr>
 
 
                         <tr>
-			    <td class="text-center head">Total
-                                    <el-tooltip content="Here is the incoming damage after resistance is calculated.">
-                                        <i class="mdi mdi-information"></i>
-                                    </el-tooltip>
-			    </td>
-                            <td class="text-center">{{ ((Showincdmg) - Showincdmg * getResistance('death') / 100).toFixed() }}</td>
-                            <td class="text-center">{{ ((Showincdmg) - Showincdmg * getResistance('energy') / 100).toFixed() }}</td>
-                            <td class="text-center">{{ ((Showincdmg) - Showincdmg * getResistance('earth') / 100).toFixed() }}</td>
-                            <td class="text-center">{{ ((Showincdmg) - Showincdmg * getResistance('fire') / 100).toFixed() }}</td>
-                            <td class="text-center">{{ ((Showincdmg) - Showincdmg * getResistance('ice') / 100).toFixed() }}</td>
-                            <td class="text-center">{{ ((Showincdmg) - Showincdmg * getResistance('holy') / 100).toFixed() }}</td>
-                            <td class="text-center">{{ ((Showincdmg) - Showincdmg * getResistance('protection physical') / 100 - (getAttribute('arm') / 2 * 2 - 1)).toFixed() }} - {{ ((Showincdmg) - Showincdmg * getResistance('protection physical') / 100 - (getAttribute('arm') / 2)).toFixed() }}</td>
-                            <td class="text-center">{{ ((Showincdmg) - Showincdmg * getResistance('life drain') / 100).toFixed() }}</td>
-                            <td class="text-center">{{ ((Showincdmg) - Showincdmg * getResistance('mana drain') / 100).toFixed() }}</td>
+                            <td class="text-center head">Total
+                                <el-tooltip content="Here is the incoming damage after resistance is calculated.">
+                                    <i class="mdi mdi-information"></i>
+                                </el-tooltip>
+                            </td>
+                            <td class="text-center">
+                                {{ ((Showincdmg) - Showincdmg * getResistance('death') / 100).toFixed() }}
+                            </td>
+                            <td class="text-center">
+                                {{ ((Showincdmg) - Showincdmg * getResistance('energy') / 100).toFixed() }}
+                            </td>
+                            <td class="text-center">
+                                {{ ((Showincdmg) - Showincdmg * getResistance('earth') / 100).toFixed() }}
+                            </td>
+                            <td class="text-center">
+                                {{ ((Showincdmg) - Showincdmg * getResistance('fire') / 100).toFixed() }}
+                            </td>
+                            <td class="text-center">
+                                {{ ((Showincdmg) - Showincdmg * getResistance('ice') / 100).toFixed() }}
+                            </td>
+                            <td class="text-center">
+                                {{ ((Showincdmg) - Showincdmg * getResistance('holy') / 100).toFixed() }}
+                            </td>
+                            <td class="text-center">
+                                {{ ((Showincdmg) - Showincdmg * getResistance('protection physical') / 100 - (getAttribute('arm') / 2 * 2 - 1)).toFixed()
+                                }} - {{ ((Showincdmg) - Showincdmg * getResistance('protection physical') / 100 - (getAttribute('arm') / 2)).toFixed()
+                                }}
+                            </td>
+                            <td class="text-center">
+                                {{ ((Showincdmg) - Showincdmg * getResistance('life drain') / 100).toFixed() }}
+                            </td>
+                            <td class="text-center">
+                                {{ ((Showincdmg) - Showincdmg * getResistance('mana drain') / 100).toFixed() }}
+                            </td>
                         </tr>
 
                     </tbody>
@@ -194,7 +227,7 @@
             return {
                 categories: [],
                 items: [],
-		incdmg: '0',
+                incdmg: '0',
                 slots: {
                     amulet: [],
                     helmet: [],
@@ -212,9 +245,9 @@
 
         computed: {
 
-	    Showincdmg () {
-		return this.incdmg
-	    },
+            Showincdmg () {
+                return this.incdmg
+            },
 
             properties () {
                 return reduce(this.slots, (carry, slot) => {

@@ -16,12 +16,11 @@
             <h3 class="margin-top-30">Equipments</h3>
 
             <div class="supplies">
-                <div class="supply" v-for="supply in supplies">
-                    <div class="amount">{{ supply.pivot.amount }}x</div>
+                <div class="supply" v-for="equipment in equipments">
                     <div class="thumb">
-                        <img :src="image_path('item', supply.id)" />
+                        <img :src="image_path('item', equipment.id)" />
                     </div>
-                    <span class="title">{{ supply.title }}</span>
+                    <span class="title">{{ equipment.title }}</span>
                 </div>
             </div>
         </div>
@@ -30,6 +29,6 @@
 
 <script>
     export default {
-        props: ['supplies']
+        props: ['supplies', 'equipments']
     }
 </script>

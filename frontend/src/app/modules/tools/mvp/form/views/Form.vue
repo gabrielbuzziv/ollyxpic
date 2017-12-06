@@ -8,14 +8,6 @@
             </div>
         </page-title>
 
-	<div class="row">
-	    <div class="col-md-12">
-		<panel>
-	<center><b>This calculator MVP's during warzones, it is recomended to clear server log before starting on a new boss,<br> As the spam can cause the accuracy of the result.</b></center>
-		</panel>
-	    </div>
-	</div>
-
         <form action="" ref="form" @submit.prevent="onSubmit">
             <div class="row">
                 <div class="col-md-3">
@@ -82,28 +74,28 @@
                 this.calculating = true
 
                 services.calculate(new FormData(form))
-                        .then(response => {
-                            this.calculating = false
-                            this.$router.push({ name: 'tools.mvp.result', params: { id: response.data.id } })
-                        })
-                        .catch(error => {
-                            if (error.type && error.type == 'validation') {
-                                let validateMessage = error.data.log[0]
+                    .then(response => {
+                        this.calculating = false
+                        this.$router.push({ name: 'tools.mvp.result', params: { id: response.data.id } })
+                    })
+                    .catch(error => {
+                        if (error.type && error.type == 'validation') {
+                            let validateMessage = error.data.log[0]
 
-                                this.$notify.error({
-                                    title: 'Validation',
-                                    message: validateMessage
-                                })
-                            } else {
-                                this.$notify.error({
-                                    title: '= (',
-                                    message: error.data.message
-                                })
-                            }
+                            this.$notify.error({
+                                title: 'Validation',
+                                message: validateMessage
+                            })
+                        } else {
+                            this.$notify.error({
+                                title: '= (',
+                                message: error.data.message
+                            })
+                        }
 //                            this.$message.error('Ops, something went wrong (Right log? Right Boss? Filled fields?).')
 
-                            this.calculating = false
-                        })
+                        this.calculating = false
+                    })
             }
         }
     }

@@ -8,89 +8,79 @@
             </div>
         </page-title>
 
-        <div class="row">
-
-
-	    <div class="col-md-12">
-		<panel>
-	<center><b>This calculator shows you how much experience you will loose with blessings.</b></center>
-		</panel>
-	    </div>
-
-
-            <div class="col-md-12">
-                <panel class="form">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <form-input class="level" v-model="settings.level" placeholder="Level"/>
-                        </div>
-
-                        <div class="col-md-6">
-                            <el-checkbox v-model="settings.promoted">Promotion</el-checkbox>
-                        </div>
+        <div class="col-md-12">
+            <panel class="form">
+                <div class="row">
+                    <div class="col-md-6">
+                        <form-input class="level" v-model="settings.level" placeholder="Level"/>
                     </div>
-                </panel>
-            </div>
 
-            <div class="col-md-6">
-                <panel>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th class="text-center">Amount of Blessings</th>
-                                <th class="text-center">Experience</th>
-                                <th class="text-center">Equipment</th>
-                                <th class="text-center">Container</th>
-                            </tr>
-                        </thead>
+                    <div class="col-md-6">
+                        <el-checkbox v-model="settings.promoted">Promotion</el-checkbox>
+                    </div>
+                </div>
+            </panel>
+        </div>
 
-                        <tbody>
-                            <tr v-for="bless in blesses">
-                                <td class="text-center">
-                                    <div v-if="bless == 0">No blessing</div>
-                                    <div v-if="bless == 1">{{ bless }} blessing</div>
-                                    <div v-if="bless > 1">{{ bless }} blessings</div>
-                                </td>
-                                <td class="text-center">{{ getPenalty(bless) }} exp</td>
-                                <td class="text-center">{{ getEquipmentLoss(bless) }} %</td>
-                                <td class="text-center">{{ getContainerLoss(bless) }} %</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </panel>
-            </div>
+        <div class="col-md-6">
+            <panel>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Amount of Blessings</th>
+                            <th class="text-center">Experience</th>
+                            <th class="text-center">Equipment</th>
+                            <th class="text-center">Container</th>
+                        </tr>
+                    </thead>
 
-            <div class="col-md-6">
-                <panel>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th class="text-left">Sum</th>
-                                <th class="text-center">Bless</th>
-                                <th class="text-right">Price</th>
-                            </tr>
-                        </thead>
+                    <tbody>
+                        <tr v-for="bless in blesses">
+                            <td class="text-center">
+                                <div v-if="bless == 0">No blessing</div>
+                                <div v-if="bless == 1">{{ bless }} blessing</div>
+                                <div v-if="bless > 1">{{ bless }} blessings</div>
+                            </td>
+                            <td class="text-center">{{ getPenalty(bless) }} exp</td>
+                            <td class="text-center">{{ getEquipmentLoss(bless) }} %</td>
+                            <td class="text-center">{{ getContainerLoss(bless) }} %</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </panel>
+        </div>
 
-                        <tbody>
-                            <tr v-for="bless in prices">
-                                <td class="text-left">
-                                    <el-checkbox v-model="bless.sum" style="line-height: 0;"></el-checkbox>
-                                </td>
-                                <td class="text-center">{{ bless.name }}</td>
-                                <td class="text-right">{{ getPrice(bless.name).formatMoney(0, '.', '.') }} gp</td>
-                            </tr>
-                        </tbody>
+        <div class="col-md-6">
+            <panel>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="text-left">Sum</th>
+                            <th class="text-center">Bless</th>
+                            <th class="text-right">Price</th>
+                        </tr>
+                    </thead>
 
-                        <tfoot>
-                            <tr>
-                                <td class="text-center"></td>
-                                <td class="text-center">Total</td>
-                                <td class="text-right">{{ totalBless.formatMoney(0, '.', '.') }} gp</td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </panel>
-            </div>
+                    <tbody>
+                        <tr v-for="bless in prices">
+                            <td class="text-left">
+                                <el-checkbox v-model="bless.sum" style="line-height: 0;"></el-checkbox>
+                            </td>
+                            <td class="text-center">{{ bless.name }}</td>
+                            <td class="text-right">{{ getPrice(bless.name).formatMoney(0, '.', '.') }} gp</td>
+                        </tr>
+                    </tbody>
+
+                    <tfoot>
+                        <tr>
+                            <td class="text-center"></td>
+                            <td class="text-center">Total</td>
+                            <td class="text-right">{{ totalBless.formatMoney(0, '.', '.') }} gp</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </panel>
+        </div>
         </div>
     </page-load>
 </template>
@@ -137,8 +127,8 @@
 
         methods: {
             getPenalty (bless) {
-                const level      = parseInt(this.settings.level)
-                const promoted   = this.settings.promoted
+                const level = parseInt(this.settings.level)
+                const promoted = this.settings.promoted
                 const experience = this.experience
 
                 if (level > 0) {
@@ -151,7 +141,7 @@
                     }
 
                     const promotedPercentage = promoted ? 30 : 0
-                    const blessPercentage    = (100 - ((8 * bless) + promotedPercentage)) / 100
+                    const blessPercentage = (100 - ((8 * bless) + promotedPercentage)) / 100
 
                     return (penalty * blessPercentage).formatMoney(0, '.', '.')
                 }

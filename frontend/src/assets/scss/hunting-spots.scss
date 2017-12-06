@@ -511,5 +511,54 @@
                 }
             }
         }
+
+        .features {
+            span {
+                display: block;
+                font-size: 14px;
+                display: block;
+                color: #999;
+            }
+
+            b {
+                font-weight: 300;
+                font-size: 24px;
+                display: block;
+
+                i {
+                    font-size: 14px;
+                    vertical-align: middle;
+                    display: inline-block;
+                }
+            }
+        }
+
+        .requirements {
+            margin-top: 42px;
+
+            ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                
+                li {
+                    display: block;
+                    margin-bottom: 10px;
+                    text-align: left;
+
+                    &:last-child {
+                        margin: 0;
+                    }
+                    
+                    span {
+                        display: block;
+                    }
+                    
+                    b {
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
     }
 }

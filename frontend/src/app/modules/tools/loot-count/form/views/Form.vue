@@ -8,14 +8,6 @@
             </div>
         </page-title>
 
-	<div class="row">
-	    <div class="col-md-12">
-		<panel>
-	<center><b>This calculator counts loot value from either server log (by looking at items in-game and pasting it here, Dont forget to click the "look at" button) or loot log.</b></center>
-		</panel>
-	    </div>
-	</div>
-
         <div class="row">
             <div class="col-md-12">
                 <ul class="tabs">
@@ -37,8 +29,8 @@
 
                 <form action="" @submit.prevent="onSubmit" ref="form">
 
-                    <tab-content tab="loot" active>					
-						
+                    <tab-content tab="loot" active>
+
                         <form-group label="Loot Log">
                             <form-textarea rows="12" v-model="loot" placeholder="Paste your loot log here"/>
                         </form-group>
@@ -58,12 +50,14 @@
                         <div class="margin-top-10"></div>
                         <div class="inline" v-for="teammate, index in teammates">
                             <form-group>
-                                <form-input :name="`teammates[${index}][name]`" :data="teammate.name" v-model="teammate.name" placeholder="Character name" />
+                                <form-input :name="`teammates[${index}][name]`" :data="teammate.name"
+                                            v-model="teammate.name" placeholder="Character name"/>
                             </form-group>
 
                             <form-group>
                                 <div class="input-group">
-                                    <form-input :name="`teammates[${index}][waste]`" :data="teammate.waste" v-model="teammate.waste" placeholder="Waste in gps" />
+                                    <form-input :name="`teammates[${index}][waste]`" :data="teammate.waste"
+                                                v-model="teammate.waste" placeholder="Waste in gps"/>
 
                                     <div class="input-group-btn">
                                         <button class="btn" @click="calculateSupplies(teammate)" type="button">
@@ -152,7 +146,7 @@
             </div>
         </div>
 
-        <supplies-calculator :visible.sync="suppliesCalculator" />
+        <supplies-calculator :visible.sync="suppliesCalculator"/>
     </page-load>
 </template>
 
@@ -169,7 +163,7 @@
                 calculating: false,
                 loot: '',
                 look_at: false,
-                teammates: [{ name: null, waste: null, supplies: []  }],
+                teammates: [{ name: null, waste: null, supplies: [] }],
                 filters: {
                     effective: false,
                     stackable: true,
@@ -196,7 +190,7 @@
             },
 
             add (type) {
-                this[type].push({ name: null, waste: null, supplies: []  })
+                this[type].push({ name: null, waste: null, supplies: [] })
             },
 
             remove (type, index) {
@@ -216,13 +210,17 @@
                 }
 
                 services.calculate(data)
-                        .then(response => {
-                            this.calculating = false
-                            this.$router.push({ name: 'tools.loot.count.result', params: { id: response.data.id }, query: { password: response.data.password } })
+                    .then(response => {
+                        this.calculating = false
+                        this.$router.push({
+                            name: 'tools.loot.count.result',
+                            params: { id: response.data.id },
+                            query: { password: response.data.password }
                         })
-                        .catch(error => {
-                            this.calculating = false
-                        })
+                    })
+                    .catch(error => {
+                        this.calculating = false
+                    })
             }
         },
 

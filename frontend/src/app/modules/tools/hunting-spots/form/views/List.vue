@@ -2,9 +2,9 @@
     <page-load id="hunting-spots">
         <page-title>
             <div class="pull-right">
-                <router-link :to="{ name: 'tools.spots.form' }" class="btn btn-default">
+                <router-link :to="{ name: 'tools.spots.form' }" class="btn btn-success">
                     <i class="mdi mdi-plus-circle margin-right-5"></i>
-                    Share your spot
+                    Submit a new
                 </router-link>
             </div>
 
@@ -17,23 +17,32 @@
 
 
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-3">
+                <panel>
+                    Filtro
+                </panel>
+            </div>
+
+            <div class="col-md-9">
                 <div class="list">
                     <panel>
                         <table class="table">
                             <thead>
                                 <tr>
+                                    <th></th>
                                     <th>Title</th>
                                     <th>Level</th>
                                     <th>Experience</th>
                                     <th>Profit</th>
-                                    <th>Options</th>
                                     <th></th>
                                 </tr>
                             </thead>
 
                             <tbody>
                                 <tr v-for="spot in spots">
+                                    <td>
+                                        <img :src="image_path('creatures', getSpotCreature(spot))" alt="">
+                                    </td>
                                     <td>{{ spot.title }}</td>
                                     <td>
                                         {{ spot.level_min }}
@@ -42,8 +51,7 @@
                                     </td>
                                     <td>{{ spot.experience | experience }}</td>
                                     <td>{{ spot.profit | profit }}</td>
-                                    <td></td>
-                                    <td>
+                                    <td class="text-right">
                                         <router-link :to="{ name: 'tools.spots.show', params: { id: spot.id } }" class="btn btn-xs">
                                             <i class="mdi mdi-chevron-right"></i>
                                         </router-link>
@@ -59,6 +67,11 @@
 </template>
 
 <script>
+    Number.prototype.format = function (n, x) {
+        var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\.' : '$') + ')';
+        return this.toFixed(Math.max(0, ~ ~ n)).replace(new RegExp(re, 'g'), '$&.');
+    };
+
     import services from '../services'
 
     export default {
@@ -70,11 +83,20 @@
 
         filters: {
             experience (value) {
-                return `${value} /h`
+                const data = value.format()
+                return `${data} /h`
             },
+
             profit (value) {
-                return `${value} /h`
+                const data = value.format()
+                return `${data} /h`
             },
+        },
+
+        methods: {
+            getSpotCreature (spot) {
+                return spot.creatures && spot.creatures.length ? spot.creatures[0].id : 0
+            }
         },
 
         mounted () {
