@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class HuntingSpot extends Model
 {
 
-    /**
+    /**author
      * The attributes that can be assign.
      *
      * @var array
@@ -15,6 +15,7 @@ class HuntingSpot extends Model
     protected $fillable = [
         'title',
         'description',
+        'location',
         'tips',
         'experience',
         'profit',
@@ -24,7 +25,9 @@ class HuntingSpot extends Model
         'require_quest',
         'has_task',
         'soloable',
-        'author'
+        'author',
+        'password',
+        'active'
     ];
 
     /**

@@ -17,6 +17,7 @@ class CreateHuntingSpotsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->longText('description');
+            $table->string('location');
             $table->longText('tips')->nullable();
             $table->integer('experience');
             $table->integer('profit')->nullable();
@@ -27,6 +28,8 @@ class CreateHuntingSpotsTable extends Migration
             $table->boolean('has_task')->default(false);
             $table->boolean('soloable')->default(true);
             $table->string('author')->nullable();
+            $table->string('password');
+            $table->boolean('active');
             $table->timestamps();
         });
     }

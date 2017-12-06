@@ -13,7 +13,7 @@ class HuntingSpotController extends Controller
 
     public function index()
     {
-        $spots = HuntingSpot::get();
+        $spots = HuntingSpot::with('creatures')->get();
 
         return $this->respond($spots->toArray());
     }
@@ -31,6 +31,8 @@ class HuntingSpotController extends Controller
         $data['has_task'] = $data['has_task'] == 'true' ? 1 : 0;
         $data['require_quest'] = $data['require_quest'] == 'true' ? 1 : 0;
         $data['require_premium'] = $data['require_premium'] == 'true' ? 1 : 0;
+        $data['password'] = str_random(8);
+        $data['active'] = 0;
 
         $spot = HuntingSpot::create($data);
 
@@ -70,7 +72,7 @@ class HuntingSpotController extends Controller
      */
     public function show(HuntingSpot $spot)
     {
-        $spot = HuntingSpot::with('creatures.drops', 'supplies')->find($spot->id);
+        $spot = HuntingSpot::with('creatures.drops', 'supplies', 'equipments')->find($spot->id);
 
         return $this->respond($spot->toArray());
     }
