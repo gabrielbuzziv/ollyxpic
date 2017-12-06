@@ -293,6 +293,12 @@ a, button {
         background-size: cover;
     }
 
+    .no-padding {
+        .page {
+            padding: 0;
+        }
+    }
+
     .page {
         padding: 50px 0;
 

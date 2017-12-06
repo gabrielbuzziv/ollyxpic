@@ -10,6 +10,7 @@ import { routes as damageHealing } from './damage-healing'
 import { routes as expshare } from './expshare'
 import { routes as capcount } from './capcount'
 import { routes as currency } from './currency'
+import { routes as blacklist } from './blacklist'
 
 export default [
     {
@@ -30,4 +31,5 @@ export default [
     ...expshare,
     ...capcount,
     ...currency,
+    ...blacklist
 ]

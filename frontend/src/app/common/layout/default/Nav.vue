@@ -139,14 +139,26 @@
                         </a>
                     </router-link>
 
-                    <router-link :to="{ name: 'tools.spots.list' }" tag="li">
+                    <!--<router-link :to="{ name: 'tools.spots.list' }" tag="li">-->
+                        <!--<a href="">-->
+                            <!--<span class="left">-->
+                                <!--<img :src="image_path_by_name('item', 'Map (Brown)')">-->
+                            <!--</span>-->
+                            <!--<span class="center">-->
+                                <!--<span>Hunting</span>-->
+                                <!--<small>Spots</small>-->
+                            <!--</span>-->
+                        <!--</a>-->
+                    <!--</router-link>-->
+
+                    <router-link :to="{ name: 'tools.blacklist' }" tag="li">
                         <a href="">
                             <span class="left">
-                                <img :src="image_path_by_name('item', 'Map (Brown)')">
+                                <img :src="image_path_by_name('item', 'Book (Black)')">
                             </span>
                             <span class="center">
-                                <span>Hunting</span>
-                                <small>Spots</small>
+                                <span>Blacklist</span>
+                                <small>Quick Loot</small>
                             </span>
                         </a>
                     </router-link>

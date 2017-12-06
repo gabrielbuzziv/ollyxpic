@@ -1,219 +1,148 @@
 <template>
-    <page-load id="currencies">
+    <page-load id="blacklist">
         <page-title>
-            <img :src="image_path_by_name('item', 'tibia coins')" class="margin-right-5">
+            <img :src="image_path_by_name('item', 'Book (Black)')" class="margin-right-5">
             <div class="title">
-                <h2>Tibia Currency</h2>
-                <span>Stock Exchange</span>
+                <h2>Blacklist</h2>
+                <span>Quick Loot</span>
             </div>
         </page-title>
 
+        <page-load class="no-padding" :loading="loading">
+            <panel title="How to update the blacklist?" :open="false" toggleable>
+                <ol>
+                    <li>Login on the character you want to update</li>
+                    <li>Add any item to the blacklist</li>
+                    <li>Logout and close the Tibia client</li>
+                    <li>
+                        <code>Windows + R</code>
+                        <i class="mdi mdi-arrow-right"></i>
+                        <input type="text" class="form-control" value="%LOCALAPPDATA%\Tibia\packages\Tibia" style="display: inline-block; width: 320px;">
+                    </li>
+                    <li>Open <code>characterdata</code> folder <small>(Sor by data, most recent first)</small></li>
+                    <li>Open the top folder</li>
+                    <li>Edit the file <code>lootBlackWhitelist.json</code> in any editor</li>
+                    <li>Paste the generated blacklist.</li>
+                    <li>Save and close the file</li>
+                    <li>Done</li>
+                </ol>
 
-        <panel>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>World</th>
-                        <th>World Type</th>
-                        <th>Buy Currency</th>
-                        <th>Sell Currency</th>
-                        <th>Last Update</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
+                <small>Source:
+                    <a href="https://www.reddit.com/r/TibiaMMO/comments/7honca/dec_05_2017_winter_update_2017/">Reddit</a>
+                    by
+                    <a href="https://www.reddit.com/user/TheSwedeIrishman">TheSwedenIrishman</a>
+                </small>
+            </panel>
 
-                <tbody>
-                    <tr v-for="world in worlds">
-                        <td>{{ world.name }}</td>
-                        <td>{{ world.type }}</td>
-                        <td>
-                            <span v-if="world.currencies.length">
-                                {{ getLastCurrency(world).buy }} gp
+            <panel>
+                <el-select v-model="category"
+                    no-data-text="Categories not found"
+                    no-match-text="Category not found"
+                    placeholder="Categories"
+                    filterable>
+                    <el-option v-for="category in categories" :value="category.id" :label="category.title"></el-option>
+                </el-select>
 
-                                <span v-if="world.currencies.length > 1">
-                                    <span class="currency-increase" v-if="compareLastTwoCurrencies(world, 'buy') > 0">
-                                        <i class="mdi mdi-menu-up"></i>
-                                        {{ compareLastTwoCurrencies(world, 'buy').toFixed(2) }} %
-                                    </span>
+                <div class="pull-right">
+                    <!--<el-tooltip content="If you already have your blacklist, paste here and edit in real time." placement="left">-->
+                        <!--<button class="btn">-->
+                            <!--<i class="mdi mdi-pencil margin-right-5"></i>-->
+                            <!--Load-->
+                        <!--</button>-->
+                    <!--</el-tooltip>-->
 
-                                    <span class="currency-decrease" v-else>
-                                        <i class="mdi mdi-menu-down"></i>
-                                        {{ compareLastTwoCurrencies(world, 'buy').toFixed(2) }} %
-                                    </span>
-                                </span>
-                            </span>
-                        </td>
-                        <td>
-                            <span v-if="world.currencies.length">
-                                {{ getLastCurrency(world).sell }} gp
+                    <button class="btn btn-success" @click.prevent="showBlacklist">
+                        <i class="mdi mdi-check margin-right-5"></i>
+                        Generate
+                    </button>
+                </div>
 
-                                <span v-if="world.currencies.length > 1">
-                                    <span class="currency-increase" v-if="compareLastTwoCurrencies(world, 'sell') > 0">
-                                        <i class="mdi mdi-menu-up"></i>
-                                        {{ compareLastTwoCurrencies(world, 'sell').toFixed(2) }} %
-                                    </span>
+                <div class="clearfix"></div>
+            </panel>
 
-                                    <span class="currency-decrease" v-else>
-                                        <i class="mdi mdi-menu-down"></i>
-                                        {{ compareLastTwoCurrencies(world, 'sell').toFixed(2) }} %
-                                    </span>
-                                </span>
-                            </span>
-                        </td>
-                        <td>
-                            <span v-if="world.currencies.length">
-                                {{ getDateForHuman(getLastCurrency(world).created_at) }}
-                            </span>
-                        </td>
-                        <td>
-                            <highcharts :id="`currency-${world.id}`" :options="getChartOptions(world)" ref="chart" v-if="world.currencies.length"/>
-                        </td>
-                        <td class="text-right">
-                            <router-link :to="{ name: 'tools.currencies.world', params: { id: world.id } }"
-                                         class="btn btn-xs"
-                                         title="All currencies"
-                                         v-if="world.currencies.length">
-                                <i class="mdi mdi-chart-areaspline"></i>
-                            </router-link>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </panel>
+            <panel class="items">
+                <div class="col-md-2" v-for="item in items">
+                    <div class="item" :class="{ 'active': isSelected(item.identifier) }" @click.prevent="toggleItem(item.identifier)">
+                        <div class="thumb">
+                            <img :src="image_path('item', item.id)">
+                        </div>
+                        <span class="name">{{ item.title }}</span>
+                    </div>
+                </div>
+            </panel>
+
+            <small>
+                Credit for <a href="https://www.reddit.com/user/TheSwedeIrishman">TheSwedenIrishman</a>
+                for providing the id of items.
+            </small>
+        </page-load>
+
+        <blacklist :blacklist="blacklist" />
     </page-load>
 </template>
 
 <script>
+    import Blacklist from './Blacklist'
     import services from '../services'
 
     export default {
+        components: { Blacklist },
+
         data () {
             return {
-                worlds: []
+                loading: true,
+                itemsList: [],
+                categories: [],
+                category: 1,
+                blacklist: {
+                    "blacklistTypes": [],
+                    "listType": "blacklist",
+                    "whitelistTypes": []
+                },
+                blacklistVisible: false
+            }
+        },
+
+        computed: {
+            items () {
+                return typeof this.category == 'number'
+                    ? this.itemsList.filter(item => item.category_id == this.category)
+                    : this.itemsList
             }
         },
 
         methods: {
-            getLastCurrency (world) {
-                return world.currencies[0]
+            isSelected (identifier) {
+                return this.blacklist.blacklistTypes.indexOf(identifier) != -1
             },
 
-            compareLastTwoCurrencies (world, currency) {
-                if (world.currencies.length > 1) {
-                    const last = world.currencies[0]
-                    const penult = world.currencies[1]
-
-                    return (100 - ((penult[currency] * 100) / last[currency]))
+            toggleItem (identifier) {
+                if (this.blacklist.blacklistTypes.indexOf(identifier) != -1) {
+                    const index = this.blacklist.blacklistTypes.indexOf(identifier)
+                    this.blacklist.blacklistTypes.splice(index, 1)
+                } else {
+                    this.blacklist.blacklistTypes.push(identifier)
                 }
             },
 
-            getDateForHuman (date) {
-                return moment.tz(date, "YYYY-MM-DD HH:mm:ss", 'America/New_York').fromNow()
-            },
-
-            getChartOptions (world) {
-                return {
-                    chart: {
-                        backgroundColor: null,
-                        borderWidth: 0,
-                        type: 'area',
-                        margin: [2, 0, 2, 0],
-                        width: 120,
-                        height: 20,
-                        style: {
-                            overflow: 'visible'
-                        },
-
-                        // small optimalization, saves 1-2 ms each sparkline
-                        skipClone: true
-                    },
-                    title: {
-                        text: ''
-                    },
-                    credits: {
-                        enabled: false
-                    },
-                    xAxis: {
-                        labels: {
-                            enabled: false
-                        },
-                        title: {
-                            text: null
-                        },
-                        startOnTick: false,
-                        endOnTick: false,
-                        tickPositions: [],
-                        categories: world.currencies && world.currencies.length ? world.currencies.map(currency => currency.created_at).reverse() : [],
-                    },
-                    yAxis: {
-                        endOnTick: false,
-                        startOnTick: false,
-                        labels: {
-                            enabled: false
-                        },
-                        title: {
-                            text: null
-                        },
-                        tickPositions: [0]
-                    },
-                    legend: { enabled: false },
-                    tooltip: {
-                        shared: true,
-                        useHTML: true,
-                        hideDelay: 0,
-                        positioner: function (w, h, point) {
-                            return { x: point.plotX - w / 2, y: point.plotY - h };
-                        }
-                    },
-                    series: [
-                        {
-                            name: 'Buy',
-                            data: world.currencies && world.currencies.length ? world.currencies.map(currency => currency.buy).reverse() : [],
-                            fillOpacity: '0.3',
-                            color: '#3498db',
-                        },
-                        {
-                            name: 'Sell',
-                            data: world.currencies && world.currencies.length ? world.currencies.map(currency => currency.sell).reverse() : [],
-                            fillOpacity: '0.5',
-                            color: '#27ae60',
-                        }
-                    ],
-                    plotOptions: {
-                        series: {
-                            animation: false,
-                            lineWidth: 1,
-                            shadow: false,
-                            states: {
-                                hover: {
-                                    lineWidth: 1
-                                }
-                            },
-                            marker: {
-                                radius: 1,
-                                states: {
-                                    hover: {
-                                        radius: 2
-                                    }
-                                }
-                            },
-                            fillOpacity: 0.25
-                        },
-                        column: {
-                            negativeColor: '#910000',
-                            borderColor: 'silver'
-                        }
-                    }
-                }
+            showBlacklist () {
+                this.$root.$emit('generate::blacklist')
             }
         },
 
         mounted () {
-            services.fetchWorlds()
+            services.getCategories()
                 .then(response => {
-                    this.worlds = response.data
+                    this.categories = response.data
+
+                    services.getItems()
+                        .then(response => {
+                            this.itemsList = response.data
+                            this.loading = false
+                        })
+                        .catch(() => this.loading = false)
                 })
+                .catch(() => this.loading = false)
         }
     }
 </script>

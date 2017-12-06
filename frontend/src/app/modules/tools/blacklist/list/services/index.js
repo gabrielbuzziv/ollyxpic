@@ -1,9 +1,9 @@
 export default {
-    fetchWorlds () {
-        return window.axios.get(`worlds`)
+    getCategories () {
+        return window.axios.get(`categories/blacklist`)
     },
 
-    find (id) {
-        return window.axios.get(`worlds/${id}`)
+    getItems () {
+        return window.axios.get(`items/blacklist`)
     }
 }

@@ -1,5 +1,5 @@
-import { routes as list } from './list'
+import { routes as blacklist } from './list'
 
 export default [
-    ...list
+    ...blacklist
 ]

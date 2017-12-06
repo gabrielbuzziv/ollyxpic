@@ -1,0 +1,54 @@
+#blacklist {
+    .items {
+        .page {
+            padding: 0;
+        }
+
+        .item {
+            background: #eee;
+            border-radius: $border-radius-base;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            padding: 10px;
+            cursor: pointer;
+
+            &.active {
+                background: #20a0ff;
+                color: #fff;
+            }
+
+            .thumb {
+                height: 64px;
+                line-height: 64px;
+                display: block;
+                margin: 0 auto 10px;
+                text-align: center;
+                
+                img {
+                    display: inline-block;
+                    vertical-align: middle;
+                    line-height: normal;
+                }
+            }
+
+            .name {
+                font-weight: 300;
+                font-size: 12px;
+                text-align: center;
+                display: block;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+
+    .blacklist-dialog {
+        textarea {
+            height: 400px;
+            max-height: 400px;
+            overflow: auto;
+            resize: none;
+        }
+    }
+}
