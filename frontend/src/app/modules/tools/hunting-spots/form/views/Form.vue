@@ -34,7 +34,7 @@
                         </div>
 
                         <div class="options">
-                            <div class="form-group margin-bottom-0" v-if="huntVocations.length > 1">
+                            <div class="form-group margin-bottom-0" v-show="huntVocations.length > 1">
                                 <el-switch
                                         v-model="team"
                                         on-text=""
@@ -286,7 +286,8 @@
 
                 services.save(new FormData(form))
                     .then(response => {
-                        console.log(response.data)
+                        this.$message.success('Done!')
+                        this.$router.push({ name: 'tools.spots.list' })
                     })
             },
         },
