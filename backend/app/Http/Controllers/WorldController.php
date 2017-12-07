@@ -14,7 +14,7 @@ class WorldController extends ApiController
      */
     public function index()
     {
-        $worlds = World::with('currencies')->get();
+        $worlds = World::with('currencies')->orderBy('name', 'asc')->get();
 
         return $this->respond($worlds->toArray());
     }

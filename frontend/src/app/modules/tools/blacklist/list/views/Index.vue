@@ -43,13 +43,26 @@
                 </ol>
             </panel>
 
-            <panel class="filter">
-                <div class="row">
-                    <div class="col-md-3">
+            <div class="row creatures">
+                <div class="col-md-2" v-for="creature, index in creaturesList">
+                    <panel class="creature">
+                        <button class="btn-close" @click.prevent="removeCreature(index)">
+                            <i class="mdi mdi-close"></i>
+                        </button>
+
+                        <div class="thumb">
+                            <img :src="image_path('creature', creature.id)">
+                        </div>
+                        <span class="name">{{ creature.title }}</span>
+                    </panel>
+                </div>
+
+                <div class="col-md-4">
+                    <panel class="field">
                         <el-select v-model="creature"
                                    no-data-text="Creatures not found"
                                    no-match-text="Creature not found"
-                                   placeholder="Creature"
+                                   placeholder="Add Creature"
                                    filterable
                                    clearable
                                    remote
@@ -60,8 +73,12 @@
                             <el-option v-for="creature in creatures" :value="creature" :label="creature.title"
                                        :key="creature.id"/>
                         </el-select>
-                    </div>
+                    </panel>
+                </div>
+            </div>
 
+            <panel class="filter">
+                <div class="row">
                     <div class="col-md-3">
                         <el-select v-model="category"
                                    no-data-text="Categories not found"
@@ -79,16 +96,18 @@
                         <el-slider v-model="capacity" item :min="0" :max="180" :step="10"></el-slider>
                     </div>
 
-                    <div class="col-md-3">
-                        <label>Price Range</label>
-                        <el-slider v-model="value" range :min="0" :max="200000" :step="10000"></el-slider>
+                    <div class="col-md-4">
+                        <label>Price less than</label>
+                        <el-slider v-model="value" :min="0" :max="50000" :step="1000"></el-slider>
+                    </div>
+
+                    <div class="col-md-2">
+                        <span class="counter">
+                            {{ blacklist.blacklistTypes.length }} / 500
+                        </span>
                     </div>
                 </div>
             </panel>
-
-            <span class="counter">
-                {{ blacklist.blacklistTypes.length }} / 500
-            </span>
 
             <panel class="items">
                 <page-load class="no-padding" :loading="loadingItems">
@@ -130,9 +149,10 @@
                 loadingItems: true,
                 itemsList: [],
                 capacity: 0,
-                value: [0, 1000000],
+                value: 50000,
                 creature: '',
                 creatures: [],
+                creaturesList: [],
                 category: 1,
                 categories: [{ id: 0, title: 'All' }],
                 blacklist: {
@@ -146,13 +166,9 @@
 
         computed: {
             items () {
-                return typeof this.category == 'number'
-                    ? (this.category != 0
-                        ? this.itemsList.filter(item => item.category_id == this.category)
-                        : this.itemsList)
-                    .filter(item => item.actual_value >= this.value[0] && item.actual_value <= this.value[1])
+                return this.itemsList
+                    .filter(item => item.actual_value <= this.value)
                     .filter(item => item.capacity >= this.capacity)
-                    : this.itemsList
             }
         },
 
@@ -178,8 +194,17 @@
             }, 300),
 
             changeCreature () {
-                this.category = this.creature == null || this.creature == '' ? 1 : 0
+                if (this.creature != null && this.creature != '')
+                    this.creaturesList.push(this.creature)
 
+                this.filterItem()
+
+                this.creature = ''
+                this.category = 0
+            },
+
+            removeCreature (index) {
+                this.creaturesList.splice(index, 1)
                 this.filterItem()
             },
 
@@ -209,11 +234,11 @@
             },
 
             filterItem () {
-                const creature = this.creature.id
+                const creatures = this.creaturesList.map(creature => creature.id)
                 const category = this.category
 
                 this.loadingItems = true
-                services.getItems(creature, category)
+                services.getItems(creatures, category)
                     .then(response => {
                         this.itemsList = response.data
                         this.loadingItems = false

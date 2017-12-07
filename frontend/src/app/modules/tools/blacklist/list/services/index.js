@@ -7,7 +7,7 @@ export default {
         return window.axios.get(`quick-looting/categories`)
     },
 
-    getItems (creature, category) {
-        return window.axios.get(`quick-looting/items`, { params: { creature, category } })
+    getItems (creatures, category) {
+        return window.axios.get(`quick-looting/items`, { params: { creatures, category } })
     }
 }

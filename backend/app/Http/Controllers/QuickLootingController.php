@@ -6,6 +6,7 @@ use App\Category;
 use App\Creature;
 use App\Item;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class QuickLootingController extends Controller
 {
@@ -18,7 +19,7 @@ class QuickLootingController extends Controller
     public function creatures()
     {
         $filter = request('query');
-        $creatures = Creature::with('drops')->where('title', 'like', "%{$filter}%")->get();
+        $creatures = Creature::where('title', 'like', "%{$filter}%")->get();
 
         return $this->respond($creatures->toArray());
     }
@@ -42,24 +43,32 @@ class QuickLootingController extends Controller
         return $this->respond($categories->toArray());
     }
 
+    /**
+     * Get items by filter and show.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function items()
     {
-        if (! empty(request('creature'))) {
-            $creature = Creature::with('drops')
-                ->find(request('creature'));
+        if ( ! empty(request('creatures'))) {
+            $items = DB::table('creature_item')
+                ->whereIn('creature_id', request('creatures'))
+                ->groupBy('item_id')
+                ->pluck('item_id');
 
             $items = ! empty(request('category')) && request('category') != 0
-                ? $creature->drops()->whereNotNull('identifier')->where('category_id', request('category'))->get()
-                : $creature->drops()->whereNotNull('identifier')->get();
+                ? Item::whereNotNull('identifier')->whereIn('id', $items)->where('category_id', request('category'))->orderBy('title', 'asc')->get()
+                : Item::whereNotNull('identifier')->whereIn('id', $items)->orderBy('title', 'asc')->get();
 
             return $this->respond($items->toArray());
         }
 
         $items = Item::whereNotNull('identifier')
             ->where(function ($query) {
-                if (! empty(request('category')) && request('category') != 0)
+                if ( ! empty(request('category')) && request('category') != 0)
                     $query->where('category_id', request('category'));
             })
+            ->orderBy('title', 'asc')
             ->get();
 
         return $this->respond($items->toArray());

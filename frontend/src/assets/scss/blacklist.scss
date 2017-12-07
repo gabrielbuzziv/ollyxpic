@@ -23,7 +23,7 @@
                 display: block;
                 margin: 0 auto 10px;
                 text-align: center;
-                
+
                 img {
                     display: inline-block;
                     vertical-align: middle;
@@ -81,6 +81,82 @@
         text-align: right;
         font-size: 20px;
         font-weight: 300;
-        margin: 0 0 10px;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .creatures {
+        .creature {
+            position: relative;
+
+            &:hover {
+                .btn-close {
+                    display: block;
+                }
+            }
+
+            .btn-close {
+                display: none;
+                position: absolute;
+                top: calc(50%);
+                left: calc(50% - 7px);
+                background: none;
+                font-size: 100px;
+                line-height: 0;
+                border: 0;
+                color: rgba(0, 0, 0, .3);
+                height: 100%;
+                background: #fff;
+                width: 100px;
+                text-align: center;
+                transform: translate(-50%, -50%);
+            }
+
+            .thumb {
+                display: block;
+                margin: 0 auto 20px;
+                height: 64px;
+                line-height: 64px;
+                text-align: center;
+
+                img {
+                    display: inline-block;
+                    line-height: normal;
+                    vertical-align: middle;
+                }
+            }
+
+            .name {
+                font-weight: 300;
+                font-size: 16px;
+                text-align: center;
+                display: block;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+
+        .field {
+            height: 149px;
+
+            .el-select {
+                width: 100%;
+
+                .el-input {
+                    margin-top: 30px;
+
+                    .el-input__inner {
+                        height: 50px;
+                        line-height: 50px;
+                        font-size: 24px;
+                        font-weight: 300;
+                        border: 0;
+                        text-align: center;
+                        cursor: text;
+                    }
+                }
+            }
+        }
     }
 }
