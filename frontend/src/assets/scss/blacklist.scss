@@ -51,4 +51,28 @@
             resize: none;
         }
     }
+
+    .filter {
+        .el-select {
+            width: 100%;
+
+            .el-input {
+                .el-input__inner {
+                    height: 50px;
+                    line-height: 50px;
+                }
+            }
+        }
+
+        .el-slider {
+            .el-slider__runway {
+                margin: 13px 0 5px
+            }
+        }
+
+        label {
+            font-weight: 300;
+            margin: 4px 0 0;
+        }
+    }
 }

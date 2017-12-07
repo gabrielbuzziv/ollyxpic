@@ -66,12 +66,10 @@ Route::get('change-log', 'ChangeController@getChanges');
  * CategoryController
  */
 Route::get('categories', 'CategoryController@usables');
-Route::get('categories/blacklist', 'CategoryController@blacklist');
 
 /**
  * ItemController
  */
-Route::get('items/blacklist', 'ItemController@blacklist');
 Route::get('items/{category}', 'ItemController@usables');
 
 /**
@@ -84,6 +82,13 @@ Route::get('worlds/{world}', 'WorldController@show');
  * VocationController routes.
  */
 Route::get('vocations', 'VocationController@index');
+
+/**
+ * QuickLootingController routes.
+ */
+Route::get('quick-looting/creatures', 'QuickLootingController@creatures');
+Route::get('quick-looting/categories', 'QuickLootingController@categories');
+Route::get('quick-looting/items', 'QuickLootingController@items');
 
 
 /**

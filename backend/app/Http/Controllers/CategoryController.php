@@ -93,18 +93,4 @@ class CategoryController extends ApiController
 
         return $this->respond($category->toArray());
     }
-
-    /**
-     * Get categories to blacklist
-     *
-     * @return mixed
-     */
-    public function blacklist()
-    {
-        $categories = Category::whereNotIn('id', [4, 12, 14, 18, 22, 23, 24, 26, 47])
-            ->orderBy('title', 'asc')
-            ->get();
-
-        return $this->respond($categories->toArray());
-    }
 }

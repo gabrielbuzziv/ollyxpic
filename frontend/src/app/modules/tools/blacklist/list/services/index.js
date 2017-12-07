@@ -1,9 +1,13 @@
 export default {
-    getCategories () {
-        return window.axios.get(`categories/blacklist`)
+    getCreature (query) {
+        return window.axios.get('quick-looting/creatures', { params: { query } })
     },
 
-    getItems () {
-        return window.axios.get(`items/blacklist`)
+    getCategories () {
+        return window.axios.get(`quick-looting/categories`)
+    },
+
+    getItems (creature, category) {
+        return window.axios.get(`quick-looting/items`, { params: { creature, category } })
     }
 }

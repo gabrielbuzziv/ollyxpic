@@ -49,20 +49,21 @@ class CreatureController extends ApiController
             $data->save();
 
             $drops = $creature->drops;
+            $creatureDrops = [];
 
             foreach ($drops as $drop) {
                 $item = Item::where('title', $drop->title)->first();
 
                 if ($item) {
-                    $data->drops()->attach([
-                        $item->id => [
-                            'percentage' => $drop->pivot->percentage,
-                            'min'        => $drop->pivot->min,
-                            'max'        => $drop->pivot->max,
-                        ]
-                    ]);
+                    $creatureDrops[$item->id] = [
+                        'percentage' => $drop->pivot->percentage,
+                        'min'        => $drop->pivot->min,
+                        'max'        => $drop->pivot->max,
+                    ];
                 }
             }
+
+            $data->drops()->sync($creatureDrops);
 
             return $creature;
         });
