@@ -86,6 +86,10 @@
                 </div>
             </panel>
 
+            <span class="counter">
+                {{ blacklist.blacklistTypes.length }} / 500
+            </span>
+
             <panel class="items">
                 <page-load class="no-padding" :loading="loadingItems">
                     <div class="col-md-2" v-for="item in items">
@@ -149,6 +153,14 @@
                     .filter(item => item.actual_value >= this.value[0] && item.actual_value <= this.value[1])
                     .filter(item => item.capacity >= this.capacity)
                     : this.itemsList
+            }
+        },
+
+        watch: {
+            'blacklist.blacklistTypes' () {
+                if (this.blacklist.blacklistTypes.length > 500) {
+                    this.blacklist.blacklistTypes.splice(this.blacklist.blacklistTypes.length - 1, 1)
+                }
             }
         },
 

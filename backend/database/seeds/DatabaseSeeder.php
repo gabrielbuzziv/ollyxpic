@@ -33,6 +33,14 @@ class DatabaseSeeder extends Seeder
         $this->command->info("{$thoredo->name} is Ready");
 
 
+        $ferox = \App\User::firstOrCreate(
+            ['email' => 'ferox1989@hotmail.com'],
+            ['name' => 'Ferox Smeden', 'password' => bcrypt('s3mc0ntr0l3')]
+        );
+
+        $this->command->info("{$ferox->name} is Ready");
+
+
         // $this->call(UsersTableSeeder::class);
     }
 }
