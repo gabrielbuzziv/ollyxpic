@@ -2,6 +2,11 @@
     <page-load id="blacklist">
         <page-title>
             <div class="pull-right">
+                <button class="btn" @click.prevent="loadBlacklist">
+                    <i class="mdi mdi-upload margin-right-5"></i>
+                    Load a Blacklist
+                </button>
+
                 <button class="btn btn-success" @click.prevent="showBlacklist">
                     <i class="mdi mdi-check margin-right-5"></i>
                     Generate
@@ -102,16 +107,18 @@
         </page-load>
 
         <blacklist :blacklist="blacklist"/>
+        <blacklist-loader @loaded="load"/>
     </page-load>
 </template>
 
 <script>
     import Blacklist from './Blacklist'
+    import BlacklistLoader from './BlacklistLoader'
     import services from '../services'
     import { debounce } from 'lodash'
 
     export default {
-        components: { Blacklist },
+        components: { Blacklist, BlacklistLoader },
 
         data () {
             return {
@@ -164,6 +171,10 @@
                 this.filterItem()
             },
 
+            load (blacklist) {
+                this.blacklist = blacklist
+            },
+
             isSelected (identifier) {
                 return this.blacklist.blacklistTypes.indexOf(identifier) != - 1
             },
@@ -179,6 +190,10 @@
 
             showBlacklist () {
                 this.$root.$emit('generate::blacklist')
+            },
+
+            loadBlacklist () {
+                this.$root.$emit('load::blacklist')
             },
 
             filterItem () {
