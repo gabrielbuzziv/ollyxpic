@@ -125,6 +125,7 @@
 
             <small>
                 Credit for <a href="https://www.reddit.com/user/RydanTV">RydanTV</a>
+                and <a href="http://tibia.wikia.com">Tibia Wikia</a>
                 for providing the id of lootable items.
             </small>
         </page-load>

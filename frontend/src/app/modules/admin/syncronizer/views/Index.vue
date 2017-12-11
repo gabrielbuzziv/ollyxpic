@@ -68,19 +68,8 @@
                                                 services.syncTiles()
                                                     .then (response => {
                                                         this.syncing = false
-                                                        this.status = 'Syncronizing World Map'
-
-                                                        services.syncWorldMap()
-                                                            .then (response => {
-                                                                this.syncing = false
-                                                                this.status = 'Done'
-                                                                this.fail = false
-                                                            })
-                                                            .catch (() => {
-                                                                this.syncing = false
-                                                                this.status = 'Syncronization Failed'
-                                                                this.fail = true
-                                                            })
+                                                        this.status = 'Done'
+                                                        this.fail = false
                                                     })
                                                     .catch (() => {
                                                         this.syncing = false
