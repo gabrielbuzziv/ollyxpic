@@ -124,7 +124,7 @@
             </div>
         </div>
 
-        <div class="col-md-12 margin-top-30" v-if="false">
+        <div class="col-md-12 margin-top-30">
             <panel>
 
                 <div class="col-md-4"></div>
