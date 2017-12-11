@@ -4,6 +4,10 @@ import Show from './views/Show'
 
 export default [
     {
+        path: '/tools/hunting-spot',
+        redirect: { name: 'tools.spots.list' },
+    },
+    {
         path: '/tools/hunting-spots',
         name: 'tools.spots.list',
         component: List,
