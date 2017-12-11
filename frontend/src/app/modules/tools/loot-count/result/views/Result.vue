@@ -213,25 +213,25 @@
                     </form>
                 </panel>
 
-                <!--<panel class="npc-items" title="Gren Djinn" v-if="green.length">-->
-                    <!--<img :src="image_path('item', item.data.id)" v-for="item in green">-->
-                <!--</panel>-->
+                <panel class="npc-items" title="Gren Djinn" v-if="green.length">
+                    <img :src="image_path('item', item.data.id)" v-for="item in green">
+                </panel>
 
-                <!--<panel class="npc-items" title="Blue Djinn" v-if="blue.length">-->
-                    <!--<img :src="image_path('item', item.data.id)" v-for="item in blue">-->
-                <!--</panel>-->
+                <panel class="npc-items" title="Blue Djinn" v-if="blue.length">
+                    <img :src="image_path('item', item.data.id)" v-for="item in blue">
+                </panel>
 
-                <!--<panel class="npc-items" title="Rashid" v-if="rashid.length">-->
-                    <!--<img :src="image_path('item', item.data.id)" v-for="item in rashid">-->
-                <!--</panel>-->
+                <panel class="npc-items" title="Rashid" v-if="rashid.length">
+                    <img :src="image_path('item', item.data.id)" v-for="item in rashid">
+                </panel>
 
-                <!--<panel class="npc-items" title="Yasir" v-if="yasir.length">-->
-                    <!--<img :src="image_path('item', item.data.id)" v-for="item in yasir">-->
-                <!--</panel>-->
+                <panel class="npc-items" title="Yasir" v-if="yasir.length">
+                    <img :src="image_path('item', item.data.id)" v-for="item in yasir">
+                </panel>
 
-                <!--<panel class="npc-items" title="Others" v-if="others.length">-->
-                    <!--<img :src="image_path('item', item.data.id)" v-for="item in others">-->
-                <!--</panel>-->
+                <panel class="npc-items" title="Others" v-if="others.length">
+                    <img :src="image_path('item', item.data.id)" v-for="item in others">
+                </panel>
             </div>
         </div>
 
@@ -313,7 +313,7 @@
                 if (this.result && this.result.items) {
                     return this.result.items.filter(item => {
                         if (this.getBestNpc(item.data.sells)) {
-                            return this.getBestNpc(item.data.sells).name == "Alesar" || this.getBestNpc(item.data.sells).name == "Yaman"
+                            return this.getBestNpc(item.data.sells).npc.name == "Alesar" || this.getBestNpc(item.data.sells).npc.name == "Yaman"
                         }
                     })
                 }
@@ -325,7 +325,7 @@
                 if (this.result && this.result.items) {
                     return this.result.items.filter(item => {
                         if (this.getBestNpc(item.data.sells)) {
-                            return this.getBestNpc(item.data.sells).name == "Nah'Bob" || this.getBestNpc(item.data.sells).name == "Haroun"
+                            return this.getBestNpc(item.data.sells).npc.name == "Nah'Bob" || this.getBestNpc(item.data.sells).npc.name == "Haroun"
                         }
                     })
                 }
@@ -337,7 +337,7 @@
                 if (this.result && this.result.items) {
                     return this.result.items.filter(item => {
                         if (this.getBestNpc(item.data.sells)) {
-                            return this.getBestNpc(item.data.sells).name == "Rashid"
+                            return this.getBestNpc(item.data.sells).npc.name == "Rashid"
                         }
                     })
                 }
@@ -349,7 +349,7 @@
                 if (this.result && this.result.items) {
                     return this.result.items.filter(item => {
                         if (this.getBestNpc(item.data.sells)) {
-                            return this.getBestNpc(item.data.sells).name == "Yasir"
+                            return this.getBestNpc(item.data.sells).npc.name == "Yasir"
                         }
                     })
                 }
@@ -362,12 +362,12 @@
                     return this.result.items.filter(item => {
                         if (item.data.sells && item.data.sells.length) {
                             if (this.getBestNpc(item.data.sells)) {
-                                return this.getBestNpc(item.data.sells).name != "Nah'Bob"
-                                        && this.getBestNpc(item.data.sells).name != "Haroun"
-                                        && this.getBestNpc(item.data.sells).name != "Yaman"
-                                        && this.getBestNpc(item.data.sells).name != "Alesar"
-                                        && this.getBestNpc(item.data.sells).name != "Yasir"
-                                        && this.getBestNpc(item.data.sells).name != "Rashid"
+                                return this.getBestNpc(item.data.sells).npc.name != "Nah'Bob"
+                                        && this.getBestNpc(item.data.sells).npc.name != "Haroun"
+                                        && this.getBestNpc(item.data.sells).npc.name != "Yaman"
+                                        && this.getBestNpc(item.data.sells).npc.name != "Alesar"
+                                        && this.getBestNpc(item.data.sells).npc.name != "Yasir"
+                                        && this.getBestNpc(item.data.sells).npc.name != "Rashid"
                             }
                         }
                     })
@@ -380,7 +380,7 @@
         methods: {
             getBestNpc (npcs) {
                 let index = 0
-                const buyers = npcs.filter(npc => npc.pivot.value == Math.max.apply(Math, npcs.map(npc => npc.pivot.value)))
+                const buyers = npcs.filter(npc => npc.value == Math.max.apply(Math, npcs.map(npc => npc.value)))
 
                 if (this.isMainNPC(buyers, 'Yasir')) {
                     index = this.isMainNPC(buyers, 'Yasir')
@@ -400,7 +400,7 @@
             },
 
             isMainNPC (npcs, npc) {
-                return npcs.map(npc => npc.name).indexOf(npc) > -1 ? npcs.map(npc => npc.name).indexOf(npc) : false
+                return npcs.map(npc => npc.npc.name).indexOf(npc) > -1 ? npcs.map(npc => npc.npc.name).indexOf(npc) : false
             },
 
             load (refresh = false) {
