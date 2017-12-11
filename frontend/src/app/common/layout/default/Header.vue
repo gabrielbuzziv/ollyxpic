@@ -2,21 +2,15 @@
     <div id="header">
         <div class="container">
             <div class="logo col-md-12">
-		<div class="col-md-4">
-                <img src="/src/assets/images/logo.png" alt="">
-		</div>
-		<div class="col-md-4"></div>
-		<div class="col-md-4">
-		<a href="/#/tibiabosses">
-		<img src="/src/assets/images/logoboss1.png" alt="">
-		</a>
-		</div>
+                <div class="col-md-4">
+                    <img src="/src/assets/images/logo.png" alt="">
+                </div>
             </div>
 
-            <layout-nav />
+            <layout-nav/>
 
         </div>
-		
+
     </div>
 </template>
 
