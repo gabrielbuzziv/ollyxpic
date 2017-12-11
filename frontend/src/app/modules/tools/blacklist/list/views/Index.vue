@@ -114,7 +114,7 @@
                     <div class="col-md-2" v-for="item in items">
                         <div class="item" :class="{ 'active': isSelected(item.identifier) }"
                              @click.prevent="toggleItem(item.identifier)">
-                 (           <div class="thumb">
+                            <div class="thumb">
                                 <img :src="image_path('item', item.id)">
                             </div>
                             <span class="name">{{ item.title }}</span>
