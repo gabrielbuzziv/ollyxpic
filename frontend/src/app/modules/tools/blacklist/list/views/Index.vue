@@ -57,6 +57,25 @@
                         <span class="name">{{ creature.title }}</span>
                     </panel>
                 </div>
+
+                <div class="col-md-4">
+                    <panel class="field">
+                        <el-select v-model="creature"
+                                   no-data-text="Creatures not found"
+                                   no-match-text="Creature not found"
+                                   placeholder="Add Creature"
+                                   filterable
+                                   clearable
+                                   remote
+                                   default-first-option
+                                   value-key="id"
+                                   :remote-method="findCreature"
+                                   @change="changeCreature">
+                            <el-option v-for="creature in creatures" :value="creature" :label="creature.title"
+                                       :key="creature.id"/>
+                        </el-select>
+                    </panel>
+                </div>
             </div>
 
             <panel class="filter">
