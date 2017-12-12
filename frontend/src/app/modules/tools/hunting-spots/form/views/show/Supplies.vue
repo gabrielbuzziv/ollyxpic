@@ -13,14 +13,16 @@
                 </div>
             </div>
 
-            <h3 class="margin-top-30">Equipments</h3>
+            <div v-if="equipments.length">
+                <h3 class="margin-top-30">Equipments</h3>
 
-            <div class="supplies">
-                <div class="supply" v-for="equipment in equipments">
-                    <div class="thumb">
-                        <img :src="image_path('item', equipment.id)" />
+                <div class="supplies">
+                    <div class="supply" v-for="equipment in equipments">
+                        <div class="thumb">
+                            <img :src="image_path('item', equipment.id)" />
+                        </div>
+                        <span class="title">{{ equipment.title }}</span>
                     </div>
-                    <span class="title">{{ equipment.title }}</span>
                 </div>
             </div>
         </div>

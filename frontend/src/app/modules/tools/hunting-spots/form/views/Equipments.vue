@@ -1,30 +1,46 @@
 <template>
-    <div>
-        <div class="equipments">
-            <div class="row" v-for="equipment, index in equipments">
-                <div class="form-group col-md-11" :class="{ 'col-md-12': index == 0 }">
-                    <el-cascader
-                            v-model="equipment.item"
-                            :options="equipmentsCategories"
-                            :props="equipmentsProps"
-                            @active-item-change="getEquipments"
-                            placeholder="Choose the Equipment">
-                    </el-cascader>
-                </div>
+    <div class="equipments chooseable">
+        <div class="form">
+            <el-select v-model="newItem"
+                       no-match-text="Item not found"
+                       no-data-text="Items not found"
+                       placeholder="Choose the Equipments"
+                       value-key="id"
+                       popper-class="item-popper"
+                       default-first-option
+                       filterable>
+                <el-option-group v-for="category in categories" :key="category.id" :label="category.title">
+                    <el-option v-for="item in getItems(category)" :value="item" :label="item.title" :key="item.id">
+                        <div class="thumb">
+                            <img :src="image_path('item', item.id)">
+                        </div>
 
-                <div class="col-md-1">
-                    <button class="btn btn-xs btn-delete" v-if="index > 0"
-                            @click.prevent="removeEquipment(index)">
-                        <i class="mdi mdi-close"></i>
-                    </button>
-                </div>
-            </div>
+                        <div class="name">{{ item.title }}</div>
+                    </el-option>
+                </el-option-group>
+            </el-select>
 
-            <div class="equipments-options">
-                <button class="btn btn-sm" @click.prevent="addEquipment">
-                    <i class="mdi mdi-plus-circle margin-right-5"></i>
-                    More Equipments
-                </button>
+            <button class="btn" @click.prevent="addItem">
+                <i class="mdi mdi-plus-circle margin-right-5"></i>
+                Add
+            </button>
+        </div>
+
+        <div class="row chooseable-items">
+            <div class="col-md-3" v-for="equipment, index in equipments">
+                <div class="item">
+                    <div class="thumb">
+                        <img :src="image_path('item', equipment.item.id)" alt="">
+                    </div>
+
+                    <div class="name">{{ equipment.item.title }}</div>
+
+                    <div class="amount">
+                        <a href="#" class="btn-remove" @click.prevent="removeItem(index)">
+                            remove
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -38,22 +54,8 @@
 
         data () {
             return {
-                equipmentsCategories: [
-                    { label: 'Swords', equipments: [] },
-                    { label: 'Axes', equipments: [] },
-                    { label: 'Clubs', equipments: [] },
-                    { label: 'Distance', equipments: [] },
-                    { label: 'Wands', equipments: [] },
-                    { label: 'Rods', equipments: [] },
-                    { label: 'Shields', equipments: [] },
-                    { label: 'Spellbooks', equipments: [] },
-                    { label: 'Helmets', equipments: [] },
-                    { label: 'Armors', equipments: [] },
-                    { label: 'Legs', equipments: [] },
-                    { label: 'Boots', equipments: [] },
-                    { label: 'Tools', equipments: [] },
-                ],
-                equipmentsProps: { value: 'label', children: 'equipments' },
+                newItem: '',
+                categories: []
             }
         },
 
@@ -64,25 +66,33 @@
         },
 
         methods: {
-            getEquipments (category) {
-                const index = this.equipmentsCategories.map(category => category.label).indexOf(category[0])
-                services.getEquipments(category[0])
+            getCategories () {
+                services.getCategories([2, 3, 5, 8, 10, 25, 27, 28, 38, 41, 42, 44, 46])
                     .then(response => {
-                        this.equipmentsCategories[index].equipments = response.data.map(equipment => {
-                            return {
-                                label: equipment.title
-                            }
-                        })
+                        this.categories = response.data
                     })
             },
 
-            addEquipment () {
-                this.equipments.push({ item: null })
+            getItems (category) {
+                return category.items && category.items.length
+                    ? category.items.filter(item => item.equipment)
+                    : []
             },
 
-            removeEquipment (index) {
-                this.equipments.splice(index, 1)
+            addItem () {
+                if (this.newItem != null && this.newItem != '') {
+                    this.equipments.push({ item: this.newItem, })
+                    this.newItem = ''
+                }
             },
+
+            removeItem (index) {
+                this.equipments.splice(index, 1)
+            }
+        },
+
+        mounted () {
+            this.getCategories()
         }
     }
 </script>

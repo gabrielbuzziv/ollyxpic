@@ -31,7 +31,8 @@
 
                         <code>Windows + R</code>
                         <i class="mdi mdi-arrow-right"></i>
-                        <input type="text" class="form-control" value="%localappdata%\Tibia\packages\Tibia\characterdata"
+                        <input type="text" class="form-control"
+                               value="%localappdata%\Tibia\packages\Tibia\characterdata"
                                style="display: inline-block; width: 390px;">
 
                         <span class="label label-default">Execute</span>
@@ -54,25 +55,6 @@
                             <img :src="image_path('creature', creature.id)">
                         </div>
                         <span class="name">{{ creature.title }}</span>
-                    </panel>
-                </div>
-
-                <div class="col-md-4">
-                    <panel class="field">
-                        <el-select v-model="creature"
-                                   no-data-text="Creatures not found"
-                                   no-match-text="Creature not found"
-                                   placeholder="Add Creature"
-                                   filterable
-                                   clearable
-                                   remote
-                                   default-first-option
-                                   value-key="id"
-                                   :remote-method="findCreature"
-                                   @change="changeCreature">
-                            <el-option v-for="creature in creatures" :value="creature" :label="creature.title"
-                                       :key="creature.id"/>
-                        </el-select>
                     </panel>
                 </div>
             </div>

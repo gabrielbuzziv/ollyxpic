@@ -35,6 +35,12 @@
                                         Usable
                                         <small>Damage Protection</small>
                                     </th>
+                                    <th>
+                                        Supply
+                                    </th>
+                                    <th>
+                                        Equipment
+                                    </th>
                                     <th></th>
                                 </tr>
                             </thead>

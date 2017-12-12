@@ -13,6 +13,14 @@
                 <el-checkbox :checked="!! item.usable" @change="toggleUsable"></el-checkbox>
             </td>
 
+            <td>
+                <el-checkbox :checked="!! item.supply" @change="toggleSupply"></el-checkbox>
+            </td>
+
+            <td>
+                <el-checkbox :checked="!! item.equipment" @change="toggleEquipment"></el-checkbox>
+            </td>
+
             <td class="text-right">
                 <button class="btn btn-xs" @click.prevente="remove">
                     <i class="mdi mdi-delete margin-right-5"></i>
@@ -109,6 +117,20 @@
 
             toggleUsable () {
                 this.$store.dispatch('items/TOGGLE_USABLE', this.item.id)
+                    .then(() => {
+                        this.$store.dispatch('items/FETCH_ITEMS', this.item.category.id)
+                    })
+            },
+
+            toggleSupply () {
+                this.$store.dispatch('items/TOGGLE_SUPPLY', this.item.id)
+                    .then(() => {
+                        this.$store.dispatch('items/FETCH_ITEMS', this.item.category.id)
+                    })
+            },
+
+            toggleEquipment () {
+                this.$store.dispatch('items/TOGGLE_EQUIPMENT', this.item.id)
                     .then(() => {
                         this.$store.dispatch('items/FETCH_ITEMS', this.item.category.id)
                     })

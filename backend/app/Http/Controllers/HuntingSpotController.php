@@ -2,20 +2,49 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Http\Requests\HuntingSpotRequest;
 use App\HuntingSpot;
 use App\Item;
 use App\Vocation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class HuntingSpotController extends Controller
 {
 
+    /**
+     * Get all hunting spots.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function index()
     {
-        $spots = HuntingSpot::with('creatures')->get();
+        $sort = $this->getSort();
 
-        return $this->respond($spots->toArray());
+        $filters = json_decode(request('filters'));
+
+        $spots = HuntingSpot::with('vocations', 'creatures')
+            ->where(function ($query) use ($filters) {
+                $query->where('level_min', '>=', $filters->level[0]);
+                $query->where('level_max', '<=', $filters->level[1]);
+                $query->where('experience', '>=', $filters->experience);
+                $query->where('profit', '>=', $filters->profit);
+
+                if ($filters->vocation) {
+                    $query->whereRaw("{$filters->vocation} in (SELECT vocation_id FROM hunting_spot_vocation WHERE hunting_spot_id = hunting_spots.id)");
+                }
+            })
+            ->where('active', 1)
+            ->orderBy($sort->value, $sort->order)
+            ->paginate(request('limit'));
+
+        return $this->respond([
+            'total' => $spots->total(),
+            'items' => $spots->items()
+        ]);
     }
 
     /**
@@ -32,7 +61,7 @@ class HuntingSpotController extends Controller
         $data['require_quest'] = $data['require_quest'] == 'true' ? 1 : 0;
         $data['require_premium'] = $data['require_premium'] == 'true' ? 1 : 0;
         $data['password'] = str_random(8);
-        $data['active'] = 0;
+        $data['active'] = 1;
 
         $spot = HuntingSpot::create($data);
 
@@ -49,16 +78,14 @@ class HuntingSpotController extends Controller
 
         // Attach supplies.
         foreach ($data['supplies'] as $supply) {
-            $item = explode(',', $supply['item'])[1];
-            $item = Item::where('title', $item)->first();
-            $spot->supplies()->attach([$item->id => ['amount' => $supply['amount']]]);
+            $spot->supplies()->attach([$supply['item'] => ['amount' => $supply['amount']]]);
         }
 
-        // Attach supplies.
-        foreach ($data['equipments'] as $equipment) {
-            $item = explode(',', $equipment['item'])[1];
-            $item = Item::where('title', $item)->first();
-            $spot->equipments()->attach($item->id);
+        // Attach equipments.
+        if (isset($data['equipments']) && count($data['equipments']) > 0) {
+            foreach ($data['equipments'] as $equipment) {
+                $spot->equipments()->attach($equipment['item']);
+            }
         }
 
         return $data;
@@ -72,9 +99,31 @@ class HuntingSpotController extends Controller
      */
     public function show(HuntingSpot $spot)
     {
-        $spot = HuntingSpot::with('creatures.drops', 'supplies', 'equipments')->find($spot->id);
+        $spot = HuntingSpot::with('creatures.drops', 'supplies', 'equipments')
+            ->where(function ($query) {
+                if ( ! request()->header('Authorization') || ! JWTAuth::parseToken()->authenticate())
+                    $query->where('active', 1);
+            })
+            ->findOrFail($spot->id);
 
         return $this->respond($spot->toArray());
+    }
+
+    /**
+     * Get categories.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function categories()
+    {
+        $categories = Category::with('items')
+            ->where(function ($query) {
+                if (request('categories'))
+                    $query->whereIn('id', request('categories'));
+            })
+            ->get();
+
+        return $this->respond($categories->toArray());
     }
 
     /**
@@ -96,7 +145,10 @@ class HuntingSpotController extends Controller
      */
     public function supplies()
     {
-        $supplies = Item::where('category_id', $this->parseCategory(request('category')))->get();
+        $supplies = Item::where('category_id', $this->parseCategory(request('category')))
+            ->where('supply', 1)
+            ->orderBy('title', 'asc')
+            ->get();
 
         return $this->respond($supplies->toArray());
     }
@@ -144,6 +196,20 @@ class HuntingSpotController extends Controller
                 return 8;
             case 'Tools':
                 return 46;
+            case 'Runes':
+                return 4;
         }
+    }
+
+    /**
+     * Parse Sort.
+     *
+     * @return object
+     */
+    private function getSort()
+    {
+        $sort = explode(':', request('sort'));
+
+        return (object) ['value' => $sort[0], 'order' => $sort[1]];
     }
 }

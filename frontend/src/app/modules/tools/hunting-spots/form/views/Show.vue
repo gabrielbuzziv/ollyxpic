@@ -57,8 +57,10 @@
                             <div class="content">
                                 <div class="content-text" v-html="spot.description"></div>
 
-                                <h3>Tips</h3>
-                                <div class="content-text" v-html="spot.tips"></div>
+                                <div v-if="spot.tips">
+                                    <h3>Tips</h3>
+                                    <div class="content-text" v-html="spot.tips"></div>
+                                </div>
                             </div>
                         </panel>
                     </el-tab-pane>
@@ -129,12 +131,12 @@
 
         filters: {
             experience (value) {
-                const data = value.format()
+                const data = value != null && value != '' ? value.format() : 0
                 return `${data} exp/h`
             },
 
             profit (value) {
-                const data = value.format()
+                const data = value != null && value != '' ? value.format() : 0
                 return value > 0 ? `${data} gp/h` : 'Waste'
             }
         },
@@ -145,7 +147,10 @@
                     this.spot = response.data
                     this.loading = false
                 })
-                .catch(() => this.loading = false)
+                .catch(() => {
+                    this.$router.push({ name: 'tools.spots.list' })
+                    this.loading = false
+                })
         }
     }
 </script>
