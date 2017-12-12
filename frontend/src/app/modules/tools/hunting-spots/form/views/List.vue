@@ -54,8 +54,8 @@
                         <panel class="spot">
                             <header>
                                 <div class="thumb">
-                                    <!--<img :src="image_path('creature', getSpotCreature(spot))"-->
-                                    <!--v-if="getSpotCreature(spot)">-->
+                                    <img :src="image_path('creature', getSpotCreature(spot))"
+                                    v-if="getSpotCreature(spot)">
                                 </div>
 
                                 <div class="info">
@@ -211,7 +211,7 @@
             return {
                 filters: {
                     vocation: '',
-                    level: [0, 100],
+                    level: [0, 1000],
                     experience: 0,
                     profit: 0,
                 },

@@ -41,9 +41,9 @@
                                         off-text="">
                                 </el-switch>
                                 <label>Team Hunt</label>
-
-                                <input type="hidden" name="soloable" v-model="soloable">
                             </div>
+
+                            <input type="hidden" name="soloable" v-model="soloable">
                         </div>
                     </panel>
 
@@ -287,7 +287,8 @@
 
                 services.save(new FormData(form))
                     .then(response => {
-                        console.log(response.data)
+                        this.$message.success('Thanks! Your hunting spot has been submitted for review, soon we will read and active in Ollyxpic.')
+                        this.$router.push({ name: 'tools.spots.list' })
                     })
             },
 
@@ -314,6 +315,11 @@
 
                 if (! this.creatures.length) {
                     this.$message.error('You need to select at least one creature.')
+                    return false
+                }
+
+                if (! this.supplies.length) {
+                    this.$message.error('You need to add at least one supply.')
                     return false
                 }
 

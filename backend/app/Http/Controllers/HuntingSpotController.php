@@ -8,7 +8,9 @@ use App\HuntingSpot;
 use App\Item;
 use App\Vocation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class HuntingSpotController extends Controller
 {
@@ -35,7 +37,7 @@ class HuntingSpotController extends Controller
                     $query->whereRaw("{$filters->vocation} in (SELECT vocation_id FROM hunting_spot_vocation WHERE hunting_spot_id = hunting_spots.id)");
                 }
             })
-            ->where('active',1)
+            ->where('active', 1)
             ->orderBy($sort->value, $sort->order)
             ->paginate(request('limit'));
 
@@ -59,7 +61,7 @@ class HuntingSpotController extends Controller
         $data['require_quest'] = $data['require_quest'] == 'true' ? 1 : 0;
         $data['require_premium'] = $data['require_premium'] == 'true' ? 1 : 0;
         $data['password'] = str_random(8);
-        $data['active'] = 0;
+        $data['active'] = 1;
 
         $spot = HuntingSpot::create($data);
 
@@ -79,9 +81,11 @@ class HuntingSpotController extends Controller
             $spot->supplies()->attach([$supply['item'] => ['amount' => $supply['amount']]]);
         }
 
-        // Attach supplies.
-        foreach ($data['equipments'] as $equipment) {
-            $spot->equipments()->attach($equipment['item']);
+        // Attach equipments.
+        if (isset($data['equipments']) && count($data['equipments']) > 0) {
+            foreach ($data['equipments'] as $equipment) {
+                $spot->equipments()->attach($equipment['item']);
+            }
         }
 
         return $data;
@@ -95,7 +99,12 @@ class HuntingSpotController extends Controller
      */
     public function show(HuntingSpot $spot)
     {
-        $spot = HuntingSpot::with('creatures.drops', 'supplies', 'equipments')->find($spot->id);
+        $spot = HuntingSpot::with('creatures.drops', 'supplies', 'equipments')
+            ->where(function ($query) {
+                if ( ! request()->header('Authorization') || ! JWTAuth::parseToken()->authenticate())
+                    $query->where('active', 1);
+            })
+            ->findOrFail($spot->id);
 
         return $this->respond($spot->toArray());
     }
@@ -200,6 +209,7 @@ class HuntingSpotController extends Controller
     private function getSort()
     {
         $sort = explode(':', request('sort'));
+
         return (object) ['value' => $sort[0], 'order' => $sort[1]];
     }
 }
