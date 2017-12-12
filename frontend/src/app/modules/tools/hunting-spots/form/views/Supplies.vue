@@ -1,34 +1,51 @@
 <template>
-    <div>
-        <div class="supplies">
-            <div class="row" v-for="supply, index in supplies">
-                <div class="form-group col-md-6">
-                    <el-cascader
-                            v-model="supply.item"
-                            :options="suppliesCategories"
-                            :props="suppliesProps"
-                            @active-item-change="getSupplies"
-                            placeholder="Supply">
-                    </el-cascader>
-                </div>
+    <div class="supplies chooseable">
+        <div class="form">
+            <el-select v-model="newItem"
+                       no-match-text="Item not found"
+                       no-data-text="Items not found"
+                       placeholder="Choose the Supply"
+                       value-key="id"
+                       popper-class="item-popper"
+                       default-first-option
+                       filterable>
+                <el-option-group v-for="category in categories" :key="category.id" :label="category.title">
+                    <el-option v-for="item in getItems(category)" :value="item" :label="item.title" :key="item.id">
+                        <div class="thumb">
+                            <img :src="image_path('item', item.id)">
+                        </div>
 
-                <div class="form-group col-md-5">
-                    <el-input-number v-model="supply.amount" :min="1" :step="1"/>
-                </div>
+                        <div class="name">{{ item.title }}</div>
+                    </el-option>
+                </el-option-group>
+            </el-select>
 
-                <div class="col-md-1">
-                    <button class="btn btn-xs btn-delete" v-if="index > 0"
-                            @click.prevent="removeSupply(index)">
-                        <i class="mdi mdi-close"></i>
-                    </button>
-                </div>
-            </div>
+            <button class="btn" @click.prevent="addItem">
+                <i class="mdi mdi-plus-circle margin-right-5"></i>
+                Add
+            </button>
+        </div>
 
-            <div class="supplies-options">
-                <button class="btn btn-sm" @click.prevent="addSupply">
-                    <i class="mdi mdi-plus-circle margin-right-5"></i>
-                    More Supplies
-                </button>
+        <div class="row chooseable-items">
+            <div class="col-md-3" v-for="supply, index in supplies">
+                <div class="item">
+                    <div class="thumb">
+                        <img :src="image_path('item', supply.item.id)" alt="">
+                    </div>
+
+                    <div class="name">{{ supply.item.title }}</div>
+
+                    <div class="amount">
+                        <el-input-number v-model="supply.amount"
+                                         :min="0"
+                                         :step="getAmountStep(supply.item.category_id)"></el-input-number>
+
+                        <a href="#" class="btn-remove" @click.prevent="removeItem(index)">
+                            remove
+                        </a>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -42,13 +59,8 @@
 
         data () {
             return {
-                suppliesCategories: [
-                    { label: 'Potions', supplies: [] },
-                    { label: 'Rings', supplies: [] },
-                    { label: 'Amulets', supplies: [] },
-                    { label: 'Ammunitions', supplies: [] },
-                ],
-                suppliesProps: { value: 'label', children: 'supplies' },
+                newItem: '',
+                categories: []
             }
         },
 
@@ -59,25 +71,47 @@
         },
 
         methods: {
-            getSupplies (category) {
-                const index = this.suppliesCategories.map(category => category.label).indexOf(category[0])
-                services.getSupplies(category[0])
+            getCategories () {
+                services.getCategories([1, 2, 4, 30, 38])
                     .then(response => {
-                        this.suppliesCategories[index].supplies = response.data.map(supply => {
-                            return {
-                                label: supply.title
-                            }
-                        })
+                        this.categories = response.data
                     })
             },
 
-            addSupply () {
-                this.supplies.push({ item: null, amount: 1, description: '' })
+            getItems (category) {
+                return category.items && category.items.length
+                    ? category.items.filter(item => item.supply)
+                    : []
             },
 
-            removeSupply (index) {
-                this.supplies.splice(index, 1)
+            getAmountStep (category) {
+                switch (category) {
+                    case 1:
+                    case 4:
+                    case 30:
+                        return 100
+                    default:
+                        return 1
+                }
             },
+
+            addItem () {
+                if (this.newItem != null && this.newItem != '') {
+                    this.supplies.push({
+                        item: this.newItem,
+                        amount: this.getAmountStep(this.newItem.category_id)
+                    })
+                    this.newItem = ''
+                }
+            },
+
+            removeItem (index) {
+                this.supplies.splice(index, 1)
+            }
+        },
+
+        mounted () {
+            this.getCategories()
         }
     }
 </script>

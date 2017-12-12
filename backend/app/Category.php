@@ -39,6 +39,6 @@ class Category extends Model
      */
     public function items()
     {
-        return $this->hasMany(Item::class);
+        return $this->hasMany(Item::class)->orderBy('title', 'asc');
     }
 }

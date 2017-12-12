@@ -24,7 +24,10 @@ class Item extends Model
         'discard',
         'convert_to_gold',
         'look_text',
-        'usable'
+        'usable',
+        'identifier',
+        'supply',
+        'equipment'
     ];
 
     /**

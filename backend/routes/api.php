@@ -39,6 +39,7 @@ Route::get('creatures/{creature}', 'CreatureController@show');
  * HuntingSpotsController routes.
  */
 Route::get('hunting-spots', 'HuntingSpotController@index');
+Route::get('hunting-spots/categories', 'HuntingSpotController@categories');
 Route::get('hunting-spots/{spot}', 'HuntingSpotController@show');
 Route::get('supplies', 'HuntingSpotController@supplies');
 Route::get('equipments', 'HuntingSpotController@equipments');
@@ -113,6 +114,8 @@ Route::group(['middleware' => 'auth:api', 'prefix' => 'admin'], function () {
     Route::get('items/{category}', 'ItemController@index');
     Route::get('items/{item}/show', 'ItemController@show');
     Route::get('items/{item}/usable', 'ItemController@toggleUsable');
+    Route::get('items/{item}/supply', 'ItemController@toggleSupply');
+    Route::get('items/{item}/equipment', 'ItemController@toggleEquipment');
     Route::post('items/sync', 'ItemController@syncronize');
     Route::delete('items/{item}', 'ItemController@destroy');
 

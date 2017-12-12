@@ -26,4 +26,8 @@ export default {
     getCreatures (query) {
         return window.axios.get(`creatures`, { params: { query } })
     },
+
+    getCategories (categories = null) {
+        return window.axios.get(`hunting-spots/categories`, { params: { categories } })
+    },
 }

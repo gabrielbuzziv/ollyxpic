@@ -178,6 +178,34 @@ class ItemController extends Controller
     }
 
     /**
+     * Toggle Supply.
+     *
+     * @param Item $item
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function toggleSupply(Item $item)
+    {
+        $item->supply = $item->supply ? 0 : 1;
+        $item->save();
+
+        return $this->respond($item->toArray());
+    }
+
+    /**
+     * Toggle Equipment.
+     *
+     * @param Item $item
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function toggleEquipment(Item $item)
+    {
+        $item->equipment = $item->equipment ? 0 : 1;
+        $item->save();
+
+        return $this->respond($item->toArray());
+    }
+
+    /**
      * Syncronize Item Ids
      */
     private function syncronizeItemID()

@@ -1,5 +1,5 @@
 <template>
-    <page-load id="hunting-spots">
+    <page-load id="hunting-spots" class="hunting-spots__form">
         <page-title>
             <div class="pull-right">
                 <router-link :to="{ name: 'tools.spots.list' }" class="btn" exact>
@@ -48,12 +48,14 @@
                     </panel>
 
                     <panel>
-                        <div class="form-group">
-                            <input type="text" name="title" class="form-control" placeholder="Title">
-                        </div>
+                        <div class="row margin-bottom-15">
+                            <div class="form-group col-md-6">
+                                <input type="text" name="title" class="form-control" placeholder="Title" v-model="title">
+                            </div>
 
-                        <div class="form-group">
-                            <input type="text" name="location" class="form-control" placeholder="Location">
+                            <div class="form-group col-md-6">
+                                <input type="text" name="location" class="form-control" placeholder="Location" v-model="location">
+                            </div>
                         </div>
 
                         <el-tabs v-model="activeName">
@@ -61,7 +63,7 @@
                             <!-- Description -->
                             <el-tab-pane label="Details" name="description">
                                 <div class="form-group">
-                                    <vue-summernote ref="description" :height="200"
+                                    <vue-summernote ref="description" :height="320"
                                                     placeholder="Insert here how this hunting spot works, give some suggestions ..."/>
                                     <input type="hidden" name="description" v-model="description">
                                 </div>
@@ -70,7 +72,7 @@
                             <!-- Tips -->
                             <el-tab-pane label="Tips" name="tips">
                                 <div class="form-group">
-                                    <vue-summernote ref="tips" :height="200"
+                                    <vue-summernote ref="tips" :height="320"
                                                     placeholder="Insert here some tips and recommendations."/>
                                     <input type="hidden" name="tips" v-model="tips">
                                 </div>
@@ -87,9 +89,8 @@
                                 <supplies :supplies="supplies" />
 
                                 <template v-for="supply, index in supplies">
-                                    <input type="hidden" :name="`supplies[${index}][item]`" v-model="supply.item">
+                                    <input type="hidden" :name="`supplies[${index}][item]`" v-model="supply.item.id">
                                     <input type="hidden" :name="`supplies[${index}][amount]`" v-model="supply.amount">
-                                    <input type="hidden" :name="`supplies[${index}][description]`" v-model="supply.description">
                                 </template>
                             </el-tab-pane>
 
@@ -98,7 +99,7 @@
                                 <equipments :equipments="equipments" />
 
                                 <template v-for="equipment, index in equipments">
-                                    <input type="hidden" :name="`equipments[${index}][item]`" v-model="equipment.item">
+                                    <input type="hidden" :name="`equipments[${index}][item]`" v-model="equipment.item.id">
                                 </template>
                             </el-tab-pane>
                         </el-tabs>
@@ -209,11 +210,6 @@
                     </panel>
                 </div>
             </div>
-
-            <button class="btn btn-success btn-block" type="submit">
-                <i class="mdi mdi-check-circle margin-right-5"></i>
-                Submit
-            </button>
         </form>
 
     </page-load>
@@ -238,6 +234,8 @@
                 activeName: 'description',
                 huntVocations: [],
                 level: [0, 100],
+                title: '',
+                location: '',
                 experience: 1000000,
                 profit: 50000,
                 description: '',
@@ -247,8 +245,8 @@
                 quest: false,
                 premium: true,
                 creatures: [],
-                supplies: [{ item: null, amount: 1, description: '' }],
-                equipments: [{ item: null }],
+                supplies: [],
+                equipments: [],
             }
         },
 
@@ -284,11 +282,43 @@
             onSubmit () {
                 const form = this.$refs.form
 
+                if (! this.validate())
+                    return false
+
                 services.save(new FormData(form))
                     .then(response => {
                         console.log(response.data)
                     })
             },
+
+            validate () {
+                if (! this.huntVocations.length) {
+                    this.$message.error('You need to choose a vocation.')
+                    return false
+                }
+
+                if (! this.title.length) {
+                    this.$message.error('Fill the title field.')
+                    return false
+                }
+
+                if (! this.location.length) {
+                    this.$message.error('Fill the location field.')
+                    return false
+                }
+
+                if (! this.description.length) {
+                    this.$message.error('Fill the details field.')
+                    return false
+                }
+
+                if (! this.creatures.length) {
+                    this.$message.error('You need to select at least one creature.')
+                    return false
+                }
+
+                return true
+            }
         },
 
         mounted () {

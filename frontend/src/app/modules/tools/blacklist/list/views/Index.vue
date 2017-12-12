@@ -40,7 +40,7 @@
                     no-match-text="Category not found"
                     placeholder="Categories"
                     filterable>
-                    <el-option v-for="category in categories" :value="category.id" :label="category.title"></el-option>
+                    <el-option v-for="category in categories" :value="category.id" :label="category.title" :key="category.id"></el-option>
                 </el-select>
 
                 <div class="pull-right">

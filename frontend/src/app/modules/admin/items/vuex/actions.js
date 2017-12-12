@@ -17,5 +17,13 @@ export default {
 
     'items/TOGGLE_USABLE' (context, request) {
         return services.toggleUsable(request)
+    },
+
+    'items/TOGGLE_SUPPLY' (context, request) {
+        return services.toggleSupply(request)
+    },
+
+    'items/TOGGLE_EQUIPMENT' (context, request) {
+        return services.toggleEquipment(request)
     }
 }
