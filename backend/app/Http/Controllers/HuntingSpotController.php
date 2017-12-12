@@ -7,15 +7,40 @@ use App\HuntingSpot;
 use App\Item;
 use App\Vocation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HuntingSpotController extends Controller
 {
 
+    /**
+     * Get all hunting spots.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function index()
     {
-        $spots = HuntingSpot::with('creatures')->get();
+        $sort = $this->getSort();
 
-        return $this->respond($spots->toArray());
+        $filters = json_decode(request('filters'));
+
+        $spots = HuntingSpot::with('vocations', 'creatures')
+            ->where(function ($query) use ($filters) {
+                $query->where('level_min', '>=', $filters->level[0]);
+                $query->where('level_max', '<=', $filters->level[1]);
+                $query->where('experience', '>=', $filters->experience);
+                $query->where('profit', '>=', $filters->profit);
+
+                if ($filters->vocation) {
+                    $query->whereRaw("{$filters->vocation} in (SELECT vocation_id FROM hunting_spot_vocation WHERE hunting_spot_id = hunting_spots.id)");
+                }
+            })
+            ->orderBy($sort->value, $sort->order)
+            ->paginate(request('limit'));
+
+        return $this->respond([
+            'total' => $spots->total(),
+            'items' => $spots->items()
+        ]);
     }
 
     /**
@@ -145,5 +170,16 @@ class HuntingSpotController extends Controller
             case 'Tools':
                 return 46;
         }
+    }
+
+    /**
+     * Parse Sort.
+     *
+     * @return object
+     */
+    private function getSort()
+    {
+        $sort = explode(':', request('sort'));
+        return (object) ['value' => $sort[0], 'order' => $sort[1]];
     }
 }
