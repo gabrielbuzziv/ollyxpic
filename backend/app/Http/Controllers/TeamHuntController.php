@@ -81,7 +81,7 @@ class TeamHuntController extends Controller
         $this->saveItems($hunt, $this->items);
 
         foreach ($this->error as $error) {
-            Translation::create(['from' => $error, 'to' => $error, 'fixed' => 0]);
+            Translation::firstOrCreate(['from' => $error], ['to' => $error, 'fixed' => 0]);
         }
 
         if (count($this->error) > 0) {

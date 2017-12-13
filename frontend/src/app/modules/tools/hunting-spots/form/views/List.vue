@@ -222,6 +222,8 @@
                     limit: 10
                 },
                 sorts: [
+                    { value: 'level_min:asc', label: 'Level Ascending' },
+                    { value: 'level_min:desc', label: 'Level Descending' },
                     { value: 'experience:asc', label: 'Experience Ascending' },
                     { value: 'experience:desc', label: 'Experience Descending' },
                     { value: 'profit:asc', label: 'Profit Ascending' },
