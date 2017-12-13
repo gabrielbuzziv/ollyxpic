@@ -1,47 +1,38 @@
 <template>
     <page-load>
         <page-title>
-            <div class="pull-right">
-                <router-link :to="{ name: 'admin.news.create' }" class="btn btn-default">
-                    <i class="mdi mdi-plus margin-right-5"></i>
-                    Create
-                </router-link>
-            </div>
-
-            <img :src="image_path_by_name('item', 'golden newspaper')" class="margin-right-10">
+            <img :src="image_path_by_name('item', 'book of orc language')" class="margin-right-10">
             <div class="title">
-                <h2>News</h2>
-                <span>Manage news</span>
+                <h2>Translations</h2>
+                <span>Manage Translations</span>
             </div>
         </page-title>
 
         <panel>
             <table class="table">
                 <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Date</th>
-                    <th></th>
-                </tr>
+                    <tr>
+                        <th>Status</th>
+                        <th>
+                            <input type="text" class="form-control" placeholder="From" v-model="from">
+                        </th>
+                        <th>
+                            <input type="text" class="form-control" placeholder="To" v-model="to">
+                        </th>
+                        <th class="text-right">
+                            <button class="btn btn-sm btn-success" @click.prevent="addTranslation()">
+                                <i class="mdi mdi-plus margin-right-5"></i>
+                                Add
+                            </button>
+                        </th>
+                    </tr>
                 </thead>
 
                 <tbody>
-                <tr v-for="post in news">
-                    <td>{{ post.title }}</td>
-                    <td>{{ post.author.name }}</td>
-                    <td>{{ post.created_at }}</td>
-                    <td class="text-right">
-                        <router-link :to="{ name: 'admin.news.edit', params: { id: post.id } }" class="btn btn-xs"
-                                     tag="button">
-                            <i class="mdi mdi-pencil"></i>
-                        </router-link>
-
-                        <button class="btn btn-xs" @click.prevent="remove(post)">
-                            <i class="mdi mdi-delete"></i>
-                        </button>
-                    </td>
-                </tr>
+                    <translation :translation="translation"
+                                 v-for="translation in translations"
+                                 :key="translation.id"
+                                 @updated="load()"/>
                 </tbody>
             </table>
         </panel>
@@ -49,36 +40,44 @@
 </template>
 
 <script>
+    import Translation from './Translation'
     import services from '../services'
 
     export default {
+        components: { Translation },
+
         data () {
             return {
                 loading: false,
-                news: []
+                translations: [],
+                from: '',
+                to: '',
             }
         },
 
         methods: {
             load () {
-                services.fetchPosts()
+                services.fetchTranslations()
                     .then(response => {
-                        this.news = response.data
+                        this.translations = response.data
                     })
             },
 
-            remove (post) {
-                this.$confirm(`If you remove the post "${post.title}", you will not be able to recovery.`, 'Are you sure about this?', {
-                    cancelButtonText: 'Cancel',
-                    confirmButtonText: 'Yes, delete it',
-                    type: 'error',
-                }).then(() => {
-                    services.remove(post.id)
-                        .then(response => {
-                            this.$message.success(`The post "${post.title}" has been removed.`)
-                            this.load()
-                        })
-                })
+            addTranslation () {
+                const data = {
+                    from: this.from,
+                    to: this.to,
+                    fixed: 1
+                }
+
+                services.add(data)
+                    .then(response => {
+                        this.$message.success('Translation added.')
+                        this.from = ''
+                        this.to = ''
+
+                        this.load()
+                    })
             }
         },
 

@@ -1,17 +1,13 @@
 export default {
-    fetchPosts () {
-        return window.axios.get(`admin/posts`)
+    fetchTranslations () {
+        return window.axios.get(`admin/translations`)
     },
 
-    save (action, data) {
-        return window.axios.post(action, data)
+    add  (data) {
+        return window.axios.post(`admin/translations`, data)
     },
 
-    find (id) {
-        return window.axios.get(`admin/posts/${id}`)
-    },
-
-    remove (id) {
-        return window.axios.post(`admin/posts/${id}`, { _method: 'DELETE' })
+    save (id, data) {
+        return window.axios.post(`admin/translations/${id}`, data)
     }
 }

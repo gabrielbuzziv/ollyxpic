@@ -263,6 +263,13 @@
                     Database Sync
                 </a>
             </router-link>
+
+            <router-link :to="{ name: 'admin.translations' }" tag="li">
+                <a href="#">
+                    <i class="mdi mdi-web margin-right-5"></i>
+                    Translations
+                </a>
+            </router-link>
         </ul>
     </nav>
 </template>
