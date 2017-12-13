@@ -252,7 +252,8 @@
                 creatures: [],
                 supplies: [],
                 equipments: [],
-                author: ''
+                author: '',
+                interval: null
             }
         },
 
@@ -432,7 +433,11 @@
 
             this.loadDraft()
 
-            setInterval(() => this.autoSave(), 30000)
+            this.interval = setInterval(() => this.autoSave(), 30000)
+        },
+
+        beforeDestroy () {
+            clearInterval(this.interval)
         }
     }
 </script>
