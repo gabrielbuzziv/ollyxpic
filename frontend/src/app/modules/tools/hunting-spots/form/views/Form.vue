@@ -7,6 +7,11 @@
                     Back
                 </router-link>
 
+                <button class="btn btn-primary" @click="autoSave">
+                    <i class="mdi mdi-content-save margin-right-5"></i>
+                    Save Draft
+                </button>
+
                 <button class="btn btn-success" @click="onSubmit">
                     <i class="mdi mdi-check-circle margin-right-5"></i>
                     Submit
@@ -205,7 +210,7 @@
 
                     <panel>
                         <div class="form-group margin-bottom-0">
-                            <input type="text" name="author" class="form-control" placeholder="Author name">
+                            <input type="text" name="author" class="form-control" placeholder="Author name" v-model="author">
                         </div>
                     </panel>
                 </div>
@@ -247,6 +252,7 @@
                 creatures: [],
                 supplies: [],
                 equipments: [],
+                author: ''
             }
         },
 
@@ -267,7 +273,7 @@
 
             soloable () {
                 return ! this.team
-            }
+            },
         },
 
         watch: {
@@ -289,6 +295,7 @@
                     .then(response => {
                         this.$message.success('Thanks! Your hunting spot has been submitted for review, soon we will read and active in Ollyxpic.')
                         this.$router.push({ name: 'tools.spots.list' })
+                        this.resetDraft()
                     })
             },
 
@@ -324,6 +331,85 @@
                 }
 
                 return true
+            },
+
+            resetDraft () {
+                localStorage.removeItem('hunting_spot.title');
+                localStorage.removeItem('hunting_spot.location');
+                localStorage.removeItem('hunting_spot.description');
+                localStorage.removeItem('hunting_spot.tips');
+                localStorage.removeItem('hunting_spot.experience');
+                localStorage.removeItem('hunting_spot.profit');
+                localStorage.removeItem('hunting_spot.team');
+                localStorage.removeItem('hunting_spot.task');
+                localStorage.removeItem('hunting_spot.premium');
+                localStorage.removeItem('hunting_spot.quest');
+                localStorage.removeItem('hunting_spot.author');
+                localStorage.removeItem('hunting_spot.level');
+                localStorage.removeItem('hunting_spot.vocations');
+                localStorage.removeItem('hunting_spot.creatures');
+                localStorage.removeItem('hunting_spot.supplies');
+                localStorage.removeItem('hunting_spot.equipments');
+            },
+
+            loadDraft () {
+                this.title = localStorage.getItem('hunting_spot.title')
+                this.location = localStorage.getItem('hunting_spot.location')
+                this.description = localStorage.getItem('hunting_spot.description')
+                this.tips = localStorage.getItem('hunting_spot.tips')
+                this.experience = parseInt(localStorage.getItem('hunting_spot.experience'))
+                this.profit = parseInt(localStorage.getItem('hunting_spot.profit'))
+                this.team = localStorage.getItem('hunting_spot.team') == 'true' ? true : this.team
+                this.task = localStorage.getItem('hunting_spot.task') == 'true' ? true : this.task
+                this.premium = localStorage.getItem('hunting_spot.premium') == 'true' ? true : this.premium
+                this.quest = localStorage.getItem('hunting_spot.quest') == 'true' ? true : this.quest
+                this.author = localStorage.getItem('hunting_spot.author')
+
+                this.level = localStorage.getItem('hunting_spot.level') && localStorage.getItem('hunting_spot.level') != null
+                    ? JSON.parse(localStorage.getItem('hunting_spot.level'))
+                    : this.level
+
+                this.huntVocations = localStorage.getItem('hunting_spot.vocations') && localStorage.getItem('hunting_spot.vocations') != null
+                    ? JSON.parse(localStorage.getItem('hunting_spot.vocations'))
+                    : this.huntVocations
+
+                this.creatures = localStorage.getItem('hunting_spot.creatures') && localStorage.getItem('hunting_spot.creatures') != null
+                    ? JSON.parse(localStorage.getItem('hunting_spot.creatures'))
+                    : this.creatures
+
+                this.supplies = localStorage.getItem('hunting_spot.supplies') && localStorage.getItem('hunting_spot.supplies') != null
+                    ? JSON.parse(localStorage.getItem('hunting_spot.supplies'))
+                    : this.supplies
+
+                this.equipments = localStorage.getItem('hunting_spot.equipments') && localStorage.getItem('hunting_spot.equipments') != null
+                    ? JSON.parse(localStorage.getItem('hunting_spot.equipments'))
+                    : this.equipments
+
+                Vue.nextTick(() => {
+                    this.$refs.description.run('code', this.description)
+                    this.$refs.tips.run('code', this.tips)
+                })
+            },
+
+            autoSave () {
+                localStorage.setItem('hunting_spot.title', this.title);
+                localStorage.setItem('hunting_spot.location', this.location);
+                localStorage.setItem('hunting_spot.description', this.description);
+                localStorage.setItem('hunting_spot.tips', this.tips);
+                localStorage.setItem('hunting_spot.experience', this.experience);
+                localStorage.setItem('hunting_spot.profit', this.profit);
+                localStorage.setItem('hunting_spot.team', this.team);
+                localStorage.setItem('hunting_spot.task', this.task);
+                localStorage.setItem('hunting_spot.premium', this.premium);
+                localStorage.setItem('hunting_spot.quest', this.quest);
+                localStorage.setItem('hunting_spot.author', this.author);
+                localStorage.setItem('hunting_spot.level', JSON.stringify(this.level));
+                localStorage.setItem('hunting_spot.vocations', JSON.stringify(this.huntVocations));
+                localStorage.setItem('hunting_spot.creatures', JSON.stringify(this.creatures));
+                localStorage.setItem('hunting_spot.supplies', JSON.stringify(this.supplies));
+                localStorage.setItem('hunting_spot.equipments', JSON.stringify(this.equipments));
+
+                this.$message.success('Draft saved')
             }
         },
 
@@ -343,6 +429,10 @@
                 this.$refs.description.$on('onChange', content => this.description = content)
                 this.$refs.tips.$on('onChange', content => this.tips = content)
             })
+
+            this.loadDraft()
+
+            setInterval(() => this.autoSave(), 30000)
         }
     }
 </script>
