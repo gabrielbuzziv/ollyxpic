@@ -328,6 +328,15 @@
         },
 
         mounted () {
+            if (! localStorage.getItem('closed_beta_key')
+                || localStorage.getItem('closed_beta_key') == null
+                || localStorage.getItem('closed_beta_key') != 'c3a1dbbd27368ff5edb3f718a7e95bbe') {
+                this.$message.error('You closed beta key is not valid!')
+                this.$router.push({ name: 'pages.home' })
+
+                return false
+            }
+
             this.$store.dispatch('spots/FETCH_VOCATIONS')
 
             Vue.nextTick(() => {
