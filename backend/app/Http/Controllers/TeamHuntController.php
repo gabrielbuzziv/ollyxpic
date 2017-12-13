@@ -739,7 +739,6 @@ class TeamHuntController extends Controller
             'unrealized dreams'                        => 'unrealized dream',
             'glooth bags'                              => 'glooth bag',
             'golden lotus brooches'                    => 'golden lotus brooch',
-            'moonlight crystals'                       => 'moonlight crystal',
             'copper tokens'                            => 'copper token',
             'gold tokens'                              => 'gold token',
             'iron tokens'                              => 'iron token',
@@ -1334,7 +1333,6 @@ class TeamHuntController extends Controller
             "hydra tongue salads"                      => "hydra tongue salad",
             "potatos"                                  => "potato",
             "rice balls"                               => "rice ball",
-            "terramite eggs"                           => "terramite egg",
             "crocodile steaks"                         => "crocodile steak",
             "hydra meats"                              => "hydra meat",
             "aubergines"                               => "aubergine",
@@ -1407,6 +1405,18 @@ class TeamHuntController extends Controller
             "elven scouting glasses"                   => "elven scouting glass",
             "sling herbs"                              => "sling herb",
             "draken wristband"                         => "draken wristbands",
+            "jalapeño peppers" => "jalapeño pepper",
+            "jalapeno peppers" => "jalapeño pepper",
+            "" => "",
+            "" => "",
+            "" => "",
+            "" => "",
+            "" => "",
+            "" => "",
+            "" => "",
+            "" => "",
+            "" => "",
+            "" => "",d
         ];
 
         return isset($names[$name]) ? $names[$name] : $name;
