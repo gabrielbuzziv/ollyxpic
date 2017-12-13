@@ -145,6 +145,13 @@ Route::group(['middleware' => 'auth:api', 'prefix' => 'admin'], function () {
     Route::post('map/sync', 'WorldMapController@syncronize');
 
     /**
+     * TranslationController routes.
+     */
+    Route::get('translations', 'TranslationController@index');
+    Route::post('translations', 'TranslationController@store');
+    Route::patch('translations/{translation}', 'TranslationController@update');
+
+    /**
      * NewsController routes
      */
     Route::get('posts', 'PostController@index');
