@@ -5,7 +5,6 @@
 
             <div class="creatures">
                 <div class="creature" v-for="creature in creatures">
-                    <div class="health">{{ creature.health }} hp</div>
                     <div class="thumb">
                         <img :src="image_path('creature', creature.id)"/>
                     </div>
@@ -26,12 +25,11 @@
 
             <div class="loots">
                 <div class="loot" v-for="loot in loots">
-                    <div class="price" :class="getPriceClass(loot.actual_value)">{{ loot.actual_value | format }} gp
-                    </div>
                     <div class="thumb">
                         <img :src="image_path('item', loot.id)"/>
                     </div>
                     <span class="title">{{ loot.title }}</span>
+                    <span class="price">{{ loot.actual_value | format }} gp</span>
                 </div>
             </div>
         </div>

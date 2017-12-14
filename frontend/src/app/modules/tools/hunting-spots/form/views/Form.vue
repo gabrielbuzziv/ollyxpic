@@ -31,7 +31,8 @@
                     <panel>
                         <div class="form-group vocations" :class="{ 'margin-bottom-0': huntVocations.length <= 1 }">
                             <el-checkbox-group v-model="huntVocations">
-                                <el-checkbox-button v-for="vocation in vocations" :value="vocation.id" :label="vocation.title"
+                                <el-checkbox-button v-for="vocation in vocations" :value="vocation.id"
+                                                    :label="vocation.title"
                                                     :key="vocation.id"/>
                             </el-checkbox-group>
 
@@ -55,11 +56,13 @@
                     <panel>
                         <div class="row margin-bottom-15">
                             <div class="form-group col-md-6">
-                                <input type="text" name="title" class="form-control" placeholder="Title" v-model="title">
+                                <input type="text" name="title" class="form-control" placeholder="Title"
+                                       v-model="title">
                             </div>
 
                             <div class="form-group col-md-6">
-                                <input type="text" name="location" class="form-control" placeholder="Location" v-model="location">
+                                <input type="text" name="location" class="form-control" placeholder="Location"
+                                       v-model="location">
                             </div>
                         </div>
 
@@ -85,13 +88,14 @@
 
                             <!-- Creatures -->
                             <el-tab-pane label="Creatures" name="creatures">
-                                <creatures :creatures="creatures" />
-                                <input type="hidden" name="creatures[]" v-model="creature.id" v-for="creature in creatures">
+                                <creatures :creatures="creatures"/>
+                                <input type="hidden" name="creatures[]" v-model="creature.id"
+                                       v-for="creature in creatures">
                             </el-tab-pane>
 
                             <!-- Supplies -->
                             <el-tab-pane label="Supplies" name="supplies">
-                                <supplies :supplies="supplies" />
+                                <supplies :supplies="supplies"/>
 
                                 <template v-for="supply, index in supplies">
                                     <input type="hidden" :name="`supplies[${index}][item]`" v-model="supply.item.id">
@@ -101,10 +105,11 @@
 
                             <!-- Equipments -->
                             <el-tab-pane label="Equipments" name="equipments">
-                                <equipments :equipments="equipments" />
+                                <equipments :equipments="equipments"/>
 
                                 <template v-for="equipment, index in equipments">
-                                    <input type="hidden" :name="`equipments[${index}][item]`" v-model="equipment.item.id">
+                                    <input type="hidden" :name="`equipments[${index}][item]`"
+                                           v-model="equipment.item.id">
                                 </template>
                             </el-tab-pane>
                         </el-tabs>
@@ -117,9 +122,7 @@
                             <span class="slider-label">
                                 <label>Level</label>
                                 <span class="value">
-                                    {{ level[0] }}
-                                    <i class="mdi mdi-chevron-right"></i>
-                                    {{ level[1] }}
+                                    {{ levelMin }} - {{ levelMax }}
                                 </span>
                             </span>
 
@@ -127,7 +130,7 @@
                                     v-model="level"
                                     range
                                     :min="0"
-                                    :max="1000"
+                                    :max="500"
                                     :step="10"
                                     :show-tooltip="false">
                             </el-slider>
@@ -146,9 +149,9 @@
 
                             <el-slider
                                     v-model="experience"
-                                    :min="100000"
-                                    :max="5000000"
-                                    :step="100000"
+                                    :min="10000"
+                                    :max="3000000"
+                                    :step="10000"
                                     :show-tooltip="false">
                             </el-slider>
 
@@ -164,8 +167,8 @@
                             <el-slider
                                     v-model="profit"
                                     :min="0"
-                                    :max="1500000"
-                                    :step="10000"
+                                    :max="1000000"
+                                    :step="5000"
                                     :show-tooltip="false">
                             </el-slider>
 
@@ -210,7 +213,8 @@
 
                     <panel>
                         <div class="form-group margin-bottom-0">
-                            <input type="text" name="author" class="form-control" placeholder="Author name" v-model="author">
+                            <input type="text" name="author" class="form-control" placeholder="Author name"
+                                   v-model="author">
                         </div>
                     </panel>
                 </div>
@@ -241,8 +245,8 @@
                 level: [0, 100],
                 title: '',
                 location: '',
-                experience: 1000000,
-                profit: 50000,
+                experience: 10000,
+                profit: 5000,
                 description: '',
                 tips: '',
                 team: false,
@@ -262,14 +266,26 @@
                 return this.$store.getters['spots/GET_VOCATIONS']
             },
 
+            levelMin () {
+                return this.level[0]
+            },
+
+            levelMax () {
+                return this.level[1] == 500 ? `${this.level[1]}+` : this.level[1]
+            },
+
             expHour () {
-                const experience = this.experience.format()
-                return `${experience} exp/h`
+                const data = this.experience.format()
+                return this.experience == 3000000 ? `${data}+ exp/h` : `${data} exp/h`
             },
 
             profitHour () {
-                const profit = this.profit.format()
-                return this.profit > 0 ? `${profit} gp/h` : 'Waste'
+                const data = this.profit.format()
+                return this.profit > 0
+                    ? this.profit == 1000000
+                        ? `${data}+ gp/h`
+                        : `${data} gp/h`
+                    : 'Waste'
             },
 
             soloable () {
@@ -354,10 +370,10 @@
             },
 
             loadDraft () {
-                this.title = localStorage.getItem('hunting_spot.title')
-                this.location = localStorage.getItem('hunting_spot.location')
-                this.description = localStorage.getItem('hunting_spot.description')
-                this.tips = localStorage.getItem('hunting_spot.tips')
+                this.title = localStorage.getItem('hunting_spot.title') != 'null' ? localStorage.getItem('hunting_spot.title') : ''
+                this.location = localStorage.getItem('hunting_spot.location') != 'null' ? localStorage.getItem('hunting_spot.location') : ''
+                this.description = localStorage.getItem('hunting_spot.description') != 'null' ? localStorage.getItem('hunting_spot.description') : ''
+                this.tips = localStorage.getItem('hunting_spot.tips') != 'null' ? localStorage.getItem('hunting_spot.tips') : ''
                 this.experience = parseInt(localStorage.getItem('hunting_spot.experience'))
                 this.profit = parseInt(localStorage.getItem('hunting_spot.profit'))
                 this.team = localStorage.getItem('hunting_spot.team') == 'true' ? true : this.team

@@ -11,93 +11,92 @@
             <img :src="image_path('creature', creature)" alt="">
             <div class="title">
                 <h2>{{ spot.title }}</h2>
-                <span>by {{ spot.author || 'OllyxPic' }}</span>
+                <span>by {{ author }}</span>
             </div>
         </page-title>
 
         <div class="row features">
             <div class="col-md-3">
                 <panel>
-                    <span>Level Required</span>
+                    <span class="name">Level Required</span>
                     <b>
-                        {{ spot.level_min }}
-                        <i class="mdi mdi-arrow-right"></i>
-                        {{ spot.level_max }}
+                        {{ spot.level_min }} - {{ spot.level_max }}
                     </b>
                 </panel>
             </div>
 
             <div class="col-md-3">
                 <panel>
-                    <span>Experience</span>
+                    <span class="name">Experience</span>
                     <b>{{ spot.experience | experience }}</b>
                 </panel>
             </div>
 
             <div class="col-md-3">
                 <panel>
-                    <span>Profit</span>
+                    <span class="name">Profit</span>
                     <b>{{ spot.profit | profit }}</b>
                 </panel>
             </div>
 
             <div class="col-md-3">
                 <panel>
-                    <span>Location</span>
-                    <b>{{ spot.location }}</b>
+                    <span class="name">Vocations</span>
+
+                    <span class="label label-primary" v-for="vocation in spot.vocations" :key="vocation.id">
+                        {{ vocation.title }}
+                    </span>
                 </panel>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-10">
-                <el-tabs type="card" v-model="tabs">
-                    <el-tab-pane label="Details & Tips" name="description">
-                        <panel>
-                            <div class="content">
-                                <div class="content-text" v-html="spot.description"></div>
+        <el-tabs type="card" v-model="tabs">
+            <el-tab-pane label="Details & Tips" name="description">
+                <panel>
+                    <div class="content">
+                        <div class="content-text" v-html="spot.description"></div>
 
-                                <div v-if="spot.tips">
-                                    <h3>Tips</h3>
-                                    <div class="content-text" v-html="spot.tips"></div>
-                                </div>
-                            </div>
-                        </panel>
-                    </el-tab-pane>
+                        <div class="tags">
+                            <el-tooltip content="Task Available" placement="top" v-if="spot.has_task">
+                                <i class="mdi mdi-format-list-checks"></i>
+                            </el-tooltip>
 
-                    <el-tab-pane label="Supplies & Equipments" name="supplies">
-                        <supplies :supplies="spot.supplies" :equipments="spot.equipments"/>
-                    </el-tab-pane>
+                            <el-tooltip content="Require Premium Account" placement="top" v-if="spot.require_premium">
+                                <i class="mdi mdi-crown"></i>
+                            </el-tooltip>
 
-                    <el-tab-pane label="Creatures & Loot" name="loot">
-                        <creatures :creatures="spot.creatures"/>
-                    </el-tab-pane>
-                </el-tabs>
-            </div>
+                            <el-tooltip content="Require Quest" placement="top" v-if="spot.require_quest">
+                                <i class="mdi mdi-treasure-chest"></i>
+                            </el-tooltip>
 
-            <div class="col-md-2">
-                <panel class="requirements">
-                    <ul>
-                        <li>
-                            <span>Task Available?</span>
-                            <b class="label" :class="[spot.has_task ? 'label-success' : 'label-danger']">{{ spot.has_task ? 'Yes' : 'No' }}</b>
-                        </li>
+                            <el-tooltip content="Solo Hunting" placement="top" v-if="spot.soloable">
+                                <i class="mdi mdi-account"></i>
+                            </el-tooltip>
 
-                        <li>
-                            <span>Require Quest?</span>
-                            <b class="label" :class="[spot.require_quest ? 'label-success' : 'label-danger']">{{ spot.require_quest ? 'Yes' : 'No' }}</b>
-                        </li>
+                            <el-tooltip content="Team Hunting" placement="top" v-if="! spot.soloable">
+                                <i class="mdi mdi-account-multiple"></i>
+                            </el-tooltip>
+                        </div>
 
-                        <li>
-                            <span>Require Premium?</span>
-                            <b class="label" :class="[spot.require_premium ? 'label-success' : 'label-danger']">{{ spot.require_premium ? 'Yes' : 'No' }}</b>
-                        </li>
+                        <h3 class="margin-top-20">Location</h3>
+                        <p>{{ spot.location }}</p>
 
-
-                    </ul>
+                        <div class="margin-top-40" v-if="spot.tips">
+                            <h3>Tips</h3>
+                            <div class="content-text" v-html="spot.tips"></div>
+                        </div>
+                    </div>
                 </panel>
-            </div>
-        </div>
+            </el-tab-pane>
+
+            <el-tab-pane label="Supplies & Equipments" name="supplies">
+                <supplies :supplies="spot.supplies" :equipments="spot.equipments"/>
+            </el-tab-pane>
+
+            <el-tab-pane label="Creatures & Loot" name="loot">
+                <creatures :creatures="spot.creatures"/>
+            </el-tab-pane>
+        </el-tabs>
     </page-load>
 </template>
 
@@ -126,6 +125,10 @@
         computed: {
             creature () {
                 return this.spot.creatures && this.spot.creatures.length ? this.spot.creatures[0].id : 0
+            },
+
+            author () {
+                return this.spot.author == 'null' || this.spot.author == null || this.spot.author == '' ? 'Ollyxpic' : this.spot.author
             }
         },
 

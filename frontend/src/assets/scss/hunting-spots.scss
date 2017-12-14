@@ -301,7 +301,7 @@
                             }
                         }
                     }
-                    
+
                     .btn-remove {
                         font-size: 10px;
                         font-weight: 300;
@@ -336,7 +336,19 @@
     &.hunting-spots__list {
         .page-filter {
             display: block;
-            margin-bottom: 15px;
+            margin-bottom: 30px;
+
+            .paginator {
+                display: inline-block;
+                margin-right: 10px;
+                vertical-align: middle;
+            }
+
+            h4 {
+                display: inline-block;
+                vertical-align: middle;
+                font-weight: 300;
+            }
 
             .el-select {
                 .el-input {
@@ -360,132 +372,226 @@
 
         .spots {
             .spot {
-                header {
-                    display: block;
-                    margin-bottom: 10px;
-                    padding-bottom: 10px;
-                    border-bottom: 1px dashed #ddd;
-                    height: 90px;
+                height: 200px;
+
+                .panel-body {
+                    padding: 0;
 
                     .thumb {
-                        height: 64px;
-                        width: 64px;
                         display: inline-block;
-                        vertical-align: top;
-                        margin-right: 15px;
-                    }
-                    .info {
-                        display: inline-block;
-                        width: calc(100% - 85px);
-                        vertical-align: top;
-                    }
+                        width: 200px;
+                        border-right: 1px solid #e2e2e2;
+                        vertical-align: middle;
+                        text-align: center;
+                        float: left;
+                        height: 200px;
+                        padding: 68px 0;
+                        background: url('/src/assets/images/creature-bg.jpeg') 50% 0;
 
-                    .title {
-                        display: block;
-                        font-size: 16px;
-                        font-weight: 300;
-                    }
-
-                    .vocations {
-                        margin-top: 5px;
-
-                        .label {
-                            margin-right: 5px;
+                        img {
+                            margin: 0 auto;
+                            text-align: center;
+                            display: block;
                         }
                     }
-                }
-
-                section {
-                    padding: 15px 10px 0;
 
                     .features {
-                        ul {
-                            list-style: none;
-                            padding: 0;
-                            margin: 0;
+                        display: inline-block;
+                        vertical-align: middle;
+                        width: 100px;
+                        float: left;
 
-                            li {
-                                font-weight: 300;
-                                margin-bottom: 5px;
+                        .feature {
+                            height: 100px;
+                            line-height: 100px;
+                            width: 100%;
+                            text-align: center;
+                            background: #f4f4f4;
 
-                                span {
-                                    font-weight: 400;
-                                    font-size: 16px;
+                            &:last-child {
+                                border: 0;
+                                background: #eee;
+                            }
 
-                                    &.label {
+                            .data {
+                                display: inline-block;
+                                vertical-align: middle;
+                                line-height: normal;
+
+                                .value {
+                                    font-size: 24px;
+                                    font-weight: 700;
+                                    color: $theme;
+                                    display: block;
+
+                                    small {
+                                        display: block;
                                         font-size: 10px;
+                                        font-weight: 400;
                                     }
+                                }
+
+                                .name {
+                                    display: block;
+                                    font-size: 12px;
+                                    font-weight: 300;
+                                    margin-bottom: 2px;
                                 }
                             }
                         }
                     }
 
-                    .tags {
-                        display: block;
-                        margin-top: 15px;
+                    .details {
+                        display: inline-block;
+                        width: calc(100% - 515px);
+                        vertical-align: middle;
+                        border-right: 1px solid #eee;
+                        padding: 22px 30px;
 
                         .title {
-                            text-transform: uppercase;
-                            font-size: 10px;
-                            font-weight: 300;
-                            display: inline-block;
-                            margin-right: 5px;
-                            color: #000;
+                            font-size: 22px;
+                            font-weight: 600;
+                            margin: 0 0 7px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+
+                        .location {
+                            font-size: 12px;
+                            color: #888;
+                            margin: 0 0 15px;
+                        }
+
+                        .description {
+                            font-size: 12px;
+                            margin: 10px 0;
+                        }
+
+                        footer {
+                            display: block;
+                            margin-top: 15px;
+
+                            .vocations {
+                                display: inline-block;
+                                vertical-align: middle;
+                                margin-right: 15px;
+
+                                span {
+                                    margin-right: 5px;
+                                    border-radius: 200px;
+                                }
+                            }
+
+                            .tags {
+                                display: inline-block;
+                                vertical-align: middle;
+
+                                i {
+                                    color: #ccc;
+                                    font-size: 28px;
+                                    line-height: normal;
+                                    margin-right: 10px;
+                                }
+                            }
                         }
                     }
 
-                    .btn-more {
-                        margin-top: 25px;
-                        background: #eee;
-                        color: #444;
-                        font-weight: 300;
+                    .action {
+                        display: inline-block;
+                        width: 200px;
+                        vertical-align: middle;
+                        text-align: center;
+                        padding: 26px 30px;
+
+                        span {
+                            display: block;
+
+                            &.name {
+                                text-transform: uppercase;
+                                font-weight: 600;
+                                font-size: 12px;
+                                margin-bottom: 15px;
+                            }
+
+                            &.value {
+                                font-size: 26px;
+                                font-weight: 400;
+                            }
+
+                            &.period {
+                                text-transform: uppercase;
+                                font-weight: 600;
+                                font-size: 12px;
+                                color: #888;
+                            }
+                        }
+
+                        .btn {
+                            display: block;
+                            border: 0;
+                            background: #63b63c;
+                            margin-top: 15px;
+                        }
                     }
                 }
             }
         }
 
         .filters {
-            .form-group {
-                &.bordered {
-                    border-bottom: 1px dashed #ddd;
-                    padding-bottom: 25px;
-                    margin-bottom: 25px;
+            label {
+                font-size: 12px;
+                display: block;
+                margin-bottom: 15px;
+                text-transform: uppercase;
+
+                .slider-values {
+                    float: right;
+                    font-weight: 300;
+                    font-size: 16px;
+                    text-align: right;
+                    text-transform: none;
                 }
             }
 
-            .el-select {
-                width: 100%;
-
-                .el-input__inner {
-                    font-weight: 300;
-                    height: 50px;
-                    line-height: 50px;
-                }
-            }
-
-            .slider-label {
-                label {
-                    display: inline-block;
-                    font-weight: 300;
-                    font-size: 14px;
-                    color: #919191;
-                    vertical-align: bottom;
-                    width: 120px;
-
-                    small {
-                        font-size: 11px;
+            .vocation {
+                .el-select {
+                    .el-input {
+                        .el-input__inner {
+                            height: 50px;
+                            line-height: 50px;
+                            font-weight: 300;
+                        }
                     }
                 }
+            }
 
-                .value {
-                    font-size: 20px;
-                    display: inline-block;
-                    font-weight: 300;
-                    text-align: right;
-                    vertical-align: bottom;
-                    width: calc(100% - 125px);
+            .sliders {
+                .level {
+                    display: block;
+                    margin-bottom: 30px;
+                }
+
+                .el-slider__runway {
+                    margin: 10px 0 0;
                 }
             }
+
+            .el-checkbox {
+                text-transform: none;
+                display: block;
+                margin: 0 0 5px;
+                font-weight: 300;
+
+                .el-checkbox__input {
+                    margin-right: 5px;
+                }
+
+                .el-checkbox__label {
+                    font-size: 12px;
+                }
+            }
+
         }
     }
 
@@ -530,6 +636,18 @@
                 }
             }
 
+            .tags {
+                display: inline-block;
+                vertical-align: middle;
+
+                i {
+                    color: #ccc;
+                    font-size: 28px;
+                    line-height: normal;
+                    margin-right: 10px;
+                }
+            }
+
             header {
                 h3 {
                     display: inline-block;
@@ -549,7 +667,7 @@
 
             .supply {
                 display: inline-block;
-                width: calc(20% - 10px);
+                width: calc(16.6% - 10px);
                 margin: 0 5px;
                 text-align: center;
                 padding: 15px;
@@ -659,58 +777,23 @@
 
             .loot {
                 display: inline-block;
-                width: calc(20% - 10px);
+                width: calc(16.6% - 10px);
                 margin: 0 5px;
                 text-align: center;
                 padding: 15px;
                 vertical-align: top;
 
+                &:hover {
+                    background: #f2f2f2;
+                    transition: all .3s;
+                }
+
                 .price {
-                    background: #888;
-                    color: #fff;
-                    height: 40px;
-                    line-height: 40px;
-                    padding: 0 15px;
-                    display: inline-block;
-                    border-radius: $border-radius-base;
-                    position: relative;
-                    margin: 0 auto 20px;
-
-                    &:after {
-                        content: '';
-                        position: absolute;
-                        bottom: -10px;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        display: block;
-                        border-top: 10px solid #888;
-                        border-right: 10px solid transparent;
-                        border-left: 10px solid transparent;
-                    }
-
-                    &.high {
-                        background: $brand-success;
-
-                        &:after {
-                            border-top-color: $brand-success;
-                        }
-                    }
-
-                    &.mid {
-                        background: $brand-primary;
-
-                        &:after {
-                            border-top-color: $brand-primary;
-                        }
-                    }
-
-                    &.low {
-                        background: $brand-warning;
-
-                        &:after {
-                            border-top-color: $brand-warning;
-                        }
-                    }
+                    display: block;
+                    font-weight: 600;
+                    margin-top: 3px;
+                    font-size: 16px;
+                    color: $theme;
                 }
 
                 .thumb {
@@ -734,11 +817,19 @@
         }
 
         .features {
-            span {
+            .name {
                 display: block;
                 font-size: 14px;
                 display: block;
                 color: #999;
+            }
+
+            .label {
+                display: inline-block;
+                margin-right: 4px;
+                padding: 5px 8px;
+                border-radius: 200px;
+                margin-top: 18px;
             }
 
             b {

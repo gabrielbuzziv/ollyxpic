@@ -23,23 +23,45 @@ class HuntingSpotController extends Controller
     public function index()
     {
         $sort = $this->getSort();
-
         $filters = json_decode(request('filters'));
 
-        $spots = HuntingSpot::with('vocations', 'creatures')
+        $spots = (new HuntingSpot)
+            ->with('vocations', 'creatures')
+            // Level range condition.
             ->where(function ($query) use ($filters) {
-                $query->where('level_min', '>=', $filters->level[0]);
-                $query->where('level_max', '<=', $filters->level[1]);
-                $query->where('experience', '>=', $filters->experience);
-                $query->where('profit', '>=', $filters->profit);
+                $query->whereBetween('level_min', $filters->level);
+                $query->orWhere('level_max', '>=', $filters->level[1]);
+                $query->orWhere(function ($query) use ($filters) {
+                    $query->whereBetween('level_max', $filters->level);
+                });
+            })
+            // Experience condition
+            ->where('experience', '>=', $filters->experience)
+            // Options conditions
+            ->where(function ($query) use ($filters) {
+                if ($filters->team === true)
+                    $query->where('soloable', 0);
 
-                if ($filters->vocation) {
-                    $query->whereRaw("{$filters->vocation} in (SELECT vocation_id FROM hunting_spot_vocation WHERE hunting_spot_id = hunting_spots.id)");
+                if ($filters->task === true)
+                    $query->where('has_task', 1);
+
+                if ($filters->quest === true)
+                    $query->where('require_quest', 0);
+
+                if ($filters->premium === true)
+                    $query->where('require_premium', 1);
+            })
+            // Vocation Conditions
+            ->where(function ($query) use ($filters) {
+                if ($vocations = $this->parseVocations($filters->vocations)) {
+                    foreach ($vocations as $vocation) {
+                        $query->whereRaw("{$vocation} in (SELECT vocation_id FROM hunting_spot_vocation WHERE hunting_spot_id = hunting_spots.id)");
+                    }
                 }
             })
             ->where('active', 1)
             ->orderBy($sort->value, $sort->order)
-            ->paginate(request('limit'));
+            ->paginate(18);
 
         return $this->respond([
             'total' => $spots->total(),
@@ -99,7 +121,7 @@ class HuntingSpotController extends Controller
      */
     public function show(HuntingSpot $spot)
     {
-        $spot = HuntingSpot::with('creatures.drops', 'supplies', 'equipments')
+        $spot = HuntingSpot::with('creatures.drops', 'supplies', 'equipments', 'vocations')
             ->where(function ($query) {
                 if ( ! request()->header('Authorization') || ! JWTAuth::parseToken()->authenticate())
                     $query->where('active', 1);
@@ -211,5 +233,24 @@ class HuntingSpotController extends Controller
         $sort = explode(':', request('sort'));
 
         return (object) ['value' => $sort[0], 'order' => $sort[1]];
+    }
+
+    /**
+     * Get filtered vocations.
+     *
+     * @param $vocations
+     * @return array
+     */
+    private function parseVocations($vocations)
+    {
+        $vocations = (array) $vocations;
+        $vocationId = ['knight' => 1, 'druid' => 2, 'sorcerer' => 3, 'paladin' => 4];
+        $list = [];
+        foreach ($vocations as $key => $vocation) {
+            if ($vocation) {
+                $list[] = $vocationId[$key];
+            }
+        }
+        return $list;
     }
 }
