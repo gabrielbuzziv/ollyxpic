@@ -13,21 +13,21 @@
                 <div class="col-md-3">
                     <panel>
                         <el-radio name="warzone" v-model="warzone" :label="1" class="block">
-                            <img :src="image_path('creature', 747)" class="margin-right-10 margin-left-20">
+                            <img :src="image_path('creature', 1940)" class="margin-right-10 margin-left-20">
                             <span>Warzone 1</span>
                         </el-radio>
                     </panel>
 
                     <panel>
                         <el-radio name="warzone" v-model="warzone" :label="2" class="block">
-                            <img :src="image_path('creature', 746)" class="margin-right-10 margin-left-20">
+                            <img :src="image_path('creature', 1939)" class="margin-right-10 margin-left-20">
                             <span>Warzone 2</span>
                         </el-radio>
                     </panel>
 
                     <panel>
                         <el-radio name="warzone" v-model="warzone" :label="3" class="block">
-                            <img :src="image_path('creature', 748)" class="margin-right-10 margin-left-20">
+                            <img :src="image_path('creature', 1941)" class="margin-right-10 margin-left-20">
                             <span>Warzone 3</span>
                         </el-radio>
                     </panel>

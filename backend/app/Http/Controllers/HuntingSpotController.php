@@ -30,10 +30,12 @@ class HuntingSpotController extends Controller
             // Level range condition.
             ->where(function ($query) use ($filters) {
                 $query->whereBetween('level_min', $filters->level);
-                $query->orWhere('level_max', '>=', $filters->level[1]);
                 $query->orWhere(function ($query) use ($filters) {
                     $query->whereBetween('level_max', $filters->level);
                 });
+
+                if ($filters->level[1])
+                $query->orWhere('level_max', '>=', $filters->level[1]);
             })
             // Experience condition
             ->where('experience', '>=', $filters->experience)
