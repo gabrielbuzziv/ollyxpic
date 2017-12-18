@@ -192,7 +192,7 @@
             <router-link :to="{ name: 'pages.partners' }" tag="li">
                 <a href="#">
                     <span class="left">
-                        <img :src="image_path_by_name('item', 'Cateroide\'s doll')" alt="">
+                        <img :src="image_path_by_name('item', 'Cateroide\'s Doll (Activated)')" alt="">
                     </span>
                     <span class="center">
                         <span>Partners</span>
