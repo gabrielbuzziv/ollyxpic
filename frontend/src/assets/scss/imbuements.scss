@@ -18,6 +18,63 @@
 }
 
 #imbuements {
+    .gold-token {
+        .form-control {
+            height: 50px;
+            line-height: 50px;
+            font-weight: 300;
+        }
+
+        .el-input-number {
+            width: 100%;
+
+            .el-input-number__increase,
+            .el-input-number__decrease {
+                height: 48px;
+                line-height: 48px;
+            }
+
+            .el-input {
+                .el-input__inner {
+                    height: 50px;
+                    line-height: 50px;
+                    font-weight: 400;
+                }
+            }
+        }
+
+        .el-radio-group {
+            width: 100%;
+
+            .el-radio-button {
+                margin: 0;
+                width: 33%;
+
+                .el-radio-button__inner {
+                    font-weight: 300;
+                    height: 50px;
+                    line-height: 50px;
+                    width: 100%;
+                    padding: 0 20px;
+                }
+            }
+        }
+
+        .el-switch {
+            padding: 14px 0;
+
+            .el-switch__label {
+                top: 50%;
+                font-weight: 300;
+
+                span {
+                    font-size: 12px;
+                    line-height: 15px;
+                }
+            }
+        }
+    }
+
     table {
         tr {
             td {
@@ -32,6 +89,12 @@
 
                 input:not(.normal), select {
                     height: 50px;
+                }
+
+                .best {
+                    font-size: 10px;
+                    text-transform: uppercase;
+                    font-weight: 700;
                 }
             }
         }
