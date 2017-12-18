@@ -15,7 +15,7 @@ class WorldController extends ApiController
      */
     public function index()
     {
-        $sort = $this->getSort();
+        $sort = request('sort') ? $this->getSort() : (object) ['value' => 'name', 'order' => 'asc'];
         $filters = json_decode(request('filters'));
 
         $worlds = (new World)
