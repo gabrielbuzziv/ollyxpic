@@ -1,72 +1,24 @@
 #currencies {
-    .currency-increase {
-        font-size: 10px;
-        color: $brand-success;
-
-        i {
-            font-size: 15px;
-            line-height: 15px;
-        }
-    }
-
-    .currency-decrease {
-        font-size: 10px;
-        color: $brand-danger;
-
-        i {
-            font-size: 15px;
-            line-height: 15px;
-        }
-    }
-
-    .last-update {
-        font-size: 10px;
-        display: block;
-        text-align: right;
-        margin: 0 0 10px;
-        color: #888;
-    }
-
-    .currency-now {
-        .buy,
-        .sell {
-            width: 49%;
-            text-align: center;
-            display: inline-block;
-
-            .value {
-                font-size: 30px;
-                font-weight: 700;
-                display: inline-block;
-            }
-
-            b {
-                font-size: 12px;
-                display: block;
-                text-transform: uppercase;
-            }
-
-            .compare {
-                display: inline-block;
-                font-size: 10px !important;
-
-                .increase {
-                    font-size: inherit;
-                    color: $brand-success;
-
-                    i {
-                        font-size: 15px;
-                        line-height: 15px;
-                    }
+    .filters {
+        .el-select {
+            .el-input {
+                .el-input__inner {
+                    height: 50px;
+                    line-height: 50px;
+                    font-weight: 300;
                 }
+            }
+        }
+    }
 
-                .decrease {
-                    font-size: inherit;
-                    color: $brand-danger;
-
-                    i {
-                        font-size: 15px;
-                        line-height: 15px;
+    table {
+        &.table {
+            tr {
+                &.current {
+                    td {
+                        font-size: 20px;
+                        font-weight: 300;
+                        color: #000;
                     }
                 }
             }

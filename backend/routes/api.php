@@ -78,6 +78,7 @@ Route::get('items/{category}', 'ItemController@usables');
  */
 Route::get('worlds', 'WorldController@index');
 Route::get('worlds/{world}', 'WorldController@show');
+Route::get('worlds/{world}/currencies', 'WorldController@currencies');
 
 /**
  * VocationController routes.

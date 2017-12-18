@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\World;
+use App\WorldCurrency;
 use Illuminate\Http\Request;
 
 class WorldController extends ApiController
@@ -14,7 +15,17 @@ class WorldController extends ApiController
      */
     public function index()
     {
-        $worlds = World::with('currencies')->orderBy('name', 'asc')->get();
+        $sort = $this->getSort();
+        $filters = json_decode(request('filters'));
+
+        $worlds = (new World)
+            ->with('currencies')
+            ->where(function ($query) use ($filters) {
+                if (! empty($filters->type))
+                    $query->where('type', $filters->type);
+            })
+            ->orderBy($sort->value, $sort->order)
+            ->get();
 
         return $this->respond($worlds->toArray());
     }
@@ -53,5 +64,30 @@ class WorldController extends ApiController
         $world = World::with('currencies')->find($world->id);
 
         return $this->respond($world->toArray());
+    }
+
+    /**
+     * World Currencies
+     *
+     * @param World $world
+     * @return mixed
+     */
+    public function currencies(World $world)
+    {
+        $currencies = $world->currencies()->take(15)->orderBy('created_at', 'desc')->get();
+
+        return $this->respond($currencies->toArray());
+    }
+
+    /**
+     * Parse sort.
+     *
+     * @return object
+     */
+    private function getSort()
+    {
+        $sort = explode(':', request('sort'));
+
+        return (object) ['value' => $sort[0], 'order' => $sort[1]];
     }
 }

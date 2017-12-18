@@ -15,77 +15,61 @@
             </div>
         </page-title>
 
+        <div class="row">
+            <div class="col-md-6">
+                <panel title="Buy Price">
+                    <page-load class="no-padding" :loading="loading">
+                        <highcharts id="buyCurrency" :options="buyChartOptions" ref="buy"/>
+                    </page-load>
+                </panel>
+            </div>
+
+            <div class="col-md-6">
+                <panel title="Sell Price">
+                    <page-load class="no-padding" :loading="loading">
+                        <highcharts id="sellCurrency" :options="sellChartOptions" ref="sell"/>
+                    </page-load>
+                </panel>
+            </div>
+        </div>
+
         <panel>
-            <highcharts id="currency" :options="chartOptions" ref="chart"/>
-        </panel>
+            <page-load class="no-padding" :loading="loading">
+                <table class="table margin-bottom-0">
+                    <thead>
+                        <tr>
+                            <th>Buy Currency</th>
+                            <th>Sell Currency</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
 
-        <span class="last-update">{{ getDateForHuman(lastCurrency.created_at) }}</span>
-
-        <panel class="currency-now">
-            <span class="buy">
-                <b>Buy</b>
-                <span class="value">{{ lastCurrency.buy }} gp</span>
-
-                <span class="compare" v-if="world.currencies && world.currencies.length > 1">
-                    <span class="increase" v-if="compareLastTwoCurrencies('buy') > 0">
-                        <i class="mdi mdi-menu-up"></i>
-                        {{ compareLastTwoCurrencies('buy').toFixed(2) }} %
-                    </span>
-
-                    <span class="decrease" v-else>
-                        <i class="mdi mdi-menu-up"></i>
-                        {{ compareLastTwoCurrencies('buy').toFixed(2) }} %
-                    </span>
-                </span>
-            </span>
-
-            <span class="sell">
-                <b>Sell</b>
-                <span class="value">{{ lastCurrency.sell }} gp</span>
-
-                <span class="compare" v-if="world.currencies && world.currencies.length > 1">
-                    <span class="increase" v-if="compareLastTwoCurrencies('sell') > 0">
-                        <i class="mdi mdi-menu-up"></i>
-                        {{ compareLastTwoCurrencies('sell').toFixed(2) }} %
-                    </span>
-
-                    <span class="decrease" v-else>
-                        <i class="mdi mdi-menu-up"></i>
-                        {{ compareLastTwoCurrencies('sell').toFixed(2) }} %
-                    </span>
-                </span>
-            </span>
-        </panel>
-
-        <panel v-if="world.currencies && world.currencies.length > 1">
-            <table class="table margin-bottom-0">
-                <thead>
-                    <tr>
-                        <th class="text-center">Buy</th>
-                        <th class="text-center">Sell</th>
-                        <th class="text-center">Date</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr v-for="currency in latestCurrencies">
-                        <td class="text-center">{{ currency.buy }} gp</td>
-                        <td class="text-center">{{ currency.sell }} gp</td>
-                        <td class="text-center">{{ getDateForHuman(currency.created_at) }}</td>
-                    </tr>
-                </tbody>
-            </table>
+                    <tbody>
+                        <tr :class="[index == 0 ? 'current' : '']" v-for="currency, index in world.currencies">
+                            <td>{{ currency.buy | currency }}</td>
+                            <td>{{ currency.sell | currency }}</td>
+                            <td>{{ currency.created_at | diff_humans }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </page-load>
         </panel>
     </page-load>
 </template>
 
 <script>
+    Number.prototype.format = function (n, x) {
+        var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\.' : '$') + ')';
+        return this.toFixed(Math.max(0, ~ ~ n)).replace(new RegExp(re, 'g'), '$&.');
+    };
+
     import services from '../services'
 
     export default {
         data () {
             return {
                 world: {},
+                loading: true,
             }
         },
 
@@ -98,34 +82,77 @@
                 return this.world.currencies && this.world.currencies.length ? this.world.currencies.slice(1) : []
             },
 
-            chartOptions () {
+            buyChartOptions () {
                 return {
-                    chart: { type: 'area' },
+                    chart: { type: 'area', height: 200 },
                     title: { text: '' },
                     subtitle: { text: '' },
                     xAxis: {
                         categories: this.world.currencies && this.world.currencies.length ? this.world.currencies.map(currency => currency.created_at).reverse() : [],
                         crosshair: true,
-                        labels: { enabled: false }
+                        labels: { enabled: false },
+                        startOnTick: false,
+                        endOnTick: false,
+                        tickPositions: []
                     },
                     yAxis: { min: 0, title: { text: '' } },
                     series: [
                         {
-                            name: 'Buy',
-                            data: this.world.currencies && this.world.currencies.length ? this.world.currencies.map(currency => currency.buy).reverse() : [],
+                            name: 'Price',
+                            data: this.world.currencies && this.world.currencies.length
+                                ? this.world.currencies.map(currency => currency.buy).reverse()
+                                : [],
                             fillOpacity: '0.3',
                             color: '#3498db',
                         },
+                    ],
+                    credits: { enabled: false },
+                    tooltip: { shared: true },
+                    legend: { enabled: false }
+                }
+            },
+
+            sellChartOptions () {
+                return {
+                    chart: { type: 'area', height: 200 },
+                    title: { text: '' },
+                    subtitle: { text: '' },
+                    xAxis: {
+                        categories: this.world.currencies && this.world.currencies.length
+                            ? this.world.currencies.map(currency => currency.created_at).reverse()
+                            : [],
+                        crosshair: true,
+                        labels: { enabled: false },
+                        startOnTick: false,
+                        endOnTick: false,
+                        tickPositions: []
+                    },
+                    yAxis: {
+                        min: 0,
+                        title: { text: '' },
+                    },
+                    series: [
                         {
-                            name: 'Sell',
+                            name: 'Price',
                             data: this.world.currencies && this.world.currencies.length ? this.world.currencies.map(currency => currency.sell).reverse() : [],
-                            fillOpacity: '0.5',
-                            color: '#27ae60',
+                            fillOpacity: '0.3',
+                            color: '#3498db',
                         }
                     ],
                     credits: { enabled: false },
                     tooltip: { shared: true },
+                    legend: { enabled: false }
                 }
+            }
+        },
+
+        filters: {
+            currency (data) {
+                return data ? `${data.format()} gp` : '-'
+            },
+
+            diff_humans (data) {
+                return moment(data).fromNow()
             }
         },
 
@@ -148,7 +175,9 @@
             services.find(this.$route.params.id)
                 .then(response => {
                     this.world = response.data
+                    this.loading = false
                 })
+                .catch(() => this.loading = false)
         }
     }
 </script>
