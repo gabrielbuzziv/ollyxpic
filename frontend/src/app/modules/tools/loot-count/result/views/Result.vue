@@ -1,6 +1,13 @@
 <template>
     <page-load class="teamhunt-result">
         <page-title>
+            <div class="pull-right">
+                <router-link :to="{ name: 'tools.loot.count' }" class="btn" exact>
+                    <i class="mdi mdi-arrow-left margin-right-5"></i>
+                    Back
+                </router-link>
+            </div>
+
             <img :src="image_path_by_name('item', 'steel boots')">
             <div class="title">
                 <h2>Loot</h2>
@@ -187,7 +194,7 @@
 
             <!-- RIGHT SIDE -->
             <div class="col-md-4">
-                <panel title="Access Key" icon="key" v-if="granted" toggleable>
+                <panel title="Access Key" icon="key" v-if="granted" toggleable :open="false">
                     <form-input type="text"
                                 class="text-center"
                                 :data="password"

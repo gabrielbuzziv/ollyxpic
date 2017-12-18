@@ -48,23 +48,15 @@
 
                     <tab-content tab="waste">
                         <div class="margin-top-10"></div>
-                        <div class="inline" v-for="teammate, index in teammates">
-                            <form-group>
+                        <div class="block row" v-for="teammate, index in teammates">
+                            <form-group columns="3">
                                 <form-input :name="`teammates[${index}][name]`" :data="teammate.name"
                                             v-model="teammate.name" placeholder="Character name"/>
                             </form-group>
 
-                            <form-group>
-                                <div class="input-group">
-                                    <form-input :name="`teammates[${index}][waste]`" :data="teammate.waste"
-                                                v-model="teammate.waste" placeholder="Waste in gps"/>
-
-                                    <div class="input-group-btn">
-                                        <button class="btn" @click="calculateSupplies(teammate)" type="button">
-                                            <i class="mdi mdi-calculator"></i>
-                                        </button>
-                                    </div>
-                                </div>
+                            <form-group columns="3">
+                                <form-input :name="`teammates[${index}][waste]`" :data="teammate.waste"
+                                            v-model="teammate.waste" placeholder="Waste in gps"/>
                             </form-group>
 
                             <div class="buttons">
@@ -132,19 +124,20 @@
                             </el-tooltip>
                         </form-group>
                     </tab-content>
-
-                    <div class="tab-footer">
-                        <button class="btn btn-success btn-lg btn-block" type="submit" :disabled="calculating">
-                            <span v-if="calculating">
-                                <i class="mdi mdi-loading"></i>
-                                Calculating
-                            </span>
-                            <span v-else>Calculate</span>
-                        </button>
-                    </div>
                 </form>
             </div>
         </div>
+
+        <button class="btn btn-success btn-lg btn-block margin-top-20"
+                type="submit"
+                :disabled="calculating"
+                @click="onSubmit">
+            <span v-if="calculating">
+                <i class="mdi mdi-loading"></i>
+                Calculating
+            </span>
+            <span v-else>Calculate</span>
+        </button>
 
         <supplies-calculator :visible.sync="suppliesCalculator"/>
     </page-load>
@@ -200,8 +193,6 @@
             },
 
             onSubmit () {
-                this.calculating = true
-
                 const data = {
                     loot: this.loot,
                     teammates: this.teammates,
@@ -209,6 +200,12 @@
                     loot_at: this.look_at
                 }
 
+                if (data.loot == '' || data.loot == null) {
+                    this.$message.error('You need to add the loot log to calculate.')
+                    return false
+                }
+
+                this.calculating = true
                 services.calculate(data)
                     .then(response => {
                         this.calculating = false

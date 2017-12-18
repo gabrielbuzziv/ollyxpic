@@ -536,15 +536,17 @@ class TeamHuntController extends Controller
     {
         // Loots
         $loots = array_map(function ($loot) {
-            return [
-                'loot'    => trim($loot),
-                'monster' => substr(explode(':', $loot)[1], 13),
-                'items'   => array_map(function ($item) {
-                    return trim($item);
-                }, explode(',', trim(explode(':', $loot)[2]))),
-            ];
-        }, array_filter(explode(PHP_EOL, request()->input('loot')), function ($loot) {
-            return strpos($loot, 'Loot of');
+            $loot = trim($loot);
+            if (substr($loot, 0, 9) == 'Loot of a') {
+                return [
+                    'loot'  => $loot,
+                    'items' => array_map(function ($item) {
+                        return trim($item);
+                    }, explode(',', substr($loot, strpos($loot, ':') + 1)))
+                ];
+            }
+        }, array_filter(preg_split('/\b\d{2}:\d{2}\b/', request()->input('loot')), function ($loot) {
+            return ! empty($loot) ? trim($loot) : false;
         }));
 
         // Look At
