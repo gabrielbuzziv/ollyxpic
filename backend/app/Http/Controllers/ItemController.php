@@ -52,17 +52,18 @@ class ItemController extends Controller
     {
         $items = WikiItems::with('properties', 'sells.npc', 'buys')
             ->whereNotNull('category')
-            ->where('category', '<>', '')
             ->get();
 
         $itemsSync = $items->each(function ($item) {
+            $category = $item->category ?: $this->parseEmptyCategory($item);
+
             $data = Item::firstOrNew(['title' => $item->title, 'name' => $item->name]);
             $data->vendor_value = $item->vendor_value;
             $data->actual_value = $item->actual_value;
             $data->capacity = $item->capacity;
             $data->stackable = $item->stackable;
             $data->image = $item->image;
-            $data->category_id = Category::where('name', str_slug($item->category))->first()->id;
+            $data->category_id = Category::where('name', str_slug($category))->first()->id;
             $data->discard = $item->discard;
             $data->convert_to_gold = $item->convert_to_gold;
             $data->look_text = $item->look_text;
@@ -329,5 +330,32 @@ class ItemController extends Controller
         }
 
         return substr($result, 0, $dd);
+    }
+
+    /**
+     * Parse Categories from unknown items.
+     *
+     * @param $item
+     * @return string
+     */
+    private function parseEmptyCategory($item)
+    {
+        switch ($item->name) {
+            case 'amphora':
+                return 'Furniture';
+            case 'bucket':
+            case 'brown flask':
+            case 'golden mug':
+            case 'green flask':
+            case 'rum flask':
+            case 'cocktail glass':
+                return 'Tools';
+            case 'Bolfrim\'s golden bug trophy':
+                return 'Trophies';
+            case 'noble sword':
+            case 'spying eye':
+            case 'the cube':
+                return 'Valuables';
+        }
     }
 }
