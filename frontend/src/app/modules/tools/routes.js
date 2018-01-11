@@ -11,6 +11,7 @@ import { routes as expshare } from './expshare'
 import { routes as capcount } from './capcount'
 import { routes as currency } from './currency'
 import { routes as blacklist } from './blacklist'
+import { routes as timer } from './timer'
 
 export default [
     {
@@ -31,5 +32,6 @@ export default [
     ...expshare,
     ...capcount,
     ...currency,
-    ...blacklist
+    ...blacklist,
+    ...timer
 ]

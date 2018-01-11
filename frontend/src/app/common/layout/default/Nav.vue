@@ -139,6 +139,18 @@
                         </a>
                     </router-link>
 
+                    <router-link :to="{ name: 'tools.timer' }" tag="li">
+                        <a href="">
+                            <span class="left">
+                                <img :src="image_path_by_name('item', 'gold token')">
+                            </span>
+                            <span class="center">
+                                <span>Task & Boss</span>
+                                <small>Timer</small>
+                            </span>
+                        </a>
+                    </router-link>
+
                     <!--<router-link :to="{ name: 'tools.spots.list' }" tag="li">-->
                         <!--<a href="">-->
                             <!--<span class="left">-->
