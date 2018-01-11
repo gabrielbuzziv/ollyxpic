@@ -1,7 +1,7 @@
 <template>
     <panel class="timer">
         <div class="thumb">
-            <!--<img :src="image_path('creature', boss.id)" alt="">-->
+            <img :src="image_path('creature', boss.id)" alt="">
         </div>
 
         <div class="data">
