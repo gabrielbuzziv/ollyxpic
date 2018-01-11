@@ -143,7 +143,7 @@ class ImageController extends Controller
     {
         switch ($type) {
             case 'npc':
-                return NPC::where('name', $name)->first->image;
+                return NPC::where('name', $name)->first()->image;
             case 'item':
                 return Item::where('title', $name)->first()->image;
             case 'spell':

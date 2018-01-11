@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 
 
 Route::get('teamhunt/{hunt}', 'TeamHuntController@find');
+Route::get('teamhunt/{hunt}/items', 'TeamHuntController@items');
 Route::post('teamhunt/calculate', 'TeamHuntController@calculate');
 Route::post('teamhunt/{hunt}/item/{item}', 'TeamHuntController@updateItem');
 Route::post('teamhunt/{hunt}/teammate/{teammate}', 'TeamHuntController@updateTeammate');

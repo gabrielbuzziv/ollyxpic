@@ -119,6 +119,19 @@ class TeamHuntController extends Controller
     }
 
     /**
+     * Fetch teamhunt items.
+     *
+     * @param Hunts $hunt
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function items(Hunts $hunt)
+    {
+        $items = $hunt->items()->with('data.sells.npc')->get();
+
+        return $this->respond($items->toArray());
+    }
+
+    /**
      * Update the quantity and unit price of a item.
      *
      * @param Hunts $hunt

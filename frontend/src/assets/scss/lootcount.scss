@@ -4,4 +4,134 @@
             cursor: text;
         }
     }
+
+    .npc-title {
+        margin: 0 0 40px;
+        display: block;
+        font-size: 24px;
+        font-weight: 300;
+
+        img {
+            margin-right: 15px;
+        }
+    }
+
+    .el-tabs {
+        .el-tabs__item {
+            &.is-active {
+                //background: #fff;
+            }
+        }
+    }
+
+    .items {
+        .item {
+            position: relative;
+
+            .form-control {
+                height: 50px;
+                line-height: 50px;
+            }
+
+            .el-input-number {
+                .el-input {
+                    .el-input__inner {
+                        height: 50px;
+                        line-height: 50px;
+                    }
+                }
+
+                .el-input-number__increase,
+                .el-input-number__decrease {
+                    height: 48px;
+                    line-height: 48px;
+                    font-size: 10px;
+                    width: 28px;
+                }
+
+                .el-input-number__decrease {
+                    right: 28px;
+                }
+            }
+
+            &:hover {
+                header {
+                    span {
+                        .name {
+                            display: none;
+                        }
+                        
+                        .total {
+                            display: block;
+                        }
+                    }
+                }
+                
+                .btn {
+                    &.btn-remove {
+                        display: block;
+                    }
+                }
+            }
+
+            .btn {
+                &.btn-remove {
+                    padding: 0;
+                    position: absolute;
+                    right: 20px;
+                    top: 27px;
+                    font-size: 20px;
+                    line-height: 20px;
+                    display: none;
+                    color: $brand-danger;
+                }
+            }
+
+            header {
+                > span {
+                    font-size: 16px;
+                    font-weight: 300;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    max-width: calc(100% - 55px);
+                    display: inline-block;
+                    vertical-align: middle;
+                    
+                    .name {
+                        display: block;
+                        vertical-align: middle;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                    
+                    .total {
+                        display: none;
+                    }
+                }
+
+                img {
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+            }
+
+            section {
+                display: block;
+                margin-top: 20px;
+
+                .quantity {
+                    display: inline-block;
+                    width: calc(30% - 10px);
+                    margin-right: 10px;
+                }
+
+                .price {
+                    display: inline-block;
+                    width: calc(70% - 10px);
+                }
+            }
+        }
+    }
 }

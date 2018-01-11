@@ -1,5 +1,5 @@
 <template>
-    <page-load class="teamhunt-result">
+    <page-load id="lootcount" class="teamhunt-result">
         <page-title>
             <div class="pull-right">
                 <router-link :to="{ name: 'tools.loot.count' }" class="btn" exact>
@@ -16,499 +16,269 @@
         </page-title>
 
         <div class="row">
-            <div class="col-md-8">
-
-                <!-- GENERAL INFO -->
-                <div class="row">
-                    <div class="col-md-4">
-                        <score-box icon="coin"
-                                   name="Loot"
-                                   :score="convertToCrystal(result.loot_total, true)">
-
-                            <button class="btn btn-detail btn-info btn-xs" @click.prevent="lootLog = true" slot="option">
-                                <i class="mdi mdi-file-document-box"></i>
-                            </button>
-                        </score-box>
-                    </div>
-
-                    <div class="col-md-4">
-                        <score-box icon="arrow-down-bold"
-                                   icon-color="#c0392b"
-                                   name="Waste"
-                                   :score="convertToCrystal(waste, true)">
-                        </score-box>
-                    </div>
-
-                    <div class="col-md-4">
-                        <score-box icon="arrow-up-bold"
-                                   icon-color="#27ae60"
-                                   name="Profit"
-                                   :score="convertToCrystal(profit, true)">
-                        </score-box>
-                    </div>
-                </div>
-
-                <!-- RESULT PANEL -->
-                <panel v-if="teammates">
-                    <table class="table margin-bottom-0">
-                        <thead>
-                            <tr>
-                                <th>Player</th>
-                                <th>Waste</th>
-                                <th class="text-center">Profit</th>
-                                <th>
-                                    Total
-
-                                    <el-tooltip placement="top">
-                                        <p class="margin-bottom-0" slot="content">
-                                            Waste + Profit
-                                        </p>
-
-                                        <i class="mdi mdi-information"></i>
-                                    </el-tooltip>
-                                </th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr v-for="teammate in result.teammates">
-                                <td>{{ teammate.character }}</td>
-                                <td width="200">
-                                    <div class="input-group">
-                                        <form-input class="text-right" :data="teammate.waste" v-model="teammate.waste"
-                                                    @input="updateTeammate(teammate)" :readonly="! granted"/>
-
-                                        <div class="input-group-addon">
-                                            gp
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-center">
-                                    {{ convertToCrystal(profit / teammates, true) }}
-                                    <i class="mdi mdi-arrow-down-bold" v-if="(profit / teammates) <= 0"></i>
-                                    <i class="mdi mdi-arrow-up-bold" v-if="(profit / teammates) > 0"></i>
-                                </td>
-                                <td>
-                                    {{ convertToCrystal((profit / teammates) + teammate.waste, true) }}
-
-                                    <el-tooltip v-if="convertToCrystal((profit / teammates) + teammate.waste) < 0">
-                                        <p class="margin-bottom-0" slot="content">
-                                            For waste to be equivalent for all members,
-                                            {{ teammate.character }} will have to help with their money.
-                                        </p>
-
-                                        <i class="mdi mdi-information"></i>
-                                    </el-tooltip>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </panel>
-
-                <!-- LOOT PANEL -->
+            <div class="col-md-6">
                 <panel>
-                    <table class="table table-loot margin-bottom-0">
-                        <thead>
-                            <tr>
-                                <th class="text-center"></th>
-                                <th class="text-center" width="90">Amount</th>
-                                <th>Item</th>
-                                <th class="text-center" width="130">
-                                    Unit Price
+                    Loot
 
-                                    <el-tooltip placement="top" width="200">
-                                        <p class="margin-bottom-0" slot="content">
-                                            You can customize the price of each item<br>
-                                            in case you sell for players/market.
-                                        </p>
-                                        <i class="mdi mdi-information"></i>
-                                    </el-tooltip>
-                                </th>
-                                <th></th>
-                            </tr>
-                        </thead>
+                    <section class="row">
+                        <div class="col-md-6">
+                            <highcharts id="npcAmount" :options="amountChartOptions"/>
+                        </div>
 
-                        <tbody>
-                            <tr v-for="item in result.items">
-                                <td class="text-center" width="80">
-                                    <img :src="image_path('item', item.data.id)">
-                                </td>
-                                <td>
-                                    <form-input class="text-right" :data="item.quantity" v-model="item.quantity"
-                                                @input="updateItem(item)" :readonly="! granted"/>
-                                </td>
-                                <td>
-                                    <el-popover class="block" placement="right" v-if="item.data.sells && item.data.sells.length"
-                                                trigger="hover">
-                                        <div class="npc-popover">
-                                            <el-tooltip placement="top" v-for="sell in item.data.sells"
-                                                        :key="sell.id">
-                                                <template slot="content">
-                                                    <div class="npc-details">
-                                                        <ul>
-                                                            <li>Name: {{ sell.npc.name }}</li>
-                                                            <li>Live in: {{ sell.npc.city.capitalize() }}</li>
-                                                            <li>Job: {{ sell.npc.job }}</li>
-                                                        </ul>
-                                                    </div>
-                                                </template>
-                                                <img :src="image_path('npc', sell.npc.id)" class="cursor-inspect">
-                                            </el-tooltip>
-                                        </div>
-
-                                        <small class="cursor-inspect" slot="reference">
-                                            <em>
-                                                <i class="mdi mdi-information"></i>
-                                                Where can i sell this?
-                                            </em>
-                                        </small>
-                                    </el-popover>
-                                </td>
-                                <td>
-                                    <div class="input-group">
-                                        <form-input class="text-right"
-                                                    :data="item.unit_price"
-                                                    v-model="item.unit_price"
-                                                    @input="updateItem(item)"
-                                                    :readonly="! granted"/>
-                                        <div class="input-group-addon">
-                                            gp
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-right">
-                                    <button class="btn" @click="removeItem(item)">
-                                        <i class="mdi mdi-delete"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </panel>
-
-                <!-- SHARE PANEL -->
-                <panel title="Share" icon="share" class="panel-share" v-if="granted">
-                    <share-input :data="shareUrl"/>
+                        <div class="col-md-6">
+                            <highcharts id="npcValue" :options="valueChartOptions"/>
+                        </div>
+                    </section>
                 </panel>
             </div>
 
-            <!-- RIGHT SIDE -->
-            <div class="col-md-4">
-                <panel title="Access Key" icon="key" v-if="granted" toggleable :open="false">
-                    <form-input type="text"
-                                class="text-center"
-                                :data="password"
-                                v-model="password"
-                                readonly
-                                ref="password"
-                                style="padding: 20px"
-                                @click="selectPassword"/>
+            <div class="col-md-3">
+                <panel>
+                    Waste
                 </panel>
+            </div>
 
-                <panel title="You're the owner?" icon="key" v-if="! granted">
-                    <form action="" @submit.prevent="signPassword">
-                        <form-group class="margin-bottom-0">
-                            <div class="input-group">
-                                <form-input type="password" placeholder="Insert the Acess Key" v-model="password"/>
-                                <div class="input-group-btn">
-                                    <button class="btn" type="submit">
-                                        <i class="mdi mdi-chevron-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form-group>
-                    </form>
-                </panel>
-
-                <panel class="npc-items" title="Gren Djinn" v-if="green.length">
-                    <img :src="image_path('item', item.data.id)" v-for="item in green">
-                </panel>
-
-                <panel class="npc-items" title="Blue Djinn" v-if="blue.length">
-                    <img :src="image_path('item', item.data.id)" v-for="item in blue">
-                </panel>
-
-                <panel class="npc-items" title="Rashid" v-if="rashid.length">
-                    <img :src="image_path('item', item.data.id)" v-for="item in rashid">
-                </panel>
-
-                <panel class="npc-items" title="Yasir" v-if="yasir.length">
-                    <img :src="image_path('item', item.data.id)" v-for="item in yasir">
-                </panel>
-
-                <panel class="npc-items" title="Others" v-if="others.length">
-                    <img :src="image_path('item', item.data.id)" v-for="item in others">
+            <div class="col-md-3">
+                <panel>
+                    Profit
                 </panel>
             </div>
         </div>
 
-        <el-dialog title="Loot Log" :visible.sync="lootLog" size="large">
-            <pre style="overflow: scroll; max-height: 500px;">{{ this.result.loot }}</pre>
-        </el-dialog>
+        <el-tabs>
+            <el-tab-pane :label="`All NPC's (${items.length})`">
+                <page-load class="items no-padding row" :loading="loadingItems">
+                    <item :info="item" :key="item.id" v-for="item in items"/>
+                </page-load>
+            </el-tab-pane>
+
+            <el-tab-pane :label="`Rashid (${rashid.length})`" v-if="rashid.length">
+                <page-load class="items no-padding row" :loading="loadingItems">
+                    <item :info="item" :key="item.id" v-for="item in rashid"/>
+                </page-load>
+            </el-tab-pane>
+
+            <el-tab-pane :label="`Blue Djin (${blue.length})`" v-if="blue.length">
+                <page-load class="items no-padding row" :loading="loadingItems">
+                    <item :info="item" :key="item.id" v-for="item in blue"/>
+                </page-load>
+            </el-tab-pane>
+
+            <el-tab-pane :label="`Green Djin (${green.length})`" v-if="green.length">
+                <page-load class="items no-padding row" :loading="loadingItems">
+                    <item :info="item" :key="item.id" v-for="item in green"/>
+                </page-load>
+            </el-tab-pane>
+
+            <el-tab-pane :label="`Yasir (${yasir.length})`" v-if="yasir.length">
+                <page-load class="items no-padding row" :loading="loadingItems">
+                    <item :info="item" :key="item.id" v-for="item in yasir"/>
+                </page-load>
+            </el-tab-pane>
+
+            <el-tab-pane :label="`Telas (${telas.length})`" v-if="telas.length">
+                <page-load class="items no-padding row" :loading="loadingItems">
+                    <item :info="item" :key="item.id" v-for="item in telas"/>
+                </page-load>
+            </el-tab-pane>
+
+            <el-tab-pane :label="`Others (${others.length})`" v-if="others.length">
+                <page-load class="items no-padding row" :loading="loadingItems">
+                    <item :info="item" :key="item.id" v-for="item in others"/>
+                </page-load>
+            </el-tab-pane>
+
+        </el-tabs>
     </page-load>
 </template>
 
-<script type="text/babel">
+<script>
+    import Item from './Item'
     import services from '../services'
-    import { debounce } from 'lodash'
 
     export default {
+        components: { Item },
+
         data () {
             return {
                 result: {},
-                lootLog: false,
-                lootBag: '',
-                password: '',
-                granted: false,
-                loading: true
+                items: [],
+                loadingItems: true
             }
         },
 
         computed: {
-            shareUrl () {
-                return window.location.href
-            },
-
-            teammates () {
-                if (this.result.teammates && this.result.teammates.length) {
-                    return this.result.teammates.length
-                }
-
-                return 0
-            },
-
-            profit () {
-                return this.result.loot_total - this.waste
-            },
-
-            waste () {
-                if (this.teammates) {
-                    const waste = this.result.teammates.map(teammate => parseInt(teammate.waste))
-
-                    return waste.reduce((carry, waste) => {
-                        return carry + waste;
+            rashid () {
+                return this.items && this.items.length
+                    ? this.items.filter(item => {
+                        return item.data.sells.filter(sell => sell.value == item.data.vendor_value).map(sell => sell.npc).filter(npc => npc.name == 'Rashid').length
                     })
-                }
-
-                return 0
-            },
-
-            npcs () {
-                if (this.result && this.result.items) {
-                    const flag = []
-
-                    return [].concat.apply([], this.result.items.map(item => {
-                        return item.data.sells.map(seller => {
-                            return {
-                                id: seller.id,
-                                name: seller.name,
-                                city: seller.city
-                            }
-                        })
-                    })).filter(npc => {
-                        if (flag[npc.id]) {
-                            return false
-                        }
-
-                        flag[npc.id] = true
-                        return true
-                    })
-                }
-            },
-
-            green () {
-                if (this.result && this.result.items) {
-                    return this.result.items.filter(item => {
-                        if (this.getBestNpc(item.data.sells)) {
-                            return this.getBestNpc(item.data.sells).npc.name == "Alesar" || this.getBestNpc(item.data.sells).npc.name == "Yaman"
-                        }
-                    })
-                }
-
-                return 0
+                    : []
             },
 
             blue () {
-                if (this.result && this.result.items) {
-                    return this.result.items.filter(item => {
-                        if (this.getBestNpc(item.data.sells)) {
-                            return this.getBestNpc(item.data.sells).npc.name == "Nah'Bob" || this.getBestNpc(item.data.sells).npc.name == "Haroun"
-                        }
+                return this.items && this.items.length
+                    ? this.items.filter(item => {
+                        return item.data.sells.filter(sell => sell.value == item.data.vendor_value).map(sell => sell.npc).filter(npc => npc.name == 'Nah\'Bob' || npc.name == 'Haroun').length
                     })
-                }
-
-                return 0
+                    : []
             },
 
-            rashid () {
-                if (this.result && this.result.items) {
-                    return this.result.items.filter(item => {
-                        if (this.getBestNpc(item.data.sells)) {
-                            return this.getBestNpc(item.data.sells).npc.name == "Rashid"
-                        }
+            green () {
+                return this.items && this.items.length
+                    ? this.items.filter(item => {
+                        return item.data.sells.filter(sell => sell.value == item.data.vendor_value).map(sell => sell.npc).filter(npc => npc.name == 'Alesar' || npc.name == 'Yaman').length
                     })
-                }
-
-                return 0
+                    : []
             },
 
             yasir () {
-                if (this.result && this.result.items) {
-                    return this.result.items.filter(item => {
-                        if (this.getBestNpc(item.data.sells)) {
-                            return this.getBestNpc(item.data.sells).npc.name == "Yasir"
-                        }
+                return this.items && this.items.length
+                    ? this.items.filter(item => {
+                        return item.data.sells.filter(sell => sell.value == item.data.vendor_value).map(sell => sell.npc).filter(npc => npc.name == 'Yasir').length
                     })
-                }
+                    : []
+            },
 
-                return 0
+            telas () {
+                return this.items && this.items.length
+                    ? this.items.filter(item => {
+                        return item.data.sells.filter(sell => sell.value == item.data.vendor_value).map(sell => sell.npc).filter(npc => npc.name == 'Telas').length
+                    })
+                    : []
             },
 
             others () {
-                if (this.result && this.result.items) {
-                    return this.result.items.filter(item => {
-                        if (item.data.sells && item.data.sells.length) {
-                            if (this.getBestNpc(item.data.sells)) {
-                                return this.getBestNpc(item.data.sells).npc.name != "Nah'Bob"
-                                        && this.getBestNpc(item.data.sells).npc.name != "Haroun"
-                                        && this.getBestNpc(item.data.sells).npc.name != "Yaman"
-                                        && this.getBestNpc(item.data.sells).npc.name != "Alesar"
-                                        && this.getBestNpc(item.data.sells).npc.name != "Yasir"
-                                        && this.getBestNpc(item.data.sells).npc.name != "Rashid"
-                            }
-                        }
-                    })
-                }
+                return this.items && this.items.length
+                    ? this.items.filter(item => {
+                        const npcs = item.data.sells.filter(sell => sell.value == item.data.vendor_value).map(sell => sell.npc).length
+                        const filteredNpcs =  item.data.sells.filter(sell => sell.value == item.data.vendor_value).map(sell => sell.npc).filter(npc =>
+                            npc.name != 'Rashid' && npc.name != 'Nah\'Bob'
+                            && npc.name != 'Haroun' && npc.name != 'Alesar'
+                            && npc.name != 'Yaman' && npc.name != 'Yasir'
+                            && npc.name != 'Telas'
+                        ).length
 
-                return 0
+                        return npcs == filteredNpcs
+                    })
+                    : []
+            },
+
+            statistics () {
+                return {
+                    itemsPerNPC: [
+                        ['Rashid', (this.rashid.length * 100) / this.items.length],
+                        ['Blue Djin', (this.blue.length * 100) / this.items.length],
+                        ['Green Djin', (this.green.length * 100) / this.items.length],
+                        ['Yasir', (this.yasir.length * 100) / this.items.length],
+                        ['Telas', (this.telas.length * 100) / this.items.length],
+                        ['Others', (this.others.length * 100) / this.items.length],
+                    ],
+                    valuePerNPC: [
+                        ['Rashid', this.getTotalValue(this.rashid)],
+                        ['Blue Djin', this.getTotalValue(this.blue)],
+                        ['Green Djin', this.getTotalValue(this.green)],
+                        ['Yasir', this.getTotalValue(this.yasir)],
+                        ['Telas', this.getTotalValue(this.telas)],
+                        ['Others', this.getTotalValue(this.others)],
+                    ]
+                }
+            },
+
+            amountChartOptions () {
+                return {
+                    chart: {
+                        plotBackgroundColor: null,
+                        plotBorderWidth: 0,
+                        plotShadow: false,
+                        height: 200
+                    },
+                    title: {
+                        text: 'Items',
+                        align: 'center',
+                        verticalAlign: 'middle',
+                        y: 40
+                    },
+                    tooltip: { pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>' },
+                    plotOptions: {
+                        pie: {
+                            dataLabels: {
+                                enabled: false,
+                            },
+                            startAngle: -90,
+                            endAngle: 90,
+                            center: ['50%', '75%']
+                        }
+                    },
+                    series: [{
+                        type: 'pie',
+                        name: 'Amount of items',
+                        innerSize: '50%',
+                        data: this.statistics.itemsPerNPC
+                    }],
+                    credits: { enabled: false }
+                }
+            },
+
+            valueChartOptions () {
+                return {
+                    chart: {
+                        plotBackgroundColor: null,
+                        plotBorderWidth: 0,
+                        plotShadow: false,
+                        height: 200
+                    },
+                    title: {
+                        text: 'Money',
+                        align: 'center',
+                        verticalAlign: 'middle',
+                        y: 40
+                    },
+                    tooltip: { pointFormat: '{series.name}: <b>{point.y} gp</b>' },
+                    plotOptions: {
+                        pie: {
+                            dataLabels: {
+                                enabled: false,
+                            },
+                            startAngle: -90,
+                            endAngle: 90,
+                            center: ['50%', '75%']
+                        }
+                    },
+                    series: [{
+                        type: 'pie',
+                        name: 'Total in GP\'s',
+                        innerSize: '50%',
+                        data: this.statistics.valuePerNPC
+                    }],
+                    credits: { enabled: false }
+                }
             }
         },
 
         methods: {
-            getBestNpc (npcs) {
-                let index = 0
-                const buyers = npcs.filter(npc => npc.value == Math.max.apply(Math, npcs.map(npc => npc.value)))
+            load () {
+                services.find(this.$route.params.id)
+                    .then(response => {
+                        this.result = response.data
 
-                if (this.isMainNPC(buyers, 'Yasir')) {
-                    index = this.isMainNPC(buyers, 'Yasir')
-                } else if (this.isMainNPC(buyers, "Nah'Bob")) {
-                    index = this.isMainNPC(buyers, "Nah'Bob")
-                } else if (this.isMainNPC(buyers, 'Haroun')) {
-                    index = this.isMainNPC(buyers, 'Haroun')
-                } else if (this.isMainNPC(buyers, 'Alesar')) {
-                    index = this.isMainNPC(buyers, 'Alesar')
-                } else if (this.isMainNPC(buyers, 'Yaman')) {
-                    index = this.isMainNPC(buyers, 'Yaman')
-                } else if (this.isMainNPC(buyers, 'Rashid')) {
-                    index = this.isMainNPC(buyers, 'Rashid')
-                }
-
-                return buyers[index]
-            },
-
-            isMainNPC (npcs, npc) {
-                return npcs.map(npc => npc.npc.name).indexOf(npc) > -1 ? npcs.map(npc => npc.npc.name).indexOf(npc) : false
-            },
-
-            load (refresh = false) {
-                this.loading = true
-
-                services.find(this.$route.params.id, this.password)
-                        .then(response => {
-                            this.result = response.data
-
-                            if (response.data.password) {
-                                this.granted = true
-                            }
-
-                            if (refresh) {
-                                this.$message({
-                                    message: `The teamhunt data was refreshed.`,
-                                    type: 'success'
-                                })
-                            }
-
-                            this.loading = false
-                        })
-                        .catch(() => {
-                            this.loading = false
-                        })
-            },
-
-            updateItem: debounce(function (item) {
-                if (this.granted) {
-                    if (item.quantity == 0 || item.quantity == null || item.quantity == '') {
-                        this.$confirm('If you change the amount to 0 the item will be deleted from loot and will not be possible to calculate it again.', 'Are you sure?', {
-                            type: 'error',
-                            cancelButtonText: 'Cancel',
-                            confirmButtonText: 'Confirm'
-                        }).then(() => {
-                            this.updateItemInDatabase(item)
-                        }).catch(() => {
-                            this.load()
-                        })
-                    } else {
-                        this.updateItemInDatabase(item)
-                    }
-                }
-            }, 300),
-
-            removeItem (item) {
-                item.quantity = 0
-
-                this.$confirm('If you remove the item you will not be possible to add it again.', 'Are you sure?', {
-                    type: 'error',
-                    cancelButtonText: 'Cancel',
-                    confirmButtonText: 'Confirm'
-                }).then(() => {
-                    this.updateItemInDatabase(item)
-                }).catch(() => {
-                    this.load()
-                })
-            },
-
-            updateItemInDatabase (item) {
-                services.updateItem(this.$route.params.id, item, this.password)
-                        .then(response => {
-                            this.$message({
-                                message: `The Loot list has been updated.`,
-                                type: 'success'
-                            })
-                            this.load()
-                        })
-            },
-
-            updateTeammate: debounce(function (teammate) {
-                if (this.granted) {
-                    services.updateTeammate(this.$route.params.id, teammate, this.password)
+                        services.fetchItems(response.data.id)
                             .then(response => {
-                                this.$message({
-                                    message: `The "${teammate.character}" waste has been updated.`,
-                                    type: 'success'
-                                })
-                                this.load()
+                                this.items = response.data
+                                this.loadingItems = false
                             })
-                }
-            }, 300),
-
-            signPassword () {
-                localStorage.setItem(`hunt_${this.$route.params.id}_password`, this.password)
-
-                this.load()
+                            .catch(() => this.loadingItems = false)
+                    })
             },
 
-            selectPassword () {
-                this.$refs.password.$el.select()
-            }
+            getTotalValue (items) {
+                return items.reduce((carry, item) => {
+                    return carry + (item.quantity * item.unit_price)
+                }, 0)
+            },
         },
 
         mounted () {
-            if (this.$route.query.password) {
-                localStorage.setItem(`hunt_${this.$route.params.id}_password`, this.$route.query.password)
-                this.password = this.$route.query.password
-            }
-
-            this.password = localStorage.getItem(`hunt_${this.$route.params.id}_password`)
             this.load()
         }
     }

@@ -3,6 +3,10 @@ export default {
         return window.axios.get(`teamhunt/${id}`, { params: { password } })
     },
 
+    fetchItems (id) {
+        return window.axios.get(`teamhunt/${id}/items`)
+    },
+
     updateItem(teamhuntId, item, password) {
         const itemId = item.item_id
         const params = {
