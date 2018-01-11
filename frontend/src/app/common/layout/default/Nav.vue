@@ -142,7 +142,7 @@
                     <router-link :to="{ name: 'tools.timer' }" tag="li">
                         <a href="">
                             <span class="left">
-                                <img :src="image_path_by_name('item', 'gold token')">
+                                <img :src="image_path_by_name('item', 'Ancient Watch')">
                             </span>
                             <span class="center">
                                 <span>Task & Boss</span>

@@ -116,6 +116,13 @@
                     </card>
                 </router-link>
 
+                <router-link :to="{ name: 'tools.timer' }" slot="anchor">
+                    <card title="Task & Boss" subtitle="Timer">
+                        <img :src="image_path_by_name('item', 'Ancient Watch')" slot="icon">
+                        <i class="mdi mdi-chevron-right"></i>
+                    </card>
+                </router-link>
+
                 <!--<router-link :to="{ name: 'tools.huntingspots' }" slot="anchor">-->
                     <!--<card title="Hunting" subtitle="Spots">-->
                         <!--<img :src="image_path_by_name('item', 'map')" slot="icon">-->
