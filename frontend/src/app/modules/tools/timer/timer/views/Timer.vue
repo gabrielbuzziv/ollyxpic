@@ -1,7 +1,7 @@
 <template>
     <panel class="timer">
         <div class="thumb">
-            <img :src="image_path('creature', boss.id)" alt="">
+            <!--<img :src="image_path('creature', boss.id)" alt="">-->
         </div>
 
         <div class="data">
@@ -38,7 +38,7 @@
 
 <script>
     export default {
-        props: ['timer', 'boss'],
+        props: ['timer', 'boss', 'timers'],
 
         data () {
             return {
@@ -74,6 +74,10 @@
                 clearInterval(this.interval)
                 this.timer.last_time = moment()
 
+                const index = this.timers.indexOf(this.timer)
+                this.timers[index].last_time = moment()
+                localStorage.setItem('timers', JSON.stringify(this.timers))
+
                 this.startTimer()
             },
 
@@ -82,7 +86,26 @@
                 this.timer.last_time = null
                 this.countdown = 0
 
+                const index = this.timers.indexOf(this.timer)
+                this.timers[index].last_time = null
+                localStorage.setItem('timers', JSON.stringify(this.timers))
+
                 this.startTimer()
+            },
+
+            getTimer (timers) {
+                const storage = timers.map(timer => {
+                    return { boss: timer.boss }
+                })
+
+                const timer = { boss: this.timer.boss }
+
+                console.log(storage)
+                console.log(timer)
+
+                console.log(storage.indexOf(timer))
+
+                return storage.indexOf(timer)
             }
         },
 

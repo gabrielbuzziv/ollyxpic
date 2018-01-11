@@ -27,7 +27,7 @@
 
         <div class="row timers" v-if="timers">
             <div class="col-md-4" v-for="timer in timers">
-                <timer :timer="timer" :boss="getBoss(timer.boss)"/>
+                <timer :timer="timer" :boss="getBoss(timer.boss)" :timers="timers"/>
             </div>
         </div>
 
