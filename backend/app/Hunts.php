@@ -29,7 +29,7 @@ class Hunts extends Model
      *
      * @var array
      */
-    protected $hidden = ['password'];
+    protected $hidden = ['password', 'loot'];
 
     /**
      * A hunt has many items.

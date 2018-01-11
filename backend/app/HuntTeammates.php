@@ -19,6 +19,8 @@ class HuntTeammates extends Model
         'profit'
     ];
 
+
+
     /**
      * A teammate belongs to a hunt.
      *

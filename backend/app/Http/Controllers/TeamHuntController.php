@@ -102,6 +102,8 @@ class TeamHuntController extends Controller
      */
     public function find(Hunts $hunt)
     {
+        $hunt = Hunts::with('teammates')->find($hunt->id);
+
         if ($_SERVER['REMOTE_ADDR'] == $hunt->owner || request()->input('password') == $hunt->password) {
             $password = ['password' => $hunt->password];
 

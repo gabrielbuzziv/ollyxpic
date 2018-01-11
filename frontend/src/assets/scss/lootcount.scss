@@ -5,6 +5,82 @@
         }
     }
 
+    .headers {
+        h4 {
+            font-size: 20px;
+            font-weight: 300;
+            display: block;
+            margin: 0 0 20px;
+        }
+        
+        .btn-title {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        section {
+            display: block;
+        }
+
+        .chart {
+            section {
+                margin-top: 20px;
+                text-align: center;
+            }
+        }
+
+        .waste,
+        .profit {
+            height: 130px;
+
+            b {
+                font-size: 24px;
+                font-weight: 400;
+                line-height: 48px;
+                display: inline-block;
+                vertical-align: baseline;
+            }
+        }
+
+        .with-teammates {
+            .waste,
+            .profit {
+                b {
+                    font-size: 18px;
+                    font-weight: 300;
+                }
+            }
+        }
+
+        .teammates {
+            height: 282px;
+
+            table {
+                tr {
+                    th,
+                    td {
+                        font-size: 12px;
+                        font-weight: 300;
+                        padding: 2px 10px;
+
+                        &:first-child {
+                            padding-left: 0;
+                        }
+
+                        &:last-child {
+                            padding-right: 0;
+                        }
+                    }
+
+                    th {
+                        padding-bottom: 10px;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+
     .npc-title {
         margin: 0 0 40px;
         display: block;
@@ -17,6 +93,8 @@
     }
 
     .el-tabs {
+        margin-top: 40px;
+
         .el-tabs__item {
             &.is-active {
                 //background: #fff;
@@ -130,6 +208,30 @@
                 .price {
                     display: inline-block;
                     width: calc(70% - 10px);
+                }
+
+                .quantityLabel,
+                .priceLabel {
+                    display: inline-block;
+                    width: calc(50% - 7px);
+                    margin-right: 5px;
+                    text-align: center;
+
+                    span {
+                        display: block;
+                        font-weight: 300;
+                        font-size: 14px;
+                    }
+
+                    b {
+                        font-weigth: 600;
+                        font-size: 16px;
+                    }
+                }
+
+                .priceLabel {
+                    margin-right: 0;
+                    margin-left: 5px;
                 }
             }
         }
