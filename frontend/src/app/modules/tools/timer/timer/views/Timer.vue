@@ -5,14 +5,14 @@
         </button>
 
         <div class="thumb">
-            <!--<img :src="image_path('creature', boss.id)" alt="">-->
+            <!--<img :src="image_path(option.type, option.image)" alt="">-->
         </div>
 
         <div class="data">
-            <span class="name">{{ boss.name }}</span>
+            <span class="name">{{ option.name }}</span>
             <span class="respawn">
-                <b>Respawn Time:</b>
-                {{ boss.respawn / 60 }} hours
+                <b>Wait Time:</b>
+                {{ option.time / 60 }} hours
             </span>
 
             <span class="character">{{ timer.character }}</span>
@@ -41,8 +41,10 @@
 </template>
 
 <script>
+    import Options from './Options'
+
     export default {
-        props: ['timer', 'boss', 'timers'],
+        props: ['timer', 'timers'],
 
         data () {
             return {
@@ -51,25 +53,39 @@
             }
         },
 
+        computed: {
+            option () {
+                return Options[Options.map(option => option.id).indexOf(this.timer.id)]
+            }
+        },
+
         methods: {
             startTimer () {
-                const respawnTime = this.boss.respawn
+                const waitTime = this.option.time
                 const lastTime = this.timer.last_time
-                const nextRespawn = moment(lastTime).add(respawnTime, 'minutes')
+                const nextRespawn = moment(lastTime).add(waitTime, 'minutes')
 
-                this.interval = setInterval(() => {
+                if (this.timer.last_time != null) {
                     const diffTime = moment(nextRespawn).diff(moment())
                     const duration = moment.duration(diffTime)
-                    this.countdown = this.getHours(duration.asHours()) + moment.utc(duration.asMilliseconds()).format(":mm:ss")
-                }, 1000)
 
-                if (this.timer.last_time == null) {
+                    if (duration.days() < 1) {
+                        this.countdown = this.getHours(duration.asHours()) + moment.utc(duration.asMilliseconds()).format(":mm:ss")
+                        this.interval = setInterval(() => {
+                            const diffTime = moment(nextRespawn).diff(moment())
+                            const duration = moment.duration(diffTime)
+                            this.countdown = this.getHours(duration.asHours()) + moment.utc(duration.asMilliseconds()).format(":mm:ss")
+                        }, 1000)
+                    } else {
+                        this.countdown = `${duration.days() + 1} days`
+                    }
+                } else {
                     clearInterval(this.interval)
                 }
             },
 
             getHours (hours) {
-                hours = Math.floor(hours)
+                hours = Math.floor(Math.abs(hours))
 
                 return hours >= 10 ? hours : `0${hours}`
             },

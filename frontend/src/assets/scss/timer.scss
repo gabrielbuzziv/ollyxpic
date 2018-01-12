@@ -1,18 +1,31 @@
 #timer {
-    .add {
+    .addPanel {
+        .el-cascader {
+            width: 100%;
+
+            .el-input {
+                input {
+                    height: 50px;
+                    line-height: 50px;
+                }
+            }
+
+            .el-cascader__label {
+                line-height: 50px;
+                font-weight: 300;
+            }
+        }
+
         .form-control {
-            display: inline-block;
-            margin-right: 5px;
-            width: 150px;
-            vertical-align: top;
+            height: 50px;
+            line-height: 50px;
+            font-weight: 300;
         }
 
         .btn {
-            display: inline-block;
-            vertical-align: top;
-            padding: 0 12px;
-            height: 36px;
-            line-height: 36px;
+            height: 50px;
+            line-height: 50px;
+            padding: 0 20px;
         }
     }
 
