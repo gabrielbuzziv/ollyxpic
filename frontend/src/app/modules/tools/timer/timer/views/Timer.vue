@@ -4,8 +4,12 @@
             <i class="mdi mdi-close"></i>
         </button>
 
+        <span class="type" :class="[timer.type == 'bosses' ? 'boss' : 'task']">
+            {{ timer.type == 'bosses' ? 'Boss' : 'Task' }}
+        </span>
+
         <div class="thumb">
-            <!--<img :src="image_path(option.type, option.image)" alt="">-->
+            <img :src="image_path(option.type, option.image)" alt="">
         </div>
 
         <div class="data">
@@ -96,7 +100,7 @@
 
                 const index = this.timers.indexOf(this.timer)
                 this.timers[index].last_time = moment()
-                localStorage.setItem('timers', JSON.stringify(this.timers))
+                localStorage.setItem('boss_task_timers', JSON.stringify(this.timers))
 
                 this.startTimer()
             },
@@ -108,7 +112,7 @@
 
                 const index = this.timers.indexOf(this.timer)
                 this.timers[index].last_time = null
-                localStorage.setItem('timers', JSON.stringify(this.timers))
+                localStorage.setItem('boss_task_timers', JSON.stringify(this.timers))
 
                 this.startTimer()
             },
@@ -121,7 +125,7 @@
                 }).then(() => {
                     const index = this.timers.indexOf(this.timer)
                     this.timers.splice(index, 1)
-                    localStorage.setItem('timers', JSON.stringify(this.timers))
+                    localStorage.setItem('boss_task_timers', JSON.stringify(this.timers))
                 })
             }
         },

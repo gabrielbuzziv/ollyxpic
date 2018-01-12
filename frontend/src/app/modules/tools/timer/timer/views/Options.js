@@ -65,10 +65,15 @@ export default [
     // Tasks
 
     // Warzone 1, 2, 3
-    { id: 46, image: 1940, type: 'creature', time: 1200, name: 'Deathstrike' },
-    { id: 47, image: 1939, type: 'creature', time: 1200, name: 'Gnomevil' },
-    { id: 48, image: 1941, type: 'creature', time: 1200, name: 'Abyssador' },
-    { id: 49, image: 2405, type: 'creature', time: 1200, name: 'The Baron from Below' },
-    { id: 50, image: 2407, type: 'creature', time: 1200, name: 'The Count Of The Core' },
-    { id: 51, image: 2408, type: 'creature', time: 1200, name: 'The Duke Of The Depths' },
+    { id: 46, image: 2258, type:     'item', time: 1200, name: 'Crystal Keeper' },
+    { id: 47, image: 2257, type:     'item', time: 1200, name: 'Raiders of the Lost Spark' },
+    { id: 48, image: 1938, type: 'creature', time: 1200, name: 'Extermination' },
+    { id: 49, image: 2250, type:     'item', time: 1200, name: 'Mushroom Digging' },
+    { id: 50, image: 2262, type:     'item', time: 1200, name: 'Matchmaker' },
+    { id: 51, image: 2263, type:     'item', time: 1200, name: 'The Tinker\'s Bell' },
+    { id: 52, image: 2264, type:     'item', time: 1200, name: 'Spores' },
+    { id: 53, image: 'Whetstones', type:   'object', time: 1200, name: 'Yet Another Grinding' },
+
+    // Rottin Wood
+    { id: 54, image: 1875, type:     'item', time: 1200, name: 'Lucky Charm' },
 ]

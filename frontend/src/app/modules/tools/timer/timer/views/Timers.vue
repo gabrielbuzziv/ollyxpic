@@ -81,6 +81,13 @@
                         { label: 'The Curse Spreads', value: 7, children: this.getOption(35, 39) },
                         { label: 'Warzone', value: 8, children: this.getOption(40, 45) },
                     ],
+                },{
+                    label: 'Tasks',
+                    value: 'tasks',
+                    children: [
+                        { label: 'Bigfoot Burden', value: 9, children: this.getOption(46, 53) },
+                        { label: 'Rottin Wood', value: 10, children: this.getOption(54, 54) },
+                    ],
                 }]
             },
         },
@@ -90,16 +97,14 @@
                 if (! this.isValid())
                     return false
 
-                console.log(this.option[2])
-
-                const timer = { id: this.option[2], character: this.newTimer.character, last_time: null }
-                let timers = JSON.parse(localStorage.getItem('timers')) || []
+                const timer = { id: this.option[2], character: this.newTimer.character, last_time: null, type: this.option[0] }
+                let timers = JSON.parse(localStorage.getItem('boss_task_timers')) || []
 
                 timers.length
                     ? timers.push(timer)
                     : timers = [timer]
 
-                localStorage.setItem('timers', JSON.stringify(timers))
+                localStorage.setItem('boss_task_timers', JSON.stringify(timers))
                 this.timers = timers
 
                 this.newTimer = { character: null }
@@ -129,7 +134,7 @@
         },
 
         mounted () {
-            this.timers = JSON.parse(localStorage.getItem('timers'))
+            this.timers = JSON.parse(localStorage.getItem('boss_task_timers'))
         }
     }
 </script>
