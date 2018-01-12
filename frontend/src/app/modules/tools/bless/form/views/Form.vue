@@ -17,6 +17,7 @@
 
                     <div class="col-md-6">
                         <el-checkbox v-model="settings.promoted">Promotion</el-checkbox>
+                        <el-checkbox v-model="settings.hardcore">Retro Hardcore PVP</el-checkbox>
                     </div>
                 </div>
             </panel>
@@ -94,7 +95,8 @@
             return {
                 settings: {
                     level: 0,
-                    promoted: false
+                    promoted: false,
+                    hardcore: false
                 },
 
                 blesses: [0, 1, 2, 3, 4, 5, 6, 7],
@@ -129,6 +131,7 @@
             getPenalty (bless) {
                 const level = parseInt(this.settings.level)
                 const promoted = this.settings.promoted
+                const hardcore = this.settings.hardcore
                 const experience = this.experience
 
                 if (level > 0) {
@@ -143,7 +146,9 @@
                     const promotedPercentage = promoted ? 30 : 0
                     const blessPercentage = (100 - ((8 * bless) + promotedPercentage)) / 100
 
-                    return (penalty * blessPercentage).formatMoney(0, '.', '.')
+                    return hardcore
+                        ? (penalty * blessPercentage * 1.16).formatMoney(0, '.', '.')
+                        : (penalty * blessPercentage).formatMoney(0, '.', '.')
                 }
 
                 return 0
