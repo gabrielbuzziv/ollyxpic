@@ -1,7 +1,11 @@
 <template>
     <panel class="timer">
+        <button class="btn btn-remove" @click.prevent="remove">
+            <i class="mdi mdi-close"></i>
+        </button>
+
         <div class="thumb">
-            <img :src="image_path('creature', boss.id)" alt="">
+            <!--<img :src="image_path('creature', boss.id)" alt="">-->
         </div>
 
         <div class="data">
@@ -93,19 +97,16 @@
                 this.startTimer()
             },
 
-            getTimer (timers) {
-                const storage = timers.map(timer => {
-                    return { boss: timer.boss }
+            remove () {
+                this.$confirm('Are you sure you want to remove this timer?', 'Remove timer', {
+                    confirmButtonText: 'Yes, remove it',
+                    cancelButtonText: 'Cancel',
+                    type: 'error'
+                }).then(() => {
+                    const index = this.timers.indexOf(this.timer)
+                    this.timers.splice(index, 1)
+                    localStorage.setItem('timers', JSON.stringify(this.timers))
                 })
-
-                const timer = { boss: this.timer.boss }
-
-                console.log(storage)
-                console.log(timer)
-
-                console.log(storage.indexOf(timer))
-
-                return storage.indexOf(timer)
             }
         },
 
