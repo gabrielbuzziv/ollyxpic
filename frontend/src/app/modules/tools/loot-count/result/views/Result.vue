@@ -22,6 +22,10 @@
 
                     <section>
                         <highcharts id="npcAmount" :options="amountChartOptions"/>
+
+                        <div class="total">
+                            {{ items.length }} items
+                        </div>
                     </section>
                 </panel>
             </div>
@@ -32,11 +36,23 @@
 
                     <section>
                         <highcharts id="npcValue" :options="valueChartOptions"/>
+
+                        <div class="total">
+                            {{ total.format() }} gp
+                        </div>
                     </section>
                 </panel>
             </div>
 
             <div class="col-md-2" :class="{ 'col-md-4': ! teammates.length, 'with-teammates': teammates.length }">
+                <panel class="waste">
+                    <h4>Loot</h4>
+
+                    <section>
+                        <b>{{ total.format() }} gp</b>
+                    </section>
+                </panel>
+
                 <panel class="waste">
                     <h4>Waste</h4>
 
@@ -216,6 +232,10 @@
                 return this.result && this.result.teammates ? this.result.teammates : []
             },
 
+            total () {
+                return (this.items.reduce((carry, item) => carry + (item.quantity * item.unit_price), 0))
+            },
+
             waste () {
                 return this.teammates
                     ? this.teammates.reduce((carry, teammate) => carry + parseInt(teammate.waste), 0)
@@ -223,7 +243,7 @@
             },
 
             profit () {
-                return (this.items.reduce((carry, item) => carry + (item.quantity * item.unit_price), 0) - this.waste)
+                return this.total - this.waste
             },
 
             rashid () {
@@ -394,11 +414,11 @@
             },
 
             getTeammatePayment (teammate) {
-                return (this.profit / 4) + parseInt(teammate.waste)
+                return (this.profit / this.teammates.length) + parseInt(teammate.waste)
             },
 
             getTeammateProfitWaste (teammate) {
-                return this.profit / 4
+                return this.profit / this.teammates.length
             },
 
             updateTeammateWaste: debounce(function (teammate) {
