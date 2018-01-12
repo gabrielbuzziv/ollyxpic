@@ -8,6 +8,7 @@ use App\Helper\GifFrameExtractor;
 use App\Item;
 use App\NPC;
 use App\Spells;
+use App\WikiWorldObjects;
 use App\WorldMap;
 use App\WorldObject;
 use GIFEndec\Decoder;
@@ -122,7 +123,7 @@ class ImageController extends Controller
             case 'item':
                 return Item::find($id)->image;
             case 'object':
-                return WorldObject::find($id)->image;
+                return WikiWorldObjects::where('title', $id)->first()->image;
             case 'spell':
                 return Spells::find($id)->image;
             case 'creature':
