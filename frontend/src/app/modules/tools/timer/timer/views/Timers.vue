@@ -8,6 +8,10 @@
             </div>
         </page-title>
 
+        <div class="alert alert-info">
+            <p>We changes the timer structure and forced reset the timers, now you have more possibilites and is working better.</p>
+        </div>
+
         <panel class="addPanel">
             <div class="row">
                 <div class="col-md-5">
@@ -36,18 +40,6 @@
                 <timer :timer="timer" :timers="timers"/>
             </div>
         </div>
-
-        <!--<panel v-else>-->
-        <!--The <b>Task & Boss Timer</b> will help you to organize you boss timers for every character you have.<br>-->
-        <!--You can manage multiple timers for multiple bosses and characters, all data will be stored in you browser,-->
-        <!--so you just need to create the timers one time and they will be there for you.<br><br>-->
-
-        <!--To start using, click on the button-->
-        <!--<span class="label label-success">-->
-        <!--<i class="mdi mdi-plus margin-right-5"></i>-->
-        <!--Add Timer-->
-        <!--</span>-->
-        <!--</panel>-->
     </page-load>
 </template>
 
