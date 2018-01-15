@@ -28,6 +28,7 @@ class PageController extends Controller
         Mail::send('email', $data, function ($message) use ($data) {
             $message->from($data['email']);
             $message->subject($data['subject']);
+            $message->replyTo($data['email']);
             $message->to('ollyxpic@gmail.com');
         });
     }
