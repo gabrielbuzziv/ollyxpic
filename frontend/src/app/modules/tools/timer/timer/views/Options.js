@@ -16,7 +16,7 @@ export default [
     { id: 10, image: 2158, type: 'creature', time:  2880, name: 'Plagirath' },
     { id: 11, image: 2159, type: 'creature', time:  2880, name: 'Shulgrax' },
     { id: 12, image: 2160, type: 'creature', time:  2880, name: 'Tarbaz' },
-    { id: 13, image: 2165, type: 'creature', time: 20160, name: 'Ferumbras\' Mortal Schell' },
+    { id: 13, image: 2165, type: 'creature', time: 20160, name: 'Ferumbras\' Mortal Shell' },
 
     // Hearth of Destruction
     { id: 14, image: 2189, type: 'creature', time:  1200, name: 'Anomaly' },
