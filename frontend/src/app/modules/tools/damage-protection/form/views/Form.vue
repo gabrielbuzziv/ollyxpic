@@ -35,14 +35,11 @@
                              :key="category.id"
                              :active="index == 0"
                              @active="loadItems(category)">
-                    <div class="item"
-                         :class="{ 'active': isActiveItem(item, category.slot) }"
-                         v-for="item in items"
-                         :key="item.id">
-
-                        <img :src="image_path('item', item.id)"
-                             @click.prevent="onSelect(item, category.slot)">
-                    </div>
+                    <item :item="item"
+                          :active="isActiveItem(item, category.slot)"
+                          :key="item.id"
+                          v-for="item in items"
+                          @selected="onSelect(item, category.slot)"/>
                 </tab-content>
             </div>
         </div>
@@ -219,10 +216,13 @@
 </template>
 
 <script type="text/babel">
+    import Item from './Item'
     import services from '../services'
     import { isEmpty, forEach, reduce } from 'lodash'
 
     export default {
+        components: { Item },
+
         data () {
             return {
                 categories: [],
