@@ -31,40 +31,16 @@
 
     .timers {
         .timer {
+            height: 180px;
             position: relative;
+            border-left: 4px solid #000;
 
-            .btn-remove {
-                position: absolute;
-                top: 0;
-                right: 0;
-                padding: 3px 6px;
-                border-top-left-radius: 0;
-                border-top-right-radius: 0;
-                border-bottom-right-radius: 0;
-                background: $brand-danger;
-                color: #fff;
+            &.task {
+                border-color: #27ae60;
             }
 
-            .type {
-                font-size: 12px;
-                font-weight: 300;
-                position: absolute;
-                top: 0;
-                left: 0;
-                padding: 3px 6px;
-                border-top-left-radius: 0;
-                border-top-right-radius: 0;
-                border-bottom-right-radius: $border-radius-base;
-                border-bottom-left-radius: 0;
-                color: #fff;
-
-                &.boss {
-                    background: $brand-primary;
-                }
-
-                &.task {
-                    background: $brand-warning;
-                }
+            &.boss {
+                border-color: #2980b9;
             }
 
             .thumb {
@@ -81,45 +57,52 @@
 
                 .name {
                     display: block;
-                    font-size: 16px;
+                    font-size: 14px;
                     font-weight: 600;
-                }
-
-                .respawn {
-                    display: block;
-                    font-size: 12px;
-                    font-weight: 300;
-                    color: #999;
-                    margin-bottom: 15px;
-                    font-style: italic;
-
-                    b {
-                        font-weight: 400;
-                    }
+                    margin-bottom: 5px;
                 }
 
                 .character {
                     display: block;
-                    font-weight: 600;
-                    font-size: 14px;
-                    margin-bottom: 10px;
+                    font-weight: 300;
+                    font-size: 12px;
+                    margin-bottom: 20px;
                 }
 
-                .countdown {
+                .info {
                     display: block;
-                    font-size: 30px;
-                    font-weight: 300;
+                    width: 100%;
 
                     .available {
+                        height: 23px;
+                        line-height: 23px;
+                        display: block;
+                        font-size: 18px;
+                        font-weight: 300;
                         color: $brand-success;
                     }
 
-                    .btn-reset {
-                        border-radius: 200px;
-                        vertical-align: middle;
-                        display: inline-block;
-                        padding: 5px 8px;
-                        font-size: 10px;
+                    .countdown {
+                        height: 23px;
+                        line-height: 23px;
+                        display: block;
+                        font-size: 24px;
+                        font-weight: 300;
+                    }
+
+                    .buttons {
+                        display: block;
+                        margin-top: 20px;
+
+                        button {
+                            &.btn {
+                                font-size: 10px;
+                                font-weight: 300;
+                                padding: 0 10px;
+                                height: 25px;
+                                line-height: 25px;
+                            }
+                        }
                     }
                 }
             }

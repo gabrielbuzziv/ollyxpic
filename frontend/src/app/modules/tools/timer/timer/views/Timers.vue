@@ -77,8 +77,9 @@
                     label: 'Tasks',
                     value: 'tasks',
                     children: [
-                        { label: 'Bigfoot Burden', value: 9, children: this.getOption(46, 53) },
-                        { label: 'Rottin Wood', value: 10, children: this.getOption(54, 54) },
+                        { label: 'Bigfoot Burden', value: 9, children: this.getOption(46, 54) },
+                        { label: 'Dangerous Depths', value: 10, children: this.getOption(55, 64) },
+                        { label: 'Rottin Wood', value: 11, children: this.getOption(55, 55) },
                     ],
                 }]
             },

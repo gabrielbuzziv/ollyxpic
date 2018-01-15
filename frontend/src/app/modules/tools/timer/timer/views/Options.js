@@ -12,7 +12,7 @@ export default [
     { id:  6, image: 2163, type: 'creature', time:  2880, name: 'Ragiaz' },
     { id:  7, image: 2164, type: 'creature', time:  2880, name: 'Razzagorn' },
     { id:  8, image: 2161, type: 'creature', time:  2880, name: 'Mazoran' },
-    { id:  9, image: 2461, type: 'creature', time:  2880, name: 'Zamulosh' },
+    { id:  9, image: 2162, type: 'creature', time:  2880, name: 'Zamulosh' },
     { id: 10, image: 2158, type: 'creature', time:  2880, name: 'Plagirath' },
     { id: 11, image: 2159, type: 'creature', time:  2880, name: 'Shulgrax' },
     { id: 12, image: 2160, type: 'creature', time:  2880, name: 'Tarbaz' },
@@ -29,8 +29,8 @@ export default [
     // Forgotten Knowledge
     { id: 20, image: 2240, type: 'creature', time:  1200, name: 'Lady Tenebris' },
     { id: 21, image: 2262, type: 'creature', time:  1200, name: 'Lloyd' },
-    { id: 22, image: 2276, type: 'creature', time:  1200, name: 'Dragonking Zyrtarch' },
-    { id: 23, image: 2235, type: 'creature', time:  1200, name: 'Thron Knight' },
+    { id: 22, image: 2235, type: 'creature', time:  1200, name: 'Dragonking Zyrtarch' },
+    { id: 23, image: 2276, type: 'creature', time:  1200, name: 'Thron Knight' },
     { id: 24, image: 2275, type: 'creature', time:  1200, name: 'Melting Frozen Horror' },
     { id: 25, image: 2239, type: 'creature', time:  1200, name: 'The Time Guardian' },
     { id: 26, image: 2279, type: 'creature', time: 20160, name: 'The Last Lore Keeper' },
@@ -65,15 +65,27 @@ export default [
     // Tasks
 
     // Warzone 1, 2, 3
-    { id: 46, image: 2258, type:     'item', time: 1200, name: 'Crystal Keeper' },
-    { id: 47, image: 2257, type:     'item', time: 1200, name: 'Raiders of the Lost Spark' },
-    { id: 48, image: 1938, type: 'creature', time: 1200, name: 'Extermination' },
-    { id: 49, image: 2250, type:     'item', time: 1200, name: 'Mushroom Digging' },
-    { id: 50, image: 2262, type:     'item', time: 1200, name: 'Matchmaker' },
-    { id: 51, image: 2263, type:     'item', time: 1200, name: 'The Tinker\'s Bell' },
-    { id: 52, image: 2264, type:     'item', time: 1200, name: 'Spores' },
-    { id: 53, image: 'Whetstones', type:   'object', time: 1200, name: 'Yet Another Grinding' },
+    { id: 46, time: 1200, name: 'Old Warzone Tasks' },
+    { id: 47, time: 1200, name: 'Crystal Keeper' },
+    { id: 48, time: 1200, name: 'Raiders of the Lost Spark' },
+    { id: 49, time: 1200, name: 'Extermination' },
+    { id: 50, time: 1200, name: 'Mushroom Digging' },
+    { id: 51, time: 1200, name: 'Matchmaker' },
+    { id: 52, time: 1200, name: 'The Tinker\'s Bell' },
+    { id: 53, time: 1200, name: 'Spores' },
+    { id: 54, time: 1200, name: 'Yet Another Grinding' },
 
     // Rottin Wood
-    { id: 54, image: 1875, type:     'item', time: 1200, name: 'Lucky Charm' },
+    { id: 55, time: 1200, name: 'Lucky Charm' },
+
+    // Dangerous Depths
+    { id: 56, time: 1200, name: 'New Warzone Tasks' },
+    { id: 57, time: 1200, name: 'Gnomal Warming Measurements' },
+    { id: 58, time: 1200, name: 'Ordnance' },
+    { id: 59, time: 1200, name: 'Uncharted Territory' },
+    { id: 60, time: 1200, name: 'Home Improvement' },
+    { id: 61, time: 1200, name: 'Subterranean Life' },
+    { id: 62, time: 1200, name: 'Explosive Growth' },
+    { id: 63, time: 1200, name: 'Pesticide' },
+    { id: 64, time: 1200, name: 'Yet Another Grinding' },
 ]

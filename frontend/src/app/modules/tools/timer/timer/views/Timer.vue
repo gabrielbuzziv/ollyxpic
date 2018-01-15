@@ -1,44 +1,47 @@
 <template>
-    <panel class="timer">
-        <button class="btn btn-remove" @click.prevent="remove">
-            <i class="mdi mdi-close"></i>
-        </button>
-
-        <span class="type" :class="[timer.type == 'bosses' ? 'boss' : 'task']">
-            {{ timer.type == 'bosses' ? 'Boss' : 'Task' }}
-        </span>
-
-        <div class="thumb">
+    <panel class="timer" :class="[timer.type == 'bosses' ? 'boss' : 'task']">
+        <div class="thumb" v-if="timer.type == 'bosses'">
             <img :src="image_path(option.type, option.image)" alt="">
         </div>
 
         <div class="data">
             <span class="name">{{ option.name }}</span>
-            <span class="respawn">
-                <b>Wait Time:</b>
-                {{ option.time / 60 }} hours
+            <span class="character">
+                <i class="mdi mdi-account"></i>
+                {{ timer.character }}
             </span>
 
-            <span class="character">{{ timer.character }}</span>
+            <div class="info">
+                <div class="countdown" v-if="countdown">
+                    <i class="mdi mdi-timer"></i>
+                    {{ countdown }}
+                </div>
 
-            <div class="countdown">
-                <span class="available margin-right-10" v-if="! countdown">Available</span>
-                <span class="margin-right-10" v-else>{{ countdown }}</span>
+                <div class="available" v-else>
+                    <i class="mdi mdi-check-circle margin-right-5"></i>
+                    {{ timer.type == 'bosses' ? 'Boss' : 'Task' }} Available
+                </div>
 
-                <button class="btn btn-xs btn-reset" @click.prevent="reset">
-                    <span v-if="countdown">
-                        <i class="mdi mdi-refresh"></i>
-                    </span>
-
-                    <span v-else>
+                <div class="buttons">
+                    <button class="btn btn-rounded" @click.prevent="reset" v-if="! countdown">
                         <i class="mdi mdi-timer margin-right-5"></i>
-                        Start
-                    </span>
-                </button>
+                        Start Timer
+                    </button>
 
-                <button class="btn btn-xs btn-reset" @click.prevent="cancel" v-if="countdown">
-                    <i class="mdi mdi-close"></i>
-                </button>
+                    <button class="btn btn-rounded" @click.prevent="reset" v-if="countdown">
+                        <i class="mdi mdi-refresh margin-right-5"></i>
+                        Reset Timer
+                    </button>
+
+                    <button class="btn btn-rounded" @click.prevent="cancel" v-if="countdown">
+                        <i class="mdi mdi-timer-off margin-right-5"></i>
+                        End Timer
+                    </button>
+
+                    <button class="btn btn-rounded" title="Remove timer" @click.prevent="remove">
+                        <i class="mdi mdi-delete"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </panel>
@@ -71,7 +74,7 @@
 
                 if (this.timer.last_time != null) {
                     const diffTime = moment(nextRespawn).diff(moment())
-                    const duration = moment.duration(diffTime)
+                    const duration = moment.duration(diffTime - 1)
 
                     if (duration.days() < 3) {
                         this.countdown = this.getHours(duration.asHours()) + moment.utc(duration.asMilliseconds()).format(":mm:ss")
