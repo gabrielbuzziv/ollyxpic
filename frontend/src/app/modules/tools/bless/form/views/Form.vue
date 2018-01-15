@@ -137,18 +137,18 @@
                 if (level > 0) {
                     let penalty = 0
 
-                    if (level < 24) {
-                        penalty = experience * 0.10
+                    if (level <= 24) {
+                        penalty = hardcore ? experience * 0.16 : experience * 0.10
                     } else {
                         penalty = ((level + 50) / 100) * (50 * (Math.pow(level, 2) - (5 * level) + 8))
                     }
 
                     const promotedPercentage = promoted ? 30 : 0
-                    const blessPercentage = (100 - ((8 * bless) + promotedPercentage)) / 100
+                    const blessPercentage = hardcoreg
+                        ? (100 - ((8 * bless) + promotedPercentage - 16)) / 100
+                        : (100 - ((8 * bless) + promotedPercentage)) / 100
 
-                    return hardcore
-                        ? (penalty * blessPercentage * 1.16).formatMoney(0, '.', '.')
-                        : (penalty * blessPercentage).formatMoney(0, '.', '.')
+                    return (penalty * blessPercentage).formatMoney(0, '.', '.')
                 }
 
                 return 0
