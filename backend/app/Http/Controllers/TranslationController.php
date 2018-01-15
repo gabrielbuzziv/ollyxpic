@@ -56,4 +56,17 @@ class TranslationController extends Controller
 
         return $this->respond($translation->toArray());
     }
+
+    /**
+     * Remove translation.
+     *
+     * @param Translation $translation
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function destroy(Translation $translation)
+    {
+        $translation->delete();
+
+        return $this->respond(['removed' => true]);
+    }
 }

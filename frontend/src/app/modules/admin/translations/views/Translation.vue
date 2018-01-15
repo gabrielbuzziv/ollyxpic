@@ -29,6 +29,11 @@
                 Edit
             </button>
         </td>
+        <td class="text-right" width="76">
+            <button class="btn btn-danger btn-sm" @click.prevent="remove">
+                <i class="mdi mdi-delete"></i>
+            </button>
+        </td>
     </tr>
 </template>
 
@@ -56,9 +61,22 @@
                     .then(response => {
                         this.$message.success('Translation updated.')
                         this.editing = false
-
                         this.$emit('updated')
                     })
+            },
+
+            remove () {
+                this.$confirm('Are you sure you want to remove this translation?', 'Are you Sure?', {
+                    confirmButtonText: 'Confirm',
+                    cancelButtonText: 'Cancel',
+                    type: 'error'
+                }).then(() => {
+                    services.remove(this.translation.id)
+                        .then(response => {
+                            this.$message.success('Translation removed.')
+                            this.$emit('updated')
+                        })
+                })
             }
         }
     }

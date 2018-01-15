@@ -9,5 +9,9 @@ export default {
 
     save (id, data) {
         return window.axios.post(`admin/translations/${id}`, data)
+    },
+
+    remove (id) {
+        return window.axios.post(`admin/translations/${id}`, { _method: 'delete' })
     }
 }

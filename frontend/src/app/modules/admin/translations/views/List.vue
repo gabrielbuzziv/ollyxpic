@@ -25,6 +25,7 @@
                                 Add
                             </button>
                         </th>
+                        <th></th>
                     </tr>
                 </thead>
 

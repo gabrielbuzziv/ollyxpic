@@ -152,6 +152,7 @@ Route::group(['middleware' => 'auth:api', 'prefix' => 'admin'], function () {
     Route::get('translations', 'TranslationController@index');
     Route::post('translations', 'TranslationController@store');
     Route::patch('translations/{translation}', 'TranslationController@update');
+    Route::delete('translations/{translation}', 'TranslationController@destroy');
 
     /**
      * NewsController routes
