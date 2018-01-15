@@ -144,7 +144,7 @@
                     }
 
                     const promotedPercentage = promoted ? 30 : 0
-                    const blessPercentage = hardcoreg
+                    const blessPercentage = hardcore
                         ? (100 - ((8 * bless) + promotedPercentage - 16)) / 100
                         : (100 - ((8 * bless) + promotedPercentage)) / 100
 
