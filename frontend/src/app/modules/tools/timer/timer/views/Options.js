@@ -65,6 +65,7 @@ export default [
     // Tasks
 
     // Warzone 1, 2, 3
+    { id: 46, time: 1200, name: 'All Tasks Bigfoot Burden' },
     { id: 47, time: 1200, name: 'Crystal Keeper' },
     { id: 48, time: 1200, name: 'Raiders of the Lost Spark' },
     { id: 49, time: 1200, name: 'Extermination' },
@@ -78,6 +79,7 @@ export default [
     { id: 55, time: 1200, name: 'Lucky Charm' },
 
     // Dangerous Depths
+    { id: 56, time: 1200, name: 'All Tasks Dangerous Depths' },
     { id: 57, time: 1200, name: 'Gnomal Warming Measurements' },
     { id: 58, time: 1200, name: 'Ordnance' },
     { id: 59, time: 1200, name: 'Uncharted Territory' },
@@ -85,4 +87,7 @@ export default [
     { id: 61, time: 1200, name: 'Subterranean Life' },
     { id: 62, time: 1200, name: 'Explosive Growth' },
     { id: 63, time: 1200, name: 'Pesticide' },
+
+    // Horestis
+    { id: 64, time: 60, name: 'Horestis Vase' },
 ]
