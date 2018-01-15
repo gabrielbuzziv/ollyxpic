@@ -32,6 +32,14 @@
         .chart {
             &.with-teammates {
                 height: 388px;
+
+                &.editing {
+                    height: 456px;
+
+                    section {
+                        margin-top: 75px;
+                    }
+                }
             }
 
             section {

@@ -49,12 +49,12 @@
                     <tab-content tab="waste">
                         <div class="margin-top-10"></div>
                         <div class="block row" v-for="teammate, index in teammates">
-                            <form-group columns="3">
+                            <form-group :columns="3">
                                 <form-input :name="`teammates[${index}][name]`" :data="teammate.name"
                                             v-model="teammate.name" placeholder="Character name"/>
                             </form-group>
 
-                            <form-group columns="3">
+                            <form-group :columns="3">
                                 <form-input :name="`teammates[${index}][waste]`" :data="teammate.waste"
                                             v-model="teammate.waste" placeholder="Waste in gps"/>
                             </form-group>
@@ -138,17 +138,13 @@
             </span>
             <span v-else>Calculate</span>
         </button>
-
-        <supplies-calculator :visible.sync="suppliesCalculator"/>
     </page-load>
 </template>
 
 <script type="text/babel">
-    import SuppliesCalculator from './SuppliesCalculator'
     import services from '../services'
 
     export default {
-        components: { SuppliesCalculator },
 
         data () {
             return {
@@ -164,24 +160,10 @@
                     valuable: false,
                     above: 1000
                 },
-                suppliesCalculator: false
             }
         },
 
         methods: {
-            calculateSupplies (teammate) {
-                this.suppliesCalculator = true
-                this.selectedTeammate = this.teammates.indexOf(teammate)
-
-                this.$root.$emit('teammate::supply', teammate)
-            },
-
-            closeCalculateSupplies (teammate) {
-                this.suppliesCalculator = false
-
-                this.$root.$emit('teammate::supply', null)
-            },
-
             add (type) {
                 this[type].push({ name: null, waste: null, supplies: [] })
             },

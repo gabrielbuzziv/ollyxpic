@@ -17,7 +17,7 @@
 
         <div class="row headers">
             <div class="col-md-3" :class="{ 'col-md-4': ! teammates.length }">
-                <panel class="chart" :class="{ 'with-teammates': teammates.length }">
+                <panel class="chart" :class="{ 'with-teammates': teammates.length, 'editing': owner }">
                     <h4>Items per NPC</h4>
 
                     <section>
@@ -31,7 +31,7 @@
             </div>
 
             <div class="col-md-3" :class="{ 'col-md-4': ! teammates.length }">
-                <panel class="chart" :class="{ 'with-teammates': teammates.length }">
+                <panel class="chart" :class="{ 'with-teammates': teammates.length, 'editing': owner  }">
                     <h4>Loot Value per NPC</h4>
 
                     <section>
