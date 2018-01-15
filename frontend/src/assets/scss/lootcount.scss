@@ -30,6 +30,10 @@
         }
 
         .chart {
+            &.with-teammates {
+                height: 388px;
+            }
+
             section {
                 margin-top: 20px;
                 text-align: center;
@@ -51,8 +55,6 @@
         }
 
         .teammates {
-            height: 365px;
-
             table {
                 tr {
                     th,

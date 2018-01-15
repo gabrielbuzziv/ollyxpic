@@ -17,7 +17,7 @@
 
         <div class="row headers">
             <div class="col-md-3" :class="{ 'col-md-4': ! teammates.length }">
-                <panel class="chart">
+                <panel class="chart" :class="{ 'with-teammates': teammates.length }">
                     <h4>Items per NPC</h4>
 
                     <section>
@@ -31,7 +31,7 @@
             </div>
 
             <div class="col-md-3" :class="{ 'col-md-4': ! teammates.length }">
-                <panel class="chart">
+                <panel class="chart" :class="{ 'with-teammates': teammates.length }">
                     <h4>Loot Value per NPC</h4>
 
                     <section>
@@ -44,33 +44,39 @@
                 </panel>
             </div>
 
-            <div class="col-md-2" :class="{ 'col-md-4': ! teammates.length, 'with-teammates': teammates.length }">
-                <panel class="waste">
-                    <h4>Loot</h4>
+            <div :class="{ 'col-md-4': ! teammates.length, 'with-teammates': teammates.length }">
+                <div :class="{ 'col-md-2': teammates.length }">
+                    <panel class="waste">
+                        <h4>Loot</h4>
 
-                    <section>
-                        <b>{{ total.format() }} gp</b>
-                    </section>
-                </panel>
+                        <section>
+                            <b>{{ total.format() }} gp</b>
+                        </section>
+                    </panel>
+                </div>
 
-                <panel class="waste">
-                    <h4>Waste</h4>
+                <div :class="{ 'col-md-2': teammates.length }">
+                    <panel class="waste">
+                        <h4>Waste</h4>
 
-                    <section>
-                        <b>{{ waste.format() }} gp</b>
-                    </section>
-                </panel>
+                        <section>
+                            <b>{{ waste.format() }} gp</b>
+                        </section>
+                    </panel>
+                </div>
 
-                <panel class="profit">
-                    <h4>Profit</h4>
+                <div :class="{ 'col-md-2': teammates.length }">
+                    <panel class="profit">
+                        <h4>Profit</h4>
 
-                    <section>
-                        <b>{{ profit.format() }} gp</b>
-                    </section>
-                </panel>
+                        <section>
+                            <b>{{ profit.format() }} gp</b>
+                        </section>
+                    </panel>
+                </div>
             </div>
 
-            <div class="col-md-4" v-if="teammates.length">
+            <div class="col-md-6" v-if="teammates.length">
                 <panel class="teammates">
                     <h4>
                         Teammates
@@ -92,8 +98,8 @@
                             <tr>
                                 <th>Character</th>
                                 <th>Supplies</th>
+                                <th>Profit</th>
                                 <th>Payment</th>
-                                <th></th>
                             </tr>
 
                             <tr v-for="teammate in teammates">
@@ -103,20 +109,8 @@
                                            @input="updateTeammateWaste(teammate)">
                                     <span v-else>{{ teammate.waste.format() }}</span>
                                 </td>
+                                <td>{{ getTeammateProfitWaste(teammate).format() }} gp</td>
                                 <td>{{ getTeammatePayment(teammate).format() }} gp</td>
-                                <td>
-                                    <el-tooltip
-                                            :content="`${teammate.character} profit ${getTeammateProfitWaste(teammate).format()}`"
-                                            placement="top" v-if="profit > 0">
-                                        <i class="mdi mdi-arrow-up"></i>
-                                    </el-tooltip>
-
-                                    <el-tooltip
-                                            :content="`${teammate.character} waste ${getTeammateProfitWaste(teammate).format()}`"
-                                            placement="top" v-else>
-                                        <i class="mdi mdi-arrow-down"></i>
-                                    </el-tooltip>
-                                </td>
                             </tr>
                         </table>
                     </section>
@@ -139,7 +133,8 @@
             <div class="col-md-4">
                 <panel>
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Password" v-model="password" :readonly="owner">
+                        <input type="text" class="form-control" placeholder="Password" v-model="password"
+                               :readonly="owner">
                         <div class="input-group-btn">
                             <button class="btn btn-primary" @click.prevent="loadPassword" :disabled="owner">
                                 Connect
