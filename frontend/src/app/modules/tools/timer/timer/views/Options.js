@@ -9,13 +9,13 @@ export default [
     { id:  5, image: 2294, type: 'creature', time:  1200, name: 'The First Dragon' },
 
     // Ferumbras' Ascencion
-    { id:  6, image: 2463, type: 'creature', time:  1200, name: 'Ragiaz' },
-    { id:  7, image: 2164, type: 'creature', time:  1200, name: 'Razzagorn' },
-    { id:  8, image: 2161, type: 'creature', time:  1200, name: 'Mazoran' },
-    { id:  9, image: 2461, type: 'creature', time:  1200, name: 'Zamulosh' },
-    { id: 10, image: 2158, type: 'creature', time:  1200, name: 'Plagirath' },
-    { id: 11, image: 2159, type: 'creature', time:  1200, name: 'Shulgrax' },
-    { id: 12, image: 2160, type: 'creature', time:  1200, name: 'Tarbaz' },
+    { id:  6, image: 2163, type: 'creature', time:  2880, name: 'Ragiaz' },
+    { id:  7, image: 2164, type: 'creature', time:  2880, name: 'Razzagorn' },
+    { id:  8, image: 2161, type: 'creature', time:  2880, name: 'Mazoran' },
+    { id:  9, image: 2461, type: 'creature', time:  2880, name: 'Zamulosh' },
+    { id: 10, image: 2158, type: 'creature', time:  2880, name: 'Plagirath' },
+    { id: 11, image: 2159, type: 'creature', time:  2880, name: 'Shulgrax' },
+    { id: 12, image: 2160, type: 'creature', time:  2880, name: 'Tarbaz' },
     { id: 13, image: 2165, type: 'creature', time: 20160, name: 'Ferumbras\' Mortal Schell' },
 
     // Hearth of Destruction
@@ -58,9 +58,9 @@ export default [
     { id: 40, image: 1940, type: 'creature', time: 1200, name: 'Deathstrike' },
     { id: 41, image: 1939, type: 'creature', time: 1200, name: 'Gnomevil' },
     { id: 42, image: 1941, type: 'creature', time: 1200, name: 'Abyssador' },
-    { id: 43, image: 2405, type: 'creature', time: 1200, name: 'The Baron from Below' },
-    { id: 44, image: 2407, type: 'creature', time: 1200, name: 'The Count Of The Core' },
-    { id: 45, image: 2408, type: 'creature', time: 1200, name: 'The Duke Of The Depths' },
+    { id: 43, image: 2405, type: 'creature', time:  240, name: 'The Baron from Below' },
+    { id: 44, image: 2407, type: 'creature', time:  240, name: 'The Count Of The Core' },
+    { id: 45, image: 2408, type: 'creature', time:  240, name: 'The Duke Of The Depths' },
 
     // Tasks
 

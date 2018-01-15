@@ -73,12 +73,18 @@
                     const diffTime = moment(nextRespawn).diff(moment())
                     const duration = moment.duration(diffTime)
 
-                    if (duration.days() < 1) {
+                    if (duration.days() < 3) {
                         this.countdown = this.getHours(duration.asHours()) + moment.utc(duration.asMilliseconds()).format(":mm:ss")
                         this.interval = setInterval(() => {
                             const diffTime = moment(nextRespawn).diff(moment())
                             const duration = moment.duration(diffTime)
-                            this.countdown = this.getHours(duration.asHours()) + moment.utc(duration.asMilliseconds()).format(":mm:ss")
+
+                            if (duration.asMilliseconds() <= 0) {
+                                this.countdown = 0;
+                                this.timer.last_time = null;
+                            } else {
+                                this.countdown = this.getHours(duration.asHours()) + moment.utc(duration.asMilliseconds()).format(":mm:ss")
+                            }
                         }, 1000)
                     } else {
                         this.countdown = `${duration.days() + 1} days`
