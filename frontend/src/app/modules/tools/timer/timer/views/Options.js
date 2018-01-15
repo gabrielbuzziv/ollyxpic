@@ -65,7 +65,6 @@ export default [
     // Tasks
 
     // Warzone 1, 2, 3
-    { id: 46, time: 1200, name: 'Old Warzone Tasks' },
     { id: 47, time: 1200, name: 'Crystal Keeper' },
     { id: 48, time: 1200, name: 'Raiders of the Lost Spark' },
     { id: 49, time: 1200, name: 'Extermination' },
@@ -79,7 +78,6 @@ export default [
     { id: 55, time: 1200, name: 'Lucky Charm' },
 
     // Dangerous Depths
-    { id: 56, time: 1200, name: 'New Warzone Tasks' },
     { id: 57, time: 1200, name: 'Gnomal Warming Measurements' },
     { id: 58, time: 1200, name: 'Ordnance' },
     { id: 59, time: 1200, name: 'Uncharted Territory' },
@@ -87,5 +85,4 @@ export default [
     { id: 61, time: 1200, name: 'Subterranean Life' },
     { id: 62, time: 1200, name: 'Explosive Growth' },
     { id: 63, time: 1200, name: 'Pesticide' },
-    { id: 64, time: 1200, name: 'Yet Another Grinding' },
 ]
