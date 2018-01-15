@@ -8,10 +8,6 @@
             </div>
         </page-title>
 
-        <div class="alert alert-info">
-            <p>We changes the timer structure and forced reset the timers, now you have more possibilites and is working better.</p>
-        </div>
-
         <panel class="addPanel">
             <div class="row">
                 <div class="col-md-5">
