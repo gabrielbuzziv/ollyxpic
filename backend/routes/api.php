@@ -13,7 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-
 Route::get('teamhunt/{hunt}', 'TeamHuntController@find');
 Route::get('teamhunt/{hunt}/items', 'TeamHuntController@items');
 Route::post('teamhunt/calculate', 'TeamHuntController@calculate');

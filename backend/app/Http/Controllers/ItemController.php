@@ -39,7 +39,9 @@ class ItemController extends Controller
         'atk',
         'life drain',
         'mana drain',
-        'hit'
+        'hit',
+        'vol',
+        'range'
     ];
 
     /**
@@ -110,7 +112,9 @@ class ItemController extends Controller
      */
     public function index(Category $category)
     {
-        $items = $category->items()->with('category', 'properties', 'sells.npc', 'buys.npc')->get();
+        $items = $category->items()->with('category', 'properties', 'sells.npc', 'buys.npc')
+            ->orderBy('title', 'asc')
+            ->get();
 
         return $this->respond($items->toArray());
     }

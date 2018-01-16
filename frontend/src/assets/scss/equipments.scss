@@ -184,3 +184,23 @@
         }
     }
 }
+
+.equipment-details {
+    .properties {
+        display: block;
+
+        .property {
+            display: block;
+        }
+    }
+
+    .imbuements {
+        display: block;
+        margin-top: 20px;
+
+        h4 {
+            font-size: 16px;
+            font-weight: 300;
+        }
+    }
+}

@@ -21,7 +21,7 @@
                 <el-checkbox :checked="!! item.equipment" @change="toggleEquipment"></el-checkbox>
             </td>
 
-            <td class="text-right">
+            <td class="text-right" width="160">
                 <button class="btn btn-xs" @click.prevente="remove">
                     <i class="mdi mdi-delete margin-right-5"></i>
                     Remove
@@ -35,7 +35,7 @@
         </tr>
 
         <tr class="details" v-if="showDetails">
-            <td colspan="4">
+            <td colspan="6">
                 <div class="row">
                     <div class="col-md-12 margin-top-10">
                         <h4>Properties</h4>
