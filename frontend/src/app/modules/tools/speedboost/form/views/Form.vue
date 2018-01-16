@@ -83,6 +83,10 @@
             </el-tab-pane>
         </el-tabs>
 
+        <div class="credits">
+            Thanks <a href="https://www.reddit.com/r/TibiaMMO/comments/7qn9sf/list_of_all_available_speed_boosts/">RydanTV</a> for providing all the speed values.
+        </div>
+
 
     </page-load>
 </template>
