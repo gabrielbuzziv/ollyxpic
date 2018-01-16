@@ -1,0 +1,18 @@
+export default {
+    70: { boost: 342, gamemaster: 1070 },
+    90: { boost: 499, gamemaster: 1842 },
+    95: { boost: 543, gamemaster: 2096 },
+    100: { boost: 592, gamemaster: 2382 },
+    110: { boost: 696, gamemaster: 3060 },
+    120: { boost: 813, gamemaster: 3913 },
+    121: { boost: 826, gamemaster: 4012 },
+    125: { boost: 876, gamemaster: 4419 },
+    130: { boost: 944, gamemaster: 4992 },
+    140: { boost: 1092, gamemaster: 6341 },
+    150: { boost: 1258, gamemaster: 8036 },
+    160: { boost: 1443, gamemaster: 10167 },
+    170: { boost: 1652, gamemaster: 12846 },
+    180: { boost: 1886, gamemaster: 16212 },
+    200: { boost: 2444, gamemaster: 24761 },
+    250: { boost: 4557, gamemaster: 81351 },
+}

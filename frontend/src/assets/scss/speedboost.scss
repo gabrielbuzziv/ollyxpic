@@ -3,16 +3,75 @@
         input {
             height: 50px;
             font-size: 25px;
+            font-weight: 300;
         }
 
         .helper-block {
             font-size: 10px;
             font-style: italic;
         }
+
+        .player-speed {
+            text-align: right;
+            display: block;
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 47px;
+
+            span {
+                font-size: 24px;
+                font-weight: 400;
+            }
+        }
     }
 
-    .speed {
-        font-size: 20px;
-        text-align: center;
+    .tile {
+        .thumb {
+            display: inline-block;
+            width: 32px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .info {
+            display: inline-block;
+            width: calc(100% - 50px);
+            vertical-align: middle;
+
+            .name {
+                display: block;
+                font-size: 14px;
+                font-weight: 300;
+            }
+
+            .friction {
+                display: block;
+                font-weight: 300;
+                font-style: italic;
+
+                b {
+                    font-weight: 400;
+                }
+            }
+        }
+
+        .speeds {
+            display: block;
+            margin-top: 20px;
+
+            .speed {
+                display: inline-block;
+                font-weight: 300;
+                width: calc(50% - 10px);
+                font-size: 20px;
+
+                b {
+                    font-weight: 600;
+                    display: block;
+                    font-size: 12px;
+                    margin-bottom: 5px;
+                }
+            }
+        }
     }
 }

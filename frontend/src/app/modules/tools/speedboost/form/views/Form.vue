@@ -8,266 +8,120 @@
             </div>
         </page-title>
 
-        <div class="col-md-12">
-            <panel class="form">
-                <div class="row">
-                    <div class="col-md-6">
-                        <form-input placeholder="Level" v-model="level"/>
-                    </div>
-
-                    <div class="col-md-6">
-                        <form-input placeholder="Speed Bonus" v-model="bonus"/>
-                        <small class="helper-block">
-                            Boh + Beetle Necklace = 22
-                        </small>
-                    </div>
+        <panel class="form">
+            <div class="row">
+                <div class="col-md-6">
+                    <form-input placeholder="Level" v-model="player.level"/>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <el-radio class="radio" v-model="spell" :label="0">
-                            No Spell
-                        </el-radio>
-                        <el-radio class="radio" v-model="spell" :label="1">
-                            <el-tooltip content="Utani hur">
-                                <img :src="image_path('spell', 9)" alt="">
-                            </el-tooltip>
-                        </el-radio>
-                        <el-radio class="radio" v-model="spell" :label="2">
-                            <el-tooltip content="Utani gran hur">
-                                <img :src="image_path('spell', 38)" alt="">
-                            </el-tooltip>
-                        </el-radio>
-                        <el-radio class="radio" v-model="spell" :label="3">
-                            <el-tooltip content="Utani tempo hur">
-                                <img :src="image_path('spell', 72)" alt="">
-                            </el-tooltip>
-                        </el-radio>
-                    </div>
+                <div class="col-md-6">
+                    <form-input placeholder="Speed Bonus" v-model="player.bonus"/>
+                    <small class="helper-block">
+                        Boh + Beetle Necklace = 22
+                    </small>
                 </div>
-            </panel>
+            </div>
 
-            <panel class="speed" v-if="level">
-                Your base speed is <b>{{ baseSpeed }}</b> and with setted bonus is <b>{{ speed }}</b>
-            </panel>
-        </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <el-radio class="radio" v-model="player.spell" :label="0">
+                        No Spell
+                    </el-radio>
+                    <el-radio class="radio" v-model="player.spell" :label="1">
+                        <el-tooltip content="Utani hur">
+                            <img :src="image_path('spell', 9)" alt="">
+                        </el-tooltip>
+                    </el-radio>
+                    <el-radio class="radio" v-model="player.spell" :label="2">
+                        <el-tooltip content="Utani gran hur">
+                            <img :src="image_path('spell', 38)" alt="">
+                        </el-tooltip>
+                    </el-radio>
+                    <el-radio class="radio" v-model="player.spell" :label="3">
+                        <el-tooltip content="Utani tempo hur">
+                            <img :src="image_path('spell', 72)" alt="">
+                        </el-tooltip>
+                    </el-radio>
+                </div>
 
-        <div class="col-md-8">
-            <panel>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Tile</th>
-                            <!--<th>Description</th>-->
-                            <th class="text-center">Friction</th>
-                            <th class="text-center">Max Speed</th>
-                            <th class="text-center">Boosting?</th>
-                        </tr>
-                    </thead>
+                <div class="col-md-6">
+                    <span class="player-speed" v-if="player.speed">
+                        Your Speed is: <span>{{ player.speed }}</span>
+                    </span>
+                </div>
+            </div>
+        </panel>
 
-                    <tbody>
-                        <tr v-for="tile , index in tiles">
-                            <td>
-                                <img :src="tile_path(tile.object_id)" alt="">
-                            </td>
-                            <!--<td>-->
-                            <!--{{ tile.name }}-->
-                            <!--</td>-->
-                            <td class="text-center">
-                                {{ tile.friction }}
-                            </td>
-                            <td class="text-center">
-                                {{ getSpeedToBoost(tile.friction) }}
-                            </td>
-                            <td class="text-center">
-                                <i class="mdi mdi-thumb-up text-success"
-                                   v-if="canBoost(getSpeedToBoost(tile.friction))"></i>
-                                <i class="mdi mdi-thumb-down text-danger" v-else></i>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </panel>
-        </div>
+        <el-tabs>
+            <el-tab-pane label="All Tiles" class="row">
+                <tile :tile="tile" :player="player" v-for="tile in tiles" :key="tile.id"/>
+            </el-tab-pane>
 
-        <div class="col-md-4">
-            <panel title="Catacomb">
-                <table class="table margin-bottom-0 no-top-border">
-                    <tbody>
-                        <tr v-for="tile , index in catacomb">
-                            <td width="70">
-                                <img :src="tile_path(tile.object_id)" alt="">
-                            </td>
-                            <td class="text-center">
-                                {{ getSpeedToBoost(tile.friction) }} speed
-                            </td>
-                            <td class="text-center">
-                                <i class="mdi mdi-thumb-up text-success"
-                                   v-if="canBoost(getSpeedToBoost(tile.friction))"></i>
-                                <i class="mdi mdi-thumb-down text-danger" v-else></i>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </panel>
+            <!-- Deeper Banuta -->
+            <el-tab-pane label="Deeper Banuta" class="row">
+                <tile :tile="tile" :player="player" v-for="tile in getTilesFrom('banuta')" :key="tile.id"/>
+            </el-tab-pane>
 
-            <panel title="Prison">
-                <table class="table margin-bottom-0 no-top-border">
-                    <tbody>
-                        <tr v-for="tile , index in prison">
-                            <td width="70">
-                                <img :src="tile_path(tile.object_id)" alt="">
-                            </td>
-                            <td class="text-center">
-                                {{ getSpeedToBoost(tile.friction) }} speed
-                            </td>
-                            <td class="text-center">
-                                <i class="mdi mdi-thumb-up text-success"
-                                   v-if="canBoost(getSpeedToBoost(tile.friction))"></i>
-                                <i class="mdi mdi-thumb-down text-danger" v-else></i>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </panel>
+            <!-- Catacombs -->
+            <el-tab-pane label="Catacombs" class="row">
+                <tile :tile="tile" :player="player" v-for="tile in getTilesFrom('catacombs')" :key="tile.id"/>
+            </el-tab-pane>
 
-            <panel title="Roshamuul">
-                <table class="table margin-bottom-0 no-top-border">
-                    <tbody>
-                        <tr v-for="tile , index in roshamuul">
-                            <td width="70">
-                                <img :src="tile_path(tile.object_id)" alt="">
-                            </td>
-                            <td class="text-center">
-                                {{ getSpeedToBoost(tile.friction) }} speed
-                            </td>
-                            <td class="text-center">
-                                <i class="mdi mdi-thumb-up text-success"
-                                   v-if="canBoost(getSpeedToBoost(tile.friction))"></i>
-                                <i class="mdi mdi-thumb-down text-danger" v-else></i>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </panel>
+            <!-- Roshamuul -->
+            <el-tab-pane label="Roshamuul" class="row">
+                <tile :tile="tile" :player="player" v-for="tile in getTilesFrom('roshamuul')" :key="tile.id"/>
+            </el-tab-pane>
 
-            <panel title="Lizard City">
-                <table class="table margin-bottom-0 no-top-border">
-                    <tbody>
-                        <tr v-for="tile , index in lizardCity">
-                            <td width="70">
-                                <img :src="tile_path(tile.object_id)" alt="">
-                            </td>
-                            <td class="text-center">
-                                {{ getSpeedToBoost(tile.friction) }} speed
-                            </td>
-                            <td class="text-center">
-                                <i class="mdi mdi-thumb-up text-success"
-                                   v-if="canBoost(getSpeedToBoost(tile.friction))"></i>
-                                <i class="mdi mdi-thumb-down text-danger" v-else></i>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </panel>
+            <!-- Roshamuul Prision -->
+            <el-tab-pane label="Roshamuul Prision" class="row">
+                <tile :tile="tile" :player="player" v-for="tile in getTilesFrom('prision')" :key="tile.id"/>
+            </el-tab-pane>
 
-            <panel title="Banuta">
-                <table class="table margin-bottom-0 no-top-border">
-                    <tbody>
-                        <tr v-for="tile , index in banuta">
-                            <td width="70">
-                                <img :src="tile_path(tile.object_id)" alt="">
-                            </td>
-                            <td class="text-center">
-                                {{ getSpeedToBoost(tile.friction) }} speed
-                            </td>
-                            <td class="text-center">
-                                <i class="mdi mdi-thumb-up text-success"
-                                   v-if="canBoost(getSpeedToBoost(tile.friction))"></i>
-                                <i class="mdi mdi-thumb-down text-danger" v-else></i>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </panel>
-        </div>
+            <!-- Lizard City -->
+            <el-tab-pane label="Lizard City" class="row">
+                <tile :tile="tile" :player="player" v-for="tile in getTilesFrom('lizardCity')" :key="tile.id"/>
+            </el-tab-pane>
+        </el-tabs>
+
+
     </page-load>
 </template>
 
 <script type="text/babel">
+    import Tile from './Tile'
+
     import services from '../services'
     import { debounce } from 'lodash'
 
     export default {
+        components: { Tile },
+
         data () {
             return {
                 tiles: [],
-                level: 0,
-                bonus: 0,
-                spell: 0,
-                newTile: {
-                    name: '',
-                    friction: 100,
-                    object_id: 0
-                },
-                ids: []
+                player: {
+                    level: 0,
+                    bonus: 0,
+                    spell: 0,
+                    speed: 0
+                }
             }
         },
 
         computed: {
-            lizardCity () {
-                const tiles = [9481, 9575]
-
-                return this.tiles.filter(tile => {
-                    return tiles.indexOf(tile.object_id) > - 1
-                })
-            },
-
-            banuta () {
-                const tiles = [499, 500, 516, 524, 543]
-
-                return this.tiles.filter(tile => {
-                    return tiles.indexOf(tile.object_id) > - 1
-                })
-            },
-
-            roshamuul () {
-                const tiles = [19825, 19550, 19558]
-
-                return this.tiles.filter(tile => {
-                    return tiles.indexOf(tile.object_id) > - 1
-                })
-            },
-
-            prison () {
-                const tiles = [17544]
-
-                return this.tiles.filter(tile => {
-                    return tiles.indexOf(tile.object_id) > - 1
-                })
-            },
-
-            catacomb () {
-                const tiles = [20712]
-
-                return this.tiles.filter(tile => {
-                    return tiles.indexOf(tile.object_id) > - 1
-                })
-            },
-
             baseSpeed () {
-                return parseInt(this.level) + 109;
+                return parseInt(this.player.level) + 109;
             },
 
             spellSpeed () {
-                const spell = parseInt(this.spell)
+                const spell = parseInt(this.player.spell)
                 switch (spell) {
                     case 1:
                         return (this.baseSpeed * 0.3) - 12
                     case 2:
                         return (this.baseSpeed * 0.7) - 28
                     case 3:
-                        return (((this.level * 1.8) + 123.3) / 2)
+                        return (((this.player.level * 1.8) + 123.3) / 2)
                     case 4:
                         return 0
                     default:
@@ -276,56 +130,26 @@
             },
 
             speed () {
-                const bonus = parseInt(this.bonus) > 0 ? parseInt(this.bonus) : 0
+                const bonus = parseInt(this.player.bonus) > 0 ? parseInt(this.player.bonus) : 0
+                return Math.floor(this.baseSpeed + bonus + this.spellSpeed)
+            }
+        },
 
-                return Math.floor(this.baseSpeed + bonus + this.spellSpeed);
+        watch: {
+            'player.level' () {
+                this.player.speed = this.speed
+            },
+
+            'player.bonus' () {
+                this.player.speed = this.speed
+            },
+
+            'player.spell' () {
+                this.player.speed = this.speed
             }
         },
 
         methods: {
-            getSpeedToBoost (friction) {
-                switch (friction) {
-                    case 70:
-                        return 342
-                    case 90:
-                        return 500
-                    case 95:
-                        return 593
-                    case 100:
-                        return 592
-                    case 110:
-                        return 696
-                    case 120:
-                        return 813
-                    case 121:
-                        return 823
-                    case 125:
-                        return 876;
-                    case 130:
-                        return 944
-                    case 140:
-                        return 1092
-                    case 150:
-                        return 1258
-                    case 160:
-                        return 1443
-                    case 170:
-                        return 1652
-                    case 180:
-                        return 1886
-                    case 200:
-                        return 2445
-                    case 250:
-                        return 4557
-                    default:
-                        return 0
-                }
-            },
-
-            canBoost (speed) {
-                return this.speed >= speed ? true : false
-            },
-
             loadTiles () {
                 services.fetchTiles()
                     .then(response => {
@@ -333,6 +157,23 @@
                             return a.friction - b.friction
                         })
                     })
+            },
+
+            getTilesFrom (location) {
+                switch (location) {
+                    case 'banuta':
+                        return this.tiles.filter(tile => [499, 500, 516, 524, 543].indexOf(tile.object_id) > - 1)
+                    case 'lizardCity':
+                        return this.tiles.filter(tile => [9481, 9575].indexOf(tile.object_id) > - 1)
+                    case 'roshamuul':
+                        return this.tiles.filter(tile => [19825, 19550, 19558].indexOf(tile.object_id) > - 1)
+                    case 'prision':
+                        return this.tiles.filter(tile => [17544].indexOf(tile.object_id) > - 1)
+                    case 'catacombs':
+                        return this.tiles.filter(tile => [20712].indexOf(tile.object_id) > - 1)
+                    default:
+                        return this.tiles
+                }
             }
         },
 
