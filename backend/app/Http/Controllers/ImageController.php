@@ -8,6 +8,7 @@ use App\Helper\GifFrameExtractor;
 use App\Item;
 use App\NPC;
 use App\Spells;
+use App\WikiOutfits;
 use App\WikiWorldObjects;
 use App\WorldMap;
 use App\WorldObject;
@@ -151,6 +152,8 @@ class ImageController extends Controller
                 return Spells::where('name', $name)->first()->image;
             case 'creature':
                 return Creature::where('name', $name)->first()->image;
+            case 'outfit':
+                return WikiOutfits::where('title', $name)->first()->image[0]->image;
         }
     }
 

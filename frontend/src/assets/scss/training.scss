@@ -1,3 +1,131 @@
 #training {
+    .vocations {
+        display: block;
+        margin-bottom: 15px;
 
+        .vocation {
+            background: #fff;
+            padding: 20px;
+            display: block;
+            width: 100%;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+
+            .thumb {
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 10px;
+                margin-left: 10px;
+                width: 46px;
+
+                img {
+                    position: relative;
+                    top: -5px;
+                }
+            }
+
+            .name {
+                display: inline-block;
+                width: calc(100% - 60px);
+                vertical-align: middle;
+            }
+        }
+    }
+
+    .form {
+        .form-group {
+            margin: 0;
+
+            .form-control {
+                height: 50px;
+                line-height: 50px;
+                font-weight: 300;
+                font-size: 14px;
+            }
+        }
+
+        .slider-label {
+            display: block;
+
+            .left {
+                display: inline-block;
+                width: calc(50% - 5px);
+            }
+
+            .right {
+                display: inline-block;
+                text-align: right;
+                width: calc(50% - 5px);
+            }
+        }
+
+        .el-slider__runway {
+            margin: 16px 0 0;
+        }
+    }
+
+    .form-advanced {
+        h4 {
+            font-size: 16px;
+            font-weight: 300;
+            margin: 0 0 15px;
+        }
+
+        .el-checkbox {
+            display: block;
+            margin: 0 0 5px;
+
+            .el-checkbox__label {
+                font-weight: 300;
+                font-size: 12px;
+                paddin-left: 10px;
+            }
+        }
+    }
+
+    .potions {
+        .potion {
+            header {
+                display: block;
+                margin-bottom: 30px;
+
+                .thumb {
+                    display: inline-block;
+                    margin-right: 10px;
+                    width: 32px;
+                    vertical-align: middle;
+                }
+
+                .name {
+                    display: inline-block;
+                    font-size: 16px;
+                    font-weight: 400;
+                    vertical-align: middle;
+                    width: calc(100% - 150px);
+                }
+
+                .price {
+                    display: inline-block;
+                    width: 100px;
+                    vertical-align: middle;
+                }
+            }
+
+            .info {
+                display: block;
+
+                .amount,
+                .price,
+                .time {
+                    font-weight: 300;
+                    margin-bottom: 10px;
+                    display: block;
+                    font-size: 16px;
+
+                    i {
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+    }
 }
