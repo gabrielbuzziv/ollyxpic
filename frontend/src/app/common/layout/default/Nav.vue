@@ -175,17 +175,17 @@
                         </a>
                     </router-link>
 
-                    <!--<router-link :to="{ name: 'tools.training' }" tag="li">-->
-                        <!--<a href="">-->
-                            <!--<span class="left">-->
-                                <!--<img :src="image_path_by_name('item', 'Spellbook of Ancient Arcana')">-->
-                            <!--</span>-->
-                            <!--<span class="center">-->
-                                <!--<span>Magic Level</span>-->
-                                <!--<small>Training</small>-->
-                            <!--</span>-->
-                        <!--</a>-->
-                    <!--</router-link>-->
+                    <router-link :to="{ name: 'tools.training' }" tag="li">
+                        <a href="">
+                            <span class="left">
+                                <img :src="image_path_by_name('item', 'Spellbook of Ancient Arcana')">
+                            </span>
+                            <span class="center">
+                                <span>Magic Level</span>
+                                <small>Training</small>
+                            </span>
+                        </a>
+                    </router-link>
                 </ul>
             </li>
 

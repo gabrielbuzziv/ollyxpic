@@ -123,6 +123,13 @@
                     </card>
                 </router-link>
 
+                <router-link :to="{ name: 'tools.training' }" slot="anchor">
+                    <card title="Magic Level" subtitle="Training">
+                        <img :src="image_path_by_name('item', 'Spellbook of Ancient Arcana')" slot="icon">
+                        <i class="mdi mdi-chevron-right"></i>
+                    </card>
+                </router-link>
+
                 <!--<router-link :to="{ name: 'tools.huntingspots' }" slot="anchor">-->
                     <!--<card title="Hunting" subtitle="Spots">-->
                         <!--<img :src="image_path_by_name('item', 'map')" slot="icon">-->
