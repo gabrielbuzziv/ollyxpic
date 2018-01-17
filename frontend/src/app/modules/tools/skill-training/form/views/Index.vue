@@ -63,7 +63,8 @@
                     <h4>Loyalty</h4>
 
                     <el-select v-model="advanced.loyalty">
-                        <el-option v-for="loyalty, index in loyalities" :value="loyalty.value" :label="loyalty.label" :key="index"/>
+                        <el-option v-for="loyalty, index in loyalities" :value="loyalty.value" :label="loyalty.label"
+                                   :key="index"/>
                     </el-select>
                 </div>
             </div>
@@ -72,7 +73,8 @@
         <div class="alert alert-warning margin-top-20" v-if="mana && advanced.loyalty">
             <h4>Loyalty</h4>
 
-            <p>Your magic level without loyalty is <b>{{ player.from }}</b> and the desire magic level is <b>{{ player.to }}</b>.</p>
+            <p>Your magic level without loyalty is <b>{{ player.from }}</b>
+                and the desire magic level is <b>{{ player.to }}</b>.</p>
         </div>
 
         <div class="alert alert-info margin-top-20" v-if="mana">
@@ -282,11 +284,15 @@
                 let amount = mana / potion.mana
                 let seconds = 60 * ((mana * 100 / (potion.mana * 60)) / 100)
                 let price = amount * potion.price
-                let time = seconds > 31104000
-                    ? `Over an year`
-                    : seconds > 86400
-                        ? moment.utc(seconds * 1000).format('DD [day(s)] HH [hour(s)] mm [minute(s)] ss [second(s)]')
-                        : moment.utc(seconds * 1000).format('HH [hour(s)] mm [minute(s)] ss [second(s)]')
+                console.log(`${potion.name}: ${seconds}`)
+
+                let time = seconds >= 31104000
+                    ? `Over an Year`
+                    : seconds >= 2592000
+                        ? moment.utc(seconds * 1000).format('MM [month(s)] DD [day(s)] HH [hour(s)] mm [minute(s)]')
+                        : seconds > 86400
+                            ? moment.utc(seconds * 1000).format('DD [day(s)] HH [hour(s)] mm [minute(s)] ss [second(s)]')
+                            : moment.utc(seconds * 1000).format('HH [hour(s)] mm [minute(s)] ss [second(s)]')
 
                 return {
                     amount: amount,
