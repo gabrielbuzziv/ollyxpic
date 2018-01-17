@@ -60,19 +60,19 @@
                 </div>
 
                 <div class="col-md-4">
-                    <h4>Loyality</h4>
+                    <h4>Loyalty</h4>
 
-                    <el-select v-model="advanced.loyality">
-                        <el-option v-for="loyality, index in loyalities" :value="loyality.value" :label="loyality.label" :key="index"/>
+                    <el-select v-model="advanced.loyalty">
+                        <el-option v-for="loyalty, index in loyalities" :value="loyalty.value" :label="loyalty.label" :key="index"/>
                     </el-select>
                 </div>
             </div>
         </panel>
 
-        <div class="alert alert-warning margin-top-20" v-if="mana && advanced.loyality">
-            <h4>Loyality</h4>
+        <div class="alert alert-warning margin-top-20" v-if="mana && advanced.loyalty">
+            <h4>Loyalty</h4>
 
-            <p>Your magic level without loyality is <b>{{ player.from }}</b> and the desire magic level is <b>{{ player.to }}</b>.</p>
+            <p>Your magic level without loyalty is <b>{{ player.from }}</b> and the desire magic level is <b>{{ player.to }}</b>.</p>
         </div>
 
         <div class="alert alert-info margin-top-20" v-if="mana">
@@ -182,11 +182,11 @@
 
                 advanced: {
                     double: false,
-                    loyality: 0
+                    loyalty: 0
                 },
 
                 loyalities: [
-                    { label: 'No Loyality', value: 0 },
+                    { label: 'No Loyalty', value: 0 },
                     { label: '5%', value: 0.05 },
                     { label: '10%', value: 0.10 },
                     { label: '15%', value: 0.15 },
@@ -215,9 +215,9 @@
             },
 
             mana () {
-                const from = this.advanced.loyality ? this.player.from : parseInt(this.skills.from)
-                const to = this.advanced.loyality ? this.player.to : parseInt(this.skills.to)
-                const percentage = this.advanced.loyality ? this.player.percentage : this.percentage
+                const from = this.advanced.loyalty ? this.player.from : parseInt(this.skills.from)
+                const to = this.advanced.loyalty ? this.player.to : parseInt(this.skills.to)
+                const percentage = this.advanced.loyalty ? this.player.percentage : this.percentage
                 const levels = Math.abs(Math.ceil(from - to))
 
                 let mana = typeof percentage == 'object'
@@ -240,10 +240,10 @@
             player () {
                 const ml = parseInt(this.skills.from) + (parseInt(this.skills.percentage) / 100)
                 const mana = this.calculateTotalMana(ml)
-                const rawMana = this.calculateManaWithoutLoyality(mana)
+                const rawMana = this.calculateManaWithoutLoyalty(mana)
                 const rawML = this.calculateMLFromTotalMana(rawMana)
                 const manaTo = this.calculateTotalMana(parseInt(this.skills.to))
-                const rawManaTo = this.calculateManaWithoutLoyality(manaTo)
+                const rawManaTo = this.calculateManaWithoutLoyalty(manaTo)
                 const rawMLTo = this.calculateMLFromTotalMana(rawManaTo)
                 let from = Math.floor(rawML)
                 let to = Math.floor(rawMLTo)
@@ -254,7 +254,7 @@
                         to: Math.abs(rawMLTo - to)
                     }
 
-                return this.advanced.loyality
+                return this.advanced.loyalty
                     ? { from, to, percentage }
                     : mana
             },
@@ -269,8 +269,8 @@
                 return (1600 * (Math.pow(this.vocation.multiplier, ml) - 1)) / (this.vocation.multiplier - 1)
             },
 
-            calculateManaWithoutLoyality (mana) {
-                return (mana * 100) / ((this.advanced.loyality + 1) * 100)
+            calculateManaWithoutLoyalty (mana) {
+                return (mana * 100) / ((this.advanced.loyalty + 1) * 100)
             },
 
             calculateMLFromTotalMana (mana) {
@@ -285,8 +285,8 @@
                 let time = seconds > 31104000
                     ? `Over an year`
                     : seconds > 86400
-                        ? moment.utc(seconds * 1000).format('DD [day(s)] HH [hors(s)] mm [minute(s)]')
-                        : moment.utc(seconds * 1000).format('HH [hors(s)] mm [minute(s)]')
+                        ? moment.utc(seconds * 1000).format('DD [day(s)] HH [hour(s)] mm [minute(s)] ss [second(s)]')
+                        : moment.utc(seconds * 1000).format('HH [hour(s)] mm [minute(s)] ss [second(s)]')
 
                 return {
                     amount: amount,
