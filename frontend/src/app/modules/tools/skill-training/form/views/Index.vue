@@ -69,7 +69,13 @@
             </div>
         </panel>
 
-        <div class="alert alert-info margin-top-40" v-if="mana">
+        <div class="alert alert-warning margin-top-20" v-if="mana && advanced.loyality">
+            <h4>Loyality</h4>
+
+            <p>Your magic level without loyality is <b>{{ player.from }}</b> and the desire magic level is <b>{{ player.to }}</b>.</p>
+        </div>
+
+        <div class="alert alert-info margin-top-20" v-if="mana">
             You need to use: <b>{{ mana.format() }}</b> of your mana to go from magic level {{ skills.from
             }} to magic level {{ skills.to }}.
         </div>
