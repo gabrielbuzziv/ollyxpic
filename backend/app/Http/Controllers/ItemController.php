@@ -188,29 +188,19 @@ class ItemController extends Controller
     }
 
     /**
-     * Toggle Supply.
+     * Update Item property.
      *
      * @param Item $item
      * @return \Illuminate\Http\JsonResponse
      */
-    public function toggleSupply(Item $item)
+    public function updateProperty(Item $item)
     {
-        $item->supply = $item->supply ? 0 : 1;
-        $item->save();
+        $property = request('property');
+        $value = (float) request('value');
 
-        return $this->respond($item->toArray());
-    }
-
-    /**
-     * Toggle Equipment.
-     *
-     * @param Item $item
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function toggleEquipment(Item $item)
-    {
-        $item->equipment = $item->equipment ? 0 : 1;
-        $item->save();
+        $property = $item->properties()->firstOrCreate(['property' => $property]);
+        $property->value = $value;
+        $property->save();
 
         return $this->respond($item->toArray());
     }
@@ -278,6 +268,12 @@ class ItemController extends Controller
         return $props;
     }
 
+    /**
+     * Create Weight property.
+     *
+     * @param $item
+     * @return array
+     */
     public function getWeightProps($item)
     {
         return [

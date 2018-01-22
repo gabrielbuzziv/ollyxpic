@@ -13,106 +13,52 @@
                 <el-checkbox :checked="!! item.usable" @change="toggleUsable"></el-checkbox>
             </td>
 
-            <td>
-                <el-checkbox :checked="!! item.supply" @change="toggleSupply"></el-checkbox>
-            </td>
-
-            <td>
-                <el-checkbox :checked="!! item.equipment" @change="toggleEquipment"></el-checkbox>
-            </td>
-
             <td class="text-right" width="160">
-                <button class="btn btn-xs" @click.prevente="remove">
-                    <i class="mdi mdi-delete margin-right-5"></i>
-                    Remove
-                </button>
-
                 <button class="btn btn-xs" @click.prevent="toggleDetails">
-                    <i class="mdi mdi-chevron-up" v-if="showDetails"></i>
-                    <i class="mdi mdi-chevron-down" v-else></i>
+                    <i class="mdi mdi-information-variant"></i>
+                </button>
+
+                <button class="btn btn-xs" @click.prevent="toggleEdit">
+                    <i class="mdi mdi-pencil"></i>
+                </button>
+
+                <button class="btn btn-xs" @click.prevente="remove">
+                    <i class="mdi mdi-delete"></i>
                 </button>
             </td>
         </tr>
 
-        <tr class="details" v-if="showDetails">
-            <td colspan="6">
-                <div class="row">
-                    <div class="col-md-12 margin-top-10">
-                        <h4>Properties</h4>
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="data">
-                                    <b>Weight</b>
-                                    <span>{{ item.capacity }} oz</span>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="data">
-                                    <b>Stackable</b>
-                                    <span>
-                                        <i class="mdi mdi-check-circle" v-if="item.stackable"></i>
-                                        <i class="mdi mdi-close-circle" v-else></i>
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4" v-for="property in item.properties">
-                                <div class="data">
-                                    <b>{{ property.property }}</b>
-                                    <span>{{ getPropertyValue(property) }}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-12 margin-top-10" v-if="item.sells.length">
-                        <h4>Sell for</h4>
-
-                        <div class="row">
-                            <div class="col-md-3" v-for="sells in item.sells">
-                                <div class="data">
-                                    <b>{{ sells.npc.name }}</b>
-                                    <span>{{ sells.value }} gp</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-12 margin-top-10" v-if="item.buys.length">
-                        <h4>Buy for</h4>
-
-                        <div class="row">
-                            <div class="col-md-3" v-for="buys in item.buys">
-                                <div class="data">
-                                    <b>{{ buys.npc.name }}</b>
-                                    <span>{{ buys.value }} gp</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </td>
-        </tr>
+        <item-details :item="item" :show="showDetails" />
+        <item-edit :item="item" :show="showEdit" />
     </tbody>
 </template>
 
 <script>
+    import ItemDetails from './Details'
+    import ItemEdit from './Edit'
     import services from '../../services'
 
     export default {
         props: ['item'],
 
+        components: { ItemDetails, ItemEdit },
+
         data () {
             return {
-                showDetails: false
+                showDetails: false,
+                showEdit: false
             }
         },
 
         methods: {
             toggleDetails () {
                 this.showDetails = ! this.showDetails
+                this.showEdit = false
+            },
+
+            toggleEdit () {
+                this.showEdit = ! this.showEdit
+                this.showDetails = false
             },
 
             toggleUsable () {
@@ -120,42 +66,6 @@
                     .then(() => {
                         this.$store.dispatch('items/FETCH_ITEMS', this.item.category.id)
                     })
-            },
-
-            toggleSupply () {
-                this.$store.dispatch('items/TOGGLE_SUPPLY', this.item.id)
-                    .then(() => {
-                        this.$store.dispatch('items/FETCH_ITEMS', this.item.category.id)
-                    })
-            },
-
-            toggleEquipment () {
-                this.$store.dispatch('items/TOGGLE_EQUIPMENT', this.item.id)
-                    .then(() => {
-                        this.$store.dispatch('items/FETCH_ITEMS', this.item.category.id)
-                    })
-            },
-
-            getPropertyValue (property) {
-                if (property.property == 'Voc') {
-                    return property.value.replace('k', 'Knight')
-                        .replace('s', 'Sorcerer')
-                        .replace('d', 'Druid')
-                        .replace('p', 'Paladin')
-                        .replace('+', ' and ')
-                }
-
-                if (property.property == 'Attrib') {
-                    return property.value.replace('sword', 'Sword')
-                        .replace('axe', 'Axe')
-                        .replace('club', 'Club')
-                        .replace('distance', 'Distance')
-                        .replace('magic', 'ML')
-                        .replace('faster', 'Faster')
-                        .replace('regen', 'Regeneration')
-                }
-
-                return property.value
             },
 
             remove () {

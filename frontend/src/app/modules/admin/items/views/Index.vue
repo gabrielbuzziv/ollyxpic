@@ -1,5 +1,5 @@
 <template>
-    <page-load>
+    <page-load id="admin" class="items">
         <page-title>
             <img :src="image_path_by_name('item', 'Golden Boots')" class="margin-right-10">
             <div class="title">
@@ -14,9 +14,9 @@
                     <page-load page-class="no-padding" :loading="loadingCategories">
                         <ul>
                             <li v-for="category in categories" :key="category.id">
-                                <a href="" @click.prevent="setCategory(category)">
+                                <router-link :to="{ name: 'admin.items.category', params: { category: category.id } }">
                                     {{ category.title }}
-                                </a>
+                                </router-link>
                             </li>
                         </ul>
                     </page-load>
@@ -35,12 +35,6 @@
                                         Usable
                                         <small>Damage Protection</small>
                                     </th>
-                                    <th>
-                                        Supply
-                                    </th>
-                                    <th>
-                                        Equipment
-                                    </th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -56,13 +50,13 @@
 
 <script>
     import Item from './partials/Item'
+    import services from '../services'
 
     export default {
         components: { Item },
 
         data () {
             return {
-                category: {},
                 loadingCategories: true,
                 loadingItems: true
             }
@@ -75,24 +69,26 @@
 
             categories () {
                 return this.$store.getters['items/GET_CATEGORIES']
+            },
+
+            category () {
+                const index = this.categories.map(category => category.id).indexOf(this.$route.params.category)
+                return {}
+            }
+        },
+
+        watch: {
+            '$route.params.category' () {
+                this.load()
             }
         },
 
         methods: {
             load () {
-                this.setCategory(this.category)
-            },
-
-            setCategory (category) {
-                this.category = category
                 this.loadingItems = true
-                this.$store.dispatch('items/FETCH_ITEMS', category.id)
-                    .then(() => {
-                        this.loadingItems = false
-                    })
-                    .catch(() => {
-                        this.loadingItems = false
-                    })
+                this.$store.dispatch('items/FETCH_ITEMS', this.$route.params.category)
+                    .then(() => this.loadingItems = false)
+                    .catch(() => this.loadingItems = false)
             },
         },
 
@@ -100,11 +96,9 @@
             this.$store.dispatch('items/FETCH_CATEGORIES')
                 .then(() => {
                     this.loadingCategories = false
-                    this.setCategory(this.categories[0])
+                    this.load()
                 })
-                .catch(() => {
-                    this.loadingCategories = false
-                })
+                .catch(() => this.loadingCategories = false)
         }
     }
 </script>
