@@ -1,38 +1,39 @@
 <template>
-    <el-popover
-            placement="top-start"
-            popper-class="equipment-details"
-            :title="item.title">
+    <div class="col-md-2" v-if="item.visible">
+        <div class="item" tabindex="1"  :class="{ 'active': item.active }" @click.prevent="equip">
+            <el-tooltip popper-class="item-popper" placement="top">
+                <template slot="content">
+                    <div class="item-details">
+                        <h4>{{ item.title }}</h4>
 
-        <div class="properties">
-            <span class="property" v-for="property in item.properties">
-                <b>{{ getPropertyName(property) }}:</b>
-                <span>{{ getPropertyValue(property) }}</span>
-            </span>
+                        <ul class="properties">
+                            <li v-for="property in item.properties">
+                                <b>{{ getPropertyName(property) }}:</b>
+                                {{ getPropertyValue(property) }}
+                            </li>
+                        </ul>
+                    </div>
+                </template>
 
-            <span class="property">
-                <b>Capacity:</b>
-                <span>{{ item.capacity }} oz.</span>
-            </span>
+                <div class="thumb">
+                    <img :src="image_path('item', item.id)" />
+                </div>
+            </el-tooltip>
+
+            <span class="name">{{ item.title }}</span>
         </div>
-
-        <button class="btn btn-primary btn-sm btn-block margin-top-20" @click.prevent="select">
-            Equip
-        </button>
-
-        <div class="item" :class="{ 'active': active }" slot="reference">
-            <img :src="image_path('item', item.id)">
-        </div>
-    </el-popover>
+    </div>
 </template>
 
 <script>
+    import Properties from './Properties'
+
     export default {
-        props: ['item', 'active'],
+        props: ['item', 'category'],
 
         methods: {
-            select () {
-                this.$emit('selected')
+            equip () {
+                this.$emit('equiped', { item: this.item.id, category: this.category.id, slot: this.category.slot })
             },
 
             propertyInUse (property) {
@@ -40,39 +41,17 @@
             },
 
             getPropertyName (property) {
-                const properties = {
-                    atk: 'Atk',
-                    def: 'Def',
-                    arm: 'Arm',
-                    hit: 'Hit Chance',
-                    vol: 'Volume',
-                    death: 'Death Protection',
-                    earth: 'Earth Protection',
-                    energy: 'Energy Protection',
-                    fire: 'Fire Protection',
-                    ice: 'Ice Protection',
-                    speed: 'Speed',
-                    level: 'Level Required',
-                    shielding: 'Shielding',
-                    range: 'Range',
-                    imbuement: 'Imbuement Slots',
-                    'magic level': 'Magic Level',
-                    'mana drain': 'Mana Drain Protection',
-                    'life drain': 'Life Drain Protection',
-                    'axe fighting': 'Axe Fighting',
-                    'club fighting': 'Club Fighting',
-                    'sword fighting': 'Sword Fighting',
-                    'distance fighting': 'Distance Fighting',
-                    'protection physical': 'Physical Protection'
-                }
-
-                return properties[property.property]
+                return Properties[property.property]
             },
 
             getPropertyValue (property) {
                 switch (property.property) {
+                    case 'weight':
+                        return `${property.value} oz.`
                     case 'range':
                         return `${property.value} sqm`
+                    case 'vol':
+                        return `${property.value} slots`
                     case 'hit':
                         return `${property.value}%`
                     case 'earth':
@@ -90,6 +69,7 @@
                     case 'distance fighting':
                     case 'shielding':
                     case 'magic level':
+                    case 'speed':
                         return `+${property.value}`
                     default:
                         return property.value

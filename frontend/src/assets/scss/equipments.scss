@@ -1,206 +1,296 @@
 #equipments {
-    .tabs {
-        li {
-            a {
-                padding: 0 6px;
-                height: 52px;
-                line-height: 52px;
-            }
-        }
-    }
+    #slots {
+        .panel-slots {
+            background: url('/src/assets/images/equipments-texture.gif');
+            border-top: 2px solid #747474;
+            border-left: 2px solid #747474;
+            border-right: 2px solid #2d2d2d;
+            border-bottom: 2px solid #2d2d2d;
 
-    .items {
-        .item {
-            display: inline-block;
-            margin: 5px;
-            min-height: 32px;
-            min-width: 32px;
-            cursor: pointer;
+            .slots {
+                height: 150px;
+                text-align: center;
+                position: relative;
 
-            &.active {
-                img {
-                    opacity: 1;
+                .slot {
+                    background: #ccc;
+                    border: 1px solid #999;
+                    height: 34px;
+                    width: 34px;
+                    position: absolute;
+                    left: 50%;
+                    top: 0;
+
+                    &.amulet,
+                    &.armor,
+                    &.weapon,
+                    &.ring,
+                    &.ammunition,
+                    &.backpack,
+                    &.shield,
+                    &.boots,
+                    &.helmet {
+                        .item {
+                            > span {
+                                position: relative;
+                                left: -1px;
+                            }
+
+                            img {
+                                cursor: pointer;
+                            }
+                        }
+                    }
+
+                    &.dragging {
+                        outline: 1px solid rgba(255, 255, 255, .8);
+                    }
+
+                    .draggable {
+                        display: block;
+                        width: 34px;
+                        height: 34px;
+                        overflow: hidden;
+                    }
+
+                    &.active {
+                        background: url('/src/assets/images/backpack-slot.png') !important;
+                    }
+                }
+
+                .amulet {
+                    background: url('/src/assets/images/equipments.gif') 1px 127px;
+                    top: 10px;
+                    transform: translateX(calc(-50% - 39px));
+                }
+
+                .helmet {
+                    background: url('/src/assets/images/equipments.gif') -32px 128px;
+                    top: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+
+                .backpack {
+                    background: url('/src/assets/images/equipments.gif') -63px 128px;
+                    top: 10px;
+                    transform: translateX(calc(-50% + 39px));
+                }
+
+                .weapon {
+                    background: url('/src/assets/images/equipments.gif') 0px 96px;
+                    top: 49px;
+                    transform: translateX(calc(-50% - 39px));
+                }
+
+                .armor {
+                    background: url('/src/assets/images/equipments.gif') -32px 96px;
+                    top: 39px;
+                    transform: translateX(-50%);
+                }
+
+                .shield {
+                    background: url('/src/assets/images/equipments.gif') -64px 96px;
+                    top: 49px;
+                    transform: translateX(calc(-50% + 39px));
+                }
+
+                .ring {
+                    background: url('/src/assets/images/equipments.gif') 0px 64px;
+                    top: 88px;
+                    transform: translateX(calc(-50% - 39px));
+                }
+
+                .legs {
+                    background: url('/src/assets/images/equipments.gif') -32px 64px;
+                    top: 78px;
+                    transform: translateX(-50%);
+                }
+
+                .ammunition {
+                    background: url('/src/assets/images/equipments.gif') -64px 64px;
+                    top: 88px;
+                    transform: translateX(calc(-50% + 39px));
+                }
+
+                .boots {
+                    background: url('/src/assets/images/equipments.gif') -32px 31px;
+                    top: 117px;
+                    transform: translateX(-50%);
                 }
             }
-
-            img {
-                min-height: 32px;
-                min-width: 32px;
-                display: block;
-                opacity: 0.7;
-            }
         }
     }
 
-    .panel-tibia {
-        background: url('/src/assets/images/equipments-texture.gif');
-        border-top: 2px solid #747474;
-        border-left: 2px solid #747474;
-        border-right: 2px solid #2d2d2d;
-        border-bottom: 2px solid #2d2d2d;
-    }
+    #items {
+        .el-tabs {
+            .el-tabs__header {
+                margin-bottom: 0;
+                border: 0;
 
-    .equips {
-        height: 150px;
-        text-align: center;
-        position: relative;
+                .el-tabs__item {
+                    border: 0;
+                    padding: 10px 15px;
+                    height: 52px;
+                    line-height: 52px;
 
-        .equip {
-            background: #ccc;
-            border: 1px solid #999;
-            height: 34px;
-            width: 34px;
-            position: absolute;
-            left: 50%;
-            top: 0;
-
-            &.amulet,
-            &.armor,
-            &.weapon,
-            &.ring,
-            &.ammunition,
-            &.backpack,
-            &.shield,
-            &.boots,
-            &.helmet {
-                .item {
-                    > span {
-                        position: relative;
-                        left: -1px;
+                    &.is-active {
+                        border: 0;
+                        background: #fff;
                     }
 
                     img {
-                        cursor: pointer;
+                        display: inline-block;
+                        vertical-align: top;
+                    }
+                }
+            }
+        }
+
+        .items {
+            .panel-body {
+                padding: 10px 20px;
+
+                .page {
+                    max-height: 390px;
+                    overflow: auto;
+                }
+            }
+
+            .filter {
+                display: block;
+                margin: 10px 0;
+
+                .form-control {
+                    max-width: 300px;
+                    height: 50px;
+                    line-height: 50px;
+                    font-weight: 300;
+                }
+            }
+
+            .item {
+                background: #f1f1f1;
+                padding: 20px;
+                display: block;
+                text-align: center;
+                margin: 10px 0;
+                border-radius: $border-radius-base;
+
+                &.active {
+                    background: $theme;
+                    color: #fff;
+                }
+
+                .thumb {
+                    display: block;
+                    margin-bottom: 20px;
+                }
+
+                .name {
+                    display: block;
+                    font-size: 12px;
+                    font-weight: 300;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+    }
+
+    #status {
+        .status {
+            &.large {
+                height: 470px;
+            }
+
+            h4 {
+                display: block;
+                margin: 0 0 20px;
+                font-size: 20px;
+                font-weight: 300;
+            }
+
+            .properties-details {
+                .property {
+                    display: inline-block;
+                    width: calc(33% - 10px);
+
+                    .name {
+                        font-size: 14px;
+                        font-weight: 300;
+                        display: block;
+                        margin-bottom: 5px;
+                    }
+
+                    .value {
+                        font-size: 20px;
+                        font-weight: 400;
                     }
                 }
             }
 
-            &.dragging {
-                outline: 1px solid rgba(255, 255, 255, .8);
-            }
+            .properties {
+                list-style: none;
+                padding: 0;
+                margin: 0;
 
-            .draggable {
-                display: block;
-                width: 34px;
-                height: 34px;
-                overflow: hidden;
-            }
+                li {
+                    display: block;
+                    margin-bottom: 5px;
+                    font-weight: 300;
+                    font-size: 12px;
+                    border-bottom: 1px solid #f1f1f1;
+                    padding-bottom: 5px;
 
-            &.active {
-                background: url('/src/assets/images/backpack-slot.png') !important;
-            }
-        }
+                    &:last-child {
+                        border: 0;
+                        padding: 0;
+                        margin: 0;
+                    }
 
-        .amulet {
-            background: url('/src/assets/images/equipments.gif') 1px 127px;
-            top: 10px;
-            transform: translateX(calc(-50% - 39px));
-        }
+                    span {
+                        display: inline-block;
+                        width: calc(50% - 10px);
 
-        .helmet {
-            background: url('/src/assets/images/equipments.gif') -32px 128px;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
+                        &.value {
+                            text-align: right;
+                            font-size: 16px;
 
-        .backpack {
-            background: url('/src/assets/images/equipments.gif') -63px 128px;
-            top: 10px;
-            transform: translateX(calc(-50% + 39px));
-        }
+                            &.positive {
+                                color: $brand-success;
+                            }
 
-        .weapon {
-            background: url('/src/assets/images/equipments.gif') 0px 96px;
-            top: 49px;
-            transform: translateX(calc(-50% - 39px));
-        }
-
-        .armor {
-            background: url('/src/assets/images/equipments.gif') -32px 96px;
-            top: 39px;
-            transform: translateX(-50%);
-        }
-
-        .shield {
-            background: url('/src/assets/images/equipments.gif') -64px 96px;
-            top: 49px;
-            transform: translateX(calc(-50% + 39px));
-        }
-
-        .ring {
-            background: url('/src/assets/images/equipments.gif') 0px 64px;
-            top: 88px;
-            transform: translateX(calc(-50% - 39px));
-        }
-
-        .legs {
-            background: url('/src/assets/images/equipments.gif') -32px 64px;
-            top: 78px;
-            transform: translateX(-50%);
-        }
-
-        .ammunition {
-            background: url('/src/assets/images/equipments.gif') -64px 64px;
-            top: 88px;
-            transform: translateX(calc(-50% + 39px));
-        }
-
-        .boots {
-            background: url('/src/assets/images/equipments.gif') -32px 31px;
-            top: 117px;
-            transform: translateX(-50%);
-        }
-    }
-
-    .wrap {
-        background: url('/src/assets/images/equipments-texture.gif');
-        display: block;
-        padding: 20px;
-        width: 100%;
-        text-align: left;
-    }
-}
-
-.equipmentPopper {
-    strong {
-        text-transform: uppercase;
-        margin-bottom: 15px;
-        display: block;
-    }
-
-    .props {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-
-        li {
-            display: block;
-            font-size: 12px;
-
-            b {
-                text-transform: capitalize;
+                            &.negative {
+                                color: $brand-danger;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
 }
 
-.equipment-details {
-    .properties {
-        display: block;
-
-        .property {
-            display: block;
-        }
-    }
-
-    .imbuements {
-        display: block;
-        margin-top: 20px;
-
+.item-popper {
+    .item-details {
         h4 {
             font-size: 16px;
+            display: block;
+            margin: 0 0 15px;
             font-weight: 300;
+        }
+
+        .properties {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            li {
+                display: block;
+                margin-bottom: 3px;
+            }
         }
     }
 }

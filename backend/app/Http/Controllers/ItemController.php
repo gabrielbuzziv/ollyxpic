@@ -41,7 +41,8 @@ class ItemController extends Controller
         'mana drain',
         'hit',
         'vol',
-        'range'
+        'range',
+        'weight'
     ];
 
     /**
@@ -73,7 +74,8 @@ class ItemController extends Controller
 
             $defaultProperties = $this->getDefaultProps($item);
             $levelProperties = $this->getLevelProps($item);
-            $properties = array_merge($defaultProperties, $levelProperties);
+            $weigthProperties = $this->getWeightProps($item);
+            $properties = array_merge($defaultProperties, $levelProperties, $weigthProperties);
 
             foreach ($properties as $property) {
                 $itemProperty = ItemProperties::firstOrNew(['item_id' => $data->id, 'property' => $property['property']]);
@@ -274,6 +276,16 @@ class ItemController extends Controller
         }
 
         return $props;
+    }
+
+    public function getWeightProps($item)
+    {
+        return [
+            [
+                'property' => 'weight',
+                'value'    => (float) $item->capacity
+            ]
+        ];
     }
 
     /**

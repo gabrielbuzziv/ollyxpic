@@ -39,7 +39,8 @@
                           :active="isActiveItem(item, category.slot)"
                           :key="item.id"
                           v-for="item in items"
-                          @selected="onSelect(item, category.slot)"/>
+                          @equiped="onEquip(item, category.slot)"
+                          @unequiped="onUnequip(item, category.slot)"/>
                 </tab-content>
             </div>
         </div>
@@ -275,8 +276,12 @@
                     })
             },
 
-            onSelect (item, slot) {
+            onEquip (item, slot) {
                 this.slots[slot] = item
+            },
+
+            onUnequip (item, slot) {
+                this.slots[slot] = {}
             },
 
             onRemove (slot) {
