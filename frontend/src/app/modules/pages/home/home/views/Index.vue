@@ -95,12 +95,12 @@
                     </card>
                 </router-link>
 
-                <!--<router-link :to="{ name: 'tools.damage.protection' }" slot="anchor">-->
-                    <!--<card title="Damage" subtitle="Protection">-->
-                        <!--<img :src="image_path_by_name('item', 'great shield')" slot="icon">-->
-                        <!--<i class="mdi mdi-chevron-right"></i>-->
-                    <!--</card>-->
-                <!--</router-link>-->
+                <router-link :to="{ name: 'tools.damage.protection' }" slot="anchor">
+                    <card title="Damage" subtitle="Protection">
+                        <img :src="image_path_by_name('item', 'great shield')" slot="icon">
+                        <i class="mdi mdi-chevron-right"></i>
+                    </card>
+                </router-link>
 
                 <router-link :to="{ name: 'tools.currencies' }" slot="anchor">
                     <card title="Tibia Currency" subtitle="Stock Exchange">
