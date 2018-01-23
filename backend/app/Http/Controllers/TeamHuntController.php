@@ -583,7 +583,9 @@ class TeamHuntController extends Controller
 
                 $weight = count($weight) ? (float) trim(str_replace(['It weighs', 'oz.'], '', $weight[0])) : 0;
                 $name = trim(str_replace(['.'], '', explode('(', explode('You see', $item[0])[1])[0]));
-                $amount = (int) filter_var($name, FILTER_SANITIZE_NUMBER_INT);
+                $amount = strpos($name, 'that will expire') === false && strpos($name, 'that is brand') === false
+                    ? (int) filter_var($name, FILTER_SANITIZE_NUMBER_INT)
+                    : 1;
 
                 $name = $this->getItemName($name);
                 $item = Item::where('name', 'like', "%{$name}%")->first();
@@ -662,11 +664,21 @@ class TeamHuntController extends Controller
             '(rare)',
         ], '', $name));
 
-        if ($translation = Translation::where('from', $name)->first()) {
-            return $translation->to;
+        if (strpos($name, 'that is brand') !== false) {
+            $name = explode('that is brand', $name);
+            $name = trim($name[0]);
         }
 
-        return $name;
+        if (strpos($name, 'that will expire') !== false) {
+            $name = explode('that will expire', $name);
+            $name = trim($name[0]);
+        }
+
+        if ($translation = Translation::where('from', $name)->first()) {
+            return trim($translation->to);
+        }
+
+        return trim($name);
     }
 
     private function getOwnerIP()
