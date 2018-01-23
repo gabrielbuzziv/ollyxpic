@@ -5,7 +5,7 @@
             <panel class="panel-slots">
                 <div class="slots">
                     <div class="slot" :class="[index, slot.id ? 'active' : '']" v-for="slot, index in slots">
-                        <slot-item :item.sync="slot" :index="index" @remove="removeSlot" />
+                        <slot-item :item.sync="slot" :index="index" @remove="removeSlot"/>
                     </div>
                 </div>
             </panel>
@@ -122,13 +122,16 @@
             validate (category, item) {
                 const properties = item.properties
                 const twoHanded = properties.map(property => property.property).indexOf('two-handed')
-                if (twoHanded !== -1 && properties[twoHanded] && category.slot == 'weapon') {
+                if (twoHanded !== - 1 && properties[twoHanded] && category.slot == 'weapon') {
                     this.slots['shield'] = []
                     this.categories[this.getCategoryById(41).index].items.forEach(item => item.active = false)
                     this.categories[this.getCategoryById(42).index].items.forEach(item => item.active = false)
                 }
 
-                if (category.slot == 'shield' && ! isEmpty(this.slots['weapon'])) {
+                if (category.slot == 'shield'
+                    && ! isEmpty(this.slots['weapon'])
+                    && this.slots['weapon'].properties.map(property => property.property).indexOf('two-handed') !== - 1) {
+
                     this.slots['weapon'] = []
                     this.categories[this.getCategoryById(5).index].items.forEach(item => item.active = false)
                     this.categories[this.getCategoryById(10).index].items.forEach(item => item.active = false)
