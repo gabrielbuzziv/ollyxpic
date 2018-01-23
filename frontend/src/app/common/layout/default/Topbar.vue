@@ -57,7 +57,8 @@
                 this.$store.commit('global/TOKEN', '')
                 this.$store.commit('global/USER', '')
 
-                localStorage.clear()
+                localStorage.removeItem('auth_token')
+                localStorage.removeItem('auth_user')
             }
         }
     }
