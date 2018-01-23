@@ -39,7 +39,10 @@ class ItemController extends Controller
         'atk',
         'life drain',
         'mana drain',
-        'hit'
+        'hit',
+        'vol',
+        'range',
+        'weight'
     ];
 
     /**
@@ -71,7 +74,8 @@ class ItemController extends Controller
 
             $defaultProperties = $this->getDefaultProps($item);
             $levelProperties = $this->getLevelProps($item);
-            $properties = array_merge($defaultProperties, $levelProperties);
+            $weigthProperties = $this->getWeightProps($item);
+            $properties = array_merge($defaultProperties, $levelProperties, $weigthProperties);
 
             foreach ($properties as $property) {
                 $itemProperty = ItemProperties::firstOrNew(['item_id' => $data->id, 'property' => $property['property']]);
@@ -110,7 +114,9 @@ class ItemController extends Controller
      */
     public function index(Category $category)
     {
-        $items = $category->items()->with('category', 'properties', 'sells.npc', 'buys.npc')->get();
+        $items = $category->items()->with('category', 'properties', 'sells.npc', 'buys.npc')
+            ->orderBy('title', 'asc')
+            ->get();
 
         return $this->respond($items->toArray());
     }
@@ -182,29 +188,19 @@ class ItemController extends Controller
     }
 
     /**
-     * Toggle Supply.
+     * Update Item property.
      *
      * @param Item $item
      * @return \Illuminate\Http\JsonResponse
      */
-    public function toggleSupply(Item $item)
+    public function updateProperty(Item $item)
     {
-        $item->supply = $item->supply ? 0 : 1;
-        $item->save();
+        $property = request('property');
+        $value = (float) request('value');
 
-        return $this->respond($item->toArray());
-    }
-
-    /**
-     * Toggle Equipment.
-     *
-     * @param Item $item
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function toggleEquipment(Item $item)
-    {
-        $item->equipment = $item->equipment ? 0 : 1;
-        $item->save();
+        $property = $item->properties()->firstOrCreate(['property' => $property]);
+        $property->value = $value;
+        $property->save();
 
         return $this->respond($item->toArray());
     }
@@ -270,6 +266,22 @@ class ItemController extends Controller
         }
 
         return $props;
+    }
+
+    /**
+     * Create Weight property.
+     *
+     * @param $item
+     * @return array
+     */
+    public function getWeightProps($item)
+    {
+        return [
+            [
+                'property' => 'weight',
+                'value'    => (float) $item->capacity
+            ]
+        ];
     }
 
     /**

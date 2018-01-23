@@ -13,7 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-
 Route::get('teamhunt/{hunt}', 'TeamHuntController@find');
 Route::get('teamhunt/{hunt}/items', 'TeamHuntController@items');
 Route::post('teamhunt/calculate', 'TeamHuntController@calculate');
@@ -121,8 +120,7 @@ Route::group(['middleware' => 'auth:api', 'prefix' => 'admin'], function () {
     Route::get('items/{category}', 'ItemController@index');
     Route::get('items/{item}/show', 'ItemController@show');
     Route::get('items/{item}/usable', 'ItemController@toggleUsable');
-    Route::get('items/{item}/supply', 'ItemController@toggleSupply');
-    Route::get('items/{item}/equipment', 'ItemController@toggleEquipment');
+    Route::post('items/{item}/property', 'ItemController@updateProperty');
     Route::post('items/sync', 'ItemController@syncronize');
     Route::delete('items/{item}', 'ItemController@destroy');
 

@@ -7,16 +7,16 @@ export default {
         return window.axios.get(`admin/categories`)
     },
 
+    getCategory (id) {
+        return window.axios.get(`admin/category/${id}/show`)
+    },
+
+    updateProperty (id, property, value) {
+        return window.axios.post(`admin/items/${id}/property`, { property, value })
+    },
+
     toggleUsable (id) {
         return window.axios.get(`admin/items/${id}/usable`)
-    },
-
-    toggleSupply (id) {
-        return window.axios.get(`admin/items/${id}/supply`)
-    },
-
-    toggleEquipment (id) {
-        return window.axios.get(`admin/items/${id}/equipment`)
     },
 
     remove (id) {
