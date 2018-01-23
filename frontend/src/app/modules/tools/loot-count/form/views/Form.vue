@@ -1,5 +1,5 @@
 <template>
-    <page-load>
+    <page-load id="lootcount" class="lootcount__form">
         <page-title>
             <img :src="image_path_by_name('item', 'steel boots')">
             <div class="title">

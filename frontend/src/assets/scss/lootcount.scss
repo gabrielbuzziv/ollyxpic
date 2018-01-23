@@ -12,12 +12,12 @@
             display: block;
             margin: 0 0 20px;
         }
-        
+
         .btn-title {
             display: inline-block;
             vertical-align: middle;
         }
-        
+
         section {
             display: block;
 
@@ -146,13 +146,13 @@
                         .name {
                             display: none;
                         }
-                        
+
                         .total {
                             display: block;
                         }
                     }
                 }
-                
+
                 .btn {
                     &.btn-remove {
                         display: block;
@@ -183,7 +183,7 @@
                     max-width: calc(100% - 55px);
                     display: inline-block;
                     vertical-align: middle;
-                    
+
                     .name {
                         display: block;
                         vertical-align: middle;
@@ -191,7 +191,7 @@
                         overflow: hidden;
                         text-overflow: ellipsis;
                     }
-                    
+
                     .total {
                         display: none;
                     }
@@ -242,6 +242,20 @@
                     margin-left: 5px;
                 }
             }
+        }
+    }
+
+    &.lootcount__form {
+        .el-checkbox {
+            .el-checkbox__label {
+                font-weight: 300;
+                position: relative;
+                top: 1px;
+            }
+        }
+
+        .btn-link {
+            margin-top: 8px;
         }
     }
 }
