@@ -149,7 +149,12 @@
 
         .items {
             .panel-body {
-                padding: 10px 20px;
+                padding: 10px 20px 20px;
+
+                > .row {
+                    margin-left: -2px;
+                    margin-right: -10px;
+                }
 
                 .page {
                     max-height: 390px;
@@ -171,11 +176,17 @@
 
             .item {
                 background: #f1f1f1;
-                padding: 20px;
-                display: block;
+                padding: 12px;
+                display: inline-block;
                 text-align: center;
-                margin: 10px 0;
+                margin: 2px;
                 border-radius: $border-radius-base;
+                cursor: pointer;
+
+                &:focus {
+                    outline: 0;
+                    box-shadow: 0;
+                }
 
                 &.active {
                     background: $theme;
@@ -184,7 +195,6 @@
 
                 .thumb {
                     display: block;
-                    margin-bottom: 20px;
                 }
 
                 .name {
@@ -268,6 +278,95 @@
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+.el-popover {
+    &.slot-item-popper {
+        padding: 20px;
+        border: 0;
+        border-radius: $border-radius-base;
+        min-width: 300px;
+
+        h4 {
+            font-size: 16px;
+            display: block;
+            margin: 0 0 15px;
+            font-weight: 300;
+        }
+
+        .properties {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            li {
+                display: block;
+                margin-bottom: 3px;
+                font-weight: 300;
+                border-bottom: 1px solid #f1f1f1;
+
+                &:last-child {
+                    border-bottom: 0;
+                }
+
+                b {
+                    font-weight: 400;
+                    width: calc(50% - 5px);
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-right: 5px;
+                }
+
+                span {
+                    width: calc(50% - 10px);
+                    display: inline-block;
+                    text-align: right;
+                    font-size: 16px;
+                    vertical-align: middle;
+                    margin-left: 5px;
+                }
+            }
+        }
+
+        .btn-remove {
+            font-weight: 300;
+            display: block;
+            margin-top: 15px;
+            padding: 6px 10px;
+            font-size: 12px;
+        }
+
+        .imbuements {
+            display: block;
+            margin-top: 20px;
+
+            h5 {
+                display: block;
+                margin-bottom: 15px;
+                font-size: 16px;
+                font-weight: 300;
+            }
+
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+
+                li {
+                    display: block;
+                    margin-bottom: 5px;
+                }
+            }
+
+            .btn {
+                font-weight: 300;
+                display: block;
+                margin-top: 15px;
+                padding: 6px 10px;
+                font-size: 12px;
             }
         }
     }

@@ -5,7 +5,7 @@
             <panel class="panel-slots">
                 <div class="slots">
                     <div class="slot" :class="[index, slot.id ? 'active' : '']" v-for="slot, index in slots">
-                        <slot-item :item="slot"/>
+                        <slot-item :item.sync="slot" :index="index" @remove="removeSlot" />
                     </div>
                 </div>
             </panel>
@@ -41,6 +41,7 @@
     import SlotItem from './SlotItem'
     import Item from './Item'
     import services from '../services'
+    import { isEmpty } from 'lodash'
 
     export default {
         props: ['slots'],
@@ -76,7 +77,7 @@
                     .then(response => {
                         const index = this.categoriesId.indexOf(category.id)
                         this.categories[index].items = response.data.map(item => {
-                            return { ...item, visible: true, active: false }
+                            return { ...item, visible: true, active: false, imbuements: [] }
                         })
                         this.categories[index].loading = false
                     })
@@ -107,6 +108,8 @@
                 const itemIndex = category.items.map(item => item.id).indexOf(response.item)
                 const item = category.items[itemIndex]
 
+                this.validate(category, item)
+
                 this.categories[this.getCategoryById(response.category).index].items.forEach(item => item.active = item.id == response.item ? true : false)
                 this.slots[response.slot] = item
             },
@@ -115,6 +118,30 @@
                 const index = this.categoriesId.indexOf(id)
                 return { category: this.categories[index], index }
             },
+
+            validate (category, item) {
+                const properties = item.properties
+                const twoHanded = properties.map(property => property.property).indexOf('two-handed')
+                if (twoHanded !== -1 && properties[twoHanded] && category.slot == 'weapon') {
+                    this.slots['shield'] = []
+                    this.categories[this.getCategoryById(41).index].items.forEach(item => item.active = false)
+                    this.categories[this.getCategoryById(42).index].items.forEach(item => item.active = false)
+                }
+
+                if (category.slot == 'shield' && ! isEmpty(this.slots['weapon'])) {
+                    this.slots['weapon'] = []
+                    this.categories[this.getCategoryById(5).index].items.forEach(item => item.active = false)
+                    this.categories[this.getCategoryById(10).index].items.forEach(item => item.active = false)
+                    this.categories[this.getCategoryById(16).index].items.forEach(item => item.active = false)
+                    this.categories[this.getCategoryById(39).index].items.forEach(item => item.active = false)
+                    this.categories[this.getCategoryById(44).index].items.forEach(item => item.active = false)
+                    this.categories[this.getCategoryById(49).index].items.forEach(item => item.active = false)
+                }
+            },
+
+            removeSlot (slot) {
+                this.slots[slot] = {}
+            }
         },
 
         mounted () {

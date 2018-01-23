@@ -45,7 +45,8 @@
                         <span class="property">
                             {{ getPropertyLabel(property) }}
                         </span>
-                        <span class="value" :class="{ 'positive': getPropertyValue(property) > 0, 'negative': getPropertyValue(property) < 0 }">
+                        <span class="value"
+                              :class="{ 'positive': getPropertyValue(property) > 0, 'negative': getPropertyValue(property) < 0 }">
                             {{ getPropertyValue(property) | property(property) }}
                         </span>
                     </li>
@@ -63,7 +64,8 @@
                         <span class="property">
                             {{ getPropertyLabel(property) }}
                         </span>
-                        <span class="value" :class="{ 'positive': getPropertyValue(property) > 0, 'negative': getPropertyValue(property) < 0 }">
+                        <span class="value"
+                              :class="{ 'positive': getPropertyValue(property) > 0, 'negative': getPropertyValue(property) < 0 }">
                             {{ getPropertyValue(property) | property(property) }}
                         </span>
                     </li>
@@ -75,7 +77,7 @@
 
 <script>
     import Properties from './Properties'
-    import { reduce } from 'lodash'
+    import { reduce, filter } from 'lodash'
 
     export default {
         props: ['slots'],
@@ -88,12 +90,11 @@
                 damage: [
                     'atk', 'hit', 'range', 'magic level', 'axe fighting', 'club fighting', 'sword fighting', 'distance fighting'
                 ]
-
             }
         },
 
         computed: {
-            properties () {
+            propertiesRaw () {
                 const properties = this.slots
                     ? reduce(this.slots, (carry, item) => {
                         carry.push(item.properties)
@@ -101,16 +102,14 @@
                     }, [])
                         .filter(properties => properties != null)
                         .reduce((carry, properties) => carry.push(...properties) && carry, [])
-                        .map(property => {
-                            return {
-                                id: property.id,
-                                property: property.property,
-                                value: parseFloat(property.value)
-                            }
-                        })
+                        .map(property => ({
+                            id: property.id,
+                            property: property.property,
+                            value: parseFloat(property.value)
+                        }))
                     : []
 
-                return properties.reduce((carry, property, index, self) => {
+                return properties.reduce((carry, property) => {
                     const propertyIndex = carry.map(property => property.property).indexOf(property.property)
                     if (propertyIndex !== - 1) {
                         carry[propertyIndex].value = this.mergePropertyValue(property.property, carry[propertyIndex].value, property.value)
@@ -120,6 +119,44 @@
                     return carry
                 }, [])
             },
+
+            properties () {
+                const properties = this.propertiesRaw.concat(this.imbuements)
+
+                return properties.reduce((carry, property) => {
+                    const propertyIndex = carry.map(property => property.property).indexOf(property.property)
+                    if (propertyIndex !== - 1) {
+                        carry[propertyIndex].value = this.mergePropertyValue(property.property, carry[propertyIndex].value, property.value)
+                        return carry
+                    }
+                    carry.push(property)
+                    return carry
+                }, [])
+            },
+
+            imbuements () {
+                const imbuements = this.slots
+                    ? reduce(this.slots, (carry, item) => carry.push(item.imbuements) && carry, [])
+                        .filter(imbuements => typeof imbuements == 'object' ? imbuements.length > 0 && imbuements != null : imbuements != null)
+                        .reduce((carry, imbuements) => carry.push(...imbuements) && carry, [])
+                        .map(imbuement => ({
+                            property: imbuement.value.property,
+                            value: parseFloat(imbuement.value.value)
+                        }))
+                    : []
+
+                return imbuements.length
+                    ? imbuements.reduce((carry, property) => {
+                        const imbuementIndex = carry.map(property => property.property).indexOf(property.property)
+                        if (imbuementIndex !== - 1) {
+                            carry[imbuementIndex].value = this.mergePropertyValue(property.property, carry[imbuementIndex].value, property.value)
+                            return carry
+                        }
+                        carry.push(property)
+                        return carry
+                    }, [])
+                    : []
+            }
         },
 
         filters: {
@@ -159,6 +196,7 @@
         methods: {
             mergePropertyValue (attribute, a, b) {
                 switch (attribute) {
+                    case 'def':
                     case 'level':
                         return a > b ? a : b
                     case 'earth':

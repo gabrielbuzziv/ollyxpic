@@ -1,27 +1,23 @@
 <template>
-    <div class="col-md-2" v-if="item.visible">
-        <div class="item" tabindex="1"  :class="{ 'active': item.active }" @click.prevent="equip">
-            <el-tooltip popper-class="item-popper" placement="top">
-                <template slot="content">
-                    <div class="item-details">
-                        <h4>{{ item.title }}</h4>
+    <div class="item" tabindex="1"  :class="{ 'active': item.active }" v-if="item.visible" @click.prevent="equip">
+        <el-tooltip popper-class="item-popper" placement="top">
+            <template slot="content">
+                <div class="item-details">
+                    <h4>{{ item.title }}</h4>
 
-                        <ul class="properties">
-                            <li v-for="property in item.properties">
-                                <b>{{ getPropertyName(property) }}:</b>
-                                {{ getPropertyValue(property) }}
-                            </li>
-                        </ul>
-                    </div>
-                </template>
-
-                <div class="thumb">
-                    <img :src="image_path('item', item.id)" />
+                    <ul class="properties">
+                        <li v-for="property in item.properties">
+                            <b>{{ getPropertyName(property) }}:</b>
+                            {{ getPropertyValue(property) }}
+                        </li>
+                    </ul>
                 </div>
-            </el-tooltip>
+            </template>
 
-            <span class="name">{{ item.title }}</span>
-        </div>
+            <div class="thumb">
+                <img :src="image_path('item', item.id)" />
+            </div>
+        </el-tooltip>
     </div>
 </template>
 
@@ -36,16 +32,14 @@
                 this.$emit('equiped', { item: this.item.id, category: this.category.id, slot: this.category.slot })
             },
 
-            propertyInUse (property) {
-                return this.item.properties.map(property => property.property).indexOf(property)
-            },
-
             getPropertyName (property) {
                 return Properties[property.property]
             },
 
             getPropertyValue (property) {
                 switch (property.property) {
+                    case 'two-handed':
+                        return property.value ? 'Yes' : 'No'
                     case 'weight':
                         return `${property.value} oz.`
                     case 'range':
