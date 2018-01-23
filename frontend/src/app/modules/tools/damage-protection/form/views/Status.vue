@@ -72,6 +72,24 @@
                 </ul>
             </panel>
         </div>
+
+        <!-- Incomming Damage -->
+        <!--<div class="col-md-12">-->
+            <!--<panel class="status incomming_damage">-->
+                <!--<header>-->
+                    <!--<h4>Incomming Damage</h4>-->
+
+                    <!--<input type="text" class="form-control pull-right" placeholder="Damage" v-model="incomming_damage">-->
+                <!--</header>-->
+
+                <!--<div class="damage-details">-->
+                    <!--<span class="damage" v-for="damage in incomming">-->
+                        <!--<span class="name">{{ getDamageLabel(damage) }}</span>-->
+                        <!--<span class="value">{{ getIncommingDamage(damage) }}</span>-->
+                    <!--</span>-->
+                <!--</div>-->
+            <!--</panel>-->
+        <!--</div>-->
     </div>
 </template>
 
@@ -89,6 +107,10 @@
                 ],
                 damage: [
                     'atk', 'hit', 'range', 'magic level', 'axe fighting', 'club fighting', 'sword fighting', 'distance fighting'
+                ],
+                incomming_damage: 100,
+                incomming: [
+                    'death', 'energy', 'fire', 'ice', 'earth', 'protection physical'
                 ]
             }
         },
@@ -223,7 +245,42 @@
             getPropertyValue (property) {
                 const index = this.properties.map(property => property.property).indexOf(property)
                 return index > - 1 ? this.properties[index].value : 0
-            }
+            },
+
+            getDamageLabel (damage) {
+                switch (damage) {
+                    case 'fire':
+                        return 'Fire Damage'
+                    case 'energy':
+                        return 'Energy Damage'
+                    case 'death':
+                        return 'Death Damage'
+                    case 'earth':
+                        return 'Earth Damage'
+                    case 'ice':
+                        return 'Ice Damage'
+                    case 'protection physical':
+                        return 'Physical Damage'
+                }
+            },
+
+            getIncommingDamage (damage) {
+                switch (damage) {
+                    case 'protection physical':
+                        let incomming = this.incomming_damage
+                        const min = this.getPropertyValue('arm') ? this.getPropertyValue('arm') / 2 : 0
+                        const max = this.getPropertyValue('arm') ? min * 2 - 1 : 0
+                        const armor = (min + max) / 2
+                        const physical = (this.incomming_damage * this.getPropertyValue(damage))
+                        const defense = this.getPropertyValue('def')
+
+                        incomming = incomming - armor - physical
+
+                        return incomming.toFixed()
+                    default:
+                        return this.incomming_damage - (this.incomming_damage * this.getPropertyValue(damage))
+                }
+            },
         }
     }
 </script>

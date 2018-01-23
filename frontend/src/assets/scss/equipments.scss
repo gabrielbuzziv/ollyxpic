@@ -279,6 +279,44 @@
                     }
                 }
             }
+
+            &.incomming_damage {
+                header {
+                    display: block;
+                    
+                    h4 {
+                        display: inline-block;
+                    }
+
+                    .pull-right {
+                        width: 200px;
+                    }
+                }
+
+                .damage-details {
+                    display: block;
+                    margin-top: 20px;
+
+                    .damage {
+                        display: inline-block;
+                        width: calc(33% - 10px);
+                        text-align: center;
+                        margin-bottom: 20px;
+
+                        .name {
+                            font-size: 14px;
+                            font-weight: 300;
+                            display: block;
+                            margin-bottom: 5px;
+                        }
+
+                        .value {
+                            font-size: 20px;
+                            font-weight: 400;
+                        }
+                    }
+                }
+            }
         }
     }
 }
