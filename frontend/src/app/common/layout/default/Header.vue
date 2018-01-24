@@ -5,6 +5,12 @@
                 <div class="col-md-4">
                     <img src="/src/assets/images/logo.png" alt="">
                 </div>
+
+                <div class="pull-right">
+                    <a href="http://www.tibia.com/community/?subtopic=fansites" target="_blank">
+                        <img src="/src/assets/images/supported.gif" alt="">
+                    </a>
+                </div>
             </div>
 
             <layout-nav/>
