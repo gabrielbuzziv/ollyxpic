@@ -4,7 +4,6 @@
 /storage/log/*
 /storage/*.key
 /storage/laravel.log
-/database/database.db
 /vendor
 /.idea
 /.vagrant
