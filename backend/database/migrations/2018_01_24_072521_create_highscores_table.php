@@ -17,10 +17,14 @@ class CreateHighscoresTable extends Migration
             $table->increments('id');
             $table->integer('rank');
             $table->string('name');
-            $table->string('vocation_id');
+            $table->string('vocation');
             $table->integer('experience');
             $table->integer('level');
+            $table->integer('world_id')->unsigned();
             $table->string('type');
+            $table->timestamp('updated_at');
+
+            $table->foreign('world_id')->references('id')->on('worlds')->onDelete('cascade');
         });
     }
 
@@ -31,6 +35,6 @@ class CreateHighscoresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('translations');
+        Schema::dropIfExists('highscores');
     }
 }
