@@ -1,0 +1,122 @@
+#highscores {
+    .leaders {
+        .leader {
+            header {
+                display: block;
+                margin-bottom: 15px;
+                border-bottom: 1px solid #eee;
+                padding-bottom: 10px;
+
+                .rank {
+                    display: inline-block;
+                    margin-right: 10px;
+                    vertical-align: middle;
+                    width: 32px;
+                }
+
+                .name {
+                    display: inline-block;
+                    font-size: 20px;
+                    font-weight: 300;
+                    vertical-align: middle;
+                    width: calc(100% - 50px);
+
+                    span {
+                        display: inline-block;
+                        width: calc(100% - 20px);
+                        vertical-align: middle;
+                    }
+
+                    a {
+                        width: 10px;
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+                }
+            }
+
+            .details {
+                display: block;
+                margin-bottom: 10px;
+                border-bottom: 1px solid #eee;
+                padding-bottom: 15px;
+
+                .experience,
+                .level {
+                    display: inline-block;
+                    width: calc(50% - 5px);
+                    vertical-align: top;
+
+                    b {
+                        font-size: 20px;
+                        font-weight: 700;
+                        display: block;
+                        margin-bottom: 0;
+                    }
+
+                    span {
+                        color: #888;
+                        font-size: 12px;
+                        font-weight: 300;
+                        display: block;
+                    }
+                }
+
+                .experience {
+                    text-align: right;
+
+                    b {
+                        font-weight: 400;
+                    }
+                }
+            }
+
+            .info {
+                display: block;
+                margin-top: 20px;
+
+                ul {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    display: block;
+                    height: 110px;
+
+                    li {
+                        display: inline-block;
+                        width: calc(50% - 5px);
+                        font-size: 12px;
+                        margin-bottom: 10px;
+
+                        b {
+                            font-weight: 400;
+                            display: block;
+                            color: #888;
+                        }
+
+                        span {
+                            color: #444;
+                        }
+
+                        &.advances {
+                            width: 100%;
+                            margin-bottom: 0;
+                            margin-top: 10px;
+
+                            button {
+                                background: #fff;
+                                border: 1px solid #c1c1c1;
+                                color: #888;
+                                padding: 7px 12px;
+                                border-radius: $border-radius-base;
+                                display: block;
+                                width: 100%;
+                                margin-top: 15px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

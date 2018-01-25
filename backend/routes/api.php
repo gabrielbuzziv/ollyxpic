@@ -96,6 +96,8 @@ Route::get('quick-looting/items', 'QuickLootingController@items');
  * HighscoresController routes.
  */
 Route::get('highscores', 'HighscoresController@experience');
+Route::get('highscores/{name}', 'HighscoresController@player');
+Route::get('highscores/{name}/{type?}', 'HighscoresController@playerAdvances');
 
 
 /**

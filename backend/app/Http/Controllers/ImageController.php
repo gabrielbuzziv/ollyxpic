@@ -71,6 +71,27 @@ class ImageController extends Controller
     }
 
     /**
+     * Load outfit
+     *
+     * @param $name
+     * @param string $sex
+     * @return mixed
+     */
+    public function loadOutfit($name, $sex = 'male')
+    {
+        $male = $sex == 'male' ? true : false;
+        $outfit = (new WikiOutfits)
+            ->where('title', $name)
+            ->first()
+            ->image
+            ->where('male', $male)
+            ->first()
+            ->image;
+
+        return Response::make($outfit, 200)->header('Content-Type', 'image/gif');
+    }
+
+    /**
      * Split multiple frames gifs.
      */
     public function stackables()
@@ -89,14 +110,14 @@ class ImageController extends Controller
 
                 $renderer->start(function (FrameRenderedEvent $event) use ($filename) {
                     $amount = [
-                        0  => 1,
-                        1  => 2,
-                        2  => 3,
-                        3  => 4,
-                        4  => 5,
-                        5  => 10,
-                        6  => 25,
-                        7  => 50
+                        0 => 1,
+                        1 => 2,
+                        2 => 3,
+                        3 => 4,
+                        4 => 5,
+                        5 => 10,
+                        6 => 25,
+                        7 => 50
                     ];
 
                     if ($event->frameIndex > 7) {
@@ -152,8 +173,6 @@ class ImageController extends Controller
                 return Spells::where('name', $name)->first()->image;
             case 'creature':
                 return Creature::where('name', $name)->first()->image;
-            case 'outfit':
-                return WikiOutfits::where('title', $name)->first()->image[0]->image;
         }
     }
 
@@ -169,7 +188,7 @@ class ImageController extends Controller
     {
         $path = storage_path("app/{$directory}/{$file}");
 
-        if (! File::exists($path)) abort(404);
+        if ( ! File::exists($path)) abort(404);
 
         return $path;
     }

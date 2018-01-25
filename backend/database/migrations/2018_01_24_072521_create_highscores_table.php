@@ -18,11 +18,12 @@ class CreateHighscoresTable extends Migration
             $table->integer('rank');
             $table->string('name');
             $table->string('vocation');
-            $table->integer('experience');
+            $table->bigInteger('experience');
             $table->integer('level');
+            $table->integer('advance');
             $table->integer('world_id')->unsigned();
             $table->string('type');
-            $table->timestamp('updated_at');
+            $table->date('updated_at');
 
             $table->foreign('world_id')->references('id')->on('worlds')->onDelete('cascade');
         });

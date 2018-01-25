@@ -27,6 +27,6 @@ class WikiOutfits extends Model
      */
     public function image()
     {
-        return $this->hasMany(WikiOutfitImages::class, 'outfitid')->where('addon', 3)->where('male', true);
+        return $this->hasMany(WikiOutfitImages::class, 'outfitid')->where('addon', 3);
     }
 }

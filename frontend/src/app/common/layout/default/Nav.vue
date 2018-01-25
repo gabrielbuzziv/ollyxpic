@@ -151,6 +151,18 @@
                         </a>
                     </router-link>
 
+                    <router-link :to="{ name: 'tools.highscores' }" tag="li">
+                        <a href="">
+                            <span class="left">
+                                <img :src="image_path_by_name('item', 'Crown')">
+                            </span>
+                            <span class="center">
+                                <span>Highscores</span>
+                                <small>Best Tibia Players</small>
+                            </span>
+                        </a>
+                    </router-link>
+
                     <!--<router-link :to="{ name: 'tools.spots.list' }" tag="li">-->
                         <!--<a href="">-->
                             <!--<span class="left">-->

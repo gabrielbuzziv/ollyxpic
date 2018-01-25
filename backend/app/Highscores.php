@@ -2,10 +2,12 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Highscores extends Model
 {
+
     /**
      * The attributes that can be assign.
      *
@@ -17,6 +19,7 @@ class Highscores extends Model
         'vocation',
         'experience',
         'level',
+        'advance',
         'world_id',
         'type',
         'updated_at',
@@ -38,5 +41,31 @@ class Highscores extends Model
     public function scopeExperience($query)
     {
         return $query->where('type', 'experience');
+    }
+
+    /**
+     * A highscore belongs to a world.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function world()
+    {
+        return $this->belongsTo(World::class);
+    }
+
+    /**
+     * Get the last week experience.
+     *
+     * @return \Illuminate\Database\Query\Builder|static
+     */
+    public function weekExperience()
+    {
+        $today = Carbon::createFromDate($this->updated_at)->format('Y-m-d');
+        $lastWeek = Carbon::createFromDate($this->updated_at)->subWeek()->format('Y-m-d');
+
+        return $this->hasMany(Highscores::class, 'name', 'name')
+            ->where('updated_at', '<=', $today)
+            ->where('updated_at', '>=', $lastWeek)
+            ->orderBy('updated_at', 'asc');
     }
 }

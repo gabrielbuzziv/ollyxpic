@@ -27,6 +27,10 @@ Vue.mixin({
             return `${this.baseURL}/images/tiles/${item}/png`
         },
 
+        outfit (name, sex = 'male') {
+            return `${this.baseURL}/images/outfit/${name}/${sex}`
+        },
+
         image_path (type, id) {
             return `${this.baseURL}/images/blob/${type}/${id}`
         },

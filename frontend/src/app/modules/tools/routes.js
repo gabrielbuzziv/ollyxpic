@@ -12,6 +12,7 @@ import { routes as capcount } from './capcount'
 import { routes as currency } from './currency'
 import { routes as blacklist } from './blacklist'
 import { routes as timer } from './timer'
+import { routes as highscores } from './highscores'
 import { routes as skillTraining } from './skill-training'
 
 export default [
@@ -35,5 +36,6 @@ export default [
     ...currency,
     ...blacklist,
     ...timer,
+    ...highscores,
     ...skillTraining
 ]

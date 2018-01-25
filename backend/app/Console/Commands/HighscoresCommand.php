@@ -48,35 +48,32 @@ class HighscoresCommand extends Command
      */
     public function handle()
     {
-        $worlds = World::orderBy('name', 'asc')->get();
-        $worlds->each(function ($world) {
-            $highscores = file_get_contents("https://api.tibiadata.com/v2/highscores/{$world->name}/{$this->argument('type')}.json");
-            $highscores = json_decode($highscores);
+        for ($i = 7; $i >= 1; $i--) {
+            $worlds = World::orderBy('name', 'asc')->get();
+            $worlds->each(function ($world) use($i) {
+                $highscores = file_get_contents("https://api.tibiadata.com/v2/highscores/{$world->name}/{$this->argument('type')}.json");
+                $highscores = json_decode($highscores);
+                $highscores = $highscores->highscores->data;
 
-            array_walk($highscores->highscores->data, function ($highscore) use ($world) {
-                $highscore = (array) $highscore;
-                $highscore['world'] = $world->id;
-                $this->highscores[] = (object) $highscore;
+                array_walk($highscores, function ($highscore, $index) use ($world, $i) {
+                    $today = Carbon::today()->subDays($i);
+                    $experience = intval($highscore->points * (($today->day / 100) + 1));
+                    $older = Highscores::where('name', $highscore->name)->orderBy('updated_at', 'desc')->first();
+                    $advance = $older ? intval($experience - $older->experience) : 0;
+
+                    Highscores::create([
+                        'rank'       => $index + 1,
+                        'name'       => $highscore->name,
+                        'vocation'   => $highscore->voc,
+                        'experience' => $experience,
+                        'level'      => $highscore->level,
+                        'advance'    => $advance,
+                        'world_id'   => $world->id,
+                        'updated_at' => $today,
+                        'type'       => $this->argument('type'),
+                    ]);
+                });
             });
-        });
-
-        usort($this->highscores, function ($first, $second) {
-            return $first->points ? $first->points < $second->points : $first->level < $second->level;
-        });
-
-        $highscores = array_slice($this->highscores, 0, 300);
-
-        array_walk($highscores, function ($highscore, $index) {
-            Highscores::create([
-                'rank'       => $index + 1,
-                'name'       => $highscore->name,
-                'vocation'   => $highscore->voc,
-                'experience' => $highscore->points,
-                'level'      => $highscore->level,
-                'world_id'   => $highscore->world,
-                'updated_at' => Carbon::now(),
-                'type'       => $this->argument('type'),
-            ]);
-        });
+        }
     }
 }
