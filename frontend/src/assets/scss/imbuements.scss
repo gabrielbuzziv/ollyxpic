@@ -43,6 +43,22 @@
             }
         }
 
+        .el-checkbox {
+            margin-top: 14px;
+            display: inline-block;
+            vertical-align: middle;
+
+            .el-checkbox__label {
+                font-weight: 300;
+            }
+        }
+
+        .el-switch {
+            display: inline-block;
+            vertical-align: middle;
+            margin-top: -7px;
+        }
+
         .el-radio-group {
             width: 100%;
 

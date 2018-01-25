@@ -68,7 +68,7 @@
 
                 <panel class="gold-token">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <img :src="image_path_by_name('item', 'gold token')" alt="">
@@ -91,8 +91,9 @@
                             </el-radio-group>
                         </div>
 
-                        <div class="col-md-2" @change="toggleGoldToken">
-                            <el-switch v-model="goldTokenActive"/>
+                        <div class="col-md-2" >
+                            <el-checkbox v-model="goldTokenCharmActive" class="margin-right-15">Charm</el-checkbox>
+                            <el-switch v-model="goldTokenActive" @change="toggleGoldToken"/>
                         </div>
                     </div>
                 </panel>
@@ -238,6 +239,7 @@
                 imbuement: null,
                 used: '00:00',
                 goldTokenActive: false,
+                goldTokenCharmActive: false,
                 goldToken: 0,
                 goldTokenAmount: 0,
                 goldTokenType: 'Basic'
@@ -290,7 +292,7 @@
 
             totalGoldTokenValue () {
                 return this.goldTokenActive
-                    ? (this.goldToken * this.goldTokenTypeValue * this.goldTokenAmount) + this.goldTokenTax + this.goldTokenCharm
+                    ? (this.goldToken * this.goldTokenTypeValue * this.goldTokenAmount) + (this.goldTokenTax + this.goldTokenCharm) * this.goldTokenAmount
                     : 0
             },
 
@@ -315,6 +317,9 @@
             },
 
             goldTokenCharm () {
+                if (! this.goldTokenCharmActive)
+                    return 0
+
                 switch (this.goldTokenType) {
                     case 'Basic':
                         return 10000
