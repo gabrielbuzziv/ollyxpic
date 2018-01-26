@@ -57,16 +57,22 @@ class HighscoresCommand extends Command
 
                 array_walk($highscores, function ($highscore, $index) use ($world, $i) {
                     $today = Carbon::today()->subDays($i);
-                    $experience = intval($highscore->points * (($today->day / 100) + 1));
-                    $older = Highscores::where('name', $highscore->name)->orderBy('updated_at', 'desc')->first();
-                    $advance = $older ? intval($experience - $older->experience) : 0;
+//                    $experience = $highscore->points;
+                    $level = $highscore->level - ($i - 1);
+                    $experience = ((50 * pow($level - 1, 3)) - (150 * pow($level - 1, 2)) + 400 * ($level - 1)) / 3;
+                    $advance = (50 * pow($level - 1, 2) - 150 * ($level - 1) + 200);
+
+
+//                $older = Highscores::where('name', $highscore->name)->orderBy('updated_at', 'desc')->first();
+//                $advance = $older ? intval($experience - $older->experience) : 0;
+//                    $advance = 0;
 
                     Highscores::create([
                         'rank'       => $index + 1,
                         'name'       => $highscore->name,
                         'vocation'   => $highscore->voc,
                         'experience' => $experience,
-                        'level'      => $highscore->level,
+                        'level'      => $level,
                         'advance'    => $advance,
                         'world_id'   => $world->id,
                         'updated_at' => $today,

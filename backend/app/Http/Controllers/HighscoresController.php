@@ -16,13 +16,20 @@ class HighscoresController extends ApiController
      */
     public function experience()
     {
+        $lastUpdate = (new Highscores)
+            ->select('updated_at')
+            ->orderBy('updated_at','desc')
+            ->take(1)
+            ->first();
+        $lastUpdate = $lastUpdate ? $lastUpdate->updated_at : Carbon::today();
+
         $highscores = (new Highscores)
             ->with('world')
             ->with('weekExperience')
             ->experience()
-            ->where('updated_at', Carbon::today())
+            ->where('updated_at', $lastUpdate)
             ->orderBy('experience', 'desc')
-            ->take(1)
+            ->take(300)
             ->get();
 
         return $this->respond($highscores->toArray());

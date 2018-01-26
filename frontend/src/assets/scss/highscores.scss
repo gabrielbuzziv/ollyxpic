@@ -119,4 +119,89 @@
             }
         }
     }
+
+    .highscores {
+        table {
+            &.table {
+                margin: 0;
+
+                tbody {
+                    tr {
+                        &:first-child {
+                            td {
+                                border-top: 0;
+                            }
+                        }
+                    }
+                }
+
+                .player {
+                    .rank {
+                        .rank-badge {
+                            font-size: 12px;
+                            font-weight: 300;
+                            background: #f39c12;
+                            color: #fff;
+                            text-align: center;
+                            height: 30px;
+                            width: 30px;
+                            line-height: 30px;
+                            border-radius: 100%;
+                        }
+                    }
+
+                    .details {
+                        .name {
+                            display: block;
+                            font-weight: 400;
+                            font-size: 14px;
+                        }
+
+                        .vocation {
+                            font-size: 12px;
+                            font-weight: 300;
+                            display: block;
+                        }
+                    }
+
+                    .level,
+                    .experience,
+                    .world {
+                        b {
+                            font-weight: 700;
+                            display: block;
+                            font-size: 16px;
+                        }
+
+                        span {
+                            display: block;
+                            font-size: 12px;
+                            font-weight: 300;
+                        }
+                    }
+
+                    .experience,
+                    .world {
+                        b {
+                            font-size: 14px;
+                            font-weight: 400;
+                        }
+                    }
+
+                    .advances {
+                        b {
+                            color: #27ae60;
+                            display: block;
+                        }
+
+                        span {
+                            font-size: 12px;
+                            display: block;
+                            font-weight: 300;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

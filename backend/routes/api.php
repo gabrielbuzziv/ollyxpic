@@ -99,6 +99,8 @@ Route::get('highscores', 'HighscoresController@experience');
 Route::get('highscores/{name}', 'HighscoresController@player');
 Route::get('highscores/{name}/{type?}', 'HighscoresController@playerAdvances');
 
+Route::get('players/{name}', 'PlayersController@show');
+
 
 /**
  * All the routes in this group will need to send a Header

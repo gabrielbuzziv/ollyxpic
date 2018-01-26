@@ -1,0 +1,254 @@
+#players {
+    .panel {
+        h4 {
+            font-size: 20px;
+            font-weight: 300;
+            margin: 0 0 20px;
+            display: block;
+        }
+
+        &.character {
+            .details {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: block;
+                width: 100%;
+                margin-bottom: -10px;
+
+                li {
+                    display: inline-block;
+                    width: calc(33% - 5px);
+                    margin-bottom: 20px;
+
+                    .icon {
+                        display: inline-block;
+                        vertical-align: middle;
+                        width: 20px;
+                        margin-right: 5px;
+                    }
+
+                    .data {
+                        display: inline-block;
+                        vertical-align: middle;
+
+                        b {
+                            display: block;
+                            font-weight: 400;
+                        }
+
+                        span {
+                            display: block;
+                            font-size: 12px;
+                            font-weight: 300;
+                        }
+
+                    }
+                }
+            }
+        }
+        
+        &.advances {
+            .advances-resume {
+                display: block;
+                
+                .resume {
+                    display: inline-block;
+                    width: calc(50% - 5px);
+                    vertical-align: middle;
+                    text-align: center;
+                    margin-top: 30px;
+
+                    b {
+                        font-size: 18px;
+                        font-weight: 700;
+                        color: #27ae60;
+                        display: block;
+                    }
+
+                    span {
+                        font-weight: 300;
+                        display: block;
+                        font-size: 14px;
+                    }
+                }
+            }
+            
+            .el-table {
+                &::after,
+                &::before {
+                    background-color: #fff;
+                }
+
+                &.advances {
+                    margin-top: 30px;
+                    border: 0;
+
+                    .el-table__header-wrapper {
+                        tr {
+                            th {
+                                padding: 12px;
+                                border-bottom: 2px solid #ddd;
+                                background-color: #fff;
+
+                                &.descending {
+                                    .cell {
+                                        .caret-wrapper {
+                                            .sort-caret {
+                                                &.descending {
+                                                    border-top-color: #000;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                &.ascending {
+                                    .cell {
+                                        .caret-wrapper {
+                                            .sort-caret {
+                                                &.ascending {
+                                                    border-bottom-color: #000;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .cell {
+                                    padding: 0;
+                                    color: #444;
+                                    vertical-align: middle;
+                                    font-size: 12px;
+                                    text-transform: uppercase;
+                                    background: none;
+
+                                    .caret-wrapper {
+                                        margin-left: 15px;
+
+                                        .sort-caret {
+                                            border-right: 4px solid transparent;
+                                            border-left: 4px solid transparent;
+
+                                            &.ascending {
+                                                border-bottom: 4px solid #97a8be;
+                                            }
+
+                                            &.descending {
+                                                border-top: 4px solid #97a8be;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .el-table__body-wrapper {
+                        .el-table__row {
+                            td {
+                                padding: 12px;
+                                border-color: #eee;
+
+                                &.level {
+                                    .cell {
+                                        padding-right: 20px;
+
+                                        span {
+                                            display: inline-block;
+                                            width: 50%;
+                                        }
+
+                                        b {
+                                            font-weight: 700;
+                                            font-size: 16px;
+                                            display: inline-block;
+                                            width: calc(50% - 5px);
+                                            text-align: right;
+                                        }
+                                    }
+                                }
+
+                                &.advance {
+                                    .cell {
+                                        b {
+                                            color: #27ae60;
+                                        }
+                                    }
+                                }
+
+                                .cell {
+                                    padding: 0;
+                                    vertical-align: middle;
+                                    color: #636b6f;
+
+                                    b {
+                                        display: block;
+                                        font-weight: 400;
+                                        font-size: 14px;
+                                    }
+
+                                    span {
+                                        display: block;
+                                        font-weight: 300;
+                                        font-size: 12px;
+                                    }
+
+                                    .el-progress {
+                                        .el-progress-bar__innerText {
+                                            font-weight: 300;
+                                            font-size: 10px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.achievements {
+            .rate {
+                display: block;
+
+                b {
+                    display: inline-block;
+                    font-size: 30px;
+                    font-weight: 700;
+                }
+
+                span {
+                    display: inline-block;
+                    font-size: 14px;
+                    font-weight: 300;
+                }
+            }
+
+            ul {
+                list-style: none;
+                margin: 20px 0 0;
+                padding: 20px 0 0;
+                border-top: 1px solid #eee;
+
+                li {
+                    display: block;
+
+                    b {
+                        font-weight: 300;
+                        display: inline-block;
+                        width: calc(50% - 10px);
+                        vertical-align: middle;
+                    }
+
+                    .el-rate{
+                        text-align: right;
+                        display: inline-block;
+                        width: 50%;
+                        vertical-align: middle;
+                    }
+                }
+            }
+        }
+    }
+}

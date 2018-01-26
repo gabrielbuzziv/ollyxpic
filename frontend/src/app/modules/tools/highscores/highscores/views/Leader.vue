@@ -7,9 +7,9 @@
 
             <div class="name">
                 <span>{{ leader.name }}</span>
-                <a href="" title="Go to profile">
+                <router-link :to="{ name: 'tools.players', params: { name: leader.name } }" title="Go to profile">
                     <i class="mdi mdi-chevron-right"></i>
-                </a>
+                </router-link>
             </div>
         </header>
 
@@ -34,7 +34,7 @@
 
                 <li>
                     <b>World:</b>
-                    <span>{{ leader.world.name }}</span>
+                    <span>{{ leader.world.name }1}</span>
                 </li>
 
                 <li class="advances">
@@ -71,7 +71,7 @@
             },
 
             advances () {
-                return this.leader ? this.leader.last_week_experience : []
+                return this.leader ? this.leader.week_experience : []
             },
 
             type () {
@@ -158,14 +158,5 @@
                 }
             }
         },
-
-        methods: {
-            loadAdvances () {
-                services.getPlayerAdvances(this.leader.name, this.type.name)
-                    .then(response => {
-                        this.advances = response.data
-                    })
-            },
-        }
     }
 </script>

@@ -6,19 +6,8 @@
             </div>
         </div>
 
-        <panel>
+        <panel class="highscores">
             <table class="table">
-                <thead>
-                    <tr>
-                        <th>Rank</th>
-                        <th>Name</th>
-                        <th>Level</th>
-                        <th>Experience</th>
-                        <th>Vocation</th>
-                        <th>World</th>
-                    </tr>
-                </thead>
-
                 <tbody>
                     <player :player="highscore"
                             :index="index"
