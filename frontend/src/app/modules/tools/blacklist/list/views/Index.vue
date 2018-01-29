@@ -32,7 +32,7 @@
                         <code>Windows + R</code>
                         <i class="mdi mdi-arrow-right"></i>
                         <input type="text" class="form-control"
-                               value="%localappdata%\Tibia\packages\Tibia\characterdata"
+                               value="%appdata%\local\tibia\packages\tibia\characterdata"
                                style="display: inline-block; width: 390px;">
 
                         <span class="label label-default">Execute</span>
