@@ -74,13 +74,6 @@
                     </card>
                 </router-link>
 
-                <router-link :to="{ name: 'tools.mvp' }" slot="anchor">
-                    <card title="Warzone" subtitle="MVP's">
-                        <img :src="image_path_by_name('item', 'medal of honour')" slot="icon">
-                        <i class="mdi mdi-chevron-right"></i>
-                    </card>
-                </router-link>
-
                 <router-link :to="{ name: 'tools.expshare' }" slot="anchor">
                     <card title="Exp" subtitle="Share">
                         <img :src="image_path_by_name('item', 'purple tome')" slot="icon">

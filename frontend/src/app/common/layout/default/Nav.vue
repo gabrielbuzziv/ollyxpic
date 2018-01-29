@@ -77,19 +77,7 @@
                                 <small>Spells and Weapons</small>
                             </span>
                         </a>
-                    </router-link>
-
-                    <router-link :to="{ name: 'tools.mvp' }" tag="li">
-                        <a href="">
-                            <span class="left">
-                                <img :src="image_path_by_name('item', 'medal of honour')">
-                            </span>
-                            <span class="center">
-                                <span>Warzone</span>
-                                <small>MVP's</small>
-                            </span>
-                        </a>
-                    </router-link>
+                    </router-link>git ad
 
                     <router-link :to="{ name: 'tools.expshare' }" tag="li">
                         <a href="">
