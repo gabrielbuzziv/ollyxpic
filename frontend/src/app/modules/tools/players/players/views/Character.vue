@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <div class="col-md-6">
-            <panel class="character">
+            <panel class="character level-panel">
                 <div class="details">
                     <div class="level">
                         <div class="data">
@@ -41,45 +41,45 @@
             </panel>
         </div>
 
-        <div class="col-md-6">
-            <panel class="character">
-                <div class="stats">
-                    <div class="stat full">
-                        <div class="label-progress">
-                            <b>HP</b>
-                            <span>{{ hitpoints.format() }}</span>
-                        </div>
-                        <el-progress :percentage="hitpoints"
-                                     :show-text="false"
-                                     :stroke-width="12"
-                                     status="hitpoints"/>
+        <div class="col-md-3">
+            <panel class="character stats">
+                <div class="stat">
+                    <i class="mdi mdi-heart icon"></i>
+                    <div class="data">
+                        <b>HP</b>
+                        <span>{{ hitpoints.format() }}</span>
                     </div>
+                </div>
+            </panel>
 
-                    <div class="stat full">
-                        <div class="label-progress">
-                            <b>Mana</b>
-                            <span>{{ manapoints.format() }}</span>
-                        </div>
-                        <el-progress :percentage="manapoints"
-                                     :show-text="false"
-                                     :stroke-width="12"
-                                     status="manapoints"/>
+            <panel class="character stats">
+                <div class="stat">
+                    <i class="mdi mdi-speedometer icon"></i>
+                    <div class="data">
+                        <b>Speed</b>
+                        <span>{{ speed.format() }}</span>
                     </div>
+                </div>
+            </panel>
+        </div>
 
-                    <div class="stat">
-                        <i class="mdi mdi-speedometer icon"></i>
-                        <div class="data">
-                            <b>Speed</b>
-                            <span>{{ speed.format() }}</span>
-                        </div>
+        <div class="col-md-3">
+            <panel class="character stats">
+                <div class="stat">
+                    <i class="mdi mdi-flask-empty icon"></i>
+                    <div class="data">
+                        <b>Mana</b>
+                        <span>{{ manapoints.format() }}</span>
                     </div>
+                </div>
+            </panel>
 
-                    <div class="stat">
-                        <i class="mdi mdi-weight icon"></i>
-                        <div class="data">
-                            <b>Capacity</b>
-                            <span>{{ capacity.format() }} oz.</span>
-                        </div>
+            <panel class="character stats">
+                <div class="stat">
+                    <i class="mdi mdi-weight icon"></i>
+                    <div class="data">
+                        <b>Capacity</b>
+                        <span>{{ capacity.format() }}</span>
                     </div>
                 </div>
             </panel>
@@ -130,7 +130,7 @@
             },
 
             speed () {
-                return 220 + (2 * (this.character.level - 1))
+                return this.character.level + 109
             },
 
             capacity () {

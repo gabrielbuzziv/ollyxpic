@@ -27,7 +27,7 @@
         computed: {
             completed () {
                 return this.character && this.character.achievement_points
-                    ? (this.character.achievement_points * 100 / 1080).toFixed()
+                    ? parseInt(this.character.achievement_points * 100 / 1080)
                     : 0
             }
         }

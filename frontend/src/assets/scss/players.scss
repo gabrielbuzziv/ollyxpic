@@ -8,8 +8,13 @@
         }
 
         &.character {
+            &.level-panel {
+                background: #3498db;
+                color: #fff;
+            }
+
             .panel-body {
-                height: 300px;
+                height: 314px;
                 padding: 30px;
             }
 
@@ -54,15 +59,19 @@
                         width: 80%;
                         margin: 0 auto;
 
+                        .el-progress-bar__outer {
+                            background: rgba(255, 255, 255, .2)
+                        }
+
                         .el-progress-bar__inner {
-                            background-color: #27ae60;
+                            background: rgba(255, 255, 255, .9)
                         }
                     }
                 }
 
                 .skills {
                     display: block;
-                    margin-top: 30px;
+                    margin-top: 60px;
 
                     .skill {
                         width: calc(33% - 2px);
@@ -98,20 +107,18 @@
                 }
             }
 
-            .stats {
+            &.stats {
+                .panel-body {
+                    padding: 20px;
+                    height: auto;
+                    background: #34495e;
+                    color: #fff;
+                }
+
                 .stat {
-                    display: inline-block;
-                    width: calc(50% - 25px);
-                    vertical-align: middle;
+                    display: block;
                     margin: 10px;
                     text-align: center;
-
-                    &.full {
-                        width: 80%;
-                        display: block;
-                        margin: 0 auto 20px;
-                        text-align: left;
-                    }
 
                     .icon {
                         display: block;
@@ -179,41 +186,53 @@
         }
 
         &.character-details {
-            .details {
-                list-style: none;
-                margin: 0;
-                padding: 0;
+            width: calc(50% - 12px);
+            margin-right: 20px;
+            display: inline-block;
+
+            .panel-body {
+                background: #2c3e50;
+                color: #fff;
+            }
+
+            &:nth-child(2n) {
+                margin-right: 0;
+            }
+
+            &:last-child {
+                &:nth-child(2n + 1) {
+                    width: 100%;
+                    margin: 0 0 20px;
+                }
+            }
+
+            .detail {
                 display: block;
-                width: 100%;
-                margin-bottom: -10px;
+                text-align: center;
 
-                li {
-                    display: inline-block;
-                    width: calc(33% - 5px);
-                    margin-bottom: 20px;
+                .icon {
+                    display: block;
+                    margin-bottom: 10px;
+                }
 
-                    .icon {
-                        display: inline-block;
-                        vertical-align: middle;
-                        width: 20px;
-                        margin-right: 5px;
+                .data {
+                    display: block;
+
+                    b {
+                        display: block;
+                        font-weight: 300;
+                        margin-bottom: 5px;
+                        font-size: 12px;
                     }
 
-                    .data {
-                        display: inline-block;
-                        vertical-align: middle;
+                    span {
+                        font-weight: 700;
+                        font-size: 14px;
+                        display: block;
 
-                        b {
-                            display: block;
-                            font-weight: 400;
+                        a {
+                            color: inherit;
                         }
-
-                        span {
-                            display: block;
-                            font-size: 12px;
-                            font-weight: 300;
-                        }
-
                     }
                 }
             }
@@ -230,7 +249,7 @@
                     text-align: center;
                 }
 
-                span{
+                span {
                     display: block;
                     font-weight: 300;
                     text-align: center;
@@ -380,7 +399,7 @@
                     display: inline-block;
                     vertical-align: middle;
                     width: calc(100% - 85px);
-                    
+
                     b {
                         display: inline-block;
                         font-size: 30px;
@@ -469,6 +488,21 @@
                     }
                 }
             }
+        }
+    }
+
+    .no-data {
+        h4 {
+            font-size: 20px;
+            font-weight: 300;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        p {
+            display: block;
+            margin: 0;
+            font-weight: 300;
         }
     }
 }

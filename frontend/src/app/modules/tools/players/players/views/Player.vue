@@ -1,10 +1,6 @@
 <template>
     <page-load id="players" :loading="loading">
         <page-title>
-            <div class="pull-right">
-
-            </div>
-
             <img :src="outfit(outfiter, character.sex)" alt="" class="margin-right-15">
             <div class="title">
                 <h2>{{ character.name }}</h2>
@@ -12,21 +8,21 @@
             </div>
         </page-title>
 
-
         <character :character="character" :experience="experience" />
 
-        <div class="row">
+        <div class="row margin-top-40">
             <div class="col-md-8">
-                <character-details :character="character" :achievements="achievements" />
+                <experience :experience="experience" v-if="experience.length" />
+                <no-data title="Experience advances" :message="`Unforntunately we can't track the exp statistics of ${character.name}. We can only track players statistics from tibia.com highscores.`" v-else />
+                <deaths :deaths="deaths" v-if="deaths.length" />
             </div>
 
             <div class="col-md-4">
+                <character-details :character="character" :achievements="achievements" />
                 <achievements :character="character" :achievements="achievements" />
             </div>
         </div>
 
-        <experience :experience="experience" v-if="experience.length" />
-        <deaths :deaths="deaths" v-if="deaths.length" />
     </page-load>
 </template>
 
@@ -36,10 +32,11 @@
     import Achievements from './Achievements'
     import Experience from './Experience'
     import Deaths from './Deaths'
+    import NoData from './NoData'
     import services from '../services'
 
     export default {
-        components: { CharacterDetails, Character, Achievements, Experience, Deaths },
+        components: { CharacterDetails, Character, Achievements, Experience, Deaths, NoData },
 
         data () {
             return {
