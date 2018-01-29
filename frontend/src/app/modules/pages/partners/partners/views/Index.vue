@@ -24,6 +24,14 @@
                     </a>
                 </panel>
             </div>
+
+            <div class="col-sm-6">
+                <panel title="Hephraime" class="margin-bottom-50">
+                    <a target="_blank" href="https://www.twitch.tv/hephraime">
+                        <img border="0" alt="Hephraime" src="/src/assets/images/twitch.png" width="50" height="50">
+                    </a>
+                </panel>
+            </div>
         </div>
 
         <div class="row">
