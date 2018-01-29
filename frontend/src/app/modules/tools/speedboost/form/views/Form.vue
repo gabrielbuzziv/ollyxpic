@@ -135,7 +135,8 @@
             },
 
             speed () {
-                const bonus = parseInt(this.player.bonus) > 0 ? parseInt(this.player.bonus) : 0
+                let bonus = parseFloat(this.player.bonus)
+                bonus = bonus != null && bonus != '' && typeof bonus == 'number' ? bonus : 0
                 return Math.floor(this.baseSpeed + bonus + this.spellSpeed)
             }
         },
