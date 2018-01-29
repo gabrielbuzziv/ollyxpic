@@ -32,6 +32,14 @@
                     </a>
                 </panel>
             </div>
+
+            <div class="col-sm-6">
+                <panel title="Cherm0" class="margin-bottom-50">
+                    <a target="_blank" href="https://www.twitch.tv/cherm0">
+                        <img border="0" alt="Cherm0" src="/src/assets/images/twitch.png" width="50" height="50">
+                    </a>
+                </panel>
+            </div>
         </div>
 
         <div class="row">
