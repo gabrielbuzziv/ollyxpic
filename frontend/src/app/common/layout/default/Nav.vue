@@ -77,7 +77,7 @@
                                 <small>Spells and Weapons</small>
                             </span>
                         </a>
-                    </router-link>git ad
+                    </router-link>
 
                     <router-link :to="{ name: 'tools.expshare' }" tag="li">
                         <a href="">
