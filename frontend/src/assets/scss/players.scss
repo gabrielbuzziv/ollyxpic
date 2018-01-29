@@ -8,6 +8,177 @@
         }
 
         &.character {
+            .panel-body {
+                height: 300px;
+                padding: 30px;
+            }
+
+            .details {
+                margin-top: 20px;
+
+                .name {
+                    font-size: 30px;
+                    font-weight: 600;
+                    display: block;
+                    margin-bottom: 10px;
+                }
+
+                .level {
+                    display: block;
+                    margin-bottom: 40px;
+
+                    .data {
+                        display: block;
+                        width: 80%;
+                        margin: 0 auto 5px;
+
+                        span {
+                            display: inline-block;
+                            width: calc(50% - 10px);
+                            vertical-align: baseline;
+                            font-size: 20px;
+                            font-weight: 300;
+                        }
+
+                        b {
+                            font-weight: 700;
+                            font-size: 34px;
+                            display: inline-block;
+                            width: 50%;
+                            text-align: right;
+                            vertical-align: baseline;
+                        }
+                    }
+
+                    .el-progress {
+                        width: 80%;
+                        margin: 0 auto;
+
+                        .el-progress-bar__inner {
+                            background-color: #27ae60;
+                        }
+                    }
+                }
+
+                .skills {
+                    display: block;
+                    margin-top: 30px;
+
+                    .skill {
+                        width: calc(33% - 2px);
+                        display: inline-block;
+
+                        .icon {
+                            display: block;
+                            vertical-align: middle;
+                            margin-bottom: 5px;
+                            font-size: 20px;
+                            text-align: center;
+                        }
+
+                        .data {
+                            display: block;
+                            vertical-align: middle;
+                            text-align: center;
+
+                            b {
+                                display: block;
+                                font-weight: 300;
+                                margin-bottom: 5px;
+                                font-size: 12px;
+                            }
+
+                            span {
+                                font-weight: 700;
+                                font-size: 16px;
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .stats {
+                .stat {
+                    display: inline-block;
+                    width: calc(50% - 25px);
+                    vertical-align: middle;
+                    margin: 10px;
+                    text-align: center;
+
+                    &.full {
+                        width: 80%;
+                        display: block;
+                        margin: 0 auto 20px;
+                        text-align: left;
+                    }
+
+                    .icon {
+                        display: block;
+                        vertical-align: middle;
+                        margin-bottom: 5px;
+                        font-size: 20px;
+                        text-align: center;
+                    }
+
+                    .data {
+                        display: block;
+                        vertical-align: middle;
+                        text-align: center;
+
+                        b {
+                            display: block;
+                            font-weight: 300;
+                            margin-bottom: 5px;
+                            font-size: 12px;
+                        }
+
+                        span {
+                            font-weight: 700;
+                            font-size: 16px;
+                            display: block;
+                        }
+                    }
+
+                    .label-progress {
+                        display: block;
+                        margin-bottom: 5px;
+
+                        b {
+                            display: inline-block;
+                            vertical-align: baseline;
+                            font-weight: 300;
+                            width: calc(50% - 10px);
+                            font-size: 16px;
+                        }
+
+                        span {
+                            display: inline-block;
+                            width: 50%;
+                            text-align: right;
+                            font-size: 20px;
+                            font-weight: 700;
+                        }
+                    }
+
+                    .el-progress {
+                        &.is-hitpoints {
+                            .el-progress-bar__inner {
+                                background-color: #e74c3c;
+                            }
+                        }
+
+                        &.is-manapoints {
+                            .el-progress-bar__inner {
+                                background-color: #3498db;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.character-details {
             .details {
                 list-style: none;
                 margin: 0;
@@ -47,11 +218,11 @@
                 }
             }
         }
-        
+
         &.advances {
             .advances-resume {
                 display: block;
-                
+
                 .resume {
                     display: inline-block;
                     width: calc(50% - 5px);
@@ -73,7 +244,7 @@
                     }
                 }
             }
-            
+
             .el-table {
                 &::after,
                 &::before {
@@ -241,7 +412,7 @@
                         vertical-align: middle;
                     }
 
-                    .el-rate{
+                    .el-rate {
                         text-align: right;
                         display: inline-block;
                         width: 50%;
@@ -264,6 +435,21 @@
                             display: block;
                             font-weight: 300;
                             font-size: 12px;
+                        }
+
+                        .murders {
+                            font-weight: 300;
+                            font-size: 12px;
+
+                            .murder {
+                                display: inline-block;
+                                margin-right: 5px;
+
+                                a {
+                                    font-weight: 400;
+                                    display: inline-block;
+                                }
+                            }
                         }
                     }
                 }

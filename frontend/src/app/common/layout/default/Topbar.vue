@@ -13,7 +13,7 @@
 
             <div class="pull-right">
                 <div class="search-player">
-                    <input type="text" placeholder="Search character ..." v-model="character">
+                    <input type="text" placeholder="Search character ..." @keypress.enter="searchPlayer" v-model="character">
                     <button @click.prevent="searchPlayer">
                         <i class="mdi mdi-magnify"></i>
                     </button>
@@ -67,14 +67,6 @@
                 return this.$store.getters['global/IS_LOGGED']
             },
 
-            searchPlayer () {
-                if (this.character == '' || this.character == null) {
-                    return false
-                }
-
-                this.$router.push({ name: 'tools.players', params: { name: this.character } })
-            },
-
             logout () {
                 this.$store.commit('global/TOKEN', '')
                 this.$store.commit('global/USER', '')
@@ -82,6 +74,16 @@
                 localStorage.removeItem('auth_token')
                 localStorage.removeItem('auth_user')
             }
+        },
+
+        methods: {
+            searchPlayer () {
+                if (this.character == '' || this.character == null) {
+                    return false
+                }
+
+                this.$router.push({ name: 'tools.players', params: { name: this.character } })
+            },
         }
     }
 </script>

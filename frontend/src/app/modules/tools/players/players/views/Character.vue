@@ -1,120 +1,164 @@
 <template>
-    <panel class="character">
-        <h4>Details</h4>
+    <div class="row">
+        <div class="col-md-6">
+            <panel class="character">
+                <div class="details">
+                    <div class="level">
+                        <div class="data">
+                            <span>Level</span>
+                            <b>{{ character.level }}</b>
+                        </div>
+                        <el-progress :percentage="getExperienceBar(level).percentage" :show-text="false"
+                                     :stroke-width="12"/>
+                    </div>
 
-        <ul class="details">
-            <li>
-                <i class="mdi mdi-chart-line-variant icon"></i>
-                <div class="data">
-                    <b>Level</b>
-                    <span>{{ character.level }}</span>
-                </div>
-            </li>
+                    <div class="skills">
+                        <div class="skill">
+                            <i class="mdi mdi-auto-fix icon"></i>
+                            <div class="data">
+                                <b>Magic Level</b>
+                                <span>14</span>
+                            </div>
+                        </div>
 
-            <li>
-                <i class="mdi mdi-auto-fix icon"></i>
-                <div class="data">
-                    <b>Vocation</b>
-                    <span>{{ character.vocation }}</span>
-                </div>
-            </li>
+                        <div class="skill">
+                            <i class="mdi mdi-sword icon"></i>
+                            <div class="data">
+                                <b>Sword fighting</b>
+                                <span>125</span>
+                            </div>
+                        </div>
 
-            <li>
-                <i class="mdi mdi-earth icon"></i>
-                <div class="data">
-                    <b>World</b>
-                    <span>{{ character.world }}</span>
+                        <div class="skill">
+                            <i class="mdi mdi-shield icon"></i>
+                            <div class="data">
+                                <b>Shielding</b>
+                                <span>119</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </li>
+            </panel>
+        </div>
 
-            <li>
-                <i class="mdi mdi-home icon"></i>
-                <div class="data">
-                    <b>Residence</b>
-                    <span>{{ character.residence }}</span>
-                </div>
-            </li>
+        <div class="col-md-6">
+            <panel class="character">
+                <div class="stats">
+                    <div class="stat full">
+                        <div class="label-progress">
+                            <b>HP</b>
+                            <span>{{ hitpoints.format() }}</span>
+                        </div>
+                        <el-progress :percentage="hitpoints"
+                                     :show-text="false"
+                                     :stroke-width="12"
+                                     status="hitpoints"/>
+                    </div>
 
-            <li>
-                <i class="mdi mdi-gender-male-female icon"></i>
-                <div class="data">
-                    <b>Gender</b>
-                    <span>{{ character.sex | capitalize }}</span>
-                </div>
-            </li>
+                    <div class="stat full">
+                        <div class="label-progress">
+                            <b>Mana</b>
+                            <span>{{ manapoints.format() }}</span>
+                        </div>
+                        <el-progress :percentage="manapoints"
+                                     :show-text="false"
+                                     :stroke-width="12"
+                                     status="manapoints"/>
+                    </div>
 
-            <li v-if="character.married_to">
-                <i class="mdi mdi-ring icon"></i>
-                <div class="data">
-                    <b>Married to</b>
-                    <span>
-                        <router-link :to="{ name: 'tools.players', params: { name: character.married_to } }">
-                            {{ character.married_to }}
-                        </router-link>
-                    </span>
-                </div>
-            </li>
+                    <div class="stat">
+                        <i class="mdi mdi-speedometer icon"></i>
+                        <div class="data">
+                            <b>Speed</b>
+                            <span>{{ speed }}</span>
+                        </div>
+                    </div>
 
-            <li v-if="character.guild">
-                <i class="mdi mdi-account-multiple icon"></i>
-                <div class="data">
-                    <b>Guild</b>
-                    <span>
-                        <a :href="`https://secure.tibia.com/community/?subtopic=guilds&page=view&GuildName=${character.guild.name}`"
-                           target="_blank">
-                            {{ character.guild.name }}
-                        </a>
-                    </span>
+                    <div class="stat">
+                        <i class="mdi mdi-weight icon"></i>
+                        <div class="data">
+                            <b>Capacity</b>
+                            <span>{{ capacity }} oz.</span>
+                        </div>
+                    </div>
                 </div>
-            </li>
-
-            <li>
-                <i class="mdi mdi-infinity icon"></i>
-                <div class="data">
-                    <b>Account Status</b>
-                    <span>{{ character.account_status }}</span>
-                </div>
-            </li>
-
-            <li>
-                <i class="mdi mdi-login icon"></i>
-                <div class="data">
-                    <b>Last Login</b>
-                    <span>{{ character.last_login[0].date | dateForHuman }}</span>
-                </div>
-            </li>
-        </ul>
-    </panel>
+            </panel>
+        </div>
+    </div>
 </template>
 
 <script>
-    export default {
-        props: ['character'],
+    Number.prototype.format = function (n, x) {
+        var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\.' : '$') + ')';
+        return this.toFixed(Math.max(0, ~ ~ n)).replace(new RegExp(re, 'g'), '$&.');
+    };
 
-        data () {
-            return {
-                details: [
-                    { icon: 'earth', label: 'Vocations', value: this.character.vocation },
-                    { icon: 'earth', label: 'World', value: this.character.world },
-                    { icon: 'home', label: 'Residence', value: this.character.residence },
-                    { icon: 'gender-male-female', label: 'Sex', value: this.character.sex },
-                    { icon: 'ring', label: 'Married To', value: this.character.married_to },
-                    { icon: 'account-multiple', label: 'Guild', value: this.character.guild.name },
-                    { icon: 'home', label: 'Account Status', value: this.character.account_status },
-                    {
-                        icon: 'login',
-                        label: 'Last Login',
-                        value: this.character.last_login[0].date,
-                        filter: 'dateForHuman'
-                    },
-                ]
+    export default {
+        props: ['character', 'experience'],
+
+        computed: {
+            level () {
+                return this.experience.sort((a, b) => b.id - a.id)[0]
+            },
+
+            hitpoints () {
+                switch (this.character.vocation) {
+                    case 'Knight':
+                    case 'Elite Knight':
+                        return (this.character.level - 8) * 15 + 185
+                    case 'Paladin':
+                    case 'Royal Paladin':
+                        return (this.character.level - 8) * 10 + 185
+                    default:
+                        return (this.character.level - 8) * 5 + 145
+                }
+            },
+
+            manapoints () {
+                switch (this.character.vocation) {
+                    case 'Druid':
+                    case 'Sorcerer':
+                    case 'Elder Druid':
+                    case 'Master Sorcerer':
+                        return (this.character.level - 8) * 30 + 90
+                    case 'Paladin':
+                    case 'Royal Paladin':
+                        return (this.character.level - 8) * 15 + 90
+                    default:
+                        return (this.character.level - 8) * 5 + 50
+                }
+            },
+
+            speed () {
+                return 220 + (2 * (this.character.level - 1))
+            },
+
+            capacity () {
+                switch (this.character.vocation) {
+                    case 'Knight':
+                    case 'Elite Knight':
+                    case 'Paladin':
+                    case 'Royal Paladin':
+                        return (this.character.level - 8) * 25 + 470
+                    default:
+                        return (this.character.level - 8) * 10 + 400
+                }
             }
         },
 
-        filters: {
-            dateForHuman (date) {
-                console.log(date)
-                return moment.tz(date, "YYYY-MM-DD HH:mm:ss", 'Europe/Berlin').fromNow()
+        methods: {
+            getExperienceBar (advance) {
+                const nextLevel = advance.level + 1
+                const nextLevelExp = ((50 * Math.pow((nextLevel - 1), 3)) - (150 * Math.pow((nextLevel - 1), 2)) + (400 * (nextLevel - 1))) / 3
+                const currentExp = advance.experience
+                const expToNextLevel = 50 * Math.pow(advance.level, 2) - 150 * advance.level + 200
+                const expLeft = nextLevelExp - currentExp
+                const currentLeveledExp = expToNextLevel - expLeft
+                const percentage = parseInt((currentLeveledExp * 100) / expToNextLevel)
+
+                return this.experience
+                    ? { leftExperience: expLeft, percentage: percentage }
+                    : { leftExperience: 0, percentage: 0 }
             }
         }
     }

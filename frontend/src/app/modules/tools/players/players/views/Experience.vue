@@ -1,64 +1,77 @@
 <template>
-    <panel class="advances">
-        <h4>Last 30 days experience advances</h4>
-
-        <highcharts class="margin-top-50" id="experience-chart" :options="chart"/>
-
-        <div class="advances-resume">
-            <div class="resume">
-                <b>+ {{ monthAdvance.format() }}</b>
-                <span>Total experience</span>
-            </div>
-
-            <div class="resume">
-                <b>+ {{ monthAverageAdvance.format() }}</b>
-                <span>Average daily experience</span>
-            </div>
+    <div>
+        <div class="col-md-6">
+            <panel>
+                <highcharts class="margin-top-50" id="experience-chart" :options="chart"/>
+            </panel>
         </div>
 
-        <el-table class="advances"
-                  :data="experience"
-                  :default-sort="{ prop: 'updated_at', order: 'descending' }">
-            <el-table-column prop="updated_at" label="Date" sortable>
-                <template scope="scope">
-                    <b>{{ scope.row.updated_at | date }}</b>
-                    <span>{{ scope.row.updated_at | dateForHuman }}</span>
-                </template>
-            </el-table-column>
+        <div class="col-md-6">
+            <panel>
+                <div class="advances-resume">
+                    <div class="resume">
+                        <b>+ {{ monthAdvance.format() }}</b>
+                        <span>Total experience</span>
+                    </div>
 
-            <el-table-column prop="level" label="Level" class-name="level" sortable>
-                <template scope="scope">
-                    <span>Level</span>
-                    <b>{{ scope.row.level }}</b>
+                    <div class="resume">
+                        <b>+ {{ monthAverageAdvance.format() }}</b>
+                        <span>Average daily experience</span>
+                    </div>
+                </div>
+            </panel>
+        </div>
 
-                    <el-tooltip placement="right">
-                        <span slot="content">
-                            <p class="margin-bottom-5">You have {{ getExperienceBar(scope.row).percentage }}% to go.</p>
-                            <p class="margin-bottom-0">
-                                {{ getExperienceBar(scope.row).leftExperience.format() }}
-                                experience points for next level.
-                            </p>
-                        </span>
-                        <el-progress :percentage="getExperienceBar(scope.row).percentage" :show-text="false"/>
-                    </el-tooltip>
-                </template>
-            </el-table-column>
+        <panel class="advances">
+            <h4>Last 30 days experience advances</h4>
 
-            <el-table-column prop="experience" label="Experience" sortable>
-                <template scope="scope">
-                    <b>{{ scope.row.experience.format() }}</b>
-                    <span>Experience</span>
-                </template>
-            </el-table-column>
 
-            <el-table-column prop="advance" label="Advances" class-name="advance" sortable>
-                <template scope="scope">
-                    <b>+ {{ scope.row.advance.format() }}</b>
-                    <span>+ Experience</span>
-                </template>
-            </el-table-column>
-        </el-table>
-    </panel>
+            <el-table class="advances"
+                      :data="experience"
+                      :default-sort="{ prop: 'updated_at', order: 'descending' }">
+                <el-table-column prop="updated_at" label="Date" sortable>
+                    <template scope="scope">
+                        <b>{{ scope.row.updated_at | date }}</b>
+                        <span>{{ scope.row.updated_at | dateForHuman }}</span>
+                    </template>
+                </el-table-column>
+
+                <el-table-column prop="level" label="Level" class-name="level" sortable>
+                    <template scope="scope">
+                        <span>Level</span>
+                        <b>{{ scope.row.level }}</b>
+
+                        <el-tooltip placement="right">
+                            <span slot="content">
+                                <p class="margin-bottom-5">
+                                    You have {{ getExperienceBar(scope.row).percentage }}% to go.
+                                </p>
+                                <p class="margin-bottom-0">
+                                    {{ getExperienceBar(scope.row).leftExperience.format() }}
+                                    experience points for next level.
+                                </p>
+                            </span>
+                            <el-progress :percentage="getExperienceBar(scope.row).percentage" :show-text="false"/>
+                        </el-tooltip>
+                    </template>
+                </el-table-column>
+
+                <el-table-column prop="experience" label="Experience" sortable>
+                    <template scope="scope">
+                        <b>{{ scope.row.experience.format() }}</b>
+                        <span>Experience</span>
+                    </template>
+                </el-table-column>
+
+                <el-table-column prop="advance" label="Advances" class-name="advance" sortable>
+                    <template scope="scope">
+                        <b>+ {{ scope.row.advance.format() }}</b>
+                        <span>+ Experience</span>
+                    </template>
+                </el-table-column>
+            </el-table>
+        </panel>
+    </div>
 </template>
 
 <script>
@@ -73,7 +86,7 @@
         computed: {
             chart () {
                 return {
-                    chart: { type: 'area', height: 200 },
+                    chart: { type: 'area', height: 150 },
                     title: { text: '' },
                     subtitle: { text: '' },
                     xAxis: {

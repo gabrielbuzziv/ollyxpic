@@ -1,5 +1,8 @@
 <template>
-    <tr>
+    <tr width="100%">
+        <td>
+            <img src="src/assets/images/skull.png" style="max-width: 32px">
+        </td>
         <td>
             <b>{{ death.date.date | date }}</b>
             <span>{{ death.date.date | dateForHuman }}</span>
@@ -8,10 +11,8 @@
             <b>{{ death.level }}</b>
             <span>Level</span>
         </td>
-        <td>
-            <span v-if="creatures.length">
-                <img :src="image_path_by_name('creature', creature)" v-for="creature in creatures">
-            </span>
+        <td width="50%">
+            <span>{{ death.reason }}</span>
         </td>
     </tr>
 </template>
@@ -21,19 +22,6 @@
 
     export default {
         props: ['death'],
-
-        computed: {
-            creatures () {
-                if (this.death.reason.indexOf('Died by a') !== -1) {
-                    let creatures = this.death.reason.split('Died by a ')[1]
-                    creatures = creatures.split(', ')
-
-                    return creatures
-                }
-
-                return []
-            }
-        },
 
         filters: {
             date (date) {

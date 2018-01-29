@@ -12,56 +12,47 @@
             </div>
         </page-title>
 
-        <div class="col-md-8">
-            <character :character="character" />
-            <experience :experience="experience" v-if="experience.length" />
-            <deaths :deaths="deaths" v-if="deaths.length" />
+
+        <character :character="character" :experience="experience" />
+
+        <div class="row">
+            <div class="col-md-8">
+                <character-details :character="character" />
+            </div>
+
+            <div class="col-md-4">
+                <panel class="achievements">
+                    <h4>Achievements</h4>
+
+                    <div class="rate">
+                        <b>{{ character.achievement_points }}</b>
+                        <span>points</span>
+                    </div>
+
+                    <ul v-if="achievements.length">
+                        <li v-for="achievement in achievements">
+                            <b>{{ achievement.name }}</b>
+                            <el-rate v-model="achievement.stars" :max="3" disabled />
+                        </li>
+                    </ul>
+                </panel>
+            </div>
         </div>
 
-        <div class="col-md-4">
-            <panel v-if="character.house">
-                <h4>House</h4>
-
-                <ul>
-                    <li>
-                        <b>{{ character.house.town }}</b>
-                        <span>Town</span>
-                    </li>
-
-                    <li>
-                        <b>{{ character.house.name }}</b>
-                        <span>House name</span>
-                    </li>
-                </ul>
-            </panel>
-
-            <panel class="achievements">
-                <h4>Achievements</h4>
-
-                <div class="rate">
-                    <b>{{ character.achievement_points }}</b>
-                    <span>points</span>
-                </div>
-
-                <ul v-if="achievements.length">
-                    <li v-for="achievement in achievements">
-                        <b>{{ achievement.name }}</b>
-                        <el-rate v-model="achievement.stars" :max="3" disabled />
-                    </li>
-                </ul>
-            </panel>
-        </div>
+        <experience :experience="experience" v-if="experience.length" />
+        <deaths :deaths="deaths" v-if="deaths.length" />
     </page-load>
 </template>
 
 <script>
+    import CharacterDetails from './Details'
     import Character from './Character'
     import Experience from './Experience'
     import Deaths from './Deaths'
     import services from '../services'
 
     export default {
-        components: { Character, Experience, Deaths },
+        components: { CharacterDetails, Character, Experience, Deaths },
 
         data () {
             return {
