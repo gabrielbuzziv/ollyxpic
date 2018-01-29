@@ -69,6 +69,8 @@
                 <panel class="gold-token">
                     <div class="row">
                         <div class="col-md-3">
+                            <label class="form-label">Gold Token Price</label>
+
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <img :src="image_path_by_name('item', 'gold token')" alt="">
@@ -80,10 +82,13 @@
                         </div>
 
                         <div class="col-md-2">
+                            <label class="form-label">Amount</label>
                             <el-input-number v-model="goldTokenAmount" :min="1" :max="10"/>
                         </div>
 
                         <div class="col-md-4">
+                            <label class="form-label">Type</label>
+
                             <el-radio-group v-model="goldTokenType">
                                 <el-radio-button label="Basic"></el-radio-button>
                                 <el-radio-button label="Intricate"></el-radio-button>

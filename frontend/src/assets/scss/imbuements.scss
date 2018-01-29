@@ -25,6 +25,13 @@
             font-weight: 300;
         }
 
+        .form-label {
+            font-weight: 300;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 12px;
+        }
+
         .el-input-number {
             width: 100%;
 
@@ -44,7 +51,7 @@
         }
 
         .el-checkbox {
-            margin-top: 14px;
+            margin-top: 36px;
             display: inline-block;
             vertical-align: middle;
 
@@ -56,7 +63,7 @@
         .el-switch {
             display: inline-block;
             vertical-align: middle;
-            margin-top: -7px;
+            margin-top: 10px;
         }
 
         .el-radio-group {
