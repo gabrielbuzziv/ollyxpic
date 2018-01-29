@@ -29,7 +29,7 @@
                     <thead>
                         <tr>
                             <th class="text-center">Amount of Blessings</th>
-                            <th class="text-center">Experience</th>
+                            <th class="text-center">Lost Experience</th>
                             <th class="text-center">Equipment</th>
                             <th class="text-center">Container</th>
                         </tr>
@@ -201,6 +201,10 @@
                         price = 2000 + (200 * (level - 30))
                     } else {
                         price = 20000
+                    }
+
+                    if (bless == 'Twist of Fate') {
+                        price = level <= 270 ? 2000 + (200 * (level - 30)) : 50000
                     }
 
                     if (bless == 'Blood of the Mountain' || bless == 'Heart of the Mountain') {
