@@ -28,7 +28,7 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th class="text-center">Amount of Blessings</th>
+                            <th class="text-center"></th>
                             <th class="text-center">Lost Experience</th>
                             <th class="text-center">Equipment</th>
                             <th class="text-center">Container</th>
