@@ -17,25 +17,11 @@
 
         <div class="row">
             <div class="col-md-8">
-                <character-details :character="character" />
+                <character-details :character="character" :achievements="achievements" />
             </div>
 
             <div class="col-md-4">
-                <panel class="achievements">
-                    <h4>Achievements</h4>
-
-                    <div class="rate">
-                        <b>{{ character.achievement_points }}</b>
-                        <span>points</span>
-                    </div>
-
-                    <ul v-if="achievements.length">
-                        <li v-for="achievement in achievements">
-                            <b>{{ achievement.name }}</b>
-                            <el-rate v-model="achievement.stars" :max="3" disabled />
-                        </li>
-                    </ul>
-                </panel>
+                <achievements :character="character" :achievements="achievements" />
             </div>
         </div>
 
@@ -47,12 +33,13 @@
 <script>
     import CharacterDetails from './Details'
     import Character from './Character'
+    import Achievements from './Achievements'
     import Experience from './Experience'
     import Deaths from './Deaths'
     import services from '../services'
 
     export default {
-        components: { CharacterDetails, Character, Experience, Deaths },
+        components: { CharacterDetails, Character, Achievements, Experience, Deaths },
 
         data () {
             return {

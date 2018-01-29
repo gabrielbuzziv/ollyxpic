@@ -26,9 +26,9 @@
             <span>Last week advances</span>
         </td>
         <td class="text-right">
-            <a href="">
+            <router-link :to="{ name: 'tools.players', params: { name: player.name } }" title="Go to profile">
                 <i class="mdi mdi-chevron-right"></i>
-            </a>
+            </router-link>
         </td>
     </tr>
 </template>

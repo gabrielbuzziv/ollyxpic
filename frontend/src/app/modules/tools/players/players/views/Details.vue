@@ -1,5 +1,5 @@
 <template>
-    <panel class="character-details">
+    <panel class="character-details" :class="{ 'with-achievements': achievements.length }">
         <h4>Details</h4>
 
         <ul class="details">
@@ -81,7 +81,7 @@
 
 <script>
     export default {
-        props: ['character'],
+        props: ['character', 'achievements'],
 
         data () {
             return {

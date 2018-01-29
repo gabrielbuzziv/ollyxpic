@@ -34,7 +34,7 @@
 
                 <li>
                     <b>World:</b>
-                    <span>{{ leader.world.name }1}</span>
+                    <span>{{ leader.world.name }}</span>
                 </li>
 
                 <li class="advances">

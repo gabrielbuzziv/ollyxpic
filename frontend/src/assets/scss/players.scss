@@ -219,32 +219,26 @@
             }
         }
 
-        &.advances {
-            .advances-resume {
-                display: block;
-
-                .resume {
-                    display: inline-block;
-                    width: calc(50% - 5px);
-                    vertical-align: middle;
+        &.experience-box {
+            .resume {
+                b {
+                    display: block;
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: #27ae60;
+                    margin-bottom: 10px;
                     text-align: center;
-                    margin-top: 30px;
+                }
 
-                    b {
-                        font-size: 18px;
-                        font-weight: 700;
-                        color: #27ae60;
-                        display: block;
-                    }
-
-                    span {
-                        font-weight: 300;
-                        display: block;
-                        font-size: 14px;
-                    }
+                span{
+                    display: block;
+                    font-weight: 300;
+                    text-align: center;
                 }
             }
+        }
 
+        &.advances {
             .el-table {
                 &::after,
                 &::before {
@@ -252,14 +246,13 @@
                 }
 
                 &.advances {
-                    margin-top: 30px;
                     border: 0;
 
                     .el-table__header-wrapper {
                         tr {
                             th {
                                 padding: 12px;
-                                border-bottom: 2px solid #ddd;
+                                border-bottom: 1px solid #eee;
                                 background-color: #fff;
 
                                 &.descending {
@@ -383,16 +376,38 @@
             .rate {
                 display: block;
 
-                b {
+                .data {
                     display: inline-block;
-                    font-size: 30px;
-                    font-weight: 700;
+                    vertical-align: middle;
+                    width: calc(100% - 85px);
+                    
+                    b {
+                        display: inline-block;
+                        font-size: 30px;
+                        font-weight: 700;
+                    }
+
+                    span {
+                        display: inline-block;
+                        font-size: 14px;
+                        font-weight: 300;
+                    }
                 }
 
-                span {
+                .el-progress {
                     display: inline-block;
-                    font-size: 14px;
-                    font-weight: 300;
+                    vertical-align: middle;
+                    margin-top: -35px;
+
+                    .el-progress-circle {
+                        width: 80px !important;
+                        height: 80px !important;
+                    }
+
+                    .el-progress__text {
+                        font-weight: 300;
+                        font-size: 14px;
+                    }
                 }
             }
 

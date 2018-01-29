@@ -8,7 +8,7 @@
                             <span>Level</span>
                             <b>{{ character.level }}</b>
                         </div>
-                        <el-progress :percentage="getExperienceBar(level).percentage" :show-text="false"
+                        <el-progress :percentage="getExperienceBar(level)" :show-text="false"
                                      :stroke-width="12"/>
                     </div>
 
@@ -70,7 +70,7 @@
                         <i class="mdi mdi-speedometer icon"></i>
                         <div class="data">
                             <b>Speed</b>
-                            <span>{{ speed }}</span>
+                            <span>{{ speed.format() }}</span>
                         </div>
                     </div>
 
@@ -78,7 +78,7 @@
                         <i class="mdi mdi-weight icon"></i>
                         <div class="data">
                             <b>Capacity</b>
-                            <span>{{ capacity }} oz.</span>
+                            <span>{{ capacity.format() }} oz.</span>
                         </div>
                     </div>
                 </div>
@@ -148,17 +148,21 @@
 
         methods: {
             getExperienceBar (advance) {
-                const nextLevel = advance.level + 1
-                const nextLevelExp = ((50 * Math.pow((nextLevel - 1), 3)) - (150 * Math.pow((nextLevel - 1), 2)) + (400 * (nextLevel - 1))) / 3
-                const currentExp = advance.experience
-                const expToNextLevel = 50 * Math.pow(advance.level, 2) - 150 * advance.level + 200
-                const expLeft = nextLevelExp - currentExp
-                const currentLeveledExp = expToNextLevel - expLeft
-                const percentage = parseInt((currentLeveledExp * 100) / expToNextLevel)
+                if (this.experience.length) {
+                    const nextLevel = advance.level + 1
+                    const nextLevelExp = ((50 * Math.pow((nextLevel - 1), 3)) - (150 * Math.pow((nextLevel - 1), 2)) + (400 * (nextLevel - 1))) / 3
+                    const currentExp = advance.experience
+                    const expToNextLevel = 50 * Math.pow(advance.level, 2) - 150 * advance.level + 200
+                    const expLeft = nextLevelExp - currentExp
+                    const currentLeveledExp = expToNextLevel - expLeft
+                    const percentage = parseInt((currentLeveledExp * 100) / expToNextLevel)
 
-                return this.experience
-                    ? { leftExperience: expLeft, percentage: percentage }
-                    : { leftExperience: 0, percentage: 0 }
+                    return this.experience
+                        ? percentage
+                        : 0
+                }
+
+                return 0
             }
         }
     }
