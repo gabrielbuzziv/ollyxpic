@@ -1,4 +1,4 @@
-a, button {
+* {
     &:focus,
     &:active {
         outline: 0;
@@ -10,6 +10,42 @@ a, button {
     color: #fff;
     height: 70px;
     line-height: 70px;
+
+    .search-player {
+        display: inline-block;
+        line-height: 70px;
+        height: 70px;
+        vertical-align: middle;
+        background: rgba(0, 0, 0, .05);
+        padding: 0 20px;
+
+        input {
+            height: 70px;
+            line-height: 70px;
+            color: rgba(255, 255, 255, .8);
+            display: inline-block;
+            border: 0;
+            font-size: 20px;
+            font-weight: 300;
+            vertical-align: middle;
+            background: none;
+
+            &::placeholder {
+                color: rgba(255, 255, 255, .4);
+            }
+        }
+
+        button {
+            background: none;
+            display: inline-block;
+            vertical-align: middle;
+            height: 70px;
+            line-height: 70px;
+            color: rgba(255, 255, 255, .4);
+            font-size: 20px;
+            border: 0;
+        }
+    }
 
     .rashid {
         img {
@@ -34,6 +70,26 @@ a, button {
                     fons-weight: 700;
                     font-size: 14px;
                 }
+            }
+        }
+    }
+
+    .pull-right {
+        .btn {
+            height: 70px;
+            line-height: 70px;
+            padding: 0 20px;
+            color: rgba(255, 255, 255, .4);
+            background: rgba(0, 0, 0, .05);
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .user-stats {
+            color: rgba(255, 255, 255, .4);
+
+            a {
+                color: rgba(255, 255, 255, .4);
             }
         }
     }

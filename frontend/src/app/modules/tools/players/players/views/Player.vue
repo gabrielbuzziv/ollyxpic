@@ -15,6 +15,7 @@
         <div class="col-md-8">
             <character :character="character" />
             <experience :experience="experience" v-if="experience.length" />
+            <deaths :deaths="deaths" v-if="deaths.length" />
         </div>
 
         <div class="col-md-4">
@@ -56,10 +57,11 @@
 <script>
     import Character from './Character'
     import Experience from './Experience'
+    import Deaths from './Deaths'
     import services from '../services'
 
     export default {
-        components: { Character, Experience },
+        components: { Character, Experience, Deaths },
 
         data () {
             return {
@@ -80,6 +82,13 @@
                     ? this.player.details.achievements
                     : []
             },
+
+            deaths () {
+                return this.player && this.player.details && this.player.details.deaths
+                    ? this.player.details.deaths
+                    : []
+            },
+
 
             experience () {
                 return this.player && this.player.experience

@@ -33,6 +33,7 @@ Route::post('mvp', 'MVPController@calculate');
  * CreatureController routes.
  */
 Route::get('creatures', 'CreatureController@index');
+Route::get('creatures/multiple', 'CreatureController@multiple');
 Route::get('creatures/{creature}', 'CreatureController@show');
 
 /**
@@ -99,6 +100,9 @@ Route::get('highscores', 'HighscoresController@experience');
 Route::get('highscores/{name}', 'HighscoresController@player');
 Route::get('highscores/{name}/{type?}', 'HighscoresController@playerAdvances');
 
+/**
+ * PlayerController routes.
+ */
 Route::get('players/{name}', 'PlayersController@show');
 
 

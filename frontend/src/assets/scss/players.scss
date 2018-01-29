@@ -250,5 +250,24 @@
                 }
             }
         }
+
+        &.deaths {
+            table {
+                tr {
+                    td {
+                        b {
+                            display: block;
+                            font-weight: 400;
+                        }
+
+                        span {
+                            display: block;
+                            font-weight: 300;
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
