@@ -14,17 +14,81 @@
                     width: 32px;
                 }
 
-                .name {
-                    display: inline-block;
-                    font-size: 20px;
+                .title {
+                    display: block;
                     font-weight: 300;
-                    vertical-align: middle;
-                    width: calc(100% - 50px);
+
+                    .rank-badge {
+                        font-size: 12px;
+                        font-weight: 300;
+                        background: #f39c12;
+                        color: #fff;
+                        text-align: center;
+                        height: 30px;
+                        width: 30px;
+                        line-height: 30px;
+                        border-radius: 100%;
+                        display: inline-block;
+                        margin-right: 10px;
+                    }
 
                     span {
                         display: inline-block;
-                        width: calc(100% - 20px);
                         vertical-align: middle;
+                        
+                        &.left {
+                            width: calc(60% - 50px);
+
+                            .name {
+                                font-size: 18px;
+                                display: block;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                padding-right: 15px;
+
+                                a {
+                                    color:  inherit;
+                                }
+                            }
+
+                            .vocation {
+                                font-size: 12px;
+                                display: block;
+                                color: #999;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                padding-right: 15px;
+                            }
+                        }
+                        
+                        &.right {
+                            width: 40%;
+
+                            .level {
+                                display: block;
+                                margin-bottom: 5px;
+
+                                span {
+                                    display: inline-block;
+                                    width: calc(50% - 10px);
+                                    vertical-align: middle;
+                                    font-size: 12px;
+                                    font-weight: 300;
+                                    text-align: left;
+                                }
+
+                                b {
+                                    display: inline-block;
+                                    width: 50%;
+                                    vertical-align: middle;
+                                    text-align: right;
+                                    font-weight: 700;
+                                    font-size: 16px;
+                                }
+                            }
+                        }
                     }
 
                     a {
@@ -35,86 +99,39 @@
                 }
             }
 
-            .details {
-                display: block;
-                margin-bottom: 10px;
-                border-bottom: 1px solid #eee;
-                padding-bottom: 15px;
+            .world {
+                display: inline-block;
+                width: calc(50% - 10px);
+                vertical-align: middle;
 
-                .experience,
-                .level {
-                    display: inline-block;
-                    width: calc(50% - 5px);
-                    vertical-align: top;
-
-                    b {
-                        font-size: 20px;
-                        font-weight: 700;
-                        display: block;
-                        margin-bottom: 0;
-                    }
-
-                    span {
-                        color: #888;
-                        font-size: 12px;
-                        font-weight: 300;
-                        display: block;
-                    }
+                b {
+                    font-weight: 400;
+                    display: block;
                 }
 
-                .experience {
-                    text-align: right;
-
-                    b {
-                        font-weight: 400;
-                    }
+                span {
+                    font-size: 12px;
+                    font-weight: 300;
+                    display: block;
                 }
             }
 
-            .info {
-                display: block;
-                margin-top: 20px;
+            .advances {
+                display: inline-block;
+                width: 50%;
+                vertical-align: middle;
+                text-align: right;
 
-                ul {
-                    list-style: none;
-                    margin: 0;
-                    padding: 0;
+                b {
+                    font-weight: 600;
                     display: block;
-                    height: 110px;
+                    color: #27ae60;
+                }
 
-                    li {
-                        display: inline-block;
-                        width: calc(50% - 5px);
-                        font-size: 12px;
-                        margin-bottom: 10px;
-
-                        b {
-                            font-weight: 400;
-                            display: block;
-                            color: #888;
-                        }
-
-                        span {
-                            color: #444;
-                        }
-
-                        &.advances {
-                            width: 100%;
-                            margin-bottom: 0;
-                            margin-top: 10px;
-
-                            button {
-                                background: #fff;
-                                border: 1px solid #c1c1c1;
-                                color: #888;
-                                padding: 7px 12px;
-                                border-radius: $border-radius-base;
-                                display: block;
-                                width: 100%;
-                                margin-top: 15px;
-                            }
-                        }
-                    }
+                span {
+                    font-size: 12px;
+                    font-weight: 300;
+                    display: block;
                 }
             }
         }
@@ -155,6 +172,10 @@
                             display: block;
                             font-weight: 400;
                             font-size: 14px;
+
+                            a {
+                                color:  inherit;
+                            }
                         }
 
                         .vocation {

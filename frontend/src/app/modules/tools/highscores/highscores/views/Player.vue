@@ -6,7 +6,11 @@
             </div>
         </td>
         <td class="details">
-            <span class="name">{{ player.name }}</span>
+            <span class="name">
+                <router-link :to="{ name: 'tools.players', params: { name: player.name } }">
+                    {{ player.name }}
+                </router-link>
+            </span>
             <span class="vocation">{{ player.vocation }}</span>
         </td>
         <td class="level">
@@ -23,12 +27,7 @@
         </td>
         <td class="advances">
             <b>+ {{ weekAdvances }}</b>
-            <span>Last week advances</span>
-        </td>
-        <td class="text-right">
-            <router-link :to="{ name: 'tools.players', params: { name: player.name } }" title="Go to profile">
-                <i class="mdi mdi-chevron-right"></i>
-            </router-link>
+            <span>Last 7 days experience</span>
         </td>
     </tr>
 </template>

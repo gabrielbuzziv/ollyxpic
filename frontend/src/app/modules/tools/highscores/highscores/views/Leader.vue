@@ -1,46 +1,39 @@
 <template>
     <panel class="leader">
         <header>
-            <div class="rank">
-                <img :src="image_path_by_name('item', thumb)" alt="">
-            </div>
 
-            <div class="name">
-                <span>{{ leader.name }}</span>
-                <router-link :to="{ name: 'tools.players', params: { name: leader.name } }" title="Go to profile">
-                    <i class="mdi mdi-chevron-right"></i>
-                </router-link>
+            <div class="title">
+                <div class="rank-badge">
+                    {{ index + 1 }}
+                </div>
+
+                <span class="left">
+                    <span class="name">
+                        <router-link :to="{ name: 'tools.players', params: { name: leader.name } }">
+                            {{ leader.name }}
+                        </router-link>
+                    </span>
+                    <span class="vocation">{{ leader.vocation }}</span>
+                </span>
+
+                <span class="right">
+                    <span class="level">
+                        <span>Level</span>
+                        <b>{{ leader.level.format() }}</b>
+                    </span>
+                    <el-progress :percentage="experiencePercentage" :show-text="false" :stroke-width="10"/>
+                </span>
             </div>
         </header>
 
-        <div class="details">
-            <div class="level">
-                <b>{{ leader.level.format() }}</b>
-                <span>Level</span>
-            </div>
-
-            <div class="experience">
-                <b>{{ leader.experience.format() }}</b>
-                <span>Experience</span>
-            </div>
+        <div class="world">
+            <b>{{ leader.world.name }}</b>
+            <span>{{ leader.world.type }}</span>
         </div>
 
-        <div class="info">
-            <ul>
-                <li>
-                    <b>Vocation:</b>
-                    <span>{{ leader.vocation }}</span>
-                </li>
-
-                <li>
-                    <b>World:</b>
-                    <span>{{ leader.world.name }}</span>
-                </li>
-
-                <li class="advances">
-                    <highcharts :id="leader.name" :options="chart"/>
-                </li>
-            </ul>
+        <div class="advances">
+            <b>+ {{ lastWeekExperience.format() }}</b>
+            <span>Last 7 days experience</span>
         </div>
     </panel>
 </template>
@@ -74,6 +67,14 @@
                 return this.leader ? this.leader.week_experience : []
             },
 
+            current () {
+                return this.advances.slice().sort((a, b) => b.id - a.id)[0]
+            },
+
+            lastWeekExperience () {
+                return this.advances.reduce((carry, advance) => carry + advance.advance, 0)
+            },
+
             type () {
                 const type = this.$route.name.split('.')[2]
 
@@ -85,77 +86,24 @@
                 }
             },
 
-            chart () {
-                return {
-                    chart: {
-                        type: 'area',
-                        backgroundColor: null,
-                        height: 50,
-                        borderWidth: 0,
-                        margin: [20, 0, 2, 0],
-                        style: { overflow: 'visible' },
-                        skipClone: true
-                    },
-                    title: { text: '' },
-                    subtitle: { text: '' },
-                    xAxis: {
-                        categories: this.advances.map(advance => advance.updated_at),
-                        labels: { enabled: false },
-                        title: { text: null },
-                        startOnTick: false,
-                        endOnTick: false,
-                        tickPositions: [],
-                        grindLineWidth: 0,
-                        lineWidth: 0,
-                        tickWidth: 0
-                    },
-                    yAxis: {
-                        endOnTick: false,
-                        startOnTick: false,
-                        labels: { enabled: false },
-                        title: { text: null },
-                        tickPositions: [0]
-                    },
-                    series: [
-                        {
-                            name: this.type.label,
-                            data: this.advances.map(advance => advance[this.type.value]),
-                            fillOpacity: '0.3',
-                            color: '#27ae60',
-                        },
-                    ],
-                    credits: { enabled: false },
-                    tooltip: {
-                        hideDelay: 0,
-                        shared: true,
-                        positioner: function (w, h, point) {
-                            return { x: point.plotX - w / 2, y: point.plotY - h };
-                        },
-                        pointFormat: '{series.name}: <b> + {point.y}</b>'
-                    },
-                    legend: { enabled: false },
-                    plotOptions: {
-                        series: {
-                            animation: false,
-                            lineWidth: 1,
-                            shadow: false,
-                            states: {
-                                hover: {
-                                    lineWidth: 1
-                                }
-                            },
-                            marker: {
-                                radius: 2,
-                                states: {
-                                    hover: {
-                                        radius: 3
-                                    }
-                                }
-                            },
-                            fillOpacity: 0.25
-                        },
-                    }
+            experiencePercentage () {
+                const advance = this.current
+
+                if (this.advances.length) {
+                    const nextLevel = advance.level + 1
+                    const nextLevelExp = ((50 * Math.pow((nextLevel - 1), 3)) - (150 * Math.pow((nextLevel - 1), 2)) + (400 * (nextLevel - 1))) / 3
+                    const currentExp = advance.experience
+                    const expToNextLevel = 50 * Math.pow(advance.level, 2) - 150 * advance.level + 200
+                    const expLeft = nextLevelExp - currentExp
+                    const currentLeveledExp = expToNextLevel - expLeft
+                    const percentage = parseInt((currentLeveledExp * 100) / expToNextLevel)
+
+                    return this.advances
+                        ? percentage
+                        : 0
                 }
+
+                return 0
             }
         },
     }
