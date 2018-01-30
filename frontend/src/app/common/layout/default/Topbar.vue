@@ -12,22 +12,22 @@
             </div>
 
             <div class="pull-right">
-                <div class="search-player">
-                    <input type="text" placeholder="Search character ..." @keypress.enter="searchPlayer" v-model="character">
-                    <button @click.prevent="searchPlayer">
-                        <i class="mdi mdi-magnify"></i>
-                    </button>
-                </div>
-
-
-                <!--<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="inline  margin-right-5">-->
-                    <!--<input type="hidden" name="cmd" value="_s-xclick">-->
-                    <!--<input type="hidden" name="hosted_button_id" value="J8VPUH8PS9ANS">-->
-                    <!--<button name="submit" class="btn btn-default" target="_blank">-->
-                        <!--<i class="mdi mdi-coffee margin-right-5"></i>-->
-                        <!--Pay us a coffee-->
+                <!--<div class="search-player">-->
+                    <!--<input type="text" placeholder="Search character ..." @keypress.enter="searchPlayer" v-model="character">-->
+                    <!--<button @click.prevent="searchPlayer">-->
+                        <!--<i class="mdi mdi-magnify"></i>-->
                     <!--</button>-->
-                <!--</form>-->
+                <!--</div>-->
+
+
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="inline  margin-right-5">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="hosted_button_id" value="J8VPUH8PS9ANS">
+                    <button name="submit" class="btn btn-default" target="_blank">
+                        <i class="mdi mdi-coffee margin-right-5"></i>
+                        Pay us a coffee
+                    </button>
+                </form>
 
                 <button class="btn btn-default" @click.prevent="$root.$emit('show::login')" v-if="! isLogged">
                     <i class="mdi mdi-login margin-right-5"></i>
