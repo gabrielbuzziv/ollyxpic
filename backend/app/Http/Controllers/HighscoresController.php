@@ -16,23 +16,14 @@ class HighscoresController extends ApiController
      */
     public function experience()
     {
-        $lastUpdate = (new Highscores)
-            ->select('updated_at')
-            ->orderBy('updated_at','desc')
-            ->take(1)
-            ->first();
-        $lastUpdate = $lastUpdate ? $lastUpdate->updated_at : Carbon::today();
-
         $highscores = (new Highscores)
             ->with('world')
             ->with('weekExperience')
-            ->experience()
-            ->where('updated_at', $lastUpdate)
-            ->where(function($query) {
-                if ($this->getVocation())
-                    $query->whereIn('vocation', $this->getVocation());
-            })
+            ->where('type', 'experience')
+            ->whereIn('vocation', $this->getVocation())
             ->orderBy('experience', 'desc')
+            ->orderBy('updated_at', 'desc')
+            ->groupBy('name')
             ->take(300)
             ->get();
 
@@ -88,9 +79,6 @@ class HighscoresController extends ApiController
      */
     private function getVocation()
     {
-        if (! request('vocation'))
-            return false;
-
         switch (request('vocation')) {
             case 'knight':
                 return ['Knight', 'Elite Knight'];
@@ -100,6 +88,8 @@ class HighscoresController extends ApiController
                 return ['Druid', 'Elder Druid'];
             case 'paladin':
                 return ['Paladin', 'Royal Paladin'];
+            default:
+                return ['Knight', 'Elite Knight', 'Sorcerer', 'Master Sorcerer', 'Paladin', 'Royal Paladin', 'Druid', 'Elder Druid'];
         }
     }
 }

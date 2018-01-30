@@ -48,12 +48,12 @@ class HighscoresCommand extends Command
      */
     public function handle()
     {
-//        $vocations = ['knight', 'sorcerer', 'paladin', 'druid'];
+        $vocations = ['knight', 'sorcerer', 'paladin', 'druid'];
 //
-//        foreach ($vocations as $vocation) {
+        foreach ($vocations as $vocation) {
             $worlds = World::orderBy('name', 'asc')->get();
-            $worlds->each(function ($world) {
-                $highscores = file_get_contents("https://api.tibiadata.com/v2/highscores/{$world->name}/{$this->argument('type')}.json");
+            $worlds->each(function ($world) use($vocation) {
+                $highscores = file_get_contents("https://api.tibiadata.com/v2/highscores/{$world->name}/{$this->argument('type')}/{$vocation}.json");
                 $highscores = json_decode($highscores);
                 $highscores = $highscores->highscores->data;
 
@@ -83,5 +83,5 @@ class HighscoresCommand extends Command
                 });
             });
         }
-//    }
+    }
 }
