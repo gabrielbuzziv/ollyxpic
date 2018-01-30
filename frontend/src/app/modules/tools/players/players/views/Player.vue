@@ -19,7 +19,7 @@
             </div>
         </page-title>
 
-        <character :character="character" :experience="experience" />
+        <character :character="character" :experience="experience" :skills="skills" />
 
         <div class="row margin-top-40">
             <div class="col-md-8">
@@ -104,6 +104,12 @@
             experience () {
                 return this.player && this.player.experience
                     ? this.player.experience
+                    : []
+            },
+
+            skills () {
+                return this.player && this.player.skills
+                    ? this.player.skills
                     : []
             },
 

@@ -44,6 +44,72 @@ class Highscores extends Model
     }
 
     /**
+     * Return highscores with type magic.
+     *
+     * @param $query
+     * @return mixed
+     */
+    public function scopeMagic($query)
+    {
+        return $query->where('type', 'magic');
+    }
+
+    /**
+     * Return highscores with type sword.
+     *
+     * @param $query
+     * @return mixed
+     */
+    public function scopeSword($query)
+    {
+        return $query->where('type', 'sword');
+    }
+
+    /**
+     * Return highscores with type axe.
+     *
+     * @param $query
+     * @return mixed
+     */
+    public function scopeAxe($query)
+    {
+        return $query->where('type', 'axe');
+    }
+
+    /**
+     * Return highscores with type club.
+     *
+     * @param $query
+     * @return mixed
+     */
+    public function scopeClub($query)
+    {
+        return $query->where('type', 'club');
+    }
+
+    /**
+     * Return highscores with type shielding.
+     *
+     * @param $query
+     * @return mixed
+     */
+    public function scopeShielding($query)
+    {
+        return $query->where('type', 'shielding');
+    }
+
+    /**
+     * Return highscores with type distance.
+     *
+     * @param $query
+     * @return mixed
+     */
+    public function scopeDistance($query)
+    {
+        return $query->where('type', 'distance');
+    }
+
+    /**
      * A highscore belongs to a world.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

@@ -25,7 +25,7 @@ class PlayersController extends ApiController
             return $this->respondNotFound(null);
         }
 
-        $experience = (new Highscores())
+        $experience = (new Highscores)
             ->experience()
             ->where('name', $name)
             ->where('updated_at', '>=', Carbon::today()->subMonth())
@@ -33,9 +33,33 @@ class PlayersController extends ApiController
             ->orderBy('updated_at', 'asc')
             ->get();
 
+
         return $this->respond([
             'details' => (array) $details->characters,
-            'experience' => $experience
+            'experience' => $experience,
+            'skills' => [
+                'magic' => $this->getSkills($name, 'magic'),
+                'sword' => $this->getSkills($name, 'sword'),
+                'axe' => $this->getSkills($name, 'axe'),
+                'club' => $this->getSkills($name, 'club'),
+                'shielding' => $this->getSkills($name, 'shielding'),
+                'distance' => $this->getSkills($name, 'distance'),
+            ]
         ]);
+    }
+
+    /**
+     * Get skills
+     *
+     * @param $name
+     * @param $type
+     */
+    private function getSkills($name, $type)
+    {
+        return (new Highscores)
+            ->$type()
+            ->where('name', $name)
+            ->orderBy('updated_at', 'desc')
+            ->first();
     }
 }

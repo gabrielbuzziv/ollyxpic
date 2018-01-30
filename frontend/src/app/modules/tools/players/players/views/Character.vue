@@ -13,27 +13,27 @@
                     </div>
 
                     <div class="skills">
-                        <div class="skill">
+                        <div class="skill" v-if="skills.magic">
                             <i class="mdi mdi-auto-fix icon"></i>
                             <div class="data">
                                 <b>Magic Level</b>
-                                <span>14</span>
+                                <span>{{ skills.magic.level }}</span>
                             </div>
                         </div>
 
-                        <div class="skill">
+                        <div class="skill" v-if="weaponSkill">
                             <i class="mdi mdi-sword icon"></i>
                             <div class="data">
-                                <b>Sword fighting</b>
-                                <span>125</span>
+                                <b>{{ weaponSkill.label }} fighting</b>
+                                <span>{{ weaponSkill.level }}</span>
                             </div>
                         </div>
 
-                        <div class="skill">
+                        <div class="skill" v-if="skills.shielding">
                             <i class="mdi mdi-shield icon"></i>
                             <div class="data">
                                 <b>Shielding</b>
-                                <span>119</span>
+                                <span>{{ skills.shielding.level }}</span>
                             </div>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
     };
 
     export default {
-        props: ['character', 'experience'],
+        props: ['character', 'experience', 'skills'],
 
         computed: {
             level () {
@@ -143,6 +143,46 @@
                     default:
                         return (this.character.level - 8) * 10 + 400
                 }
+            },
+
+            weaponSkill () {
+                if (this.character.vocation == 'Paladin' || this.character.vocation == 'Royal Paladin') {
+                    const distance = this.skills.distance ? this.skills.distance : 0
+                    const distanceLevel = distance ? distance.level : 0
+
+                    if (distanceLevel) {
+                        distance['label'] = 'Distance'
+                        return distance
+                    }
+
+                    return 0
+                }
+
+                if (this.character.vocation == 'Knight' || this.character.vocation == 'Elite Knight') {
+                    const axe = this.skills.axe ? this.skills.axe : 0
+                    const club = this.skills.club ? this.skills.club : 0
+                    const sword = this.skills.sword ? this.skills.sword : 0
+
+                    const axeLevel = axe ? axe.level : 0
+                    const clubLevel = club ? club.level : 0
+                    const swordLevel = sword ? sword.level : 0
+
+                    const bigger = Math.max(axeLevel, clubLevel, swordLevel)
+
+                    switch (true) {
+                        case axe.level == bigger:
+                            axe['label'] = 'Axe'
+                            return axe
+                        case club.level == bigger:
+                            club['label'] = 'Club'
+                            return club
+                        case sword.level == bigger:
+                            sword['label'] = 'Sword'
+                            return sword
+                    }
+                }
+
+                return 0
             }
         },
 
