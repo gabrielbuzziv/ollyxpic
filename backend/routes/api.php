@@ -33,6 +33,7 @@ Route::post('mvp', 'MVPController@calculate');
  * CreatureController routes.
  */
 Route::get('creatures', 'CreatureController@index');
+Route::get('creatures/multiple', 'CreatureController@multiple');
 Route::get('creatures/{creature}', 'CreatureController@show');
 
 /**
@@ -96,6 +97,18 @@ Route::get('quick-looting/items', 'QuickLootingController@items');
  * PartnersController
  */
 Route::get('partners', 'PartnersController@index');
+
+/*
+ * HighscoresController routes.
+ */
+Route::get('highscores', 'HighscoresController@experience');
+Route::get('highscores/{name}', 'HighscoresController@player');
+Route::get('highscores/{name}/{type?}', 'HighscoresController@playerAdvances');
+
+/**
+ * PlayerController routes.
+ */
+Route::get('players/{name}', 'PlayersController@show');
 
 /**
  * All the routes in this group will need to send a Header

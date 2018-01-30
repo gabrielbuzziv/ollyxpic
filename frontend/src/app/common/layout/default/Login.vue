@@ -1,5 +1,5 @@
 <template>
-    <el-dialog title="Admin Panel" size="tiny" :visible.sync="visible">
+    <el-dialog title="Login" size="tiny" :visible.sync="visible">
         <form action="" @submit.prevent="onLogin">
             <div class="form-group">
                 <div class="input-group">
@@ -7,7 +7,7 @@
                         <i class="mdi mdi-email"></i>
                     </div>
 
-                    <input type="text" class="form-control" placeholder="Not that secret e-mail" v-model="user.email" required>
+                    <input type="text" class="form-control" placeholder="E-mail" v-model="user.email" required>
                 </div>
             </div>
 
@@ -17,11 +17,11 @@
                         <i class="mdi mdi-key-variant"></i>
                     </div>
 
-                    <input type="password" class="form-control" placeholder="Super secret password" v-model="user.password" required>
+                    <input type="password" class="form-control" placeholder="Password" v-model="user.password" required>
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-success btn-block margin-bottom-0" :disabled="submiting">
+            <button type="submit" class="btn btn-success margin-top-10 margin-bottom-0" :disabled="submiting">
                 Login
             </button>
         </form>

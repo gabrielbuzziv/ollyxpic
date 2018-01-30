@@ -1,0 +1,550 @@
+#players {
+    .panel {
+        h4 {
+            font-size: 20px;
+            font-weight: 300;
+            margin: 0 0 20px;
+            display: block;
+        }
+
+        &.character {
+            &.level-panel {
+                background: #3498db;
+                color: #fff;
+            }
+
+            .panel-body {
+                height: 314px;
+                padding: 30px;
+            }
+
+            .details {
+                margin-top: 20px;
+
+                .name {
+                    font-size: 30px;
+                    font-weight: 600;
+                    display: block;
+                    margin-bottom: 10px;
+                }
+
+                .level {
+                    display: block;
+                    margin-bottom: 40px;
+
+                    .data {
+                        display: block;
+                        width: 80%;
+                        margin: 0 auto 5px;
+
+                        span {
+                            display: inline-block;
+                            width: calc(50% - 10px);
+                            vertical-align: baseline;
+                            font-size: 20px;
+                            font-weight: 300;
+                        }
+
+                        b {
+                            font-weight: 700;
+                            font-size: 34px;
+                            display: inline-block;
+                            width: 50%;
+                            text-align: right;
+                            vertical-align: baseline;
+                        }
+                    }
+
+                    .el-progress {
+                        width: 80%;
+                        margin: 0 auto;
+
+                        .el-progress-bar__outer {
+                            background: rgba(255, 255, 255, .2)
+                        }
+
+                        .el-progress-bar__inner {
+                            background: rgba(255, 255, 255, .9)
+                        }
+                    }
+                }
+
+                .skills {
+                    display: block;
+                    margin-top: 60px;
+                    text-align: center;
+
+                    .skill {
+                        width: calc(33% - 2px);
+                        display: inline-block;
+
+                        .icon {
+                            display: block;
+                            vertical-align: middle;
+                            margin-bottom: 5px;
+                            font-size: 20px;
+                            text-align: center;
+                        }
+
+                        .data {
+                            display: block;
+                            vertical-align: middle;
+                            text-align: center;
+
+                            b {
+                                display: block;
+                                font-weight: 300;
+                                margin-bottom: 5px;
+                                font-size: 12px;
+                            }
+
+                            span {
+                                font-weight: 700;
+                                font-size: 16px;
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.stats {
+                .panel-body {
+                    padding: 20px;
+                    height: auto;
+                    background: #34495e;
+                    color: #fff;
+                }
+
+                .stat {
+                    display: block;
+                    margin: 10px;
+                    text-align: center;
+
+                    .icon {
+                        display: block;
+                        vertical-align: middle;
+                        margin-bottom: 5px;
+                        font-size: 20px;
+                        text-align: center;
+                    }
+
+                    .data {
+                        display: block;
+                        vertical-align: middle;
+                        text-align: center;
+
+                        b {
+                            display: block;
+                            font-weight: 300;
+                            margin-bottom: 5px;
+                            font-size: 12px;
+                        }
+
+                        span {
+                            font-weight: 700;
+                            font-size: 16px;
+                            display: block;
+                        }
+                    }
+
+                    .label-progress {
+                        display: block;
+                        margin-bottom: 5px;
+
+                        b {
+                            display: inline-block;
+                            vertical-align: baseline;
+                            font-weight: 300;
+                            width: calc(50% - 10px);
+                            font-size: 16px;
+                        }
+
+                        span {
+                            display: inline-block;
+                            width: 50%;
+                            text-align: right;
+                            font-size: 20px;
+                            font-weight: 700;
+                        }
+                    }
+
+                    .el-progress {
+                        &.is-hitpoints {
+                            .el-progress-bar__inner {
+                                background-color: #e74c3c;
+                            }
+                        }
+
+                        &.is-manapoints {
+                            .el-progress-bar__inner {
+                                background-color: #3498db;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.character-details {
+            width: calc(50% - 12px);
+            margin-right: 20px;
+            display: inline-block;
+
+            .panel-body {
+                background: #2c3e50;
+                color: #fff;
+            }
+
+            &:nth-child(2n) {
+                margin-right: 0;
+            }
+
+            &:last-child {
+                &:nth-child(2n + 1) {
+                    width: 100%;
+                    margin: 0 0 20px;
+                }
+            }
+
+            .detail {
+                display: block;
+                text-align: center;
+
+                .icon {
+                    display: block;
+                    margin-bottom: 10px;
+                }
+
+                .data {
+                    display: block;
+
+                    b {
+                        display: block;
+                        font-weight: 300;
+                        margin-bottom: 5px;
+                        font-size: 12px;
+                    }
+
+                    span {
+                        font-weight: 700;
+                        font-size: 14px;
+                        display: block;
+
+                        a {
+                            color: inherit;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.experience-box {
+            .resume {
+                b {
+                    display: block;
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: #27ae60;
+                    margin-bottom: 10px;
+                    text-align: center;
+                }
+
+                span {
+                    display: block;
+                    font-weight: 300;
+                    text-align: center;
+                }
+            }
+        }
+
+        &.advances {
+            .el-table {
+                &::after,
+                &::before {
+                    background-color: #fff;
+                }
+
+                &.advances {
+                    border: 0;
+
+                    .el-table__header-wrapper {
+                        tr {
+                            th {
+                                padding: 12px;
+                                border-bottom: 1px solid #eee;
+                                background-color: #fff;
+
+                                &.descending {
+                                    .cell {
+                                        .caret-wrapper {
+                                            .sort-caret {
+                                                &.descending {
+                                                    border-top-color: #000;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                &.ascending {
+                                    .cell {
+                                        .caret-wrapper {
+                                            .sort-caret {
+                                                &.ascending {
+                                                    border-bottom-color: #000;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .cell {
+                                    padding: 0;
+                                    color: #444;
+                                    vertical-align: middle;
+                                    font-size: 12px;
+                                    text-transform: uppercase;
+                                    background: none;
+
+                                    .caret-wrapper {
+                                        margin-left: 15px;
+
+                                        .sort-caret {
+                                            border-right: 4px solid transparent;
+                                            border-left: 4px solid transparent;
+
+                                            &.ascending {
+                                                border-bottom: 4px solid #97a8be;
+                                            }
+
+                                            &.descending {
+                                                border-top: 4px solid #97a8be;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .el-table__body-wrapper {
+                        .el-table__row {
+                            td {
+                                padding: 12px;
+                                border-color: #eee;
+
+                                &.level {
+                                    .cell {
+                                        padding-right: 20px;
+
+                                        span {
+                                            display: inline-block;
+                                            width: 50%;
+                                        }
+
+                                        b {
+                                            font-weight: 700;
+                                            font-size: 16px;
+                                            display: inline-block;
+                                            width: calc(50% - 5px);
+                                            text-align: right;
+                                        }
+                                    }
+                                }
+
+                                &.advance {
+                                    .cell {
+                                        b {
+                                            color: #27ae60;
+                                        }
+                                    }
+                                }
+
+                                .cell {
+                                    padding: 0;
+                                    vertical-align: middle;
+                                    color: #636b6f;
+
+                                    b {
+                                        display: block;
+                                        font-weight: 400;
+                                        font-size: 14px;
+                                    }
+
+                                    span {
+                                        display: block;
+                                        font-weight: 300;
+                                        font-size: 12px;
+                                    }
+
+                                    .el-progress {
+                                        .el-progress-bar__innerText {
+                                            font-weight: 300;
+                                            font-size: 10px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.achievements {
+            .rate {
+                display: block;
+
+                .data {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: calc(100% - 85px);
+
+                    b {
+                        display: inline-block;
+                        font-size: 30px;
+                        font-weight: 700;
+                    }
+
+                    span {
+                        display: inline-block;
+                        font-size: 14px;
+                        font-weight: 300;
+                    }
+                }
+
+                .el-progress {
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-top: -35px;
+
+                    .el-progress-circle {
+                        width: 80px !important;
+                        height: 80px !important;
+                    }
+
+                    .el-progress__text {
+                        font-weight: 300;
+                        font-size: 14px;
+                    }
+                }
+            }
+
+            ul {
+                list-style: none;
+                margin: 20px 0 0;
+                padding: 20px 0 0;
+                border-top: 1px solid #eee;
+
+                li {
+                    display: block;
+
+                    b {
+                        font-weight: 300;
+                        display: inline-block;
+                        width: calc(50% - 10px);
+                        vertical-align: middle;
+                    }
+
+                    .el-rate {
+                        text-align: right;
+                        display: inline-block;
+                        width: 50%;
+                        vertical-align: middle;
+                    }
+                }
+            }
+        }
+
+        &.deaths {
+            table {
+                tr {
+                    td {
+                        b {
+                            display: block;
+                            font-weight: 400;
+                        }
+
+                        span {
+                            display: block;
+                            font-weight: 300;
+                            font-size: 12px;
+                        }
+
+                        .murders {
+                            font-weight: 300;
+                            font-size: 12px;
+
+                            .murder {
+                                display: inline-block;
+                                margin-right: 5px;
+
+                                a {
+                                    font-weight: 400;
+                                    display: inline-block;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .no-data {
+        h4 {
+            font-size: 20px;
+            font-weight: 300;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        p {
+            display: block;
+            margin: 0;
+            font-weight: 300;
+        }
+    }
+
+    .search {
+        .form-group {
+            position: relative;
+
+            .form-control {
+                height: 50px;
+                line-height: 50px;
+                font-weight: 300;
+                font-size: 16px;
+                padding-right: 20px;
+                width: 300px;
+            }
+
+            button {
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                background: none;
+                border: 0;
+                padding: 0;
+                color: #ccc;
+                font-size: 16px;
+            }
+        }
+    }
+
+    .not-found {
+        font-weight: 300;
+
+        h4 {
+            font-size: 18px;
+            font-weight: 300;
+            margin: 0 0 20px;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+}

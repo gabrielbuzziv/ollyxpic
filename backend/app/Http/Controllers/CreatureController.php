@@ -90,4 +90,16 @@ class CreatureController extends ApiController
     {
         return $this->respond($creature->toArray());
     }
+
+    /**
+     * Get multiple creatures.
+     *
+     * @return mixed
+     */
+    public function multiple()
+    {
+        $creatures = Creature::whereIn('name', request('creatures'))->get();
+
+        return $this->respond($creatures->toArray());
+    }
 }

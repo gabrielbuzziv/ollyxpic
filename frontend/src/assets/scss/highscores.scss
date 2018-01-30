@@ -1,0 +1,228 @@
+#highscores {
+    .leaders {
+        .leader {
+            header {
+                display: block;
+                margin-bottom: 15px;
+                border-bottom: 1px solid #eee;
+                padding-bottom: 10px;
+
+                .rank {
+                    display: inline-block;
+                    margin-right: 10px;
+                    vertical-align: middle;
+                    width: 32px;
+                }
+
+                .title {
+                    display: block;
+                    font-weight: 300;
+
+                    .rank-badge {
+                        font-size: 12px;
+                        font-weight: 300;
+                        background: #f39c12;
+                        color: #fff;
+                        text-align: center;
+                        height: 30px;
+                        width: 30px;
+                        line-height: 30px;
+                        border-radius: 100%;
+                        display: inline-block;
+                        margin-right: 10px;
+                    }
+
+                    span {
+                        display: inline-block;
+                        vertical-align: middle;
+                        
+                        &.left {
+                            width: calc(60% - 50px);
+
+                            .name {
+                                font-size: 18px;
+                                display: block;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                padding-right: 15px;
+
+                                a {
+                                    color:  inherit;
+                                }
+                            }
+
+                            .vocation {
+                                font-size: 12px;
+                                display: block;
+                                color: #999;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                padding-right: 15px;
+                            }
+                        }
+                        
+                        &.right {
+                            width: 40%;
+
+                            .level {
+                                display: block;
+                                margin-bottom: 5px;
+
+                                span {
+                                    display: inline-block;
+                                    width: calc(50% - 10px);
+                                    vertical-align: middle;
+                                    font-size: 12px;
+                                    font-weight: 300;
+                                    text-align: left;
+                                }
+
+                                b {
+                                    display: inline-block;
+                                    width: 50%;
+                                    vertical-align: middle;
+                                    text-align: right;
+                                    font-weight: 700;
+                                    font-size: 16px;
+                                }
+                            }
+                        }
+                    }
+
+                    a {
+                        width: 10px;
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+                }
+            }
+
+            .world {
+                display: inline-block;
+                width: calc(50% - 10px);
+                vertical-align: middle;
+
+                b {
+                    font-weight: 400;
+                    display: block;
+                }
+
+                span {
+                    font-size: 12px;
+                    font-weight: 300;
+                    display: block;
+                }
+            }
+
+            .advances {
+                display: inline-block;
+                width: 50%;
+                vertical-align: middle;
+                text-align: right;
+
+                b {
+                    font-weight: 600;
+                    display: block;
+                    color: #27ae60;
+                }
+
+                span {
+                    font-size: 12px;
+                    font-weight: 300;
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .highscores {
+        table {
+            &.table {
+                margin: 0;
+
+                tbody {
+                    tr {
+                        &:first-child {
+                            td {
+                                border-top: 0;
+                            }
+                        }
+                    }
+                }
+
+                .player {
+                    .rank {
+                        .rank-badge {
+                            font-size: 12px;
+                            font-weight: 300;
+                            background: #f39c12;
+                            color: #fff;
+                            text-align: center;
+                            height: 30px;
+                            width: 30px;
+                            line-height: 30px;
+                            border-radius: 100%;
+                        }
+                    }
+
+                    .details {
+                        .name {
+                            display: block;
+                            font-weight: 400;
+                            font-size: 14px;
+
+                            a {
+                                color:  inherit;
+                            }
+                        }
+
+                        .vocation {
+                            font-size: 12px;
+                            font-weight: 300;
+                            display: block;
+                        }
+                    }
+
+                    .level,
+                    .experience,
+                    .world {
+                        b {
+                            font-weight: 700;
+                            display: block;
+                            font-size: 16px;
+                        }
+
+                        span {
+                            display: block;
+                            font-size: 12px;
+                            font-weight: 300;
+                        }
+                    }
+
+                    .experience,
+                    .world {
+                        b {
+                            font-size: 14px;
+                            font-weight: 400;
+                        }
+                    }
+
+                    .advances {
+                        b {
+                            color: #27ae60;
+                            display: block;
+                        }
+
+                        span {
+                            font-size: 12px;
+                            display: block;
+                            font-weight: 300;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

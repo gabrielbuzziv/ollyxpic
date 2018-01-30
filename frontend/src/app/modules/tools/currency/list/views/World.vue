@@ -151,8 +151,8 @@
                 return data ? `${data.format()} gp` : '-'
             },
 
-            diff_humans (data) {
-                return moment(data).fromNow()
+            diff_humans (date) {
+                return moment.tz(date, "YYYY-MM-DD HH:mm:ss", 'America/New_York').fromNow()
             }
         },
 

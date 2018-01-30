@@ -40,6 +40,13 @@ class DatabaseSeeder extends Seeder
 
         $this->command->info("{$ferox->name} is Ready");
 
+        $wamaster = \App\User::firstOrCreate(
+            ['email' => 'fabianb1990@hotmail.com'],
+            ['name' => 'Wa Master', 'password' => bcrypt('s3mc0ntr0l3')]
+        );
+
+        $this->command->info("{$wamaster->name} is Ready");
+
 
         // $this->call(UsersTableSeeder::class);
     }

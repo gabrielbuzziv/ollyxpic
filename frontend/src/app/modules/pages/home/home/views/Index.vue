@@ -160,7 +160,7 @@
             }
         },
 
-        mounted () {
+        mounthied () {
             this.load()
         }
     }

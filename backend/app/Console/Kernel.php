@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        Commands\HighscoresCommand::class
     ];
 
     /**
@@ -24,8 +24,13 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->command('ollyxpic:highscores')->dailyAt('00:30');
+        $schedule->command('ollyxpic:highscores', ['magic'])->dailyAt('00:30');
+        $schedule->command('ollyxpic:highscores', ['sword'])->dailyAt('00:30');
+        $schedule->command('ollyxpic:highscores', ['axe'])->dailyAt('00:30');
+        $schedule->command('ollyxpic:highscores', ['club'])->dailyAt('00:30');
+        $schedule->command('ollyxpic:highscores', ['distance'])->dailyAt('00:30');
+        $schedule->command('ollyxpic:highscores', ['shielding'])->dailyAt('00:30');
     }
 
     /**
