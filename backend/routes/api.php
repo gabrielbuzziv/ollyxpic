@@ -92,6 +92,10 @@ Route::get('quick-looting/creatures', 'QuickLootingController@creatures');
 Route::get('quick-looting/categories', 'QuickLootingController@categories');
 Route::get('quick-looting/items', 'QuickLootingController@items');
 
+/**
+ * PartnersController
+ */
+Route::get('partners', 'PartnersController@index');
 
 /**
  * All the routes in this group will need to send a Header
