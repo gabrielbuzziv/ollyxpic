@@ -6,7 +6,7 @@ use App\Highscores;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-class PlayersController extends Controller
+class PlayersController extends ApiController
 {
 
     /**
@@ -19,6 +19,11 @@ class PlayersController extends Controller
     {
         $url = "https://api.tibiadata.com/v2/characters/{$name}.json";
         $details = json_decode(file_get_contents($url));
+
+        // Throw 404 erro if not exist.
+        if (isset($details->characters->error)) {
+            return $this->respondNotFound(null);
+        }
 
         $experience = (new Highscores())
             ->experience()

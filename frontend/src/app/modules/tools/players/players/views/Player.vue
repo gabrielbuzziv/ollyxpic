@@ -1,6 +1,17 @@
 <template>
-    <page-load id="players" :loading="loading">
+    <page-load id="players" :loading="loading" v-if="player">
         <page-title>
+            <div class="pull-right">
+                <form class="search" @submit.prevent="searchPlayer">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Player name" v-model="search">
+                        <button>
+                            <i class="mdi mdi-magnify"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
             <img :src="outfit(outfiter, character.sex)" alt="" class="margin-right-15">
             <div class="title">
                 <h2>{{ character.name }}</h2>
@@ -22,7 +33,32 @@
                 <achievements :character="character" :achievements="achievements" />
             </div>
         </div>
+    </page-load>
 
+    <page-load id="players" v-else>
+        <page-title>
+            <div class="pull-right">
+                <form class="search" @submit.prevent="searchPlayer">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Player name" v-model="search">
+                        <button>
+                            <i class="mdi mdi-magnify"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <img :src="outfit('Mage Outfits')" alt="" class="margin-right-15">
+            <div class="title">
+                <h2>Player</h2>
+                <span>Details & Statistics</span>
+            </div>
+        </page-title>
+
+        <div class="alert alert-warning not-found">
+            <h4>Player not found</h4>
+            <p>We're sorry, but we can't find <b>{{ $route.params.name }}</b>.</p>
+        </div>
     </page-load>
 </template>
 
@@ -41,7 +77,8 @@
         data () {
             return {
                 loading: true,
-                player: {}
+                player: {},
+                search: ''
             }
         },
 
@@ -105,7 +142,16 @@
                         this.player = response.data
                         this.loading = false
                     })
-                    .catch(() => this.loading = false)
+                    .catch(() => this.player = false)
+            },
+
+            searchPlayer () {
+                const player = this.search
+
+                if (player == null || player == '')
+                    return null
+
+                this.$router.push({ name: 'tools.players', params: { name: player } })
             }
         },
 
