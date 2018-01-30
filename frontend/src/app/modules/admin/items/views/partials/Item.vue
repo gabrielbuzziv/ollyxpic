@@ -15,15 +15,15 @@
 
             <td class="text-right" width="160">
                 <button class="btn btn-xs" @click.prevent="toggleDetails">
-                    <i class="mdi mdi-information-variant"></i>
+                    <i class="mdi mdi-information"></i>
                 </button>
 
                 <button class="btn btn-xs" @click.prevent="toggleEdit">
-                    <i class="mdi mdi-pencil"></i>
+                    <i class="mdi mdi-pencil-circle"></i>
                 </button>
 
                 <button class="btn btn-xs" @click.prevente="remove">
-                    <i class="mdi mdi-delete"></i>
+                    <i class="mdi mdi-close-circle"></i>
                 </button>
             </td>
         </tr>

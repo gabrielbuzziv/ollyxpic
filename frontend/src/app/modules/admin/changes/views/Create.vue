@@ -2,8 +2,9 @@
     <page-load>
         <page-title>
             <div class="pull-right">
-                <router-link :to="{ name: 'admin.changes.list' }" class="btn btn-default">
-                    <i class="mdi mdi-arrow-left"></i>
+                <router-link :to="{ name: 'admin.changes.list' }" class="btn btn-rounded" exact>
+                    <i class="mdi mdi-arrow-left-bold-circle margin-right-10"></i>
+                    Back
                 </router-link>
             </div>
 

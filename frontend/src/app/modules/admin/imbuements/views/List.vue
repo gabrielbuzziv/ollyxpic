@@ -2,9 +2,9 @@
     <page-load>
         <page-title>
             <div class="pull-right">
-                <router-link :to="{ name: 'admin.imbuements.create' }" class="btn btn-default">
-                    <i class="mdi mdi-plus margin-right-5"></i>
-                    Create
+                <router-link :to="{ name: 'admin.imbuements.create' }" class="btn btn-success btn-rounded">
+                    <i class="mdi mdi-plus-circle margin-right-10"></i>
+                    Add new
                 </router-link>
             </div>
 

@@ -32,7 +32,7 @@
         </div>
 
         <div class="margin-top-40">
-            <button type="submit" class="btn btn-success" :disabled="submiting">
+            <button type="submit" class="btn btn-success btn-rounded" :disabled="submiting">
                 <i class="mdi mdi-check margin-right-5"></i>
                 Save <span v-if="submiting">...</span>
             </button>

@@ -37,12 +37,18 @@
                     <input type="hidden" name="image" v-model="category.image">
                 </div>
 
-                <button class="btn btn-success" :disabled="submiting">
-                    <span class="loader inline button margin-right-5" v-if="submiting"></span>
-                    <i class="mdi mdi-check margin-right-5" v-else></i>
+                <div class="margin-top-30">
+                    <button class="btn btn-success btn-rounded" :disabled="submiting">
+                        <span class="loader inline button margin-right-10" v-if="submiting"></span>
+                        <i class="mdi mdi-check margin-right-10" v-else></i>
 
-                    Save
-                </button>
+                        Save
+                    </button>
+
+                    <router-link :to="{ name: 'admin.categories' }" class="btn btn-blank">
+                        Cancel
+                    </router-link>
+                </div>
             </form>
         </panel>
     </page-load>

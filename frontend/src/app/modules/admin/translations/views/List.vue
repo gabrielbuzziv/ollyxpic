@@ -20,8 +20,8 @@
                             <input type="text" class="form-control" placeholder="To" v-model="to">
                         </th>
                         <th class="text-right">
-                            <button class="btn btn-sm btn-success" @click.prevent="addTranslation()">
-                                <i class="mdi mdi-plus margin-right-5"></i>
+                            <button class="btn btn-sm btn-success btn-rounded" @click.prevent="addTranslation()">
+                                <i class="mdi mdi-plus-circle margin-right-10"></i>
                                 Add
                             </button>
                         </th>

@@ -19,19 +19,19 @@
             <span v-else>{{ translation.to }}</span>
         </td>
         <td class="text-right">
-            <button class="btn btn-sm btn-success" @click.prevent="save()" v-if="editing">
-                <i class="mdi mdi-check margin-right-5"></i>
+            <button class="btn btn-sm btn-success btn-rounded" @click.prevent="save()" v-if="editing">
+                <i class="mdi mdi-check-circle margin-right-10"></i>
                 Update
             </button>
 
-            <button class="btn btn-sm" @click.prevent="editing = true" v-else>
-                <i class="mdi mdi-pencil margin-right-5"></i>
+            <button class="btn btn-sm btn-rounded" @click.prevent="editing = true" v-else>
+                <i class="mdi mdi-pencil-circle margin-right-10"></i>
                 Edit
             </button>
         </td>
         <td class="text-right" width="76">
-            <button class="btn btn-danger btn-sm" @click.prevent="remove">
-                <i class="mdi mdi-delete"></i>
+            <button class="btn btn-danger btn-sm btn-rounded" @click.prevent="remove">
+                <i class="mdi mdi-close-circle"></i>
             </button>
         </td>
     </tr>

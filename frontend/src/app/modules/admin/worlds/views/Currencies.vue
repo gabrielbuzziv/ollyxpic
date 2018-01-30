@@ -16,8 +16,8 @@
                     <input type="text" class="form-control" placeholder="Sell" v-model="currency.sell" @keydown.13="save">
                 </th>
                 <th colspan="2">
-                    <button class="btn btn-success btn-sm btn-block" @click.prevent="save">
-                        <i class="mdi mdi-save margin-right-5"></i>
+                    <button class="btn btn-success btn-sm btn-block btn-rounded" @click.prevent="save">
+                        <i class="mdi mdi-check-circle margin-right-10"></i>
                         Save
                     </button>
                 </th>
@@ -31,11 +31,11 @@
                 <td>{{ currency.created_at }}</td>
                 <td class="text-right">
                     <button class="btn btn-xs" @click.prevent="edit(currency)">
-                        <i class="mdi mdi-pencil"></i>
+                        <i class="mdi mdi-pencil-circle"></i>
                     </button>
 
                     <button class="btn btn-xs" @click.prevent="remove(currency)">
-                        <i class="mdi mdi-delete"></i>
+                        <i class="mdi mdi-close-circle"></i>
                     </button>
                 </td>
             </tr>
