@@ -28,6 +28,10 @@ class HighscoresController extends ApiController
             ->with('weekExperience')
             ->experience()
             ->where('updated_at', $lastUpdate)
+            ->where(function($query) {
+                if ($this->getVocation())
+                    $query->whereIn('vocation', $this->getVocation());
+            })
             ->orderBy('experience', 'desc')
             ->take(300)
             ->get();
@@ -75,5 +79,27 @@ class HighscoresController extends ApiController
         $details = (array) json_decode($details)->characters;
 
         return $this->respond($details);
+    }
+
+    /**
+     * Get the requested vocation.
+     *
+     * @return array|bool
+     */
+    private function getVocation()
+    {
+        if (! request('vocation'))
+            return false;
+
+        switch (request('vocation')) {
+            case 'knight':
+                return ['Knight', 'Elite Knight'];
+            case 'sorcerer':
+                return ['Sorcerer', 'Master Sorcerer'];
+            case 'druid':
+                return ['Druid', 'Elder Druid'];
+            case 'paladin':
+                return ['Paladin', 'Royal Paladin'];
+        }
     }
 }

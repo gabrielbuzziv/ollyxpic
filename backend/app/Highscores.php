@@ -66,6 +66,7 @@ class Highscores extends Model
         return $this->hasMany(Highscores::class, 'name', 'name')
             ->where('updated_at', '<=', $today)
             ->where('updated_at', '>=', $lastWeek)
+            ->where('type', 'experience')
             ->orderBy('updated_at', 'asc');
     }
 }

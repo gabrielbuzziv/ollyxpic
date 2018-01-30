@@ -1,6 +1,6 @@
 export default {
-    getHighscores () {
-        return window.axios.get(`highscores`)
+    getHighscores (vocation = '') {
+        return window.axios.get(`highscores`, { params: { vocation } })
     },
 
     getPlayerDetails (name) {
