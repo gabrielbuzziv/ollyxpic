@@ -43,14 +43,4 @@ class NPC extends Model
      * @var bool
      */
     public $timestamps = false;
-
-    public function sells()
-    {
-        // Items that he sells
-    }
-
-    public function buys()
-    {
-        // Items that he buys.
-    }
 }

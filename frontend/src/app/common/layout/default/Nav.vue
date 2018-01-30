@@ -282,6 +282,13 @@
                     Translations
                 </a>
             </router-link>
+
+            <router-link :to="{ name: 'admin.partners' }" tag="li">
+                <a href="#">
+                    <i class="mdi mdi-account-multiple margin-right-5"></i>
+                    Partners
+                </a>
+            </router-link>
         </ul>
     </nav>
 </template>

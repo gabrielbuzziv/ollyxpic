@@ -192,4 +192,13 @@ Route::group(['middleware' => 'auth:api', 'prefix' => 'admin'], function () {
     Route::post('worlds/{world}/currencies', 'WorldCurrencyController@store');
     Route::patch('worlds/currencies/{currency}', 'WorldCurrencyController@update');
     Route::delete('worlds/currencies/{currency}', 'WorldCurrencyController@destroy');
+
+    /**
+     * PartnersController routes.
+     */
+    Route::get('partners', 'PartnersController@index');
+    Route::get('partners/{partner}', 'PartnersController@show');
+    Route::post('partners', 'PartnersController@store');
+    Route::patch('partners/{partner}', 'PartnersController@update');
+    Route::delete('partners/{partner}', 'PartnersController@destroy');
 });

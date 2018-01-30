@@ -6,6 +6,7 @@ import { routes as categories } from './categories'
 import { routes as imbuements } from './imbuements'
 import { routes as worlds } from './worlds'
 import { routes as translations } from './translations'
+import { routes as partners } from './partners'
 
 export default [
     ...news,
@@ -15,5 +16,6 @@ export default [
     ...categories,
     ...imbuements,
     ...worlds,
-    ...translations
+    ...translations,
+    ...partners
 ]

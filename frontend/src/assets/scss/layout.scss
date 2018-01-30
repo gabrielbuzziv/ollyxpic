@@ -1,7 +1,7 @@
-a, button {
+a, button, input {
     &:focus,
     &:active {
-        outline: 0;
+        outline: 0 !important;
     }
 }
 
@@ -309,6 +309,12 @@ a, button {
         .page-title {
             display: block;
             margin-bottom: 50px;
+
+            .pull-right {
+                .btn {
+                    font-weight: 300;
+                }
+            }
 
             img {
                 margin-right: 20px;
