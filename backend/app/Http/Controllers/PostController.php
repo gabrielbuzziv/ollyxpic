@@ -84,22 +84,17 @@ class PostController extends ApiController
      */
     public function news()
     {
-        if (request('id')) {
-            $post = Post::with('author')
-                ->where('created_at', '<=', Carbon::now())
-                ->where('active', 1)
-                ->find(request('id'));
-
-            return $this->respond($post->toArray());
-        }
-
-        $post = Post::with('author')
+        $take = request('take') ?: 1;
+        $skip = request('skip') ?: 0;
+        $posts = Post::with('author')
             ->where('created_at', '<=', Carbon::now())
             ->where('active', 1)
             ->latest()
-            ->first();
+            ->take($take)
+            ->skip($skip)
+            ->get();
 
-        return $this->respond($post ? $post->toArray() : []);
+        return $this->respond($posts->toArray());
     }
 
     /**
