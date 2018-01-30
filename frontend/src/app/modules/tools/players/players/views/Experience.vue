@@ -118,13 +118,15 @@
             },
 
             lastMonthExperience () {
-//                const advances = this.experience.splice(0, 30)
-                return this.experience ? this.experience.reduce((carry, exp) => carry + exp.advance, 0) : 0
+                return this.experience
+                    ? this.experience.slice(0, 30).reduce((carry, exp) => carry + exp.advance, 0)
+                    : 0
             },
 
             lastWeekExperience () {
-//                const advances = this.experience.splice(0, 1)
-                return this.experience ? this.experience.reduce((carry, exp) => carry + exp.advance, 0) : 0
+                return this.experience
+                    ? this.experience.slice(0, 7).reduce((carry, exp) => carry + exp.advance, 0)
+                    : 0
             },
         },
 

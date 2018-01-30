@@ -64,7 +64,6 @@
                     : []
             },
 
-
             experience () {
                 return this.player && this.player.experience
                     ? this.player.experience

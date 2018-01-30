@@ -98,7 +98,7 @@
 
         computed: {
             level () {
-                return this.experience.sort((a, b) => b.id - a.id)[0]
+                return this.experience.slice().sort((a, b) => b.id - a.id)[0]
             },
 
             hitpoints () {

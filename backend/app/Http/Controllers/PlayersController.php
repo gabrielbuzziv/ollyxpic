@@ -9,6 +9,12 @@ use Illuminate\Http\Request;
 class PlayersController extends Controller
 {
 
+    /**
+     * Get player information.
+     *
+     * @param $name
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function show($name)
     {
         $url = "https://api.tibiadata.com/v2/characters/{$name}.json";
@@ -24,7 +30,6 @@ class PlayersController extends Controller
 
         return $this->respond([
             'details' => (array) $details->characters,
-            'highscores' => '',
             'experience' => $experience
         ]);
     }
