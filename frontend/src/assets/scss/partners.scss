@@ -1,0 +1,38 @@
+#partners {
+    .panel {
+        &.site {
+            .panel-body {
+                a {
+                    display: block;
+                    font-size: 18px;
+                    font-weight: 300;
+
+                    img {
+                        width: 100px;
+                        display: inline-block;
+                        margin-right: 20px;
+                    }
+                }
+            }
+        }
+
+        &.twitch {
+            .panel-body {
+                background: #73009D;
+
+                a {
+                    display: block;
+                    color: #fff;
+                    font-size: 18px;
+                    font-weight: 300;
+
+                    img {
+                        width: 32px;
+                        display: inline-block;
+                        margin-right: 20px;
+                    }
+                }
+            }
+        }
+    }
+}

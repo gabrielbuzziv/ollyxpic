@@ -1,5 +1,5 @@
 <template>
-    <page-load>
+    <page-load id="partners">
         <page-title>
             <img :src="image_path_by_name('item', 'Cateroide\'s doll')" class="margin-right-10">
             <div class="title">
@@ -9,17 +9,23 @@
         </page-title>
 
         <div class="row">
-            <div class="col-md-3" v-for="partner in sites">
-                <panel>
-                    {{ partner.name }}
+            <div class="col-md-4" v-for="partner in sites">
+                <panel class="site">
+                    <a :href="partner.site" target="_modal">
+                        <img :src="partner.logo" alt="">
+                        {{ partner.name }}
+                    </a>
                 </panel>
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-3" v-for="partner in streamers">
-                <panel>
-                    {{ partner.name }}
+                <panel class="twitch">
+                    <a :href="partner.twitch" target="_modal">
+                        <img src="src/assets/images/twitch.png" alt="">
+                        {{ partner.name }}
+                    </a>
                 </panel>
             </div>
         </div>
