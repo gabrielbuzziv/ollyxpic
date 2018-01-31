@@ -110,7 +110,7 @@
                     case 'Royal Paladin':
                         return (this.character.level - 8) * 10 + 185
                     default:
-                        return (this.character.level - 8) * 5 + 145
+                        return this.character.level * 5 + 145
                 }
             },
 
@@ -137,9 +137,10 @@
                 switch (this.character.vocation) {
                     case 'Knight':
                     case 'Elite Knight':
+                        return (this.character.level - 8) * 25 + 470
                     case 'Paladin':
                     case 'Royal Paladin':
-                        return (this.character.level - 8) * 25 + 470
+                        return (this.character.level - 8) * 20 + 470
                     default:
                         return (this.character.level - 8) * 10 + 400
                 }

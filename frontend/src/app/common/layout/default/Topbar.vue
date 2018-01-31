@@ -12,12 +12,12 @@
             </div>
 
             <div class="pull-right">
-                <!--<div class="search-player">-->
-                    <!--<input type="text" placeholder="Search character ..." @keypress.enter="searchPlayer" v-model="character">-->
-                    <!--<button @click.prevent="searchPlayer">-->
-                        <!--<i class="mdi mdi-magnify"></i>-->
-                    <!--</button>-->
-                <!--</div>-->
+                <div class="search-player">
+                    <input type="text" placeholder="Search character ..." @keypress.enter="searchPlayer" v-model="character">
+                    <button @click.prevent="searchPlayer">
+                        <i class="mdi mdi-magnify"></i>
+                    </button>
+                </div>
 
 
                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="inline  margin-right-5">
