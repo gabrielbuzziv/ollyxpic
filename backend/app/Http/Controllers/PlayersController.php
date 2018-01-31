@@ -17,6 +17,7 @@ class PlayersController extends ApiController
      */
     public function show($name)
     {
+        $name = strtolower(trim($name));
         $url = "https://api.tibiadata.com/v2/characters/{$name}.json";
         $details = json_decode(file_get_contents($url));
 
