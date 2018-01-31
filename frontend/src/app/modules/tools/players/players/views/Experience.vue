@@ -11,8 +11,13 @@
         <div class="row">
             <div class="col-md-6">
                 <panel class="experience-box">
-                    <div class="resume">
-                        <b>+ {{ lastMonthExperience.format() }}</b>
+                    <div class="resume" v-if="lastMonthExperience >= 0">
+                        <b>+{{ lastMonthExperience.format() }}</b>
+                        <span>Last 30 days experience</span>
+                    </div>
+
+                    <div class="resume" v-else>
+                        <b class="loose">{{ lastMonthExperience.format() }}</b>
                         <span>Last 30 days experience</span>
                     </div>
                 </panel>
@@ -20,8 +25,13 @@
 
             <div class="col-md-6">
                 <panel class="experience-box">
-                    <div class="resume">
-                        <b>+ {{ lastWeekExperience.format() }}</b>
+                    <div class="resume" v-if="lastWeekExperience >= 0">
+                        <b>+{{ lastWeekExperience.format() }}</b>
+                        <span>Last 7 days experience</span>
+                    </div>
+
+                    <div class="resume" v-else>
+                        <b class="loose">{{ lastWeekExperience.format() }}</b>
                         <span>Last 7 days experience</span>
                     </div>
                 </panel>
@@ -70,8 +80,15 @@
 
                 <el-table-column prop="advance" label="Advances" class-name="advance" sortable>
                     <template slot-scope="scope">
-                        <b>+ {{ scope.row.advance.format() }}</b>
-                        <span>+ Experience</span>
+                        <div v-if="scope.row.advance >= 0">
+                            <b>+{{ scope.row.advance.format() }}</b>
+                            <span>+ Experience</span>
+                        </div>
+
+                        <div v-else>
+                            <b class="loose">{{ scope.row.advance.format() }}</b>
+                            <span>+ Experience</span>
+                        </div>
                     </template>
                 </el-table-column>
             </el-table>
@@ -153,7 +170,7 @@
                 return this.experience
                     ? { leftExperience: expLeft, percentage: percentage }
                     : { leftExperience: 0, percentage: 0 }
-            }
+            },
         }
     }
 </script>

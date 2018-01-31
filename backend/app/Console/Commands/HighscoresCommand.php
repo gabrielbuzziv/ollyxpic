@@ -49,10 +49,10 @@ class HighscoresCommand extends Command
     public function handle()
     {
         $vocations = ['knight', 'sorcerer', 'paladin', 'druid'];
-//
+
         foreach ($vocations as $vocation) {
             $worlds = World::orderBy('name', 'asc')->get();
-            $worlds->each(function ($world) use($vocation) {
+            $worlds->each(function ($world) use ($vocation) {
                 $highscores = file_get_contents("https://api.tibiadata.com/v2/highscores/{$world->name}/{$this->argument('type')}/{$vocation}.json");
                 $highscores = json_decode($highscores);
                 $highscores = $highscores->highscores->data;
@@ -60,17 +60,11 @@ class HighscoresCommand extends Command
                 array_walk($highscores, function ($highscore, $index) use ($world) {
                     $today = Carbon::today()->subDay();
                     $level = $highscore->level;
-                    $experience = 0;
+                    $experience = $this->argument('type') == 'experience' ? $highscore->points : 0;
                     $advance = 0;
 
-                    if ($this->argument('type') == 'experience') {
-                        $experience = $highscore->points;
-                        $older = Highscores::where('name', $highscore->name)->orderBy('updated_at', 'desc')->first();
-                        $advance = $older ? intval($experience - $older->experience) : 0;
-                    }
-
                     Highscores::create([
-                        'rank'       => $index + 1,
+                        'rank'       => $highscore->rank,
                         'name'       => $highscore->name,
                         'vocation'   => $highscore->voc,
                         'experience' => $experience,

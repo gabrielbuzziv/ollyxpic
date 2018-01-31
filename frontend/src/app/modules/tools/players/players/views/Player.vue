@@ -103,7 +103,13 @@
 
             experience () {
                 return this.player && this.player.experience
-                    ? this.player.experience
+                    ? this.player.experience.slice().sort((a, b) => a.id - b.id).map((experience, index) => {
+                        const advance = index > 0
+                            ? parseFloat(experience.experience - this.player.experience[index - 1].experience)
+                            : 0
+
+                        return { ...experience, ...{ advance } }
+                    })
                     : []
             },
 

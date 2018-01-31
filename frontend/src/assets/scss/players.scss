@@ -248,6 +248,10 @@
                     color: #27ae60;
                     margin-bottom: 10px;
                     text-align: center;
+
+                    &.loose {
+                        color: #e74c3c;
+                    }
                 }
 
                 span {
@@ -357,6 +361,10 @@
                                     .cell {
                                         b {
                                             color: #27ae60;
+
+                                            &.loose {
+                                                color: #e74c3c;
+                                            }
                                         }
                                     }
                                 }

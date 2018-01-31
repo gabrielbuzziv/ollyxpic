@@ -35,7 +35,7 @@
                     span {
                         display: inline-block;
                         vertical-align: middle;
-                        
+
                         &.left {
                             width: calc(60% - 50px);
 
@@ -48,7 +48,7 @@
                                 padding-right: 15px;
 
                                 a {
-                                    color:  inherit;
+                                    color: inherit;
                                 }
                             }
 
@@ -62,7 +62,7 @@
                                 padding-right: 15px;
                             }
                         }
-                        
+
                         &.right {
                             width: 40%;
 
@@ -126,12 +126,22 @@
                     font-weight: 600;
                     display: block;
                     color: #27ae60;
+
+                    &.loose {
+                        color: #e74c3c;
+                    }
                 }
 
                 span {
                     font-size: 12px;
                     font-weight: 300;
                     display: block;
+                }
+            }
+
+            .btn {
+                &.btn-xs {
+                    padding: 6px 15px;
                 }
             }
         }
@@ -174,7 +184,7 @@
                             font-size: 14px;
 
                             a {
-                                color:  inherit;
+                                color: inherit;
                             }
                         }
 
@@ -213,6 +223,10 @@
                         b {
                             color: #27ae60;
                             display: block;
+
+                            &.loose {
+                                color: #e74c3c;
+                            }
                         }
 
                         span {

@@ -32,9 +32,21 @@
         </div>
 
         <div class="advances">
-            <b>+ {{ lastWeekExperience.format() }}</b>
-            <span>Last 7 days experience</span>
+            <div v-if="lastWeekExperience >= 0">
+                <b>+{{ lastWeekExperience.format() }}</b>
+                <span>Last 7 days experience</span>
+            </div>
+
+            <div v-else>
+                <b class="loose">{{ lastWeekExperience.format() }}</b>
+                <span>Last 7 days experience</span>
+            </div>
         </div>
+
+        <router-link :to="{ name: 'tools.players', params: { name: leader.name } }" class="btn btn-xs btn-rounded margin-top-20">
+            <i class="mdi mdi-chart-bar margin-right-10"></i>
+            Statistics
+        </router-link>
     </panel>
 </template>
 
@@ -64,7 +76,15 @@
             },
 
             advances () {
-                return this.leader ? this.leader.week_experience : []
+                return this.leader && this.leader.week_experience
+                    ? this.leader.week_experience.slice().sort((a, b) => a.id - b.id).map((experience, index) => {
+                        const advance = index > 0
+                            ? experience.experience - this.leader.week_experience[index - 1].experience
+                            : 0
+
+                        return { ...experience, ...{ advance } }
+                    })
+                    : []
             },
 
             current () {
