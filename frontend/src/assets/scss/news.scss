@@ -1,58 +1,93 @@
 #news {
-    .panel {
-        .panel-heading  {
-            background: $theme;
-            color: #fff;
+    .news {
+        header {
+            display: block;
+            margin: 0 0 30px;
+            position: relative;
+
+            h4 {
+                font-weight: 700;
+                font-size: 22px;
+                margin: 0;
+                display: inline-block;
+            }
         }
 
-        .panel-body {
-            padding: 30px
+        article {
+            font-size: 14px;
+            font-weight: 300;
+
+            .note-float-right {
+                margin-left: 15px;
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
         }
 
-        &.main-post {
-            .author {
-                display: block;
-                margin-bottom: 20px;
-                padding-bottom: 15px;
-                font-style: italic;
-                color: #999;
-                border-bottom: 1px solid #eee;
+        .source {
+            display: block;
+            margin-top: 40px;
+            font-weight: 300;
+            font-size: 12px;
+            color: #888;
+            font-style: italic;
+
+            b {
+                font-weight: 400;
             }
 
-            .source {
+            a {
+                color: $theme;
+            }
+        }
+
+        footer {
+            display: block;
+            margin-top: 30px;
+            font-weight: 300;
+            font-size: 12px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+
+            .comments {
+                display: inline-block;
+                margin-right: 15px;
+            }
+        }
+    }
+
+    .hotnews {
+        h4 {
+            font-weight: 300;
+            font-size: 22px;
+            margin: 0 0 30px;
+            display: inline-block;
+        }
+
+        ul {
+            display: block;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li {
                 display: block;
-                margin-top: 20px;
+                margin: 0 0 7px;
 
                 a {
-                    color: $theme;
-                    font-weight: bold;
-                }
-            }
-        }
-
-        &.list {
-            ul {
-                padding: 0;
-                list-style: none;
-
-                li {
+                    color: #444;
+                    font-weight: 300;
+                    font-size: 12px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                     display: block;
-                    margin-bottom: 10px;
-                    border-bottom: 1px solid #eee;
-                    padding-bottom: 10px;
 
-                    &:last-child {
-                        margin: 0;
-                        padding: 0;
-                        border: 0;
-                    }
-
-                    a {
-                        display: block;
-                    }
-
-                    small {
-                        display: block;
+                    img {
+                        display: inline-block;
+                        margin-right: 10px;
+                        max-width: 25px;
+                        vertical-align: middle;
                     }
                 }
             }

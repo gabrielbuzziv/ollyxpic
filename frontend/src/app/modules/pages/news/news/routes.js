@@ -2,7 +2,7 @@ import Index from './views/Index'
 
 export default [
     {
-        path: '/news/:id?',
+        path: '/news/:slug?',
         name: 'pages.news',
         component: Index,
     }

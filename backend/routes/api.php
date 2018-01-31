@@ -57,7 +57,8 @@ Route::post('auth', 'AuthController@authenticate');
  * PostController routes
  */
 Route::get('news', 'PostController@news');
-Route::get('news/list', 'PostController@newsList');
+Route::get('news/hot', 'PostController@hotnews');
+Route::get('news/show', 'PostController@show');
 
 /**
  * ChangeController routes

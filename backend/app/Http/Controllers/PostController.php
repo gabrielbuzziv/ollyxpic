@@ -31,6 +31,9 @@ class PostController extends ApiController
     {
         $data = $request->all();
         $data['user_id'] = auth()->user()->id;
+        $title = substr($data['title'], 0, 100);
+        $date = Carbon::today()->format('d-m-Y');
+        $data['slug'] = strtolower(str_slug("{$title} {$date}"));
 
         $post = Post::create($data);
 
@@ -67,39 +70,42 @@ class PostController extends ApiController
     }
 
     /**
-     * Show post
-     *
-     * @param Post $post
-     * @return mixed
-     */
-    public function show(Post $post)
-    {
-        return $this->respond($post->toArray());
-    }
-
-    /**
      * Return news to guest users.
      *
      * @return mixed
      */
     public function news()
     {
-        if (request('id')) {
-            $post = Post::with('author')
-                ->where('created_at', '<=', Carbon::now())
-                ->where('active', 1)
-                ->find(request('id'));
-
-            return $this->respond($post->toArray());
-        }
-
-        $post = Post::with('author')
+        $take = request('take') ?: 1;
+        $skip = request('skip') ?: 0;
+        $posts = Post::with('author')
             ->where('created_at', '<=', Carbon::now())
             ->where('active', 1)
+            ->where('hotnews', 0)
             ->latest()
-            ->first();
+            ->take($take)
+            ->skip($skip)
+            ->get();
 
-        return $this->respond($post ? $post->toArray() : []);
+        return $this->respond($posts->toArray());
+    }
+
+    /**
+     * Get hotnews
+     *
+     * @return mixed
+     */
+    public function hotnews()
+    {
+        $posts = Post::with('author')
+            ->where('created_at', '<=', Carbon::now())
+            ->where('active', 1)
+            ->where('hotnews', 1)
+            ->latest()
+            ->take(10)
+            ->get();
+
+        return $this->respond($posts->toArray());
     }
 
     /**
@@ -107,15 +113,32 @@ class PostController extends ApiController
      *
      * @return mixed
      */
-    public function newsList()
+    public function show()
     {
-        $news = Post::with('author')
+        $post = (new Post)
+            ->where(function ($query) {
+                if (request('slug'))
+                    $query->where('slug', request('slug'));
+            })
             ->latest()
-            ->where('created_at', '<=', Carbon::now())
-            ->where('active', 1)
-            ->take(20)
-            ->get();
+            ->first();
 
-        return $this->respond($news->toArray());
+        $next = (new Post)
+            ->where('id', '>', $post->id)
+            ->orderBy('id', 'asc')
+            ->where('hotnews', 0)
+            ->first();
+
+        $previous = (new Post)
+            ->where('id', '<', $post->id)
+            ->orderBy('id', 'desc')
+            ->where('hotnews', 0)
+            ->first();
+
+        return $this->respond([
+            'post'     => $post,
+            'next'     => $next,
+            'previous' => $previous
+        ]);
     }
 }

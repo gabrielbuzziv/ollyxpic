@@ -1,167 +1,136 @@
 <template>
     <page-load id="home">
+
+        <!--<panel>-->
+        <!--<h4>Welcome</h4>-->
+        <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dolores eveniet expedita.</p>-->
+        <!--</panel>-->
+
         <div class="row">
-            <div class="col-md-9 news">
-                <header>
-                    <h3>Latest news</h3>
-                </header>
+            <div class="col-md-8">
+                <panel class="news">
+                    <header>
+                        <router-link :to="{ name: 'pages.news', params: { slug: latestNews.slug } }">
+                            <h4>{{ latestNews.title }}</h4>
+                        </router-link>
+                    </header>
 
-                <panel class="main-post">
-                    <template slot="heading">
-                        <div class="pull-left">
-                            <h3 class="panel-title">
-                                {{ post.title }}
-                            </h3>
-                        </div>
+                    <article v-html="latestNews.body"/>
 
-                        <div class="clearfix"></div>
-                    </template>
-
-                    <small class="author">
-                        Posted by {{ post.author.name }}
-                        {{ getDateForHuman(post.created_at) }}
-                    </small>
-                    <div v-html="post.body"></div>
-
-                    <span class="source" v-if="post.source">
-                        Source:
-                        <a :href="post.source" target="_blank">{{ post.source }}</a>
+                    <span class="source" v-if="latestNews.source">
+                        <b>Source:</b>
+                        <a :href="latestNews.source" target="_blank">
+                            {{ latestNews.source }}
+                        </a>
                     </span>
+
+                    <footer>
+                        <span class="comments" v-if="latestNews.comments">
+                            <a :href="latestNews.comments" target="_blank">
+                                <i class="mdi mdi-comment margin-right-5"></i>
+                                Comments
+                            </a>
+                        </span>
+
+                        <span class="date">
+                            <i class="mdi mdi-calendar margin-right-5"></i>
+                            {{ latestNews.created_at | dateForHuman }}
+                        </span>
+                    </footer>
                 </panel>
 
-                <router-link :to="{ name: 'pages.news' }" class="btn btn-default btn-block">
-                    Check more news
-                </router-link>
+                <div class="row">
+                    <div class="col-md-6" v-for="news in olderNews">
+                        <panel class="features">
+                            <img :src="image_path_by_name('item', 'golden newspaper')" alt="">
+
+                            <router-link :to="{ name: 'pages.news', params: { slug: news.slug } }"
+                                         class="read">
+                                {{ news.title }}
+                            </router-link>
+                        </panel>
+                    </div>
+                </div>
+
             </div>
 
-            <div class="col-md-3 tools">
-                <header>
-                    <h3>Calculators</h3>
-                </header>
+            <div class="col-md-4">
+                <panel class="hotnews">
+                    <h4>Hotnews</h4>
+                    <ul>
+                        <li v-for="hot in hotnews">
+                            <a :href="hot.link" :title="hot.title" target="_blank">
+                                <img :src="image_path_by_name('item', 'Scroll of Ascension (Used)')"/>
 
-                <router-link :to="{ name: 'tools.imbuements' }" slot="anchor">
-                    <card title="Imbuements" subtitle="Waste/Time">
-                        <img :src="image_path_by_name('item', 'silencer claws')" slot="icon">
-                        <i class="mdi mdi-chevron-right"></i>
-                    </card>
-                </router-link>
+                                {{ hot.title }}
+                            </a>
+                        </li>
+                    </ul>
+                </panel>
 
-                <router-link :to="{ name: 'tools.loot.count' }" slot="anchor">
-                    <card title="Loot" subtitle="Count">
-                        <img :src="image_path_by_name('item', 'steel boots')" slot="icon">
-                        <i class="mdi mdi-chevron-right"></i>
-                    </card>
-                </router-link>
-
-                <router-link :to="{ name: 'tools.blessing' }" slot="anchor">
-                    <card title="Blessings" subtitle="Penalty">
-                        <img :src="image_path_by_name('item', 'spiritual charm')" slot="icon">
-                        <i class="mdi mdi-chevron-right"></i>
-                    </card>
-                </router-link>
-
-                <router-link :to="{ name: 'tools.speedboost' }" slot="anchor">
-                    <card title="Speed" subtitle="Boost">
-                        <img :src="image_path_by_name('item', 'boots of haste')" slot="icon">
-                        <i class="mdi mdi-chevron-right"></i>
-                    </card>
-                </router-link>
-
-                <router-link :to="{ name: 'tools.damage.healing' }" slot="anchor">
-                    <card title="Damage Calc" subtitle="Damage & Healing" dark>
-                        <img :src="image_path_by_name('item', 'sudden death rune')" slot="icon">
-                        <i class="mdi mdi-chevron-right"></i>
-                    </card>
-                </router-link>
-
-                <router-link :to="{ name: 'tools.expshare' }" slot="anchor">
-                    <card title="Exp" subtitle="Share">
-                        <img :src="image_path_by_name('item', 'purple tome')" slot="icon">
-                        <i class="mdi mdi-chevron-right"></i>
-                    </card>
-                </router-link>
-
-                <router-link :to="{ name: 'tools.capcount' }" slot="anchor">
-                    <card title="Cap" subtitle="Count">
-                        <img :src="image_path_by_name('item', 'blossom bag')" slot="icon">
-                        <i class="mdi mdi-chevron-right"></i>
-                    </card>
-                </router-link>
-
-                <router-link :to="{ name: 'tools.damage.protection' }" slot="anchor">
-                    <card title="Damage" subtitle="Protection">
-                        <img :src="image_path_by_name('item', 'great shield')" slot="icon">
-                        <i class="mdi mdi-chevron-right"></i>
-                    </card>
-                </router-link>
-
-                <router-link :to="{ name: 'tools.currencies' }" slot="anchor">
-                    <card title="Tibia Currency" subtitle="Stock Exchange">
-                        <img :src="image_path_by_name('item', 'tibia coins')" slot="icon">
-                        <i class="mdi mdi-chevron-right"></i>
-                    </card>
-                </router-link>
-
-                <router-link :to="{ name: 'tools.blacklist' }" slot="anchor">
-                    <card title="Blacklist" subtitle="Quick Looting">
-                        <img :src="image_path_by_name('item', 'Book (Black)')" slot="icon">
-                        <i class="mdi mdi-chevron-right"></i>
-                    </card>
-                </router-link>
-
-                <router-link :to="{ name: 'tools.timer' }" slot="anchor">
-                    <card title="Task & Boss" subtitle="Timer">
-                        <img :src="image_path_by_name('item', 'Ancient Watch')" slot="icon">
-                        <i class="mdi mdi-chevron-right"></i>
-                    </card>
-                </router-link>
-
-                <router-link :to="{ name: 'tools.training' }" slot="anchor">
-                    <card title="Magic Level" subtitle="Training">
-                        <img :src="image_path_by_name('item', 'Spellbook of Ancient Arcana')" slot="icon">
-                        <i class="mdi mdi-chevron-right"></i>
-                    </card>
-                </router-link>
-
-                <!--<router-link :to="{ name: 'tools.huntingspots' }" slot="anchor">-->
-                    <!--<card title="Hunting" subtitle="Spots">-->
-                        <!--<img :src="image_path_by_name('item', 'map')" slot="icon">-->
-                        <!--<i class="mdi mdi-chevron-right"></i>-->
-                    <!--</card>-->
-                <!--</router-link>-->
+                <panel class="discord">
+                    <a href="https://discord.gg/RnzuGcV" target="_blank">
+                        <img src="src/assets/images/discord.png" alt="">
+                        Join us on Discord
+                    </a>
+                </panel>
             </div>
         </div>
+
+        <tools/>
     </page-load>
 </template>
 
 <script>
+    import Tools from './Tools'
     import services from '../services'
     import { isEmpty } from 'lodash'
 
     export default {
+        components: { Tools },
+
         data () {
             return {
-                post: {
-                    author: {
-                        name: ''
-                    }
-                }
+                news: [],
+                hotnews: []
             }
         },
 
-        methods: {
-            load () {
-                services.getPost()
-                    .then(response => response.data.id ? this.post = response.data : '')
+        computed: {
+            latestNews () {
+                return this.news.length ? this.news[0] : {}
             },
 
-            getDateForHuman (date) {
+            olderNews () {
+                return this.news.splice(1, 2)
+            }
+        },
+
+        filters: {
+            dateForHuman (date) {
                 return moment.tz(date, "DD-MM-YYYY HH:mm:ss", 'America/New_York').fromNow()
             }
         },
 
-        mounthied () {
-            this.load()
+        methods: {
+            getLatestNews () {
+                services.getPosts(3)
+                    .then(response => {
+                        this.news = response.data
+                    })
+            },
+
+            getHotNews () {
+                services.getHotnews(10)
+                    .then(response => {
+                        this.hotnews = response.data
+                    })
+            },
+        },
+
+        mounted () {
+            this.getLatestNews()
+            this.getHotNews()
         }
     }
 </script>

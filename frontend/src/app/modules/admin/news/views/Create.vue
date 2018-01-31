@@ -34,7 +34,10 @@
                     body: '',
                     source: '',
                     active: 1,
-                    created_at: ''
+                    created_at: '',
+                    hotnews: false,
+                    link: '',
+                    comments: ''
                 }
             }
         }
