@@ -20,14 +20,14 @@
                 </div>
 
 
-                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="inline  margin-right-5">
-                    <input type="hidden" name="cmd" value="_s-xclick">
-                    <input type="hidden" name="hosted_button_id" value="J8VPUH8PS9ANS">
-                    <button name="submit" class="btn btn-default" target="_blank">
-                        <i class="mdi mdi-coffee margin-right-5"></i>
-                        Pay us a coffee
-                    </button>
-                </form>
+                <!--<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="inline  margin-right-5">-->
+                    <!--<input type="hidden" name="cmd" value="_s-xclick">-->
+                    <!--<input type="hidden" name="hosted_button_id" value="J8VPUH8PS9ANS">-->
+                    <!--<button name="submit" class="btn btn-default" target="_blank">-->
+                        <!--<i class="mdi mdi-coffee margin-right-5"></i>-->
+                        <!--Pay us a coffee-->
+                    <!--</button>-->
+                <!--</form>-->
 
                 <button class="btn btn-default" @click.prevent="$root.$emit('show::login')" v-if="! isLogged">
                     <i class="mdi mdi-login margin-right-5"></i>
