@@ -20,6 +20,7 @@ class PlayersController extends ApiController
         $name = strtolower(trim($name));
         $url = "https://api.tibiadata.com/v2/characters/{$name}.json";
         $details = json_decode(file_get_contents($url));
+        $name = $details->characters->data->name;
 
         // Throw 404 erro if not exist.
         if (isset($details->characters->error)) {
