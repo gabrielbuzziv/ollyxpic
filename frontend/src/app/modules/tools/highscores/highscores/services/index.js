@@ -1,13 +1,13 @@
 export default {
-    getHighscores (vocation = '') {
-        return window.axios.get(`highscores`, { params: { vocation } })
+    getWorlds () {
+        return window.axios.get(`worlds`)
     },
 
-    getPlayerDetails (name) {
-        return window.axios.get(`highscores/${name}`)
+    getHighscores (vocation = '', world = '') {
+        return window.axios.get(`highscores`, { params: { vocation, world } })
     },
 
-    getPlayerAdvances (name, type) {
-        return window.axios.get(`highscores/${name}/${type}`)
-    }
+    getSkillHighscores (skill, world = '') {
+        return window.axios.get(`highscores/skills`, { params: { skill, world } })
+    },
 }

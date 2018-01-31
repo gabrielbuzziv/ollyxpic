@@ -1,5 +1,6 @@
 import Highscores from './views/Highscores'
 import Experience from './views/Experience'
+import Skills from './views/Skills'
 
 export default [
     {
@@ -9,9 +10,14 @@ export default [
         component: Highscores,
         children: [
             {
-                path: '/tools/highscores/experience/:vocation?',
+                path: '/tools/highscores/experience/:vocation?/:world?',
                 name: 'tools.highscores.experience',
                 component: Experience
+            },
+            {
+                path: '/tools/highscores/skills/:skill?/:world?',
+                name: 'tools.highscores.skills',
+                component: Skills
             },
         ]
     }

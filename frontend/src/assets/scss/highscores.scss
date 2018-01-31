@@ -139,6 +139,25 @@
                 }
             }
 
+            .skills {
+                display: inline-block;
+                width: 50%;
+                vertical-align: middle;
+                text-align: right;
+
+                b {
+                    font-weight: 700;
+                    display: block;
+                    font-size: 20px;
+                }
+
+                span {
+                    font-size: 12px;
+                    font-weight: 300;
+                    display: block;
+                }
+            }
+
             .btn {
                 &.btn-xs {
                     padding: 6px 15px;
@@ -237,6 +256,17 @@
                     }
                 }
             }
+        }
+    }
+}
+
+.el-dropdown-menu {
+    a {
+        li {
+            display: block;
+            font-weight: 300;
+            padding: 0 25px;
+            font-size: 14px;
         }
     }
 }

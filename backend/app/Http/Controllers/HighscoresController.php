@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Highscores;
+use App\World;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -16,13 +17,20 @@ class HighscoresController extends ApiController
      */
     public function experience()
     {
+        $world = request('world') ? World::where('name', request('world'))->first()->id : null;
+
         $highscores = (new Highscores)
             ->with('world')
             ->with('weekExperience')
             ->where('type', 'experience')
+            ->where(function ($query) use ($world) {
+                if ($world)
+                    $query->where('world_id', $world);
+            })
             ->whereIn('vocation', $this->getVocation())
             ->orderBy('experience', 'desc')
             ->orderBy('updated_at', 'desc')
+            ->orderBy('name', 'asc')
             ->groupBy('name')
             ->take(300)
             ->get();
@@ -31,45 +39,29 @@ class HighscoresController extends ApiController
     }
 
     /**
-     * Get Player advances.
+     * Get highscores by skill.
      *
-     * @param $name
-     * @param string $type
      * @return mixed
      */
-    public function playerAdvances($name, $type = 'experience')
+    public function skills()
     {
-        $advances = Highscores::where('name', $name)
-            ->where('type', $type)
-            ->take(7)
-            ->orderBy('updated_at', 'asc')
+        $world = request('world') ? World::where('name', request('world'))->first()->id : null;
+
+        $highscores = (new Highscores)
+            ->with('world')
+            ->where('type', request('skill'))
+            ->where(function ($query) use ($world) {
+                if ($world)
+                    $query->where('world_id', $world);
+            })
+            ->orderBy('level', 'desc')
+            ->orderBy('updated_at', 'desc')
+            ->orderBy('name', 'asc')
+            ->groupBy('name')
+            ->take(300)
             ->get();
 
-        $advances = array_map(function ($advance) {
-            $advance = (object) $advance;
-
-            return [
-                'experience' => $advance->experience,
-                'level'      => $advance->level,
-                'updated_at' => $advance->updated_at,
-            ];
-        }, $advances->toArray());
-
-        return $this->respond($advances);
-    }
-
-    /**
-     * Get player details.
-     *
-     * @param $name
-     * @return mixed
-     */
-    public function player($name)
-    {
-        $details = file_get_contents("https://api.tibiadata.com/v2/characters/{$name}.json");
-        $details = (array) json_decode($details)->characters;
-
-        return $this->respond($details);
+        return $this->respond($highscores->toArray());
     }
 
     /**

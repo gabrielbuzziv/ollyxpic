@@ -48,6 +48,11 @@ class HighscoresCommand extends Command
      */
     public function handle()
     {
+        (new Highscores)
+            ->where('type', $this->argument('type'))
+            ->where('updated_at', Carbon::today()->subDay())
+            ->delete();
+
         $vocations = ['knight', 'sorcerer', 'paladin', 'druid'];
 
         foreach ($vocations as $vocation) {
@@ -58,7 +63,6 @@ class HighscoresCommand extends Command
                 $highscores = $highscores->highscores->data;
 
                 array_walk($highscores, function ($highscore, $index) use ($world) {
-                    $today = Carbon::today()->subDay();
                     $level = $highscore->level;
                     $experience = $this->argument('type') == 'experience' ? $highscore->points : 0;
                     $advance = 0;
@@ -71,7 +75,7 @@ class HighscoresCommand extends Command
                         'level'      => $level,
                         'advance'    => $advance,
                         'world_id'   => $world->id,
-                        'updated_at' => $today,
+                        'updated_at' => Carbon::today()->subDay(),
                         'type'       => $this->argument('type'),
                     ]);
                 });

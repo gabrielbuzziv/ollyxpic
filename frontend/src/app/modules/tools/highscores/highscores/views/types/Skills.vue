@@ -25,18 +25,12 @@
         return this.toFixed(Math.max(0, ~ ~ n)).replace(new RegExp(re, 'g'), '$&.');
     };
 
-    import Leader from './experience/Leader'
-    import Player from './experience/Player'
+    import Leader from './skills/Leader'
+    import Player from './skills/Player'
 
     export default {
         props: ['leaders', 'highscores', 'loading'],
 
         components: { Leader, Player },
-
-        methods: {
-            getPlayerOutfit (player) {
-                return this.outfit('Summoner Outfits', 'female')
-            }
-        },
     }
 </script>

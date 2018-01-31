@@ -142,7 +142,7 @@
                     <router-link :to="{ name: 'tools.highscores' }" tag="li">
                         <a href="">
                             <span class="left">
-                                <img :src="image_path_by_name('item', 'Crown')">
+                                <img :src="image_path_by_name('item', 'Medal of Honour')">
                             </span>
                             <span class="center">
                                 <span>Highscores</span>

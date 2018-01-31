@@ -1,13 +1,13 @@
 <template>
-    <experience :leaders="leaders" :highscores="highscores" :loading="loading" />
+    <skills :leaders="leaders" :highscores="highscores" :loading="loading" />
 </template>
 
 <script>
-    import Experience from './types/Experience'
+    import Skills from './types/Skills'
     import services from '../services'
 
     export default {
-        components: { Experience },
+        components: { Skills },
 
         data () {
             return {
@@ -18,7 +18,7 @@
         },
 
         watch: {
-            '$route.params.vocation' () {
+            '$route.params.skill' () {
                 this.load()
             },
 
@@ -29,11 +29,11 @@
 
         methods: {
             load () {
-                const vocation = this.$route.params.vocation ? this.$route.params.vocation : null
+                const skill = this.$route.params.skill ? this.$route.params.skill : null
                 const world = this.$route.params.world ? this.$route.params.world : null
 
                 this.loading = true
-                services.getHighscores(vocation, world)
+                services.getSkillHighscores(skill, world)
                     .then(response => {
                         this.loading = false
                         this.leaders = response.data.slice(0, 3)

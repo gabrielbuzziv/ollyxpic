@@ -102,8 +102,7 @@ Route::get('partners', 'PartnersController@index');
  * HighscoresController routes.
  */
 Route::get('highscores', 'HighscoresController@experience');
-Route::get('highscores/{name}', 'HighscoresController@player');
-Route::get('highscores/{name}/{type?}', 'HighscoresController@playerAdvances');
+Route::get('highscores/skills/{type?}', 'HighscoresController@skills');
 
 /**
  * PlayerController routes.
