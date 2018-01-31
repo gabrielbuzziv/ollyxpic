@@ -35,7 +35,10 @@
                     body: '',
                     source: '',
                     active: 1,
-                    created_at: null
+                    created_at: null,
+                    hotnews: false,
+                    link: '',
+                    comments: ''
                 },
                 loading: true
             }

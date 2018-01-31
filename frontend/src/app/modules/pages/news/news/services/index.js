@@ -1,9 +1,9 @@
 export default {
-    getPost (id) {
-        return window.axios.get(`news`, { params: { id } })
+    getPost (slug) {
+        return window.axios.get(`news/show`, { params: { slug }})
     },
 
-    fetchNews () {
-        return window.axios.get(`news/list`)
+    getHotnews () {
+        return window.axios.get(`news/hot`)
     }
 }

@@ -2,28 +2,38 @@
     <page-load id="home">
 
         <!--<panel>-->
-            <!--<h4>Welcome</h4>-->
-            <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dolores eveniet expedita.</p>-->
+        <!--<h4>Welcome</h4>-->
+        <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dolores eveniet expedita.</p>-->
         <!--</panel>-->
 
         <div class="row">
             <div class="col-md-8">
                 <panel class="news">
                     <header>
-                        <h4>{{ latestNews.title }}</h4>
+                        <router-link :to="{ name: 'pages.news', params: { slug: latestNews.slug } }">
+                            <h4>{{ latestNews.title }}</h4>
+                        </router-link>
                     </header>
 
-                    <article v-html="latestNews.body" />
+                    <article v-html="latestNews.body"/>
+
+                    <span class="source" v-if="latestNews.source">
+                        <b>Source:</b>
+                        <a :href="latestNews.source" target="_blank">
+                            {{ latestNews.source }}
+                        </a>
+                    </span>
 
                     <footer>
-                        <span class="comments">
-                            <i class="mdi mdi-comment margin-right-5"></i>
-                            Comments
+                        <span class="comments" v-if="latestNews.comments">
+                            <a :href="latestNews.comments" target="_blank">
+                                <i class="mdi mdi-comment margin-right-5"></i>
+                                Comments
+                            </a>
                         </span>
 
-                        <span class="author">
-                            <i class="mdi mdi-account margin-right-5"></i>
-                            Posted by {{ latestNews.author.name }}
+                        <span class="date">
+                            <i class="mdi mdi-calendar margin-right-5"></i>
                             {{ latestNews.created_at | dateForHuman }}
                         </span>
                     </footer>
@@ -32,7 +42,12 @@
                 <div class="row">
                     <div class="col-md-6" v-for="news in olderNews">
                         <panel class="features">
-                            <h4>{{ news.title }}</h4>
+                            <img :src="image_path_by_name('item', 'golden newspaper')" alt="">
+
+                            <router-link :to="{ name: 'pages.news', params: { slug: news.slug } }"
+                                         class="read">
+                                {{ news.title }}
+                            </router-link>
                         </panel>
                     </div>
                 </div>
@@ -43,10 +58,13 @@
                 <panel class="hotnews">
                     <h4>Hotnews</h4>
                     <ul>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
+                        <li v-for="hot in hotnews">
+                            <a :href="hot.link" :title="hot.title" target="_blank">
+                                <img :src="image_path_by_name('item', 'Scroll of Ascension (Used)')"/>
+
+                                {{ hot.title }}
+                            </a>
+                        </li>
                     </ul>
                 </panel>
 
@@ -59,128 +77,22 @@
             </div>
         </div>
 
-        <div class="row tools">
-            <h4>Tools</h4>
-
-            <div class="col-md-3">
-                <router-link :to="{ name: 'tools.imbuements' }" slot="anchor">
-                    <card title="Imbuements" subtitle="Waste/Time">
-                        <img :src="image_path_by_name('item', 'silencer claws')" slot="icon">
-                        <i class="mdi mdi-chevron-right"></i>
-                    </card>
-                </router-link>
-            </div>
-
-            <div class="col-md-3">
-                <router-link :to="{ name: 'tools.loot.count' }" slot="anchor">
-                    <card title="Loot" subtitle="Count">
-                        <img :src="image_path_by_name('item', 'steel boots')" slot="icon">
-                        <i class="mdi mdi-chevron-right"></i>
-                    </card>
-                </router-link>
-            </div>
-
-            <div class="col-md-3">
-                <router-link :to="{ name: 'tools.blessing' }" slot="anchor">
-                    <card title="Blessings" subtitle="Penalty">
-                        <img :src="image_path_by_name('item', 'spiritual charm')" slot="icon">
-                        <i class="mdi mdi-chevron-right"></i>
-                    </card>
-                </router-link>
-            </div>
-
-            <div class="col-md-3">
-                <router-link :to="{ name: 'tools.speedboost' }" slot="anchor">
-                    <card title="Speed" subtitle="Boost">
-                        <img :src="image_path_by_name('item', 'boots of haste')" slot="icon">
-                        <i class="mdi mdi-chevron-right"></i>
-                    </card>
-                </router-link>
-            </div>
-
-            <div class="col-md-3">
-                <router-link :to="{ name: 'tools.damage.healing' }" slot="anchor">
-                    <card title="Damage Calc" subtitle="Damage & Healing" dark>
-                        <img :src="image_path_by_name('item', 'sudden death rune')" slot="icon">
-                        <i class="mdi mdi-chevron-right"></i>
-                    </card>
-                </router-link>
-            </div>
-
-            <div class="col-md-3">
-                <router-link :to="{ name: 'tools.expshare' }" slot="anchor">
-                    <card title="Exp" subtitle="Share">
-                        <img :src="image_path_by_name('item', 'purple tome')" slot="icon">
-                        <i class="mdi mdi-chevron-right"></i>
-                    </card>
-                </router-link>
-            </div>
-
-            <div class="col-md-3">
-                <router-link :to="{ name: 'tools.capcount' }" slot="anchor">
-                    <card title="Cap" subtitle="Count">
-                        <img :src="image_path_by_name('item', 'blossom bag')" slot="icon">
-                        <i class="mdi mdi-chevron-right"></i>
-                    </card>
-                </router-link>
-            </div>
-
-            <div class="col-md-3">
-                <router-link :to="{ name: 'tools.damage.protection' }" slot="anchor">
-                    <card title="Damage" subtitle="Protection">
-                        <img :src="image_path_by_name('item', 'great shield')" slot="icon">
-                        <i class="mdi mdi-chevron-right"></i>
-                    </card>
-                </router-link>
-            </div>
-
-            <div class="col-md-3">
-                <router-link :to="{ name: 'tools.currencies' }" slot="anchor">
-                    <card title="Tibia Currency" subtitle="Stock Exchange">
-                        <img :src="image_path_by_name('item', 'tibia coins')" slot="icon">
-                        <i class="mdi mdi-chevron-right"></i>
-                    </card>
-                </router-link>
-            </div>
-
-            <div class="col-md-3">
-                <router-link :to="{ name: 'tools.blacklist' }" slot="anchor">
-                    <card title="Blacklist" subtitle="Quick Looting">
-                        <img :src="image_path_by_name('item', 'Book (Black)')" slot="icon">
-                        <i class="mdi mdi-chevron-right"></i>
-                    </card>
-                </router-link>
-            </div>
-
-            <div class="col-md-3">
-                <router-link :to="{ name: 'tools.timer' }" slot="anchor">
-                    <card title="Task & Boss" subtitle="Timer">
-                        <img :src="image_path_by_name('item', 'Ancient Watch')" slot="icon">
-                        <i class="mdi mdi-chevron-right"></i>
-                    </card>
-                </router-link>
-            </div>
-
-            <div class="col-md-3">
-                <router-link :to="{ name: 'tools.training' }" slot="anchor">
-                    <card title="Magic Level" subtitle="Training">
-                        <img :src="image_path_by_name('item', 'Spellbook of Ancient Arcana')" slot="icon">
-                        <i class="mdi mdi-chevron-right"></i>
-                    </card>
-                </router-link>
-            </div>
-        </div>
+        <tools/>
     </page-load>
 </template>
 
 <script>
+    import Tools from './Tools'
     import services from '../services'
     import { isEmpty } from 'lodash'
 
     export default {
+        components: { Tools },
+
         data () {
             return {
-                news: []
+                news: [],
+                hotnews: []
             }
         },
 
@@ -196,7 +108,7 @@
 
         filters: {
             dateForHuman (date) {
-                return moment(date).fromNow()
+                return moment.tz(date, "DD-MM-YYYY HH:mm:ss", 'America/New_York').fromNow()
             }
         },
 
@@ -206,11 +118,19 @@
                     .then(response => {
                         this.news = response.data
                     })
-            }
+            },
+
+            getHotNews () {
+                services.getHotnews(10)
+                    .then(response => {
+                        this.hotnews = response.data
+                    })
+            },
         },
 
         mounted () {
             this.getLatestNews()
+            this.getHotNews()
         }
     }
 </script>

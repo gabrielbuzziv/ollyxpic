@@ -10,40 +10,60 @@
 
         <div class="row">
             <div class="col-md-8">
-                <panel class="main-post">
-                    <template slot="heading">
-                        <div class="pull-left">
-                            <h3 class="panel-title">
-                                {{ post.title }}
-                            </h3>
-                        </div>
+                <panel class="news">
+                    <header>
+                        <h4>{{ latestNews.title }}</h4>
+                    </header>
 
-                        <div class="clearfix"></div>
-                    </template>
+                    <article v-html="latestNews.body"/>
 
-                    <small class="author">
-                        Posted by {{ post.author.name }}
-                        {{ getDateForHuman(post.created_at) }}
-                    </small>
-                    <div v-html="post.body"></div>
+                    <span class="source" v-if="latestNews.source">
+                        <b>Source:</b>
+                        <a :href="latestNews.source" target="_blank">
+                            {{ latestNews.source }}
+                        </a>
+                    </span>
 
-                    <span class="source" v-if="post.source">
-                    Source:
-                    <a :href="post.source" target="_blank">{{ post.source }}</a>
-                </span>
+                    <footer>
+                        <span class="comments" v-if="latestNews.comments">
+                            <a :href="latestNews.comments" target="_blank">
+                                <i class="mdi mdi-comment margin-right-5"></i>
+                                Comments
+                            </a>
+                        </span>
+
+                        <span class="date">
+                            <i class="mdi mdi-calendar margin-right-5"></i>
+                            {{ latestNews.created_at | dateForHuman }}
+                        </span>
+                    </footer>
                 </panel>
+
+                <div class="pull-left" v-if="previous">
+                    <router-link :to="{ name: 'pages.news', params: { slug: previous.slug } }" class="btn btn-rounded" tag="button">
+                        <i class="mdi mdi-arrow-left-bold-circle margin-right-10"></i>
+                        Previous
+                    </router-link>
+                </div>
+
+                <div class="pull-right" v-if="next">
+                    <router-link :to="{ name: 'pages.news', params: { slug: next.slug } }" class="btn btn-rounded" tag="button">
+                        <i class="mdi mdi-arrow-right-bold-circle margin-right-10"></i>
+                        Next
+                    </router-link>
+                </div>
             </div>
 
             <div class="col-md-4">
-                <panel class="list" title="Other posts">
-                    <ul class="posts" >
-                        <li class="post" v-for="post in news" :key="post.id">
-                            <router-link :to="{ name: 'pages.news', params: { id: post.id } }">
-                                {{ post.title }}
-                            </router-link>
-                            <small>
-                                ({{ getDateForHuman(post.created_at) }})
-                            </small>
+                <panel class="hotnews">
+                    <h4>Hotnews</h4>
+                    <ul>
+                        <li v-for="hot in hotnews">
+                            <a :href="hot.link" :title="hot.title" target="_blank">
+                                <img :src="image_path_by_name('item', 'Scroll of Ascension (Used)')"/>
+
+                                {{ hot.title }}
+                            </a>
                         </li>
                     </ul>
                 </panel>
@@ -58,40 +78,49 @@
 
     export default {
         data () {
-            return  {
-                post: {
-                    author: {}
-                },
-                news: [],
-                disqus_url: location.href
+            return {
+                hotnews: [],
+                latestNews: {},
+                next: {},
+                previous: {}
             }
         },
 
         watch: {
-            '$route.params.id' () {
-                setTimeout(() => this.load(), 1)
-                this.disqus_url = location.href
+            '$route.params.slug' () {
+                this.getLatestNews()
             }
         },
 
-        methods: {
-            load () {
-                const id = this.$route.params.id || null
-
-                services.getPost(id)
-                    .then(response => this.post = response.data)
-
-                services.fetchNews()
-                    .then(response => this.news = response.data)
-            },
-
-            getDateForHuman (date) {
+        filters: {
+            dateForHuman (date) {
                 return moment.tz(date, "DD-MM-YYYY HH:mm:ss", 'America/New_York').fromNow()
             }
         },
 
+        methods: {
+            getLatestNews () {
+                const post = this.$route.params.slug ? this.$route.params.slug : null
+
+                services.getPost(post)
+                    .then(response => {
+                        this.latestNews = response.data.post
+                        this.next = response.data.next
+                        this.previous = response.data.previous
+                    })
+            },
+
+            getHotNews () {
+                services.getHotnews(10)
+                    .then(response => {
+                        this.hotnews = response.data
+                    })
+            },
+        },
+
         mounted () {
-            this.load()
+            this.getLatestNews()
+            this.getHotNews()
         }
     }
 </script>

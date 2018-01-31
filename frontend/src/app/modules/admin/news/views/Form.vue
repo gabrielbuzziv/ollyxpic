@@ -12,9 +12,16 @@
             <vue-summernote ref="editor" :height="300" placeholder=""></vue-summernote>
         </div>
 
-        <div class="form-group">
-            <label>Source Link</label>
-            <input type="text" name="source" class="form-control" v-model="data.source">
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label>Source Link</label>
+                <input type="text" name="source" class="form-control" v-model="data.source">
+            </div>
+
+            <div class="form-group col-md-6">
+                <label>Comment Link</label>
+                <input type="text" name="comments" class="form-control" v-model="data.comments">
+            </div>
         </div>
 
         <div class="row">
@@ -41,6 +48,21 @@
                     <option value="1">Yes</option>
                     <option value="0">No</option>
                 </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label>Hotnews</label>
+                <select name="active" class="form-control" v-model="data.hotnews">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+
+            <div class="form-group col-md-6" v-if="data.hotnews">
+                <label>Link</label>
+                <input type="text" name="link" class="form-control" v-model="data.link">
             </div>
         </div>
 
