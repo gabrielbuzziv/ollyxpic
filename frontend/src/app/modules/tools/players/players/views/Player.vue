@@ -163,7 +163,7 @@
                 if (player == null || player == '')
                     return null
 
-                this.$router.push({ name: 'tools.players', params: { name: player } })
+                this.$router.push({ name: 'players', params: { name: player } })
             }
         },
 

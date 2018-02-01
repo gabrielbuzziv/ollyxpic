@@ -9,7 +9,7 @@
 
                 <span class="left">
                     <span class="name">
-                        <router-link :to="{ name: 'tools.players', params: { name: leader.name } }">
+                        <router-link :to="{ name: 'players', params: { name: leader.name } }">
                             {{ leader.name }}
                         </router-link>
                     </span>
@@ -43,7 +43,7 @@
             </div>
         </div>
 
-        <router-link :to="{ name: 'tools.players', params: { name: leader.name } }" class="btn btn-xs btn-rounded margin-top-20">
+        <router-link :to="{ name: 'players', params: { name: leader.name } }" class="btn btn-xs btn-rounded margin-top-20">
             <i class="mdi mdi-chart-bar margin-right-10"></i>
             Statistics
         </router-link>

@@ -4,19 +4,19 @@ import Skills from './views/Skills'
 
 export default [
     {
-        path: '/tools/highscores',
-        name: 'tools.highscores',
-        redirect: { name: 'tools.highscores.experience' },
+        path: '/highscores',
+        name: 'highscores',
+        redirect: { name: 'highscores.experience' },
         component: Highscores,
         children: [
             {
-                path: '/tools/highscores/experience/:vocation?/:world?',
-                name: 'tools.highscores.experience',
+                path: '/highscores/experience/:vocation?/:world?',
+                name: 'highscores.experience',
                 component: Experience
             },
             {
-                path: '/tools/highscores/skills/:skill?/:world?',
-                name: 'tools.highscores.skills',
+                path: '/highscores/skills/:skill?/:world?',
+                name: 'highscores.skills',
                 component: Skills
             },
         ]

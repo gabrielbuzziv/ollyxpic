@@ -2,8 +2,8 @@ import Player from './views/Player'
 
 export default [
     {
-        path: '/tools/player/:name',
-        name: 'tools.players',
+        path: '/player/:name',
+        name: 'players',
         component: Player,
     }
 ]

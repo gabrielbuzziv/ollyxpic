@@ -82,7 +82,7 @@
                     return false
                 }
 
-                this.$router.push({ name: 'tools.players', params: { name: this.character } })
+                this.$router.push({ name: 'players', params: { name: this.character } })
             },
         }
     }

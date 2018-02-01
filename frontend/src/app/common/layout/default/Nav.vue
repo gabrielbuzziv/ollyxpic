@@ -139,18 +139,6 @@
                         </a>
                     </router-link>
 
-                    <router-link :to="{ name: 'tools.highscores' }" tag="li">
-                        <a href="">
-                            <span class="left">
-                                <img :src="image_path_by_name('item', 'Medal of Honour')">
-                            </span>
-                            <span class="center">
-                                <span>Highscores</span>
-                                <small>Best Tibia Players</small>
-                            </span>
-                        </a>
-                    </router-link>
-
                     <!--<router-link :to="{ name: 'tools.spots.list' }" tag="li">-->
                         <!--<a href="">-->
                             <!--<span class="left">-->
@@ -189,7 +177,143 @@
                 </ul>
             </li>
 
-            <router-link :to="{ name: 'pages.news' }" tag="li">
+            <li class="with-child" :class="{ 'active': isHighscores }">
+                <a href="javascript:void(0)">
+                    <span class="left">
+                        <img :src="image_path_by_name('item', 'Medal of Honour')" alt="">
+                    </span>
+                    <span class="center">
+                        <span>Highscores</span>
+                        <small>Best Tibia Players</small>
+                    </span>
+                </a>
+
+                <ul>
+                    <router-link :to="{ name: 'highscores.experience' }" tag="li">
+                        <a href="">
+                            <span class="left">
+                                <img :src="image_path_by_name('item', 'Medal of Honour')">
+                            </span>
+                            <span class="center">
+                                <span>Top EXP</span>
+                            </span>
+                        </a>
+                    </router-link>
+
+                    <router-link :to="{ name: 'highscores.experience', params: { vocation: 'knight' } }" tag="li">
+                        <a href="">
+                            <span class="left">
+                                <img :src="image_path_by_name('item', 'Black Knight Doll')">
+                            </span>
+                            <span class="center">
+                                <span>Top Knight</span>
+                            </span>
+                        </a>
+                    </router-link>
+
+                    <router-link :to="{ name: 'highscores.experience', params: { vocation: 'druid' } }" tag="li">
+                        <a href="">
+                            <span class="left">
+                                <img :src="image_path_by_name('item', 'Loremaster Doll')">
+                            </span>
+                            <span class="center">
+                                <span>Top Druid</span>
+                            </span>
+                        </a>
+                    </router-link>
+
+                    <router-link :to="{ name: 'highscores.experience', params: { vocation: 'sorcerer' } }" tag="li">
+                        <a href="">
+                            <span class="left">
+                                <img :src="image_path_by_name('item', 'Dread Doll')">
+                            </span>
+                            <span class="center">
+                                <span>Top Sorcerer</span>
+                            </span>
+                        </a>
+                    </router-link>
+
+                    <router-link :to="{ name: 'highscores.experience', params: { vocation: 'paladin' } }" tag="li">
+                        <a href="">
+                            <span class="left">
+                                <img :src="image_path_by_name('item', 'Assassin Doll')">
+                            </span>
+                            <span class="center">
+                                <span>Top Paladin</span>
+                            </span>
+                        </a>
+                    </router-link>
+
+                    <router-link :to="{ name: 'highscores.skills', params: { skill: 'magic' } }" tag="li">
+                        <a href="">
+                            <span class="left">
+                                <img :src="image_path_by_name('item', 'Spellbook of Dark Mysteries')">
+                            </span>
+                            <span class="center">
+                                <span>Top Magic</span>
+                            </span>
+                        </a>
+                    </router-link>
+
+                    <router-link :to="{ name: 'highscores.skills', params: { skill: 'axe' } }" tag="li">
+                        <a href="">
+                            <span class="left">
+                                <img :src="image_path_by_name('item', 'stonecutter axe')">
+                            </span>
+                            <span class="center">
+                                <span>Top Axe</span>
+                            </span>
+                        </a>
+                    </router-link>
+
+                    <router-link :to="{ name: 'highscores.skills', params: { skill: 'club' } }" tag="li">
+                        <a href="">
+                            <span class="left">
+                                <img :src="image_path_by_name('item', 'thunder hammer')">
+                            </span>
+                            <span class="center">
+                                <span>Top Club</span>
+                            </span>
+                        </a>
+                    </router-link>
+
+                    <router-link :to="{ name: 'highscores.skills', params: { skill: 'sword' } }" tag="li">
+                        <a href="">
+                            <span class="left">
+                                <img :src="image_path_by_name('item', 'magic sword')">
+                            </span>
+                            <span class="center">
+                                <span>Top Sword</span>
+                            </span>
+                        </a>
+                    </router-link>
+
+                    <router-link :to="{ name: 'highscores.skills', params: { skill: 'distance' } }" tag="li">
+                        <a href="">
+                            <span class="left">
+                                <img :src="image_path_by_name('item', 'arbalest')">
+                            </span>
+                            <span class="center">
+                                <span>Top Distance</span>
+                            </span>
+                        </a>
+                    </router-link>
+
+                    <router-link :to="{ name: 'highscores.skills', params: { skill: 'shielding' } }" tag="li">
+                        <a href="">
+                            <span class="left">
+                                <img :src="image_path_by_name('item', 'mastermind shield')">
+                            </span>
+                            <span class="center">
+                                <span>Top Shielding</span>
+                            </span>
+                        </a>
+                    </router-link>
+                </ul>
+
+            </li>
+
+                <router-link :to="{ name: 'pages.news' }" tag="li">
                 <a href="#">
                     <span class="left">
                         <img :src="image_path_by_name('item', 'golden newspaper')" alt="">
@@ -310,6 +434,14 @@
         computed: {
             isCalculator () {
                 if (this.$route.name.includes('tools')) {
+                    return true
+                }
+
+                return false
+            },
+
+            isHighscores () {
+                if (this.$route.name.includes('highscores')) {
                     return true
                 }
 

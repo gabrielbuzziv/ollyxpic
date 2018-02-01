@@ -19,47 +19,47 @@
                         Highscores <i class="mdi mdi-chevron-down margin-left-10"></i>
                     </el-button>
                     <el-dropdown-menu slot="dropdown">
-                        <router-link :to="{ name: 'tools.highscores.experience' }">
+                        <router-link :to="{ name: 'highscores.experience' }">
                             <el-dropdown-item>Top Exp</el-dropdown-item>
                         </router-link>
 
-                        <router-link :to="{ name: 'tools.highscores.experience', params: { vocation: 'knight', world: world } }">
+                        <router-link :to="{ name: 'highscores.experience', params: { vocation: 'knight', world: world } }">
                             <el-dropdown-item>Top Knight</el-dropdown-item>
                         </router-link>
 
-                        <router-link :to="{ name: 'tools.highscores.experience', params: { vocation: 'druid', world: world } }">
+                        <router-link :to="{ name: 'highscores.experience', params: { vocation: 'druid', world: world } }">
                             <el-dropdown-item>Top Druid</el-dropdown-item>
                         </router-link>
 
-                        <router-link :to="{ name: 'tools.highscores.experience', params: { vocation: 'sorcerer', world: world } }">
+                        <router-link :to="{ name: 'highscores.experience', params: { vocation: 'sorcerer', world: world } }">
                             <el-dropdown-item>Top Sorcerer</el-dropdown-item>
                         </router-link>
 
-                        <router-link :to="{ name: 'tools.highscores.experience', params: { vocation: 'paladin', world: world } }">
+                        <router-link :to="{ name: 'highscores.experience', params: { vocation: 'paladin', world: world } }">
                             <el-dropdown-item>Top Paladin</el-dropdown-item>
                         </router-link>
 
-                        <router-link :to="{ name: 'tools.highscores.skills', params: { skill: 'magic', world: world } }">
+                        <router-link :to="{ name: 'highscores.skills', params: { skill: 'magic', world: world } }">
                             <el-dropdown-item>Top Magic</el-dropdown-item>
                         </router-link>
 
-                        <router-link :to="{ name: 'tools.highscores.skills', params: { skill: 'axe', world: world } }">
+                        <router-link :to="{ name: 'highscores.skills', params: { skill: 'axe', world: world } }">
                             <el-dropdown-item>Top Axe</el-dropdown-item>
                         </router-link>
 
-                        <router-link :to="{ name: 'tools.highscores.skills', params: { skill: 'club', world: world } }">
+                        <router-link :to="{ name: 'highscores.skills', params: { skill: 'club', world: world } }">
                             <el-dropdown-item>Top Club</el-dropdown-item>
                         </router-link>
 
-                        <router-link :to="{ name: 'tools.highscores.skills', params: { skill: 'sword', world: world } }">
+                        <router-link :to="{ name: 'highscores.skills', params: { skill: 'sword', world: world } }">
                             <el-dropdown-item>Top Sword</el-dropdown-item>
                         </router-link>
 
-                        <router-link :to="{ name: 'tools.highscores.skills', params: { skill: 'distance', world: world } }">
+                        <router-link :to="{ name: 'highscores.skills', params: { skill: 'distance', world: world } }">
                             <el-dropdown-item>Top Distance</el-dropdown-item>
                         </router-link>
 
-                        <router-link :to="{ name: 'tools.highscores.skills', params: { skill: 'shielding', world: world } }">
+                        <router-link :to="{ name: 'highscores.skills', params: { skill: 'shielding', world: world } }">
                             <el-dropdown-item>Top Shielding</el-dropdown-item>
                         </router-link>
                     </el-dropdown-menu>
@@ -100,16 +100,16 @@
                 const world = this.selectedWorld ? this.selectedWorld : null
                 if (this.$route.params.skill) {
                     const skill = this.$route.params.skill
-                    return this.$router.push({ name: 'tools.highscores.skills', params: { skill, world } })
+                    return this.$router.push({ name: 'highscores.skills', params: { skill, world } })
                 }
 
                 if (this.$route.params.vocation) {
                     const vocation = this.$route.params.vocation
-                    return this.$router.push({ name: 'tools.highscores.experience', params: { vocation, world } })
+                    return this.$router.push({ name: 'highscores.experience', params: { vocation, world } })
                 }
 
-                if (this.$route.name == 'tools.highscores.experience') {
-                    return this.$router.push({ name: 'tools.highscores.experience', params: { vocation: 'all', world } })
+                if (this.$route.name == 'highscores.experience') {
+                    return this.$router.push({ name: 'highscores.experience', params: { vocation: 'all', world } })
                 }
             }
         },

@@ -18,7 +18,13 @@ class HighscoresController extends ApiController
      */
     public function experience()
     {
-        $date = (new Highscores)->select(DB::raw("max(updated_at) as date"))->where('active', 1)->first()->date;
+        $date = (new Highscores)
+            ->select(DB::raw("max(updated_at) as date"))
+            ->where('active', 1)
+
+            ->where('type', 'experience')
+            ->first()
+            ->date;
         $world = request('world') ? World::where('name', request('world'))->first()->id : null;
 
         $highscores = (new Highscores)
@@ -46,7 +52,12 @@ class HighscoresController extends ApiController
      */
     public function skills()
     {
-        $date = (new Highscores)->select(DB::raw("max(updated_at) as date"))->where('active', 1)->first()->date;
+        $date = (new Highscores)
+            ->select(DB::raw("max(updated_at) as date"))
+            ->where('active', 1)
+            ->where('type', request('skill'))
+            ->first()
+            ->date;
         $world = request('world') ? World::where('name', request('world'))->first()->id : null;
 
         $highscores = (new Highscores)

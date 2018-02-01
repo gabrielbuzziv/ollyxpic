@@ -7,7 +7,7 @@
         </td>
         <td class="details">
             <span class="name">
-                <router-link :to="{ name: 'tools.players', params: { name: player.name } }">
+                <router-link :to="{ name: 'players', params: { name: player.name } }">
                     {{ player.name }}
                 </router-link>
             </span>
@@ -24,7 +24,7 @@
         <td class="advances">
         </td>
         <td class="text-right">
-            <router-link :to="{ name: 'tools.players', params: { name: player.name } }" class="btn btn-sm btn-rounded">
+            <router-link :to="{ name: 'players', params: { name: player.name } }" class="btn btn-sm btn-rounded">
                 <i class="mdi mdi-chart-bar margin-right-10"></i>
                 Statistics
             </router-link>
