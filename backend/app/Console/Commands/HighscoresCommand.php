@@ -48,21 +48,22 @@ class HighscoresCommand extends Command
      */
     public function handle()
     {
+        $date = Carbon::today()->subDay();
         (new Highscores)
             ->where('type', $this->argument('type'))
-            ->where('updated_at', Carbon::today()->subDay())
+            ->where('updated_at', $date)
             ->delete();
 
         $vocations = ['knight', 'sorcerer', 'paladin', 'druid'];
 
         foreach ($vocations as $vocation) {
             $worlds = World::orderBy('name', 'asc')->get();
-            $worlds->each(function ($world) use ($vocation) {
+            $worlds->each(function ($world) use ($vocation, $date) {
                 $highscores = file_get_contents("https://api.tibiadata.com/v2/highscores/{$world->name}/{$this->argument('type')}/{$vocation}.json");
                 $highscores = json_decode($highscores);
                 $highscores = $highscores->highscores->data;
 
-                array_walk($highscores, function ($highscore, $index) use ($world) {
+                array_walk($highscores, function ($highscore, $index) use ($world, $date) {
                     $level = $highscore->level;
                     $experience = $this->argument('type') == 'experience' ? $highscore->points : 0;
                     $advance = 0;
@@ -75,11 +76,13 @@ class HighscoresCommand extends Command
                         'level'      => $level,
                         'advance'    => $advance,
                         'world_id'   => $world->id,
-                        'updated_at' => Carbon::today()->subDay(),
+                        'updated_at' => $date,
                         'type'       => $this->argument('type'),
                     ]);
                 });
             });
         }
+
+        (new Highscores)->where('updated_at', $date)->update(['active', 1]);
     }
 }

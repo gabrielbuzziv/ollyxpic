@@ -6,6 +6,7 @@ use App\Highscores;
 use App\World;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HighscoresController extends ApiController
 {
@@ -17,6 +18,7 @@ class HighscoresController extends ApiController
      */
     public function experience()
     {
+        $date = (new Highscores)->select(DB::raw("max(updated_at) as date"))->where('active', 1)->first()->date;
         $world = request('world') ? World::where('name', request('world'))->first()->id : null;
 
         $highscores = (new Highscores)
@@ -28,10 +30,9 @@ class HighscoresController extends ApiController
                     $query->where('world_id', $world);
             })
             ->whereIn('vocation', $this->getVocation())
+            ->where('updated_at', $date)
             ->orderBy('experience', 'desc')
-            ->orderBy('updated_at', 'desc')
             ->orderBy('name', 'asc')
-            ->groupBy('name')
             ->take(300)
             ->get();
 
@@ -45,6 +46,7 @@ class HighscoresController extends ApiController
      */
     public function skills()
     {
+        $date = (new Highscores)->select(DB::raw("max(updated_at) as date"))->where('active', 1)->first()->date;
         $world = request('world') ? World::where('name', request('world'))->first()->id : null;
 
         $highscores = (new Highscores)
@@ -54,10 +56,9 @@ class HighscoresController extends ApiController
                 if ($world)
                     $query->where('world_id', $world);
             })
+            ->where('updated_at', $date)
             ->orderBy('level', 'desc')
-            ->orderBy('updated_at', 'desc')
             ->orderBy('name', 'asc')
-            ->groupBy('name')
             ->take(300)
             ->get();
 
