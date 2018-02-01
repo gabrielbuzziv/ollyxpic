@@ -12,7 +12,7 @@
             <div class="col-md-3" v-for="vocation, index in vocations">
                 <el-radio class="vocation" v-model="skills.vocation" :label="index">
                     <div class="thumb">
-                        <img :src="image_path_by_name('outfit', vocation.image)">
+                        <img :src="outfit(vocation.image)">
                     </div>
 
                     <span class="name">{{ vocation.name }}</span>
