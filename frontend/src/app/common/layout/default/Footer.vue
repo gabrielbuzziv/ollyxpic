@@ -11,7 +11,7 @@
         <div class="rights">
             <div class="container">
                 <p class="ollyxpic">
-				<a href="http://ollyxpic.com">OllyxPic.com</a> &copy; 2017. All rights reserved.</p>
+				<a href="http://ollyxpic.com">OllyxPic.com</a> &copy; {{ year }}. All rights reserved.</p>
                 <p>
                     We would like to thank <a href="http://tibia.wikia.com">TibiaWiki</a> for
                     providing us with tibia content.
@@ -25,3 +25,13 @@
         </div>
     </div>
 </template>
+
+<script>
+    export default {
+        computed: {
+            year () {
+                return moment().format('YYYY')
+            }
+        }
+    }
+</script>
