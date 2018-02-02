@@ -659,6 +659,7 @@ class TeamHuntController extends Controller
         $name = trim(str_replace([
             '(increased loot)',
             '(active prey bonus)',
+            '(active prey bonus increased loot)',
             '(common)',
             '(semi-rare)',
             '(rare)',
