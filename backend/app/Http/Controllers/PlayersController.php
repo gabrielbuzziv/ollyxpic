@@ -30,6 +30,7 @@ class PlayersController extends ApiController
         $experience = (new Highscores)
             ->experience()
             ->where('name', $name)
+            ->where('active', 1)
             ->where('updated_at', '>=', Carbon::today()->subMonth())
             ->where('updated_at', '<=', Carbon::today())
             ->orderBy('updated_at', 'asc')

@@ -657,7 +657,7 @@ class TeamHuntController extends Controller
     private function prepareName($name)
     {
         $name = trim(str_replace([
-            'nothing',
+            'nothing'
             '(increased loot)',
             '(active prey bonus)',
             '(active prey bonus increased loot)',

@@ -21,7 +21,6 @@ class HighscoresController extends ApiController
         $date = (new Highscores)
             ->select(DB::raw("max(updated_at) as date"))
             ->where('active', 1)
-
             ->where('type', 'experience')
             ->first()
             ->date;
@@ -31,6 +30,7 @@ class HighscoresController extends ApiController
             ->with('world')
             ->with('weekExperience')
             ->where('type', 'experience')
+            ->where('active', 1)
             ->where(function ($query) use ($world) {
                 if ($world)
                     $query->where('world_id', $world);
@@ -63,6 +63,7 @@ class HighscoresController extends ApiController
         $highscores = (new Highscores)
             ->with('world')
             ->where('type', request('skill'))
+            ->where('active', 1)
             ->where(function ($query) use ($world) {
                 if ($world)
                     $query->where('world_id', $world);
