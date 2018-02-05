@@ -26,8 +26,8 @@ Route::get('imbuements', 'ImbuementController@index');
 
 Route::post('contact', 'PageController@sendContact');
 
-Route::get('mvp/{mvp}', 'MVPController@show');
-Route::post('mvp', 'MVPController@calculate');
+//Route::get('mvp/{mvp}', 'MVPController@show');
+//Route::post('mvp', 'MVPController@calculate');
 
 /**
  * CreatureController routes.
