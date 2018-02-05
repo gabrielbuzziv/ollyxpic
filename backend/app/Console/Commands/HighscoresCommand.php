@@ -83,6 +83,6 @@ class HighscoresCommand extends Command
             });
         }
 
-        (new Highscores)->where('updated_at', $date)->update(['active', 1]);
+        (new Highscores)->where('updated_at', $date)->update(['active' => 1]);
     }
 }

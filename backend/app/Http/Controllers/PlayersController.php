@@ -31,11 +31,10 @@ class PlayersController extends ApiController
             ->experience()
             ->where('name', $name)
             ->where('active', 1)
-            ->where('updated_at', '>=', Carbon::today()->subDays(30))
+            ->where('updated_at', '>=', Carbon::today()->subMonth())
             ->where('updated_at', '<=', Carbon::today())
             ->orderBy('updated_at', 'asc')
             ->get();
-
 
         return $this->respond([
             'details' => (array) $details->characters,
