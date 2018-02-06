@@ -7,8 +7,10 @@
         </transition>
 
         <div class="page-loading margin-bottom-40" v-if="loading">
-            <div class="loader inline"></div>
-            <span>Loading</span>
+            <slot name="loading">
+                <div class="loader inline"></div>
+                <span>Loading</span>
+            </slot>
         </div>
     </div>
 </template>

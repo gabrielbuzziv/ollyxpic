@@ -59,6 +59,8 @@ class HighscoresCommand extends Command
         foreach ($vocations as $vocation) {
             $worlds = World::orderBy('name', 'asc')->get();
             $worlds->each(function ($world) use ($vocation, $date) {
+                $this->info("World: {$world->name} - Vocation: {$vocation}");
+
                 $highscores = file_get_contents("https://api.tibiadata.com/v2/highscores/{$world->name}/{$this->argument('type')}/{$vocation}.json");
                 $highscores = json_decode($highscores);
                 $highscores = $highscores->highscores->data;

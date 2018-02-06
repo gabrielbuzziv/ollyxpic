@@ -128,11 +128,11 @@ class Highscores extends Model
     public function weekExperience()
     {
         $today = Carbon::createFromDate($this->updated_at)->format('Y-m-d');
-        $lastWeek = Carbon::createFromDate($this->updated_at)->subWeek()->format('Y-m-d');
+        $lastMonth = Carbon::createFromDate($this->updated_at)->subMonth()->format('Y-m-d');
 
         return $this->hasMany(Highscores::class, 'name', 'name')
             ->where('updated_at', '<=', $today)
-            ->where('updated_at', '>=', $lastWeek)
+            ->where('updated_at', '>=', $lastMonth)
             ->where('type', 'experience')
             ->where('active', 1)
             ->orderBy('updated_at', 'asc');
