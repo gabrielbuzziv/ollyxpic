@@ -22,7 +22,8 @@ class Post extends Model
         'created_at',
         'hotnews',
         'comments',
-        'link'
+        'link',
+        'slug'
     ];
 
     /**

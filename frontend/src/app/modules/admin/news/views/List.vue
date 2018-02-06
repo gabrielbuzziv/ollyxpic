@@ -19,6 +19,7 @@
             <table class="table">
                 <thead>
                 <tr>
+                    <th></th>
                     <th>Title</th>
                     <th>Author</th>
                     <th>Date</th>
@@ -29,12 +30,16 @@
                 <tbody>
                 <tr v-for="post in news">
                     <td>
+                        <span class="label label-danger" v-if="post.hotnews">Hotnews</span>
+                        <span class="label label-primary" v-else>News</span>
+                    </td>
+                    <td>
                         <div class="limit_text">
                             {{ post.title }}
                         </div>
                     </td>
                     <td>{{ post.author.name }}</td>
-                    <td>{{ post.created_at }}</td>
+                    <td>{{ post.created_at | dateForHuman }}</td>
                     <td class="text-right">
                         <router-link :to="{ name: 'admin.news.edit', params: { id: post.id } }" class="btn btn-xs"
                                      tag="button">
@@ -60,6 +65,12 @@
             return {
                 loading: false,
                 news: []
+            }
+        },
+
+        filters: {
+            dateForHuman (date) {
+                return moment.tz(date, "DD-MM-YYYY HH:mm:ss", 'America/New_York').fromNow()
             }
         },
 
