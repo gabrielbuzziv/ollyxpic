@@ -67,6 +67,6 @@ class Post extends Model
      */
     public function getResumeAttribute()
     {
-        return Truncate::truncate($this->body, 400);
+        return Truncate::truncate($this->body, 900);
     }
 }
