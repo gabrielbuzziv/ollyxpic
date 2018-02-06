@@ -1,7 +1,4 @@
 #home {
-    .welcome {
-
-    }
 
     .news {
         header {
@@ -26,6 +23,11 @@
                 margin-top: 15px;
                 margin-bottom: 15px;
             }
+        }
+
+        .btn-more {
+            font-weight: 300;
+            margin-top: 30px;
         }
 
         .source {
@@ -61,17 +63,6 @@
     }
 
     .features {
-        h4 {
-            font-weight: 300;
-            font-size: 18px;
-            margin: 0 0 30px;
-            display: inline-block;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: block;
-        }
-
         img {
             margin: 0 10px 0 0;
             display: inline-block;
@@ -80,11 +71,14 @@
 
         .read {
             display: inline-block;
-            padding: 6px 15px;
+            padding: 0;
             width: calc(100% - 50px);
             font-weight: 300;
-            font-size: 20px;
+            font-size: 16px;
             vertical-align: middle;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     }
 

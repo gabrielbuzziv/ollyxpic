@@ -1,11 +1,6 @@
 <template>
     <page-load id="home">
 
-        <!--<panel>-->
-        <!--<h4>Welcome</h4>-->
-        <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dolores eveniet expedita.</p>-->
-        <!--</panel>-->
-
         <div class="row">
             <div class="col-md-8">
                 <panel class="news">
@@ -15,14 +10,13 @@
                         </router-link>
                     </header>
 
-                    <article v-html="latestNews.body"/>
+                    <article v-html="latestNews.resume"/>
 
-                    <span class="source" v-if="latestNews.source">
-                        <b>Source:</b>
-                        <a :href="latestNews.source" target="_blank">
-                            {{ latestNews.source }}
-                        </a>
-                    </span>
+                    <router-link :to="{ name: 'pages.news', params: { slug: latestNews.slug } }"
+                                 class="btn btn-primary btn-rounded btn-more" tag="button">
+                        Read more
+                        <i class="mdi mdi-arrow-right-bold-circle margin-left-10"></i>
+                    </router-link>
 
                     <footer>
                         <span class="comments" v-if="latestNews.comments">
