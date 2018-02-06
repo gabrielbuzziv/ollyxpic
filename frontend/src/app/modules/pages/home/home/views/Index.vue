@@ -12,24 +12,28 @@
 
                     <article v-html="latestNews.resume"/>
 
-                    <router-link :to="{ name: 'pages.news', params: { slug: latestNews.slug } }"
-                                 class="btn btn-primary btn-rounded btn-more" tag="button">
-                        Read more
-                        <i class="mdi mdi-arrow-right-bold-circle margin-left-10"></i>
-                    </router-link>
-
                     <footer>
-                        <span class="comments" v-if="latestNews.comments">
+                        <div class="left">
+                            <span class="comments" v-if="latestNews.comments">
                             <a :href="latestNews.comments" target="_blank">
                                 <i class="mdi mdi-comment margin-right-5"></i>
                                 Comments
                             </a>
                         </span>
 
-                        <span class="date">
+                            <span class="date">
                             <i class="mdi mdi-calendar margin-right-5"></i>
                             {{ latestNews.created_at | dateForHuman }}
                         </span>
+                        </div>
+
+                        <div class="right">
+                            <router-link :to="{ name: 'pages.news', params: { slug: latestNews.slug } }"
+                                         class="btn btn-primary btn-rounded btn-more" tag="button">
+                                Read more
+                                <i class="mdi mdi-arrow-right-bold-circle margin-left-10"></i>
+                            </router-link>
+                        </div>
                     </footer>
                 </panel>
 
