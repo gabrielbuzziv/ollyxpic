@@ -141,4 +141,15 @@ class PostController extends ApiController
             'previous' => $previous
         ]);
     }
+
+    /**
+     * Get post object.
+     *
+     * @param Post $post
+     * @return mixed
+     */
+    public function showOne(Post $post)
+    {
+        return $this->respond($post->toArray());
+    }
 }

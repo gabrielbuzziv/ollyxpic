@@ -173,7 +173,7 @@ Route::group(['middleware' => 'auth:api', 'prefix' => 'admin'], function () {
      * NewsController routes
      */
     Route::get('posts', 'PostController@index');
-    Route::get('posts/{post}', 'PostController@show');
+    Route::get('posts/{post}', 'PostController@showOne');
     Route::post('posts', 'PostController@store');
     Route::patch('posts/{post}', 'PostController@update');
     Route::delete('posts/{post}', 'PostController@destroy');

@@ -28,7 +28,11 @@
 
                 <tbody>
                 <tr v-for="post in news">
-                    <td>{{ post.title }}</td>
+                    <td>
+                        <div class="limit_text">
+                            {{ post.title }}
+                        </div>
+                    </td>
                     <td>{{ post.author.name }}</td>
                     <td>{{ post.created_at }}</td>
                     <td class="text-right">
