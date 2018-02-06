@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\HighscoreMigration;
 use App\Highscores;
 use App\World;
 use Carbon\Carbon;
@@ -18,27 +19,19 @@ class HighscoresController extends ApiController
      */
     public function experience()
     {
-        $date = (new Highscores)
-            ->select(DB::raw("max(updated_at) as date"))
-            ->where('active', 1)
-            ->where('type', 'experience')
-            ->first()
-            ->date;
+        $migration = HighscoreMigration::where('active', 1)->orderBy('id', 'desc')->first();
         $world = request('world') ? World::where('name', request('world'))->first()->id : null;
 
         $highscores = (new Highscores)
             ->with('world')
             ->with('weekExperience')
-            ->where('type', 'experience')
-            ->where('active', 1)
+            ->where('migration_id', $migration->id)
+            ->whereIn('vocation', $this->getVocation())
             ->where(function ($query) use ($world) {
                 if ($world)
                     $query->where('world_id', $world);
             })
-            ->whereIn('vocation', $this->getVocation())
-            ->where('updated_at', $date)
             ->orderBy('experience', 'desc')
-            ->orderBy('name', 'asc')
             ->take(300)
             ->get();
 

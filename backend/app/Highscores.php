@@ -23,7 +23,8 @@ class Highscores extends Model
         'world_id',
         'type',
         'updated_at',
-        'active'
+        'active',
+        'migration_id'
     ];
 
     /**
