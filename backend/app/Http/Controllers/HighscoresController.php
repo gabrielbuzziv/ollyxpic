@@ -19,7 +19,11 @@ class HighscoresController extends ApiController
      */
     public function experience()
     {
-        $migration = HighscoreMigration::where('active', 1)->orderBy('id', 'desc')->first();
+        $migration = (new HighscoreMigration)
+            ->where('active', 1)
+            ->where('type', 'experience')
+            ->orderBy('id', 'desc')
+            ->first();
         $world = request('world') ? World::where('name', request('world'))->first()->id : null;
 
         $highscores = (new Highscores)
@@ -45,25 +49,22 @@ class HighscoresController extends ApiController
      */
     public function skills()
     {
-        $date = (new Highscores)
-            ->select(DB::raw("max(updated_at) as date"))
+        $migration = (new HighscoreMigration)
             ->where('active', 1)
             ->where('type', request('skill'))
-            ->first()
-            ->date;
+            ->orderBy('id', 'desc')
+            ->first();
+
         $world = request('world') ? World::where('name', request('world'))->first()->id : null;
 
         $highscores = (new Highscores)
             ->with('world')
-            ->where('type', request('skill'))
-            ->where('active', 1)
+            ->where('migration_id', $migration->id)
             ->where(function ($query) use ($world) {
                 if ($world)
                     $query->where('world_id', $world);
             })
-            ->where('updated_at', $date)
             ->orderBy('level', 'desc')
-            ->orderBy('name', 'asc')
             ->take(300)
             ->get();
 
