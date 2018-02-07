@@ -112,7 +112,9 @@ class HighscoresCommand extends Command
             });
         }
 
-        $this->migration->update(['results' => $this->results, 'active' => 1]);
+        $this->migration->result = $this->results;
+        $this->migration->active = 1;
+        $this->migration->save();
         (new Highscores)
             ->where('active', 0)
             ->where('updated_at', $this->date)
