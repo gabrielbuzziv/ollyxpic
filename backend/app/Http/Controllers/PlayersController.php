@@ -37,7 +37,7 @@ class PlayersController extends ApiController
 
         $api = $this->getPlayer($name);
 
-        if (isset($api->details->characters->error)) {
+        if (isset($api->characters->error)) {
             return $this->respondNotFound(null);
         }
 
@@ -45,6 +45,35 @@ class PlayersController extends ApiController
         $this->updatePlayer($player, $api);
 
         return $this->respond(Player::with(['world', 'deaths'])->find($player->id)->toArray());
+    }
+
+    /**
+     * Get player skills.
+     *
+     * @param Player $player
+     * @return mixed
+     */
+    public function skills(Player $player)
+    {
+        return $this->respond($this->getSkills($player->name)->toArray());
+    }
+
+    /**
+     * Get player experience advances.
+     *
+     * @param Player $player
+     * @return mixed
+     */
+    public function experience(Player $player)
+    {
+        $experience = (new Highscores)
+            ->where('type', 'experience')
+            ->where('name', $player->name)
+            ->whereBetween('updated_at', [Carbon::today()->subMonth(), Carbon::today()])
+            ->orderBy('updated_at', 'asc')
+            ->get();
+
+        return $this->respond($experience->toArray());
     }
 
     /**
@@ -105,17 +134,19 @@ class PlayersController extends ApiController
     }
 
     /**
-     * Get skills
+     * Get skills.
      *
      * @param $name
-     * @param $type
+     * @return \Illuminate\Database\Eloquent\Model|null|static
      */
-    private function getSkills($name, $type)
+    private function getSkills($name)
     {
         return (new Highscores)
-            ->$type()
+            ->select('level', 'type as skill')
             ->where('name', $name)
+            ->whereIn('type', ['magic', 'axe', 'club', 'sword', 'distance', 'shielding', 'achievements', 'loyalty'])
+            ->groupBy('type')
             ->orderBy('updated_at', 'desc')
-            ->first();
+            ->get();
     }
 }

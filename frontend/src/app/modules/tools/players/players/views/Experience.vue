@@ -1,60 +1,67 @@
 <template>
     <div class="experience">
         <panel>
-            <h4>Last 30 days
-                <small>(experience advances)</small>
-            </h4>
+            <page-load class="no-padding" :loading="loading">
+                <h4>Last 30 days
+                    <small>(experience advances)</small>
+                </h4>
 
-            <highcharts class="margin-top-50" id="experience-chart" :options="chart"/>
+                <highcharts class="margin-top-50" id="experience-chart" :options="chart"/>
+            </page-load>
         </panel>
 
         <div class="row">
             <div class="col-md-6">
                 <panel class="experience-box">
-                    <div class="resume" v-if="lastMonthExperience >= 0">
-                        <b>+{{ lastMonthExperience.format() }}</b>
-                        <span>Last 30 days experience</span>
-                    </div>
+                    <page-load class="no-padding" :loading="loading">
+                        <div class="resume" v-if="lastMonthExperience >= 0">
+                            <b>+{{ lastMonthExperience.format() }}</b>
+                            <span>Last 30 days experience</span>
+                        </div>
 
-                    <div class="resume" v-else>
-                        <b class="loose">{{ lastMonthExperience.format() }}</b>
-                        <span>Last 30 days experience</span>
-                    </div>
+                        <div class="resume" v-else>
+                            <b class="loose">{{ lastMonthExperience.format() }}</b>
+                            <span>Last 30 days experience</span>
+                        </div>
+                    </page-load>
                 </panel>
             </div>
 
             <div class="col-md-6">
                 <panel class="experience-box">
-                    <div class="resume" v-if="lastWeekExperience >= 0">
-                        <b>+{{ lastWeekExperience.format() }}</b>
-                        <span>Last 7 days experience</span>
-                    </div>
+                    <page-load class="no-padding" :loading="loading">
+                        <div class="resume" v-if="lastWeekExperience >= 0">
+                            <b>+{{ lastWeekExperience.format() }}</b>
+                            <span>Last 7 days experience</span>
+                        </div>
 
-                    <div class="resume" v-else>
-                        <b class="loose">{{ lastWeekExperience.format() }}</b>
-                        <span>Last 7 days experience</span>
-                    </div>
+                        <div class="resume" v-else>
+                            <b class="loose">{{ lastWeekExperience.format() }}</b>
+                            <span>Last 7 days experience</span>
+                        </div>
+                    </page-load>
                 </panel>
             </div>
         </div>
 
         <panel class="advances">
-            <el-table class="advances"
-                      :data="experience"
-                      :default-sort="{ prop: 'updated_at', order: 'descending' }">
-                <el-table-column prop="updated_at" label="Date" sortable>
-                    <template slot-scope="scope">
-                        <b>{{ scope.row.updated_at | date }}</b>
-                        <span>{{ scope.row.updated_at | dateForHuman }}</span>
-                    </template>
-                </el-table-column>
+            <page-load class="no-padding" :loading="loading">
+                <el-table class="advances"
+                          :data="experience"
+                          :default-sort="{ prop: 'updated_at', order: 'descending' }">
+                    <el-table-column prop="updated_at" label="Date" sortable>
+                        <template slot-scope="scope">
+                            <b>{{ scope.row.updated_at | date }}</b>
+                            <span>{{ scope.row.updated_at | dateForHuman }}</span>
+                        </template>
+                    </el-table-column>
 
-                <el-table-column prop="level" label="Level" class-name="level" sortable>
-                    <template slot-scope="scope">
-                        <span>Level</span>
-                        <b>{{ scope.row.level }}</b>
+                    <el-table-column prop="level" label="Level" class-name="level" sortable>
+                        <template slot-scope="scope">
+                            <span>Level</span>
+                            <b>{{ scope.row.level }}</b>
 
-                        <el-tooltip placement="right">
+                            <el-tooltip placement="right">
                             <span slot="content">
                                 <p class="margin-bottom-5">
                                     You have {{ getExperienceBar(scope.row).percentage }}% to go.
@@ -64,34 +71,35 @@
                                     experience points for next level.
                                 </p>
                             </span>
-                            <el-progress :percentage="getExperienceBar(scope.row).percentage"
-                                         :show-text="false"
-                                         v-if="experience.length"/>
-                        </el-tooltip>
-                    </template>
-                </el-table-column>
+                                <el-progress :percentage="getExperienceBar(scope.row).percentage"
+                                             :show-text="false"
+                                             v-if="experience.length"/>
+                            </el-tooltip>
+                        </template>
+                    </el-table-column>
 
-                <el-table-column prop="experience" label="Experience" sortable>
-                    <template slot-scope="scope">
-                        <b>{{ scope.row.experience.format() }}</b>
-                        <span>Experience</span>
-                    </template>
-                </el-table-column>
+                    <el-table-column prop="experience" label="Experience" sortable>
+                        <template slot-scope="scope">
+                            <b>{{ scope.row.experience.format() }}</b>
+                            <span>Experience</span>
+                        </template>
+                    </el-table-column>
 
-                <el-table-column prop="advance" label="Advances" class-name="advance" sortable>
-                    <template slot-scope="scope">
-                        <div v-if="scope.row.advance >= 0">
-                            <b>+{{ scope.row.advance.format() }}</b>
-                            <span>+ Experience</span>
-                        </div>
+                    <el-table-column prop="advance" label="Advances" class-name="advance" sortable>
+                        <template slot-scope="scope">
+                            <div v-if="scope.row.advance >= 0">
+                                <b>+{{ scope.row.advance.format() }}</b>
+                                <span>+ Experience</span>
+                            </div>
 
-                        <div v-else>
-                            <b class="loose">{{ scope.row.advance.format() }}</b>
-                            <span>+ Experience</span>
-                        </div>
-                    </template>
-                </el-table-column>
-            </el-table>
+                            <div v-else>
+                                <b class="loose">{{ scope.row.advance.format() }}</b>
+                                <span>+ Experience</span>
+                            </div>
+                        </template>
+                    </el-table-column>
+                </el-table>
+            </page-load>
         </panel>
     </div>
 </template>
@@ -103,7 +111,7 @@
     };
 
     export default {
-        props: ['experience'],
+        props: ['experience', 'loading'],
 
         computed: {
             chart () {

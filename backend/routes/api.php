@@ -109,6 +109,8 @@ Route::get('highscores/skills/{type?}', 'HighscoresController@skills');
  * PlayerController routes.
  */
 Route::get('players/{name}', 'PlayersController@show');
+Route::get('players/{player}/skills', 'PlayersController@skills');
+Route::get('players/{player}/experience', 'PlayersController@experience');
 
 /**
  * All the routes in this group will need to send a Header

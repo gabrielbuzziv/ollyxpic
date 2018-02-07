@@ -12,7 +12,7 @@
                 </form>
             </div>
 
-            <img :src="outfit(outfiter, character.sex)" alt="" class="margin-right-15">
+            <img :src="`/src/assets/images/${thumb}`" class="margin-right-15 big">
             <div class="title">
                 <h2>{{ character.name }}</h2>
                 <span>{{ character.vocation }}</span>
@@ -23,8 +23,8 @@
 
         <div class="row margin-top-40">
             <div class="col-md-8">
-                <!--<experience :experience="experience" v-if="experience.length" />-->
-                <!--<no-data title="Experience advances" :message="`Unforntunately we can't track the exp statistics of ${character.name}. We can only track players statistics from tibia.com highscores.`" v-else />-->
+                <experience :experience="experience" :loading="loadingExperience" v-if="experience.length" />
+                <no-data title="Experience advances" :message="`Unforntunately we can't track the exp statistics of ${character.name}. We can only track players statistics from tibia.com highscores.`" v-else />
                 <deaths :deaths="deaths" v-if="deaths.length" />
             </div>
 
@@ -77,8 +77,11 @@
         data () {
             return {
                 loading: true,
+                loadingExperience: true,
                 player: {},
-                search: ''
+                skills: [],
+                experience: [],
+                search: '',
             }
         },
 
@@ -89,59 +92,37 @@
                     : {}
             },
 
-            achievements () {
-                return this.player && this.player.details && this.player.details.achievements
-                    ? this.player.details.achievements
-                    : []
-            },
-
             deaths () {
                 return this.player && this.player.deaths
                     ? this.player.deaths
                     : []
             },
 
-            experience () {
-                return this.player && this.player.experience
-                    ? this.player.experience.slice().sort((a, b) => a.id - b.id).map((experience, index) => {
-                        const advance = index > 0
-                            ? parseFloat(experience.experience - this.player.experience[index - 1].experience)
-                            : 0
-
-                        return { ...experience, ...{ advance } }
-                    })
-                    : []
-            },
-
-            skills () {
-                return this.player && this.player.skills
-                    ? this.player.skills
-                    : []
-            },
-
-            outfiter () {
-                if (! this.player || ! this.player.details || ! this.player.details.data)
+            thumb () {
+                if (! this.player)
                     return 'Mage Outfits'
 
-                switch (this.player.details.data.vocation) {
+                switch (this.player.vocation) {
                     case 'Knight':
                     case 'Elite Knight':
-                        return 'Warrior Outfits'
+                        return 'knight.svg'
                     case 'Druid':
                     case 'Elder Druid':
-                        return 'Summoner Outfits'
+                        return 'druid.svg'
                     case 'Sorcerer':
                     case 'Master Sorcerer':
-                        return 'Mage Outfits'
+                        return 'sorcerer.svg'
                     case 'Paladin':
                     case 'Royal Paladin':
-                        return 'Hunter Outfits'
+                        return 'paladin.svg'
                 }
             }
         },
 
         watch: {
             '$route.params.name' () {
+                this.skills = []
+                this.loadingExperience = true
                 this.load()
             }
         },
@@ -153,8 +134,31 @@
                     .then(response => {
                         this.player = response.data
                         this.loading = false
+
+                        this.loadSkills()
+                        this.loadExperience()
                     })
                     .catch(() => this.player = false)
+            },
+
+            loadSkills () {
+                services.getPlayerSkills(this.player.id)
+                    .then(response => this.skills = response.data)
+            },
+
+            loadExperience () {
+                services.getPlayerExperience(this.player.id)
+                    .then(response => {
+                        const advances = response.data
+
+                        this.experience = advances.map((experience, index) => {
+                            const advance = index ? parseFloat(experience.experience - advances[index - 1].experience) : 0
+                            return { ...experience, advance }
+                        })
+
+                        this.loadingExperience = false
+                    })
+                    .catch(() => this.loadingExperience = false)
             },
 
             searchPlayer () {
