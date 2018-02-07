@@ -5,7 +5,7 @@
                 <i class="mdi mdi-earth icon"></i>
                 <div class="data">
                     <b>World</b>
-                    <span>{{ character.world }}</span>
+                    <span>{{ character.world.name }}</span>
                 </div>
             </div>
         </panel>
@@ -20,12 +20,12 @@
             </div>
         </panel>
 
-        <panel class="character-details" v-if="character.house">
+        <panel class="character-details" v-if="character.house != null">
             <div class="detail">
                 <i class="mdi mdi-home icon"></i>
                 <div class="data">
                     <b>House</b>
-                    <span>{{ character.house.town }}</span>
+                    <span>{{ character.house }}</span>
                 </div>
             </div>
         </panel>
@@ -35,12 +35,12 @@
                 <i class="mdi mdi-gender-male-female icon"></i>
                 <div class="data">
                     <b>Gender</b>
-                    <span>{{ character.sex | capitalize }}</span>
+                    <span>{{ character.gender | capitalize }}</span>
                 </div>
             </div>
         </panel>
 
-        <panel class="character-details" v-if="character.married_to">
+        <panel class="character-details" v-if="character.married_to != null">
             <div class="detail">
                 <i class="mdi mdi-ring icon"></i>
                 <div class="data">
@@ -54,17 +54,17 @@
             </div>
         </panel>
 
-        <panel class="character-details" v-if="character.guild">
+        <panel class="character-details" v-if="character.guild != null">
             <div class="detail">
                 <i class="mdi mdi-account-multiple icon"></i>
                 <div class="data">
                     <b>Guild</b>
                     <span>
-                            <a :href="`https://secure.tibia.com/community/?subtopic=guilds&page=view&GuildName=${character.guild.name}`"
-                               target="_blank">
-                                {{ character.guild.name }}
-                            </a>
-                        </span>
+                        <a :href="`https://secure.tibia.com/community/?subtopic=guilds&page=view&GuildName=${character.guild}`"
+                           target="_blank">
+                            {{ character.guild }}
+                        </a>
+                    </span>
                 </div>
             </div>
         </panel>
@@ -74,7 +74,8 @@
                 <i class="mdi mdi-infinity icon"></i>
                 <div class="data">
                     <b>Account Status</b>
-                    <span>{{ character.account_status }}</span>
+                    <span v-if="character.premium">Premium Account</span>
+                    <span v-else>Free Account</span>
                 </div>
             </div>
         </panel>
@@ -84,7 +85,7 @@
                 <i class="mdi mdi-login icon"></i>
                 <div class="data">
                     <b>Last Login</b>
-                    <span>{{ character.last_login[0].date | dateForHuman }}</span>
+                    <span>{{ character.last_login | dateForHuman }}</span>
                 </div>
             </div>
         </panel>
@@ -93,7 +94,7 @@
 
 <script>
     export default {
-        props: ['character', 'achievements'],
+        props: ['character'],
 
         filters: {
             dateForHuman (date) {

@@ -23,14 +23,14 @@
 
         <div class="row margin-top-40">
             <div class="col-md-8">
-                <experience :experience="experience" v-if="experience.length" />
-                <no-data title="Experience advances" :message="`Unforntunately we can't track the exp statistics of ${character.name}. We can only track players statistics from tibia.com highscores.`" v-else />
+                <!--<experience :experience="experience" v-if="experience.length" />-->
+                <!--<no-data title="Experience advances" :message="`Unforntunately we can't track the exp statistics of ${character.name}. We can only track players statistics from tibia.com highscores.`" v-else />-->
                 <deaths :deaths="deaths" v-if="deaths.length" />
             </div>
 
             <div class="col-md-4">
-                <character-details :character="character" :achievements="achievements" />
-                <achievements :character="character" :achievements="achievements" />
+                <character-details :character="character" />
+                <achievements :character="character" />
             </div>
         </div>
     </page-load>
@@ -84,8 +84,8 @@
 
         computed: {
             character () {
-                return this.player && this.player.details && this.player.details.data
-                    ? this.player.details.data
+                return this.player
+                    ? this.player
                     : {}
             },
 
@@ -96,8 +96,8 @@
             },
 
             deaths () {
-                return this.player && this.player.details && this.player.details.deaths
-                    ? this.player.details.deaths
+                return this.player && this.player.deaths
+                    ? this.player.deaths
                     : []
             },
 

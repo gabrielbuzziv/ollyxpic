@@ -1,8 +1,122 @@
 #highscores {
+    .highscores-menu {
+        display: block;
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: block;
+
+            &.experience {
+                li {
+                    &.all {
+                        width: 80px;
+
+                        a {
+                            .thumb {
+                                margin: 0;
+                            }
+                        }
+                    }
+
+                    a {
+                        height: 90px;
+
+                        .thumb {
+                            height: 50px;
+                            line-height: 50px;
+                            vertical-align: middle;
+
+                            img {
+                                display: inline-block;
+                                vertical-align: middle;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.skills {
+                li {
+                    width: auto;
+
+                    a {
+                        display: block;
+                        padding: 10px 20px;
+
+                        span {
+                            display: block;
+                            font-size: 12px;
+                            width: 100%
+                        }
+                    }
+                }
+            }
+
+            .vocations {
+                display: inline-block;
+                width: calc(100% - 110px);
+                vertical-align: middle;
+            }
+            
+            li {
+                display: inline-block;
+                width: calc(25% - 20px);
+                margin-right: 20px;
+                margin-bottom: 20px;
+                vertical-align: middle;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+                
+                a {
+                    background: #fff;
+                    padding: 20px;
+                    display: block;
+                    border-radius: $border-radius-base;
+                    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+
+                    &.active {
+                        background: #2c3e50;
+                        color: #fff;
+
+                        span {
+                            font-weight: 400;
+                            color: #fff;
+                        }
+                    }
+
+                    .thumb {
+                        width: 40px;
+                        display: inline-block;
+                        vertical-align: middle;
+                        margin-right: 20px;
+                        
+                        img {
+                            max-width: 40px;
+                            max-height: 50px;
+                        }
+                    }
+                    
+                    span {
+                        display: inline-block;
+                        vertical-align: middle;
+                        width: calc(100% - 65px);
+                        font-size: 16px;
+                        font-weight: 300;
+                        color: #888;
+                    }
+                }
+            }
+        }
+    }
+    
     .highscore-loading {
         padding: 20px;
         display: block;
-        margin-top: 100px;
+        margin-top: 40px;
 
         .loader {
             vertical-align: middle;
