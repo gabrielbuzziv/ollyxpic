@@ -31,6 +31,10 @@ class Kernel extends ConsoleKernel
         $schedule->command('ollyxpic:highscores', ['club'])->dailyAt('04:00');
         $schedule->command('ollyxpic:highscores', ['distance'])->dailyAt('04:00');
         $schedule->command('ollyxpic:highscores', ['shielding'])->dailyAt('04:00');
+        $schedule->command('ollyxpic:highscores', ['achievements'])->dailyAt('04:00');
+        $schedule->command('ollyxpic:highscores', ['loyalty'])->dailyAt('04:00');
+        $schedule->command('ollyxpic:highscores', ['fist'])->dailyAt('04:00');
+        $schedule->command('ollyxpic:highscores', ['fishing'])->dailyAt('04:00');
     }
 
     /**

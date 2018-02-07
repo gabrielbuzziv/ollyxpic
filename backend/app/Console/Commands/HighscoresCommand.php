@@ -112,7 +112,7 @@ class HighscoresCommand extends Command
             });
         }
 
-        $this->migration->result = $this->results;
+        $this->migration->results = $this->results;
         $this->migration->active = 1;
         $this->migration->save();
         (new Highscores)
