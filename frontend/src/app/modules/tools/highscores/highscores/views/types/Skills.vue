@@ -32,9 +32,9 @@
                     </template>
                 </el-table-column>
 
-                <el-table-column prop="level" label="Skills" class-name="skill" sortable>
+                <el-table-column :prop="valueProp" label="Skills" class-name="skill" sortable>
                     <template slot-scope="scope">
-                        <b>{{ scope.row.level }}</b>
+                        <b>{{ useExperience ? scope.row.experience : scope.row.level }}</b>
                         <span>{{ skillLabel }}</span>
                     </template>
                 </el-table-column>
@@ -95,8 +95,12 @@
                     : `Loading the best players from ${world}`
             },
 
+            skill () {
+                return this.$route.params.skill
+            },
+
             skillLabel () {
-                switch (this.$route.params.skill) {
+                switch (this.skill) {
                     case 'axe':
                         return 'Axe Fighting'
                     case 'club':
@@ -107,7 +111,19 @@
                         return 'Distance Fighting'
                     case 'shielding':
                         return 'Shielding'
+                    case 'achievements':
+                        return 'Achievements Points'
+                    case 'loyalty':
+                        return 'Loyalty Points'
                 }
+            },
+
+            useExperience () {
+                return this.skill == 'loyalty' || this.skill == 'achievements' ? true : false
+            },
+
+            valueProp () {
+                return this.useExperience ? 'experience' : 'level'
             }
         },
     }

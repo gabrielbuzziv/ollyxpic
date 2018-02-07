@@ -63,10 +63,15 @@ class HighscoresController extends ApiController
             ->where(function ($query) use ($world) {
                 if ($world)
                     $query->where('world_id', $world);
-            })
-            ->orderBy('level', 'desc')
-            ->take(300)
-            ->get();
+            });
+
+        if (in_array(request('skill'), ['achievements', 'loyalty'])) {
+            $highscores = $highscores->orderBy('experience', 'desc');
+        } else {
+            $highscores = $highscores->orderBy('level', 'desc');
+        }
+
+        $highscores = $highscores->take(300)->get();
 
         return $this->respond($highscores->toArray());
     }
