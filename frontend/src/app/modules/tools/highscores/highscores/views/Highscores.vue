@@ -29,7 +29,7 @@
         <nav class="highscores-menu">
             <ul class="experience">
                 <li class="all">
-                    <router-link :to="{ name: 'highscores.experience', params: { world } }" exact>
+                    <router-link :to="{ name: 'highscores.experience', params: { vocation: null, world } }" exact>
                         <div class="thumb">
                             <img src="/src/assets/images/raster.png" alt="">
                         </div>
@@ -167,7 +167,7 @@
                 }
 
                 if (this.$route.name == 'highscores.experience') {
-                    return this.$router.push({ name: 'highscores.experience', params: { vocation: 'all', world } })
+                    return this.$router.push({ name: 'highscores.experience', params: { vocation: null, world } })
                 }
             }
         },

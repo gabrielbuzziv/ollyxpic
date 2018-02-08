@@ -177,7 +177,7 @@
                 </ul>
             </li>
 
-            <router-link :to="{ name: 'highscores.experience', params: { world: null } }" tag="li">
+            <router-link :to="{ name: 'highscores.experience', params: { vocation: null, world: null } }" tag="li">
                 <a href="javascript:void(0)">
                     <span class="left">
                         <img :src="image_path_by_name('item', 'Medal of Honour')" alt="">
