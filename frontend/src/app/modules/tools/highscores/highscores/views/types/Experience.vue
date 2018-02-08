@@ -12,7 +12,7 @@
 
         <panel class="highscores">
             <el-table
-                    :data="highscoresWithAdvances"
+                    :data="highscores"
                     :default-sort="{ prop: 'experience', order: 'descending' }">
                 <el-table-column prop="name" label="Character" class-name="details" width="300">
                     <template slot-scope="scope">
@@ -56,8 +56,15 @@
 
                             <el-progress
                                     :percentage="getExperience(scope.row).percentage"
-                                    :show-text="false" />
+                                    :show-text="false"/>
                         </el-tooltip>
+                    </template>
+                </el-table-column>
+
+                <el-table-column prop="experience" label="Experience" class-name="world" sortable>
+                    <template slot-scope="scope">
+                        <b>{{ scope.row.experience.format() }}</b>
+                        <span>Experience</span>
                     </template>
                 </el-table-column>
 
@@ -70,23 +77,33 @@
                     </template>
                 </el-table-column>
 
-                <el-table-column prop="month" label="Last 30 days" class-name="advance" align="center" sortable>
+                <el-table-column class-name="buttons" align="right">
                     <template slot-scope="scope">
-                        <b :class="{ 'loose': isLoose(scope.row.month) }">{{ scope.row.month | experience }}</b>
+                        <router-link :to="{ name: 'players', params: { name: scope.row.name } }"
+                                     class="btn btn-rounded">
+                            <i class="mdi mdi-eye margin-right-5"></i>
+                            Details
+                        </router-link>
                     </template>
                 </el-table-column>
 
-                <el-table-column prop="week" label="Last 7 days" class-name="advance" align="center" sortable>
-                    <template slot-scope="scope">
-                        <b :class="{ 'loose': isLoose(scope.row.week) }">{{ scope.row.week | experience }}</b>
-                    </template>
-                </el-table-column>
+                <!--<el-table-column prop="month" label="Last 30 days" class-name="advance" align="center" sortable>-->
+                <!--<template slot-scope="scope">-->
+                <!--<b :class="{ 'loose': isLoose(scope.row.month) }">{{ scope.row.month | experience }}</b>-->
+                <!--</template>-->
+                <!--</el-table-column>-->
 
-                <el-table-column prop="day" label="Yesterday" class-name="advance" align="center" sortable>
-                    <template slot-scope="scope">
-                        <b :class="{ 'loose': isLoose(scope.row.day) }">{{ scope.row.day | experience }}</b>
-                    </template>
-                </el-table-column>
+                <!--<el-table-column prop="week" label="Last 7 days" class-name="advance" align="center" sortable>-->
+                <!--<template slot-scope="scope">-->
+                <!--<b :class="{ 'loose': isLoose(scope.row.week) }">{{ scope.row.week | experience }}</b>-->
+                <!--</template>-->
+                <!--</el-table-column>-->
+
+                <!--<el-table-column prop="day" label="Yesterday" class-name="advance" align="center" sortable>-->
+                <!--<template slot-scope="scope">-->
+                <!--<b :class="{ 'loose': isLoose(scope.row.day) }">{{ scope.row.day | experience }}</b>-->
+                <!--</template>-->
+                <!--</el-table-column>-->
             </el-table>
         </panel>
     </page-load>
@@ -104,11 +121,12 @@
         computed: {
             highscoresWithAdvances () {
                 return this.highscores.map((highscore, index) => {
-                    const month = this.getMonth(highscore)
-                    const week = this.getWeek(highscore)
-                    const day = this.getDay(highscore)
-
-                    return { ...highscore, month, week, day, rank: index + 1 }
+//                    const month = this.getMonth(highscore)
+//                    const week = this.getWeek(highscore)
+//                    const day = this.getDay(highscore)
+//
+//                    return { ...highscore, month, week, day, rank: index + 1 }
+                    return { ...highscores, rankd: index + 1 }
                 })
             },
 
@@ -146,35 +164,35 @@
                     : { leftExperience: 0, percentage: 0 }
             },
 
-            getAdvances (player) {
-                return player.week_experience
-                    ? player.week_experience.slice().sort((a, b) => a.id - b.id).map((experience, index) => {
-                        const advance = index > 0
-                            ? experience.experience - player.week_experience[index - 1].experience
-                            : 0
-
-                        return { ...experience, ...{ advance } }
-                    })
-                    : 0
-            },
-
-            getMonth (player) {
-                return this.getAdvances(player).slice().sort((a, b) => b.id - a.id)
-                    .reduce((carry, advance) => carry + advance.advance, 0)
-            },
-
-            getWeek (player) {
-                return this.getAdvances(player).slice(0, 7).sort((a, b) => b.id - a.id)
-                    .reduce((carry, advance) => carry + advance.advance, 0)
-            },
-
-            getDay (player) {
-                return this.getAdvances(player).slice().sort((a, b) => b.id - a.id)[0].advance
-            },
-
-            isLoose (experience) {
-                return experience >= 0 ? false : true
-            }
+//            getAdvances (player) {
+//                return player.week_experience
+//                    ? player.week_experience.slice().sort((a, b) => a.id - b.id).map((experience, index) => {
+//                        const advance = index > 0
+//                            ? experience.experience - player.week_experience[index - 1].experience
+//                            : 0
+//
+//                        return { ...experience, ...{ advance } }
+//                    })
+//                    : 0
+//            },
+//
+//            getMonth (player) {
+//                return this.getAdvances(player).slice().sort((a, b) => b.id - a.id)
+//                    .reduce((carry, advance) => carry + advance.advance, 0)
+//            },
+//
+//            getWeek (player) {
+//                return this.getAdvances(player).slice(0, 7).sort((a, b) => b.id - a.id)
+//                    .reduce((carry, advance) => carry + advance.advance, 0)
+//            },
+//
+//            getDay (player) {
+//                return this.getAdvances(player).slice().sort((a, b) => b.id - a.id)[0].advance
+//            },
+//
+//            isLoose (experience) {
+//                return experience >= 0 ? false : true
+//            }
         },
     }
 </script>

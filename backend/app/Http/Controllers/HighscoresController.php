@@ -19,21 +19,19 @@ class HighscoresController extends ApiController
      */
     public function experience()
     {
-        $migration = (new HighscoreMigration)
-            ->where('active', 1)
-            ->where('type', 'experience')
-            ->orderBy('id', 'desc')
-            ->first();
         $world = request('world') ? World::where('name', request('world'))->first()->id : null;
+        $migration = (new HighscoreMigration)
+            ->where('type', 'experience')
+            ->where('active', 1)
+            ->orderBy('migration_date', 'desc')
+            ->first();
 
         $highscores = (new Highscores)
             ->with('world')
-            ->with('weekExperience')
             ->where('migration_id', $migration->id)
             ->whereIn('vocation', $this->getVocation())
-            ->where(function ($query) use ($world) {
-                if ($world)
-                    $query->where('world_id', $world);
+            ->when($world, function ($query) use ($world) {
+                $query->where('world_id', $world);
             })
             ->orderBy('experience', 'desc')
             ->take(300)
@@ -49,29 +47,27 @@ class HighscoresController extends ApiController
      */
     public function skills()
     {
-        $migration = (new HighscoreMigration)
-            ->where('active', 1)
-            ->where('type', request('skill'))
-            ->orderBy('id', 'desc')
-            ->first();
-
         $world = request('world') ? World::where('name', request('world'))->first()->id : null;
+        $migration = (new HighscoreMigration)
+            ->where('type', request('skill'))
+            ->where('active', 1)
+            ->orderBy('migration_date', 'desc')
+            ->first();
 
         $highscores = (new Highscores)
             ->with('world')
             ->where('migration_id', $migration->id)
-            ->where(function ($query) use ($world) {
-                if ($world)
-                    $query->where('world_id', $world);
-            });
-
-        if (in_array(request('skill'), ['achievements', 'loyalty'])) {
-            $highscores = $highscores->orderBy('experience', 'desc');
-        } else {
-            $highscores = $highscores->orderBy('level', 'desc');
-        }
-
-        $highscores = $highscores->take(300)->get();
+            ->where('type', request('skill'))
+            ->when($world, function ($query) use ($world) {
+                $query->where('world_id', $world);
+            })
+            ->when(in_array(request('skill'), ['achievements', 'loyalty']), function ($query) {
+                $query->orderBy('experience', 'desc');
+            }, function ($query) {
+                $query->orderBy('level', 'desc');
+            })
+            ->take(300)
+            ->get();
 
         return $this->respond($highscores->toArray());
     }

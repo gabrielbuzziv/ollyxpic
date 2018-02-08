@@ -120,22 +120,4 @@ class Highscores extends Model
     {
         return $this->belongsTo(World::class);
     }
-
-    /**
-     * Get the last week experience.
-     *
-     * @return \Illuminate\Database\Query\Builder|static
-     */
-    public function weekExperience()
-    {
-        $today = Carbon::createFromDate($this->updated_at)->format('Y-m-d');
-        $lastMonth = Carbon::createFromDate($this->updated_at)->subMonth()->format('Y-m-d');
-
-        return $this->hasMany(Highscores::class, 'name', 'name')
-            ->where('updated_at', '<=', $today)
-            ->where('updated_at', '>=', $lastMonth)
-            ->where('type', 'experience')
-            ->where('active', 1)
-            ->orderBy('updated_at', 'asc');
-    }
 }

@@ -292,6 +292,14 @@
                             }
                         }
 
+                        &.buttons {
+                            .btn {
+                                padding: 5px 12px;
+                                font-weight: 300;
+                                font-size: 12px;
+                            }
+                        }
+
                         &.advance {
                             b {
                                 font-weight: 600;
