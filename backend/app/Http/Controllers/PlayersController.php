@@ -142,7 +142,7 @@ class PlayersController extends ApiController
     private function getSkills($name)
     {
         return (new Highscores)
-            ->select('level', 'type as skill')
+            ->select('level', 'experience', 'type as skill')
             ->where('name', $name)
             ->whereIn('type', ['magic', 'axe', 'club', 'sword', 'distance', 'shielding', 'achievements', 'loyalty'])
             ->groupBy('type')

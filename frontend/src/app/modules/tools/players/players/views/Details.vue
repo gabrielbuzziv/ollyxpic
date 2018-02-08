@@ -5,7 +5,7 @@
                 <i class="mdi mdi-earth icon"></i>
                 <div class="data">
                     <b>World</b>
-                    <span>{{ character.world.name }}</span>
+                    <span>{{ world }}</span>
                 </div>
             </div>
         </panel>
@@ -95,6 +95,12 @@
 <script>
     export default {
         props: ['character'],
+
+        computed: {
+            world () {
+                return this.character && this.character.world ? this.character.world.name : ''
+            }
+        },
 
         filters: {
             dateForHuman (date) {

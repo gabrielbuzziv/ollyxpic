@@ -31,6 +31,8 @@
             <div class="col-md-4">
                 <character-details :character="character" />
                 <achievements :character="character" />
+                <loyalty :skills="skills" :loading="loadingSkills" />
+                <exp-share :character="character" />
             </div>
         </div>
     </page-load>
@@ -66,13 +68,15 @@
     import CharacterDetails from './Details'
     import Character from './Character'
     import Achievements from './Achievements'
+    import Loyalty from './Loyalty'
+    import ExpShare from './ExpShare'
     import Experience from './Experience'
     import Deaths from './Deaths'
     import NoData from './NoData'
     import services from '../services'
 
     export default {
-        components: { CharacterDetails, Character, Achievements, Experience, Deaths, NoData },
+        components: { CharacterDetails, Character, Achievements, Loyalty, ExpShare, Experience, Deaths, NoData },
 
         data () {
             return {

@@ -418,7 +418,31 @@
             }
         }
 
-        &.achievements {
+        &.rating {
+            &.loyalty {
+                .rate {
+                    .data {
+                        width: 125px;
+                        vertical-align: baseline;
+                    }
+                    
+                    .el-rate {
+                        display: inline-block;
+                        width: calc(100% - 130px);
+                        text-align: right;
+                        vertical-align: baseline;
+
+                        .el-rate__text {
+                            display: block;
+                            margin-top: 10px;
+                            font-size: 12px;
+                            font-weight: 300;
+                            color: #888 !important;
+                        }
+                    }
+                }
+            }
+
             .rate {
                 display: block;
 
@@ -479,6 +503,32 @@
                         width: 50%;
                         vertical-align: middle;
                     }
+                }
+            }
+        }
+
+        &.share {
+            .panel-body {
+                .min,
+                .max {
+                    width: 50%;
+                    display: inline-block;
+                    vertical-align: middle;
+
+                    b {
+                        display: block;
+                        font-weight: 700;
+                        font-size: 20px;
+                    }
+
+                    span {
+                        font-size: 12px;
+                        font-weight: 300;
+                    }
+                }
+
+                .min {
+                    width: calc(50% - 6px);
                 }
             }
         }

@@ -1,5 +1,5 @@
 <template>
-    <panel class="achievements">
+    <panel class="rating">
         <h4>Achievements</h4>
 
         <div class="rate">

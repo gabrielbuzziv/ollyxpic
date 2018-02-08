@@ -4,7 +4,7 @@ import { isEmpty, forEach } from 'lodash'
 Vue.mixin({
     filters: {
         capitalize (value) {
-            return value.charAt(0).toUpperCase() + value.slice(1)
+            return value != null && value != '' ? value.charAt(0).toUpperCase() + value.slice(1) : value
         },
     },
 
