@@ -60,11 +60,12 @@
                         margin: 0 auto;
 
                         .el-progress-bar__outer {
-                            background: rgba(255, 255, 255, .2)
+                            background: rgba(255, 255, 255, .2);
                         }
 
                         .el-progress-bar__inner {
-                            background: rgba(255, 255, 255, .9)
+                            background: rgba(255, 255, 255, .9);
+                            transition: all 1s;
                         }
                     }
                 }
@@ -73,6 +74,17 @@
                     display: block;
                     margin-top: 60px;
                     text-align: center;
+
+                    .page-loading {
+                        margin: 80px auto 0;
+
+                        .loader,
+                        span {
+                            border-color: #fff;
+                            border-top-color: transparent;
+                            color: #fff;
+                        }
+                    }
 
                     .alert {
                         margin:0 50px;

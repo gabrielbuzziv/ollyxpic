@@ -12,46 +12,48 @@
                                      :stroke-width="12"/>
                     </div>
 
-                    <div class="skills" v-if="skills.length">
-                        <div class="skill" v-if="magicLevel">
-                            <i class="mdi mdi-auto-fix icon"></i>
-                            <div class="data">
-                                <b>Magic Level</b>
-                                <span>{{ magicLevel.level }}</span>
+                    <page-load class="skills no-padding" :loading="loadingSkills">
+                        <div v-if="skills.length">
+                            <div class="skill" v-if="magicLevel">
+                                <i class="mdi mdi-auto-fix icon"></i>
+                                <div class="data">
+                                    <b>Magic Level</b>
+                                    <span>{{ magicLevel.level }}</span>
+                                </div>
+                            </div>
+
+                            <div class="skill" v-if="distance && isPaladin">
+                                <i class="mdi mdi-sword icon"></i>
+                                <div class="data">
+                                    <b>Distance fighting</b>
+                                    <span>{{ distance.level }}</span>
+                                </div>
+                            </div>
+
+                            <div class="skill" v-if="meleeSkill">
+                                <i class="mdi mdi-sword icon"></i>
+                                <div class="data">
+                                    <b>{{ meleeSkill.label }} fighting</b>
+                                    <span>{{ meleeSkill.level }}</span>
+                                </div>
+                            </div>
+
+                            <div class="skill" v-if="shielding">
+                                <i class="mdi mdi-shield icon"></i>
+                                <div class="data">
+                                    <b>Shielding</b>
+                                    <span>{{ shielding.level }}</span>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="skill" v-if="distance && isPaladin">
-                            <i class="mdi mdi-sword icon"></i>
-                            <div class="data">
-                                <b>Distance fighting</b>
-                                <span>{{ distance.level }}</span>
+                        <div v-else>
+                            <div class="alert alert-primary">
+                                <i class="mdi mdi-emoticon-sad margin-right-5"></i>
+                                Sorry, we only track skills from top 300.
                             </div>
                         </div>
-
-                        <div class="skill" v-if="meleeSkill">
-                            <i class="mdi mdi-sword icon"></i>
-                            <div class="data">
-                                <b>{{ meleeSkill.label }} fighting</b>
-                                <span>{{ meleeSkill.level }}</span>
-                            </div>
-                        </div>
-
-                        <div class="skill" v-if="shielding">
-                            <i class="mdi mdi-shield icon"></i>
-                            <div class="data">
-                                <b>Shielding</b>
-                                <span>{{ shielding.level }}</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="skills" v-else>
-                        <div class="alert alert-primary">
-                            <i class="mdi mdi-emoticon-sad margin-right-5"></i>
-                            Sorry, we only track skills from top 300.
-                        </div>
-                    </div>
+                    </page-load>
                 </div>
             </panel>
         </div>
@@ -109,7 +111,7 @@
     };
 
     export default {
-        props: ['character', 'experience', 'skills'],
+        props: ['character', 'experience', 'skills', 'loadingSkills'],
 
         computed: {
             level () {
@@ -232,9 +234,7 @@
                     const currentLeveledExp = expToNextLevel - expLeft
                     const percentage = parseInt((currentLeveledExp * 100) / expToNextLevel)
 
-                    return this.experience
-                        ? percentage
-                        : 0
+                    return percentage
                 }
 
                 return 0

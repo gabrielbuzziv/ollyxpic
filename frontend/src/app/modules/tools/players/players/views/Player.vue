@@ -1,5 +1,5 @@
 <template>
-    <page-load id="players" :loading="loading" v-if="player">
+    <page-load id="players" v-if="player">
         <page-title>
             <div class="pull-right">
                 <form class="search" @submit.prevent="searchPlayer">
@@ -19,7 +19,7 @@
             </div>
         </page-title>
 
-        <character :character="character" :experience="experience" :skills="skills" />
+        <character :character="character" :experience="experience" :skills="skills" :loadingSkills="loadingSkills" />
 
         <div class="row margin-top-40">
             <div class="col-md-8">
@@ -77,6 +77,7 @@
         data () {
             return {
                 loading: true,
+                loadingSkills: true,
                 loadingExperience: true,
                 player: {},
                 skills: [],
@@ -122,6 +123,8 @@
         watch: {
             '$route.params.name' () {
                 this.skills = []
+                this.experience = []
+                this.loadingSkills = true
                 this.loadingExperience = true
                 this.load()
             }
@@ -142,8 +145,13 @@
             },
 
             loadSkills () {
+                this.loadingSkills = true
                 services.getPlayerSkills(this.player.id)
-                    .then(response => this.skills = response.data)
+                    .then(response => {
+                        this.skills = response.data
+                        this.loadingSkills = false
+                    })
+                    .catch(() => this.loadingSkills = false)
             },
 
             loadExperience () {
