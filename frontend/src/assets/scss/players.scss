@@ -87,7 +87,7 @@
                     }
 
                     .alert {
-                        margin:0 50px;
+                        margin: 0 50px;
                         padding: 10px;
                         font-weight: 300;
                     }
@@ -425,7 +425,7 @@
                         width: 125px;
                         vertical-align: baseline;
                     }
-                    
+
                     .el-rate {
                         display: inline-block;
                         width: calc(100% - 130px);
@@ -552,11 +552,11 @@
                     width: 100%;
                     height: 160px;
                     line-height: 160px;
-                    background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 98%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
-                    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 98%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
-                    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 98%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
-                    
+                    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 98%, rgba(255, 255, 255, 1) 100%); /* FF3.6-15 */
+                    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 98%, rgba(255, 255, 255, 1) 100%); /* Chrome10-25,Safari5.1-6 */
+                    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 98%, rgba(255, 255, 255, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#ffffff', GradientType=0); /* IE6-9 */
+
                     button {
                         position: absolute;
                         bottom: 15px;
@@ -567,7 +567,7 @@
                     }
                 }
             }
-            
+
             .death {
                 display: block;
                 margin-bottom: 10px;
@@ -604,6 +604,27 @@
                 }
             }
         }
+    }
+
+    .main-tab {
+        > .el-tabs__header {
+            border: 0;
+            margin-bottom: 0;
+
+            .el-tabs__item {
+                font-weight: 300;
+                border: 0;
+
+                &.is-active {
+                    background: #fff;
+                    border: 0;
+                }
+            }
+        }
+    }
+
+    .sidemenu {
+        margin-top: 41px;
     }
 
     .no-data {

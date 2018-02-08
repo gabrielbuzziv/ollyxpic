@@ -23,12 +23,37 @@
 
         <div class="row margin-top-40">
             <div class="col-md-8">
-                <experience :experience="experience" :loading="loadingExperience" v-if="experience.length" />
-                <no-data title="Experience advances" :message="`Unforntunately we can't track the exp statistics of ${character.name}. We can only track players statistics from tibia.com highscores.`" v-else />
-                <deaths :deaths="deaths" v-if="deaths.length" />
+                <el-tabs class="main-tab" type="card" v-model="tabs">
+                    <el-tab-pane label="Experience" name="experience">
+                        <experience :experience="experience" :loading="loadingExperience" />
+                    </el-tab-pane>
+
+                    <el-tab-pane label="Deaths" name="death" v-if="deaths.length">
+                        <deaths :deaths="deaths" v-if="deaths.length" />
+                    </el-tab-pane>
+
+                    <!--<el-tab-pane label="Advances" name="advances">-->
+                        <!--<advances :experience="experience" :loading="loadingExperience" />-->
+                    <!--</el-tab-pane>-->
+
+                    <!--<el-tab-pane label="Damage" name="damage">-->
+                        <!--Something-->
+                    <!--</el-tab-pane>-->
+
+                    <!--<el-tab-pane label="Healing" name="healing">-->
+                        <!--Something-->
+                    <!--</el-tab-pane>-->
+
+                    <!--<el-tab-pane label="Speed" name="Speed">-->
+                        <!--Something-->
+                    <!--</el-tab-pane>-->
+                </el-tabs>
+
+
+
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-4 sidemenu">
                 <character-details :character="character" />
                 <achievements :character="character" />
                 <loyalty :skills="skills" :loading="loadingSkills" />
@@ -71,12 +96,12 @@
     import Loyalty from './Loyalty'
     import ExpShare from './ExpShare'
     import Experience from './Experience'
+    import Advances from './Advances'
     import Deaths from './Deaths'
-    import NoData from './NoData'
     import services from '../services'
 
     export default {
-        components: { CharacterDetails, Character, Achievements, Loyalty, ExpShare, Experience, Deaths, NoData },
+        components: { CharacterDetails, Character, Achievements, Loyalty, ExpShare, Experience, Advances, Deaths },
 
         data () {
             return {
@@ -87,6 +112,7 @@
                 skills: [],
                 experience: [],
                 search: '',
+                tabs: 'experience'
             }
         },
 

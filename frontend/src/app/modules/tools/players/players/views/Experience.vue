@@ -1,9 +1,16 @@
 <template>
-    <div class="experience">
+    <div v-if="! loading && ! experience.length">
+        <panel>
+            <div class="alert alert-warning no-data margin-bottom-0">
+                <h4>Experience Statistics</h4>
+                <p>Unforntunately we can't track the exp statistics from character that is not in the top 300.</p>
+            </div>
+        </panel>
+    </div>
+
+    <div class="experience" v-else>
         <panel>
             <page-load class="no-padding" :loading="loading">
-                <h4>Experience Statistics</h4>
-
                 <el-tabs v-model="chartTab">
                     <el-tab-pane label="Daily Exp" name="daily">
                         <highcharts class="margin-top-50" id="dailyExp" :options="dailyExpChart"/>

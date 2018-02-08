@@ -1,9 +1,9 @@
 <template>
     <panel class="deaths">
-        <h4>Recent Deaths</h4>
+        <!--<h4>Recent Deaths</h4>-->
 
         <div class="deaths">
-            <el-tabs v-model="tabs">
+            <el-tabs v-model="deathTabs">
                 <el-tab-pane :label="`All (${deaths.length})`" name="all">
                     <div class="death-collapse" :class="{ 'closed': ! allOpen }">
                         <death :death="death" :key="index" v-for="death, index in deaths" />
@@ -70,7 +70,7 @@
 
         data () {
             return {
-                tabs: 'all',
+                deathTabs: 'all',
                 allOpen: false,
                 pvpOpen: false,
                 pveOpen: false,
