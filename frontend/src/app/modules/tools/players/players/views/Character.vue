@@ -30,10 +30,10 @@
                                 </div>
                             </div>
 
-                            <div class="skill" v-if="meleeSkill">
+                            <div class="skill" v-if="meleeSkill && isKnight">
                                 <i class="mdi mdi-sword icon"></i>
                                 <div class="data">
-                                    <b>{{ meleeSkill.label }} fighting</b>
+                                    <b>{{ meleeSkill.skill | capitalize }} fighting</b>
                                     <span>{{ meleeSkill.level }}</span>
                                 </div>
                             </div>
@@ -176,50 +176,18 @@
             },
 
             meleeSkill () {
+                const melee = this.skills.filter(skill => skill.skill == 'axe' || skill.skill == 'club' || skill.skill == 'sword')
+                    .sort((a, b) => b.level - a.level)
 
-                return false
-
-//                if (this.character.vocation == 'Paladin' || this.character.vocation == 'Royal Paladin') {
-//                    const distance = this.skills.distance ? this.skills.distance : 0
-//                    const distanceLevel = distance ? distance.level : 0
-//
-//                    if (distanceLevel) {
-//                        distance['label'] = 'Distance'
-//                        return distance
-//                    }
-//
-//                    return 0
-//                }
-//
-//                if (this.character.vocation == 'Knight' || this.character.vocation == 'Elite Knight') {
-//                    const axe = this.skills.axe ? this.skills.axe : 0
-//                    const club = this.skills.club ? this.skills.club : 0
-//                    const sword = this.skills.sword ? this.skills.sword : 0
-//
-//                    const axeLevel = axe ? axe.level : 0
-//                    const clubLevel = club ? club.level : 0
-//                    const swordLevel = sword ? sword.level : 0
-//
-//                    const bigger = Math.max(axeLevel, clubLevel, swordLevel)
-//
-//                    switch (true) {
-//                        case axe.level == bigger:
-//                            axe['label'] = 'Axe'
-//                            return axe
-//                        case club.level == bigger:
-//                            club['label'] = 'Club'
-//                            return club
-//                        case sword.level == bigger:
-//                            sword['label'] = 'Sword'
-//                            return sword
-//                    }
-//                }
-//
-//                return 0
+                return melee.length ? melee[0] : false
             },
 
             isPaladin () {
                 return this.character.vocation == 'Paladin' || this.character.vocation == 'Royal Paladin'
+            },
+
+            isKnight () {
+                return this.character.vocation == 'Knight' || this.character.vocation == 'Elite Knight'
             }
         },
 
