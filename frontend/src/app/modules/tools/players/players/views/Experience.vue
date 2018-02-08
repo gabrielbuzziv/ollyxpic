@@ -2,11 +2,16 @@
     <div class="experience">
         <panel>
             <page-load class="no-padding" :loading="loading">
-                <h4>Last 30 days
-                    <small>(experience advances)</small>
-                </h4>
+                <h4>Experience Statistics</h4>
 
-                <highcharts class="margin-top-50" id="experience-chart" :options="chart"/>
+                <el-tabs v-model="chartTab">
+                    <el-tab-pane label="Daily Exp" name="daily">
+                        <highcharts class="margin-top-50" id="dailyExp" :options="dailyExpChart"/>
+                    </el-tab-pane>
+                    <el-tab-pane label="Total Experience" name="total">
+                        <highcharts class="margin-top-50" id="totalExp" :options="totalExpChart"/>
+                    </el-tab-pane>
+                </el-tabs>
             </page-load>
         </panel>
 
@@ -113,8 +118,14 @@
     export default {
         props: ['experience', 'loading'],
 
+        data () {
+            return {
+                chartTab: 'daily'
+            }
+        },
+
         computed: {
-            chart () {
+            dailyExpChart () {
                 return {
                     chart: { type: 'area', height: 233 },
                     title: { text: '' },
@@ -132,6 +143,34 @@
                         {
                             name: 'Experience',
                             data: this.experience.map(exp => exp.advance),
+                            fillOpacity: '0.3',
+                            color: '#3498db',
+                        },
+                    ],
+                    credits: { enabled: false },
+                    tooltip: { shared: true },
+                    legend: { enabled: false }
+                }
+            },
+
+            totalExpChart () {
+                return {
+                    chart: { type: 'area', height: 233 },
+                    title: { text: '' },
+                    subtitle: { text: '' },
+                    xAxis: {
+//                        categories: this.experience.map(exp => exp.updated_at),
+                        crosshair: true,
+                        labels: { enabled: false },
+                        startOnTick: false,
+                        endOnTick: false,
+                        tickPositions: []
+                    },
+                    yAxis: { min: null, title: { text: '' }, startOnTick: false, },
+                    series: [
+                        {
+                            name: 'Experience',
+                            data: this.experience.map(exp => exp.experience),
                             fillOpacity: '0.3',
                             color: '#3498db',
                         },

@@ -126,6 +126,7 @@
 
         watch: {
             '$route.params.name' () {
+                this.player = {}
                 this.skills = []
                 this.experience = []
                 this.loadingSkills = true
