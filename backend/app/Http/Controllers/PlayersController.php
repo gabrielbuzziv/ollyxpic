@@ -30,6 +30,7 @@ class PlayersController extends ApiController
             if (Carbon::now()->diffInMinutes($player->updated_at) >= 15) {
                 $api = $this->getPlayer($name);
                 $this->updatePlayer($player, $api);
+                $this->updateHighscores($player);
             }
 
             return $this->respond($player->toArray());
@@ -43,6 +44,7 @@ class PlayersController extends ApiController
 
         $player = new Player();
         $this->updatePlayer($player, $api);
+        $this->updateHighscores($player);
 
         return $this->respond(Player::with(['world', 'deaths'])->find($player->id)->toArray());
     }
@@ -74,6 +76,22 @@ class PlayersController extends ApiController
             ->get();
 
         return $this->respond($experience->toArray());
+    }
+
+    /**
+     * Update highscores.
+     *
+     * @param $player
+     */
+    private function updateHighscores($player)
+    {
+        if (isset ($player->former_names)) {
+            $former_names = explode(', ', $player->former_names);
+
+            foreach ($former_names as $name) {
+                (new Highscores)->where('name', $name)->update(['name' => $player->name]);
+            }
+        }
     }
 
     /**
