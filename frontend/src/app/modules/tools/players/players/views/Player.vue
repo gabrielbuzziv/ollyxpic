@@ -131,7 +131,7 @@
 
             thumb () {
                 if (! this.player)
-                    return 'Mage Outfits'
+                    return 'knight.svg'
 
                 switch (this.player.vocation) {
                     case 'Knight':
@@ -146,6 +146,8 @@
                     case 'Paladin':
                     case 'Royal Paladin':
                         return 'paladin.svg'
+                    default:
+                        return 'sorcerer.svg'
                 }
             }
         },
