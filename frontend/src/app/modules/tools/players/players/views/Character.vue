@@ -202,7 +202,7 @@
                     const currentLeveledExp = expToNextLevel - expLeft
                     const percentage = parseInt((currentLeveledExp * 100) / expToNextLevel)
 
-                    return percentage
+                    return advance.level != this.character.level ? 0 : percentage
                 }
 
                 return 0

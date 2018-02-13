@@ -19,6 +19,10 @@
             </div>
         </page-title>
 
+        <div class="alert alert-warning">
+            We're still working on this tool, some performance issues or bugs can occur.
+        </div>
+
         <character :character="character" :experience="experience" :skills="skills" :loadingSkills="loadingSkills" />
 
         <div class="row margin-top-40">
@@ -159,6 +163,7 @@
                 this.experience = []
                 this.loadingSkills = true
                 this.loadingExperience = true
+                this.tabs = 'experience'
                 this.load()
             }
         },
