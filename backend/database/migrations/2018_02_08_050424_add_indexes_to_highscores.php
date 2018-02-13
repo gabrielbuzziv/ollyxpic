@@ -14,9 +14,8 @@ class AddIndexesToHighscores extends Migration
     public function up()
     {
         Schema::table('highscores', function (Blueprint $table) {
+            $table->index('name');
             $table->index('experience');
-            $table->index('level');
-            $table->index('updated_at');
         });
     }
 
@@ -28,9 +27,8 @@ class AddIndexesToHighscores extends Migration
     public function down()
     {
         Schema::table('highscores', function (Blueprint $table) {
+            $table->dropIndex(['name']);
             $table->dropIndex(['experience']);
-            $table->dropIndex(['level']);
-            $table->dropIndex(['updated_at']);
         });
     }
 }

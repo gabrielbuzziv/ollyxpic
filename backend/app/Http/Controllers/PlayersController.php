@@ -6,7 +6,6 @@ use App\Highscores;
 use App\Player;
 use App\World;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 
 class PlayersController extends ApiController
 {
@@ -85,7 +84,7 @@ class PlayersController extends ApiController
      */
     private function updateHighscores($player)
     {
-        if (isset ($player->former_names)) {
+        if (isset($player->former_names)) {
             $former_names = explode(', ', $player->former_names);
 
             foreach ($former_names as $name) {
@@ -122,10 +121,10 @@ class PlayersController extends ApiController
 
         array_walk($deaths, function ($death) use ($player) {
             $player->deaths()->firstOrCreate([
-                'level'    => $death->level,
-                'reason'   => $death->reason,
+                'level' => $death->level,
+                'reason' => $death->reason,
                 'involved' => serialize($death->involved),
-                'died_at'  => Carbon::createFromFormat('Y-m-d H:i:s.u', $death->date->date),
+                'died_at' => Carbon::createFromFormat('Y-m-d H:i:s.u', $death->date->date),
             ]);
         });
     }
