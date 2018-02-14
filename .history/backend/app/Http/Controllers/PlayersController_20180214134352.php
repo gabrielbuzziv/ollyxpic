@@ -118,7 +118,7 @@ class PlayersController extends ApiController
         $player->premium = $details->account_status == 'Premium Account' ? true : false;
         $player->achievements = $details->achievement_points;
         $player->world_id = World::where('name', $details->world)->first()->id;
-        $player->last_login = Carbon::createFromFormat('Y-m-d H:i:s.u', $details->last_login[0]->date)->format('Y-m-d H:i:s');
+        $player->last_login = Carbon::createFromFormat('Y-m-d H:i:s.u', $details->last_login[0]->date);
         $player->save();
 
         array_walk($deaths, function ($death) use ($player) {

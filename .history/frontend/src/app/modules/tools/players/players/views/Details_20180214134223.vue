@@ -85,7 +85,7 @@
                 <i class="mdi mdi-login icon"></i>
                 <div class="data">
                     <b>Last Login</b>
-                    <pre>{{ character.last_login }}</pre>
+                    <pre>{{ <character class="last"></character> }}</pre>
 
                     <span>{{ character.last_login | dateForHuman }}</span>
                 </div>

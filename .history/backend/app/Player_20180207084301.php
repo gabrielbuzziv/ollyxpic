@@ -2,7 +2,6 @@
 
 namespace App;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Player extends Model
@@ -15,7 +14,7 @@ class Player extends Model
      */
     protected $fillable = [
         'name', 'former_names', 'vocation', 'level', 'residence', 'house', 'gender', 'married_to',
-        'guild', 'premium', 'achievements', 'world_id', 'last_login',
+        'guild', 'premium', 'achievements', 'world_id', 'last_login'
     ];
 
     /**

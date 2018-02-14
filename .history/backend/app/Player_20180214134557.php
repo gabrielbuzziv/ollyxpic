@@ -2,7 +2,6 @@
 
 namespace App;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Player extends Model
@@ -17,6 +16,11 @@ class Player extends Model
         'name', 'former_names', 'vocation', 'level', 'residence', 'house', 'gender', 'married_to',
         'guild', 'premium', 'achievements', 'world_id', 'last_login',
     ];
+
+    public function getLastLoginAttribute($value)
+    {
+        return $value;
+    }
 
     /**
      * A player belong to a world.

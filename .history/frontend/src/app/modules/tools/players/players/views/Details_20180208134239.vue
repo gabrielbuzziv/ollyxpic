@@ -85,8 +85,6 @@
                 <i class="mdi mdi-login icon"></i>
                 <div class="data">
                     <b>Last Login</b>
-                    <pre>{{ character.last_login }}</pre>
-
                     <span>{{ character.last_login | dateForHuman }}</span>
                 </div>
             </div>
@@ -95,23 +93,19 @@
 </template>
 
 <script>
-export default {
-    props: ["character"],
+    export default {
+        props: ['character'],
 
-    computed: {
-        world() {
-            return this.character && this.character.world
-                ? this.character.world.name
-                : ""
-        }
-    },
+        computed: {
+            world () {
+                return this.character && this.character.world ? this.character.world.name : ''
+            }
+        },
 
-    filters: {
-        dateForHuman(date) {
-            return moment
-                .tz(date, "YYYY-MM-DD HH:mm:ss", "Europe/Berlin")
-                .fromNow()
+        filters: {
+            dateForHuman (date) {
+                return moment.tz(date, "YYYY-MM-DD HH:mm:ss", 'Europe/Berlin').fromNow()
+            }
         }
     }
-}
 </script>

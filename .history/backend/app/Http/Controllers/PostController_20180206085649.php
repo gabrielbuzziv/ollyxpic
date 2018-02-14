@@ -117,12 +117,9 @@ class PostController extends ApiController
     {
         $post = (new Post)
             ->where(function ($query) {
-                if (request('slug')) {
+                if (request('slug'))
                     $query->where('slug', request('slug'));
-                }
-
             })
-            ->where('hotnews', 0)
             ->latest()
             ->first();
 
@@ -139,9 +136,9 @@ class PostController extends ApiController
             ->first();
 
         return $this->respond([
-            'post' => $post,
-            'next' => $next,
-            'previous' => $previous,
+            'post'     => $post,
+            'next'     => $next,
+            'previous' => $previous
         ]);
     }
 
