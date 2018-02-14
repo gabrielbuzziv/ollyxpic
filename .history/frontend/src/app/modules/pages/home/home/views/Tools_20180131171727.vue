@@ -109,14 +109,5 @@
                 </card>
             </router-link>
         </div>
-
-        <div class="col-md-3">
-            <router-link :to="{ name: 'tools.hardcore' }" slot="anchor">
-                <card title="Hardcore PvP" subtitle="Experience">
-                    <img :src="image_path_by_name('item', 'sudden death rune')" slot="icon">
-                    <i class="mdi mdi-chevron-right"></i>
-                </card>
-            </router-link>
-        </div>
     </div>
 </template>

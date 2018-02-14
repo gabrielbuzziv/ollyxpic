@@ -174,18 +174,6 @@
                             </span>
                         </a>
                     </router-link>
-
-                    <router-link :to="{ name: 'tools.hardcore' }" tag="li">
-                        <a href="">
-                            <span class="left">
-                                <img :src="image_path_by_name('item', 'sudden death rune')">
-                            </span>
-                            <span class="center">
-                                <span>Hardcore PvP</span>
-                                <small>Experience</small>
-                            </span>
-                        </a>
-                    </router-link>
                 </ul>
             </li>
 
@@ -318,27 +306,27 @@
 </template>
 
 <script type="text/babel">
-export default {
-    computed: {
-        isCalculator() {
-            if (this.$route.name.includes("tools")) {
-                return true
+    export default {
+        computed: {
+            isCalculator () {
+                if (this.$route.name.includes('tools')) {
+                    return true
+                }
+
+                return false
+            },
+
+            isHighscores () {
+                if (this.$route.name.includes('highscores')) {
+                    return true
+                }
+
+                return false
+            },
+
+            isLogged () {
+                return this.$store.getters['global/IS_LOGGED']
             }
-
-            return false
-        },
-
-        isHighscores() {
-            if (this.$route.name.includes("highscores")) {
-                return true
-            }
-
-            return false
-        },
-
-        isLogged() {
-            return this.$store.getters["global/IS_LOGGED"]
         }
     }
-}
 </script>
