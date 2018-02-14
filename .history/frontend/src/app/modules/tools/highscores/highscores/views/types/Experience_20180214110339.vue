@@ -126,7 +126,7 @@ export default {
                 //                    const day = this.getDay(highscore)
                 //
                 //                    return { ...highscore, month, week, day, rank: index + 1 }
-                return { ...highscore, rank: index + 1 }
+                return { ...highscores, rank: index + 1 }
             })
         },
 

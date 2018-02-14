@@ -12,7 +12,7 @@
 
         <panel class="highscores">
             <el-table
-                    :data="highscoresWithAdvances"
+                    :data="highscores"
                     :default-sort="{ prop: 'experience', order: 'descending' }">
                 <el-table-column prop="name" label="Character" class-name="details" width="300">
                     <template slot-scope="scope">
@@ -110,101 +110,89 @@
 </template>
 
 <script>
-Number.prototype.format = function(n, x) {
-    var re = "\\d(?=(\\d{" + (x || 3) + "})+" + (n > 0 ? "\\." : "$") + ")"
-    return this.toFixed(Math.max(0, ~~n)).replace(new RegExp(re, "g"), "$&.")
-}
+    Number.prototype.format = function (n, x) {
+        var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\.' : '$') + ')';
+        return this.toFixed(Math.max(0, ~ ~ n)).replace(new RegExp(re, 'g'), '$&.');
+    };
 
-export default {
-    props: ["highscores", "loading"],
+    export default {
+        props: ['highscores', 'loading'],
 
-    computed: {
-        highscoresWithAdvances() {
-            return this.highscores.map((highscore, index) => {
-                //                    const month = this.getMonth(highscore)
-                //                    const week = this.getWeek(highscore)
-                //                    const day = this.getDay(highscore)
-                //
-                //                    return { ...highscore, month, week, day, rank: index + 1 }
-                return { ...highscore, rank: index + 1 }
-            })
+        computed: {
+            highscoresWithAdvances () {
+                return this.highscores.map((highscore, index) => {
+//                    const month = this.getMonth(highscore)
+//                    const week = this.getWeek(highscore)
+//                    const day = this.getDay(highscore)
+//
+//                    return { ...highscore, month, week, day, rank: index + 1 }
+                    return { ...highscores, rankd: index + 1 }
+                })
+            },
+
+            loadingText () {
+                let vocation = this.$route.params.vocation ? this.$route.params.vocation : null
+                let world = this.$route.params.world ? this.$route.params.world : 'all worlds'
+
+                vocation = vocation == 'all' || vocation == null ? null : `${vocation}s`
+
+                return vocation
+                    ? `Loading the best ${vocation} from ${world}`
+                    : `Loading the best players from ${world}`
+            }
         },
 
-        loadingText() {
-            let vocation = this.$route.params.vocation
-                ? this.$route.params.vocation
-                : null
-            let world = this.$route.params.world
-                ? this.$route.params.world
-                : "all worlds"
+        filters: {
+            experience (data) {
+                return data >= 0 ? `+${data.format()}` : data.format()
+            }
+        },
 
-            vocation =
-                vocation == "all" || vocation == null ? null : `${vocation}s`
+        methods: {
+            getExperience (advance) {
+                const nextLevel = advance.level + 1
+                const nextLevelExp = ((50 * Math.pow((nextLevel - 1), 3)) - (150 * Math.pow((nextLevel - 1), 2)) + (400 * (nextLevel - 1))) / 3
+                const currentExp = advance.experience
+                const expToNextLevel = 50 * Math.pow(advance.level, 2) - 150 * advance.level + 200
+                const expLeft = nextLevelExp - currentExp
+                const currentLeveledExp = expToNextLevel - expLeft
+                const percentage = parseInt((currentLeveledExp * 100) / expToNextLevel)
+                const percentageNextLevel = 100 - percentage
 
-            return vocation
-                ? `Loading the best ${vocation} from ${world}`
-                : `Loading the best players from ${world}`
-        }
-    },
+                return advance
+                    ? { leftExperience: expLeft, percentage, percentageNextLevel }
+                    : { leftExperience: 0, percentage: 0 }
+            },
 
-    filters: {
-        experience(data) {
-            return data >= 0 ? `+${data.format()}` : data.format()
-        }
-    },
-
-    methods: {
-        getExperience(advance) {
-            const nextLevel = advance.level + 1
-            const nextLevelExp =
-                (50 * Math.pow(nextLevel - 1, 3) -
-                    150 * Math.pow(nextLevel - 1, 2) +
-                    400 * (nextLevel - 1)) /
-                3
-            const currentExp = advance.experience
-            const expToNextLevel =
-                50 * Math.pow(advance.level, 2) - 150 * advance.level + 200
-            const expLeft = nextLevelExp - currentExp
-            const currentLeveledExp = expToNextLevel - expLeft
-            const percentage = parseInt(
-                currentLeveledExp * 100 / expToNextLevel
-            )
-            const percentageNextLevel = 100 - percentage
-
-            return advance
-                ? { leftExperience: expLeft, percentage, percentageNextLevel }
-                : { leftExperience: 0, percentage: 0 }
-        }
-
-        //            getAdvances (player) {
-        //                return player.week_experience
-        //                    ? player.week_experience.slice().sort((a, b) => a.id - b.id).map((experience, index) => {
-        //                        const advance = index > 0
-        //                            ? experience.experience - player.week_experience[index - 1].experience
-        //                            : 0
-        //
-        //                        return { ...experience, ...{ advance } }
-        //                    })
-        //                    : 0
-        //            },
-        //
-        //            getMonth (player) {
-        //                return this.getAdvances(player).slice().sort((a, b) => b.id - a.id)
-        //                    .reduce((carry, advance) => carry + advance.advance, 0)
-        //            },
-        //
-        //            getWeek (player) {
-        //                return this.getAdvances(player).slice(0, 7).sort((a, b) => b.id - a.id)
-        //                    .reduce((carry, advance) => carry + advance.advance, 0)
-        //            },
-        //
-        //            getDay (player) {
-        //                return this.getAdvances(player).slice().sort((a, b) => b.id - a.id)[0].advance
-        //            },
-        //
-        //            isLoose (experience) {
-        //                return experience >= 0 ? false : true
-        //            }
+//            getAdvances (player) {
+//                return player.week_experience
+//                    ? player.week_experience.slice().sort((a, b) => a.id - b.id).map((experience, index) => {
+//                        const advance = index > 0
+//                            ? experience.experience - player.week_experience[index - 1].experience
+//                            : 0
+//
+//                        return { ...experience, ...{ advance } }
+//                    })
+//                    : 0
+//            },
+//
+//            getMonth (player) {
+//                return this.getAdvances(player).slice().sort((a, b) => b.id - a.id)
+//                    .reduce((carry, advance) => carry + advance.advance, 0)
+//            },
+//
+//            getWeek (player) {
+//                return this.getAdvances(player).slice(0, 7).sort((a, b) => b.id - a.id)
+//                    .reduce((carry, advance) => carry + advance.advance, 0)
+//            },
+//
+//            getDay (player) {
+//                return this.getAdvances(player).slice().sort((a, b) => b.id - a.id)[0].advance
+//            },
+//
+//            isLoose (experience) {
+//                return experience >= 0 ? false : true
+//            }
+        },
     }
-}
 </script>

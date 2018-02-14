@@ -12,12 +12,12 @@
 
         <panel class="highscores">
             <el-table
-                    :data="highscoresWithAdvances"
+                    :data="highscores"
                     :default-sort="{ prop: 'experience', order: 'descending' }">
                 <el-table-column prop="name" label="Character" class-name="details" width="300">
                     <template slot-scope="scope">
                         <div class="rank">
-                            {{ scope.row.rank }}
+                            {{ scope.$index + 1 }}
                         </div>
 
                         <div class="name">
@@ -126,7 +126,7 @@ export default {
                 //                    const day = this.getDay(highscore)
                 //
                 //                    return { ...highscore, month, week, day, rank: index + 1 }
-                return { ...highscore, rank: index + 1 }
+                return { ...highscores, rankd: index + 1 }
             })
         },
 
