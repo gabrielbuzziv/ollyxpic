@@ -143,6 +143,8 @@
                         penalty = ((level + 50) / 100) * (50 * (Math.pow(level, 2) - (5 * level) + 8))
                     }
 
+                    console.log(penalty)
+
                     const promotedPercentage = promoted ? 30 : 0
                     const blessPercentage = hardcore
                         ? (100 - ((8 * bless) + promotedPercentage - 16)) / 100

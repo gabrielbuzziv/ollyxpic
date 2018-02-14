@@ -1,0 +1,75 @@
+/* Web Font */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
+
+$custom-font: "Open Sans";
+
+/* Bootstrap Sass */
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+@import "variables";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+/* Material Design Icon */
+$mdi-font-path: "~mdi/fonts/";
+@import "~mdi/scss/materialdesignicons";
+
+@font-face {
+    font-family: "Tahoma";
+    src: local("/src/assets/fonts/TahomaBold.ttf"),
+        local("/src/assets/fonts/TahomaBold.ttf"),
+        url("/src/assets/fonts/TahomaBold.ttf");
+    font-weight: bold;
+}
+
+/* Layout */
+@import "layout";
+@import "pages";
+
+/* Helpers */
+@import "helpers";
+@import "animation";
+@import "loader";
+
+/* Default */
+@import "nav";
+@import "dropdown";
+@import "buttons";
+@import "panel";
+@import "label";
+@import "form";
+@import "tabs";
+@import "table";
+@import "wysiwyg";
+@import "sidemenu";
+@import "items";
+@import "partners";
+
+/* Custom */
+@import "admin";
+@import "cards";
+@import "select";
+@import "leaflet";
+@import "worldmap";
+@import "scorebox";
+@import "npccard";
+@import "itemselect";
+@import "waste-modal";
+@import "blessings";
+@import "speedboost";
+@import "lootcount";
+@import "imbuements";
+@import "equipments";
+@import "tibiabox";
+@import "warzone";
+@import "spellcast";
+@import "home";
+@import "currencies";
+@import "news";
+@import "hunting-spots";
+@import "expshare";
+@import "capacity";
+@import "blacklist";
+@import "timer";
+@import "training";
+@import "highscores";
+@import "players";
+@import "hardcore";

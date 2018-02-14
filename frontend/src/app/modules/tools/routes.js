@@ -15,6 +15,7 @@ import { routes as timer } from './timer'
 import { routes as highscores } from './highscores'
 import { routes as players } from './players'
 import { routes as skillTraining } from './skill-training'
+import { routes as hardcorePvp } from './hardcore-pvp'
 
 export default [
     {
@@ -29,9 +30,9 @@ export default [
     ...speedboost,
     ...imbuements,
     ...damageProtection,
-    ...huntingSpots,
     ...mvp,
     ...damageHealing,
+    ...huntingSpots,
     ...expshare,
     ...capcount,
     ...currency,
@@ -39,5 +40,6 @@ export default [
     ...timer,
     ...highscores,
     ...players,
-    ...skillTraining
+    ...skillTraining,
+    ...hardcorePvp
 ]
