@@ -3,6 +3,7 @@
 namespace App;
 
 use Carbon\Carbon;
+use App\Ollyxpic\Truncate;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
@@ -22,8 +23,11 @@ class Post extends Model
         'created_at',
         'hotnews',
         'comments',
-        'link'
+        'link',
+        'slug'
     ];
+
+    protected $appends = ['resume'];
 
     /**
      * Set created at attribute.
@@ -54,5 +58,15 @@ class Post extends Model
     public function author()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    /**
+     * Create a truncate content of body.
+     *
+     * @return bool|string
+     */
+    public function getResumeAttribute()
+    {
+        return Truncate::truncate($this->body, 900);
     }
 }

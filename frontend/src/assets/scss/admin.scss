@@ -1,3 +1,14 @@
+.table {
+    td {
+        .limit_text {
+            max-width: 450px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}
+
 #admin {
     &.items {
         .edit {

@@ -1,70 +1,22 @@
 <template>
     <page-load id="highscores">
         <page-title>
-            <div class="pull-right" :show-timeout="100">
+            <div class="pull-right filter" :show-timeout="100">
                 <el-select
                         v-model="selectedWorld"
                         placeholder="All Worlds"
                         filterable
                         clearable
+                        popper-class="highscores-world-popper"
                         @change="selectWorld">
                     <el-option v-for="world, index in worlds"
                                :value="world.name"
                                :label="world.name"
-                               :key="index"/>
+                               :key="index">
+                        <b>{{ world.name }}</b>
+                        <span>{{ world.type }}</span>
+                    </el-option>
                 </el-select>
-
-                <el-dropdown>
-                    <el-button type="primary">
-                        Highscores <i class="mdi mdi-chevron-down margin-left-10"></i>
-                    </el-button>
-                    <el-dropdown-menu slot="dropdown">
-                        <router-link :to="{ name: 'highscores.experience' }">
-                            <el-dropdown-item>Top Exp</el-dropdown-item>
-                        </router-link>
-
-                        <router-link :to="{ name: 'highscores.experience', params: { vocation: 'knight', world: world } }">
-                            <el-dropdown-item>Top Knight</el-dropdown-item>
-                        </router-link>
-
-                        <router-link :to="{ name: 'highscores.experience', params: { vocation: 'druid', world: world } }">
-                            <el-dropdown-item>Top Druid</el-dropdown-item>
-                        </router-link>
-
-                        <router-link :to="{ name: 'highscores.experience', params: { vocation: 'sorcerer', world: world } }">
-                            <el-dropdown-item>Top Sorcerer</el-dropdown-item>
-                        </router-link>
-
-                        <router-link :to="{ name: 'highscores.experience', params: { vocation: 'paladin', world: world } }">
-                            <el-dropdown-item>Top Paladin</el-dropdown-item>
-                        </router-link>
-
-                        <router-link :to="{ name: 'highscores.skills', params: { skill: 'magic', world: world } }">
-                            <el-dropdown-item>Top Magic</el-dropdown-item>
-                        </router-link>
-
-                        <router-link :to="{ name: 'highscores.skills', params: { skill: 'axe', world: world } }">
-                            <el-dropdown-item>Top Axe</el-dropdown-item>
-                        </router-link>
-
-                        <router-link :to="{ name: 'highscores.skills', params: { skill: 'club', world: world } }">
-                            <el-dropdown-item>Top Club</el-dropdown-item>
-                        </router-link>
-
-                        <router-link :to="{ name: 'highscores.skills', params: { skill: 'sword', world: world } }">
-                            <el-dropdown-item>Top Sword</el-dropdown-item>
-                        </router-link>
-
-                        <router-link :to="{ name: 'highscores.skills', params: { skill: 'distance', world: world } }">
-                            <el-dropdown-item>Top Distance</el-dropdown-item>
-                        </router-link>
-
-                        <router-link :to="{ name: 'highscores.skills', params: { skill: 'shielding', world: world } }">
-                            <el-dropdown-item>Top Shielding</el-dropdown-item>
-                        </router-link>
-                    </el-dropdown-menu>
-                </el-dropdown>
-
             </div>
 
             <img :src="image_path_by_name('item', 'Medal of Honour')" alt="" class="margin-right-5">
@@ -73,6 +25,106 @@
                 <span>Best Tibia Players</span>
             </div>
         </page-title>
+
+        <nav class="highscores-menu">
+            <ul class="experience">
+                <li class="all">
+                    <router-link :to="{ name: 'highscores.experience', params: { vocation: null, world } }" exact>
+                        <div class="thumb">
+                            <img src="/src/assets/images/raster.png" alt="">
+                        </div>
+                    </router-link>
+                </li>
+
+                <div class="vocations">
+                    <li>
+                        <router-link :to="{ name: 'highscores.experience', params: { vocation: 'knight', world } }" exact>
+                            <div class="thumb">
+                                <img src="/src/assets/images/knight.svg" alt="">
+                            </div>
+                            <span>Top Knights</span>
+                        </router-link>
+                    </li>
+
+                    <li>
+                        <router-link :to="{ name: 'highscores.experience', params: { vocation: 'druid', world } }" exact>
+                            <div class="thumb">
+                                <img src="/src/assets/images/druid.svg" alt="">
+                            </div>
+                            <span>Top Druids</span>
+                        </router-link>
+                    </li>
+
+                    <li>
+                        <router-link :to="{ name: 'highscores.experience', params: { vocation: 'sorcerer', world } }" exact>
+                            <div class="thumb">
+                                <img src="/src/assets/images/sorcerer.svg" alt="">
+                            </div>
+                            <span>Top Sorcerers</span>
+                        </router-link>
+                    </li>
+
+                    <li>
+                        <router-link :to="{ name: 'highscores.experience', params: { vocation: 'paladin', world } }" exact>
+                            <div class="thumb">
+                                <img src="/src/assets/images/paladin.svg" alt="">
+                            </div>
+                            <span>Top Paladins</span>
+                        </router-link>
+                    </li>
+                </div>
+            </ul>
+
+            <ul class="skills">
+                <li>
+                    <router-link :to="{ name: 'highscores.skills', params: { skill: 'magic', world } }" exact>
+                        <span>Top Magic</span>
+                    </router-link>
+                </li>
+
+                <li>
+                    <router-link :to="{ name: 'highscores.skills', params: { skill: 'axe', world } }" exact>
+                        <span>Top Axe</span>
+                    </router-link>
+                </li>
+
+                <li>
+                    <router-link :to="{ name: 'highscores.skills', params: { skill: 'club', world } }" exact>
+                        <span>Top Club</span>
+                    </router-link>
+                </li>
+
+                <li>
+                    <router-link :to="{ name: 'highscores.skills', params: { skill: 'sword', world } }" exact>
+                        <span>Top Sword</span>
+                    </router-link>
+                </li>
+
+                <li>
+                    <router-link :to="{ name: 'highscores.skills', params: { skill: 'distance', world } }" exact>
+                        <span>Top Distance</span>
+                    </router-link>
+                </li>
+
+                <li>
+                    <router-link :to="{ name: 'highscores.skills', params: { skill: 'shielding', world } }" exact>
+                        <span>Top Shield</span>
+                    </router-link>
+                </li>
+
+                <li>
+                    <router-link :to="{ name: 'highscores.skills', params: { skill: 'achievements', world } }" exact>
+                        <span>Top Achievements</span>
+                    </router-link>
+                </li>
+
+                <li>
+                    <router-link :to="{ name: 'highscores.skills', params: { skill: 'loyalty', world } }" exact>
+                        <span>Top Loyalty</span>
+                    </router-link>
+                </li>
+            </ul>
+        </nav>
 
         <router-view></router-view>
     </page-load>
@@ -95,6 +147,12 @@
             }
         },
 
+        watch: {
+            '$route.params.world' () {
+                this.selectedWorld = this.$route.params.world
+            }
+        },
+
         methods: {
             selectWorld () {
                 const world = this.selectedWorld ? this.selectedWorld : null
@@ -109,14 +167,17 @@
                 }
 
                 if (this.$route.name == 'highscores.experience') {
-                    return this.$router.push({ name: 'highscores.experience', params: { vocation: 'all', world } })
+                    return this.$router.push({ name: 'highscores.experience', params: { vocation: null, world } })
                 }
             }
         },
 
         mounted () {
             services.getWorlds()
-                .then(response => this.worlds = response.data)
+                .then(response => {
+                    this.worlds = response.data
+                    this.selectedWorld = this.$route.params.world
+                })
         }
     }
 </script>

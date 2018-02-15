@@ -1,0 +1,50 @@
+#hardcore {
+    .form {
+        input {
+            &.form-control {
+                font-weight: 300;
+                font-size: 16px;
+                height: 50px;
+                line-height: 50px;
+            }
+        }
+
+        .el-checkbox {
+            display: block;
+
+            .el-checkbox__label {
+                font-weight: 300;
+            }
+        }
+
+        .el-checkbox + .el-checkbox {
+            margin-left: 0;
+        }
+    }
+
+    .result {
+        .panel {
+            display: inline-block;
+            width: calc(20% - 15px);
+            margin-right: 15px;
+            vertical-align: middle;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            h4 {
+                font-weight: 300;
+                font-size: 16px;
+                display: block;
+                margin: 0 0 15px;
+            }
+
+            p {
+                font-weight: 700;
+                font-size: 20px;
+                margin: 0;
+            }
+        }
+    }
+}

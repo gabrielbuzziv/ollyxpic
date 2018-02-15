@@ -12,31 +12,48 @@
                                      :stroke-width="12"/>
                     </div>
 
-                    <div class="skills">
-                        <div class="skill" v-if="skills.magic">
-                            <i class="mdi mdi-auto-fix icon"></i>
-                            <div class="data">
-                                <b>Magic Level</b>
-                                <span>{{ skills.magic.level }}</span>
+                    <page-load class="skills no-padding" :loading="loadingSkills">
+                        <div v-if="skills.length">
+                            <div class="skill" v-if="magicLevel">
+                                <i class="mdi mdi-auto-fix icon"></i>
+                                <div class="data">
+                                    <b>Magic Level</b>
+                                    <span>{{ magicLevel.level }}</span>
+                                </div>
+                            </div>
+
+                            <div class="skill" v-if="distance && isPaladin">
+                                <i class="mdi mdi-sword icon"></i>
+                                <div class="data">
+                                    <b>Distance fighting</b>
+                                    <span>{{ distance.level }}</span>
+                                </div>
+                            </div>
+
+                            <div class="skill" v-if="meleeSkill && isKnight">
+                                <i class="mdi mdi-sword icon"></i>
+                                <div class="data">
+                                    <b>{{ meleeSkill.skill | capitalize }} fighting</b>
+                                    <span>{{ meleeSkill.level }}</span>
+                                </div>
+                            </div>
+
+                            <div class="skill" v-if="shielding">
+                                <i class="mdi mdi-shield icon"></i>
+                                <div class="data">
+                                    <b>Shielding</b>
+                                    <span>{{ shielding.level }}</span>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="skill" v-if="weaponSkill">
-                            <i class="mdi mdi-sword icon"></i>
-                            <div class="data">
-                                <b>{{ weaponSkill.label }} fighting</b>
-                                <span>{{ weaponSkill.level }}</span>
+                        <div v-else>
+                            <div class="alert alert-primary">
+                                <i class="mdi mdi-emoticon-sad margin-right-5"></i>
+                                Sorry, we only track skills from top 300.
                             </div>
                         </div>
-
-                        <div class="skill" v-if="skills.shielding">
-                            <i class="mdi mdi-shield icon"></i>
-                            <div class="data">
-                                <b>Shielding</b>
-                                <span>{{ skills.shielding.level }}</span>
-                            </div>
-                        </div>
-                    </div>
+                    </page-load>
                 </div>
             </panel>
         </div>
@@ -94,7 +111,7 @@
     };
 
     export default {
-        props: ['character', 'experience', 'skills'],
+        props: ['character', 'experience', 'skills', 'loadingSkills'],
 
         computed: {
             level () {
@@ -146,44 +163,31 @@
                 }
             },
 
-            weaponSkill () {
-                if (this.character.vocation == 'Paladin' || this.character.vocation == 'Royal Paladin') {
-                    const distance = this.skills.distance ? this.skills.distance : 0
-                    const distanceLevel = distance ? distance.level : 0
+            magicLevel () {
+                return this.skills.filter(skill => skill.skill == 'magic')[0]
+            },
 
-                    if (distanceLevel) {
-                        distance['label'] = 'Distance'
-                        return distance
-                    }
+            shielding () {
+                return this.skills.filter(skill => skill.skill == 'shielding')[0]
+            },
 
-                    return 0
-                }
+            distance () {
+                return this.skills.filter(skill => skill.skill == 'distance')[0]
+            },
 
-                if (this.character.vocation == 'Knight' || this.character.vocation == 'Elite Knight') {
-                    const axe = this.skills.axe ? this.skills.axe : 0
-                    const club = this.skills.club ? this.skills.club : 0
-                    const sword = this.skills.sword ? this.skills.sword : 0
+            meleeSkill () {
+                const melee = this.skills.filter(skill => skill.skill == 'axe' || skill.skill == 'club' || skill.skill == 'sword')
+                    .sort((a, b) => b.level - a.level)
 
-                    const axeLevel = axe ? axe.level : 0
-                    const clubLevel = club ? club.level : 0
-                    const swordLevel = sword ? sword.level : 0
+                return melee.length ? melee[0] : false
+            },
 
-                    const bigger = Math.max(axeLevel, clubLevel, swordLevel)
+            isPaladin () {
+                return this.character.vocation == 'Paladin' || this.character.vocation == 'Royal Paladin'
+            },
 
-                    switch (true) {
-                        case axe.level == bigger:
-                            axe['label'] = 'Axe'
-                            return axe
-                        case club.level == bigger:
-                            club['label'] = 'Club'
-                            return club
-                        case sword.level == bigger:
-                            sword['label'] = 'Sword'
-                            return sword
-                    }
-                }
-
-                return 0
+            isKnight () {
+                return this.character.vocation == 'Knight' || this.character.vocation == 'Elite Knight'
             }
         },
 
@@ -198,9 +202,7 @@
                     const currentLeveledExp = expToNextLevel - expLeft
                     const percentage = parseInt((currentLeveledExp * 100) / expToNextLevel)
 
-                    return this.experience
-                        ? percentage
-                        : 0
+                    return advance.level != this.character.level ? 0 : percentage
                 }
 
                 return 0

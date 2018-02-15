@@ -1,5 +1,5 @@
 <template>
-    <page-load id="players" :loading="loading" v-if="player">
+    <page-load id="players" v-if="player">
         <page-title>
             <div class="pull-right">
                 <form class="search" @submit.prevent="searchPlayer">
@@ -12,25 +12,52 @@
                 </form>
             </div>
 
-            <img :src="outfit(outfiter, character.sex)" alt="" class="margin-right-15">
+            <img :src="`/src/assets/images/${thumb}`" class="margin-right-15 big">
             <div class="title">
-                <h2>{{ character.name }}</h2>
-                <span>{{ character.vocation }}</span>
+                <h2>{{ character.name || queryName }}</h2>
+                <span>{{ character.vocation || 'Vocation' }}</span>
             </div>
         </page-title>
 
-        <character :character="character" :experience="experience" :skills="skills" />
+        <character :character="character" :experience="experience" :skills="skills" :loadingSkills="loadingSkills" />
 
         <div class="row margin-top-40">
             <div class="col-md-8">
-                <experience :experience="experience" v-if="experience.length" />
-                <no-data title="Experience advances" :message="`Unforntunately we can't track the exp statistics of ${character.name}. We can only track players statistics from tibia.com highscores.`" v-else />
-                <deaths :deaths="deaths" v-if="deaths.length" />
+                <el-tabs class="main-tab" type="card" v-model="tabs">
+                    <el-tab-pane label="Experience" name="experience">
+                        <experience :experience="experience" :loading="loadingExperience" />
+                    </el-tab-pane>
+
+                    <el-tab-pane label="Deaths" name="death" v-if="deaths.length">
+                        <deaths :deaths="deaths" v-if="deaths.length" />
+                    </el-tab-pane>
+
+                    <!--<el-tab-pane label="Advances" name="advances">-->
+                        <!--<advances :experience="experience" :loading="loadingExperience" />-->
+                    <!--</el-tab-pane>-->
+
+                    <!--<el-tab-pane label="Damage" name="damage">-->
+                        <!--Something-->
+                    <!--</el-tab-pane>-->
+
+                    <!--<el-tab-pane label="Healing" name="healing">-->
+                        <!--Something-->
+                    <!--</el-tab-pane>-->
+
+                    <!--<el-tab-pane label="Speed" name="Speed">-->
+                        <!--Something-->
+                    <!--</el-tab-pane>-->
+                </el-tabs>
+
+
+
             </div>
 
-            <div class="col-md-4">
-                <character-details :character="character" :achievements="achievements" />
-                <achievements :character="character" :achievements="achievements" />
+            <div class="col-md-4 sidemenu">
+                <character-details :character="character" />
+                <achievements :character="character" />
+                <loyalty :skills="skills" :loading="loadingSkills" />
+                <exp-share :character="character" />
             </div>
         </div>
     </page-load>
@@ -48,7 +75,7 @@
                 </form>
             </div>
 
-            <img :src="outfit('Mage Outfits')" alt="" class="margin-right-15">
+            <img src="src/assets/images/sorcerer.svg" alt="" class="margin-right-15 big">
             <div class="title">
                 <h2>Player</h2>
                 <span>Details & Statistics</span>
@@ -66,82 +93,77 @@
     import CharacterDetails from './Details'
     import Character from './Character'
     import Achievements from './Achievements'
+    import Loyalty from './Loyalty'
+    import ExpShare from './ExpShare'
     import Experience from './Experience'
+    import Advances from './Advances'
     import Deaths from './Deaths'
-    import NoData from './NoData'
     import services from '../services'
 
     export default {
-        components: { CharacterDetails, Character, Achievements, Experience, Deaths, NoData },
+        components: { CharacterDetails, Character, Achievements, Loyalty, ExpShare, Experience, Advances, Deaths },
 
         data () {
             return {
                 loading: true,
+                loadingSkills: true,
+                loadingExperience: true,
                 player: {},
-                search: ''
+                skills: [],
+                experience: [],
+                search: '',
+                tabs: 'experience'
             }
         },
 
         computed: {
+            queryName () {
+                return this.$route.params.name
+            },
+
             character () {
-                return this.player && this.player.details && this.player.details.data
-                    ? this.player.details.data
+                return this.player
+                    ? this.player
                     : {}
             },
 
-            achievements () {
-                return this.player && this.player.details && this.player.details.achievements
-                    ? this.player.details.achievements
-                    : []
-            },
-
             deaths () {
-                return this.player && this.player.details && this.player.details.deaths
-                    ? this.player.details.deaths
+                return this.player && this.player.deaths
+                    ? this.player.deaths
                     : []
             },
 
-            experience () {
-                return this.player && this.player.experience
-                    ? this.player.experience.slice().sort((a, b) => a.id - b.id).map((experience, index) => {
-                        const advance = index > 0
-                            ? parseFloat(experience.experience - this.player.experience[index - 1].experience)
-                            : 0
+            thumb () {
+                if (! this.player)
+                    return 'knight.svg'
 
-                        return { ...experience, ...{ advance } }
-                    })
-                    : []
-            },
-
-            skills () {
-                return this.player && this.player.skills
-                    ? this.player.skills
-                    : []
-            },
-
-            outfiter () {
-                if (! this.player || ! this.player.details || ! this.player.details.data)
-                    return 'Mage Outfits'
-
-                switch (this.player.details.data.vocation) {
+                switch (this.player.vocation) {
                     case 'Knight':
                     case 'Elite Knight':
-                        return 'Warrior Outfits'
+                        return 'knight.svg'
                     case 'Druid':
                     case 'Elder Druid':
-                        return 'Summoner Outfits'
+                        return 'druid.svg'
                     case 'Sorcerer':
                     case 'Master Sorcerer':
-                        return 'Mage Outfits'
+                        return 'sorcerer.svg'
                     case 'Paladin':
                     case 'Royal Paladin':
-                        return 'Hunter Outfits'
+                        return 'paladin.svg'
+                    default:
+                        return 'sorcerer.svg'
                 }
             }
         },
 
         watch: {
             '$route.params.name' () {
+                this.player = {}
+                this.skills = []
+                this.experience = []
+                this.loadingSkills = true
+                this.loadingExperience = true
+                this.tabs = 'experience'
                 this.load()
             }
         },
@@ -153,8 +175,36 @@
                     .then(response => {
                         this.player = response.data
                         this.loading = false
+
+                        this.loadSkills()
+                        this.loadExperience()
                     })
                     .catch(() => this.player = false)
+            },
+
+            loadSkills () {
+                this.loadingSkills = true
+                services.getPlayerSkills(this.player.id)
+                    .then(response => {
+                        this.skills = response.data
+                        this.loadingSkills = false
+                    })
+                    .catch(() => this.loadingSkills = false)
+            },
+
+            loadExperience () {
+                services.getPlayerExperience(this.player.id)
+                    .then(response => {
+                        const advances = response.data
+
+                        this.experience = advances.map((experience, index) => {
+                            const advance = index ? parseFloat(experience.experience - advances[index - 1].experience) : 0
+                            return { ...experience, advance }
+                        })
+
+                        this.loadingExperience = false
+                    })
+                    .catch(() => this.loadingExperience = false)
             },
 
             searchPlayer () {

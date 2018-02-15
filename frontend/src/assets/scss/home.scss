@@ -1,7 +1,4 @@
 #home {
-    .welcome {
-
-    }
 
     .news {
         header {
@@ -57,21 +54,30 @@
                 display: inline-block;
                 margin-right: 15px;
             }
+
+            .left {
+                display: inline-block;
+                width: calc(50% - 4px);
+                vertical-align: middle;
+            }
+
+            .right {
+                display: inline-block;
+                width: calc(50%);
+                vertical-align: middle;
+                text-align: right;
+            }
+
+            .btn-more {
+                font-weight: 300;
+                text-align: right;
+                font-size: 12px;
+                padding: 5px 15px;
+            }
         }
     }
 
     .features {
-        h4 {
-            font-weight: 300;
-            font-size: 18px;
-            margin: 0 0 30px;
-            display: inline-block;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: block;
-        }
-
         img {
             margin: 0 10px 0 0;
             display: inline-block;
@@ -80,11 +86,14 @@
 
         .read {
             display: inline-block;
-            padding: 6px 15px;
+            padding: 0;
             width: calc(100% - 50px);
             font-weight: 300;
-            font-size: 20px;
+            font-size: 16px;
             vertical-align: middle;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     }
 

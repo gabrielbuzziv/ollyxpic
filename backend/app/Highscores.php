@@ -23,7 +23,8 @@ class Highscores extends Model
         'world_id',
         'type',
         'updated_at',
-        'active'
+        'active',
+        'migration_id'
     ];
 
     /**
@@ -118,22 +119,5 @@ class Highscores extends Model
     public function world()
     {
         return $this->belongsTo(World::class);
-    }
-
-    /**
-     * Get the last week experience.
-     *
-     * @return \Illuminate\Database\Query\Builder|static
-     */
-    public function weekExperience()
-    {
-        $today = Carbon::createFromDate($this->updated_at)->format('Y-m-d');
-        $lastWeek = Carbon::createFromDate($this->updated_at)->subWeek()->format('Y-m-d');
-
-        return $this->hasMany(Highscores::class, 'name', 'name')
-            ->where('updated_at', '<=', $today)
-            ->where('updated_at', '>=', $lastWeek)
-            ->where('type', 'experience')
-            ->orderBy('updated_at', 'asc');
     }
 }

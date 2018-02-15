@@ -1,257 +1,315 @@
 #highscores {
-    .leaders {
-        .leader {
-            header {
-                display: block;
-                margin-bottom: 15px;
-                border-bottom: 1px solid #eee;
-                padding-bottom: 10px;
+    .highscores-menu {
+        display: block;
 
-                .rank {
-                    display: inline-block;
-                    margin-right: 10px;
-                    vertical-align: middle;
-                    width: 32px;
-                }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: block;
 
-                .title {
-                    display: block;
-                    font-weight: 300;
+            &.experience {
+                li {
+                    &.all {
+                        width: 80px;
 
-                    .rank-badge {
-                        font-size: 12px;
-                        font-weight: 300;
-                        background: #f39c12;
-                        color: #fff;
-                        text-align: center;
-                        height: 30px;
-                        width: 30px;
-                        line-height: 30px;
-                        border-radius: 100%;
-                        display: inline-block;
-                        margin-right: 10px;
-                    }
-
-                    span {
-                        display: inline-block;
-                        vertical-align: middle;
-
-                        &.left {
-                            width: calc(60% - 50px);
-
-                            .name {
-                                font-size: 18px;
-                                display: block;
-                                white-space: nowrap;
-                                overflow: hidden;
-                                text-overflow: ellipsis;
-                                padding-right: 15px;
-
-                                a {
-                                    color: inherit;
-                                }
-                            }
-
-                            .vocation {
-                                font-size: 12px;
-                                display: block;
-                                color: #999;
-                                white-space: nowrap;
-                                overflow: hidden;
-                                text-overflow: ellipsis;
-                                padding-right: 15px;
-                            }
-                        }
-
-                        &.right {
-                            width: 40%;
-
-                            .level {
-                                display: block;
-                                margin-bottom: 5px;
-
-                                span {
-                                    display: inline-block;
-                                    width: calc(50% - 10px);
-                                    vertical-align: middle;
-                                    font-size: 12px;
-                                    font-weight: 300;
-                                    text-align: left;
-                                }
-
-                                b {
-                                    display: inline-block;
-                                    width: 50%;
-                                    vertical-align: middle;
-                                    text-align: right;
-                                    font-weight: 700;
-                                    font-size: 16px;
-                                }
+                        a {
+                            .thumb {
+                                margin: 0;
                             }
                         }
                     }
 
                     a {
-                        width: 10px;
+                        height: 90px;
+
+                        .thumb {
+                            height: 50px;
+                            line-height: 50px;
+                            vertical-align: middle;
+
+                            img {
+                                display: inline-block;
+                                vertical-align: middle;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.skills {
+                li {
+                    width: auto;
+
+                    a {
+                        display: block;
+                        padding: 10px 20px;
+
+                        span {
+                            display: block;
+                            font-size: 12px;
+                            width: 100%
+                        }
+                    }
+                }
+            }
+
+            .vocations {
+                display: inline-block;
+                width: calc(100% - 110px);
+                vertical-align: middle;
+            }
+            
+            li {
+                display: inline-block;
+                width: calc(25% - 20px);
+                margin-right: 20px;
+                margin-bottom: 20px;
+                vertical-align: middle;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+                
+                a {
+                    background: #fff;
+                    padding: 20px;
+                    display: block;
+                    border-radius: $border-radius-base;
+                    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+
+                    &.active {
+                        background: #2c3e50;
+                        color: #fff;
+
+                        span {
+                            font-weight: 400;
+                            color: #fff;
+                        }
+                    }
+
+                    .thumb {
+                        width: 40px;
                         display: inline-block;
                         vertical-align: middle;
+                        margin-right: 20px;
+                        
+                        img {
+                            max-width: 40px;
+                            max-height: 50px;
+                        }
+                    }
+                    
+                    span {
+                        display: inline-block;
+                        vertical-align: middle;
+                        width: calc(100% - 65px);
+                        font-size: 16px;
+                        font-weight: 300;
+                        color: #888;
                     }
                 }
             }
+        }
+    }
+    
+    .highscore-loading {
+        padding: 20px;
+        display: block;
+        margin-top: 40px;
 
-            .world {
-                display: inline-block;
-                width: calc(50% - 10px);
-                vertical-align: middle;
+        .loader {
+            vertical-align: middle;
+            margin-right: 20px;
+            height: 40px;
+            width: 40px;
+            border-color: #888;
+            border-top-color: transparent;
+        }
 
-                b {
-                    font-weight: 400;
-                    display: block;
-                }
+        .loading-text {
+            display: inline-block;
+            vertical-align: middle;
+            font-weight: 300;
+            font-size: 18px;
+            font-style: italic;
+            color: #888;
 
-                span {
-                    font-size: 12px;
-                    font-weight: 300;
-                    display: block;
-                }
+            small {
+                display: block;
+                font-size: 12px;
+                text-align: left;
             }
+        }
+    }
 
-            .advances {
-                display: inline-block;
-                width: 50%;
-                vertical-align: middle;
-                text-align: right;
-
-                b {
-                    font-weight: 600;
-                    display: block;
-                    color: #27ae60;
-
-                    &.loose {
-                        color: #e74c3c;
-                    }
-                }
-
-                span {
-                    font-size: 12px;
+    .filter {
+        .el-select {
+            .el-input {
+                .el-input__inner {
+                    height: 50px;
+                    line-height: 50px;
                     font-weight: 300;
-                    display: block;
-                }
-            }
-
-            .skills {
-                display: inline-block;
-                width: 50%;
-                vertical-align: middle;
-                text-align: right;
-
-                b {
-                    font-weight: 700;
-                    display: block;
-                    font-size: 20px;
-                }
-
-                span {
-                    font-size: 12px;
-                    font-weight: 300;
-                    display: block;
-                }
-            }
-
-            .btn {
-                &.btn-xs {
-                    padding: 6px 15px;
                 }
             }
         }
     }
 
     .highscores {
-        table {
-            &.table {
-                margin: 0;
+        .el-table {
+            border: 0;
 
-                tbody {
-                    tr {
-                        &:first-child {
-                            td {
-                                border-top: 0;
-                            }
+            &::before,
+            &::after {
+                background-color: #fff;
+            }
+
+            tr {
+                background-color: #fff;
+            }
+
+            .el-table__header-wrapper {
+                tr {
+                    th {
+                        padding: 12px;
+                        border-bottom: 1px solid #eee;
+                        background-color: #fff;
+
+                        .cell {
+                            padding: 0;
+                            color: #444;
+                            vertical-align: middle;
+                            font-size: 12px;
+                            text-transform: uppercase;
+                            background: none;
                         }
                     }
                 }
+            }
 
-                .player {
-                    .rank {
-                        .rank-badge {
-                            font-size: 12px;
-                            font-weight: 300;
-                            background: #f39c12;
-                            color: #fff;
-                            text-align: center;
-                            height: 30px;
-                            width: 30px;
-                            line-height: 30px;
-                            border-radius: 100%;
+            .el-table__body-wrapper {
+
+                .el-table__row {
+                    td {
+                        padding: 12px;
+                        border-color: #eee;
+
+                        .cell {
+                            padding: 0;
+                            vertical-align: middle;
+                            color: #636b6f;
                         }
-                    }
 
-                    .details {
-                        .name {
-                            display: block;
-                            font-weight: 400;
-                            font-size: 14px;
+                        &.details {
+                            .rank {
+                                display: inline-block;
+                                height: 30px;
+                                line-height: 30px;
+                                width: 30px;
+                                background: #f39c12;
+                                text-align: center;
+                                border-radius: 100%;
+                                margin-right: 15px;
+                                color: #fff;
+                                font-weight: 300;
+                                font-size: 12px;
+                            }
 
+                            .name {
+                                display: inline-block;
+                                vertical-align: middle;
+                                width: calc(100% - 55px);
+
+                                a {
+                                    font-weight: 600;
+                                    font-size: 14px;
+                                    display: block;
+                                }
+
+                                span {
+                                    display: block;
+                                    font-weight: 300;
+                                    font-size: 12px;
+                                }
+                            }
+                        }
+
+                        &.skill {
+                            b {
+                                display: block;
+                                font-size: 20px;
+                                font-weight: 700;
+                            }
+
+                            span {
+                                display: block;
+                                font-size: 12px;
+                                font-weight: 300;
+                            }
+                        }
+
+                        &.level {
+                            padding-right: 50px;
+
+                            .progress-label {
+                                display: block;
+                                margin-bottom: 5px;
+
+                                b {
+                                    display: inline-block;
+                                    width: calc(50% - 5px);
+                                    vertical-align: middle;
+                                    font-size: 12px;
+                                    font-weight: 300;
+                                }
+
+                                span {
+                                    display: inline-block;
+                                    text-align: right;
+                                    vertical-align: middle;
+                                    font-weight: 700;
+                                    width: 50%;
+                                    font-size: 16px;
+                                }
+                            }
+
+                            .el-progress {
+                                margin-bottom: 4px;
+                            }
+                        }
+
+                        &.world {
                             a {
-                                color: inherit;
+                                font-weight: 400;
+                                font-size: 14px;
+                                display: block;
+                            }
+
+                            span {
+                                display: block;
+                                font-weight: 300;
+                                font-size: 12px;
                             }
                         }
 
-                        .vocation {
-                            font-size: 12px;
-                            font-weight: 300;
-                            display: block;
-                        }
-                    }
-
-                    .level,
-                    .experience,
-                    .world {
-                        b {
-                            font-weight: 700;
-                            display: block;
-                            font-size: 16px;
-                        }
-
-                        span {
-                            display: block;
-                            font-size: 12px;
-                            font-weight: 300;
-                        }
-                    }
-
-                    .experience,
-                    .world {
-                        b {
-                            font-size: 14px;
-                            font-weight: 400;
-                        }
-                    }
-
-                    .advances {
-                        b {
-                            color: #27ae60;
-                            display: block;
-
-                            &.loose {
-                                color: #e74c3c;
+                        &.buttons {
+                            .btn {
+                                padding: 5px 12px;
+                                font-weight: 300;
+                                font-size: 12px;
                             }
                         }
 
-                        span {
-                            font-size: 12px;
-                            display: block;
-                            font-weight: 300;
+                        &.advance {
+                            b {
+                                font-weight: 600;
+                                display: block;
+                                color: #27ae60;
+
+                                &.loose {
+                                    color: #e74c3c;
+                                }
+                            }
                         }
                     }
                 }
@@ -267,6 +325,24 @@
             font-weight: 300;
             padding: 0 25px;
             font-size: 14px;
+        }
+    }
+}
+
+.highscores-world-popper {
+    .el-select-dropdown__item {
+        height: auto;
+
+        b {
+            display: block;
+            font-weight: 400;
+            margin-bottom: 3px;
+        }
+
+        span {
+            display: block;
+            font-weight: 300;
+            font-size: 10px;
         }
     }
 }

@@ -26,8 +26,8 @@ Route::get('imbuements', 'ImbuementController@index');
 
 Route::post('contact', 'PageController@sendContact');
 
-Route::get('mvp/{mvp}', 'MVPController@show');
-Route::post('mvp', 'MVPController@calculate');
+//Route::get('mvp/{mvp}', 'MVPController@show');
+//Route::post('mvp', 'MVPController@calculate');
 
 /**
  * CreatureController routes.
@@ -109,6 +109,8 @@ Route::get('highscores/skills/{type?}', 'HighscoresController@skills');
  * PlayerController routes.
  */
 Route::get('players/{name}', 'PlayersController@show');
+Route::get('players/{player}/skills', 'PlayersController@skills');
+Route::get('players/{player}/experience', 'PlayersController@experience');
 
 /**
  * All the routes in this group will need to send a Header
@@ -173,7 +175,7 @@ Route::group(['middleware' => 'auth:api', 'prefix' => 'admin'], function () {
      * NewsController routes
      */
     Route::get('posts', 'PostController@index');
-    Route::get('posts/{post}', 'PostController@show');
+    Route::get('posts/{post}', 'PostController@showOne');
     Route::post('posts', 'PostController@store');
     Route::patch('posts/{post}', 'PostController@update');
     Route::delete('posts/{post}', 'PostController@destroy');

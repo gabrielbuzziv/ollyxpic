@@ -5,8 +5,6 @@ import Skills from './views/Skills'
 export default [
     {
         path: '/highscores',
-        name: 'highscores',
-        redirect: { name: 'highscores.experience' },
         component: Highscores,
         children: [
             {

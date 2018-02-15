@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\HighscoreMigration;
 use App\Highscores;
 use App\World;
 use Carbon\Carbon;
@@ -18,27 +19,21 @@ class HighscoresController extends ApiController
      */
     public function experience()
     {
-        $date = (new Highscores)
-            ->select(DB::raw("max(updated_at) as date"))
-            ->where('active', 1)
-
-            ->where('type', 'experience')
-            ->first()
-            ->date;
         $world = request('world') ? World::where('name', request('world'))->first()->id : null;
+        $migration = (new HighscoreMigration)
+            ->where('type', 'experience')
+            ->where('active', 1)
+            ->orderBy('migration_date', 'desc')
+            ->first();
 
         $highscores = (new Highscores)
             ->with('world')
-            ->with('weekExperience')
-            ->where('type', 'experience')
-            ->where(function ($query) use ($world) {
-                if ($world)
-                    $query->where('world_id', $world);
-            })
+            ->where('migration_id', $migration->id)
             ->whereIn('vocation', $this->getVocation())
-            ->where('updated_at', $date)
+            ->when($world, function ($query) use ($world) {
+                $query->where('world_id', $world);
+            })
             ->orderBy('experience', 'desc')
-            ->orderBy('name', 'asc')
             ->take(300)
             ->get();
 
@@ -52,24 +47,25 @@ class HighscoresController extends ApiController
      */
     public function skills()
     {
-        $date = (new Highscores)
-            ->select(DB::raw("max(updated_at) as date"))
-            ->where('active', 1)
-            ->where('type', request('skill'))
-            ->first()
-            ->date;
         $world = request('world') ? World::where('name', request('world'))->first()->id : null;
+        $migration = (new HighscoreMigration)
+            ->where('type', request('skill'))
+            ->where('active', 1)
+            ->orderBy('migration_date', 'desc')
+            ->first();
 
         $highscores = (new Highscores)
             ->with('world')
+            ->where('migration_id', $migration->id)
             ->where('type', request('skill'))
-            ->where(function ($query) use ($world) {
-                if ($world)
-                    $query->where('world_id', $world);
+            ->when($world, function ($query) use ($world) {
+                $query->where('world_id', $world);
             })
-            ->where('updated_at', $date)
-            ->orderBy('level', 'desc')
-            ->orderBy('name', 'asc')
+            ->when(in_array(request('skill'), ['achievements', 'loyalty']), function ($query) {
+                $query->orderBy('experience', 'desc');
+            }, function ($query) {
+                $query->orderBy('level', 'desc');
+            })
             ->take(300)
             ->get();
 

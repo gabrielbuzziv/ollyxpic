@@ -1,5 +1,5 @@
 <template>
-    <experience :leaders="leaders" :highscores="highscores" :loading="loading" />
+    <experience :highscores="highscores" :loading="loading" />
 </template>
 
 <script>
@@ -12,7 +12,6 @@
         data () {
             return {
                 loading: true,
-                leaders: [],
                 highscores: []
             }
         },
@@ -36,8 +35,7 @@
                 services.getHighscores(vocation, world)
                     .then(response => {
                         this.loading = false
-                        this.leaders = response.data.slice(0, 3)
-                        this.highscores = response.data.slice(3)
+                        this.highscores = response.data
                     })
                     .catch(() => this.loading = false)
             }
