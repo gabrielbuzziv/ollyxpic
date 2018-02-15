@@ -1,123 +1,77 @@
-.imbuements-form {
-    .items {
-        .item {
-            background: #f3f3f3;
-            padding: 10px;
-
-            h4 {
-                margin: 0 0 20px;
-            }
-
-            .form-group {
-                &:last-child {
-                    margin-bottom: 0;
-                }
-            }
-        }
-    }
-}
-
 #imbuements {
-    .gold-token {
-        .form-control {
-            height: 50px;
-            line-height: 50px;
-            font-weight: 300;
-        }
+    .table {
+        &.imbuements {
+            tr {
+                td {
+                    .title {
+                        font-weight: 400;
+                        display: block;
+                    }
 
-        .form-label {
-            font-weight: 300;
-            display: block;
-            margin-bottom: 5px;
-            font-size: 12px;
-        }
+                    .subtitle {
+                        display: block;
+                        font-size: 12px;
+                        font-weight: 300;
+                        color: #888;
+                    }
 
-        .el-input-number {
-            width: 100%;
+                    select {
+                        height: 50px;
+                        line-height: 50px;
+                        font-weight: 300;
+                        width: 70px;
+                    }
 
-            .el-input-number__increase,
-            .el-input-number__decrease {
-                height: 48px;
-                line-height: 48px;
-            }
+                    &.item {
+                        width: 195px;
 
-            .el-input {
-                .el-input__inner {
-                    height: 50px;
-                    line-height: 50px;
-                    font-weight: 400;
-                }
-            }
-        }
+                        .price {
+                            display: inline-block;
+                            vertical-align: middle;
+                        }
 
-        .el-checkbox {
-            margin-top: 36px;
-            display: inline-block;
-            vertical-align: middle;
+                        .input-group {
+                            width: 120px;
 
-            .el-checkbox__label {
-                font-weight: 300;
-            }
-        }
+                            .input-group-addon {
+                                background: #fff;
+                                padding: 5px;
 
-        .el-switch {
-            display: inline-block;
-            vertical-align: middle;
-            margin-top: 10px;
-        }
+                                &.disabled {
+                                    background: #eee;
+                                }
+                            }
 
-        .el-radio-group {
-            width: 100%;
+                            input {
+                                height: 50px;
+                                line-height: 50px;
+                                font-weight: 300;
+                                text-align: right;
+                                border-left: 0;
+                                box-shadow: none;
 
-            .el-radio-button {
-                margin: 0;
-                width: 33%;
+                                &:focus,
+                                &:active,
+                                &:hover {
+                                    outline: 0 !important;
+                                    box-shadow: none;
+                                    border-color: #ccd0d2;
+                                }
+                            }
+                        }
 
-                .el-radio-button__inner {
-                    font-weight: 300;
-                    height: 50px;
-                    line-height: 50px;
-                    width: 100%;
-                    padding: 0 20px;
-                }
-            }
-        }
+                        .gold-token {
+                            display: inline-block;
+                            vertical-align: middle;
+                            background: none;
+                            border: 0;
+                            opacity: 0.3;
 
-        .el-switch {
-            padding: 14px 0;
-
-            .el-switch__label {
-                top: 50%;
-                font-weight: 300;
-
-                span {
-                    font-size: 12px;
-                    line-height: 15px;
-                }
-            }
-        }
-    }
-
-    table {
-        tr {
-            td {
-                p {
-                    font-size: 12px;
-                    margin: 0;
-                }
-
-                small {
-                    font-size: 11px;
-                }
-
-                input:not(.normal), select {
-                    height: 50px;
-                }
-
-                .best {
-                    font-size: 10px;
-                    text-transform: uppercase;
-                    font-weight: 700;
+                            &.active {
+                                opacity: 1;
+                            }
+                        }
+                    }
                 }
             }
         }
