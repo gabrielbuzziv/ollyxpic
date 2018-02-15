@@ -26,7 +26,7 @@ class PlayersController extends ApiController
             ->first();
 
         if ($player) {
-            if (Carbon::now()->diffInMinutes($player->updated_at) >= 15) {
+            if (Carbon::now()->diffInMinutes($player->updated_at) >= 60) {
                 $api = $this->getPlayer($name);
                 $this->updatePlayer($player, $api);
                 $this->updateHighscores($player);
@@ -44,8 +44,6 @@ class PlayersController extends ApiController
         $player = new Player();
         $this->updatePlayer($player, $api);
         $this->updateHighscores($player);
-
-        dd(Player::with(['world', 'deaths'])->find($player->id)->toArray());
 
         return $this->respond(Player::with(['world', 'deaths'])->find($player->id)->toArray());
     }

@@ -14,14 +14,10 @@
 
             <img :src="`/src/assets/images/${thumb}`" class="margin-right-15 big">
             <div class="title">
-                <h2>{{ character.name }}</h2>
-                <span>{{ character.vocation }}</span>
+                <h2>{{ character.name || queryName }}</h2>
+                <span>{{ character.vocation || 'Vocation' }}</span>
             </div>
         </page-title>
-
-        <div class="alert alert-warning">
-            We're still working on this tool, some performance issues or bugs can occur.
-        </div>
 
         <character :character="character" :experience="experience" :skills="skills" :loadingSkills="loadingSkills" />
 
@@ -79,7 +75,7 @@
                 </form>
             </div>
 
-            <img :src="outfit('Mage Outfits')" alt="" class="margin-right-15">
+            <img src="src/assets/images/sorcerer.svg" alt="" class="margin-right-15 big">
             <div class="title">
                 <h2>Player</h2>
                 <span>Details & Statistics</span>
@@ -121,6 +117,10 @@
         },
 
         computed: {
+            queryName () {
+                return this.$route.params.name
+            },
+
             character () {
                 return this.player
                     ? this.player

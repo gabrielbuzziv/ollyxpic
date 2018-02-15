@@ -46,10 +46,10 @@
                 <div class="data">
                     <b>Married to</b>
                     <span>
-                            <router-link :to="{ name: 'tools.players', params: { name: character.married_to } }">
-                                {{ character.married_to }}
-                            </router-link>
-                        </span>
+                        <router-link :to="{ name: 'tools.players', params: { name: character.married_to } }">
+                            {{ character.married_to }}
+                        </router-link>
+                    </span>
                 </div>
             </div>
         </panel>
@@ -85,8 +85,6 @@
                 <i class="mdi mdi-login icon"></i>
                 <div class="data">
                     <b>Last Login</b>
-                    <pre>{{ character.last_login }}</pre>
-
                     <span>{{ character.last_login | dateForHuman }}</span>
                 </div>
             </div>
