@@ -12,7 +12,9 @@
             <p class="margin-bottom-0">
                 You can contact me ingame by sending a letter to
                 <a href="https://secure.tibia.com/community/?subtopic=characters&name=Lennart the smith" class="text-danger" target="_blank">Lennart the smith</a> on
-                <a href="https://secure.tibia.com/community/?subtopic=worlds&world=Harmonia" class="text-danger" target="_blank">Harmonia</a>,
+                <a href="https://secure.tibia.com/community/?subtopic=worlds&world=Harmonia" class="text-danger" target="_blank">Harmonia</a> or to
+                <a href="https://secure.tibia.com/community/?subtopic=characters&name=Ollyxpic" class="text-danger" target="_blank">Ollyxpic</a> on
+                <a href="https://secure.tibia.com/community/?subtopic=worlds&world=Beneva" class="text-danger" target="_blank">Beneva</a>,
 				 This is the best option since i'm more active in Tibia.
             </p>
         </panel>
