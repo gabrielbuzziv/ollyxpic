@@ -41,7 +41,7 @@
         <div class="col-md-3">
             <router-link :to="{ name: 'tools.damage.healing' }" slot="anchor">
                 <card title="Damage Calc" subtitle="Damage & Healing" dark>
-                    <img :src="image_path_by_name('item', 'sudden death rune')" slot="icon">
+                    <img :src="image_path_by_name('item', 'avalancherune')" slot="icon">
                     <i class="mdi mdi-chevron-right"></i>
                 </card>
             </router-link>
