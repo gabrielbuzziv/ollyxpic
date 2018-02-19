@@ -42,6 +42,12 @@
                             <img :src="image_path('spell', 72)" alt="">
                         </el-tooltip>
                     </el-radio>
+
+                    <el-checkbox class="margin-left-20" v-model="player.mount">
+                        <el-tooltip content="Mount +10">
+                            <img :src="image_path('creature', 1761)" alt="">
+                        </el-tooltip>
+                    </el-checkbox>
                 </div>
 
                 <div class="col-md-6">
@@ -108,7 +114,8 @@
                     level: 0,
                     bonus: 0,
                     spell: 0,
-                    speed: 0
+                    speed: 0,
+                    mount: false
                 }
             }
         },
@@ -134,10 +141,14 @@
                 }
             },
 
+            mount () {
+                return this.player && this.player.mount === true ? 10 : 0
+            },
+
             speed () {
                 let bonus = parseFloat(this.player.bonus)
                 bonus = bonus != null && bonus != '' && typeof bonus == 'number' ? bonus : 0
-                return Math.floor(this.baseSpeed + bonus + this.spellSpeed)
+                return Math.floor(this.baseSpeed + bonus + this.spellSpeed + this.mount)
             }
         },
 
@@ -151,6 +162,10 @@
             },
 
             'player.spell' () {
+                this.player.speed = this.speed
+            },
+
+            'player.mount' () {
                 this.player.speed = this.speed
             }
         },
