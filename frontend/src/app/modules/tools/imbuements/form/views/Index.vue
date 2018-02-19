@@ -13,29 +13,29 @@
             <p v-html="getSuggestion(imbuement)"></p>
         </div>
 
-        <!--<panel>-->
-            <!--<table class="table">-->
-                <!--<thead>-->
-                    <!--<tr>-->
-                        <!--<th>Total</th>-->
-                        <!--<th>Total/Hour</th>-->
-                        <!--<th>Time Used</th>-->
-                        <!--<th>Value</th>-->
-                    <!--</tr>-->
-                <!--</thead>-->
+        <panel>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Total</th>
+                        <th>Total/Hour</th>
+                        <th>Time Used</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
 
-                <!--<tbody>-->
-                    <!--<tr>-->
-                        <!--<td>-->
-                            <!--Material + Protection + Fees-->
-                        <!--</td>-->
-                        <!--<td></td>-->
-                        <!--<td></td>-->
-                        <!--<td></td>-->
-                    <!--</tr>-->
-                <!--</tbody>-->
-            <!--</table>-->
-        <!--</panel>-->
+                <tbody>
+                    <tr>
+                        <td>
+                            Material + Protection + Fees
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </panel>
 
         <panel>
             <input type="text" v-model="goldToken">
@@ -103,21 +103,30 @@
 
             getSuggestion (imbuement) {
                 const total = this.calculateImbuementTotal(imbuement)
-                const save = (total.total - total.token.price).format()
+                const save = (total.total - total.token.price)
                 let items = ''
+                let materials = ''
 
                 switch (total.token.tier) {
                     case 'basic':
                         items  = `${imbuement.items[0].amount} ${imbuement.items[0].item.title}`
-                        return `Save <b>${save} gps</b> by buying the basic items (${items}) using gold tokens.`
+                        materials = `${imbuement.items[1].amount} ${imbuement.items[1].item.title} + ${imbuement.items[2].amount} ${imbuement.items[2].item.title}`
+                        return `
+                            Save <b>${save.format()} gps</b> by buying the basic items (${items}) using 2 gold tokens.
+                            <b>(2 gold tokens + ${materials})</b>
+                        `
                     case 'intricate':
                         items  = `${imbuement.items[0].amount} ${imbuement.items[0].item.title} & ${imbuement.items[1].amount} ${imbuement.items[1].item.title}`
-                        return `Save <b>${save} gps</b> by buying the intricate items (${items}) using gold tokens.`
+                        materials = `${imbuement.items[2].amount} ${imbuement.items[2].item.title}`
+                        return `
+                            Save <b>${save.format()} gps</b> by buying the intricate items (${items}) using 4 gold tokens.
+                            <b>(4 gold tokens + ${materials})</b>
+                        `
                     case 'powerful':
                         items  = `${imbuement.items[0].amount} ${imbuement.items[0].item.title}
                         & ${imbuement.items[1].amount} ${imbuement.items[1].item.title}
                         & ${imbuement.items[2].amount} ${imbuement.items[2].item.title}`
-                        return `Save <b>${save} gps</b> by buying the powerful items (${items}) using gold tokens.`
+                        return `Save <b>${save.format()} gps</b> by buying the powerful items (${items}) using 6 gold tokens.`
                 }
             },
 
