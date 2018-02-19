@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\HighscoreMigration;
 use App\Highscores;
+use App\HighscoresSkills;
 use App\World;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -54,18 +55,14 @@ class HighscoresController extends ApiController
             ->orderBy('migration_date', 'desc')
             ->first();
 
-        $highscores = (new Highscores)
+        $highscores = (new HighscoresSkills())
             ->with('world')
             ->where('migration_id', $migration->id)
             ->where('type', request('skill'))
             ->when($world, function ($query) use ($world) {
                 $query->where('world_id', $world);
             })
-            ->when(in_array(request('skill'), ['achievements', 'loyalty']), function ($query) {
-                $query->orderBy('experience', 'desc');
-            }, function ($query) {
-                $query->orderBy('level', 'desc');
-            })
+            ->orderBy('skill', 'desc')
             ->take(300)
             ->get();
 

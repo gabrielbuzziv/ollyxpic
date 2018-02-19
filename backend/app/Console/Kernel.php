@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\HighscoresCommand::class,
+        Commands\HighscoresSkillsCommand::class,
     ];
 
     /**
@@ -25,16 +26,16 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('ollyxpic:highscores')->dailyAt('04:00');
-        $schedule->command('ollyxpic:highscores', ['magic'])->dailyAt('04:00');
-        $schedule->command('ollyxpic:highscores', ['sword'])->dailyAt('04:00');
-        $schedule->command('ollyxpic:highscores', ['axe'])->dailyAt('04:00');
-        $schedule->command('ollyxpic:highscores', ['club'])->dailyAt('04:00');
-        $schedule->command('ollyxpic:highscores', ['distance'])->dailyAt('04:00');
-        $schedule->command('ollyxpic:highscores', ['shielding'])->dailyAt('04:00');
-        $schedule->command('ollyxpic:highscores', ['achievements'])->dailyAt('04:00');
-        $schedule->command('ollyxpic:highscores', ['loyalty'])->dailyAt('04:00');
-        $schedule->command('ollyxpic:highscores', ['fist'])->dailyAt('04:00');
-        $schedule->command('ollyxpic:highscores', ['fishing'])->dailyAt('04:00');
+        $schedule->command('ollyxpic:skills', ['magic'])->dailyAt('04:00');
+        $schedule->command('ollyxpic:skills', ['sword'])->dailyAt('04:00');
+        $schedule->command('ollyxpic:skills', ['axe'])->dailyAt('04:00');
+        $schedule->command('ollyxpic:skills', ['club'])->dailyAt('04:00');
+        $schedule->command('ollyxpic:skills', ['distance'])->dailyAt('04:00');
+        $schedule->command('ollyxpic:skills', ['shielding'])->dailyAt('04:00');
+        $schedule->command('ollyxpic:skills', ['achievements'])->dailyAt('04:00');
+        $schedule->command('ollyxpic:skills', ['loyalty'])->dailyAt('04:00');
+        $schedule->command('ollyxpic:skills', ['fist'])->dailyAt('04:00');
+        $schedule->command('ollyxpic:skills', ['fishing'])->dailyAt('04:00');
     }
 
     /**

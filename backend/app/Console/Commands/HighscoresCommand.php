@@ -16,7 +16,7 @@ class HighscoresCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'ollyxpic:highscores {type=experience}';
+    protected $signature = 'ollyxpic:highscores';
 
     /**
      * The console command description.
@@ -73,12 +73,12 @@ class HighscoresCommand extends Command
     {
         $this->date = Carbon::today()->subDay();
         (new HighscoreMigration())
-            ->where('type', $this->argument('type'))
+            ->where('type', 'experience')
             ->where('migration_date', $this->date)
             ->delete();
 
         $this->migration = HighscoreMigration::create([
-            'type'           => $this->argument('type'),
+            'type'           => 'experience',
             'results'        => 0,
             'active'         => 0,
             'migration_date' => $this->date
@@ -89,25 +89,39 @@ class HighscoresCommand extends Command
         foreach ($vocations as $vocation) {
             $worlds = World::orderBy('name', 'asc')->get();
             $worlds->each(function ($world) use ($vocation) {
-                $highscores = file_get_contents("https://api.tibiadata.com/v2/highscores/{$world->name}/{$this->argument('type')}/{$vocation}.json");
+                $start = microtime(true);
+
+                $highscores = file_get_contents("https://api.tibiadata.com/v2/highscores/{$world->name}/experience/{$vocation}.json");
                 $highscores = json_decode($highscores);
                 $highscores = $highscores->highscores->data;
 
-                array_walk($highscores, function ($highscore) use ($world) {
+                array_walk($highscores, function ($highscore) use ($world, $start) {
                     Highscores::create([
                         'rank'         => $highscore->rank,
                         'name'         => $highscore->name,
                         'vocation'     => $highscore->voc,
-                        'experience'   => in_array($this->argument('type'), ['experience', 'loyalty', 'achievements']) ? $highscore->points : 0,
+                        'experience'   => isset($highscore->points) ? $highscore->points : 0,
                         'level'        => isset($highscore->level) ? $highscore->level : 0,
                         'world_id'     => $world->id,
                         'updated_at'   => $this->date,
                         'migration_id' => $this->migration->id,
                         'active'       => 0,
-                        'type'         => $this->argument('type'),
+                        'type'         => 'experience',
                     ]);
 
                     $this->results = $this->results + 1;
+                    $percentage = ($this->results * 100) / 76800;
+                    $time = microtime(true) - $start;
+                    $remains = number_format((($time * 256) - ($percentage * ($time * 256)) / 100) / 60, 2);
+                    $minutes = floor($remains);
+                    $seconds = round(60 * ($remains - $minutes));
+                    $remains = "{$minutes}:$seconds";
+
+                    if (is_int($percentage) == 1) {
+                        system('clear');
+                        $this->info("{$percentage}% completed of 100%.");
+                        $this->info("Time remains: {$remains} minutes.");
+                    }
                 });
             });
         }
@@ -120,5 +134,10 @@ class HighscoresCommand extends Command
             ->where('updated_at', $this->date)
             ->where('type', 'experience')
             ->update(['active' => 1]);
+
+        (new HighscoreMigration())
+            ->where('type', 'experience')
+            ->where('migration_date', '<', $this->date)
+            ->delete();
     }
 }
