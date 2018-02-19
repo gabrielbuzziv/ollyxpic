@@ -5,7 +5,7 @@
 
             <div class="rate">
                 <div class="data">
-                    <b>{{ loyalty.experience }}</b>
+                    <b>{{ loyalty.skill }}</b>
                     <span>points</span>
                 </div>
 
