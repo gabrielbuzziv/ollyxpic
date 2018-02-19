@@ -1,5 +1,6 @@
 var path    = require('path')
 var webpack = require('webpack')
+const Dotenv = require('dotenv-webpack')
 
 module.exports = {
     entry: './src/main.js',
@@ -7,10 +8,6 @@ module.exports = {
         path: path.resolve(__dirname, './dist'),
         publicPath: '/dist/',
         filename: 'build.js',
-        // path: path.resolve(__dirname, './dist', '[hash]'),
-        // publicPath: '/dist/[hash]/',
-        // filename: '[hash].build.js',
-        // chunkFilename: '[id].[hash].build.js',
     },
     module: {
         rules: [
@@ -71,6 +68,11 @@ module.exports = {
     },
     devtool: '#eval-source-map',
     plugins: [
+        new Dotenv({
+            path:'./.env',
+            sage: true
+        }),
+
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery"

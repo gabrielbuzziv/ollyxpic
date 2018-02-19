@@ -5,7 +5,8 @@ import { isEmpty } from 'lodash'
 
 window.axios = axios
 
-const baseURL = window.location.href.split('/')[2].includes('ollyxpic') ? 'http://api.ollyxpic.com' : 'http://localhost:8888'
+// const baseURL = window.location.href.split('/')[2].includes('ollyxpic') ? 'http://api.ollyxpic.com' : 'http://localhost:8888'
+const baseURL = process.env.API_URL
 
 window.axios = axios.create({
     baseURL: `${baseURL}/api`,
