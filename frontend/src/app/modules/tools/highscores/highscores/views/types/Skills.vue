@@ -13,7 +13,8 @@
         <panel class="highscores">
             <el-table
                     :data="highscoresWithRank"
-                    :default-sort="{ prop: 'level', order: 'descending' }">
+                    :default-sort="{ prop: 'level', order: 'descending' }"
+                    empty-text="We're sorry, but we don't find any highscores.">
                 <el-table-column prop="name" label="Character" class-name="details" width="300">
                     <template slot-scope="scope">
                         <div class="rank">
@@ -32,9 +33,9 @@
                     </template>
                 </el-table-column>
 
-                <el-table-column :prop="valueProp" label="Skills" class-name="skill" sortable>
+                <el-table-column :prop="skill" label="Skills" class-name="skill" sortable>
                     <template slot-scope="scope">
-                        <b>{{ useExperience ? scope.row.experience : scope.row.level }}</b>
+                        <b>{{ scope.row.skill }}</b>
                         <span>{{ skillLabel }}</span>
                     </template>
                 </el-table-column>
@@ -101,6 +102,8 @@
 
             skillLabel () {
                 switch (this.skill) {
+                    case 'magic':
+                        return 'Magic Level'
                     case 'axe':
                         return 'Axe Fighting'
                     case 'club':

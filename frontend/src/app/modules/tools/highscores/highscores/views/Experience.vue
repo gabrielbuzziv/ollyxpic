@@ -30,6 +30,7 @@
             load () {
                 const vocation = this.$route.params.vocation ? this.$route.params.vocation : null
                 const world = this.$route.params.world ? this.$route.params.world : null
+                this.highscores = []
 
                 this.loading = true
                 services.getHighscores(vocation, world)

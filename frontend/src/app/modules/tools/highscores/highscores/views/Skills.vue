@@ -12,7 +12,6 @@
         data () {
             return {
                 loading: true,
-                leaders: [],
                 highscores: []
             }
         },
@@ -31,13 +30,13 @@
             load () {
                 const skill = this.$route.params.skill ? this.$route.params.skill : null
                 const world = this.$route.params.world ? this.$route.params.world : null
+                this.highscores = []
 
                 this.loading = true
                 services.getSkillHighscores(skill, world)
                     .then(response => {
                         this.loading = false
-                        this.leaders = response.data.slice(0, 3)
-                        this.highscores = response.data.slice(3)
+                        this.highscores = response.data
                     })
                     .catch(() => this.loading = false)
             }
