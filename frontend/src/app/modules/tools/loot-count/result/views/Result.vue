@@ -383,7 +383,7 @@
             },
 
             share () {
-                return `http://www.ollyxpic.com${this.$route.fullPath}`
+                return `http://www.ollyxpic.com/#${this.$route.fullPath}`
             },
         },
 
