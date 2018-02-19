@@ -18,13 +18,13 @@
             </select>
         </td>
         <td class="item">
-            <imbuement-price :imbuement="imbuement" :item="basic" tier="basic" :gold-token="goldToken" />
+            <imbuement-price :imbuement="imbuement" :item="basic" tier="basic" />
         </td>
         <td class="item">
-            <imbuement-price :imbuement="imbuement" :item="intricate" tier="intricate" :gold-token="goldToken" />
+            <imbuement-price :imbuement="imbuement" :item="intricate" tier="intricate" />
         </td>
         <td class="item">
-            <imbuement-price :imbuement="imbuement" :item="powerful" tier="powerful" :gold-token="goldToken" />
+            <imbuement-price :imbuement="imbuement" :item="powerful" tier="powerful" />
         </td>
         <td>
             <el-switch off-text="" on-text="" v-model="imbuement.protection" />
@@ -36,7 +36,7 @@
     import ImbuementPrice from './ImbuementPrice'
 
     export default {
-        props: ['imbuement', 'goldToken'],
+        props: ['imbuement'],
 
         components: { ImbuementPrice },
 

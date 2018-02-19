@@ -8,29 +8,35 @@
             </div>
         </page-title>
 
-        <panel>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Imbuement</th>
-                        <th>Amount</th>
-                        <th>Material</th>
-                        <th>Protection Charm</th>
-                        <th>Tax</th>
-                    </tr>
-                </thead>
+        <div class="alert alert-info" v-if="isTokenWorth(imbuement)" v-for="imbuement in selectedImbuements">
+            <h4>{{ imbuement.title }}</h4>
+            {{ isTokenWorth(imbuement) }}
+            <p>{{ getSuggestion(imbuement) }}</p>
+        </div>
 
-                <tbody>
-                    <tr v-for="imbuement in selectedImbuements">
-                        <td>{{ imbuement.title }}</td>
-                        <td>{{ imbuement.amount }}</td>
-                        <td></td>
-                        <td>{{ imbuement.protection }}</td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-        </panel>
+        <!--<panel>-->
+            <!--<table class="table">-->
+                <!--<thead>-->
+                    <!--<tr>-->
+                        <!--<th>Total</th>-->
+                        <!--<th>Total/Hour</th>-->
+                        <!--<th>Time Used</th>-->
+                        <!--<th>Value</th>-->
+                    <!--</tr>-->
+                <!--</thead>-->
+
+                <!--<tbody>-->
+                    <!--<tr>-->
+                        <!--<td>-->
+                            <!--Material + Protection + Fees-->
+                        <!--</td>-->
+                        <!--<td></td>-->
+                        <!--<td></td>-->
+                        <!--<td></td>-->
+                    <!--</tr>-->
+                <!--</tbody>-->
+            <!--</table>-->
+        <!--</panel>-->
 
         <panel>
             <input type="text" v-model="goldToken">
@@ -51,7 +57,6 @@
 
                 <tbody>
                     <imbuement :imbuement="imbuement"
-                               :gold-token="goldToken"
                                :key="imbuement.id"
                                v-for="imbuement in imbuements"/>
                 </tbody>
@@ -80,6 +85,91 @@
             }
         },
 
+        methods: {
+            calculateMaterial (imbuement, tier) {
+                let price = 0
+                const amount = imbuement.items.filter(item => item.tier == tier)[0].amount
+                switch (tier) {
+                    case 1:
+                        price = ! this.isEmpty(imbuement.basic) ? parseInt(imbuement.basic) : 0
+                        return amount * imbuement.basic
+                    case 2:
+                        price = ! this.isEmpty(imbuement.intricate) ? parseInt(imbuement.intricate) : 0
+                        return amount * imbuement.intricate
+                    case 3:
+                        price = ! this.isEmpty(imbuement.powerful) ? parseInt(imbuement.powerful) : 0
+                        return amount * imbuement.powerful
+                }
+            },
+
+            getSuggestion (imbuement) {
+                const total = this.calculateImbuementTotal(imbuement)
+
+                const economize = total.total - total.token.price
+                switch (total.token.tier) {
+                    case 'basic':
+                        return `We recommend you to buy the basic tier materials of ${imbuement.title} imbuement with gold tokens to ecomonize ${economize} gps`
+                    case 'intricate':
+                        return `We recommend you to buy the basic and intricate tier materials of ${imbuement.title} imbuement with gold tokens to ecomonize ${economize} gps`
+                    case 'powerful':
+                        return `We recommend you to buy materials of ${imbuement.title} imbuement with gold tokens to ecomonize ${economize} gps`
+                }
+            },
+
+            calculateImbuementTotal (imbuement) {
+                const token = this.goldToken ? this.compareGoldToken(imbuement) : 0
+                const basic = this.calculateMaterial(imbuement, 1)
+                const intricate = this.calculateMaterial(imbuement, 2)
+                const powerful = this.calculateMaterial(imbuement, 3)
+                const total = basic + intricate + powerful
+
+                if (! this.isEmpty(imbuement.basic) && ! this.isEmpty(imbuement.intricate) && ! this.isEmpty(imbuement.powerful)) {
+                    return { total, token }
+                }
+
+                if (! this.isEmpty(imbuement.basic) && ! this.isEmpty(imbuement.intricate)) {
+                    return { total, token }
+                }
+
+                if (! this.isEmpty(imbuement.basic)) {
+                    return { total, token }
+                }
+            },
+
+            compareGoldToken (imbuement) {
+                const basic = this.calculateMaterial(imbuement, 1)
+                const intricate = this.calculateMaterial(imbuement, 2)
+                const powerful = this.calculateMaterial(imbuement, 3)
+
+                if (! this.isEmpty(imbuement.powerful)) {
+                    if ((powerful + intricate + basic) > (this.goldToken * 6)) return { tier: 'powerful', price: this.goldToken * 6 }
+                    if ((intricate + basic) > (this.goldToken * 4)) return { tier: 'intricate', price: (this.goldToken * 4) + powerful }
+                    if ((basic) > (this.goldToken * 2)) return { tier: 'basic', price: (this.goldToken * 2) + intricate + powerful }
+                }
+
+                if (! this.isEmpty(imbuement.intricate)) {
+                    if ((intricate + basic) > (this.goldToken * 4)) return { tier: 'intricate', price: (this.goldToken * 4) + powerful }
+                    if ((basic) > (this.goldToken * 2)) return { tier: 'basic', price: (this.goldToken * 2) + intricate + powerful }
+                }
+
+                if (! this.isEmpty(imbuement.basic)) {
+                    if ((basic) > (this.goldToken * 2)) return { tier: 'basic', price: (this.goldToken * 2) + intricate + powerful }
+                }
+
+                return 'material is worth'
+            },
+
+            isTokenWorth (imbuement) {
+                const suggestion = this.calculateImbuementTotal(imbuement)
+                const token = ! this.isEmpty(suggestion) ? suggestion.token : null
+                return typeof token == 'object' && token != null ? true : false
+            },
+
+            isEmpty (value) {
+                return value == '' || value == null
+            }
+        },
+
         mounted () {
             services.fecthImbuements()
                 .then(response => {
@@ -87,18 +177,9 @@
                         return {
                             ...imbuement,
                             amount: 0,
-                            basic: {
-                                price: 0,
-                                token: false
-                            },
-                            intricate: {
-                                price: 0,
-                                token: false
-                            },
-                            powerful: {
-                                price: 0,
-                                token: false
-                            },
+                            basic: '',
+                            intricate: '',
+                            powerful: '',
                             protection: false
                         }
                     })
