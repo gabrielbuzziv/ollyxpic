@@ -10,11 +10,7 @@ Vue.mixin({
 
     computed: {
         baseURL () {
-            if (window.location.href.split('/')[2].includes('ollyxpic')) {
-                return 'http://api.ollyxpic.com'
-            }
-
-            return 'http://localhost:8888';
+            return process.env.API_URL;
         },
     },
 
