@@ -10,8 +10,7 @@
 
         <div class="alert alert-info" v-if="isTokenWorth(imbuement)" v-for="imbuement in selectedImbuements">
             <h4>{{ imbuement.title }}</h4>
-            {{ isTokenWorth(imbuement) }}
-            <p>{{ getSuggestion(imbuement) }}</p>
+            <p v-html="getSuggestion(imbuement)"></p>
         </div>
 
         <!--<panel>-->
@@ -104,15 +103,21 @@
 
             getSuggestion (imbuement) {
                 const total = this.calculateImbuementTotal(imbuement)
+                const save = (total.total - total.token.price).format()
+                let items = ''
 
-                const economize = total.total - total.token.price
                 switch (total.token.tier) {
                     case 'basic':
-                        return `We recommend you to buy the basic tier materials of ${imbuement.title} imbuement with gold tokens to ecomonize ${economize} gps`
+                        items  = `${imbuement.items[0].amount} ${imbuement.items[0].item.title}`
+                        return `Save <b>${save} gps</b> by buying the basic items (${items}) using gold tokens.`
                     case 'intricate':
-                        return `We recommend you to buy the basic and intricate tier materials of ${imbuement.title} imbuement with gold tokens to ecomonize ${economize} gps`
+                        items  = `${imbuement.items[0].amount} ${imbuement.items[0].item.title} & ${imbuement.items[1].amount} ${imbuement.items[1].item.title}`
+                        return `Save <b>${save} gps</b> by buying the intricate items (${items}) using gold tokens.`
                     case 'powerful':
-                        return `We recommend you to buy materials of ${imbuement.title} imbuement with gold tokens to ecomonize ${economize} gps`
+                        items  = `${imbuement.items[0].amount} ${imbuement.items[0].item.title}
+                        & ${imbuement.items[1].amount} ${imbuement.items[1].item.title}
+                        & ${imbuement.items[2].amount} ${imbuement.items[2].item.title}`
+                        return `Save <b>${save} gps</b> by buying the powerful items (${items}) using gold tokens.`
                 }
             },
 
