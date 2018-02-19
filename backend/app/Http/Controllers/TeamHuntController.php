@@ -10,6 +10,7 @@ use App\HuntTeammates;
 use App\Item;
 use \App\Helper\GifFrameExtractor;
 use App\Translation;
+use function GuzzleHttp\Psr7\str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
@@ -593,10 +594,7 @@ class TeamHuntController extends Controller
                 if ( ! $item) {
                     $this->error[] = $name;
                 } else {
-                    if ( ! $amount) {
-                        $amount = (int) ($weight / $item->capacity);
-                    }
-
+                    $amount = ! $amount ? (int) ($weight / $item->capacity) : $amount;
                     $name = $amount > 0 ? "{$amount} {$name}" : $name;
 
                     return [
@@ -607,7 +605,7 @@ class TeamHuntController extends Controller
                         ],
                     ];
                 }
-            }, $items);
+            }, $this->getOnlyItems($items));
         } else {
             $looks = [];
         }
@@ -629,6 +627,20 @@ class TeamHuntController extends Controller
         }
 
         return [];
+    }
+
+    /**
+     * Remove look where is not items.
+     *
+     * @param array $items
+     * @return array
+     */
+    private function getOnlyItems(array $items)
+    {
+        return array_filter($items, function ($item) {
+            return strpos($item[0], 'You see') !== false
+                && strpos($item[0], '(Level ') === false;
+        });
     }
 
     /**
