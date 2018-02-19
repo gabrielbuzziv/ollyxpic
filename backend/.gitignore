@@ -1,13 +1,14 @@
 /node_modules
 /public/hot
 /public/storage
-/storage/log/*
 /storage/*.key
 /storage/laravel.log
 /vendor
 /.idea
+/.vscode
 /.vagrant
 Homestead.json
 Homestead.yaml
 npm-debug.log
+yarn-error.log
 .env
