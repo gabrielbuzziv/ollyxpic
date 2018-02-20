@@ -8,37 +8,62 @@
             </div>
         </page-title>
 
-        <div class="alert alert-info" v-if="isTokenWorth(imbuement)" v-for="imbuement in selectedImbuements">
-            <h4>{{ imbuement.title }}</h4>
-            <p v-html="getSuggestion(imbuement)"></p>
-        </div>
-
-        <panel>
-            <table class="table">
+        <panel v-if="selectedImbuements.length">
+            <table class="table totals">
                 <thead>
                     <tr>
+                        <th>Imbuement</th>
+                        <th>Material</th>
+                        <th>Success Fee</th>
+                        <th>Creation Fee</th>
                         <th>Total</th>
                         <th>Total/Hour</th>
-                        <th>Time Used</th>
-                        <th>Value</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <tr>
+                    <tr v-for="imbuement in selectedImbuements">
                         <td>
-                            Material + Protection + Fees
+                            <div class="label" :class="getTierLabels(getTier(imbuement)).class">
+                                {{ getTierLabels(getTier(imbuement)).label }}
+                            </div>
+                            {{ imbuement.title }}
+
+                            <small class="save" v-html="getMaterial(imbuement).save" v-if="getMaterial(imbuement).save">
+                            </small>
                         </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{ getMaterial(imbuement).price.format() }} gp</td>
+                        <td>{{ getSuccessFee(imbuement).format() }} gp</td>
+                        <td>{{ getCreationFee(imbuement).format() }} gp</td>
+                        <td>{{ getImbuementTotal(imbuement).format() }} gp</td>
+                        <td>{{ getHourValue(getImbuementTotal(imbuement)).format() }} gp/h</td>
+                    </tr>
+
+                    <tr class="total">
+                        <td>
+                            <div class="gold-token-input">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <img :src="image_path_by_name('item', 'gold token')"/>
+                                    </div>
+
+                                    <input type="text"
+                                           class="form-control"
+                                           placeholder="Gold Token Price"
+                                           v-model="goldToken">
+                                </div>
+
+                                <div class="small helper-block">
+                                    If you fill the gold token price, we will calculate if is worth buy materials using gold tokens to save money.
+                                </div>
+                            </div>
+                        </td>
+                        <td colspan="3"></td>
+                        <td class="price">{{ getTotal().format() }} gps</td>
+                        <td class="price">{{ getHourValue(getTotal()).format() }} gps/h</td>
                     </tr>
                 </tbody>
             </table>
-        </panel>
-
-        <panel>
-            <input type="text" v-model="goldToken">
         </panel>
 
         <panel>
@@ -50,7 +75,7 @@
                         <th>Basic</th>
                         <th>Intricate</th>
                         <th>Powerful</th>
-                        <th>100%</th>
+                        <th class="text-right">Success 100%</th>
                     </tr>
                 </thead>
 
@@ -74,113 +99,168 @@
         data () {
             return {
                 imbuements: [],
-                goldToken: 0
+                goldToken: ''
             }
         },
 
         computed: {
             selectedImbuements () {
-                return this.imbuements.filter(imbuement => imbuement.amount > 0)
-            }
+                return this.imbuements.filter(imbuement => imbuement.amount > 0 && this.getTier(imbuement) > 0)
+            },
         },
 
         methods: {
-            calculateMaterial (imbuement, tier) {
-                let price = 0
-                const amount = imbuement.items.filter(item => item.tier == tier)[0].amount
-                switch (tier) {
-                    case 1:
-                        price = ! this.isEmpty(imbuement.basic) ? parseInt(imbuement.basic) : 0
-                        return amount * imbuement.basic
-                    case 2:
-                        price = ! this.isEmpty(imbuement.intricate) ? parseInt(imbuement.intricate) : 0
-                        return amount * imbuement.intricate
-                    case 3:
-                        price = ! this.isEmpty(imbuement.powerful) ? parseInt(imbuement.powerful) : 0
-                        return amount * imbuement.powerful
-                }
-            },
-
-            getSuggestion (imbuement) {
-                const total = this.calculateImbuementTotal(imbuement)
-                const save = (total.total - total.token.price)
-                let items = ''
-                let materials = ''
-
-                switch (total.token.tier) {
-                    case 'basic':
-                        items  = `${imbuement.items[0].amount} ${imbuement.items[0].item.title}`
-                        materials = `${imbuement.items[1].amount} ${imbuement.items[1].item.title} + ${imbuement.items[2].amount} ${imbuement.items[2].item.title}`
-                        return `
-                            Save <b>${save.format()} gps</b> by buying the basic items (${items}) using 2 gold tokens.
-                            <b>(2 gold tokens + ${materials})</b>
-                        `
-                    case 'intricate':
-                        items  = `${imbuement.items[0].amount} ${imbuement.items[0].item.title} & ${imbuement.items[1].amount} ${imbuement.items[1].item.title}`
-                        materials = `${imbuement.items[2].amount} ${imbuement.items[2].item.title}`
-                        return `
-                            Save <b>${save.format()} gps</b> by buying the intricate items (${items}) using 4 gold tokens.
-                            <b>(4 gold tokens + ${materials})</b>
-                        `
-                    case 'powerful':
-                        items  = `${imbuement.items[0].amount} ${imbuement.items[0].item.title}
-                        & ${imbuement.items[1].amount} ${imbuement.items[1].item.title}
-                        & ${imbuement.items[2].amount} ${imbuement.items[2].item.title}`
-                        return `Save <b>${save.format()} gps</b> by buying the powerful items (${items}) using 6 gold tokens.`
-                }
-            },
-
-            calculateImbuementTotal (imbuement) {
-                const token = this.goldToken ? this.compareGoldToken(imbuement) : 0
-                const basic = this.calculateMaterial(imbuement, 1)
-                const intricate = this.calculateMaterial(imbuement, 2)
-                const powerful = this.calculateMaterial(imbuement, 3)
-                const total = basic + intricate + powerful
-
-                if (! this.isEmpty(imbuement.basic) && ! this.isEmpty(imbuement.intricate) && ! this.isEmpty(imbuement.powerful)) {
-                    return { total, token }
-                }
-
-                if (! this.isEmpty(imbuement.basic) && ! this.isEmpty(imbuement.intricate)) {
-                    return { total, token }
-                }
-
-                if (! this.isEmpty(imbuement.basic)) {
-                    return { total, token }
-                }
-            },
-
-            compareGoldToken (imbuement) {
-                const basic = this.calculateMaterial(imbuement, 1)
-                const intricate = this.calculateMaterial(imbuement, 2)
-                const powerful = this.calculateMaterial(imbuement, 3)
-
-                if (! this.isEmpty(imbuement.powerful)) {
-                    if ((powerful + intricate + basic) > (this.goldToken * 6)) return { tier: 'powerful', price: this.goldToken * 6 }
-                    if ((intricate + basic) > (this.goldToken * 4)) return { tier: 'intricate', price: (this.goldToken * 4) + powerful }
-                    if ((basic) > (this.goldToken * 2)) return { tier: 'basic', price: (this.goldToken * 2) + intricate + powerful }
-                }
-
-                if (! this.isEmpty(imbuement.intricate)) {
-                    if ((intricate + basic) > (this.goldToken * 4)) return { tier: 'intricate', price: (this.goldToken * 4) + powerful }
-                    if ((basic) > (this.goldToken * 2)) return { tier: 'basic', price: (this.goldToken * 2) + intricate + powerful }
-                }
-
-                if (! this.isEmpty(imbuement.basic)) {
-                    if ((basic) > (this.goldToken * 2)) return { tier: 'basic', price: (this.goldToken * 2) + intricate + powerful }
-                }
-
-                return 'material is worth'
-            },
-
-            isTokenWorth (imbuement) {
-                const suggestion = this.calculateImbuementTotal(imbuement)
-                const token = ! this.isEmpty(suggestion) ? suggestion.token : null
-                return typeof token == 'object' && token != null ? true : false
-            },
-
             isEmpty (value) {
                 return value == '' || value == null
+            },
+
+            getTier (imbuement) {
+                if (! this.isEmpty(imbuement.powerful)
+                    && ! this.isEmpty(imbuement.intricate)
+                    && ! this.isEmpty(imbuement.basic))
+                    return 3
+
+                if (! this.isEmpty(imbuement.intricate)
+                    && ! this.isEmpty(imbuement.basic))
+                    return 2
+
+                if (! this.isEmpty(imbuement.basic))
+                    return 1
+            },
+
+            getMaterial (imbuement) {
+                const amount = parseInt(imbuement.amount)
+                const basic = this.getBasic(imbuement)
+                const intricate = this.getIntricate(imbuement)
+                const powerful = this.getPowerful(imbuement)
+                let total = basic + intricate + powerful
+
+                if (! this.isEmpty(this.goldToken)) {
+                    const token = this.calculateGoldToken(imbuement, basic, intricate, powerful)
+                    return total > token.total
+                        ? { price: token.total, save: this.getSaveText(imbuement, token.tier) }
+                        : { price: total }
+                }
+
+                return { price: total }
+            },
+
+            getBasic (imbuement) {
+                return imbuement.items[0].amount * imbuement.basic
+            },
+
+            getIntricate (imbuement) {
+                return imbuement.items[1].amount * imbuement.intricate
+            },
+
+            getPowerful (imbuement) {
+                return imbuement.items[2].amount * imbuement.powerful
+            },
+
+            calculateGoldToken (imbuement, basic, intricate, powerful) {
+                if (imbuement.title != 'Strike' && imbuement.title != 'Void' && imbuement.title != 'Vampirism') return false
+                const token = parseInt(this.goldToken)
+                const powerfulToken = 6 * token
+                const intricateToken = 4 * token
+                const basicToken = 2 * token
+
+                switch (this.getTier(imbuement)) {
+                    case 1:
+                        return basic > basicToken
+                            ? { tier: 1, total: basicToken }
+                            : false
+                    case 2:
+                        return intricate + basic > intricateToken
+                            ? { tier: 2, total: intricateToken }
+                            : basic > basicToken
+                                ? { tier: 1, total: basicToken + intricate }
+                                : false
+                    case 3:
+                        return (powerful + intricate + basic) > powerfulToken
+                            ? { tier: 3, total: powerfulToken }
+                            : intricate + basic > intricateToken
+                                ? { tier: 2, total: intricateToken + powerful }
+                                : basic > basicToken
+                                    ? { tier: 1, total: basicToken + intricate }
+                                    : false
+                }
+
+                return 0
+            },
+
+            getSaveText (imbuement, tier) {
+                const basic = imbuement.items[0].item
+                const intricate = imbuement.items[1].item
+                const powerful = imbuement.items[2].item
+
+                switch (tier) {
+                    case 1:
+                        return `Buy <b>${basic.title}</b> using 2 gold tokens.`
+                    case 2:
+                        return `Buy <b>${basic.title}</b> and <b>${intricate.title}</b> using 4 gold tokens.`
+                    case 3:
+                        return `Buy <b>${basic.title}</b>, <b>${intricate.title}</b> and <b>${powerful.title}</b> using 6 gold tokens.`
+                }
+            },
+
+            getSuccessFee (imbuement) {
+                if (! imbuement.success) return 0
+
+                const amount = parseInt(imbuement.amount)
+
+                switch (this.getTier(imbuement)) {
+                    case 3:
+                        return 50000 * amount
+                    case 2:
+                        return 30000 * amount
+                    case 1:
+                        return 10000 * amount
+                }
+            },
+
+            getCreationFee (imbuement) {
+                const amount = parseInt(imbuement.amount)
+
+                switch (this.getTier(imbuement)) {
+                    case 3:
+                        return 100000 * amount
+                    case 2:
+                        return 25000 * amount
+                    case 1:
+                        return 5000 * amount
+                }
+            },
+
+            getImbuementTotal (imbuement) {
+                return this.getMaterial(imbuement).price + this.getSuccessFee(imbuement) + this.getCreationFee(imbuement)
+            },
+
+            getTotal () {
+                return this.selectedImbuements.reduce((carry, imbuement) => carry + this.getImbuementTotal(imbuement), 0)
+            },
+
+            getTierLabels (tier) {
+                switch (tier) {
+                    case 1:
+                        return {
+                            label: 'Basic',
+                            class: 'label-primary'
+                        }
+                    case 2:
+                        return {
+                            label: 'Intricate',
+                            class: 'label-danger'
+                        }
+                    case 3:
+                        return {
+                            label: 'Powerful',
+                            class: 'label-success'
+                        }
+                }
+            },
+
+            getHourValue (value) {
+                return value / 20
             }
         },
 
@@ -194,7 +274,7 @@
                             basic: '',
                             intricate: '',
                             powerful: '',
-                            protection: false
+                            success: false
                         }
                     })
                 })

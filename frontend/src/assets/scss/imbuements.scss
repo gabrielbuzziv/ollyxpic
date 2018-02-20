@@ -1,5 +1,82 @@
 #imbuements {
     .table {
+        .save {
+            display: block;
+            margin-top: 5px;
+            color: #e74c3c;
+            font-style: italic;
+            max-width: 200px;
+            font-weight: 300;
+
+            b {
+                font-weight: 400;
+            }
+        }
+
+        &.totals {
+            margin: 0;
+
+            .label {
+                height: 20px;
+                padding: 0 7px;
+                display: inline-block;
+                line-height: 20px;
+                font-size: 10px;
+                font-weight: 300;
+                margin-right: 5px;
+            }
+
+            .gold-token-input {
+                width: 200px;
+
+                .helper-block {
+                    font-weight: 300;
+                    display: block;
+                    margin-top: 10px;
+                    max-width: 100%;
+                }
+
+                .input-group {
+                    width: 100%;
+
+                    .input-group-addon {
+                        background: #fff;
+                        padding: 5px;
+
+                        &.disabled {
+                            background: #eee;
+                        }
+                    }
+
+                    input {
+                        height: 50px;
+                        line-height: 50px;
+                        font-weight: 300;
+                        text-align: right;
+                        border-left: 0;
+                        box-shadow: none;
+
+                        &:focus,
+                        &:active,
+                        &:hover {
+                            outline: 0 !important;
+                            box-shadow: none;
+                            border-color: #ccd0d2;
+                        }
+                    }
+                }
+            }
+
+            .total {
+                .price {
+                    font-weight: 600;
+                    font-size: 16px;
+                    vertical-align: top;
+                    line-height: 50px;
+                }
+            }
+        }
+
         &.imbuements {
             tr {
                 td {

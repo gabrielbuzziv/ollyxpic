@@ -26,8 +26,8 @@
         <td class="item">
             <imbuement-price :imbuement="imbuement" :item="powerful" tier="powerful" />
         </td>
-        <td>
-            <el-switch off-text="" on-text="" v-model="imbuement.protection" />
+        <td class="text-right" width="110">
+            <el-switch off-text="" on-text="" v-model="imbuement.success" />
         </td>
     </tr>
 </template>
