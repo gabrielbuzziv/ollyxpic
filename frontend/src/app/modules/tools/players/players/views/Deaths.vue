@@ -1,7 +1,5 @@
 <template>
     <panel class="deaths">
-        <!--<h4>Recent Deaths</h4>-->
-
         <div class="deaths">
             <el-tabs v-model="deathTabs">
                 <el-tab-pane :label="`All (${deaths.length})`" name="all">
@@ -40,7 +38,10 @@
 
         computed: {
             arena () {
-                return this.deaths.filter(death => death.reason.indexOf('by energy') !== - 1 || death.reason.indexOf('by earth') !== - 1 || death.reason.indexOf('by death') !== - 1)
+                return this.deaths.filter(death => death.reason.indexOf('by energy') !== - 1
+                    || death.reason.indexOf('by earth') !== - 1
+                    || death.reason.indexOf('by death') !== - 1
+                    || death.reason.indexOf('by Pi') !== - 1)
             },
 
             pvp () {
