@@ -18,7 +18,7 @@
                                 <i class="mdi mdi-auto-fix icon"></i>
                                 <div class="data">
                                     <b>Magic Level</b>
-                                    <span>{{ magicLevel.skill }}</span>
+                                    <span>{{ magicLevel.level }}</span>
                                 </div>
                             </div>
 
@@ -26,7 +26,7 @@
                                 <i class="mdi mdi-sword icon"></i>
                                 <div class="data">
                                     <b>Distance fighting</b>
-                                    <span>{{ distance.skill }}</span>
+                                    <span>{{ distance.level }}</span>
                                 </div>
                             </div>
 
@@ -34,7 +34,7 @@
                                 <i class="mdi mdi-sword icon"></i>
                                 <div class="data">
                                     <b>{{ meleeSkill.skill | capitalize }} fighting</b>
-                                    <span>{{ meleeSkill.skill }}</span>
+                                    <span>{{ meleeSkill.level }}</span>
                                 </div>
                             </div>
 
@@ -42,7 +42,7 @@
                                 <i class="mdi mdi-shield icon"></i>
                                 <div class="data">
                                     <b>Shielding</b>
-                                    <span>{{ shielding.skill }}</span>
+                                    <span>{{ shielding.level }}</span>
                                 </div>
                             </div>
                         </div>
