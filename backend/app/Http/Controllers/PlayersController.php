@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Highscores;
+use App\HighscoresSkills;
 use App\Player;
 use App\World;
 use Carbon\Carbon;
@@ -159,7 +160,7 @@ class PlayersController extends ApiController
      */
     private function getSkills($name)
     {
-        return (new Highscores)
+        return (new HighscoresSkills)
             ->select('skill', 'type as skill')
             ->where('name', $name)
             ->whereIn('type', ['magic', 'axe', 'club', 'sword', 'distance', 'shielding', 'achievements', 'loyalty'])

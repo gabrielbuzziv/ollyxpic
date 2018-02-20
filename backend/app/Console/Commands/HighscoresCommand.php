@@ -135,9 +135,9 @@ class HighscoresCommand extends Command
             ->where('type', 'experience')
             ->update(['active' => 1]);
 
-        (new HighscoreMigration())
-            ->where('type', 'experience')
-            ->where('migration_date', '<', $this->date)
-            ->delete();
+//        (new HighscoreMigration())
+//            ->where('type', 'experience')
+//            ->where('migration_date', '<', $this->date)
+//            ->delete();
     }
 }
