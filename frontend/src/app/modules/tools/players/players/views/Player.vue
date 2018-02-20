@@ -44,9 +44,9 @@
                         <!--Something-->
                     <!--</el-tab-pane>-->
 
-                    <!--<el-tab-pane label="Speed" name="Speed">-->
-                        <!--Something-->
-                    <!--</el-tab-pane>-->
+                    <el-tab-pane label="Social Network" name="Network" v-if="! network">
+                        <social-tab />
+                    </el-tab-pane>
                 </el-tabs>
 
 
@@ -54,7 +54,7 @@
             </div>
 
             <div class="col-md-4 sidemenu">
-                <social :character="character" />
+                <social :character="character" :network.sync="network" />
                 <character-details :character="character" />
                 <achievements :character="character" />
                 <loyalty :skills="skills" :loading="loadingSkills" />
@@ -99,11 +99,12 @@
     import Experience from './Experience'
     import Advances from './Advances'
     import Social from './Social'
+    import SocialTab from './SocialTab'
     import Deaths from './Deaths'
     import services from '../services'
 
     export default {
-        components: { CharacterDetails, Character, Achievements, Loyalty, ExpShare, Experience, Advances, Deaths, Social },
+        components: { CharacterDetails, Character, Achievements, Loyalty, ExpShare, Experience, Advances, Deaths, Social, SocialTab },
 
         data () {
             return {
@@ -114,6 +115,7 @@
                 skills: [],
                 experience: [],
                 search: '',
+                network: false,
                 tabs: 'experience'
             }
         },

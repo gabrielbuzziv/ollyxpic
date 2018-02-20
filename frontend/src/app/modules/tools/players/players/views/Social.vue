@@ -7,18 +7,18 @@
             </a>
         </panel>
 
-        <!--<panel class="youtube" v-if="youtube">-->
-            <!--<a :href="getYoutubeUrl(youtube)" target="_modal">-->
-                <!--<img src="src/assets/images/youtube.png" alt="">-->
-                <!--{{ youtube }}-->
-            <!--</a>-->
-        <!--</panel>-->
+        <panel class="youtube" v-if="youtube">
+            <a :href="getYoutubeUrl(youtube)" target="_modal">
+                <img src="src/assets/images/youtube.svg" alt="">
+                {{ youtube }}
+            </a>
+        </panel>
     </div>
 </template>
 
 <script>
     export default {
-        props: ['character'],
+        props: ['character', 'network'],
 
         computed: {
             description () {
@@ -35,6 +35,16 @@
                 const lines = this.description.split('\r\n')
                 const line = lines.filter(line => line.search('Y: ') !== -1)
                 return line.length ? line[0].substring(3) : false
+            },
+
+            hasSocial () {
+                return this.twitch !== false || this.youtube !== false
+            }
+        },
+
+        watch: {
+            hasSocial () {
+                this.$emit('update:network', this.hasSocial)
             }
         },
 
