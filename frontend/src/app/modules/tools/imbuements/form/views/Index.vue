@@ -29,8 +29,8 @@
                             </div>
                             {{ imbuement.title }}
 
-                            <small class="save" v-html="getMaterial(imbuement).save" v-if="getMaterial(imbuement).save">
-                            </small>
+                            <small class="save" v-html="getMaterial(imbuement).save" v-if="getMaterial(imbuement).save"></small>
+                            <small class="market" v-else>Buy materials on market</small>
                         </td>
                         <td>{{ getMaterial(imbuement).price.format() }} gp</td>
                         <td>{{ getSuccessFee(imbuement).format() }} gp</td>

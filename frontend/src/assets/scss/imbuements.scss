@@ -13,6 +13,15 @@
             }
         }
 
+        .market {
+            display: block;
+            margin-top: 5px;
+            color: #2980b9;
+            font-style: italic;
+            max-width: 200px;
+            font-weight: 300;
+        }
+
         &.totals {
             margin: 0;
 
