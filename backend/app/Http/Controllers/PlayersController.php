@@ -112,6 +112,7 @@ class PlayersController extends ApiController
         $player->house = isset($details->house) ? $details->house->town : null;
         $player->gender = $details->sex;
         $player->married_to = isset($details->married_to) ? $details->married_to : null;
+        $player->description = isset($details->comment) ? $details->comment : null;
         $player->guild = isset($details->guild) ? $details->guild->name : null;
         $player->premium = $details->account_status == 'Premium Account' ? true : false;
         $player->achievements = $details->achievement_points;
@@ -159,7 +160,7 @@ class PlayersController extends ApiController
     private function getSkills($name)
     {
         return (new Highscores)
-            ->select('level', 'experience', 'type as skill')
+            ->select('skill', 'type as skill')
             ->where('name', $name)
             ->whereIn('type', ['magic', 'axe', 'club', 'sword', 'distance', 'shielding', 'achievements', 'loyalty'])
             ->groupBy('type')
