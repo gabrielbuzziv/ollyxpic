@@ -50,6 +50,7 @@
                                     <input type="text"
                                            class="form-control"
                                            placeholder="Gold Token Price"
+                                           @input="updateToken"
                                            v-model="goldToken">
                                 </div>
 
@@ -261,20 +262,32 @@
 
             getHourValue (value) {
                 return value / 20
+            },
+
+            updateToken () {
+                localStorage.setItem(`imbuement.token`, this.goldToken)
             }
         },
 
         mounted () {
             services.fecthImbuements()
                 .then(response => {
+                    this.goldToken = localStorage.getItem(`imbuement.token`) || ''
+
                     this.imbuements = response.data.map(imbuement => {
+                        const amount = localStorage.getItem(`imbuement.${imbuement.id}.amount`) || 0
+                        const basic = localStorage.getItem(`imbuement.${imbuement.id}.basic`) || ''
+                        const intricate = localStorage.getItem(`imbuement.${imbuement.id}.intricate`) || ''
+                        const powerful = localStorage.getItem(`imbuement.${imbuement.id}.powerful`) || ''
+                        const success = localStorage.getItem(`imbuement.${imbuement.id}.success`) || false
+
                         return {
                             ...imbuement,
-                            amount: 0,
-                            basic: '',
-                            intricate: '',
-                            powerful: '',
-                            success: false
+                            amount,
+                            basic,
+                            intricate,
+                            powerful,
+                            success: success == 'true' ? true : false
                         }
                     })
                 })

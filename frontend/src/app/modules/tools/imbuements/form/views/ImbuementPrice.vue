@@ -11,6 +11,7 @@
                 <input type="text"
                        class="form-control"
                        placeholder="Price"
+                       @input="$emit('updated')"
                        v-model="imbuement[tier]">
             </div>
         </div>
@@ -19,6 +20,6 @@
 
 <script>
     export default {
-        props: ['imbuement', 'item', 'tier'],
+        props: ['imbuement', 'item', 'tier']
     }
 </script>
