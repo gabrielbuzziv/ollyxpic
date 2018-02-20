@@ -24,7 +24,7 @@
                                    v-model="category.filters.name"
                                    @input="filterItemsFromCategory(category)">
 
-                            <div class="filter-properties">
+                            <div class="filter-properties" v-if="hasPropertyFilter(category)">
                                 <div class="line">
                                     <el-checkbox @change="filterItemsFromCategoryByProperty(category)"
                                                  v-model="category.filters.energy">Energy</el-checkbox>
@@ -207,6 +207,17 @@
 
             removeSlot (slot) {
                 this.slots[slot] = {}
+            },
+
+            hasPropertyFilter (category) {
+                switch (category.slot) {
+                    case 'weapon':
+                    case 'backpack':
+                    case 'ammunition':
+                        return false
+                    default:
+                        return true
+                }
             }
         },
 
