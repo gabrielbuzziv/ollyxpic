@@ -54,6 +54,7 @@
             </div>
 
             <div class="col-md-4 sidemenu">
+                <social :character="character" />
                 <character-details :character="character" />
                 <achievements :character="character" />
                 <loyalty :skills="skills" :loading="loadingSkills" />
@@ -97,11 +98,12 @@
     import ExpShare from './ExpShare'
     import Experience from './Experience'
     import Advances from './Advances'
+    import Social from './Social'
     import Deaths from './Deaths'
     import services from '../services'
 
     export default {
-        components: { CharacterDetails, Character, Achievements, Loyalty, ExpShare, Experience, Advances, Deaths },
+        components: { CharacterDetails, Character, Achievements, Loyalty, ExpShare, Experience, Advances, Deaths, Social },
 
         data () {
             return {

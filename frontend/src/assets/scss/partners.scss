@@ -34,5 +34,24 @@
                 }
             }
         }
+
+        &.youtube {
+            .panel-body {
+                background: #CC181E;
+
+                a {
+                    display: block;
+                    color: #fff;
+                    font-size: 18px;
+                    font-weight: 300;
+
+                    img {
+                        width: 32px;
+                        display: inline-block;
+                        margin-right: 20px;
+                    }
+                }
+            }
+        }
     }
 }
