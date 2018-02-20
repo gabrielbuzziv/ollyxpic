@@ -21,8 +21,42 @@
                         <div class="filter">
                             <input type="text" class="form-control"
                                    placeholder="Search ..."
-                                   v-model="category.filter"
+                                   v-model="category.filters.name"
                                    @input="filterItemsFromCategory(category)">
+
+                            <div class="filter-properties">
+                                <div class="line">
+                                    <el-checkbox @change="filterItemsFromCategoryByProperty(category)"
+                                                 v-model="category.filters.energy">Energy</el-checkbox>
+                                    <el-checkbox @change="filterItemsFromCategoryByProperty(category)"
+                                                 v-model="category.filters.death">Death</el-checkbox>
+                                    <el-checkbox @change="filterItemsFromCategoryByProperty(category)"
+                                                 v-model="category.filters.earth">Earth</el-checkbox>
+                                    <el-checkbox @change="filterItemsFromCategoryByProperty(category)"
+                                                 v-model="category.filters.fire">Fire</el-checkbox>
+                                    <el-checkbox @change="filterItemsFromCategoryByProperty(category)"
+                                                 v-model="category.filters.ice">Ice</el-checkbox>
+                                    <el-checkbox @change="filterItemsFromCategoryByProperty(category)"
+                                                 v-model="category.filters['protection physical']">Physical</el-checkbox>
+                                </div>
+
+                                <div class="line">
+                                    <el-checkbox @change="filterItemsFromCategoryByProperty(category)"
+                                                 v-model="category.filters.speed">Speed</el-checkbox>
+                                    <el-checkbox @change="filterItemsFromCategoryByProperty(category)"
+                                                 v-model="category.filters['magic level']">Magic Level</el-checkbox>
+                                    <el-checkbox @change="filterItemsFromCategoryByProperty(category)"
+                                                 v-model="category.filters['axe fighting']">Axe</el-checkbox>
+                                    <el-checkbox @change="filterItemsFromCategoryByProperty(category)"
+                                                 v-model="category.filters['club fighting']">Club</el-checkbox>
+                                    <el-checkbox @change="filterItemsFromCategoryByProperty(category)"
+                                                 v-model="category.filters['sword fighting']">Sword</el-checkbox>
+                                    <el-checkbox @change="filterItemsFromCategoryByProperty(category)"
+                                                 v-model="category.filters['distance fighting']">Distance</el-checkbox>
+                                    <el-checkbox @change="filterItemsFromCategoryByProperty(category)"
+                                                 v-model="category.filters.shielding">Shielding</el-checkbox>
+                                </div>
+                            </div>
                         </div>
 
                         <page-load class="no-padding row" :loading="category.loading">
@@ -41,7 +75,7 @@
     import SlotItem from './SlotItem'
     import Item from './Item'
     import services from '../services'
-    import { isEmpty } from 'lodash'
+    import { isEmpty, filter } from 'lodash'
 
     export default {
         props: ['slots'],
@@ -51,7 +85,7 @@
         data () {
             return {
                 tabs: '0',
-                categories: [],
+                categories: []
             }
         },
 
@@ -66,7 +100,27 @@
                 services.getCategories()
                     .then(response => {
                         this.categories = response.data.map(category => {
-                            return { ...category, items: [], loading: true, filter: '' }
+                            return {
+                                ...category,
+                                items: [],
+                                loading: true,
+                                filters: {
+                                    name: '',
+                                    energy: true,
+                                    death: true,
+                                    earth: true,
+                                    fire: true,
+                                    ice: true,
+                                    speed: true,
+                                    'protection physical': true,
+                                    'magic level': true,
+                                    'sword fighting': true,
+                                    'club fighting': true,
+                                    'axe fighting': true,
+                                    'distance fighting': true,
+                                    'shielding': true,
+                                }
+                            }
                         })
                         this.categories.length ? this.loadItems(this.categories[0]) : null
                     })
@@ -96,10 +150,19 @@
             },
 
             filterItemsFromCategory (category) {
-                const filter = category.filter
+                const filter = category.filters.name
 
                 category.items.forEach(item => {
                     item.visible = item.title.toLowerCase().includes(filter)
+                })
+            },
+
+            filterItemsFromCategoryByProperty (category) {
+                const properties = Object.keys(category.filters).filter(property => category.filters[property])
+
+                category.items.forEach(item => {
+                    const props = item.properties.filter(property => properties.indexOf(property.property) !== -1)
+                    item.visible = !! props.length
                 })
             },
 

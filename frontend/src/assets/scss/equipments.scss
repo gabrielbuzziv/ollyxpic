@@ -171,6 +171,27 @@
                     height: 50px;
                     line-height: 50px;
                     font-weight: 300;
+                    display: inline-block;
+                    width: 190px;
+                    margin-right: 10px;
+                }
+
+                .filter-properties {
+                    display: inline-block;
+                    width: calc(100% - 210px);
+                    vertical-align: middle;
+                    text-align: right;
+
+                    .el-checkbox {
+                        .el-checkbox__label {
+                            font-weight: 300;
+                            font-size: 10px;
+                        }
+                    }
+                    
+                    .line {
+                        display: block;
+                    }
                 }
             }
 
