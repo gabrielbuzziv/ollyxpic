@@ -139,11 +139,11 @@
                 if (! this.isEmpty(this.goldToken)) {
                     const token = this.calculateGoldToken(imbuement, basic, intricate, powerful)
                     return total > token.total
-                        ? { price: token.total, save: this.getSaveText(imbuement, token.tier) }
-                        : { price: total }
+                        ? { price: token.total * amount, save: this.getSaveText(imbuement, token.tier) }
+                        : { price: total * amount }
                 }
 
-                return { price: total }
+                return { price: total * amount }
             },
 
             getBasic (imbuement) {
