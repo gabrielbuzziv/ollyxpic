@@ -1,0 +1,52 @@
+@media screen and (max-width: 1200px) {
+    #header {
+        .container {
+            #nav {
+                & > ul {
+                    & > li {
+                        & > a {
+                            .left {
+                                display: none;
+                            }
+                        }
+
+                        &.with-child {
+                            ul {
+                                li {
+                                    width: calc(33% - 10px);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #highscores {
+        .highscores-menu {
+            ul {
+                &.skills {
+                    li {
+                        a {
+                            padding: 10px 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #players {
+        .panel{
+            &.character-details {
+                width: 100%;
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+
+}

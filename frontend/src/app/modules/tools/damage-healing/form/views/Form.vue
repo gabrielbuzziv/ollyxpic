@@ -125,7 +125,9 @@
         <div class="row" v-if="form.melee && form.attack && vocation == 'knight'">
             <div class="col-md-12">
                 <panel>
-                    <center> NOTE: Melee damage shown here is calculated <b>with</b> resistances.</center>
+                    <p class="text-center">
+                        NOTE: Melee damage shown here is calculated <b>with</b> resistances.
+                    </p>
                     <table class="simple margin-bottom-0">
                         <thead>
                             <tr>
@@ -227,7 +229,7 @@
         </div>
 
         <div class="row" v-if="level">
-            <div class="col-md-6" :class="{ 'col-md-12': index == 0 }" v-for="type, index in types">
+            <div class="col-lg-6 col-md-12" :class="{ 'col-md-12': index == 0 }" v-for="type, index in types">
                 <panel>
                     <table class="simple margin-bottom-0">
                         <thead>

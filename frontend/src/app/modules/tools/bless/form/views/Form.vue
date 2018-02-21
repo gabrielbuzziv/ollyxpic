@@ -23,7 +23,7 @@
             </panel>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-lg-6 col-md-12">
             <panel>
                 <table class="table">
                     <thead>
@@ -51,7 +51,7 @@
             </panel>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-lg-6 col-md-12">
             <panel>
                 <table class="table">
                     <thead>

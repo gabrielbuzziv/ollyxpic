@@ -29,7 +29,8 @@
                             </div>
                             {{ imbuement.title }}
 
-                            <small class="save" v-html="getMaterial(imbuement).save" v-if="getMaterial(imbuement).save"></small>
+                            <small class="save" v-html="getMaterial(imbuement).save"
+                                   v-if="getMaterial(imbuement).save"></small>
                             <small class="market" v-else>Buy materials on market</small>
                         </td>
                         <td>{{ getMaterial(imbuement).price.format() }} gp</td>
@@ -171,15 +172,15 @@
                             ? { tier: 1, total: basicToken }
                             : false
                     case 2:
-                        return intricate + basic > intricateToken
+                        return intricate > basicToken
                             ? { tier: 2, total: intricateToken }
                             : basic > basicToken
                                 ? { tier: 1, total: basicToken + intricate }
                                 : false
                     case 3:
-                        return (powerful + intricate + basic) > powerfulToken
+                        return powerful > basicToken
                             ? { tier: 3, total: powerfulToken }
-                            : intricate + basic > intricateToken
+                            : intricate > basicToken
                                 ? { tier: 2, total: intricateToken + powerful }
                                 : basic > basicToken
                                     ? { tier: 1, total: basicToken + intricate }

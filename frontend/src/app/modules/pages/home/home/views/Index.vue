@@ -15,16 +15,16 @@
                     <footer>
                         <div class="left">
                             <span class="comments" v-if="latestNews.comments">
-                            <a :href="latestNews.comments" target="_blank">
-                                <i class="mdi mdi-comment margin-right-5"></i>
-                                Comments
-                            </a>
-                        </span>
+                                <a :href="latestNews.comments" target="_blank">
+                                    <i class="mdi mdi-comment margin-right-5"></i>
+                                    Comments
+                                </a>
+                            </span>
 
-                            <span class="date">
-                            <i class="mdi mdi-calendar margin-right-5"></i>
-                            {{ latestNews.created_at | dateForHuman }}
-                        </span>
+                                <span class="date">
+                                <i class="mdi mdi-calendar margin-right-5"></i>
+                                {{ latestNews.created_at | dateForHuman }}
+                            </span>
                         </div>
 
                         <div class="right">
@@ -38,7 +38,7 @@
                 </panel>
 
                 <div class="row">
-                    <div class="col-md-6" v-for="news in olderNews">
+                    <div class="col-md-6 col-sm-6" v-for="news in olderNews">
                         <panel class="features">
                             <img :src="image_path_by_name('item', 'golden newspaper')" alt="">
 

@@ -213,7 +213,7 @@
                 </a>
             </router-link>
 
-            <router-link :to="{ name: 'pages.changelog' }" tag="li">
+            <router-link class="hidden-sm" :to="{ name: 'pages.changelog' }" tag="li">
                 <a href="#">
                     <span class="left">
                         <img :src="image_path_by_name('item', 'scroll of heroic deeds')" alt="">
@@ -225,7 +225,7 @@
                 </a>
             </router-link>
 
-            <router-link :to="{ name: 'pages.partners' }" tag="li">
+            <router-link class="hidden-sm" :to="{ name: 'pages.partners' }" tag="li">
                 <a href="#">
                     <span class="left">
                         <img :src="image_path_by_name('item', 'Cateroide\'s Doll (Activated)')" alt="">

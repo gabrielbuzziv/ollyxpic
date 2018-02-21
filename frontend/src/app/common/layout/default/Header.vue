@@ -2,7 +2,7 @@
     <div id="header">
         <div class="container">
             <div class="logo col-md-12">
-                <div class="col-md-4">
+                <div class="col-lg-4 col-sm-4">
                     <img src="/src/assets/images/logo.png" alt="">
                 </div>
 

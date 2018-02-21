@@ -1,5 +1,5 @@
 <template>
-    <div class="col-md-3">
+    <div class="col-lg-3 col-md-4">
         <panel class="item">
             <button class="btn btn-blank btn-remove" @click.prevent="remove">
                 <i class="mdi mdi-close"></i>

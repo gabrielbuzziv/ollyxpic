@@ -32,7 +32,7 @@
         </panel>
 
         <div class="row timers" v-if="timers">
-            <div class="col-md-4" v-for="timer in timers">
+            <div class="col-lg-4 col-md-6" v-for="timer in timers">
                 <timer :timer="timer" :timers="timers"/>
             </div>
         </div>
