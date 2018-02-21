@@ -42,7 +42,8 @@ class ItemController extends Controller
         'hit',
         'vol',
         'range',
-        'weight'
+        'weight',
+        'vocation'
     ];
 
     /**
@@ -72,10 +73,12 @@ class ItemController extends Controller
             $data->look_text = $item->look_text;
             $data->save();
 
+
             $defaultProperties = $this->getDefaultProps($item);
             $levelProperties = $this->getLevelProps($item);
             $weigthProperties = $this->getWeightProps($item);
-            $properties = array_merge($defaultProperties, $levelProperties, $weigthProperties);
+            $vocationProperties = $this->getVocationProperty($item);
+            $properties = array_merge($defaultProperties, $levelProperties, $weigthProperties, $vocationProperties);
 
             foreach ($properties as $property) {
                 $itemProperty = ItemProperties::firstOrNew(['item_id' => $data->id, 'property' => $property['property']]);
@@ -219,6 +222,34 @@ class ItemController extends Controller
                 $i->save();
             }
         }
+    }
+
+    /**
+     * Get vocations as property.
+     *
+     * @param $item
+     * @return string
+     */
+    private function getVocationProperty($item)
+    {
+        $hasVocation = false;
+        $vocationsFilter = ['p' => 'Paladin', 'k' => 'Knight', 's' => 'Sorcerer', 'd' => 'druid'];
+        $vocations = '';
+
+        if (isset($item->properties)) {
+            foreach ($item->properties as $property) {
+                if ($property->property == 'Voc') {
+                    $hasVocation = true;
+                    $propertyVocations = explode('+', $property->value);
+
+                    foreach ($propertyVocations as $vocation) {
+                        $vocations[] = $vocationsFilter[$vocation];
+                    }
+                }
+            }
+        }
+
+        return $hasVocation ? [['property' => 'vocation', 'value' => implode(', ', $vocations)]] : [];
     }
 
     /**

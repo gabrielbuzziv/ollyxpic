@@ -15,6 +15,7 @@ export default {
     range: 'Range',
     weight: 'Weight',
     imbuements: 'Imbuements Slots',
+    vocation: 'Vocation',
     'two-handed': 'Two Handed',
     'magic level': 'Magic Level',
     'mana drain': 'Mana Drain Protection',
