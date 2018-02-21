@@ -47,6 +47,12 @@
                     <el-tab-pane label="Social Network" name="Network" v-if="! network">
                         <social-tab />
                     </el-tab-pane>
+
+                    <el-tab-pane label="What Baldur Loves?" name="Baldur" v-if="character.name == 'Baldur Sword'">
+                        <panel>
+                            <img :src="image_path_by_name('creature', 'hydra')" v-for="n in 99">
+                        </panel>
+                    </el-tab-pane>
                 </el-tabs>
 
 

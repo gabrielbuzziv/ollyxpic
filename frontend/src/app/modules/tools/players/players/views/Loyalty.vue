@@ -31,8 +31,8 @@
 
             bonus () {
                 return this.loyalty
-                    ? Math.floor((this.loyalty.experience / 360)) * 5 <= 50
-                        ? Math.floor((this.loyalty.experience / 360)) * 5
+                    ? Math.floor((this.loyalty.level / 360)) * 5 <= 50
+                        ? Math.floor((this.loyalty.level / 360)) * 5
                         : 50
                     : 0
             },
