@@ -38,23 +38,10 @@
                                                  v-model="category.filters.ice">Ice</el-checkbox>
                                     <el-checkbox @change="filterItemsFromCategoryByProperty(category)"
                                                  v-model="category.filters['protection physical']">Physical</el-checkbox>
-                                </div>
-
-                                <div class="line">
                                     <el-checkbox @change="filterItemsFromCategoryByProperty(category)"
                                                  v-model="category.filters.speed">Speed</el-checkbox>
                                     <el-checkbox @change="filterItemsFromCategoryByProperty(category)"
                                                  v-model="category.filters['magic level']">Magic Level</el-checkbox>
-                                    <el-checkbox @change="filterItemsFromCategoryByProperty(category)"
-                                                 v-model="category.filters['axe fighting']">Axe</el-checkbox>
-                                    <el-checkbox @change="filterItemsFromCategoryByProperty(category)"
-                                                 v-model="category.filters['club fighting']">Club</el-checkbox>
-                                    <el-checkbox @change="filterItemsFromCategoryByProperty(category)"
-                                                 v-model="category.filters['sword fighting']">Sword</el-checkbox>
-                                    <el-checkbox @change="filterItemsFromCategoryByProperty(category)"
-                                                 v-model="category.filters['distance fighting']">Distance</el-checkbox>
-                                    <el-checkbox @change="filterItemsFromCategoryByProperty(category)"
-                                                 v-model="category.filters.shielding">Shielding</el-checkbox>
                                 </div>
                             </div>
                         </div>
@@ -106,19 +93,14 @@
                                 loading: true,
                                 filters: {
                                     name: '',
-                                    energy: true,
-                                    death: true,
-                                    earth: true,
-                                    fire: true,
-                                    ice: true,
-                                    speed: true,
-                                    'protection physical': true,
-                                    'magic level': true,
-                                    'sword fighting': true,
-                                    'club fighting': true,
-                                    'axe fighting': true,
-                                    'distance fighting': true,
-                                    'shielding': true,
+                                    energy: false,
+                                    death: false,
+                                    earth: false,
+                                    fire: false,
+                                    ice: false,
+                                    speed: false,
+                                    'protection physical': false,
+                                    'magic level': false,
                                 }
                             }
                         })
@@ -161,8 +143,8 @@
                 const properties = Object.keys(category.filters).filter(property => category.filters[property])
 
                 category.items.forEach(item => {
-                    const props = item.properties.filter(property => properties.indexOf(property.property) !== -1)
-                    item.visible = !! props.length
+                    const props = item.properties.filter(property => properties.indexOf(property.property) !== - 1)
+                    item.visible = properties.length ? !! props.length : true
                 })
             },
 
