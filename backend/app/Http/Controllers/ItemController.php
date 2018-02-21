@@ -232,24 +232,33 @@ class ItemController extends Controller
      */
     private function getVocationProperty($item)
     {
-        $hasVocation = false;
-        $vocationsFilter = ['p' => 'Paladin', 'k' => 'Knight', 's' => 'Sorcerer', 'd' => 'druid'];
+        $vocationsFilter = [
+            'p'        => 'Paladin',
+            'k'        => 'Knight',
+            's'        => 'Sorcerer',
+            'd'        => 'Druid'
+        ];
         $vocations = '';
 
         if (isset($item->properties)) {
             foreach ($item->properties as $property) {
                 if ($property->property == 'Voc') {
-                    $hasVocation = true;
-                    $propertyVocations = explode('+', $property->value);
+                    $propertyVocations = str_replace([', ', ','], '+', $property->value);
+                    $propertyVocations = explode('+', $propertyVocations);
 
                     foreach ($propertyVocations as $vocation) {
-                        $vocations[] = $vocationsFilter[$vocation];
+                        $vocation = $vocation == 'sorcerer' ? 's' : $vocation;
+                        if (in_array($vocation, ['p', 'k', 's', 'd'])) {
+                            $vocations[] = $vocationsFilter[$vocation];
+                        }
                     }
                 }
             }
         }
 
-        return $hasVocation ? [['property' => 'vocation', 'value' => implode(', ', $vocations)]] : [];
+        return is_array($vocations)
+            ? [['property' => 'vocation', 'value' => implode(', ', $vocations)]]
+            : [];
     }
 
     /**
