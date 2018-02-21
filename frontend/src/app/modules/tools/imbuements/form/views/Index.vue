@@ -61,8 +61,8 @@
                             </div>
                         </td>
                         <td colspan="3"></td>
-                        <td class="price">{{ getTotal().format() }} gps</td>
-                        <td class="price">{{ getHourValue(getTotal()).format() }} gps/h</td>
+                        <td class="price">{{ getTotal().format() }} gp</td>
+                        <td class="price">{{ getHourValue(getTotal()).format() }} gp/h</td>
                     </tr>
                 </tbody>
             </table>
