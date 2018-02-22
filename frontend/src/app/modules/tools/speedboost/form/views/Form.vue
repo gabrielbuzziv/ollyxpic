@@ -10,11 +10,11 @@
 
         <panel class="form">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 col-sm-6">
                     <form-input placeholder="Level" v-model="player.level"/>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-6 col-sm-6">
                     <form-input placeholder="Speed Bonus" v-model="player.bonus"/>
                     <small class="helper-block">
                         Boh + Beetle Necklace = 22
@@ -23,7 +23,7 @@
             </div>
 
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 col-sm-12">
                     <el-radio class="radio" v-model="player.spell" :label="0">
                         No Spell
                     </el-radio>

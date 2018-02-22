@@ -9,21 +9,21 @@
         </page-title>
 
         <panel>
-            <div class="col-md-2">
+            <div class="col-md-2 col-sm-2">
                 <div class="level-range">
                     <b>Min Level</b>
                     <span>{{ minShare | fixed }}</span>
                 </div>
             </div>
 
-            <div class="col-md-2 col-md-offset-3">
+            <div class="col-md-2 col-md-offset-3 col-sm-4 col-sm-offset-2">
                 <div class="level-range">
                     <b>Your Level</b>
                     <form-input placeholder="Your Level" v-model="level"/>
                 </div>
             </div>
 
-            <div class="col-md-2 col-md-offset-3">
+            <div class="col-md-2 col-md-offset-3 col-sm-2 col-sm-offset-2">
                 <div class="level-range">
                     <b>Max Level</b>
                     <span>{{ maxShare | fixed }}</span>

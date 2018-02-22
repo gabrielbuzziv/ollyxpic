@@ -60,20 +60,23 @@
                     </div>
 
                     <div class="row">
-                        <form-group label="Vocation" :columns="6" class="text-center margin-top-10 margin-bottom-0">
+                        <div class="form-group col-md-6 col-sm-7 margin-top-10 margin-bottom-0">
+                            <label class="form-label">Critical Damage</label>
+
                             <el-radio v-model="form.vocation" :label="1">Knight</el-radio>
                             <el-radio v-model="form.vocation" :label="2">Paladin</el-radio>
                             <el-radio v-model="form.vocation" :label="3">Druid</el-radio>
                             <el-radio v-model="form.vocation" :label="4">Sorcerer</el-radio>
-                        </form-group>
+                        </div>
 
-                        <form-group label="Critical Damage" :columns="6"
-                                    class="text-center margin-top-10 margin-bottom-0">
+                        <div class="form-group col-md-6 col-sm-5 margin-top-10 margin-bottom-0">
+                            <label class="form-label">Critical Damage</label>
+
                             <el-radio v-model="form.critical" :label="0">0%</el-radio>
                             <el-radio v-model="form.critical" :label="10">10%</el-radio>
                             <el-radio v-model="form.critical" :label="25">25%</el-radio>
                             <el-radio v-model="form.critical" :label="50">50%</el-radio>
-                        </form-group>
+                        </div>
                     </div>
                 </panel>
             </div>

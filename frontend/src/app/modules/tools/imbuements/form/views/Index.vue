@@ -14,8 +14,8 @@
                     <tr>
                         <th>Imbuement</th>
                         <th>Material</th>
-                        <th>Success Fee</th>
-                        <th>Creation Fee</th>
+                        <th class="hidden-sm hidden-xs">Success Fee</th>
+                        <th class="hidden-sm hidden-xs">Creation Fee</th>
                         <th>Total</th>
                         <th>Total/Hour</th>
                     </tr>
@@ -34,8 +34,8 @@
                             <small class="market" v-else>Buy materials on market</small>
                         </td>
                         <td>{{ getMaterial(imbuement).price.format() }} gp</td>
-                        <td>{{ getSuccessFee(imbuement).format() }} gp</td>
-                        <td>{{ getCreationFee(imbuement).format() }} gp</td>
+                        <td class="hidden-sm hidden-xs">{{ getSuccessFee(imbuement).format() }} gp</td>
+                        <td class="hidden-sm hidden-xs">{{ getCreationFee(imbuement).format() }} gp</td>
                         <td>{{ getImbuementTotal(imbuement).format() }} gp</td>
                         <td>{{ getHourValue(getImbuementTotal(imbuement)).format() }} gp/h</td>
                     </tr>
@@ -60,7 +60,8 @@
                                 </div>
                             </div>
                         </td>
-                        <td colspan="3"></td>
+                        <td></td>
+                        <td class="hidden-sm hidden-xs" colspan="2"></td>
                         <td class="price">{{ getTotal().format() }} gp</td>
                         <td class="price">{{ getHourValue(getTotal()).format() }} gp/h</td>
                     </tr>

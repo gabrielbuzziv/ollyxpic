@@ -9,20 +9,20 @@
         </page-title>
 
         <div class="row form">
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-4">
                 <panel>
                     <input type="text" class="form-control" placeholder="Your Level" v-model="level">
                 </panel>
             </div>
 
-            <div class="col-md-8">
+            <div class="col-md-8 col-sm-8">
                 <panel>
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-8 col-sm-8">
                             <input type="text" class="form-control" placeholder="Enemy Level" v-model="enemy.level">
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-sm-4">
                             <el-checkbox v-model="enemy.promotion">Promotion</el-checkbox>
                             <el-checkbox v-model="enemy.blessing">Blessing</el-checkbox>
                         </div>

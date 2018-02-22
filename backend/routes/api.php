@@ -108,6 +108,7 @@ Route::get('highscores/skills/{type?}', 'HighscoresController@skills');
 /**
  * PlayerController routes.
  */
+Route::get('players/experience/months', 'PlayersController@months');
 Route::get('players/{name}', 'PlayersController@show');
 Route::get('players/{player}/skills', 'PlayersController@skills');
 Route::get('players/{player}/experience', 'PlayersController@experience');

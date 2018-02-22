@@ -1,5 +1,5 @@
 <template>
-    <div class="col-lg-3 col-md-4">
+    <div class="col-lg-3 col-md-4 col-sm-6">
         <panel class="tile">
             <div class="thumb">
                 <img :src="tile_path(tile.object_id)" />

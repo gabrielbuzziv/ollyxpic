@@ -9,7 +9,7 @@
         </page-title>
 
         <div class="row vocations">
-            <div class="col-md-3" v-for="vocation, index in vocations">
+            <div class="col-md-3 col-sm-6" v-for="vocation, index in vocations">
                 <el-radio class="vocation" v-model="skills.vocation" :label="index">
                     <div class="thumb">
                         <img :src="outfit(vocation.image)">
@@ -22,11 +22,11 @@
 
         <panel class="form">
             <div class="row">
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-4 col-sm-4">
                     <input type="text" class="form-control" placeholder="From" v-model="skills.from">
                 </div>
 
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-4 col-sm-4">
                     <span class="slider-label">
                         <span class="left">
                             Next ML in
@@ -45,7 +45,7 @@
                             :show-tooltip="false"/>
                 </div>
 
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-4 col-sm-4">
                     <input type="text" class="form-control" placeholder="To" v-model="skills.to">
                 </div>
             </div>
@@ -53,13 +53,13 @@
 
         <panel class="form-advanced">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 col-sm-6">
                     <h4>Bonus</h4>
 
                     <el-checkbox v-model="advanced.double">Double EXP</el-checkbox>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4 col-sm-6">
                     <h4>Loyalty</h4>
 
                     <el-select v-model="advanced.loyalty">

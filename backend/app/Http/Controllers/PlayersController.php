@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\HighscoreMigration;
 use App\Highscores;
 use App\HighscoresSkills;
 use App\Player;
 use App\World;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class PlayersController extends ApiController
 {
@@ -61,6 +63,27 @@ class PlayersController extends ApiController
     }
 
     /**
+     * Get months with experience.
+     *
+     * @return mixed
+     */
+    public function months()
+    {
+        $months = (new HighscoreMigration)
+            ->select(DB::raw('date_format(migration_date, "%Y-%m-01") as month'))
+            ->where('type', 'experience')
+            ->groupBy(DB::raw('YEAR(migration_date), MONTH(migration_date) '))
+            ->orderByRaw('YEAR(migration_date) DESC, MONTH(migration_date) DESC ')
+            ->get();
+
+        $months = array_map(function ($month) {
+            return $month['month'];
+        }, $months->toArray());
+
+        return $this->respond($months);
+    }
+
+    /**
      * Get player experience advances.
      *
      * @param Player $player
@@ -68,10 +91,13 @@ class PlayersController extends ApiController
      */
     public function experience(Player $player)
     {
+        $start = Carbon::createFromFormat('Y-m', request('month'))->firstOfMonth();
+        $end = Carbon::createFromFormat('Y-m', request('month'))->lastOfMonth();
+
         $experience = (new Highscores)
             ->where('type', 'experience')
             ->where('name', $player->name)
-            ->whereBetween('updated_at', [Carbon::today()->subMonth(), Carbon::today()])
+            ->whereBetween('updated_at', [$start, $end])
             ->orderBy('updated_at', 'asc')
             ->get();
 

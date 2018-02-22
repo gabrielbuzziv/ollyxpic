@@ -45,7 +45,7 @@
             </panel>
 
             <div class="row creatures">
-                <div class="col-md-2" v-for="creature, index in creaturesList">
+                <div class="col-md-2 col-sm-6" v-for="creature, index in creaturesList">
                     <panel class="creature">
                         <button class="btn-close" @click.prevent="removeCreature(index)">
                             <i class="mdi mdi-close"></i>
@@ -58,7 +58,7 @@
                     </panel>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4 col-sm-6">
                     <panel class="field">
                         <el-select v-model="creature"
                                    no-data-text="Creatures not found"
@@ -80,7 +80,7 @@
 
             <panel class="filter">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-3 col-sm-3">
                         <el-select v-model="category"
                                    no-data-text="Categories not found"
                                    no-match-text="Category not found"
@@ -92,17 +92,17 @@
                         </el-select>
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-3 col-sm-3">
                         <label>Capacity Over</label>
                         <el-slider v-model="capacity" item :min="0" :max="180" :step="10"></el-slider>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-sm-3">
                         <label>Price less than</label>
                         <el-slider v-model="value" :min="0" :max="50000" :step="1000"></el-slider>
                     </div>
 
-                    <div class="col-md-2">
+                    <div class="col-md-2 col-sm-3">
                         <span class="counter">
                             {{ blacklist.blacklistTypes.length }} / 500
                         </span>
@@ -112,7 +112,7 @@
 
             <panel class="items">
                 <page-load class="no-padding" :loading="loadingItems">
-                    <div class="col-md-2" v-for="item in items">
+                    <div class="col-md-2 col-sm-3" v-for="item in items">
                         <div class="item" :class="{ 'active': isSelected(item.identifier) }"
                              @click.prevent="toggleItem(item.identifier)">
                             <div class="thumb">

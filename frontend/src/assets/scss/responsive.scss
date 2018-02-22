@@ -38,7 +38,7 @@
     }
 
     #players {
-        .panel{
+        .panel {
             &.character-details {
                 width: 100%;
                 margin-right: 0;
@@ -47,6 +47,69 @@
     }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 992px) {
+    #header {
+        .container {
+            #nav {
+                & > ul {
+                    & > li {
+                        &.with-child {
+                            ul {
+                                li {
+                                    width: calc(50% - 10px);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
+    #imbuements {
+        .table {
+            &.imbuements {
+                tr {
+                    td {
+                        &.item {
+                            .input-group {
+                                width: 105px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #hardcore {
+        .result {
+            .panel {
+                width: calc(50% - 17px)
+            }
+        }
+    }
+
+    #highscores {
+        .highscores-menu {
+            ul {
+                &.experience {
+                    li {
+                        a {
+                            height: auto;
+
+                            .thumb {
+                                display: none;
+                            }
+
+                            span {
+                                width: 100%;
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

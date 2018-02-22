@@ -49,15 +49,15 @@
                     <tab-content tab="waste">
                         <div class="margin-top-10"></div>
                         <div class="block row" v-for="teammate, index in teammates">
-                            <form-group :columns="3">
+                            <div class="form-group col-md-3 col-sm-4">
                                 <form-input :name="`teammates[${index}][name]`" :data="teammate.name"
                                             v-model="teammate.name" placeholder="Character name"/>
-                            </form-group>
+                            </div>
 
-                            <form-group :columns="3">
+                            <div class="form-group col-md-3 col-sm-4">
                                 <form-input :name="`teammates[${index}][waste]`" :data="teammate.waste"
                                             v-model="teammate.waste" placeholder="Waste in gps"/>
-                            </form-group>
+                            </div>
 
                             <div class="buttons">
                                 <button class="btn-link" @click.prevent="add('teammates')">

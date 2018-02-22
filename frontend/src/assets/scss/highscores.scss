@@ -156,6 +156,118 @@
     }
 
     .highscores {
+        table {
+            &.table {
+                thead {}
+
+                tbody {
+                    tr {
+                        td {
+                            &.details {
+                                .rank {
+                                    display: inline-block;
+                                    height: 30px;
+                                    line-height: 30px;
+                                    width: 30px;
+                                    background: #f39c12;
+                                    text-align: center;
+                                    border-radius: 100%;
+                                    margin-right: 15px;
+                                    color: #fff;
+                                    font-weight: 300;
+                                    font-size: 12px;
+                                }
+
+                                .name {
+                                    display: inline-block;
+                                    vertical-align: middle;
+                                    width: calc(100% - 55px);
+
+                                    a {
+                                        font-weight: 600;
+                                        font-size: 14px;
+                                        display: block;
+                                    }
+
+                                    span {
+                                        display: block;
+                                        font-weight: 300;
+                                        font-size: 12px;
+                                    }
+                                }
+                            }
+
+                            &.skill {
+                                b {
+                                    display: block;
+                                    font-size: 20px;
+                                    font-weight: 700;
+                                }
+
+                                span {
+                                    display: block;
+                                    font-size: 12px;
+                                    font-weight: 300;
+                                }
+                            }
+
+                            &.level {
+                                padding-right: 50px;
+
+                                .progress-label {
+                                    display: block;
+                                    margin-bottom: 5px;
+
+                                    b {
+                                        display: inline-block;
+                                        width: calc(50% - 5px);
+                                        vertical-align: middle;
+                                        font-size: 12px;
+                                        font-weight: 300;
+                                    }
+
+                                    span {
+                                        display: inline-block;
+                                        text-align: right;
+                                        vertical-align: middle;
+                                        font-weight: 700;
+                                        width: 50%;
+                                        font-size: 16px;
+                                    }
+                                }
+
+                                .el-progress {
+                                    margin-bottom: 4px;
+                                }
+                            }
+
+                            &.world {
+                                a {
+                                    font-weight: 400;
+                                    font-size: 14px;
+                                    display: block;
+                                }
+
+                                span {
+                                    display: block;
+                                    font-weight: 300;
+                                    font-size: 12px;
+                                }
+                            }
+
+                            &.buttons {
+                                .btn {
+                                    padding: 5px 9px;
+                                    font-weight: 300;
+                                    font-size: 12px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         .el-table {
             border: 0;
 

@@ -1,5 +1,5 @@
 <template>
-    <skills :leaders="leaders" :highscores="highscores" :loading="loading" />
+    <skills :highscores="highscores" :loading="loading" />
 </template>
 
 <script>
@@ -36,7 +36,9 @@
                 services.getSkillHighscores(skill, world)
                     .then(response => {
                         this.loading = false
-                        this.highscores = response.data
+                        this.highscores = response.data.map((highscore, index) => {
+                            return { ...highscore,  rank: index + 1 }
+                        })
                     })
                     .catch(() => this.loading = false)
             }

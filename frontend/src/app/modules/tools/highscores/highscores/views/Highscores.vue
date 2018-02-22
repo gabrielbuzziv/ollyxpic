@@ -33,6 +33,7 @@
                         <div class="thumb">
                             <img src="/src/assets/images/raster.png" alt="">
                         </div>
+                        <span class="hidden-md hidden-lg">Global</span>
                     </router-link>
                 </li>
 

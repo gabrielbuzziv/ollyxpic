@@ -32,18 +32,6 @@
                         <deaths :deaths="deaths" v-if="deaths.length" />
                     </el-tab-pane>
 
-                    <!--<el-tab-pane label="Advances" name="advances">-->
-                        <!--<advances :experience="experience" :loading="loadingExperience" />-->
-                    <!--</el-tab-pane>-->
-
-                    <!--<el-tab-pane label="Damage" name="damage">-->
-                        <!--Something-->
-                    <!--</el-tab-pane>-->
-
-                    <!--<el-tab-pane label="Healing" name="healing">-->
-                        <!--Something-->
-                    <!--</el-tab-pane>-->
-
                     <el-tab-pane label="Social Network" name="Network" v-if="! network">
                         <social-tab />
                     </el-tab-pane>
@@ -187,7 +175,8 @@
                         this.loading = false
 
                         this.loadSkills()
-                        this.loadExperience()
+//                        this.loadExperience()
+                        this.$root.$emit('player::loaded')
                     })
                     .catch(() => this.player = false)
             },
