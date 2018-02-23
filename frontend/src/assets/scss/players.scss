@@ -325,135 +325,132 @@
         }
 
         &.advances {
-            .el-table {
-                &::after,
-                &::before {
-                    background-color: #fff;
-                }
-
-                &.advances {
-                    border: 0;
-
-                    .el-table__header-wrapper {
-                        tr {
-                            th {
-                                padding: 12px;
-                                border-bottom: 1px solid #eee;
-                                background-color: #fff;
-
-                                &.descending {
-                                    .cell {
-                                        .caret-wrapper {
-                                            .sort-caret {
-                                                &.descending {
-                                                    border-top-color: #000;
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-
-                                &.ascending {
-                                    .cell {
-                                        .caret-wrapper {
-                                            .sort-caret {
-                                                &.ascending {
-                                                    border-bottom-color: #000;
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-
-                                .cell {
-                                    padding: 0;
-                                    color: #444;
-                                    vertical-align: middle;
-                                    font-size: 12px;
-                                    text-transform: uppercase;
-                                    background: none;
-
-                                    .caret-wrapper {
-                                        margin-left: 15px;
-
-                                        .sort-caret {
-                                            border-right: 4px solid transparent;
-                                            border-left: 4px solid transparent;
-
-                                            &.ascending {
-                                                border-bottom: 4px solid #97a8be;
-                                            }
-
-                                            &.descending {
-                                                border-top: 4px solid #97a8be;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
+            .panel {
+                &.card-panel {
+                    &.light {
+                        .panel-body {
+                            background: #1abc9c;
                         }
                     }
 
-                    .el-table__body-wrapper {
-                        .el-table__row {
+                    &.danger {
+                        &.light {
+                            .panel-body {
+                                background: #e74c3c;
+                            }
+                        }
+
+                        .panel-body {
+                            background: #c0392b;
+                        }
+                    }
+
+                    .panel-body {
+                        position: relative;
+                        color: #fff;
+                        background: #16a085;
+                        padding-top: 40px;
+                        padding-bottom: 40px;
+
+                        .background-chart {
+                            position: absolute !important;
+                            bottom: -34px;
+                            left: 0;
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                        }
+
+                        .icon {
+                            display: inline-block;
+                            vertical-align: middle;
+                            width: 40px;
+
+                             i {
+                                 font-size: 20px;
+                             }
+                        }
+
+                        .data {
+                            display: inline-block;
+                            vertical-align: middle;
+                            width: calc(100% - 50px);
+
+                            b {
+                                font-size: 12px;
+                                font-weight: 300;
+                                display: block;
+                                text-transform: uppercase;
+                            }
+
+                            span {
+                                font-size: 22px;
+                                font-weight: 700;
+                            }
+                        }
+                    }
+                }
+            }
+
+            table {
+                &.advances {
+                    margin: 0;
+                    border: 0;
+
+                    tr {
+                        &:last-child {
                             td {
-                                padding: 12px;
-                                border-color: #eee;
+                                border: 0;
+                            }
+                        }
 
-                                &.level {
-                                    .cell {
-                                        padding-right: 20px;
+                        td {
+                            padding: 12px;
+                            border-bottom: 1px solid #eee;
 
-                                        span {
-                                            display: inline-block;
-                                            width: 50%;
-                                        }
+                            &.level {
+                                padding-right: 50px;
 
-                                        b {
-                                            font-weight: 700;
-                                            font-size: 16px;
-                                            display: inline-block;
-                                            width: calc(50% - 5px);
-                                            text-align: right;
-                                        }
-                                    }
+                                span {
+                                    display: inline-block;
+                                    width: 50%;
                                 }
 
-                                &.advance {
-                                    .cell {
-                                        b {
-                                            color: #27ae60;
+                                b {
+                                    font-weight: 700;
+                                    font-size: 16px;
+                                    display: inline-block;
+                                    width: calc(50% - 5px);
+                                    text-align: right;
+                                }
+                            }
 
-                                            &.loose {
-                                                color: #e74c3c;
-                                            }
-                                        }
+                            &.advance {
+                                b {
+                                    color: #27ae60;
+
+                                    &.loose {
+                                        color: #e74c3c;
                                     }
                                 }
+                            }
 
-                                .cell {
-                                    padding: 0;
-                                    vertical-align: middle;
-                                    color: #636b6f;
+                            b {
+                                display: block;
+                                font-weight: 400;
+                                font-size: 14px;
+                            }
 
-                                    b {
-                                        display: block;
-                                        font-weight: 400;
-                                        font-size: 14px;
-                                    }
+                            span {
+                                display: block;
+                                font-weight: 300;
+                                font-size: 12px;
+                            }
 
-                                    span {
-                                        display: block;
-                                        font-weight: 300;
-                                        font-size: 12px;
-                                    }
-
-                                    .el-progress {
-                                        .el-progress-bar__innerText {
-                                            font-weight: 300;
-                                            font-size: 10px;
-                                        }
-                                    }
+                            .el-progress {
+                                .el-progress-bar__innerText {
+                                    font-weight: 300;
+                                    font-size: 10px;
                                 }
                             }
                         }

@@ -16,15 +16,18 @@
 
 <script>
     export default {
-        props: ['character'],
 
         computed: {
+            player () {
+                return this.$store.getters['player/GET_PLAYER']
+            },
+
             min () {
-                return this.character ? parseInt(this.character.level) / 3 * 2 : null;
+                return this.player ? parseInt(this.player.level) / 3 * 2 : null;
             },
 
             max () {
-                return this.character ? parseInt(this.character.level) * 3 / 2 : null;
+                return this.player ? parseInt(this.player.level) * 3 / 2 : null;
             },
         },
 

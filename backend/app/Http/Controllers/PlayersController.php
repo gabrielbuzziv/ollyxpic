@@ -70,7 +70,7 @@ class PlayersController extends ApiController
     public function months()
     {
         $months = (new HighscoreMigration)
-            ->select(DB::raw('date_format(migration_date, "%Y-%m-01") as month'))
+            ->select(DB::raw('date_format(migration_date, "%Y-%m") as month'))
             ->where('type', 'experience')
             ->groupBy(DB::raw('YEAR(migration_date), MONTH(migration_date) '))
             ->orderByRaw('YEAR(migration_date) DESC, MONTH(migration_date) DESC ')
@@ -91,7 +91,7 @@ class PlayersController extends ApiController
      */
     public function experience(Player $player)
     {
-        $start = Carbon::createFromFormat('Y-m', request('month'))->firstOfMonth();
+        $start = Carbon::createFromFormat('Y-m', request('month'))->firstOfMonth()->subDay();
         $end = Carbon::createFromFormat('Y-m', request('month'))->lastOfMonth();
 
         $experience = (new Highscores)
@@ -148,12 +148,13 @@ class PlayersController extends ApiController
         $player->save();
 
         array_walk($deaths, function ($death) use ($player) {
-            $player->deaths()->firstOrCreate([
+            $death = $player->deaths()->firstOrCreate([
                 'level' => $death->level,
                 'reason' => $death->reason,
                 'involved' => serialize($death->involved),
                 'died_at' => Carbon::createFromFormat('Y-m-d H:i:s.u', $death->date->date),
             ]);
+            $death->save();
         });
     }
 

@@ -1,114 +1,116 @@
 <template>
     <panel class="advances">
-        <pre>{{ player.id }}</pre>
+        <el-tabs v-model="tabs" @tab-click="loadTab">
+            <!--<el-tab-pane label="Overview" name="overview">-->
+                <!--asda-->
+            <!--</el-tab-pane>-->
 
-        <el-tabs v-model="tabs" @tab-click="loadExperience">
-            <el-tab-pane :label="month.label" :name="month.value" :key="index" v-for="month, index in months">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Level</th>
-                            <th>Experience</th>
-                            <th>Advance</th>
-                        </tr>
-                    </thead>
+            <el-tab-pane :label="month.label" :name="`${index}`" :key="index" v-for="month, index in months">
+                <page-load class="no-padding" :loading="loading">
+                    <month-cards :experience="experience" :month="month" />
 
-                    <tbody>
+                    <table class="table advances" v-if="! loading">
                         <tr v-for="advance in experience">
-                            <td>{{ advance.updated_at }}</td>
-                            <td>{{ advance.level }}</td>
-                            <td></td>
-                            <td></td>
+                            <td width="130">
+                                <b>{{ advance.updated_at | date }}</b>
+                                <span>{{ advance.updated_at | dateForHuman }}</span>
+                            </td>
+                            <td class="level">
+                                <span>Level</span>
+                                <b>{{ advance.level }}</b>
+
+                                <el-progress :percentage="getExperienceBar(advance).percentage" :show-text="false"/>
+                            </td>
+                            <td>
+                                <b>{{ advance.experience.format() }}</b>
+                                <span>Experience</span>
+                            </td>
+                            <td class="advance">
+                                <div v-if="advance.advance >= 0">
+                                    <b>+{{ advance.advance.format() }}</b>
+                                    <span>+ Experience</span>
+                                </div>
+
+                                <div v-else>
+                                    <b class="loose">{{ advance.advance.format() }}</b>
+                                    <span>+ Experience</span>
+                                </div>
+                            </td>
                         </tr>
-                    </tbody>
-                </table>
+                    </table>
+                </page-load>
             </el-tab-pane>
         </el-tabs>
-
-        <!--<el-table class="advances"-->
-        <!--:data="experience"-->
-        <!--:default-sort="{ prop: 'updated_at', order: 'descending' }">-->
-        <!--<el-table-column prop="updated_at" label="Date" sortable>-->
-        <!--<template slot-scope="scope">-->
-        <!--<b>{{ scope.row.updated_at | date }}</b>-->
-        <!--<span>{{ scope.row.updated_at | dateForHuman }}</span>-->
-        <!--</template>-->
-        <!--</el-table-column>-->
-
-        <!--<el-table-column prop="level" label="Level" class-name="level" sortable>-->
-        <!--<template slot-scope="scope">-->
-        <!--<span>Level</span>-->
-        <!--<b>{{ scope.row.level }}</b>-->
-
-        <!--<el-progress :percentage="getExperienceBar(scope.row).percentage"-->
-        <!--:show-text="false"/>-->
-        <!--</template>-->
-        <!--</el-table-column>-->
-
-        <!--<el-table-column prop="experience" label="Experience" sortable>-->
-        <!--<template slot-scope="scope">-->
-        <!--<b>{{ scope.row.experience.format() }}</b>-->
-        <!--<span>Experience</span>-->
-        <!--</template>-->
-        <!--</el-table-column>-->
-
-        <!--<el-table-column prop="advance" label="Advances" class-name="advance" sortable>-->
-        <!--<template slot-scope="scope">-->
-        <!--<div v-if="scope.row.advance >= 0">-->
-        <!--<b>+{{ scope.row.advance.format() }}</b>-->
-        <!--<span>+ Experience</span>-->
-        <!--</div>-->
-
-        <!--<div v-else>-->
-        <!--<b class="loose">{{ scope.row.advance.format() }}</b>-->
-        <!--<span>+ Experience</span>-->
-        <!--</div>-->
-        <!--</template>-->
-        <!--</el-table-column>-->
-        <!--</el-table>-->
     </panel>
 </template>
 
 <script>
+    import MonthCards from './experience/MonthCards'
+
     import services from '../services'
 
     export default {
-        props: ['player'],
+        components: { MonthCards },
 
         data () {
             return {
                 tabs: 0,
-                months: [],
-                experience: []
+            }
+        },
+
+        computed: {
+            player () {
+                return this.$store.getters['player/GET_PLAYER']
+            },
+
+            months () {
+                return this.$store.getters['player/GET_MONTHS']
+            },
+
+            experience () {
+                return this.$store.getters['player/GET_EXPERIENCE']
+            },
+
+            loading () {
+                return this.experience.length ? false : true
+            },
+
+            monthExperience () {
+                const firstOfMonth = this.experience[this.experience.length - 1]
+                const lastOfMonth = this.experience[0]
+                return this.experience.length ? lastOfMonth.experience - firstOfMonth.experience: 0
+            },
+
+            monthLevels () {
+                const firstOfMonth = this.experience[this.experience.length - 1]
+                const lastOfMonth = this.experience[0]
+                return this.experience.length ? lastOfMonth.level - firstOfMonth.level : 0
+            }
+        },
+
+        filters: {
+            date (date) {
+                return moment(date).format('DD MMM YYYY')
+            },
+
+            dateForHuman (date) {
+                return moment.tz(date, "YYYY-MM-DD HH:mm:ss", 'America/New_York').fromNow()
             }
         },
 
         methods: {
-            load () {
-                services.getMonths()
-                    .then(response => {
-                        this.months = response.data.map(month => ({
-                            label: moment(month).format('MMM YYYY'),
-                            date: month
-                        }))
+            loadTab (tab) {
+                if (tab.name == 'overview') {
+                    return false
+                }
 
-                        this.tab = this.months[0].value
-                    })
+                this.loadExperience(tab.name)
             },
 
-            loadExperience (month) {
-                services.getPlayerExperience(this.player.id, this.months[month].value)
-                    .then(response => {
-                        const advances = response.data
-
-                        this.experience = advances.map((experience, index) => {
-                            const advance = index ? parseFloat(experience.experience - advances[index - 1].experience) : 0
-                            return { ...experience, advance }
-                        })
-
-                        this.loadingExperience = false
-                    })
+            loadExperience (index) {
+                const id = this.player.id
+                const month = this.months[index].date
+                this.$store.dispatch('player/FETCH_EXPERIENCE', { id, month })
             },
 
             getExperienceBar (advance) {
@@ -125,13 +127,5 @@
                     : { leftExperience: 0, percentage: 0 }
             },
         },
-
-        mounted () {
-            this.$root.$on('player::loaded', () => this.load())
-        },
-
-        beforeDestroy () {
-            this.$root.$off('player::loaded')
-        }
     }
 </script>

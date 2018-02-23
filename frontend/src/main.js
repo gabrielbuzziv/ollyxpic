@@ -4,7 +4,6 @@ import store from 'common/vuex'
 import './libs'
 import 'common/components'
 
-
 import App from './App.vue'
 
 window.Vue = Vue

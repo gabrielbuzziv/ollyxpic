@@ -1,14 +1,14 @@
 <template>
-    <div v-if="! loading && ! experience.length">
-        <panel>
-            <div class="alert alert-warning no-data margin-bottom-0">
-                <h4>Experience Statistics</h4>
-                <p>Unforntunately we can't track the exp statistics from character that is not in the top 300.</p>
-            </div>
-        </panel>
-    </div>
+    <!--<div v-if="! loading && ! experience.length">-->
+        <!--<panel>-->
+            <!--<div class="alert alert-warning no-data margin-bottom-0">-->
+                <!--<h4>Experience Statistics</h4>-->
+                <!--<p>Unforntunately we can't track the exp statistics from character that is not in the top 300.</p>-->
+            <!--</div>-->
+        <!--</panel>-->
+    <!--</div>-->
 
-    <div class="experience" v-else>
+    <div class="experience">
         <!--<panel>-->
             <!--<page-load class="no-padding" :loading="loading">-->
                 <!--<el-tabs v-model="chartTab">-->
@@ -56,7 +56,7 @@
             <!--</page-load>-->
         <!--</panel>-->
 
-        <experience-table :player="player" />
+        <experience-table />
     </div>
 </template>
 
@@ -64,8 +64,6 @@
     import ExperienceTable from './ExperienceTable'
 
     export default {
-        props: ['experience', 'player', 'loading'],
-
         components: { ExperienceTable },
 
         data () {

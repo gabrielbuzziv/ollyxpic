@@ -6,13 +6,13 @@
                     <div class="level">
                         <div class="data">
                             <span>Level</span>
-                            <b>{{ character.level }}</b>
+                            <b>{{ player.level }}</b>
                         </div>
-                        <el-progress :percentage="getExperienceBar(level)" :show-text="false"
-                                     :stroke-width="12"/>
+                        <!--<el-progress :percentage="getExperienceBar(level)" :show-text="false"-->
+                                     <!--:stroke-width="12"/>-->
                     </div>
 
-                    <page-load class="skills no-padding" :loading="loadingSkills">
+                    <div class="skills">
                         <div v-if="skills.length">
                             <div class="skill" v-if="magicLevel">
                                 <i class="mdi mdi-auto-fix icon"></i>
@@ -50,10 +50,10 @@
                         <div v-else>
                             <div class="alert alert-primary">
                                 <i class="mdi mdi-emoticon-sad margin-right-5"></i>
-                                Sorry, we only track skills from top 300.
+                                Sorry, your skills can't be tracked.
                             </div>
                         </div>
-                    </page-load>
+                    </div>
                 </div>
             </panel>
         </div>
@@ -105,61 +105,64 @@
 </template>
 
 <script>
-    Number.prototype.format = function (n, x) {
-        var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\.' : '$') + ')';
-        return this.toFixed(Math.max(0, ~ ~ n)).replace(new RegExp(re, 'g'), '$&.');
-    };
-
     export default {
-        props: ['character', 'experience', 'skills', 'loadingSkills'],
+        props: ['experience'],
 
         computed: {
-            level () {
-                return this.experience.slice().sort((a, b) => b.id - a.id)[0]
+            player () {
+                return this.$store.getters['player/GET_PLAYER']
             },
 
+            skills () {
+                return this.$store.getters['player/GET_SKILLS']
+            },
+
+//            level () {
+//                return this.experience.slice().sort((a, b) => b.id - a.id)[0]
+//            },
+
             hitpoints () {
-                switch (this.character.vocation) {
+                switch (this.player.vocation) {
                     case 'Knight':
                     case 'Elite Knight':
-                        return (this.character.level - 8) * 15 + 185
+                        return (this.player.level - 8) * 15 + 185
                     case 'Paladin':
                     case 'Royal Paladin':
-                        return (this.character.level - 8) * 10 + 185
+                        return (this.player.level - 8) * 10 + 185
                     default:
-                        return this.character.level * 5 + 145
+                        return this.player.level * 5 + 145
                 }
             },
 
             manapoints () {
-                switch (this.character.vocation) {
+                switch (this.player.vocation) {
                     case 'Druid':
                     case 'Sorcerer':
                     case 'Elder Druid':
                     case 'Master Sorcerer':
-                        return (this.character.level - 8) * 30 + 90
+                        return (this.player.level - 8) * 30 + 90
                     case 'Paladin':
                     case 'Royal Paladin':
-                        return (this.character.level - 8) * 15 + 90
+                        return (this.player.level - 8) * 15 + 90
                     default:
-                        return (this.character.level - 8) * 5 + 50
+                        return (this.player.level - 8) * 5 + 50
                 }
             },
 
             speed () {
-                return this.character.level + 109
+                return this.player.level + 109
             },
 
             capacity () {
-                switch (this.character.vocation) {
+                switch (this.player.vocation) {
                     case 'Knight':
                     case 'Elite Knight':
-                        return (this.character.level - 8) * 25 + 470
+                        return (this.player.level - 8) * 25 + 470
                     case 'Paladin':
                     case 'Royal Paladin':
-                        return (this.character.level - 8) * 20 + 470
+                        return (this.player.level - 8) * 20 + 470
                     default:
-                        return (this.character.level - 8) * 10 + 400
+                        return (this.player.level - 8) * 10 + 400
                 }
             },
 
@@ -183,30 +186,30 @@
             },
 
             isPaladin () {
-                return this.character.vocation == 'Paladin' || this.character.vocation == 'Royal Paladin'
+                return this.player.vocation == 'Paladin' || this.player.vocation == 'Royal Paladin'
             },
 
             isKnight () {
-                return this.character.vocation == 'Knight' || this.character.vocation == 'Elite Knight'
+                return this.player.vocation == 'Knight' || this.player.vocation == 'Elite Knight'
             }
         },
 
         methods: {
-            getExperienceBar (advance) {
-                if (this.experience.length) {
-                    const nextLevel = advance.level + 1
-                    const nextLevelExp = ((50 * Math.pow((nextLevel - 1), 3)) - (150 * Math.pow((nextLevel - 1), 2)) + (400 * (nextLevel - 1))) / 3
-                    const currentExp = advance.experience
-                    const expToNextLevel = 50 * Math.pow(advance.level, 2) - 150 * advance.level + 200
-                    const expLeft = nextLevelExp - currentExp
-                    const currentLeveledExp = expToNextLevel - expLeft
-                    const percentage = parseInt((currentLeveledExp * 100) / expToNextLevel)
-
-                    return advance.level != this.character.level ? 0 : percentage
-                }
-
-                return 0
-            }
+//            getExperienceBar (advance) {
+//                if (this.experience.length) {
+//                    const nextLevel = advance.level + 1
+//                    const nextLevelExp = ((50 * Math.pow((nextLevel - 1), 3)) - (150 * Math.pow((nextLevel - 1), 2)) + (400 * (nextLevel - 1))) / 3
+//                    const currentExp = advance.experience
+//                    const expToNextLevel = 50 * Math.pow(advance.level, 2) - 150 * advance.level + 200
+//                    const expLeft = nextLevelExp - currentExp
+//                    const currentLeveledExp = expToNextLevel - expLeft
+//                    const percentage = parseInt((currentLeveledExp * 100) / expToNextLevel)
+//
+//                    return advance.level != this.player.level ? 0 : percentage
+//                }
+//
+//                return 0
+//            }
         }
     }
 </script>

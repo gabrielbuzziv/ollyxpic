@@ -18,11 +18,15 @@
 
 <script>
     export default {
-        props: ['character', 'network'],
+        props: [ 'network'],
 
         computed: {
+            player () {
+                return this.$store.getters['player/GET_PLAYER']
+            },
+
             description () {
-                return this.character.description != null ? this.character.description : ''
+                return this.player.description != null ? this.player.description : ''
             },
 
             twitch () {

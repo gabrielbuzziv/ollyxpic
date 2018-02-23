@@ -34,10 +34,10 @@
         },
 
         mounted () {
-            setTimeout(() => {
+            Vue.nextTick(() => {
                 this.init()
                 this.chart.reflow()
-            }, 1)
+            })
         },
     }
 </script>

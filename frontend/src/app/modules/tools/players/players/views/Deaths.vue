@@ -1,6 +1,6 @@
 <template>
     <panel class="deaths">
-        <div class="deaths">
+        <div class="deaths" v-if="deaths.length">
             <el-tabs v-model="deathTabs">
                 <el-tab-pane :label="`All (${deaths.length})`" name="all">
                     <death :death="death" :key="index" v-for="death, index in deaths" />
@@ -19,6 +19,10 @@
                 </el-tab-pane>
             </el-tabs>
         </div>
+
+        <div class="alert alert-info margin-bottom-0" v-else>
+            Sorry, we don't find deaths for this character.
+        </div>
     </panel>
 </template>
 
@@ -26,8 +30,6 @@
     import Death from './Death'
 
     export default {
-        props: ['deaths'],
-
         components: { Death },
 
         data () {
@@ -37,6 +39,14 @@
         },
 
         computed: {
+            player () {
+                return this.$store.getters['player/GET_PLAYER']
+            },
+
+            deaths () {
+                return this.player && this.player.deaths ? this.player.deaths : []
+            },
+
             arena () {
                 return this.deaths.filter(death => death.reason.indexOf('by energy') !== - 1
                     || death.reason.indexOf('by earth') !== - 1

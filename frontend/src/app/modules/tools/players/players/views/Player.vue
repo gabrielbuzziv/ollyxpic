@@ -14,45 +14,36 @@
 
             <img :src="`/src/assets/images/${thumb}`" class="margin-right-15 big">
             <div class="title">
-                <h2>{{ character.name || queryName }}</h2>
-                <span>{{ character.vocation || 'Vocation' }}</span>
+                <h2>{{ player.name || playerName }}</h2>
+                <span>{{ player.vocation || 'Vocation' }}</span>
             </div>
         </page-title>
 
-        <character :character="character" :experience="experience" :skills="skills" :loadingSkills="loadingSkills" />
+        <character />
 
         <div class="row margin-top-40">
             <div class="col-md-8">
                 <el-tabs class="main-tab" type="card" v-model="tabs">
                     <el-tab-pane label="Experience" name="experience">
-                        <experience :experience="experience" :loading="loadingExperience" />
+                        <experience />
                     </el-tab-pane>
 
-                    <el-tab-pane label="Deaths" name="death" v-if="deaths.length">
-                        <deaths :deaths="deaths" v-if="deaths.length" />
+                    <el-tab-pane label="Deaths" name="death">
+                        <deaths />
                     </el-tab-pane>
 
                     <el-tab-pane label="Social Network" name="Network" v-if="! network">
                         <social-tab />
                     </el-tab-pane>
-
-                    <el-tab-pane label="What Baldur Loves?" name="Baldur" v-if="character.name == 'Baldur Sword'">
-                        <panel>
-                            <img :src="image_path_by_name('creature', 'hydra')" v-for="n in 99">
-                        </panel>
-                    </el-tab-pane>
                 </el-tabs>
-
-
-
             </div>
 
             <div class="col-md-4 sidemenu">
-                <social :character="character" :network.sync="network" />
-                <character-details :character="character" />
-                <achievements :character="character" />
-                <loyalty :skills="skills" :loading="loadingSkills" />
-                <exp-share :character="character" />
+                <social :network.sync="network" />
+                <character-details />
+                <achievements />
+                <loyalty />
+                <exp-share />
             </div>
         </div>
     </page-load>
@@ -103,11 +94,6 @@
         data () {
             return {
                 loading: true,
-                loadingSkills: true,
-                loadingExperience: true,
-                player: {},
-                skills: [],
-                experience: [],
                 search: '',
                 network: false,
                 tabs: 'experience'
@@ -115,20 +101,12 @@
         },
 
         computed: {
-            queryName () {
+            playerName () {
                 return this.$route.params.name
             },
 
-            character () {
-                return this.player
-                    ? this.player
-                    : {}
-            },
-
-            deaths () {
-                return this.player && this.player.deaths
-                    ? this.player.deaths
-                    : []
+            player () {
+                return this.$store.getters['player/GET_PLAYER']
             },
 
             thumb () {
@@ -156,11 +134,7 @@
 
         watch: {
             '$route.params.name' () {
-                this.player = {}
-                this.skills = []
-                this.experience = []
-                this.loadingSkills = true
-                this.loadingExperience = true
+                this.loading = true
                 this.tabs = 'experience'
                 this.load()
             }
@@ -168,42 +142,9 @@
 
         methods: {
             load () {
-                this.loading = true
-                services.getPlayer(this.$route.params.name)
-                    .then(response => {
-                        this.player = response.data
-                        this.loading = false
-
-                        this.loadSkills()
-//                        this.loadExperience()
-                        this.$root.$emit('player::loaded')
-                    })
-                    .catch(() => this.player = false)
-            },
-
-            loadSkills () {
-                this.loadingSkills = true
-                services.getPlayerSkills(this.player.id)
-                    .then(response => {
-                        this.skills = response.data
-                        this.loadingSkills = false
-                    })
-                    .catch(() => this.loadingSkills = false)
-            },
-
-            loadExperience () {
-                services.getPlayerExperience(this.player.id)
-                    .then(response => {
-                        const advances = response.data
-
-                        this.experience = advances.map((experience, index) => {
-                            const advance = index ? parseFloat(experience.experience - advances[index - 1].experience) : 0
-                            return { ...experience, advance }
-                        })
-
-                        this.loadingExperience = false
-                    })
-                    .catch(() => this.loadingExperience = false)
+                this.$store.dispatch('player/FETCH_PLAYER', { name: this.playerName })
+                    .then(response => this.loading = false)
+                    .catch(() => this.loading = false)
             },
 
             searchPlayer () {

@@ -22,9 +22,11 @@
 
 <script>
     export default {
-        props: ['character', 'skills', 'loading'],
-
         computed: {
+            skills () {
+                return this.$store.getters['player/GET_SKILLS']
+            },
+
             loyalty () {
                 return this.skills ? this.skills.filter(skill => skill.skill == 'loyalty')[0] : false
             },
