@@ -1,6 +1,6 @@
 <template>
     <panel class="advances">
-        <el-tabs v-model="tabs" @tab-click="loadTab">
+        <el-tabs v-model="tabs" @tab-click="loadTab" v-if="experience.length || (! experience.length && loading)">
             <el-tab-pane label="Overview" name="overview">
                 <page-load class="no-padding" :loading="loading">
                     <advance-experience-chart :experience="experience"/>
@@ -9,48 +9,46 @@
 
             <el-tab-pane :label="month.label" :name="`${index}`" :key="index" v-for="month, index in months">
                 <page-load class="no-padding" :loading="loading">
-                    <div v-if="experience.length">
-                        <month-cards :experience="experience" :month="month"/>
+                    <month-cards :experience="experience" :month="month"/>
 
-                        <table class="table advances" v-if="! loading">
-                            <tr v-for="advance in experience">
-                                <td width="130">
-                                    <b>{{ advance.updated_at | date }}</b>
-                                    <span>{{ advance.updated_at | dateForHuman }}</span>
-                                </td>
-                                <td class="level">
-                                    <span>Level</span>
-                                    <b>{{ advance.level }}</b>
+                    <table class="table advances" v-if="! loading">
+                        <tr v-for="advance in experience">
+                            <td width="130">
+                                <b>{{ advance.updated_at | date }}</b>
+                                <span>{{ advance.updated_at | dateForHuman }}</span>
+                            </td>
+                            <td class="level">
+                                <span>Level</span>
+                                <b>{{ advance.level }}</b>
 
-                                    <el-progress :percentage="getLeftExperience(advance)" :show-text="false"/>
-                                </td>
-                                <td>
-                                    <b>{{ advance.experience.format() }}</b>
-                                    <span>Experience</span>
-                                </td>
-                                <td class="advance">
-                                    <div v-if="advance.advance >= 0">
-                                        <b>+{{ advance.advance.format() }}</b>
-                                        <span>+ Experience</span>
-                                    </div>
+                                <el-progress :percentage="getLeftExperience(advance)" :show-text="false"/>
+                            </td>
+                            <td>
+                                <b>{{ advance.experience.format() }}</b>
+                                <span>Experience</span>
+                            </td>
+                            <td class="advance">
+                                <div v-if="advance.advance >= 0">
+                                    <b>+{{ advance.advance.format() }}</b>
+                                    <span>+ Experience</span>
+                                </div>
 
-                                    <div v-else>
-                                        <b class="loose">{{ advance.advance.format() }}</b>
-                                        <span>+ Experience</span>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div v-else>
-                        <div class="alert alert-warning margin-bottom-0">
-                            <p>No experience records found, we only track players from highscores players.</p>
-                        </div>
-                    </div>
+                                <div v-else>
+                                    <b class="loose">{{ advance.advance.format() }}</b>
+                                    <span>+ Experience</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </page-load>
             </el-tab-pane>
         </el-tabs>
+
+        <div v-if="! experience.length && ! loading">
+            <div class="alert alert-warning margin-bottom-0">
+                <p>No experience records found, we only track players from highscores players.</p>
+            </div>
+        </div>
     </panel>
 </template>
 
@@ -66,7 +64,7 @@
         data () {
             return {
                 tabs: 0,
-                loading: false
+                loading: true
             }
         },
 
@@ -93,6 +91,14 @@
                 const firstOfMonth = this.experience[this.experience.length - 1]
                 const lastOfMonth = this.experience[0]
                 return this.experience.length ? lastOfMonth.level - firstOfMonth.level : 0
+            }
+        },
+
+        watch: {
+            'experience' () {
+                if (this.experience.length) {
+                    this.loading = false
+                }
             }
         },
 

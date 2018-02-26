@@ -25,8 +25,6 @@
             <p>
                 All data is tracked from <a :href="highscoreUrl" target="_blank">tibia.com</a>,
                 sometimes the leaderboards page from tibia take time to update making the information a little bit inconsistent.
-
-                <!--&world=Beneva&profession=1-->
             </p>
         </div>
 
@@ -112,6 +110,32 @@
         computed: {
             playerName () {
                 return this.$route.params.name
+            },
+
+            highscoreUrl () {
+                const world = this.player && this.player.world ? this.player.world.name : ''
+                let vocation = 0
+
+                switch (this.player.vocation) {
+                    case 'Knight':
+                    case 'Elite Knight':
+                        vocation = 1
+                        break
+                    case 'Paladin':
+                    case 'Royal Paladin':
+                        vocation = 2
+                        break
+                    case 'Sorcerer':
+                    case 'Master Sorcerer':
+                        vocation = 3
+                        break
+                    case 'Druid':
+                    case 'Elder Druid':
+                        vocation = 4
+                        break
+                }
+
+                return `https://secure.tibia.com/community/?subtopic=highscores&world=${world}&profession=${vocation}`
             },
 
             player () {
