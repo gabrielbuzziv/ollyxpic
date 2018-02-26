@@ -55,4 +55,17 @@ export default {
                 .catch(() => reject())
         })
     },
+
+    'player/FETCH_OVERVIEW' (context, request) {
+        context.state.experience = []
+
+        return new Promise((resolve, reject) => {
+            services.getPlayerOverview(request.id)
+                .then(response => {
+                    context.commit('player/EXPERIENCE', response.data)
+                    resolve()
+                })
+                .catch(() => reject())
+        })
+    },
 }

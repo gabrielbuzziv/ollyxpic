@@ -113,6 +113,7 @@ Route::get('players/{name}', 'PlayersController@show');
 Route::get('players/{player}/skills', 'PlayersController@skills');
 Route::get('players/{player}/level', 'PlayersController@level');
 Route::get('players/{player}/experience', 'PlayersController@experience');
+Route::get('players/{player}/overview', 'PlayersController@overview');
 
 /**
  * All the routes in this group will need to send a Header

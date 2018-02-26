@@ -1,20 +1,16 @@
 <template>
     <panel class="advances">
-        <div class="alert alert-warning">
-            <p>
-                All data is tracked from <a href="http://tibia.com" target="_blank">tibia.com</a>.
-            </p>
-        </div>
-
         <el-tabs v-model="tabs" @tab-click="loadTab">
-            <!--<el-tab-pane label="Overview" name="overview">-->
-                <!--asda-->
-            <!--</el-tab-pane>-->
+            <el-tab-pane label="Overview" name="overview">
+                <page-load class="no-padding" :loading="loading">
+                    <advance-experience-chart :experience="experience"/>
+                </page-load>
+            </el-tab-pane>
 
             <el-tab-pane :label="month.label" :name="`${index}`" :key="index" v-for="month, index in months">
                 <page-load class="no-padding" :loading="loading">
                     <div v-if="experience.length">
-                        <month-cards :experience="experience" :month="month" />
+                        <month-cards :experience="experience" :month="month"/>
 
                         <table class="table advances" v-if="! loading">
                             <tr v-for="advance in experience">
@@ -26,7 +22,7 @@
                                     <span>Level</span>
                                     <b>{{ advance.level }}</b>
 
-                                    <el-progress :percentage="getExperienceBar(advance).percentage" :show-text="false"/>
+                                    <el-progress :percentage="getLeftExperience(advance)" :show-text="false"/>
                                 </td>
                                 <td>
                                     <b>{{ advance.experience.format() }}</b>
@@ -59,12 +55,13 @@
 </template>
 
 <script>
+    import AdvanceExperienceChart from './experience/AdvanceExperienceChart'
     import MonthCards from './experience/MonthCards'
 
     import services from '../services'
 
     export default {
-        components: { MonthCards },
+        components: { AdvanceExperienceChart, MonthCards },
 
         data () {
             return {
@@ -89,7 +86,7 @@
             monthExperience () {
                 const firstOfMonth = this.experience[this.experience.length - 1]
                 const lastOfMonth = this.experience[0]
-                return this.experience.length ? lastOfMonth.experience - firstOfMonth.experience: 0
+                return this.experience.length ? lastOfMonth.experience - firstOfMonth.experience : 0
             },
 
             monthLevels () {
@@ -112,10 +109,20 @@
         methods: {
             loadTab (tab) {
                 if (tab.name == 'overview') {
+                    this.loadOverview()
                     return false
                 }
 
                 this.loadExperience(tab.name)
+            },
+
+            loadOverview () {
+                const id = this.player.id
+
+                this.loading = true
+                this.$store.dispatch('player/FETCH_OVERVIEW', { id })
+                    .then(() => this.loading = false)
+                    .catch(() => this.loading = false)
             },
 
             loadExperience (index) {
@@ -128,7 +135,7 @@
                     .catch(() => this.loading = false)
             },
 
-            getExperienceBar (advance) {
+            getLeftExperience (advance) {
                 const nextLevel = advance.level + 1
                 const nextLevelExp = ((50 * Math.pow((nextLevel - 1), 3)) - (150 * Math.pow((nextLevel - 1), 2)) + (400 * (nextLevel - 1))) / 3
                 const currentExp = advance.experience
@@ -137,9 +144,7 @@
                 const currentLeveledExp = expToNextLevel - expLeft
                 const percentage = parseInt((currentLeveledExp * 100) / expToNextLevel)
 
-                return this.experience
-                    ? { leftExperience: expLeft, percentage: percentage }
-                    : { leftExperience: 0, percentage: 0 }
+                return this.experience ? percentage : 0
             },
         },
     }

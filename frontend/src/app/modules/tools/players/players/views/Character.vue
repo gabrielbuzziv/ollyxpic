@@ -195,8 +195,8 @@
             },
 
             levelPercentage () {
-                if (! this.player) return 0
-                if (! this.level) return 0
+                if (! this.player || ! this.player.experience) return 0
+                if (! this.level || ! this.level.experience) return 0
                 if (this.player.level != this.level.level) return 0
 
                 const next = this.player.level + 1

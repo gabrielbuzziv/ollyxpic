@@ -20,7 +20,5 @@
             Wait sometime to your profile update on Ollyxpic and the social network will be shown
             in the right sidebar of your profile.
         </p>
-
-        <img src="src/assets/images/social-network-example.png" alt="">
     </panel>
 </template>

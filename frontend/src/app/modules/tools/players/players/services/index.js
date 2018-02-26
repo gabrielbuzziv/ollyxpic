@@ -17,5 +17,9 @@ export default {
 
     getPlayerExperience (id, month) {
         return window.axios.get(`players/${id}/experience`, { params: { month } })
+    },
+
+    getPlayerOverview (id) {
+        return window.axios.get(`players/${id}/overview`)
     }
 }

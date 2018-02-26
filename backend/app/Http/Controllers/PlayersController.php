@@ -29,7 +29,7 @@ class PlayersController extends ApiController
             ->first();
 
         if ($player) {
-            if (Carbon::now()->diffInMinutes($player->updated_at) >= 60) {
+            if (Carbon::now()->diffInMinutes($player->updated_at) >= 15) {
                 $api = $this->getPlayer($name);
                 $this->updatePlayer($player, $api);
                 $this->updateHighscores($player);
@@ -122,6 +122,23 @@ class PlayersController extends ApiController
         return $this->respond($experience->toArray());
     }
 
+    /**
+     * Get a experience overview.
+     *
+     * @param Player $player
+     * @return mixed
+     */
+    public function overview(Player $player)
+    {
+        $experience = (new Highscores)
+            ->where('type', 'experience')
+            ->where('name', $player->name)
+            ->orderBy('updated_at', 'asc')
+            ->get();
+
+        return $this->respond($experience->toArray());
+    }
+    
     /**
      * Update highscores.
      *
