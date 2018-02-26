@@ -21,6 +21,15 @@
 
         <character />
 
+        <div class="alert alert-warning">
+            <p>
+                All data is tracked from <a :href="highscoreUrl" target="_blank">tibia.com</a>,
+                sometimes the leaderboards page from tibia take time to update making the information a little bit inconsistent.
+
+                <!--&world=Beneva&profession=1-->
+            </p>
+        </div>
+
         <div class="row margin-top-40">
             <div class="col-md-8">
                 <el-tabs class="main-tab" type="card" v-model="tabs">

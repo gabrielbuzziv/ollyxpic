@@ -14,6 +14,7 @@ class AddUpdatedAtIndexHighscores extends Migration
     public function up()
     {
         Schema::table('highscores', function (Blueprint $table) {
+            $table->dropIndex(['updated_at']);
             $table->index(['updated_at']);
         });
     }
