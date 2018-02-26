@@ -8,8 +8,9 @@
                             <span>Level</span>
                             <b>{{ player.level }}</b>
                         </div>
-                        <!--<el-progress :percentage="getExperienceBar(level)" :show-text="false"-->
-                                     <!--:stroke-width="12"/>-->
+
+                        <el-progress :percentage="levelPercentage" :show-text="false"
+                                     :stroke-width="12"/>
                     </div>
 
                     <div class="skills">
@@ -117,9 +118,9 @@
                 return this.$store.getters['player/GET_SKILLS']
             },
 
-//            level () {
-//                return this.experience.slice().sort((a, b) => b.id - a.id)[0]
-//            },
+            level () {
+                return this.$store.getters['player/GET_LEVEL']
+            },
 
             hitpoints () {
                 switch (this.player.vocation) {
@@ -191,25 +192,20 @@
 
             isKnight () {
                 return this.player.vocation == 'Knight' || this.player.vocation == 'Elite Knight'
+            },
+
+            levelPercentage () {
+                if (! this.player) return 0
+                if (! this.level) return 0
+                if (this.player.level != this.level.level) return 0
+
+                const next = this.player.level + 1
+                const nextExperience = ((50 * Math.pow((next - 1), 3)) - (150 * Math.pow((next - 1), 2)) + (400 * (next - 1))) / 3
+                const experience = this.level.experience - this.player.experience
+                const total = nextExperience - this.player.experience
+
+                return parseInt(experience * 100 / total)
             }
         },
-
-        methods: {
-//            getExperienceBar (advance) {
-//                if (this.experience.length) {
-//                    const nextLevel = advance.level + 1
-//                    const nextLevelExp = ((50 * Math.pow((nextLevel - 1), 3)) - (150 * Math.pow((nextLevel - 1), 2)) + (400 * (nextLevel - 1))) / 3
-//                    const currentExp = advance.experience
-//                    const expToNextLevel = 50 * Math.pow(advance.level, 2) - 150 * advance.level + 200
-//                    const expLeft = nextLevelExp - currentExp
-//                    const currentLeveledExp = expToNextLevel - expLeft
-//                    const percentage = parseInt((currentLeveledExp * 100) / expToNextLevel)
-//
-//                    return advance.level != this.player.level ? 0 : percentage
-//                }
-//
-//                return 0
-//            }
-        }
     }
 </script>

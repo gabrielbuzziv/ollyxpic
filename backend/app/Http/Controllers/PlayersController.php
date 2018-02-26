@@ -84,6 +84,24 @@ class PlayersController extends ApiController
     }
 
     /**
+     * Get current player level.
+     *
+     * @param Player $player
+     * @return mixed
+     */
+    public function level(Player $player)
+    {
+        $experience = (new Highscores)
+            ->where('name', $player->name)
+            ->where('active', 1)
+            ->where('type', 'experience')
+            ->orderBy('updated_at', 'desc')
+            ->first();
+
+        return $this->respond($experience->toArray());
+    }
+
+    /**
      * Get player experience advances.
      *
      * @param Player $player
@@ -147,15 +165,14 @@ class PlayersController extends ApiController
         $player->last_login = Carbon::createFromFormat('Y-m-d H:i:s.u', $details->last_login[0]->date)->format('Y-m-d H:i:s');
         $player->save();
 
-        array_walk($deaths, function ($death) use ($player) {
-            $death = $player->deaths()->firstOrCreate([
+        foreach ($deaths as $death) {
+            $player->deaths()->firstOrCreate([
                 'level' => $death->level,
                 'reason' => $death->reason,
                 'involved' => serialize($death->involved),
                 'died_at' => Carbon::createFromFormat('Y-m-d H:i:s.u', $death->date->date),
             ]);
-            $death->save();
-        });
+        }
     }
 
     /**

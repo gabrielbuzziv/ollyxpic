@@ -7,6 +7,10 @@ export default {
         return window.axios.get(`players/${name}`)
     },
 
+    getPlayerLevel (id) {
+        return window.axios.get(`players/${id}/level`)
+    },
+
     getPlayerSkills (id) {
         return window.axios.get(`players/${id}/skills`)
     },

@@ -1,5 +1,11 @@
 <template>
     <panel class="advances">
+        <div class="alert alert-warning">
+            <p>
+                All data is tracked from <a href="http://tibia.com" target="_blank">tibia.com</a>.
+            </p>
+        </div>
+
         <el-tabs v-model="tabs" @tab-click="loadTab">
             <!--<el-tab-pane label="Overview" name="overview">-->
                 <!--asda-->
@@ -7,37 +13,45 @@
 
             <el-tab-pane :label="month.label" :name="`${index}`" :key="index" v-for="month, index in months">
                 <page-load class="no-padding" :loading="loading">
-                    <month-cards :experience="experience" :month="month" />
+                    <div v-if="experience.length">
+                        <month-cards :experience="experience" :month="month" />
 
-                    <table class="table advances" v-if="! loading">
-                        <tr v-for="advance in experience">
-                            <td width="130">
-                                <b>{{ advance.updated_at | date }}</b>
-                                <span>{{ advance.updated_at | dateForHuman }}</span>
-                            </td>
-                            <td class="level">
-                                <span>Level</span>
-                                <b>{{ advance.level }}</b>
+                        <table class="table advances" v-if="! loading">
+                            <tr v-for="advance in experience">
+                                <td width="130">
+                                    <b>{{ advance.updated_at | date }}</b>
+                                    <span>{{ advance.updated_at | dateForHuman }}</span>
+                                </td>
+                                <td class="level">
+                                    <span>Level</span>
+                                    <b>{{ advance.level }}</b>
 
-                                <el-progress :percentage="getExperienceBar(advance).percentage" :show-text="false"/>
-                            </td>
-                            <td>
-                                <b>{{ advance.experience.format() }}</b>
-                                <span>Experience</span>
-                            </td>
-                            <td class="advance">
-                                <div v-if="advance.advance >= 0">
-                                    <b>+{{ advance.advance.format() }}</b>
-                                    <span>+ Experience</span>
-                                </div>
+                                    <el-progress :percentage="getExperienceBar(advance).percentage" :show-text="false"/>
+                                </td>
+                                <td>
+                                    <b>{{ advance.experience.format() }}</b>
+                                    <span>Experience</span>
+                                </td>
+                                <td class="advance">
+                                    <div v-if="advance.advance >= 0">
+                                        <b>+{{ advance.advance.format() }}</b>
+                                        <span>+ Experience</span>
+                                    </div>
 
-                                <div v-else>
-                                    <b class="loose">{{ advance.advance.format() }}</b>
-                                    <span>+ Experience</span>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
+                                    <div v-else>
+                                        <b class="loose">{{ advance.advance.format() }}</b>
+                                        <span>+ Experience</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div v-else>
+                        <div class="alert alert-warning margin-bottom-0">
+                            <p>No experience records found, we only track players from highscores players.</p>
+                        </div>
+                    </div>
                 </page-load>
             </el-tab-pane>
         </el-tabs>
@@ -55,6 +69,7 @@
         data () {
             return {
                 tabs: 0,
+                loading: false
             }
         },
 
@@ -69,10 +84,6 @@
 
             experience () {
                 return this.$store.getters['player/GET_EXPERIENCE']
-            },
-
-            loading () {
-                return this.experience.length ? false : true
             },
 
             monthExperience () {
@@ -110,7 +121,11 @@
             loadExperience (index) {
                 const id = this.player.id
                 const month = this.months[index].date
+
+                this.loading = true
                 this.$store.dispatch('player/FETCH_EXPERIENCE', { id, month })
+                    .then(() => this.loading = false)
+                    .catch(() => this.loading = false)
             },
 
             getExperienceBar (advance) {

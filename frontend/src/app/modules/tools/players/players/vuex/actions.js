@@ -13,12 +13,18 @@ export default {
             services.getPlayer(request.name)
                 .then(response => {
                     context.commit('player/PLAYER', response.data)
+                    context.dispatch('player/FETCH_LEVEL', { id: context.state.player.id })
                     context.dispatch('player/FETCH_SKILLS', { id: context.state.player.id })
                     context.dispatch('player/FETCH_MONTHS')
                     resolve()
                 })
                 .catch(() => reject())
         })
+    },
+
+    'player/FETCH_LEVEL' (context, request) {
+        services.getPlayerLevel(request.id)
+            .then(response => context.commit('player/LEVEL', response.data))
     },
 
     'player/FETCH_SKILLS' (context, request) {
@@ -39,7 +45,14 @@ export default {
 
     'player/FETCH_EXPERIENCE' (context, request) {
         context.state.experience = []
-        services.getPlayerExperience(request.id, request.month)
-            .then(response => context.commit('player/EXPERIENCE', response.data))
+
+        return new Promise((resolve, reject) => {
+            services.getPlayerExperience(request.id, request.month)
+                .then(response => {
+                    context.commit('player/EXPERIENCE', response.data)
+                    resolve()
+                })
+                .catch(() => reject())
+        })
     },
 }

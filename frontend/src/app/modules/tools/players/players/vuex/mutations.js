@@ -3,6 +3,10 @@ export default {
         state.player = data
     },
 
+    'player/LEVEL' (state, data) {
+        state.level = data
+    },
+
     'player/SKILLS' (state, data) {
         state.skills = data
     },

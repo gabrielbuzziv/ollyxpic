@@ -3,6 +3,10 @@ export default {
         return player
     },
 
+    'player/GET_LEVEL' ({ level }) {
+        return level
+    },
+
     'player/GET_SKILLS' ({ skills }) {
         return skills
     },

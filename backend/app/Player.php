@@ -35,6 +35,6 @@ class Player extends Model
      */
     public function deaths()
     {
-        return $this->hasMany(PlayerDeaths::class);
+        return $this->hasMany(PlayerDeaths::class)->orderBy('died_at', 'desc');
     }
 }
