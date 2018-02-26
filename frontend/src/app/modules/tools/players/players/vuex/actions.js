@@ -1,5 +1,3 @@
-import { createActionHelpers } from 'vuex-loading'
-const { startLoading, endLoading } = createActionHelpers({ moduleName: 'loading' });
 import services from '../services'
 
 export default {
