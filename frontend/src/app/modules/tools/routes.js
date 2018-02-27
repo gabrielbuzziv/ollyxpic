@@ -14,6 +14,7 @@ import { routes as blacklist } from './blacklist'
 import { routes as timer } from './timer'
 import { routes as highscores } from './highscores'
 import { routes as players } from './players'
+import { routes as playersCompare } from './players-compare'
 import { routes as skillTraining } from './skill-training'
 import { routes as hardcorePvp } from './hardcore-pvp'
 
@@ -40,6 +41,7 @@ export default [
     ...timer,
     ...highscores,
     ...players,
+    ...playersCompare,
     ...skillTraining,
     ...hardcorePvp
 ]

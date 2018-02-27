@@ -21,34 +21,9 @@ class PlayersController extends ApiController
      */
     public function show($name)
     {
-        $name = strtolower(trim($name));
-        $player = (new Player)
-            ->with(['world', 'deaths'])
-            ->where('name', $name)
-            ->orWhereRaw("'{$name}' in (former_names)")
-            ->first();
+        $player = Player::with(['world', 'deaths'])->find($this->getPlayer($name)->id);
 
-        if ($player) {
-            if (Carbon::now()->diffInMinutes($player->updated_at) >= 15) {
-                $api = $this->getPlayer($name);
-                $this->updatePlayer($player, $api);
-                $this->updateHighscores($player);
-            }
-
-            return $this->respond($player->toArray());
-        }
-
-        $api = $this->getPlayer($name);
-
-        if (isset($api->characters->error)) {
-            return $this->respondNotFound(null);
-        }
-
-        $player = new Player();
-        $this->updatePlayer($player, $api);
-        $this->updateHighscores($player);
-
-        return $this->respond(Player::with(['world', 'deaths'])->find($player->id)->toArray());
+        return $this->respond($player->toArray());
     }
 
     /**
@@ -138,7 +113,41 @@ class PlayersController extends ApiController
 
         return $this->respond($experience->toArray());
     }
-    
+
+    /**
+     * Get all data to compare.
+     *
+     * @param $name
+     * @return mixed
+     */
+    public function compare($name)
+    {
+        $player = Player::with(['world', 'deaths'])->find($this->getPlayer($name)->id);
+
+        $lastMonth = (new Highscores)
+            ->where('type', 'experience')
+            ->where('name', $player->name)
+            ->whereBetween('updated_at', [Carbon::today()->subMonth()->firstOfMonth()->subDay(), Carbon::today()->subMonth()->lastOfMonth()])
+            ->orderBy('updated_at', 'asc')
+            ->get();
+
+        $month = (new Highscores)
+            ->where('type', 'experience')
+            ->where('name', $player->name)
+            ->whereBetween('updated_at', [Carbon::today()->firstOfMonth()->subDay(), Carbon::today()->lastOfMonth()])
+            ->orderBy('updated_at', 'asc')
+            ->get();
+
+        return $this->respond([
+            'details' => $player,
+            'skills' => $this->getSkills($player->name),
+            'experience' => [
+                'last' => $lastMonth,
+                'current' => $month
+            ]
+        ]);
+    }
+
     /**
      * Update highscores.
      *
@@ -193,12 +202,50 @@ class PlayersController extends ApiController
     }
 
     /**
+     * Get player.
+     *
+     * @param $name
+     * @return Player|\Illuminate\Database\Eloquent\Model|mixed|null|static
+     */
+    private function getPlayer($name)
+    {
+        $name = strtolower(trim($name));
+        $player = (new Player)
+            ->with(['world', 'deaths'])
+            ->where('name', $name)
+            ->orWhereRaw("'{$name}' in (former_names)")
+            ->first();
+
+        if ($player) {
+            if (Carbon::now()->diffInMinutes($player->updated_at) >= 15) {
+                $api = $this->searchPlayer($name);
+                $this->updatePlayer($player, $api);
+                $this->updateHighscores($player);
+            }
+
+            return $player;
+        }
+
+        $api = $this->searchPlayer($name);
+
+        if (isset($api->characters->error)) {
+            return $this->respondNotFound(null);
+        }
+
+        $player = new Player();
+        $this->updatePlayer($player, $api);
+        $this->updateHighscores($player);
+
+        return $player;
+    }
+
+    /**
      * Get player from API.
      *
      * @param $name
      * @return mixed
      */
-    private function getPlayer($name)
+    private function searchPlayer($name)
     {
         $url = "https://api.tibiadata.com/v2/characters/{$name}.json";
 

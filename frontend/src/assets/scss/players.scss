@@ -1,4 +1,14 @@
 #players {
+    .btn-compare {
+        background: #2c3e50;
+        color: #fff;
+        font-weight: 300;
+        padding: 6px 15px;
+        margin: 20px 0 0 30px;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+
     .panel {
         &.twitch {
             .panel-body {

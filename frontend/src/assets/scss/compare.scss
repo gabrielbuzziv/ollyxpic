@@ -1,0 +1,109 @@
+$compare-color: #2c3e50;
+
+#compare {
+    .compare {
+        padding: 0;
+    }
+
+    .form {
+        input {
+            height: 50px;
+            line-height: 50px;
+            font-weight: 300;
+            width: 300px;
+        }
+
+        small {
+            &.helper-block {
+                font-weight: 300;
+                text-transform: uppercase;
+                font-size: 10px;
+                color: #666;
+                text-align: right;
+                display: block;
+            }
+        }
+    }
+
+    .player {
+        .panel-body {
+            padding: 0;
+            border-right: 2px solid $compare-color;
+
+            &:last-child {
+                border: 0;
+            }
+
+            header {
+                display: block;
+                padding: 20px;
+                background: $compare-color;
+                color: #fff;
+                position: relative;
+
+                h3 {
+                    font-weight: 700;
+                    font-size: 22px;
+                    margin: 0 0 3px;
+                    text-transform: uppercase;
+                }
+
+                .vocation {
+                    font-weight: 300;
+                    text-transform: uppercase;
+                    font-size: 12px;
+                }
+
+                .btn-remove {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    background: rgba(0,0,0,.3);
+                    color: #fff;
+                    border: 0;
+                    padding: 4px 8px;
+                }
+            }
+
+            ul {
+                display: block;
+                padding: 0;
+                margin: 0;
+                list-style: none;
+                border-bottom: 5px solid $compare-color;
+
+                li {
+                    display: block;
+                    padding: 8px 20px;
+                    border-bottom: 2px solid #f3f3f3;
+
+                    &.title {
+                        padding: 10px 20px;
+                        background: #34495e;
+                        color: #fff;
+
+                        h4 {
+                            font-weight: 300;
+                            font-size: 12px;
+                            margin: 0;
+                            text-transform: uppercase;
+                        }
+                    }
+
+                    b {
+                        font-weight: 400;
+                        display: block;
+                        font-size: 18px;
+                    }
+
+                    span {
+                        display: block;
+                        font-size: 12px;
+                        font-weight: 300;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+    }
+}

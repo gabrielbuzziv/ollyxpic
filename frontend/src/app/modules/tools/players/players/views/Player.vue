@@ -17,6 +17,13 @@
                 <h2>{{ player.name || playerName }}</h2>
                 <span>{{ player.vocation || 'Vocation' }}</span>
             </div>
+
+            <router-link :to="{ name: 'compare.players', params: { first: player.name } }"
+                         class="btn btn-default btn-rounded btn-compare"
+                         v-if="player">
+                <i class="mdi mdi-twitter-retweet margin-right-5"></i>
+                Add to Compare
+            </router-link>
         </page-title>
 
         <character />
