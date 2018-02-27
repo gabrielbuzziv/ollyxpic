@@ -2,7 +2,7 @@
     <panel class="player">
         <page-load class="no-padding" :loading="loading">
             <header>
-                <button class="btn-remove" @click.prevent="removeFromCompare()" v-if="index != 1">
+                <button class="btn-remove" @click.prevent="removeFromCompare()">
                     <i class="mdi mdi-close"></i>
                 </button>
 
@@ -285,7 +285,7 @@
                         : 50
                     : 0
 
-                return `${percentage}%`
+                return percentage ? `${percentage}%` : 0
             }
         },
 
