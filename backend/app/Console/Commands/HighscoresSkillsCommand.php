@@ -97,8 +97,8 @@ class HighscoresSkillsCommand extends Command
 
                 array_walk($highscores, function ($highscore) use ($world, $start) {
                     $skill = in_array($this->argument('type'), ['loyalty', 'achievements'])
-                        ? $highscore->points
-                        : $highscore->level;
+                        ? isset($highscore->points) ? $highscore->points : 0
+                        : isset($highscore->level) ? $highscore->level : 0;
 
                     HighscoresSkills::create([
                         'rank'         => $highscore->rank,

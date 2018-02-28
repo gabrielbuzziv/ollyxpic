@@ -20,6 +20,7 @@ class HighscoresController extends ApiController
      */
     public function experience()
     {
+        $limit = request('limit') ?: 300;
         $world = request('world') ? World::where('name', request('world'))->first()->id : null;
         $migration = (new HighscoreMigration)
             ->where('type', 'experience')
@@ -35,7 +36,7 @@ class HighscoresController extends ApiController
                 $query->where('world_id', $world);
             })
             ->orderBy('experience', 'desc')
-            ->take(300)
+            ->take($limit)
             ->get();
 
         return $this->respond($highscores->toArray());
@@ -48,6 +49,7 @@ class HighscoresController extends ApiController
      */
     public function skills()
     {
+        $limit = request('limit') ?: 300;
         $world = request('world') ? World::where('name', request('world'))->first()->id : null;
         $migration = (new HighscoreMigration)
             ->where('type', request('skill'))
@@ -63,7 +65,7 @@ class HighscoresController extends ApiController
                 $query->where('world_id', $world);
             })
             ->orderBy('skill', 'desc')
-            ->take(300)
+            ->take($limit)
             ->get();
 
         return $this->respond($highscores->toArray());

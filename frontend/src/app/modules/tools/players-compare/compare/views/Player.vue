@@ -6,7 +6,9 @@
                     <i class="mdi mdi-close"></i>
                 </button>
 
-                <h3>{{ details.name }}</h3>
+                <router-link :to="{ name: 'players', params: { name: details.name } }">
+                    <h3>{{ details.name }}</h3>
+                </router-link>
                 <span class="vocation">{{ details.vocation }}</span>
             </header>
 
@@ -16,30 +18,36 @@
                         <i class="mdi mdi-view-list margin-right-5"></i>
                         Overview
                     </h4>
+
+                    <small>{{ details.name }}</small>
                 </li>
 
-                <li>
-                    <b>{{ details.level }}</b>
+                <li class="main" :class="{ 'highest': isHighest('level') }">
+                    <b>
+                        {{ details.level }}
+
+                        <i class="mdi mdi-menu-up" v-if="isHighest('level')"></i>
+                    </b>
                     <span>Level</span>
                 </li>
 
                 <li>
-                    <b>{{ hitpoints.format() }}</b>
+                    <b>{{ PlayerOptions.getHitpoints(details.level, details.vocation).format() }}</b>
                     <span>Hitpoints</span>
                 </li>
 
                 <li>
-                    <b>{{ manapoints.format() }}</b>
+                    <b>{{ PlayerOptions.getManapoints(details.level, details.vocation).format() }}</b>
                     <span>Manapoints</span>
                 </li>
 
                 <li>
-                    <b>{{ capacity.format() }}</b>
+                    <b>{{ PlayerOptions.getCapacity(details.level, details.vocation).format() }}</b>
                     <span>Capacity</span>
                 </li>
 
                 <li>
-                    <b>{{ speed.format() }}</b>
+                    <b>{{ PlayerOptions.getSpeed(details.level).format() }}</b>
                     <span>Speed</span>
                 </li>
             </ul>
@@ -50,25 +58,39 @@
                         <i class="mdi mdi-sword margin-right-5"></i>
                         Skills
                     </h4>
+
+                    <small>{{ details.name }}</small>
                 </li>
 
-                <li>
-                    <b>{{ magicLevel.level || '~' }}</b>
+                <li :class="{ 'highest': isHighest('magic') }">
+                    <b>
+                        {{ PlayerOptions.getSkill(skills, 'magic').level || '~' }}
+
+                        <i class="mdi mdi-menu-up" v-if="isHighest('magic')"></i>
+                    </b>
                     <span>Magic Level</span>
                 </li>
 
                 <li v-if="isPaladin">
-                    <b><b>{{ distance.level || '~' }}</b></b>
+                    <b>
+                        {{ PlayerOptions.getSkill(skills, 'distance').level || '~' }}
+                    </b>
                     <span>Distance Fighting</span>
                 </li>
 
-                <li v-else>
-                    <b><b>{{ meleeSkill.level || '~' }}</b></b>
-                    <span>{{ meleeSkill.skill }} Fighting</span>
+                <li v-else >
+                    <b>
+                        {{ PlayerOptions.getSkill(skills, 'melee').level || '~' }}
+                    </b>
+                    <span>{{ PlayerOptions.getSkill(skills, 'melee').skill }} Fighting</span>
                 </li>
 
-                <li>
-                    <b>{{ shielding.level || '~' }}</b>
+                <li :class="{ 'highest': isHighest('shielding') }">
+                    <b>
+                        {{ PlayerOptions.getSkill(skills, 'shielding').level || '~' }}
+
+                        <i class="mdi mdi-menu-up" v-if="isHighest('shielding')"></i>
+                    </b>
                     <span>Shielding</span>
                 </li>
             </ul>
@@ -79,6 +101,8 @@
                         <i class="mdi mdi-trending-up margin-right-5"></i>
                         Experience
                     </h4>
+
+                    <small>{{ details.name }}</small>
                 </li>
 
                 <li>
@@ -113,6 +137,8 @@
                         <i class="mdi mdi-wunderlist margin-right-5"></i>
                         Misc
                     </h4>
+
+                    <small>{{ details.name }}</small>
                 </li>
 
                 <li>
@@ -136,9 +162,11 @@
 
 <script>
     import services from '../services'
+    import Player from './Player'
+    import { isEmpty } from 'lodash'
 
     export default {
-        props: ['name', 'index'],
+        props: ['name', 'index', 'players'],
 
         data () {
             return {
@@ -148,6 +176,14 @@
         },
 
         computed: {
+            PlayerOptions () {
+                return Player
+            },
+
+            comparePlayers () {
+                return Object.values(this.players).filter(player => ! isEmpty(player))
+            },
+
             details () {
                 return this.player && this.player.details ? this.player.details : {}
             },
@@ -160,80 +196,6 @@
                 return this.player && this.player.experience ? this.player.experience : []
             },
 
-            hitpoints () {
-                if (! this.details) return 0
-
-                switch (this.details.vocation) {
-                    case 'Knight':
-                    case 'Elite Knight':
-                        return (this.details.level - 8) * 15 + 185
-                    case 'Paladin':
-                    case 'Royal Paladin':
-                        return (this.details.level - 8) * 10 + 185
-                    default:
-                        return this.details.level * 5 + 145
-                }
-            },
-
-            manapoints () {
-                switch (this.details.vocation) {
-                    case 'Druid':
-                    case 'Sorcerer':
-                    case 'Elder Druid':
-                    case 'Master Sorcerer':
-                        return (this.details.level - 8) * 30 + 90
-                    case 'Paladin':
-                    case 'Royal Paladin':
-                        return (this.details.level - 8) * 15 + 90
-                    default:
-                        return (this.details.level - 8) * 5 + 50
-                }
-            },
-
-            speed () {
-                return this.details.level + 109
-            },
-
-            capacity () {
-                switch (this.details.vocation) {
-                    case 'Knight':
-                    case 'Elite Knight':
-                        return (this.details.level - 8) * 25 + 470
-                    case 'Paladin':
-                    case 'Royal Paladin':
-                        return (this.details.level - 8) * 20 + 470
-                    default:
-                        return (this.details.level - 8) * 10 + 400
-                }
-            },
-
-            loyalty () {
-                const magicLevel = this.skills.filter(skill => skill.skill == 'loyalty')[0]
-                return magicLevel ? magicLevel : { level: 0, skill: 'Loyalty' }
-            },
-
-            magicLevel () {
-                const magicLevel = this.skills.filter(skill => skill.skill == 'magic')[0]
-                return magicLevel ? magicLevel : { level: 0, skill: 'Magic Level' }
-            },
-
-            shielding () {
-                const magicLevel = this.skills.filter(skill => skill.skill == 'shielding')[0]
-                return magicLevel ? magicLevel : { level: 0, skill: 'Shielding' }
-            },
-
-            distance () {
-                const magicLevel = this.skills.filter(skill => skill.skill == 'distance')[0]
-                return magicLevel ? magicLevel : { level: 0, skill: 'Distance Figthing' }
-            },
-
-            meleeSkill () {
-                const melee = this.skills.filter(skill => skill.skill == 'axe' || skill.skill == 'club' || skill.skill == 'sword')
-                    .sort((a, b) => b.level - a.level)
-
-                return melee.length ? melee[0] : { level: 0, skill: 'Melee' }
-            },
-
             isPaladin () {
                 return this.details.vocation == 'Paladin' || this.details.vocation == 'Royal Paladin'
             },
@@ -243,38 +205,24 @@
             },
 
             lastMonth () {
-                if (! this.player || ! this.player.experience || ! this.player.experience.last) return []
-                const experience = this.player.experience.last
-
-                return experience.map((exp, index) => {
-                    const advance = index ? parseInt(exp.experience - experience[index - 1].experience) : 0
-                    const up = index ? parseInt(exp.level - experience[index - 1].level) : 0
-                    return { ...exp, advance, up }
-                }).slice(1).sort((a, b) => b.id - a.id)
+                return this.player && this.player.experience
+                    ? Player.getMonthExperience(this.player.experience.last)
+                    : []
             },
 
             currentMonth () {
-                if (! this.player || ! this.player.experience || ! this.player.experience.current) return []
-                const experience = this.player.experience.current
-
-                return experience.map((exp, index) => {
-                    const advance = index ? parseInt(exp.experience - experience[index - 1].experience) : 0
-                    const up = index ? parseInt(exp.level - experience[index - 1].level) : 0
-                    return { ...exp, advance, up }
-                }).slice(1).sort((a, b) => b.id - a.id)
-            },
-
-            month () {
-                return this.currentMonth.length ? this.currentMonth[0].updated_at.split('-') : false
+                return this.player && this.player.experience
+                    ? Player.getMonthExperience(this.player.experience.current)
+                    : []
             },
 
             deaths () {
                 if (! this.details || ! this.details.deaths) return 0
-                if (! this.month) return 0
+                const month = this.currentMonth.length ? this.currentMonth[0].updated_at.split('-') : []
 
                 return this.details.deaths.filter(death => {
                     const died = death.died_at.split('-')
-                    return died[0] = this.month[0] && died[1] == this.month[1]
+                    return month.length ? died[0] = month[0] && died[1] == month[1] : false
                 }).length
             },
 
@@ -324,9 +272,11 @@
         methods: {
             load () {
                 this.loading = true
+                this.$emit('update:player', {})
                 services.getPlayer(this.name)
                     .then(response => {
                         this.player = response.data
+                        this.$emit('update:player', this.player)
                         this.loading = false
                     })
                     .catch(() => this.loading = false)
@@ -352,11 +302,6 @@
             removeFromCompare () {
                 let players = Object.values(this.$route.params).filter(player => player != null)
 
-                if (players.length == 1) {
-                    this.$message.error('You need to have at least one player in the compare list.')
-                    return false
-                }
-
                 players = players.filter(player => player != this.name)
 
                 let params = {}
@@ -373,7 +318,43 @@
                         break
                 }
 
+                this.$emit('update:player', {})
                 this.$router.push({ name: 'compare.players', params: params })
+            },
+
+            isHighest (type) {
+                if (! this.comparePlayers.length) return false
+                let values = []
+                let max = 0
+
+                switch (type) {
+                    case 'level':
+                        values = this.comparePlayers.map(player => player.details[type])
+                        max = values.reduce((a, b) => Math.max(a, b))
+                        return this.player && this.player.details && this.player.details[type] == max ? true : false
+                    case 'magic':
+                    case 'distance':
+                    case 'shielding':
+                        values = this.comparePlayers.map(player => Player.getSkill(player.skills, type).level)
+                        max = values.reduce((a, b) => Math.max(a, b))
+                        return this.player && this.player.skills && Player.getSkill(this.skills, type).level == max ? true : false
+                    case 'weapon':
+                        values = this.comparePlayers.map(player => {
+                            return Player.getVocation(player.details.vocation) == 'Knight'
+                                ? Player.getSkill(player.skills, 'melee').level
+                                : Player.getVocation(player.details.vocation) == 'Knight'
+                                    ? Player.getSkill(player.skills, 'distance').level
+                                    : 0
+                        })
+                        max = values.reduce((a, b) => Math.max(a, b))
+                        return this.player && this.player.skills
+                            ? Player.getVocation(this.player.details.vocation) == 'Knight'
+                                ? Player.getSkill(this.skills, 'melee').level == max ? true : false
+                                : Player.getVocation(this.player.details.vocation) == 'Paladin'
+                                    ? Player.getSkill(this.skills, 'distance').level == max ? true : false
+                                    : false
+                            : false
+                }
             }
         },
 

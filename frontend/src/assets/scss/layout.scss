@@ -2,6 +2,12 @@
     &:focus,
     &:active {
         outline: 0 !important;
+        box-shadow: none;
+    }
+
+    &:hover {
+        outline: 0 !important;
+        box-shadow: none;
     }
 }
 

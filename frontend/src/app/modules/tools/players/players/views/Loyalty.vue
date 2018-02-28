@@ -1,6 +1,6 @@
 <template>
     <panel class="rating loyalty" v-if="loyalty">
-        <page-load class="no-padding" :loading="loading">
+        <page-load class="no-padding">
             <h4>Loyalty</h4>
 
             <div class="rate">
