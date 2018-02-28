@@ -217,7 +217,7 @@ class PlayersController extends ApiController
             ->first();
 
         if ($player) {
-            if (Carbon::now()->diffInMinutes($player->updated_at) >= 15) {
+            if (Carbon::now()->diffInMinutes($player->updated_at) >= 5) {
                 $api = $this->searchPlayer($name);
                 $this->updatePlayer($player, $api);
                 $this->updateHighscores($player);
