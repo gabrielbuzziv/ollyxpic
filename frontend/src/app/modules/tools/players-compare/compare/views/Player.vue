@@ -238,9 +238,21 @@
         },
 
         watch: {
-            '$route.params' () {
-                this.load()
-            }
+            '$route.params.first' () {
+                if (this.index == 1) this.load()
+            },
+
+            '$route.params.second' () {
+                if (this.index == 2) this.load()
+            },
+
+            '$route.params.third' () {
+                if (this.index == 3) this.load()
+            },
+
+            '$route.params.fourth' () {
+                if (this.index == 4) this.load()
+            },
         },
 
         filters: {
