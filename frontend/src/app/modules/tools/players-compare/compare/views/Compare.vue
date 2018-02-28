@@ -48,7 +48,7 @@
 </template>
 
 <script>
-    import Player from './Player'
+    import Player from './Player.vue'
     import services from '../services'
 
     export default {
