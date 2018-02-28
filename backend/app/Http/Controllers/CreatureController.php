@@ -92,6 +92,19 @@ class CreatureController extends ApiController
     }
 
     /**
+     * Get creature by name.
+     *
+     * @return mixed
+     */
+    public function search()
+    {
+        $name = request('creature')
+        $creature = Creature::where('name', 'like', '%{$name}%')->first();
+
+        return $this->respond($creature->toArray());
+    }
+
+    /**
      * Get multiple creatures.
      *
      * @return mixed
