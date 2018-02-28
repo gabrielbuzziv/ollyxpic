@@ -98,8 +98,8 @@ class CreatureController extends ApiController
      */
     public function search()
     {
-        $name = request('creature')
-        $creature = Creature::where('name', 'like', '%{$name}%')->first();
+        $name = request('creature');
+        $creature = Creature::where('name', 'like', "%{$name}%")->first();
 
         return $this->respond($creature->toArray());
     }
