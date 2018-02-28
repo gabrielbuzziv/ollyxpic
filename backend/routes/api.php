@@ -34,8 +34,8 @@ Route::post('contact', 'PageController@sendContact');
  */
 Route::get('creatures', 'CreatureController@index');
 Route::get('creatures/multiple', 'CreatureController@multiple');
-Route::get('creatures/{creature}', 'CreatureController@show');
 Route::get('creatures/search', 'CreatureController@search');
+Route::get('creatures/{creature}', 'CreatureController@show');
 
 /**
  * HuntingSpotsController routes.
