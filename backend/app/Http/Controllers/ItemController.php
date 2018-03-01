@@ -149,6 +149,22 @@ class ItemController extends Controller
     }
 
     /**
+     * Get creature by name.
+     *
+     * @return mixed
+     */
+    public function search()
+    {
+        $name = request('item');
+        $item = (new Item)
+            ->with(['properties', 'sells', 'buys'])
+            ->where('name', 'like', "{$name}%")
+            ->first();
+
+        return $this->respond($item->toArray());
+    }
+
+    /**
      * Get all items from category.
      *
      * @param Category $category

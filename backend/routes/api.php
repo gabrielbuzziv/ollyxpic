@@ -38,6 +38,11 @@ Route::get('creatures/search', 'CreatureController@search');
 Route::get('creatures/{creature}', 'CreatureController@show');
 
 /**
+ * ItemController
+ */
+Route::get('items/search', 'ItemController@search');
+
+/**
  * HuntingSpotsController routes.
  */
 Route::get('hunting-spots', 'HuntingSpotController@index');
