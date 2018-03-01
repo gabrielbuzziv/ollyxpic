@@ -124,17 +124,32 @@ class PlayersController extends ApiController
     {
         $player = Player::with(['world', 'deaths'])->find($this->getPlayer($name)->id);
 
+        $months = (new HighscoreMigration)
+            ->select(DB::raw('date_format(migration_date, "%Y-%m") as month'))
+            ->where('type', 'experience')
+            ->groupBy(DB::raw('YEAR(migration_date), MONTH(migration_date) '))
+            ->orderByRaw('YEAR(migration_date) asc, MONTH(migration_date) asc ')
+            ->take(2)
+            ->get();
+
+
         $lastMonth = (new Highscores)
             ->where('type', 'experience')
             ->where('name', $player->name)
-            ->whereBetween('updated_at', [Carbon::today()->subMonth()->firstOfMonth()->subDay(), Carbon::today()->subMonth()->lastOfMonth()])
+            ->whereBetween('updated_at', [
+                Carbon::createFromFormat('Y-m', $months[0]->month)->firstOfMonth()->subDay()->format('Y-m-d'),
+                Carbon::createFromFormat('Y-m', $months[0]->month)->lastOfMonth()->format('Y-m-d')
+            ])
             ->orderBy('updated_at', 'asc')
             ->get();
 
         $month = (new Highscores)
             ->where('type', 'experience')
             ->where('name', $player->name)
-            ->whereBetween('updated_at', [Carbon::today()->firstOfMonth()->subDay(), Carbon::today()->lastOfMonth()])
+            ->whereBetween('updated_at', [
+                Carbon::createFromFormat('Y-m', $months[1]->month)->firstOfMonth()->subDay()->format('Y-m-d'),
+                Carbon::createFromFormat('Y-m', $months[1]->month)->lastOfMonth()->format('Y-m-d')
+            ])
             ->orderBy('updated_at', 'asc')
             ->get();
 

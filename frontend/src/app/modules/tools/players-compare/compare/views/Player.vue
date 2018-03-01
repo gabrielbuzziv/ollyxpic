@@ -106,28 +106,24 @@
                 </li>
 
                 <li>
-                    <b>{{ getExperienceAdvances(lastMonth) | plus }}</b>
+                    <b>
+                        {{ getExperienceAdvances(lastMonth) | plus }}
+                        <small>({{ getLevelAdvances(lastMonth) | plus }} levels)</small>
+                    </b>
                     <span>Last Month Experience</span>
                 </li>
 
-                <li>
-                    <b>{{ getExperienceAdvances(currentMonth) | plus }}</b>
+                <li class="main">
+                    <b>
+                        {{ getExperienceAdvances(currentMonth) | plus }}
+                        <small>({{ getLevelAdvances(currentMonth) | plus }} levels)</small>
+                    </b>
                     <span>Month Experience</span>
                 </li>
 
                 <li>
                     <b>{{ getAverageDailyExperience(currentMonth) | plus }}</b>
                     <span>AVG Daily Experience</span>
-                </li>
-
-                <li>
-                    <b>{{ getLevelAdvances(lastMonth) | plus }}</b>
-                    <span>Last Month Levels</span>
-                </li>
-
-                <li>
-                    <b>{{ getLevelAdvances(currentMonth) | plus }}</b>
-                    <span>Month Levels</span>
                 </li>
             </ul>
 
@@ -280,9 +276,10 @@
                 return month.length ? lastOfMonth.experience - firstOfMonth.experience : 0
             },
 
-            getAverageDailyExperience (month) {
-                const total = month.reduce((carry, experience) => carry + parseInt(experience.advance), 0)
-                return total / month.length
+            getAverageDailyExperience () {
+                const experience = this.lastMonth.concat(this.currentMonth)
+                const total = experience.slice(0, 15).reduce((carry, experience) => carry + parseInt(experience.advance), 0)
+                return total / 15
             },
 
             getLevelAdvances (month) {
