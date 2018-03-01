@@ -92,7 +92,10 @@ class WorldController extends ApiController
             ->where('name', 'like', "{$name}%")
             ->first();
 
-        return $world->currencies()->latest()->first();
+        return $this->respond([
+            'world' => $world,
+            'currency' => $world->currencies()->latest()->first()
+        ]);
     }
 
     /**
