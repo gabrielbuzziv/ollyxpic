@@ -50,8 +50,8 @@ export default {
         return new Promise((resolve, reject) => {
             services.getPlayerExperience(request.id, request.month)
                 .then(response => {
-                    const experience = response.data
-                    experience.map((exp, index) => {
+                    let experience = response.data
+                    experience = experience.map((exp, index) => {
                         const advance = index ? parseInt(exp.experience - experience[index - 1].experience) : 0
                         const up = index ? parseInt(exp.level - experience[index - 1].level) : 0
                         return { ...exp, advance, up }
