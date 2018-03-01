@@ -37,10 +37,6 @@ Route::get('creatures/multiple', 'CreatureController@multiple');
 Route::get('creatures/search', 'CreatureController@search');
 Route::get('creatures/{creature}', 'CreatureController@show');
 
-/**
- * ItemController
- */
-Route::get('items/search', 'ItemController@search');
 
 /**
  * HuntingSpotsController routes.
@@ -79,12 +75,14 @@ Route::get('categories', 'CategoryController@usables');
 /**
  * ItemController
  */
+Route::get('items/search', 'ItemController@search');
 Route::get('items/{category}', 'ItemController@usables');
 
 /**
  * WorldController routes
  */
 Route::get('worlds', 'WorldController@index');
+Route::get('worlds/currencies', 'WorldController@currenciesByName');
 Route::get('worlds/{world}', 'WorldController@show');
 Route::get('worlds/{world}/currencies', 'WorldController@currencies');
 

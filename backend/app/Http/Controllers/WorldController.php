@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class WorldController extends ApiController
 {
+
     /**
      * Get all worlds
      *
@@ -21,7 +22,7 @@ class WorldController extends ApiController
         $worlds = (new World)
             ->with('currencies')
             ->where(function ($query) use ($filters) {
-                if (! empty($filters->type))
+                if ( ! empty($filters->type))
                     $query->where('type', $filters->type);
             })
             ->orderBy($sort->value, $sort->order)
@@ -77,6 +78,21 @@ class WorldController extends ApiController
         $currencies = $world->currencies()->take(15)->orderBy('created_at', 'desc')->get();
 
         return $this->respond($currencies->toArray());
+    }
+
+    /**
+     * Get currencies by world name.
+     *
+     * @return \Illuminate\Database\Eloquent\Model|null|static
+     */
+    public function currenciesByName()
+    {
+        $name = request('world');
+        $world = (new World)
+            ->where('name', 'like', "{$name}%")
+            ->first();
+
+        return $world->currencies()->latest()->first();
     }
 
     /**
