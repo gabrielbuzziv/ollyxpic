@@ -56,9 +56,9 @@ class CreatureController extends ApiController
 
                 if ($item) {
                     $creatureDrops[$item->id] = [
-                        'percentage' => $drop->pivot->percentage,
-                        'min'        => $drop->pivot->min,
-                        'max'        => $drop->pivot->max,
+                        'percentage' => isset($drop->pivot->percentage) ? $drop->pivot->percentage : null,
+                        'min'        => isset($drop->pivot->min) ? $drop->pivot->min: null,
+                        'max'        => isset($drop->pivot->max) ? $drop->pivot->max: null,
                     ];
                 }
             }
@@ -75,7 +75,7 @@ class CreatureController extends ApiController
     public function index()
     {
         $filter = request('query');
-        $creatures = Creature::where('title', 'like', "%{$filter}%")->get();
+        $creatures = Creature::where('title', 'like', "{$filter}%")->get();
 
         return $this->respond($creatures->toArray());
     }
