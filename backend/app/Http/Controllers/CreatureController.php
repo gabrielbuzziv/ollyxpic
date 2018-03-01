@@ -75,7 +75,7 @@ class CreatureController extends ApiController
     public function index()
     {
         $filter = request('query');
-        $creatures = Creature::where('title', 'like', "{$filter}%")->get();
+        $creatures = Creature::where('title', 'like', "%{$filter}%")->get();
 
         return $this->respond($creatures->toArray());
     }
@@ -101,7 +101,7 @@ class CreatureController extends ApiController
         $name = request('creature');
         $creature = (new Creature)
             ->with('drops')
-            ->where('name', 'like', "%{$name}%")
+            ->where('name', 'like', "{$name}%")
             ->first();
 
         return $this->respond($creature->toArray());
