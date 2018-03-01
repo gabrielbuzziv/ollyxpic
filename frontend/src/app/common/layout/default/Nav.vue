@@ -186,6 +186,18 @@
                             </span>
                         </a>
                     </router-link>
+
+                    <router-link :to="{ name: 'compare.players' }" tag="li">
+                        <a href="">
+                            <span class="left">
+                                <img :src="image_path_by_name('item', 'Golden Warrior Trophy')">
+                            </span>
+                            <span class="center">
+                                <span>Players Compare</span>
+                                <small>Whos is the best?</small>
+                            </span>
+                        </a>
+                    </router-link>
                 </ul>
             </li>
 

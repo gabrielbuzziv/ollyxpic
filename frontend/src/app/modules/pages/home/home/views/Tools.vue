@@ -118,5 +118,14 @@
                 </card>
             </router-link>
         </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <router-link :to="{ name: 'compare.players' }" slot="anchor">
+                <card title="Players Compare" subtitle="Whos is the best?">
+                    <img :src="image_path_by_name('item', 'Golden Warrior Trophy')" slot="icon">
+                    <i class="mdi mdi-chevron-right"></i>
+                </card>
+            </router-link>
+        </div>
     </div>
 </template>
