@@ -37,19 +37,21 @@
 
         <div class="row margin-top-40">
             <div class="col-md-8">
-                <el-tabs class="main-tab" type="card" v-model="tabs">
-                    <el-tab-pane label="Experience" name="experience">
-                        <experience />
-                    </el-tab-pane>
+                <page-load class="no-padding" :loading="loading">
+                    <el-tabs class="main-tab" type="card" v-model="tabs">
+                        <el-tab-pane label="Experience" name="experience">
+                            <experience />
+                        </el-tab-pane>
 
-                    <el-tab-pane label="Deaths" name="death">
-                        <deaths />
-                    </el-tab-pane>
+                        <el-tab-pane label="Deaths" name="death">
+                            <deaths />
+                        </el-tab-pane>
 
-                    <el-tab-pane label="Social Network" name="Network" v-if="! network">
-                        <social-tab />
-                    </el-tab-pane>
-                </el-tabs>
+                        <el-tab-pane label="Social Network" name="Network" v-if="! network">
+                            <social-tab />
+                        </el-tab-pane>
+                    </el-tabs>
+                </page-load>
             </div>
 
             <div class="col-md-4 sidemenu">

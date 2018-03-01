@@ -1,54 +1,56 @@
 <template>
     <panel class="advances">
-        <el-tabs v-model="tabs" @tab-click="loadTab" v-if="experience.length || (! experience.length && loading)">
-            <el-tab-pane label="Overview" name="overview">
-                <page-load class="no-padding" :loading="loading">
-                    <advance-experience-chart :experience="experience"/>
-                </page-load>
-            </el-tab-pane>
+        <page-load class="no-padding" :loading="loading.months">
+            <el-tabs v-model="tabs" @tab-click="loadTab">
+                <el-tab-pane label="Overview" name="overview">
+                    <page-load class="no-padding" :loading="loading.overview">
+                        <advance-experience-chart :experience="experience"/>
+                    </page-load>
+                </el-tab-pane>
 
-            <el-tab-pane :label="month.label" :name="`${index}`" :key="index" v-for="month, index in months">
-                <page-load class="no-padding" :loading="loading">
-                    <month-cards :experience="experience" :month="month"/>
+                <el-tab-pane :label="month.label" :name="`${index}`" :key="index" v-for="month, index in months">
+                    <page-load class="no-padding" :loading="loading.experience">
+                        <div v-if="experience.length">
+                            <month-cards :experience="experience" :month="month"/>
 
-                    <table class="table advances" v-if="! loading">
-                        <tr v-for="advance in experience">
-                            <td width="130">
-                                <b>{{ advance.updated_at | date }}</b>
-                                <span>{{ advance.updated_at | dateForHuman }}</span>
-                            </td>
-                            <td class="level">
-                                <span>Level</span>
-                                <b>{{ advance.level }}</b>
+                            <table class="table advances">
+                                <tr v-for="advance in experience">
+                                    <td width="130">
+                                        <b>{{ advance.updated_at | date }}</b>
+                                        <span>{{ advance.updated_at | dateForHuman }}</span>
+                                    </td>
+                                    <td class="level">
+                                        <span>Level</span>
+                                        <b>{{ advance.level }}</b>
 
-                                <el-progress :percentage="getLeftExperience(advance)" :show-text="false"/>
-                            </td>
-                            <td>
-                                <b>{{ advance.experience.format() }}</b>
-                                <span>Experience</span>
-                            </td>
-                            <td class="advance">
-                                <div v-if="advance.advance >= 0">
-                                    <b>+{{ advance.advance.format() }}</b>
-                                    <span>+ Experience</span>
-                                </div>
+                                        <el-progress :percentage="getLeftExperience(advance)" :show-text="false"/>
+                                    </td>
+                                    <td>
+                                        <b>{{ advance.experience.format() }}</b>
+                                        <span>Experience</span>
+                                    </td>
+                                    <td class="advance">
+                                        <div v-if="advance.advance >= 0">
+                                            <b>+{{ advance.advance.format() }}</b>
+                                            <span>+ Experience</span>
+                                        </div>
 
-                                <div v-else>
-                                    <b class="loose">{{ advance.advance.format() }}</b>
-                                    <span>+ Experience</span>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </page-load>
-            </el-tab-pane>
-        </el-tabs>
+                                        <div v-else>
+                                            <b class="loose">{{ advance.advance.format() }}</b>
+                                            <span>+ Experience</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
 
-        <div v-if="! experience.length && ! loading">
-            <div class="alert alert-warning margin-bottom-0">
-                <p>No experience records found, we only track players from highscores players.</p>
-            </div>
-        </div>
+                        <div class="alert alert-warning margin-bottom-0" v-else>
+                            <p>No experience records found, we only track players from highscores players.</p>
+                        </div>
+                    </page-load>
+                </el-tab-pane>
+            </el-tabs>
+        </page-load>
     </panel>
 </template>
 
@@ -64,7 +66,11 @@
         data () {
             return {
                 tabs: 0,
-                loading: true
+                loading: {
+                    months: false,
+                    overview: false,
+                    experience: false
+                }
             }
         },
 
@@ -94,14 +100,6 @@
             }
         },
 
-        watch: {
-            'experience' () {
-                if (this.experience.length) {
-                    this.loading = false
-                }
-            }
-        },
-
         filters: {
             date (date) {
                 return moment(date).format('DD MMM YYYY')
@@ -113,6 +111,16 @@
         },
 
         methods: {
+            load () {
+                this.loading.months = true
+                this.$store.dispatch('player/FETCH_MONTHS')
+                    .then(() => {
+                        this.loadExperience(0)
+                        this.loading.months = false
+                    })
+                    .catch(() => this.loading.months = false)
+            },
+
             loadTab (tab) {
                 if (tab.name == 'overview') {
                     this.loadOverview()
@@ -125,20 +133,20 @@
             loadOverview () {
                 const id = this.player.id
 
-                this.loading = true
+                this.loading.overview = true
                 this.$store.dispatch('player/FETCH_OVERVIEW', { id })
-                    .then(() => this.loading = false)
-                    .catch(() => this.loading = false)
+                    .then(() => this.loading.overview = false)
+                    .catch(() => this.loading.overview = false)
             },
 
             loadExperience (index) {
                 const id = this.player.id
                 const month = this.months[index].date
 
-                this.loading = true
+                this.loading.experience = true
                 this.$store.dispatch('player/FETCH_EXPERIENCE', { id, month })
-                    .then(() => this.loading = false)
-                    .catch(() => this.loading = false)
+                    .then(() => this.loading.experience = false)
+                    .catch(() => this.loading.experience = false)
             },
 
             getLeftExperience (advance) {
@@ -153,5 +161,9 @@
                 return this.experience ? percentage : 0
             },
         },
+
+        mounted () {
+            this.load()
+        }
     }
 </script>

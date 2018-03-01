@@ -13,7 +13,6 @@ export default {
                     context.commit('player/PLAYER', response.data)
                     context.dispatch('player/FETCH_LEVEL', { id: context.state.player.id })
                     context.dispatch('player/FETCH_SKILLS', { id: context.state.player.id })
-                    context.dispatch('player/FETCH_MONTHS')
                     resolve()
                 })
                 .catch(() => reject())
@@ -31,14 +30,18 @@ export default {
     },
 
     'player/FETCH_MONTHS' (context) {
-        return services.getMonths()
-            .then(response => {
-                context.commit('player/MONTHS', response.data)
-                context.dispatch('player/FETCH_EXPERIENCE', {
-                    id: context.state.player.id,
-                    month: context.state.months[0]
+        return new Promise ((resolve, reject) => {
+            services.getMonths()
+                .then(response => {
+                    context.commit('player/MONTHS', response.data)
+                    context.dispatch('player/FETCH_EXPERIENCE', {
+                        id: context.state.player.id,
+                        month: context.state.months[0]
+                    })
+                    resolve()
                 })
-            })
+                .catch(() => reject())
+        })
     },
 
     'player/FETCH_EXPERIENCE' (context, request) {
@@ -47,7 +50,14 @@ export default {
         return new Promise((resolve, reject) => {
             services.getPlayerExperience(request.id, request.month)
                 .then(response => {
-                    context.commit('player/EXPERIENCE', response.data)
+                    const experience = response.data
+                    experience.map((exp, index) => {
+                        const advance = index ? parseInt(exp.experience - experience[index - 1].experience) : 0
+                        const up = index ? parseInt(exp.level - experience[index - 1].level) : 0
+                        return { ...exp, advance, up }
+                    }).filter(exp => moment(exp.updated_at).format('YYYY-MM') == request.month).sort((a, b) => b.id - a.id)
+
+                    context.commit('player/EXPERIENCE', experience)
                     resolve()
                 })
                 .catch(() => reject())
