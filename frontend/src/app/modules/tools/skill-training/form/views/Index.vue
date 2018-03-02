@@ -73,13 +73,13 @@
         <div class="alert alert-warning margin-top-20" v-if="mana && advanced.loyalty">
             <h4>Loyalty</h4>
 
-            <p>Your magic level without loyalty is <b>{{ player.from }}</b>
-                and the desire magic level is <b>{{ player.to }}</b>.</p>
+            <p>Your magic level without loyalty is <b>{{ player.from }} ({{ player.percentage.from | percentage }}%)</b>
+                and the desire magic level is <b>{{ player.to }} ({{ player.percentage.to | percentage }}%)</b>.</p>
         </div>
 
         <div class="alert alert-info margin-top-20" v-if="mana">
-            You need to use: <b>{{ mana.format() }}</b> of your mana to go from magic level {{ skills.from
-            }} to magic level {{ skills.to }}.
+            You need to use: <b>{{ mana.format() }}</b> of your mana to go from magic level
+            <b>{{ skills.from }}</b> to magic level <b>{{ skills.to }}</b>.
         </div>
 
         <div class="row potions" v-if="mana">
@@ -101,12 +101,16 @@
 
                     <div class="info">
                         <span class="amount">
-                            <i class="mdi mdi-menu"></i>
+                            <i class="mdi mdi-flask-outline"></i>
                             {{ calculatePotions(potion).amount.format() }} potions
                         </span>
                         <span class="price">
                             <i class="mdi mdi-coin"></i>
                             {{ calculatePotions(potion).price.format() }} gp
+                        </span>
+                        <span class="cask">
+                            <i class="mdi mdi-cube-outline"></i>
+                            ~{{ calculatePotions(potion).casks.amount }} casks (~{{ calculatePotions(potion).casks.price }} Tibia Coins)
                         </span>
                         <span class="time">
                             <i class="mdi mdi-clock"></i>
@@ -167,12 +171,12 @@
                 ],
 
                 potions: [
-                    { id: 981, slug: 'mp', name: 'Mana Potion', mana: 100, price: 50 },
-                    { id: 974, slug: 'smp', name: 'Strong Mana Potion', mana: 150, price: 80 },
-                    { id: 975, slug: 'gmp', name: 'Great Mana Potion', mana: 200, price: 120 },
-                    { id: 2883, slug: 'ump', name: 'Ultimate Mana Potion', mana: 500, price: 350 },
-                    { id: 1062, slug: 'gsp', name: 'Great Spirit Potion', mana: 150, price: 190 },
-                    { id: 2884, slug: 'usp', name: 'Ultimate Spirit Potion', mana: 215, price: 350 },
+                    { id: 981, slug: 'mp', name: 'Mana Potion', mana: 100, price: 50, cask: 4 },
+                    { id: 974, slug: 'smp', name: 'Strong Mana Potion', mana: 150, price: 80, cask: 7 },
+                    { id: 975, slug: 'gmp', name: 'Great Mana Potion', mana: 200, price: 120, cask: 11 },
+                    { id: 2883, slug: 'ump', name: 'Ultimate Mana Potion', mana: 500, price: 350, cask: 33 },
+                    { id: 1062, slug: 'gsp', name: 'Great Spirit Potion', mana: 150, price: 190, cask: 18 },
+                    { id: 2884, slug: 'usp', name: 'Ultimate Spirit Potion', mana: 215, price: 350, cask: 33 },
                 ],
 
                 skills: {
@@ -262,6 +266,12 @@
             },
         },
 
+        filters: {
+            percentage (value) {
+                return isNaN(value) ? value : (value * 100).toFixed(2)
+            }
+        },
+
         methods: {
             calculateManaToML (ml) {
                 return 1600 * Math.pow(this.vocation.multiplier, ml)
@@ -284,19 +294,23 @@
                 let amount = mana / potion.mana
                 let seconds = 60 * ((mana * 100 / (potion.mana * 60)) / 100)
                 let price = amount * potion.price
-                console.log(`${potion.name}: ${seconds}`)
+                let casksAmount = parseInt(amount / 1000)
+                let casksPrice = parseInt(casksAmount * potion.cask)
+                let casks = { amount: casksAmount, price: casksPrice }
+
 
                 let time = seconds >= 31104000
                     ? `Over an Year`
                     : seconds >= 2592000
-                        ? moment.utc(seconds * 1000).format('MM [month(s)] DD [day(s)] HH [hour(s)] mm [minute(s)]')
+                        ? moment.utc(seconds * 1000).subtract(1, 'months').format('MM [month(s)] DD [day(s)] HH [hour(s)] mm [minute(s)]')
                         : seconds > 86400
-                            ? moment.utc(seconds * 1000).format('DD [day(s)] HH [hour(s)] mm [minute(s)] ss [second(s)]')
+                            ? moment.utc(seconds * 1000).subtract(1, 'days').format('DD [day(s)] HH [hour(s)] mm [minute(s)] ss [second(s)]')
                             : moment.utc(seconds * 1000).format('HH [hour(s)] mm [minute(s)] ss [second(s)]')
 
                 return {
                     amount: amount,
                     price: price,
+                    casks: casks,
                     time: time
                 }
             },
