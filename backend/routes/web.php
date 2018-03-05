@@ -15,6 +15,10 @@ Route::get('/', function () {
     return redirect('http://www.ollyxpic.com');
 });
 
+Route::get('/broadcast', function () {
+    event(new \App\Events\BroadcastEvent());
+});
+
 Route::get('images/outfit/{name}/{sex?}', 'ImageController@loadOutfit');
 Route::get('images/blob/{type}/{id}', 'ImageController@loadImage');
 Route::get('images/blob/{type}/name/{name}', 'ImageController@loadImageByName');
