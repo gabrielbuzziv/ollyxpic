@@ -15,7 +15,6 @@ module.exports = merge(common, {
     plugins: (module.exports.plugins || []).concat([
         new HtmlWebpackPlugin({
             title: 'Ollyxpic - Development',
-            url: 'http://localhost',
             filename: `${__dirname}/index.html`,
             template: `${__dirname}/template.html`,
         })
