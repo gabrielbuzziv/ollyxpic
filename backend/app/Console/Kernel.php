@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         Commands\HighscoresCommand::class,
         Commands\HighscoresSkillsCommand::class,
+        Commands\PlayersOnlineCommand::class,
     ];
 
     /**
@@ -36,6 +37,8 @@ class Kernel extends ConsoleKernel
         $schedule->command('ollyxpic:skills', ['loyalty'])->dailyAt('04:00');
         $schedule->command('ollyxpic:skills', ['fist'])->dailyAt('04:00');
         $schedule->command('ollyxpic:skills', ['fishing'])->dailyAt('04:00');
+        $schedule->command('ollyxpic:online')->everyMinute();
+        $schedule->command('ollyxpic:online', ['enemies'])->everyMinute();
     }
 
     /**

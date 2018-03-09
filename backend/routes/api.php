@@ -121,6 +121,16 @@ Route::get('players/{player}/overview', 'PlayersController@overview');
 Route::get('players/{name}/compare', 'PlayersController@compare');
 
 /**
+ * Discord Routes.
+ */
+// Guilds
+Route::post('discord/guild/create', 'DiscordGuildController@create');
+Route::delete('discord/guild/{guild}', 'DiscordGuildController@destroy');
+
+// Character
+Route::post('discord/character/add', 'DiscordCharacterController@add');
+
+/**
  * All the routes in this group will need to send a Header
  * Authorization with a valide token, withou this the user will
  * not be authorized to access the route.
