@@ -28,6 +28,6 @@ class DiscordGuild extends Model
      */
     public function characters()
     {
-        return $this->hasMany(DiscordCharacter::class);
+        return $this->hasMany(DiscordCharacter::class, 'guild_id', 'guild_id');
     }
 }

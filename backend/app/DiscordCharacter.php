@@ -22,6 +22,28 @@ class DiscordCharacter extends Model
     protected $fillable = ['guild_id', 'character', 'level', 'vocation', 'type'];
 
     /**
+     * Get friends only.
+     *
+     * @param $query
+     * @return mixed
+     */
+    public function scopeFriends($query)
+    {
+        $query->where('type', 'friend');
+    }
+
+    /**
+     * Get friends only.
+     *
+     * @param $query
+     * @return mixed
+     */
+    public function scopeEnemies($query)
+    {
+        $query->where('type', 'enemy');
+    }
+
+    /**
      * A character belongs to a guild;
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

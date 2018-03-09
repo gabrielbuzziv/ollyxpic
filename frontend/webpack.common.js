@@ -62,7 +62,7 @@ module.exports = {
     plugins: [
         new Dotenv({
             path:'./.env',
-            sage: true
+            safe: true
         }),
 
         new webpack.ProvidePlugin({

@@ -15,12 +15,17 @@ class CreateDiscordCharactersTable extends Migration
     {
         Schema::create('discord_characters', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('guild_id')->unsigned();
+            $table->bigInteger('guild_id')->unsigned();
             $table->string('character');
             $table->integer('level');
             $table->string('vocation');
-            $table->char('type'); // A = Ally | E = Enemy
+            $table->string('world');
+            $table->char('type'); // friends/enemies
+            $table->boolean('online')->default(0);
+            $table->timestamp('last_death')->default(\Carbon\Carbon::now());
             $table->timestamps();
+
+            $table->foreign('guild_id')->references('guild_id')->on('discord_guilds')->onDelete('cascade');
         });
     }
 

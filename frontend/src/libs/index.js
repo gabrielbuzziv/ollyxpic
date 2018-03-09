@@ -7,6 +7,7 @@ import './draggable'
 import './wysiwyg'
 import './disqus'
 import './analytics'
+import './laravel-echo'
 
 import moment from 'moment'
 import 'moment-timezone';

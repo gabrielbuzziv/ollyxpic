@@ -15,8 +15,8 @@ Route::get('/', function () {
     return redirect('http://www.ollyxpic.com');
 });
 
-Route::get('/broadcast', function () {
-    event(new \App\Events\BroadcastEvent());
+Route::get('/discord/friends', function () {
+    event(new \App\Events\CharactersOnlineEvent());
 });
 
 Route::get('images/outfit/{name}/{sex?}', 'ImageController@loadOutfit');

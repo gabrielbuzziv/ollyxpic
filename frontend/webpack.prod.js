@@ -30,8 +30,10 @@ module.exports = merge(common, {
         }),
         new HtmlWebpackPlugin({
             title: 'Ollyxpic - The best of Tibia tools',
+            url: 'http://ollyxpic.com',
             filename: `${__dirname}/index.html`,
             template: `${__dirname}/template.html`,
+
         })
     ])
 })

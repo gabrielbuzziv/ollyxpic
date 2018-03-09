@@ -14,7 +14,8 @@ class CreateDiscordGuildTable extends Migration
     public function up()
     {
         Schema::create('discord_guilds', function (Blueprint $table) {
-            $table->integer('guild_id')->primary();
+            $table->increments('id');
+            $table->bigInteger('guild_id')->unsigned()->unique();
             $table->string('name');
             $table->timestamps();
         });
