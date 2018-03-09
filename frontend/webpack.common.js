@@ -1,5 +1,5 @@
-var path    = require('path')
-var webpack = require('webpack')
+const path = require('path')
+const webpack = require('webpack')
 const Dotenv = require('dotenv-webpack')
 
 module.exports = {
@@ -10,7 +10,8 @@ module.exports = {
                 test: /\.vue$/,
                 loader: 'vue-loader',
                 options: {
-                    loaders: {'scss': 'vue-style-loader!css-loader!sass-loader',
+                    loaders: {
+                        'scss': 'vue-style-loader!css-loader!sass-loader',
                         'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
                     }
                 }
@@ -61,8 +62,8 @@ module.exports = {
     },
     plugins: [
         new Dotenv({
-            path:'./.env',
-            safe: true
+            path: './.env',
+            sage: true
         }),
 
         new webpack.ProvidePlugin({

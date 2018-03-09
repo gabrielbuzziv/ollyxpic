@@ -1,5 +1,6 @@
 <template>
     <page-load id="home">
+
         <div class="row">
             <div class="col-md-8">
                 <panel class="news">
@@ -89,8 +90,7 @@
         data () {
             return {
                 news: [],
-                hotnews: [],
-                broadcasts: 0
+                hotnews: []
             }
         },
 

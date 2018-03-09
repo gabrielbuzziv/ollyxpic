@@ -90,9 +90,8 @@
         </el-tabs>
 
         <div class="credits">
-            Thanks
-            <a href="https://www.reddit.com/r/TibiaMMO/comments/7qn9sf/list_of_all_available_speed_boosts/"
-                      target="_blank">RydanTV</a>
+            Thanks <a href="https://www.reddit.com/r/TibiaMMO/comments/7qn9sf/list_of_all_available_speed_boosts/"
+                      target="_blank">RydanTV</a> and
             and
             <a href="https://www.reddit.com/r/TibiaMMO/comments/7qn9sf/list_of_all_available_speed_boosts/"
                target="_blank">Summ_</a>
