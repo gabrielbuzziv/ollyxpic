@@ -45,6 +45,7 @@ class CharactersDiedEvent implements ShouldBroadcast
     {
         $this->guild = $guild;
         $this->characters = $characters;
+        $this->type = $type;
     }
 
     /**

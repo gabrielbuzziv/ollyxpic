@@ -15,14 +15,14 @@ class CharactersLevelUpEvent implements ShouldBroadcast
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
-     * Guild ID
+     * Guild
      *
      * @var
      */
     public $guild;
 
     /**
-     * Friends List
+     * Characters
      *
      * @var
      */
@@ -36,14 +36,15 @@ class CharactersLevelUpEvent implements ShouldBroadcast
     public $type;
 
     /**
-     * CharactersLevelUpEvent constructor.
+     * CharactersDiedEvent constructor.
      * @param $guild
+     * @param $characters
      * @param $type
      */
-    public function __construct($guild, $type)
+    public function __construct($guild, $characters, $type)
     {
         $this->guild = $guild;
-        $this->characters = (new DiscordCharacter)->where('guild_id', $guild)->$type()->get();
+        $this->characters = $characters;
         $this->type = $type;
     }
 

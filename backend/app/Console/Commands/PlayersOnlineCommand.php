@@ -4,8 +4,10 @@ namespace App\Console\Commands;
 
 use App\DiscordCharacter;
 use App\DiscordGuild;
+use App\Events\CharactersChangedEvent;
 use App\Events\CharactersDiedEvent;
 use App\Events\CharactersOnlineEvent;
+use App\Jobs\CharactersChangedJob;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Goutte\Client;
@@ -54,50 +56,46 @@ class PlayersOnlineCommand extends Command
         $guilds->each(function ($guild) {
             $this->onlines = [];
             $type = $this->argument('type');
-            $worlds = $guild->characters()->select('world')->$type()->groupBy('world')->get();
+
             $characters = $guild->characters()->$type()->get()->toArray();
             $charactersName = $this->getCharactersNames($characters);
+            $worlds = $this->getWorlds($characters);
 
-            $worlds->each(function ($world) use ($charactersName) {
-                $onlines = array_filter($this->getOnlinesFromWorld($world->world), function ($character) use ($charactersName) {
+            foreach ($worlds as $world) {
+                $onlines = array_filter($this->getOnlinesFromWorld($world), function ($character) use ($charactersName) {
                     return in_array($character['character'], $charactersName);
                 });
                 $this->onlines = array_merge($this->onlines, $onlines);
-            });
+            }
+
+            foreach ($this->onlines as $online) {
+                $guild->characters()->$type()->where('character', $online['character'])->update([
+                    'level' => $online['level'],
+                    'online' => 1
+                ]);
+            }
 
             $onlines = $this->getCharactersNames($this->onlines);
-            $guild->characters()->$type()->whereIn('character', $onlines)->update(['online' => 1]);
-            $this->getCharacterChanges($guild, $characters, $this->onlines);
+            $guild->characters()->$type()->whereNotIn('character', $onlines)->update(['online' => 0]);
 
             event(new CharactersOnlineEvent($guild->guild_id, $type));
+
+            // This event will be queued.
+            dispatch(new CharactersChangedJob($guild, $characters, $onlines, $type));
         });
     }
 
-    private function getCharacterChanges($guild, $characters, $online)
+    /**
+     * Get worlds names from charactes list.
+     *
+     * @param $characters
+     * @return array
+     */
+    private function getWorlds($characters)
     {
-        $onlineNames = $this->getCharactersNames($online);
-        $deathsAnnounces = [];
-
-        foreach ($characters as $character) {
-            if (in_array($character['character'], $onlineNames) === true) {
-                $information = (new Character($character['character']))->run();
-                $this->info($character['character']);
-
-                if (! empty($information['deaths'])) {
-                    $lastDeath = Carbon::createFromFormat('Y-m-d H:i:s', $character['last_death']);
-                    $newDeath = Carbon::createFromFormat('Y-m-d H:i:s', $information['deaths'][0]['date'], 'Europe/Berlin')->timezone('America/New_York');
-
-                    if ($lastDeath->diffInSeconds($newDeath) > 0) {
-                        $character = $information['details'];
-                        $death = $information['deaths'][0];
-
-                        $deathsAnnounces[] = ['character' => $character, 'death' => $death];
-                    }
-                }
-            }
-        }
-
-        event(new CharactersDiedEvent($guild->guild_id, $deathsAnnounces, $this->argument('type')));
+        return array_unique(array_map(function ($character) {
+            return $character['world'];
+        }, $characters));
     }
 
     /**
