@@ -13,7 +13,7 @@ class PlayerDeaths extends Model
      * @var array
      */
     protected $fillable = [
-        'player_id', 'level', 'reason', 'involved', 'died_at'
+        'player_id', 'level', 'reason', 'involved', 'died_at', 'type'
     ];
 
     /**

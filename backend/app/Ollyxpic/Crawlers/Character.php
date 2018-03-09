@@ -292,6 +292,8 @@ class Character
         $value = trim($value);
 
         switch ($label) {
+            case 'former_names':
+                return explode(', ', $value);
             case 'level':
             case 'achievement_points':
                 return (int) $value;

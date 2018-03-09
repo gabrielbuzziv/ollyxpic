@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\HighscoreMigration;
 use App\Highscores;
 use App\HighscoresSkills;
+use App\Ollyxpic\Crawlers\Character;
 use App\Player;
 use App\World;
 use Carbon\Carbon;
@@ -154,10 +155,10 @@ class PlayersController extends ApiController
             ->get();
 
         return $this->respond([
-            'details' => $player,
-            'skills' => $this->getSkills($player->name),
+            'details'    => $player,
+            'skills'     => $this->getSkills($player->name),
             'experience' => [
-                'last' => $lastMonth,
+                'last'    => $lastMonth,
                 'current' => $month
             ]
         ]);
@@ -182,38 +183,43 @@ class PlayersController extends ApiController
     /**
      * Update player.
      *
+     * @param $object
      * @param $player
-     * @param $api
      */
-    private function updatePlayer($player, $api)
+    private function updatePlayer($object, $player)
     {
-        $details = $api->characters->data;
-        $deaths = $api->characters->deaths;
+        $details = (object) $player['details'];
+        $deaths = $player['deaths'];
 
-        $player->name = $details->name;
-        $player->former_names = isset($details->former_names) ? implode(', ', $details->former_names) : null;
-        $player->vocation = $details->vocation;
-        $player->level = $details->level;
-        $player->residence = $details->residence;
-        $player->house = isset($details->house) ? $details->house->town : null;
-        $player->gender = $details->sex;
-        $player->married_to = isset($details->married_to) ? $details->married_to : null;
-        $player->description = isset($details->comment) ? $details->comment : null;
-        $player->guild = isset($details->guild) ? $details->guild->name : null;
-        $player->premium = $details->account_status == 'Premium Account' ? true : false;
-        $player->achievements = $details->achievement_points;
-        $player->world_id = World::where('name', $details->world)->first()->id;
-        $player->last_login = Carbon::createFromFormat('Y-m-d H:i:s.u', $details->last_login[0]->date)->format('Y-m-d H:i:s');
-        $player->save();
+        $object->name = $details->name;
+        $object->former_names = isset($details->former_names) ? implode(', ', $details->former_names) : null;
+        $object->vocation = $details->vocation;
+        $object->level = $details->level;
+        $object->residence = $details->residence;
+        $object->house = isset($details->house) ? $details->house['town'] : null;
+        $object->gender = $details->sex;
+        $object->married_to = isset($details->married_to) ? $details->married_to : null;
+        $object->description = isset($details->comment) ? $details->comment : null;
+        $object->guild = isset($details->guild) ? $details->guild['name'] : null;
+        $object->premium = $details->account_status == 'Premium Account' ? true : false;
+        $object->achievements = $details->achievement_points;
+        $object->world_id = World::where('name', $details->world)->first()->id;
+        $object->last_login = $details->last_login;
+        $object->save();
 
         foreach ($deaths as $death) {
-            $player->deaths()->firstOrCreate([
-                'level' => $death->level,
-                'reason' => $death->reason,
+            $death = (object) $death;
+
+            $object->deaths()->firstOrCreate([
+                'level'    => $death->level,
+                'reason'   => $death->reason,
                 'involved' => serialize($death->involved),
-                'died_at' => Carbon::createFromFormat('Y-m-d H:i:s.u', $death->date->date),
+                'died_at'  => $death->date,
+                'type'     => $death->type,
             ]);
         }
+
+        return $object;
     }
 
     /**
@@ -225,30 +231,15 @@ class PlayersController extends ApiController
     private function getPlayer($name)
     {
         $name = strtolower(trim($name));
-        $player = (new Player)
+
+        $playerExists = (new Player)
             ->with(['world', 'deaths'])
             ->where('name', $name)
             ->orWhereRaw("'{$name}' in (former_names)")
             ->first();
 
-        if ($player) {
-            if (Carbon::now()->diffInMinutes($player->updated_at) >= 5) {
-                $api = $this->searchPlayer($name);
-                $this->updatePlayer($player, $api);
-                $this->updateHighscores($player);
-            }
-
-            return $player;
-        }
-
-        $api = $this->searchPlayer($name);
-
-        if (isset($api->characters->error)) {
-            return $this->respondNotFound(null);
-        }
-
-        $player = new Player();
-        $this->updatePlayer($player, $api);
+        $player = $this->searchPlayer($name);
+        $player = $playerExists ? $this->updatePlayer($playerExists, $player) : $this->updatePlayer(new Player(), $player);
         $this->updateHighscores($player);
 
         return $player;
@@ -262,17 +253,19 @@ class PlayersController extends ApiController
      */
     private function searchPlayer($name)
     {
-        $url = "https://api.tibiadata.com/v2/characters/{$name}.json";
+        return (new Character($name))->run();
 
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-        curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 3);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept: application/json'));
-
-        return json_decode(curl_exec($ch));
+//        $url = "https://api.tibiadata.com/v2/characters/{$name}.json";
+//
+//        $ch = curl_init($url);
+//        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+//        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+//        curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+//        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+//        curl_setopt($ch, CURLOPT_TIMEOUT, 3);
+//        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept: application/json'));
+//
+//        return json_decode(curl_exec($ch));
     }
 
     /**
