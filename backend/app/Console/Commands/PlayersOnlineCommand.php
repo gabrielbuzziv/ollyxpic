@@ -54,6 +54,7 @@ class PlayersOnlineCommand extends Command
     {
         $guilds = (new DiscordGuild)->get();
         $guilds->each(function ($guild) {
+            $this->info("Guild: {$guild->name}");
             $this->onlines = [];
             $type = $this->argument('type');
 
@@ -75,13 +76,20 @@ class PlayersOnlineCommand extends Command
                 ]);
             }
 
+            $totalOnlines = count($this->onlines);
+            $this->info("Onlines: {$totalOnlines}");
+
+
             $onlines = $this->getCharactersNames($this->onlines);
             $guild->characters()->$type()->whereNotIn('character', $onlines)->update(['online' => 0]);
 
             event(new CharactersOnlineEvent($guild->guild_id, $type));
+            $this->info('Emitted Event: @CharactersOnlineEvent');
 
             // This event will be queued.
             dispatch(new CharactersChangedJob($guild, $characters, $onlines, $type));
+            $this->info('Emitted Event: @CharactersChangedJob');
+            $this->info('___________');
         });
     }
 
