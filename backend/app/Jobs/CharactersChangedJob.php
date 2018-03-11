@@ -78,7 +78,11 @@ class CharactersChangedJob implements ShouldQueue
                     $lastDeath = Carbon::createFromFormat('Y-m-d H:i:s', $character['last_death']);
                     $newDeath = Carbon::createFromFormat('Y-m-d H:i:s', $information['deaths'][0]['date'], 'Europe/Berlin')->timezone('America/New_York');
 
-                    if ($newDeath->diffInSeconds($lastDeath) > 0) {
+                    $now = Carbon::now()->timezone('America/New_York');
+                    $lastNow = $lastDeath->diffInSeconds($now);
+                    $newNow = $newDeath->diffInSeconds($now);
+
+                    if ($newNow < $lastNow) {
                         $character = $information['details'];
                         $death = $information['deaths'][0];
 
@@ -86,7 +90,10 @@ class CharactersChangedJob implements ShouldQueue
                             $deathsAnnounces[] = ['character' => $character, 'death' => $death];
                             $this->guild->characters()
                                 ->where('character', $character['name'])
-                                ->update(['last_death' => $newDeath]);
+                                ->update([
+                                    'level'      => $information['details']['level'],
+                                    'last_death' => $newDeath
+                                ]);
                         }
                     }
                 }

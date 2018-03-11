@@ -64,10 +64,17 @@ class PlayersOnlineCommand extends Command
 
             foreach ($worlds as $world) {
                 $onlines = array_filter($this->getOnlinesFromWorld($world), function ($character) use ($charactersName) {
-                    return in_array($character['character'], $charactersName);
+                    return in_array($this->clearString($character['character']), $charactersName);
                 });
                 $this->onlines = array_merge($this->onlines, $onlines);
             }
+
+            $onlines = $this->getCharactersNames($this->onlines);
+
+            // This event will be queued.
+            dispatch(new CharactersChangedJob($guild, $characters, $onlines, $type));
+            $this->info('Emitted Event: @CharactersChangedJob');
+            $this->info('___________');
 
             foreach ($this->onlines as $online) {
                 $guild->characters()->$type()->where('character', $online['character'])->update([
@@ -78,18 +85,10 @@ class PlayersOnlineCommand extends Command
 
             $totalOnlines = count($this->onlines);
             $this->info("Onlines: {$totalOnlines}");
-
-
-            $onlines = $this->getCharactersNames($this->onlines);
             $guild->characters()->$type()->whereNotIn('character', $onlines)->update(['online' => 0]);
 
             event(new CharactersOnlineEvent($guild->guild_id, $type));
             $this->info('Emitted Event: @CharactersOnlineEvent');
-
-            // This event will be queued.
-            dispatch(new CharactersChangedJob($guild, $characters, $onlines, $type));
-            $this->info('Emitted Event: @CharactersChangedJob');
-            $this->info('___________');
         });
     }
 
@@ -139,5 +138,18 @@ class PlayersOnlineCommand extends Command
 
             return ['character' => $character[0], 'level' => $character[1], 'vocation' => $character[2]];
         }), 2);
+    }
+
+    /**
+     * Remove invisible chars from string.
+     *
+     * @param $string
+     * @return mixed
+     */
+    private function clearString($string)
+    {
+        $string = preg_replace('/[\x00-\x1F\x7F-\xFF]/', ' ', trim($string));
+
+        return preg_replace('/\s+/', ' ', $string);
     }
 }
