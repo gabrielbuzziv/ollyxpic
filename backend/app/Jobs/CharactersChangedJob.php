@@ -72,29 +72,29 @@ class CharactersChangedJob implements ShouldQueue
                         'from'      => $character['level'],
                         'to'        => $information['details']['level']
                     ];
+
+                    $this->guild->characters()->where('character', $information['details']['name'])->update([
+                        'level' => $information['details']['level']
+                    ]);
                 }
 
                 if ( ! empty($information['deaths'])) {
                     $lastDeath = Carbon::createFromFormat('Y-m-d H:i:s', $character['last_death']);
-                    $newDeath = Carbon::createFromFormat('Y-m-d H:i:s', $information['deaths'][0]['date'], 'Europe/Berlin')->timezone('America/New_York');
+                    $recentDeath = Carbon::createFromFormat('Y-m-d H:i:s', $information['deaths'][0]['date'], 'Europe/Berlin')->timezone('America/New_York');
 
-                    $now = Carbon::now()->timezone('America/New_York');
-                    $lastNow = $lastDeath->diffInSeconds($now);
-                    $newNow = $newDeath->diffInSeconds($now);
-
-                    if ($newNow < $lastNow) {
+                    if ($recentDeath->diffInSeconds($lastDeath) > 0) {
                         $character = $information['details'];
                         $death = $information['deaths'][0];
 
                         if ($death['type'] != 'arena') {
                             $deathsAnnounces[] = ['character' => $character, 'death' => $death];
-                            $this->guild->characters()
-                                ->where('character', $character['name'])
-                                ->update([
-                                    'level'      => $information['details']['level'],
-                                    'last_death' => $newDeath
-                                ]);
                         }
+
+                        $this->guild->characters()->where('character', $character['name'])
+                            ->update([
+                                'level' => $character['level'],
+                                'last_death' => $recentDeath
+                            ]);
                     }
                 }
             }

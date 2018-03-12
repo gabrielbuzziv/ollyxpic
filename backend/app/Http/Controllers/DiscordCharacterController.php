@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\DiscordCharacter;
+use App\Ollyxpic\Crawlers\Character;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class DiscordCharacterController extends ApiController
@@ -23,17 +25,23 @@ class DiscordCharacterController extends ApiController
             $guild = (int) request('guild_id');
             $name = request('name');
             $type = request('type');
-            $player = $this->searchPlayer($name)->characters;
+            $player = $this->searchPlayer($name);
 
-            if (isset($player->error)) {
-                return $this->respondInternalError(null, 'Character not found!');
+            $recentDeath = Carbon::now()->timezone('America/New_York');
+
+            if (count($player['deaths']) > 0) {
+                $recentDeath = Carbon::createFromFormat('Y-m-d H:i:s', $player['deaths'][0]['date'], 'Europe/Berlin')->timezone('America/New_York');
             }
 
-            $character = (new DiscordCharacter)->updateOrCreate(['guild_id' => $guild, 'character' => $player->data->name]);
-            $character->level = $player->data->level;
-            $character->vocation = $player->data->vocation;
-            $character->world = $player->data->world;
+            $character = (new DiscordCharacter)->updateOrCreate([
+                'guild_id' => $guild,
+                'character' => $player['details']['name']
+            ]);
+            $character->level = $player['details']['level'];
+            $character->vocation = $player['details']['vocation'];
+            $character->world = $player['details']['world'];
             $character->type = $type;
+            $character->last_death = $recentDeath;
             $character->save();
 
             return $this->respond($character->toArray());
@@ -50,16 +58,6 @@ class DiscordCharacterController extends ApiController
      */
     private function searchPlayer($name)
     {
-        $url = "https://api.tibiadata.com/v2/characters/{$name}.json";
-
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-        curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 3);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept: application/json'));
-
-        return json_decode(curl_exec($ch));
+        return (new Character($name))->run();
     }
 }

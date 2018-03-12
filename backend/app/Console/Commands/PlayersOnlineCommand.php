@@ -78,7 +78,6 @@ class PlayersOnlineCommand extends Command
 
             foreach ($this->onlines as $online) {
                 $guild->characters()->$type()->where('character', $online['character'])->update([
-                    'level' => $online['level'],
                     'online' => 1
                 ]);
             }
