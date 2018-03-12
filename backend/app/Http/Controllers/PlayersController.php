@@ -230,7 +230,7 @@ class PlayersController extends ApiController
      */
     private function getPlayer($name)
     {
-        $name = strtolower(trim($name));
+        $name = urlencode(strtolower(trim($name)));
 
         $playerExists = (new Player)
             ->with(['world', 'deaths'])
