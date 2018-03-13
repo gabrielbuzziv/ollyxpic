@@ -86,7 +86,7 @@ class CharacterCrawler
      */
     private function formatDeath($death)
     {
-        $date = Carbon::createFromFormat('M d Y, H:i:s T', $this->clearString($death[0]));
+        $date = Carbon::createFromFormat('M d Y, H:i:s T', $this->clearString($death[0]))->format('Y-m-d H:i:s');
         $info = $this->clearString($death[1]);
         $level = $this->getDeathLevel($info);
         $reason = $this->getDeathReason($info);
@@ -265,8 +265,6 @@ class CharacterCrawler
      */
     private function getCharacterDetails()
     {
-
-
         $this->getCharacterBox('detail')->filter('tr')->each(function ($tr, $i) {
             if ($i == 0) return;
 
@@ -302,7 +300,7 @@ class CharacterCrawler
             case 'guild':
                 return $this->formatGuild($value);
             case 'last_login':
-                return Carbon::createFromFormat('M d Y, H:i:s T', $this->clearString($value));
+                return Carbon::createFromFormat('M d Y, H:i:s T', $this->clearString($value))->format('Y-m-d H:i:s');
             case 'comment':
                 return $value;
             default:

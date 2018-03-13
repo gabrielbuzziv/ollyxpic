@@ -30,7 +30,7 @@ class DiscordCharacterController extends ApiController
             $recentDeath = Carbon::now()->timezone('America/New_York');
 
             if (count($player['deaths']) > 0) {
-                $recentDeath = Carbon::createFromFormat('Y-m-d H:i:s', $player['deaths'][0]['date'], 'Europe/Berlin')->timezone('America/New_York');
+                $recentDeath = Carbon::createFromFormat('Y-m-d H:i:s', $player['deaths'][0]['date'], 'Europe/Berlin')->timezone('America/New_York')->format('Y-m-d H:i:s');
             }
 
             $character = (new DiscordCharacter)->updateOrCreate([

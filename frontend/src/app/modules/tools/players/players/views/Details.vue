@@ -85,7 +85,7 @@
                 <i class="mdi mdi-login icon"></i>
                 <div class="data">
                     <b>Last Login</b>
-                    <span>{{ player.last_login.date | dateForHuman }}</span>
+                    <span>{{ player.last_login | dateForHuman }}</span>
                 </div>
             </div>
         </panel>

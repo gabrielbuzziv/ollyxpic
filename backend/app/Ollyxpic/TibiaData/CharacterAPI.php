@@ -55,7 +55,7 @@ class CharacterAPI
             'world'              => $data->world,
             'residence'          => isset($data->residence) ? $data->residence : null,
             'guild'              => isset($data->guild) ? $data->guild : null,
-            'last_login'         => Carbon::createFromFormat('Y-m-d H:i:s.u', $data->last_login[0]->date, 'Europe/Berlin'),
+            'last_login'         => Carbon::createFromFormat('Y-m-d H:i:s.u', $data->last_login[0]->date, 'Europe/Berlin')->format('Y-m-d H:i:s'),
             'comment'            => isset($data->comment) ? $data->comment : null,
             'account_status'     => $data->account_status,
         ];
@@ -76,7 +76,7 @@ class CharacterAPI
 
         foreach ($data as $death) {
             $deaths[] = [
-                'date'     => Carbon::createFromFormat('Y-m-d H:i:s.u', $death->date->date, 'Europe/Berlin'),
+                'date'     => Carbon::createFromFormat('Y-m-d H:i:s.u', $death->date->date, 'Europe/Berlin')->format('Y-m-d H:i:s'),
                 'level'    => $death->level,
                 'reason'   => $death->reason,
                 'involved' => $death->involved,

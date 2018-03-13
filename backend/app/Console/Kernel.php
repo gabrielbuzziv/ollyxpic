@@ -37,8 +37,8 @@ class Kernel extends ConsoleKernel
         $schedule->command('ollyxpic:skills', ['loyalty'])->dailyAt('04:00');
         $schedule->command('ollyxpic:skills', ['fist'])->dailyAt('04:00');
         $schedule->command('ollyxpic:skills', ['fishing'])->dailyAt('04:00');
-        $schedule->command('ollyxpic:online')->everyMinute();
-        $schedule->command('ollyxpic:online', ['enemies'])->everyMinute();
+        $schedule->command('ollyxpic:online')->cron('*/2 * * * *');
+        $schedule->command('ollyxpic:online', ['enemies'])->cron('*/2 * * * *');
     }
 
     /**

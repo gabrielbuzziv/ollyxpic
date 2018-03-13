@@ -4,7 +4,7 @@ namespace App\Jobs;
 
 use App\Events\CharactersDiedEvent;
 use App\Events\CharactersLevelUpEvent;
-use App\Ollyxpic\Crawlers\CharacterCrawler;
+use App\Ollyxpic\Character;
 use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
@@ -65,7 +65,7 @@ class CharactersChangedJob implements ShouldQueue
         foreach ($this->onlines as $online) {
             $online = (object) $online;
             $character = $this->guild->characters->where('character', $online->character)->first();
-            $profile = (new CharacterCrawler($character->character))->run();
+            $profile = (new Character())->check($character->character);
 
             if ($character->level < $online->level) {
                 $levelAnnounce[] = [
