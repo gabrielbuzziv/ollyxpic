@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DiscordCharacter;
-use App\Ollyxpic\Crawlers\Character;
+use App\Ollyxpic\Character;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -50,6 +50,11 @@ class DiscordCharacterController extends ApiController
         }
     }
 
+    /**
+     * Remove player from list.
+     *
+     * @return bool|mixed|null
+     */
     public function remove()
     {
         $this->validate(request(), [
@@ -81,6 +86,6 @@ class DiscordCharacterController extends ApiController
      */
     private function searchPlayer($name)
     {
-        return (new Character($name))->run();
+        return (new Character())->check($name);
     }
 }

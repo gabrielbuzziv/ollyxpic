@@ -111,7 +111,7 @@
 
         computed: {
             player () {
-                return this.$store.getters['player/GET_PLAYER']
+                return this.$store.getters['player/GET_PLAYER'].details
             },
 
             skills () {

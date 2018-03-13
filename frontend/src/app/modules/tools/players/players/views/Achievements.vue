@@ -4,7 +4,7 @@
 
         <div class="rate">
             <div class="data">
-                <b>{{ player.achievements }}</b>
+                <b>{{ player.achievement_points }}</b>
                 <span>points</span>
             </div>
 
@@ -17,12 +17,12 @@
     export default {
         computed: {
             player () {
-                return this.$store.getters['player/GET_PLAYER']
+                return this.$store.getters['player/GET_PLAYER'].details
             },
 
             completed () {
-                return this.player && this.player.achievements
-                    ? parseInt(this.player.achievements * 100 / 1077)
+                return this.player && this.player.achievement_points
+                    ? parseInt(this.player.achievement_points * 100 / 1077)
                     : 0
             }
         }

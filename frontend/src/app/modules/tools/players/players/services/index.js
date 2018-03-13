@@ -7,19 +7,19 @@ export default {
         return window.axios.get(`players/${name}`)
     },
 
-    getPlayerLevel (id) {
-        return window.axios.get(`players/${id}/level`)
+    getPlayerLevel (name) {
+        return window.axios.get(`players/${name}/level`)
     },
 
-    getPlayerSkills (id) {
-        return window.axios.get(`players/${id}/skills`)
+    getPlayerSkills (name) {
+        return window.axios.get(`players/${name}/skills`)
     },
 
-    getPlayerExperience (id, month) {
-        return window.axios.get(`players/${id}/experience`, { params: { month } })
+    getPlayerExperience (name, month) {
+        return window.axios.get(`players/${name}/experience`, { params: { month } })
     },
 
-    getPlayerOverview (id) {
-        return window.axios.get(`players/${id}/overview`)
+    getPlayerOverview (name) {
+        return window.axios.get(`players/${name}/overview`)
     }
 }

@@ -11,7 +11,7 @@ use App\Jobs\CharactersChangedJob;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Goutte\Client;
-use App\Ollyxpic\Crawlers\Character;
+use App\Ollyxpic\Crawlers\CharacterCrawler;
 
 class PlayersOnlineCommand extends Command
 {

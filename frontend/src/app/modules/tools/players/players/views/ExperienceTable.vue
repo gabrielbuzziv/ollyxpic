@@ -76,7 +76,7 @@
 
         computed: {
             player () {
-                return this.$store.getters['player/GET_PLAYER']
+                return this.$store.getters['player/GET_PLAYER'].details
             },
 
             months () {
@@ -131,20 +131,20 @@
             },
 
             loadOverview () {
-                const id = this.player.id
+                const name = this.player.name
 
                 this.loading.overview = true
-                this.$store.dispatch('player/FETCH_OVERVIEW', { id })
+                this.$store.dispatch('player/FETCH_OVERVIEW', { name })
                     .then(() => this.loading.overview = false)
                     .catch(() => this.loading.overview = false)
             },
 
             loadExperience (index) {
-                const id = this.player.id
+                const name = this.player.name
                 const month = this.months[index].date
 
                 this.loading.experience = true
-                this.$store.dispatch('player/FETCH_EXPERIENCE', { id, month })
+                this.$store.dispatch('player/FETCH_EXPERIENCE', { name, month })
                     .then(() => this.loading.experience = false)
                     .catch(() => this.loading.experience = false)
             },

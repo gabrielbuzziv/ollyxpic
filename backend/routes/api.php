@@ -114,10 +114,10 @@ Route::get('highscores/skills/{type?}', 'HighscoresController@skills');
  */
 Route::get('players/experience/months', 'PlayersController@months');
 Route::get('players/{name}', 'PlayersController@show');
-Route::get('players/{player}/skills', 'PlayersController@skills');
-Route::get('players/{player}/level', 'PlayersController@level');
-Route::get('players/{player}/experience', 'PlayersController@experience');
-Route::get('players/{player}/overview', 'PlayersController@overview');
+Route::get('players/{name}/skills', 'PlayersController@skills');
+Route::get('players/{name}/level', 'PlayersController@level');
+Route::get('players/{name}/experience', 'PlayersController@experience');
+Route::get('players/{name}/overview', 'PlayersController@overview');
 Route::get('players/{name}/compare', 'PlayersController@compare');
 
 /**

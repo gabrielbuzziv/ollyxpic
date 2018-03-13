@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\HighscoreMigration;
 use App\Highscores;
 use App\HighscoresSkills;
-use App\Ollyxpic\Crawlers\Character;
+use App\Ollyxpic\Character;
+use App\Ollyxpic\Crawlers\CharacterCrawler;
 use App\Player;
 use App\World;
 use Carbon\Carbon;
@@ -22,20 +23,18 @@ class PlayersController extends ApiController
      */
     public function show($name)
     {
-        $player = Player::with(['world', 'deaths'])->find($this->getPlayer($name)->id);
-
-        return $this->respond($player->toArray());
+        return $this->respond($this->searchPlayer($name));
     }
 
     /**
      * Get player skills.
      *
-     * @param Player $player
+     * @param $name
      * @return mixed
      */
-    public function skills(Player $player)
+    public function skills($name)
     {
-        return $this->respond($this->getSkills($player->name)->toArray());
+        return $this->respond($this->getSkills($name)->toArray());
     }
 
     /**
@@ -62,13 +61,13 @@ class PlayersController extends ApiController
     /**
      * Get current player level.
      *
-     * @param Player $player
+     * @param $name
      * @return mixed
      */
-    public function level(Player $player)
+    public function level($name)
     {
         $experience = (new Highscores)
-            ->where('name', $player->name)
+            ->where('name', $name)
             ->where('active', 1)
             ->where('type', 'experience')
             ->orderBy('updated_at', 'desc')
@@ -80,17 +79,17 @@ class PlayersController extends ApiController
     /**
      * Get player experience advances.
      *
-     * @param Player $player
+     * @param $name
      * @return mixed
      */
-    public function experience(Player $player)
+    public function experience($name)
     {
         $start = Carbon::createFromFormat('Y-m', request('month'))->firstOfMonth()->subDay();
         $end = Carbon::createFromFormat('Y-m', request('month'))->lastOfMonth();
 
         $experience = (new Highscores)
             ->where('type', 'experience')
-            ->where('name', $player->name)
+            ->where('name', $name)
             ->whereBetween('updated_at', [$start, $end])
             ->orderBy('updated_at', 'asc')
             ->get();
@@ -101,14 +100,14 @@ class PlayersController extends ApiController
     /**
      * Get a experience overview.
      *
-     * @param Player $player
+     * @param $name
      * @return mixed
      */
-    public function overview(Player $player)
+    public function overview($name)
     {
         $experience = (new Highscores)
             ->where('type', 'experience')
-            ->where('name', $player->name)
+            ->where('name', $name)
             ->orderBy('updated_at', 'asc')
             ->get();
 
@@ -254,7 +253,7 @@ class PlayersController extends ApiController
      */
     private function searchPlayer($name)
     {
-        return (new Character($name))->run();
+        return (new Character())->check($name);
     }
 
     /**

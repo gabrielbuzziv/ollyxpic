@@ -5,7 +5,7 @@
                 <i class="mdi mdi-earth icon"></i>
                 <div class="data">
                     <b>World</b>
-                    <span>{{ world }}</span>
+                    <span>{{ player.world }}</span>
                 </div>
             </div>
         </panel>
@@ -35,7 +35,7 @@
                 <i class="mdi mdi-gender-male-female icon"></i>
                 <div class="data">
                     <b>Gender</b>
-                    <span>{{ player.gender | capitalize }}</span>
+                    <span>{{ player.sex | capitalize }}</span>
                 </div>
             </div>
         </panel>
@@ -60,9 +60,9 @@
                 <div class="data">
                     <b>Guild</b>
                     <span>
-                        <a :href="`https://secure.tibia.com/community/?subtopic=guilds&page=view&GuildName=${player.guild}`"
+                        <a :href="`https://secure.tibia.com/community/?subtopic=guilds&page=view&GuildName=${player.guild.name}`"
                            target="_blank">
-                            {{ player.guild }}
+                            {{ player.guild.name }}
                         </a>
                     </span>
                 </div>
@@ -85,7 +85,7 @@
                 <i class="mdi mdi-login icon"></i>
                 <div class="data">
                     <b>Last Login</b>
-                    <span>{{ player.last_login | dateForHuman }}</span>
+                    <span>{{ player.last_login.date | dateForHuman }}</span>
                 </div>
             </div>
         </panel>
@@ -96,14 +96,8 @@
 export default {
     computed: {
         player () {
-            return this.$store.getters['player/GET_PLAYER']
+            return this.$store.getters['player/GET_PLAYER'].details
         },
-
-        world() {
-            return this.player && this.player.world
-                ? this.player.world.name
-                : ""
-        }
     },
 
     filters: {
