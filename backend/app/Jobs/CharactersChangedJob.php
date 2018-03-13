@@ -63,14 +63,16 @@ class CharactersChangedJob implements ShouldQueue
         $deathsAnnounces = [];
 
         foreach ($this->characters as $character) {
-            if (in_array($character['character'], $this->onlines) === true) {
+            if (in_array($character['character'], $this->getCharactersNames($this->onlines)) === true) {
+                $index = $this->getOnlineIndex($character['character']);
+                $online = $this->onlines[$index];
                 $information = (new Character($character['character']))->run();
 
-                if ($character['level'] < $information['details']['level']) {
+                if ($character['level'] < $online['level']) {
                     $levelUpAnnounces[] = [
                         'character' => $information['details'],
                         'from'      => $character['level'],
-                        'to'        => $information['details']['level']
+                        'to'        => $online['level']
                     ];
 
                     $this->guild->characters()->where('character', $information['details']['name'])->update([
@@ -102,5 +104,29 @@ class CharactersChangedJob implements ShouldQueue
 
         event(new CharactersDiedEvent($this->guild->guild_id, $deathsAnnounces, $this->type));
         event(new CharactersLevelUpEvent($this->guild->guild_id, $levelUpAnnounces, $this->type));
+    }
+
+    /**
+     * Get the index of player from online list.
+     *
+     * @param $character
+     * @return false|int|string
+     */
+    private function getOnlineIndex($character)
+    {
+        return array_search($character, $this->getCharactersNames($this->onlines));
+    }
+
+    /**
+     * Format the character list only showing character names.
+     *
+     * @param $characters
+     * @return array
+     */
+    private function getCharactersNames($characters)
+    {
+        return array_map(function ($character) {
+            return $character['character'];
+        }, $characters);
     }
 }

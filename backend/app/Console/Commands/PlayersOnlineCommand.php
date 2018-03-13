@@ -72,7 +72,7 @@ class PlayersOnlineCommand extends Command
             $onlines = $this->getCharactersNames($this->onlines);
 
             // This event will be queued.
-            dispatch(new CharactersChangedJob($guild, $characters, $onlines, $type));
+            dispatch(new CharactersChangedJob($guild, $characters, $this->onlines, $type));
             $this->info('Emitted Event: @CharactersChangedJob');
             $this->info('___________');
 
