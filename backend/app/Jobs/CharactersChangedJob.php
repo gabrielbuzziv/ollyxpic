@@ -84,9 +84,7 @@ class CharactersChangedJob implements ShouldQueue
                 if ($recentDeath->diffInSeconds($lastDeath) > 0) {
                     $death = $profile['deaths'][0];
 
-                    if ($death['type'] != 'arena') {
-                        $deathAnnounce[] = ['character' => $profile['details'], 'death' => $death];
-                    }
+                    $deathAnnounce[] = ['character' => $profile['details'], 'death' => $death];
 
                     $character->level = $profile['details']['level'];
                     $character->last_death = $recentDeath;
