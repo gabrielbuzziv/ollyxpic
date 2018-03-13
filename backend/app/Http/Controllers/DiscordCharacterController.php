@@ -50,6 +50,29 @@ class DiscordCharacterController extends ApiController
         }
     }
 
+    public function remove()
+    {
+        $this->validate(request(), [
+            'guild_id' => 'required',
+            'name'     => 'required',
+            'type'     => 'required'
+        ]);
+
+        $guild = (int) request('guild_id');
+        $name = request('name');
+        $type = request('type');
+
+        try {
+            return (new DiscordCharacter)
+                ->where('guild_id', $guild)
+                ->where('character', $name)
+                ->where('type', $type)
+                ->delete();
+        } catch (Exception $e) {
+            return $this->respondInternalError($e);
+        }
+    }
+
     /**
      * Get player from API.
      *

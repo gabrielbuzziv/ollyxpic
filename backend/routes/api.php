@@ -129,6 +129,7 @@ Route::delete('discord/guild/{guild}', 'DiscordGuildController@destroy');
 
 // Character
 Route::post('discord/character/add', 'DiscordCharacterController@add');
+Route::delete('discord/character/remove', 'DiscordCharacterController@remove');
 
 /**
  * All the routes in this group will need to send a Header
