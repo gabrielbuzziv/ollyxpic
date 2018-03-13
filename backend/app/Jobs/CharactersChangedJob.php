@@ -68,15 +68,15 @@ class CharactersChangedJob implements ShouldQueue
                 $online = $this->onlines[$index];
                 $information = (new Character($character['character']))->run();
 
-                if ($character['level'] < $online['level']) {
+                if ($character['level'] < (int) $online['level']) {
                     $levelUpAnnounces[] = [
                         'character' => $information['details'],
                         'from'      => $character['level'],
-                        'to'        => $online['level']
+                        'to'        => (int) $online['level']
                     ];
 
                     $this->guild->characters()->where('character', $information['details']['name'])->update([
-                        'level' => $information['details']['level']
+                        'level' => (int) $online['level']
                     ]);
                 }
 

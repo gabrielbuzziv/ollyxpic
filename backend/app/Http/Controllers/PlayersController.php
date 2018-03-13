@@ -231,6 +231,7 @@ class PlayersController extends ApiController
     private function getPlayer($name)
     {
         $name = urlencode(strtolower(trim($name)));
+        $name = str_replace('+', ' ', $name);
 
         $playerExists = (new Player)
             ->with(['world', 'deaths'])
