@@ -122,7 +122,7 @@ class PlayersController extends ApiController
      */
     public function compare($name)
     {
-        $player = Player::with(['world', 'deaths'])->find($this->getPlayer($name)->id);
+        $player = $this->searchPlayer($name);
 
         $months = (new HighscoreMigration)
             ->select(DB::raw('date_format(migration_date, "%Y-%m") as month'))
@@ -135,7 +135,7 @@ class PlayersController extends ApiController
 
         $lastMonth = (new Highscores)
             ->where('type', 'experience')
-            ->where('name', $player->name)
+            ->where('name', $player['details']['name'])
             ->whereBetween('updated_at', [
                 Carbon::createFromFormat('Y-m', $months[0]->month)->firstOfMonth()->subDay()->format('Y-m-d'),
                 Carbon::createFromFormat('Y-m', $months[0]->month)->lastOfMonth()->format('Y-m-d')
@@ -145,7 +145,7 @@ class PlayersController extends ApiController
 
         $month = (new Highscores)
             ->where('type', 'experience')
-            ->where('name', $player->name)
+            ->where('name', $player['details']['name'])
             ->whereBetween('updated_at', [
                 Carbon::createFromFormat('Y-m', $months[1]->month)->firstOfMonth()->subDay()->format('Y-m-d'),
                 Carbon::createFromFormat('Y-m', $months[1]->month)->lastOfMonth()->format('Y-m-d')
@@ -154,8 +154,8 @@ class PlayersController extends ApiController
             ->get();
 
         return $this->respond([
-            'details'    => $player,
-            'skills'     => $this->getSkills($player->name),
+            'details'    => $player['details'],
+            'skills'     => $this->getSkills($player['details']['name']),
             'experience' => [
                 'last'    => $lastMonth,
                 'current' => $month
