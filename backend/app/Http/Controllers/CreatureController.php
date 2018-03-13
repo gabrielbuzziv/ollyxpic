@@ -99,9 +99,12 @@ class CreatureController extends ApiController
     public function search()
     {
         $name = request('creature');
+        $operator = request('searchType') ?: '=';
+        $value = request('searchType') == 'like' ? "{$name}%" : $name;
+
         $creature = (new Creature)
             ->with('drops')
-            ->where('name', 'like', "{$name}%")
+            ->where('name', $operator, $value)
             ->first();
 
         return $this->respond($creature->toArray());
