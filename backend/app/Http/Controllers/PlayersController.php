@@ -230,13 +230,13 @@ class PlayersController extends ApiController
      */
     private function getPlayer($name)
     {
-        $name = urlencode(strtolower(trim($name)));
-        $name = str_replace('+', ' ', $name);
+        $name = strtolower(trim($name));
+        $clearName = urlencode($name);
 
         $playerExists = (new Player)
             ->with(['world', 'deaths'])
             ->where('name', $name)
-            ->orWhereRaw("'{$name}' in (former_names)")
+            ->orWhereRaw("'{$clearName}' in (former_names)")
             ->first();
 
         $player = $this->searchPlayer($name);
@@ -255,18 +255,6 @@ class PlayersController extends ApiController
     private function searchPlayer($name)
     {
         return (new Character($name))->run();
-
-//        $url = "https://api.tibiadata.com/v2/characters/{$name}.json";
-//
-//        $ch = curl_init($url);
-//        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-//        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-//        curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-//        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-//        curl_setopt($ch, CURLOPT_TIMEOUT, 3);
-//        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept: application/json'));
-//
-//        return json_decode(curl_exec($ch));
     }
 
     /**
