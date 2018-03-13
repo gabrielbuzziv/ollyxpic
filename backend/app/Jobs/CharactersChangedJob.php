@@ -59,87 +59,43 @@ class CharactersChangedJob implements ShouldQueue
      */
     public function handle()
     {
-        $levelUpAnnounces = [];
-        $deathsAnnounces = [];
+        $levelAnnounce = [];
+        $deathAnnounce = [];
 
-        foreach ($this->characters as $character) {
-            if (in_array(strtolower($character['character']), $this->getCharactersNames($this->onlines)) === true) {
-                $index = $this->getOnlineIndex($character['character']);
-                $online = $this->onlines[$index];
-                $information = (new Character($character['character']))->run();
+        foreach ($this->onlines as $online) {
+            $online = (object) $online;
+            $character = $this->guild->characters->where('character', $online->character)->first();
+            $profile = (new Character($character->character))->run();
 
-                if ($character['level'] < (int) $online['level']) {
-                    $levelUpAnnounces[] = [
-                        'character' => $information['details'],
-                        'from'      => $character['level'],
-                        'to'        => (int) $online['level']
-                    ];
+            if ($character->level < $online->level) {
+                $levelAnnounce[] = [
+                    'character' => $profile['details'],
+                    'from'      => $character->level,
+                    'to'        => $online->level
+                ];
 
-                    $this->guild->characters()->where('character', $information['details']['name'])->update([
-                        'level' => (int) $online['level']
-                    ]);
-                }
+                $character->level = $online->level;
+                $character->save();
+            }
 
-                if ( ! empty($information['deaths'])) {
-                    $lastDeath = Carbon::createFromFormat('Y-m-d H:i:s', $character['last_death']);
-                    $recentDeath = Carbon::createFromFormat('Y-m-d H:i:s', $information['deaths'][0]['date'], 'Europe/Berlin')->timezone('America/New_York');
+            if (! empty($profile['deaths'])) {
+                $lastDeath = Carbon::createFromFormat('Y-m-d H:i:s', $character->last_death);
+                $recentDeath = Carbon::createFromFormat('Y-m-d H:i:s', $profile['deaths'][0]['date'], 'Europe/Berlin')->timezone('America/New_York');
+                if ($recentDeath->diffInSeconds($lastDeath) > 0) {
+                    $death = $profile['deaths'][0];
 
-                    if ($recentDeath->diffInSeconds($lastDeath) > 0) {
-                        $character = $information['details'];
-                        $death = $information['deaths'][0];
-
-                        if ($death['type'] != 'arena') {
-                            $deathsAnnounces[] = ['character' => $character, 'death' => $death];
-                        }
-
-                        $this->guild->characters()->where('character', $character['name'])
-                            ->update([
-                                'level' => $character['level'],
-                                'last_death' => $recentDeath
-                            ]);
+                    if ($death['type'] != 'arena') {
+                        $deathAnnounce[] = ['character' => $profile['details'], 'death' => $death];
                     }
+
+                    $character->level = $profile['details']['level'];
+                    $character->last_death = $recentDeath;
+                    $character->save();
                 }
             }
         }
 
-        event(new CharactersDiedEvent($this->guild->guild_id, $deathsAnnounces, $this->type));
-        event(new CharactersLevelUpEvent($this->guild->guild_id, $levelUpAnnounces, $this->type));
-    }
-
-    /**
-     * Get the index of player from online list.
-     *
-     * @param $character
-     * @return false|int|string
-     */
-    private function getOnlineIndex($character)
-    {
-        return array_search($character, $this->getCharactersNames($this->onlines));
-    }
-
-    /**
-     * Format the character list only showing character names.
-     *
-     * @param $characters
-     * @return array
-     */
-    private function getCharactersNames($characters)
-    {
-        return array_map(function ($character) {
-            return $this->clearString(strtolower($character['character']));
-        }, $characters);
-    }
-
-    /**
-     * Remove invisible chars from string.
-     *
-     * @param $string
-     * @return mixed
-     */
-    private function clearString($string)
-    {
-        $string = preg_replace('/[\x00-\x1F\x7F-\xFF]/', ' ', trim($string));
-
-        return preg_replace('/\s+/', ' ', $string);
+        event(new CharactersLevelUpEvent($this->guild->guild_id, $levelAnnounce, $this->type));
+        event(new CharactersDiedEvent($this->guild->guild_id, $deathAnnounce, $this->type));
     }
 }

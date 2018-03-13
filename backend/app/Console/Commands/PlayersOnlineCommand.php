@@ -135,7 +135,7 @@ class PlayersOnlineCommand extends Command
                 return $td->text();
             });
 
-            return ['character' => $character[0], 'level' => $character[1], 'vocation' => $character[2]];
+            return ['character' => $this->clearString($character[0]), 'level' => (int) $character[1], 'vocation' => $character[2]];
         }), 2);
     }
 
