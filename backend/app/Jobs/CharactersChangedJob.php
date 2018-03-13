@@ -63,7 +63,7 @@ class CharactersChangedJob implements ShouldQueue
         $deathsAnnounces = [];
 
         foreach ($this->characters as $character) {
-            if (in_array($character['character'], $this->getCharactersNames($this->onlines)) === true) {
+            if (in_array(strtolower($character['character']), $this->getCharactersNames($this->onlines)) === true) {
                 $index = $this->getOnlineIndex($character['character']);
                 $online = $this->onlines[$index];
                 $information = (new Character($character['character']))->run();
@@ -126,7 +126,20 @@ class CharactersChangedJob implements ShouldQueue
     private function getCharactersNames($characters)
     {
         return array_map(function ($character) {
-            return $character['character'];
+            return $this->clearString(strtolower($character['character']));
         }, $characters);
+    }
+
+    /**
+     * Remove invisible chars from string.
+     *
+     * @param $string
+     * @return mixed
+     */
+    private function clearString($string)
+    {
+        $string = preg_replace('/[\x00-\x1F\x7F-\xFF]/', ' ', trim($string));
+
+        return preg_replace('/\s+/', ' ', $string);
     }
 }
