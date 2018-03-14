@@ -8,6 +8,7 @@ use App\Events\CharactersChangedEvent;
 use App\Events\CharactersDiedEvent;
 use App\Events\CharactersOnlineEvent;
 use App\Jobs\CharactersChangedJob;
+use App\Ollyxpic\TibiaData\WorldOnlinesAPI;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Goutte\Client;
@@ -63,9 +64,10 @@ class PlayersOnlineCommand extends Command
             $worlds = $this->getWorlds($characters);
 
             foreach ($worlds as $world) {
-                $onlines = array_filter($this->getOnlinesFromWorld($world), function ($character) use ($charactersName) {
+                $onlines = array_filter((new WorldOnlinesAPI($world))->get(), function ($character) use ($charactersName) {
                     return in_array($this->clearString($character['character']), $charactersName);
                 });
+
                 $this->onlines = array_merge($this->onlines, $onlines);
             }
 
@@ -115,28 +117,6 @@ class PlayersOnlineCommand extends Command
         return array_map(function ($character) {
             return $character['character'];
         }, $characters);
-    }
-
-    /**
-     * Get players online list from Tibia world online page.
-     *
-     * @param $world
-     * @return array
-     */
-    private function getOnlinesFromWorld($world)
-    {
-        $url = "https://secure.tibia.com/community/?subtopic=worlds&world={$world}";
-
-        $client = new Client();
-        $crawler = $client->request('GET', $url);
-
-        return array_slice($crawler->filterXPath('//table[@class="Table2"]')->filter('tr')->each(function ($tr) {
-            $character = $tr->filter('td')->each(function ($td) {
-                return $td->text();
-            });
-
-            return ['character' => $this->clearString($character[0]), 'level' => (int) $character[1], 'vocation' => $character[2]];
-        }), 2);
     }
 
     /**

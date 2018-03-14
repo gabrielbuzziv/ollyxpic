@@ -7,13 +7,27 @@ use Carbon\Carbon;
 class CharacterAPI
 {
 
+    /**
+     * Name
+     *
+     * @var
+     */
     protected $name;
 
+    /**
+     * CharacterAPI constructor.
+     * @param $name
+     */
     public function __construct($name)
     {
         $this->name = $name;
     }
 
+    /**
+     * Get API.
+     *
+     * @return array|bool
+     */
     public function get()
     {
         $characterAPI = $this->getCharacterFromApi();
