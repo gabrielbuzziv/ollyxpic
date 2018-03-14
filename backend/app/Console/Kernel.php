@@ -37,12 +37,12 @@ class Kernel extends ConsoleKernel
         $schedule->command('ollyxpic:skills', ['loyalty'])->dailyAt('04:00');
         $schedule->command('ollyxpic:skills', ['fist'])->dailyAt('04:00');
         $schedule->command('ollyxpic:skills', ['fishing'])->dailyAt('04:00');
-        $schedule->command('ollyxpic:online')->cron('*/2 * * * *');
-        $schedule->command('ollyxpic:online', ['enemies'])->cron('*/2 * * * *');
+        $schedule->command('ollyxpic:online')->everyFiveMinutes();
+        $schedule->command('ollyxpic:online', ['enemies'])->everyFiveMinutes();
     }
 
     /**
-     * Register the Closure based commands for the application.
+     * Register the Closure based cgommands for the application.
      *
      * @return void
      */
