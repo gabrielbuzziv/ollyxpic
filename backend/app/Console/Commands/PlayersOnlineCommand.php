@@ -73,10 +73,15 @@ class PlayersOnlineCommand extends Command
 
             $onlines = $this->getCharactersNames($this->onlines);
 
-            // This event will be queued.
-            dispatch(new CharactersChangedJob($guild, $characters, $this->onlines, $type));
-            $this->info('Emitted Event: @CharactersChangedJob');
-            $this->info('___________');
+            $totalOnlines = count($this->onlines);
+            $this->info("Onlines: {$totalOnlines}");
+
+            if ($totalOnlines > 0) {
+                // This event will be queued.
+                dispatch(new CharactersChangedJob($guild, $characters, $this->onlines, $type));
+                $this->info('Emitted Event: @CharactersChangedJob');
+            }
+
 
             foreach ($this->onlines as $online) {
                 $guild->characters()->$type()->where('character', $online['character'])->update([
@@ -84,12 +89,11 @@ class PlayersOnlineCommand extends Command
                 ]);
             }
 
-            $totalOnlines = count($this->onlines);
-            $this->info("Onlines: {$totalOnlines}");
             $guild->characters()->$type()->whereNotIn('character', $onlines)->update(['online' => 0]);
 
             event(new CharactersOnlineEvent($guild->guild_id, $type));
             $this->info('Emitted Event: @CharactersOnlineEvent');
+            $this->info('___________');
         });
     }
 
