@@ -73,7 +73,7 @@ class PlayersController extends ApiController
             ->orderBy('updated_at', 'desc')
             ->first();
 
-        return $this->respond($experience->toArray());
+        return $experience ? $this->respond($experience->toArray()) : $this->respond([]);
     }
 
     /**
