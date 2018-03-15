@@ -39,6 +39,11 @@ class PlayersOnlineCommand extends Command
     protected $onlines;
 
     /**
+     * @var
+     */
+    protected $worlds = [];
+
+    /**
      * PlayersOnlineCommand constructor.
      */
     public function __construct()
@@ -55,46 +60,90 @@ class PlayersOnlineCommand extends Command
     {
         $guilds = (new DiscordGuild)->get();
         $guilds->each(function ($guild) {
-            $this->info("Guild: {$guild->name}");
             $this->onlines = [];
-            $type = $this->argument('type');
 
-            $characters = $guild->characters()->$type()->get()->toArray();
-            $charactersName = $this->getCharactersNames($characters);
+            $characters = $guild->characters->toArray();
             $worlds = $this->getWorlds($characters);
 
             foreach ($worlds as $world) {
-                $onlines = array_filter((new WorldOnlinesAPI($world))->get(), function ($character) use ($charactersName) {
-                    return in_array($this->clearString($character['character']), $charactersName);
-                });
-
-                $this->onlines = array_merge($this->onlines, $onlines);
+                $this->onlines = array_merge($this->onlines, $this->getOnlines($world, $this->getCharactersNames($characters)));
             }
 
-            $onlines = $this->getCharactersNames($this->onlines);
-
-            $totalOnlines = count($this->onlines);
-            $this->info("Onlines: {$totalOnlines}");
-
-            if ($totalOnlines > 0) {
-                // This event will be queued.
-                dispatch(new CharactersChangedJob($guild, $characters, $this->onlines, $type));
-                $this->info('Emitted Event: @CharactersChangedJob');
+            if (count($this->onlines)) {
+                // TODO FIX HOW THIS SHIT WORKS.
+//                dispatch(new CharactersChangedJob($guild, $characters, $this->onlines, $type));
             }
 
+            $guild->characters()->whereIn('character', $this->getCharactersNames($this->onlines))->update(['online' => 1]);
+            $guild->characters()->whereNotIn('character', $this->getCharactersNames($this->onlines))->update(['online' => 0]);
 
-            foreach ($this->onlines as $online) {
-                $guild->characters()->$type()->where('character', $online['character'])->update([
-                    'online' => 1
-                ]);
-            }
-
-            $guild->characters()->$type()->whereNotIn('character', $onlines)->update(['online' => 0]);
-
-            event(new CharactersOnlineEvent($guild->guild_id, $type));
-            $this->info('Emitted Event: @CharactersOnlineEvent');
-            $this->info('___________');
+            event(new CharactersOnlineEvent($guild->guild_id));
         });
+
+//        $guilds = (new DiscordGuild)->get();
+//        $guilds->each(function ($guild) {
+//            $this->info("Guild: {$guild->name}");
+//            $this->onlines = [];
+//            $type = $this->argument('type');
+//
+//            $characters = $guild->characters()->$type()->get()->toArray();
+//            $charactersName = $this->getCharactersNames($characters);
+//            $worlds = $this->getWorlds($characters);
+//
+//            foreach ($worlds as $world) {
+//                $onlines = array_filter((new WorldOnlinesAPI($world))->get(), function ($character) use ($charactersName) {
+//                    return in_array($this->clearString($character['character']), $charactersName);
+//                });
+//
+//                $this->onlines = array_merge($this->onlines, $onlines);
+//            }
+//
+//            $onlines = $this->getCharactersNames($this->onlines);
+//
+//            $totalOnlines = count($this->onlines);
+//            $this->info("Onlines: {$totalOnlines}");
+//
+//            if ($totalOnlines > 0) {
+//                // This event will be queued.
+//                dispatch(new CharactersChangedJob($guild, $characters, $this->onlines, $type));
+//                $this->info('Emitted Event: @CharactersChangedJob');
+//            }
+//
+//
+//            foreach ($this->onlines as $online) {
+//                $guild->characters()->$type()->where('character', $online['character'])->update([
+//                    'online' => 1
+//                ]);
+//            }
+//
+//            $guild->characters()->$type()->whereNotIn('character', $onlines)->update(['online' => 0]);
+//
+//            event(new CharactersOnlineEvent($guild->guild_id, $type));
+//            $this->info('Emitted Event: @CharactersOnlineEvent');
+//            $this->info('___________');
+//        });
+    }
+
+    private function getOnlines($world, $characters)
+    {
+        return array_filter($this->getOnlinesFrom($world), function ($online) use ($characters) {
+            return in_array($this->clearString($online['character']), $characters);
+        });
+    }
+
+    /**
+     * Get onlines from worlds.
+     *
+     * @param $world
+     * @return mixed
+     */
+    private function getOnlinesFrom($world)
+    {
+        if (! isset($this->worlds[$world])) {
+            $this->worlds[$world] = (new WorldOnlinesAPI($world))->get();
+        }
+
+        return $this->worlds[$world];
     }
 
     /**

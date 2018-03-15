@@ -31,22 +31,13 @@ class CharactersOnlineEvent implements ShouldBroadcast
     public $characters;
 
     /**
-     * Type
-     *
-     * @var
-     */
-    public $type;
-
-    /**
      * CharactersOnlineEvent constructor.
      * @param $guild
-     * @param $type
      */
-    public function __construct($guild, $type)
+    public function __construct($guild)
     {
         $this->guild = $guild;
-        $this->characters = (new DiscordCharacter)->where('guild_id', $guild)->$type()->get();
-        $this->type = $type;
+        $this->characters = (new DiscordCharacter)->where('guild_id', $guild)->get();
     }
 
     /**
