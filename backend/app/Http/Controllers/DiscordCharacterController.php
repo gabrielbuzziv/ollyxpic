@@ -64,14 +64,14 @@ class DiscordCharacterController extends ApiController
         ]);
 
         $guild = (int) request('guild_id');
-        $name = request('name');
-        $type = request('type');
+        $name = (string) str_replace('+', ' ', request('name'));
+        $type = (string) request('type');
 
         try {
             return (new DiscordCharacter)
-                ->where('guild_id', $guild)
-                ->where('character', $name)
-                ->where('type', $type)
+                ->where('discord_characters.guild_id', $guild)
+                ->where('discord_characters.character', $name)
+                ->where('discord_characters.type', $type)
                 ->delete();
         } catch (Exception $e) {
             return $this->respondInternalError($e);

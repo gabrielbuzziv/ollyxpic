@@ -29,23 +29,14 @@ class CharactersDiedEvent implements ShouldBroadcast
     public $characters;
 
     /**
-     * Type
-     *
-     * @var
-     */
-    public $type;
-
-    /**
      * CharactersDiedEvent constructor.
      * @param $guild
      * @param $characters
-     * @param $type
      */
-    public function __construct($guild, $characters, $type)
+    public function __construct($guild, $characters)
     {
         $this->guild = $guild;
         $this->characters = $characters;
-        $this->type = $type;
     }
 
     /**

@@ -33,23 +33,16 @@ class CharactersChangedJob implements ShouldQueue
     protected $onlines;
 
     /**
-     * @var
-     */
-    protected $type;
-
-    /**
      * CharactersChangedJob constructor.
      * @param $guild
      * @param $characters
      * @param $onlines
-     * @param $type
      */
-    public function __construct($guild, $characters, $onlines, $type)
+    public function __construct($guild, $characters, $onlines)
     {
         $this->guild = $guild;
         $this->characters = $characters;
         $this->onlines = $onlines;
-        $this->type = $type;
     }
 
     /**
@@ -71,7 +64,8 @@ class CharactersChangedJob implements ShouldQueue
                 $levelAnnounce[] = [
                     'character' => $profile['details'],
                     'from'      => $character->level,
-                    'to'        => $online->level
+                    'to'        => $online->level,
+                    'type' => $character->type
                 ];
 
                 $character->level = $online->level;
@@ -81,10 +75,11 @@ class CharactersChangedJob implements ShouldQueue
             if (! empty($profile['deaths'])) {
                 $lastDeath = Carbon::createFromFormat('Y-m-d H:i:s', $character->last_death);
                 $recentDeath = Carbon::createFromFormat('Y-m-d H:i:s', $profile['deaths'][0]['date'], 'Europe/Berlin')->timezone('America/New_York');
+
                 if ($recentDeath->diffInSeconds($lastDeath) > 0) {
                     $death = $profile['deaths'][0];
 
-                    $deathAnnounce[] = ['character' => $profile['details'], 'death' => $death];
+                    $deathAnnounce[] = ['character' => $profile['details'], 'death' => $death, 'type' => $character->type];
 
                     $character->level = $profile['details']['level'];
                     $character->last_death = $recentDeath;
@@ -93,7 +88,7 @@ class CharactersChangedJob implements ShouldQueue
             }
         }
 
-        event(new CharactersLevelUpEvent($this->guild->guild_id, $levelAnnounce, $this->type));
-        event(new CharactersDiedEvent($this->guild->guild_id, $deathAnnounce, $this->type));
+        event(new CharactersLevelUpEvent($this->guild->guild_id, $levelAnnounce));
+        event(new CharactersDiedEvent($this->guild->guild_id, $deathAnnounce));
     }
 }
