@@ -32,7 +32,7 @@ class CharacterAPI
     {
         $characterAPI = $this->getCharacterFromApi();
 
-        if ( ! $this->isValidRequest($characterAPI)) return false;
+        if ( ! $this->isValidRequest($characterAPI)) return [];
 
         return [
             'details' => $this->getDetails($characterAPI),
