@@ -19,7 +19,7 @@ class DiscordCharacter extends Model
      *
      * @var array
      */
-    protected $fillable = ['guild_id', 'character', 'level', 'vocation', 'type'];
+    protected $fillable = ['guild_id', 'character', 'level', 'vocation', 'type', 'online', 'time_online'];
 
     /**
      * Get friends only.

@@ -13,6 +13,7 @@ use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Goutte\Client;
 use App\Ollyxpic\Crawlers\CharacterCrawler;
+use Illuminate\Support\Facades\DB;
 
 class PlayersOnlineCommand extends Command
 {
@@ -58,7 +59,7 @@ class PlayersOnlineCommand extends Command
      */
     public function handle()
     {
-        $guilds = (new DiscordGuild)->get();
+        $guilds = (new DiscordGuild)->with('characters')->get();
         $guilds->each(function ($guild) {
             $this->onlines = [];
 
@@ -73,13 +74,23 @@ class PlayersOnlineCommand extends Command
                 dispatch(new CharactersChangedJob($guild, $characters, $this->onlines));
             }
 
-            $guild->characters()->whereIn('character', $this->getCharactersNames($this->onlines))->update(['online' => 1]);
-            $guild->characters()->whereNotIn('character', $this->getCharactersNames($this->onlines))->update(['online' => 0]);
+            $guild->characters()->whereIn('character', $this->getCharactersNames($this->onlines))->update([
+                'online' => 1,
+                'time_online' => DB::raw('time_online + 5')
+            ]);
+            $guild->characters()->whereNotIn('character', $this->getCharactersNames($this->onlines))->update(['online' => 0, 'time_online' => 0]);
 
             event(new CharactersOnlineEvent($guild->guild_id));
         });
     }
 
+    /**
+     * Get onlines from world.
+     *
+     * @param $world
+     * @param $characters
+     * @return array
+     */
     private function getOnlines($world, $characters)
     {
         return array_filter($this->getOnlinesFrom($world), function ($online) use ($characters) {
