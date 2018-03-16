@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddOnlineTimeAndIndexesToDiscordCharactersTable extends Migration
+class ChangeDefaultTimeOnlineFromDiscordCharacters extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,7 @@ class AddOnlineTimeAndIndexesToDiscordCharactersTable extends Migration
     public function up()
     {
         Schema::table('discord_characters', function (Blueprint $table) {
-            $table->integer('time_online')->default(0);
-            $table->index('guild_id');
-            $table->index('character');
+            $table->integer('time_online')->default(-5)->change();
         });
     }
 
@@ -28,9 +26,7 @@ class AddOnlineTimeAndIndexesToDiscordCharactersTable extends Migration
     public function down()
     {
         Schema::table('discord_characters', function (Blueprint $table) {
-            $table->dropColumn('time_online');
-            $table->dropIndex('guild_id');
-            $table->dropIndex('character');
+            $table->integer('time_online')->default()->change();
         });
     }
 }

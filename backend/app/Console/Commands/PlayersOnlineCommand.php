@@ -78,7 +78,7 @@ class PlayersOnlineCommand extends Command
                 'online' => 1,
                 'time_online' => DB::raw('time_online + 5')
             ]);
-            $guild->characters()->whereNotIn('character', $this->getCharactersNames($this->onlines))->update(['online' => 0, 'time_online' => 0]);
+            $guild->characters()->whereNotIn('character', $this->getCharactersNames($this->onlines))->update(['online' => 0, 'time_online' => -5]);
 
             event(new CharactersOnlineEvent($guild->guild_id));
         });
