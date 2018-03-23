@@ -517,7 +517,7 @@ class TeamHuntController extends Controller
         $items = [];
 
         $loots = array_filter($this->getLoots(), function ($loot) {
-            return count($loot) > 0;
+            return is_array($loot) && count($loot) > 0;
         });
 
         foreach ($loots as $loot) {

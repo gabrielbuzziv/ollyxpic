@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\DiscordCharacter;
 use App\Ollyxpic\Character;
+use App\Ollyxpic\TibiaData\GuildAPI;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Mockery\Exception;
 
 class DiscordCharacterController extends ApiController
 {
@@ -50,6 +52,27 @@ class DiscordCharacterController extends ApiController
         } catch (Exception $e) {
             return $this->respondInternalError($e);
         }
+    }
+
+    public function guild()
+    {
+        dd((new GuildAPI('Bora Beneva'))->get());
+
+//        $this->validate(request(), [
+//            'guild_id' => 'required',
+//            'name'     => 'required',
+//            'type'     => 'required'
+//        ]);
+//
+//        try {
+//            $guild = (int) request('guild_id');
+//            $name = request('name');
+//            $type = request('type');
+//
+//
+//        } catch (Exception $e) {
+//            $this->respondInternalError($e);
+//        }
     }
 
     /**

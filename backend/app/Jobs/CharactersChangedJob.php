@@ -58,33 +58,36 @@ class CharactersChangedJob implements ShouldQueue
         foreach ($this->onlines as $online) {
             $online = (object) $online;
             $character = $this->guild->characters->where('character', $online->character)->first();
-            $profile = (new Character())->check($character->character);
 
-            if (isset($profile['details'])) {
-                if ($character->level < $online->level) {
-                    $levelAnnounce[] = [
-                        'character' => $profile['details'],
-                        'from'      => $character->level,
-                        'to'        => $online->level,
-                        'type'      => $character->type
-                    ];
+            if ($character && isset($character->character)) {
+                $profile = (new Character())->check($character->character);
 
-                    $character->level = $online->level;
-                    $character->save();
-                }
+                if (isset($profile['details'])) {
+                    if ($character->level < $online->level) {
+                        $levelAnnounce[] = [
+                            'character' => $profile['details'],
+                            'from'      => $character->level,
+                            'to'        => $online->level,
+                            'type'      => $character->type
+                        ];
 
-                if ( ! empty($profile['deaths'])) {
-                    $lastDeath = Carbon::createFromFormat('Y-m-d H:i:s', $character->last_death);
-                    $recentDeath = Carbon::createFromFormat('Y-m-d H:i:s', $profile['deaths'][0]['date'], 'Europe/Berlin')->timezone('America/New_York');
-
-                    if ($recentDeath->diffInSeconds($lastDeath) > 0) {
-                        $death = $profile['deaths'][0];
-
-                        $deathAnnounce[] = ['character' => $profile['details'], 'death' => $death, 'type' => $character->type];
-
-                        $character->level = $profile['details']['level'];
-                        $character->last_death = $recentDeath;
+                        $character->level = $online->level;
                         $character->save();
+                    }
+
+                    if ( ! empty($profile['deaths'])) {
+                        $lastDeath = Carbon::createFromFormat('Y-m-d H:i:s', $character->last_death);
+                        $recentDeath = Carbon::createFromFormat('Y-m-d H:i:s', $profile['deaths'][0]['date'], 'Europe/Berlin')->timezone('America/New_York');
+
+                        if ($recentDeath->diffInSeconds($lastDeath) > 0) {
+                            $death = $profile['deaths'][0];
+
+                            $deathAnnounce[] = ['character' => $profile['details'], 'death' => $death, 'type' => $character->type];
+
+                            $character->level = $profile['details']['level'];
+                            $character->last_death = $recentDeath;
+                            $character->save();
+                        }
                     }
                 }
             }
