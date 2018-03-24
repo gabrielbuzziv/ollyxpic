@@ -16,6 +16,7 @@ class Kernel extends ConsoleKernel
         Commands\HighscoresCommand::class,
         Commands\HighscoresSkillsCommand::class,
         Commands\PlayersOnlineCommand::class,
+        Commands\PurgeLogCommand::class,
     ];
 
     /**
@@ -38,6 +39,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('ollyxpic:skills', ['fist'])->dailyAt('04:00');
         $schedule->command('ollyxpic:skills', ['fishing'])->dailyAt('04:00');
         $schedule->command('ollyxpic:online')->everyFiveMinutes();
+        $schedule->command('purge:log')->everyTenMinutes();
     }
 
     /**
