@@ -120,7 +120,8 @@ class CharacterAPI
      */
     private function getCharacterFromApi()
     {
-        $url = "https://api.tibiadata.com/v2/characters/{$this->name}.json";
+        $name = urlencode(strtolower($this->name));
+        $url = "https://api.tibiadata.com/v2/characters/{$name}.json";
 
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

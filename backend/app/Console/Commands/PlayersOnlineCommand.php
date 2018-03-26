@@ -13,7 +13,9 @@ use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Goutte\Client;
 use App\Ollyxpic\Crawlers\CharacterCrawler;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\DB;
+use Mockery\Exception;
 
 class PlayersOnlineCommand extends Command
 {
@@ -61,26 +63,32 @@ class PlayersOnlineCommand extends Command
     {
         $guilds = (new DiscordGuild)->with('characters')->get();
         $guilds->each(function ($guild) {
-            $this->onlines = [];
+            try {
+                $this->onlines = [];
 
-            $characters = $guild->characters->toArray();
-            $worlds = $this->getWorlds($characters);
+                $characters = $guild->characters->toArray();
+                $worlds = $this->getWorlds($characters);
 
-            foreach ($worlds as $world) {
-                $this->onlines = array_merge($this->onlines, $this->getOnlines($world, $this->getCharactersNames($characters)));
+                foreach ($worlds as $world) {
+                    $this->onlines = array_merge($this->onlines, $this->getOnlines($world, $this->getCharactersNames($characters)));
+                }
+//
+//            if (count($this->onlines)) {
+//                dispatch(new CharactersChangedJob($guild, $characters, $this->onlines));
+//            }
+
+                $guild->characters()->whereIn('character', $this->getCharactersNames($this->onlines))->update([
+                    'online' => 1,
+                    'time_online' => DB::raw('time_online + 5')
+                ]);
+                $guild->characters()->whereNotIn('character', $this->getCharactersNames($this->onlines))->update(['online' => 0, 'time_online' => -5]);
+
+                event(new CharactersOnlineEvent($guild->guild_id));
+            } catch(ModelNotFoundException $e) {
+                // Do nothing
+            } catch (Exception $e) {
+                // Do nothing
             }
-
-            if (count($this->onlines)) {
-                dispatch(new CharactersChangedJob($guild, $characters, $this->onlines));
-            }
-
-            $guild->characters()->whereIn('character', $this->getCharactersNames($this->onlines))->update([
-                'online' => 1,
-                'time_online' => DB::raw('time_online + 5')
-            ]);
-            $guild->characters()->whereNotIn('character', $this->getCharactersNames($this->onlines))->update(['online' => 0, 'time_online' => -5]);
-
-            event(new CharactersOnlineEvent($guild->guild_id));
         });
     }
 
