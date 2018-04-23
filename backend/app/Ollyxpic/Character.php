@@ -15,11 +15,10 @@ class Character
      */
     public function check($name)
     {
-        return (new CharacterAPI($name))->get();
-//        if (($character = (new CharacterAPI($name))->get()) !== false) {
-//            return $character;
-//        }
-//
-//        return (new CharacterCrawler($name))->run();
+        if (($character = (new CharacterAPI($name))->get()) !== []) {
+            return $character;
+        }
+
+        return (new CharacterCrawler($name))->run();
     }
 }
