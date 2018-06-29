@@ -1,15 +1,15 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import routes from './routes'
-import authorize from './authorize'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import routes from './routes';
+import authorize from './authorize';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const router = new VueRouter({
-    routes,
-    linkActiveClass: 'active'
-})
+  routes,
+  linkActiveClass: 'active',
+});
 
-router.beforeEach(authorize)
+router.beforeEach(authorize);
 
-export default router
+export default router;

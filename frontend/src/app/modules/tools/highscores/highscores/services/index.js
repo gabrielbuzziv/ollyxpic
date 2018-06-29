@@ -3,8 +3,8 @@ export default {
         return window.axios.get(`worlds`)
     },
 
-    getHighscores (vocation = '', world = '') {
-        return window.axios.get(`highscores`, { params: { vocation, world } })
+    getHighscores (vocation = '', world = '', type = null, limit = 300) {
+        return window.axios.get(`highscores`, { params: { vocation, world, type, limit } })
     },
 
     getSkillHighscores (skill, world = '') {

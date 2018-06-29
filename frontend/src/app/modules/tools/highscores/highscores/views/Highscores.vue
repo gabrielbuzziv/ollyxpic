@@ -124,6 +124,30 @@
                         <span>Top Loyalty</span>
                     </router-link>
                 </li>
+
+                <li>
+                    <router-link :to="{ name: 'highscores.experience.type', params: { type: 'pvp' } }" exact>
+                        <span>Top Open PvP</span>
+                    </router-link>
+                </li>
+
+                <li>
+                    <router-link :to="{ name: 'highscores.experience.type', params: { type: 'npvp' } }" exact>
+                        <span>Top Optional PvP</span>
+                    </router-link>
+                </li>
+
+                <li>
+                    <router-link :to="{ name: 'highscores.experience.type', params: { type: 'hardcore' } }" exact>
+                        <span>Top Hardcore PvP</span>
+                    </router-link>
+                </li>
+
+                <li>
+                    <router-link :to="{ name: 'highscores.experience.type', params: { type: 'retro' } }" exact>
+                        <span>Top Retro Open PvP</span>
+                    </router-link>
+                </li>
             </ul>
         </nav>
 

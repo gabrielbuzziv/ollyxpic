@@ -1,3 +1,3 @@
-import { routes as app } from 'app'
+import { routes as app } from 'app/index.js';
 
-export default [...app]
+export default [...app];
