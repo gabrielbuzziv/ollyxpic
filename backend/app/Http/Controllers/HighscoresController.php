@@ -20,6 +20,28 @@ class HighscoresController extends ApiController
      */
     public function experience()
     {
+        $worlds = null;
+
+        switch (request('type')) {
+            case 'retro':
+                $worlds = World::where('type', 'Retro Open PvP')->pluck('id')->all();
+                break;
+            case 'hardcore':
+                $worlds = World::where('type', 'Hardcore PvP')->pluck('id')->all();
+                break;
+            case 'retro-hardcore':
+                $worlds = World::where('type', 'Retro Hardcore PvP')->pluck('id')->all();
+                break;
+            case 'npvp':
+                $worlds = World::where('type', 'Optional PvP')->pluck('id')->all();
+                break;
+            case 'pvp';
+                $worlds = World::where('type', 'Open PvP')->pluck('id')->all();
+                break;
+            default:
+                $worlds = null;
+        }
+
         $limit = request('limit') ?: 300;
         $world = request('world') ? World::where('name', request('world'))->first()->id : null;
         $migration = (new HighscoreMigration)
@@ -34,6 +56,9 @@ class HighscoresController extends ApiController
             ->whereIn('vocation', $this->getVocation())
             ->when($world, function ($query) use ($world) {
                 $query->where('world_id', $world);
+            })
+            ->when($worlds, function($query) use ($worlds) {
+                $query->whereIn('world_id', $worlds);
             })
             ->orderBy('experience', 'desc')
             ->take($limit)
